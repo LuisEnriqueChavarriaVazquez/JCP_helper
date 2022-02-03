@@ -10,7 +10,7 @@
     <!-- Bootstrap CSS v5.0.2 -->
     <link rel="stylesheet" href="../static/css/styles.css">
     <link rel="stylesheet" href="../static/css/materialize.css">
-    <link rel="stylesheet" href="../static/css/coloresDefault.css">
+    <link rel="stylesheet" href="" id="theme">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
@@ -18,7 +18,7 @@
 <body>
 
     <!--Menu de página de inicio-->
-    <nav class="cooper_ours_color_dark z-depth-3">
+    <nav class="color2 z-depth-3">
         <div class="nav-wrapper">
         <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;JCP_helper.</a>
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -55,14 +55,17 @@
                 <a class="collapsible-header">Temas<i class="material-icons">arrow_drop_down</i></a>
                 <div class="collapsible-body">
                 <ul>
-                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="a_styles">Normal</a></li>
-                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="a_deuteranopia">Deureranopia</a></li>
-                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="a_protanopia">Protanopia</a></li>
-                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="a_tritanopia">Tritanopia</a></li>
-                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="a_oscuro">Oscuro naranja</a></li>
-                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="a_oscuro_verde">Oscuro verde</a></li>
-                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="a_oscuro_azul">Oscuro azul</a></li>
-                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="a_oscuro_rosa">Oscuro rosa</a></li>
+                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresDefault">Normal</a></li>
+                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresAqua">Aqua</a></li>
+                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBlue">Azul</a></li>
+                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBronce">Bronce</a></li>
+                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresCafe">Cafe</a></li>
+                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresGotico">Gótico</a></li>
+                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresNaranja">Naranja</a></li>
+                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPink">Rosa</a></li>
+                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPurple">Purpura</a></li>
+                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresRed">Rojo</a></li>
+                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresModoOscuro">Modo Oscuro</a></li>
                 </ul>
                 </div>
             </li>
@@ -84,6 +87,7 @@
 <script src="../static/js/jquery.js"></script>
 <script src="../static/js/materialize.min.js"></script>
 <script src="../static/js/materializeCall.js"></script>
+<script src="../static/js/selectorTema.js"></script>
 
 
 </html>
