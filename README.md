@@ -1,2 +1,9 @@
 # JCP_helper
-Repositorio previo a la entrega del TT.
+## Proyecto de titulación
+***
+### Integrantes del equipo
+* Juarez Espinosa Ulises
+* Machorro Vences Ricardo Alberto
+* Chavarría Vázquez Luis Enrique
+
+
