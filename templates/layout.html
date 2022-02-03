@@ -14,6 +14,14 @@
 </head>
 
 <body>
+    <header>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="{{url_for('routes.login_Est')}}">Login estudiante</a></li>
+            <li><a href="{{url_for('routes.login_Prof')}}">Login profesor</a></li>
+        </ul>
+    </header>
+
     {% block content %}
         <p>Algo</p>
     {% endblock %}

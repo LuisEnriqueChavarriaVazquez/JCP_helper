@@ -3,5 +3,5 @@ from . import routes
 from operacionesBD import Op_estudiante
 
 @routes.route('/nuevo_est')
-def nuevoEstudiante():
-    return render_template('/algo.html')
+def login_Est():
+    return render_template('estudiante/login_est.html')
