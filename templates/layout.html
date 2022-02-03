@@ -10,6 +10,7 @@
     <!-- Bootstrap CSS v5.0.2 -->
     <link rel="stylesheet" href="../static/css/styles.css">
     <link rel="stylesheet" href="../static/css/materialize.css">
+    <link rel="stylesheet" href="../static/css/coloresDefault.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
@@ -21,9 +22,13 @@
         <div class="nav-wrapper">
         <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Regalius.</a>
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-            <li><a href="sass.html">Cerrar sesión</a></li>
-        </ul>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#!">Cuestionaro</a></li>
+            <li><a href="#!">Configuraciones</a></li>
+            <li><a href="#!">Tutorial</a></li>
+            <li><a href="#!">Ayuda</a></li>
+            <li><a href="#!">Cerrar sesión</a></li>
+          </ul>
         </div>
     </nav>
 
@@ -32,27 +37,18 @@
         <li>
             <div class="user-view">
                 <div class="background">
-                    <img src="images/menu.jpg" width="100%">
+                    <img src="../static/images/sidenavImage.jpg" width="100%">
                 </div>
-                    <br>
-                    <a href="#name"><span class="white-text name">
-                        <?php 
-                            session_start();
-                            echo "<b>" . $_SESSION['name'] . " // " . $_SESSION['alias'] . "</b>"; 
-                        ?>
-                    </span></a>
-                    <a href="#email"><span class="white-text email"><?php echo $_SESSION['correo']; ?></span></a>
-                    <br>
+                    <a href="#user"><img class="circle" src="../static/images/user.png"></a>
+                    <a href="#name"><span class="white-text name">Nombre del usuario</span></a>
+                    <a href="#email"><span class="white-text email">Alias del usuario</span></a>
             </div>
         </li>
-        <li><a href="gestionar_amigos_principal.php"><i class="material-icons">people</i>Gestionar amigos.</a></li>
-        <li><a href="gestionar_intercambios_principal.php"><i class="material-icons">card_giftcard</i>Gestionar intercambios.</a></li>
-        <li><a href="gestionar_intercambios_en_curso_principal.php"><i class="material-icons">card_membership</i>Intercambios en curso.</a></li>
-        <li><a href="gestionar_invitaciones_recibidas_principal.php"><i class="material-icons">record_voice_over</i>Invitaciones recibidas.</a></li>  
-        <li><a href="settings.php"><i class="material-icons">settings</i>Configuraciones.</a></li>
-        <li><a href="help.php"><i class="material-icons">help</i>Ayuda.</a></li>
-        <li><a href="intro.php"><i class="material-icons">child_care</i>Tutorial.</a></li>
-        <li><a href="procesos/cerrarSesion.php"><i class="material-icons">directions_run</i>Cerrar sesión.</a></li>
+        <li><a href="#!"><i class="material-icons">book</i>Gestionar cuestionarios.</a></li>
+        <li><a href="#!"><i class="material-icons">settings</i>Configuraciones.</a></li>
+        <li><a href="#!"><i class="material-icons">help</i>Ayuda.</a></li>
+        <li><a href="#!"><i class="material-icons">child_care</i>Tutorial.</a></li>
+        <li><a href="#!"><i class="material-icons">directions_run</i>Cerrar sesión.</a></li>
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
             <li>
@@ -74,36 +70,12 @@
         </li>
     </ul>
 
-    <header>
-        <ul>
-            <li><a href="/">Inicio</a></li>
-            <li><a href="{{url_for('routes.login_Est')}}">Login estudiante</a></li>
-            <li><a href="{{url_for('routes.login_Prof')}}">Login profesor</a></li>
-        </ul>
-    </header>
-=======
-        <header>
-            <nav>
-                <ul>
-                    <li>
-                        <a  href="/">Inicio</a>
-                    </li>
-                    <li>
-                        <a  href="{{url_for('routes.login_Est')}}">Login estudiante</a>
-                    </li>
-                    <li>
-                        <a  href="{{url_for('routes.login_Prof')}}">Login profesor</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-
     {% block content %}
     <p>Algo</p>
     {% endblock %}
 
     <div class="footer-padding"></div>
-    <div class="footer">
+    <div class="footer hide-on-small-only">
         <p>JCP_helper &copy; Todos los derechos reservados</p>
     </div>
 </body>
