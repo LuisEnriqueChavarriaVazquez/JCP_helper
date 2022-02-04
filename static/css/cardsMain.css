@@ -1,0 +1,26 @@
+.cardMain{
+    height: 200px;
+
+    font-size: 20px;
+    margin-bottom: 20px;
+
+    border-radius: 20px;
+
+    background-image: url('../images/card.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainBody{
+    padding: 5px 3px 5px 3px;
+}
+
+.contenedorCard{
+    padding: 30px;
+}
