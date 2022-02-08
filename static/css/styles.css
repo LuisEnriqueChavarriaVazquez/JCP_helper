@@ -73,7 +73,7 @@ p{
 }
 
 .card-bienvenida{height: 300px;}
-
+.card-bienvenida-signup{height: auto !important;}
 
 .cards-bienvenida-desktop{
 	display: flex;
@@ -121,4 +121,12 @@ p{
 
 .buttons-bienvenida, .button-rounded{
 	border-radius: 30px !important;
+}
+
+/*Vinculos auxiliares para recuperar contraseñas, etc*/
+
+.linkAuxiliar{
+	font-style: italic;
+	font-weight: 500;
+	text-decoration: underline;
 }

@@ -1,11 +1,98 @@
-{% extends "layout.html" %}
+<!doctype html>
+<html lang="en">
 
-{% block title %}
-    login_prof
-    {{super()}}
-{% endblock %}
+<head>
+    <title>Sign up docente</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/cardsMain.css">
+    <link rel="stylesheet" href="../static/css/materialize.css">
+    <link rel="stylesheet" href="../static/css/sombras.css">
+    <link rel="stylesheet" href="" id="theme">
+    <link href="http://fonts.cdnfonts.com/css/roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-{% block content %}
-    <h4>Soy profesor</h4>
-{% endblock %}
+</head>
+<body>
+
+    <!--Menu de página de inicio-->
+    <nav class="color2">
+        <div class="nav-wrapper">
+        <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Datos intercambio.</a>
+        <a href="bienvenida" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">arrow_back</i></a>
+        <p class="titleMobile colorText flow-text hide-on-med-and-up">Sign up.</p>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="bienvenida" class="btn color3 button-rounded">Volver al inicio</a></li>
+        </ul>
+        </div>
+    </nav>
+
+    <section class="mainBody">        
+        <div class="title-general">
+            <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Cuenta docente</h4>
+            <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Cuenta docente</h3>
+        </div>
+        
+        <div class="card-bienvenida-signup card-bienvenida shadow-3" style="padding: 30px;">
+            <div>
+                <form>
+                  <div class="row">
+                    <!--Datos básicos-->
+                    <div class="input-field col s12">
+                        <input placeholder="Escriba su nombre completo" class="colorText truncate" id="text" type="text" class="validate">
+                        <label for="text">Nombre <b class="red-text">*</b> </label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input placeholder="Escriba su alias" class="colorText truncate" id="text" type="text" class="validate">
+                        <label for="text">Alias <b class="red-text">*</b></label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input placeholder="Escriba su correo electrónico" class="colorText truncate" id="email" type="email" class="validate">
+                        <label for="email">Correo <b class="red-text">*</b></label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input placeholder="Escriba su contraseña" class="colorText truncate" id="password" type="password" class="validate">
+                        <label for="password">Password <b class="red-text">*</b></label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input placeholder="Confirme su contraseña" class="colorText truncate" id="password" type="password" class="validate">
+                        <label for="password">Confirmación <b class="red-text">*</b></label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input placeholder="Escriba su escuela de procedencia" class="colorText truncate" id="text" type="text" class="validate">
+                        <label for="text">Escuela de procedencia <b class="red-text">*</b></label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input placeholder="Escriba su grupo" class="colorText truncate" id="text" type="text" class="validate">
+                        <label for="text">Grupo (Opcional)</label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+        </div>
+
+        <div class="card-bienvenida-text shadow-3">
+            <a href="#!" class="buttons-bienvenida waves-effect waves-light btn-large color3"><i class="material-icons left">done</i>Crear cuenta &nbsp;&nbsp;&nbsp;</a>
+        </div>
+    </section>
+
+
+    <div class="footer hide-on-med-and-down">
+        <p>JCP_helper &copy; Todos los derechos reservados</p>
+    </div>
+
+    </body>
+    
+    
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/materialize.min.js"></script>
+    <script src="../static/js/materializeCall.js"></script>
+    <script src="../static/js/selectorTema.js"></script>
+    
+    
+    </html>
