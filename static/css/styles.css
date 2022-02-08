@@ -74,16 +74,13 @@ p{
 
 .card-bienvenida{height: 300px;}
 
-.buttons-bienvenida{
-	border-radius: 30px !important;
-}
 
 .cards-bienvenida-desktop{
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: row;
-
+	
 	width: 70%;
 }
 
@@ -112,4 +109,16 @@ p{
     color: #777;
     letter-spacing: 1px;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+/*Diseño para los navbar en dispositivos móbiles*/
+
+.titleMobile{
+	margin: 0px !important;
+}
+
+/*Border*/
+
+.buttons-bienvenida, .button-rounded{
+	border-radius: 30px !important;
 }

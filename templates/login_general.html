@@ -21,54 +21,61 @@
 <body>
 
     <!--Menu de página de inicio-->
-    <nav class="color2 z-depth-3">
+    <nav class="color2">
         <div class="nav-wrapper">
-        <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;JCP_helper.</a>
-        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="nuevo_est">Soy estudiante</a></li>
-            <li><a href="nuevo_prof">Soy docente</a></li>
-          </ul>
+        <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Datos intercambio.</a>
+        <a href="bienvenida" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">arrow_back</i></a>
+        <p class="titleMobile colorText flow-text hide-on-med-and-up">Datos intercambio.</p>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="bienvenida" class="btn color3 button-rounded">Volver al inicio</a></li>
+        </ul>
         </div>
     </nav>
 
-    
-    <ul id="slide-out" class="sidenav">
-        <li>
-            <div class="user-view">
-                <div class="background">
-                    <img src="../static/images/sidenavImage.jpg" width="100%">
+    <div class="row" >
+        <div class="col s12 color2" style="padding: 0%;">
+          <ul class="tabs color2" id="tabs-swipe-demo">
+            <li class="tab col s3"><a class="active colorText" href="#test1">Docente</a></li>
+            <li class="tab col s3"><a class="colorText" href="#test2">Estudiante</a></li>
+          </ul>
+        </div>
+        <!--Inicio de la pestaña uno-->
+        <div id="test1" class="col s12" style="padding: 0%;">
+            <section class="mainBody">        
+                <div class="title-general">
+                    <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Cuenta docente</h4>
+                    <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Cuenta docente</h3>
                 </div>
-                    <br>
-                    <a href="#name"><span class="white-text name">¡Bienvenido!</span></a>
-                    <br>
-            </div>
-        </li>
-        <li><a href="nuevo_prof"><i class="material-icons">school</i>Soy docente.</a></li>
-        <li><a href="nuevo_est"><i class="material-icons">child_care</i>Soy estudiante.</a></li>
-    </ul>
-
-    <section class="mainBody">        
-        <div class="title-general">
-            <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Ingrese a su cuenta</h4>
-            <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Ingrese a su cuenta</h3>
-        </div>
+                
+                <div class="card-bienvenida shadow-3">
+                    <p>formulario docente</p>
+                </div>
         
-        <div class="card-bienvenida shadow-3">
-            <div class="card-bienvenida-button-welcome">
-                <a href="nuevo_est" class="buttons-bienvenida waves-effect waves-light btn-large color3"><i class="material-icons left">child_care</i>Estudiante</a>
-                <a class="btn-floating btn-large waves-effect waves-light color2"><i class="material-icons">help</i></a>
-            </div>
-            <div class="card-bienvenida-button-welcome">
-                <a href="nuevo_prof" class="buttons-bienvenida waves-effect waves-light btn-large color3"><i class="material-icons left">school</i>Docente &nbsp;&nbsp;&nbsp;</a>
-                <a class="btn-floating btn-large waves-effect waves-light color2"><i class="material-icons">help</i></a>
-            </div>
+                <div class="card-bienvenida-text shadow-3">
+                    <a href="#!" class="buttons-bienvenida waves-effect waves-light btn-large color3"><i class="material-icons left">school</i>Acceder &nbsp;&nbsp;&nbsp;</a>
+                </div>
+            </section>
         </div>
+        <!--Inicio de la pestaña dos-->
+        <div id="test2" class="col s12" style="padding: 0%;">
+            <section class="mainBody">        
+                <div class="title-general">
+                    <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Cuenta estudiante</h4>
+                    <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Cuenta estudiante</h3>
+                </div>
+                
+                <div class="card-bienvenida shadow-3">
+                    <p>formulario estudiante</p>
+                </div>
+        
+                <div class="card-bienvenida-text shadow-3">
+                    <a href="#!" class="buttons-bienvenida waves-effect waves-light btn-large color3"><i class="material-icons left">school</i>Acceder &nbsp;&nbsp;&nbsp;</a>
+                </div>
+            </section>
+        </div>
+      </div>
 
-        <div class="card-bienvenida-text shadow-3">
-            <p class="colorText"><a class="colorText" href="login_general">¿Ya tiene una cuenta?</a></p>
-        </div>
-    </section>
+
 
     <div class="footer hide-on-med-and-down">
         <p>JCP_helper &copy; Todos los derechos reservados</p>
