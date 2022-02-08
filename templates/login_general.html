@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}| JCP{% endblock %}</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/cardsMain.css">
+    <link rel="stylesheet" href="../static/css/materialize.css">
+    <link rel="stylesheet" href="../static/css/sombras.css">
+    <link rel="stylesheet" href="" id="theme">
+    <link href="http://fonts.cdnfonts.com/css/roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+</head>
+<body>
+
+    <!--Menu de página de inicio-->
+    <nav class="color2 z-depth-3">
+        <div class="nav-wrapper">
+        <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;JCP_helper.</a>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="nuevo_est">Soy estudiante</a></li>
+            <li><a href="nuevo_prof">Soy docente</a></li>
+          </ul>
+        </div>
+    </nav>
+
+    
+    <ul id="slide-out" class="sidenav">
+        <li>
+            <div class="user-view">
+                <div class="background">
+                    <img src="../static/images/sidenavImage.jpg" width="100%">
+                </div>
+                    <br>
+                    <a href="#name"><span class="white-text name">¡Bienvenido!</span></a>
+                    <br>
+            </div>
+        </li>
+        <li><a href="nuevo_prof"><i class="material-icons">school</i>Soy docente.</a></li>
+        <li><a href="nuevo_est"><i class="material-icons">child_care</i>Soy estudiante.</a></li>
+    </ul>
+
+    <section class="mainBody">        
+        <div class="title-general">
+            <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Ingrese a su cuenta</h4>
+            <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Ingrese a su cuenta</h3>
+        </div>
+        
+        <div class="card-bienvenida shadow-3">
+            <div class="card-bienvenida-button-welcome">
+                <a href="nuevo_est" class="buttons-bienvenida waves-effect waves-light btn-large color3"><i class="material-icons left">child_care</i>Estudiante</a>
+                <a class="btn-floating btn-large waves-effect waves-light color2"><i class="material-icons">help</i></a>
+            </div>
+            <div class="card-bienvenida-button-welcome">
+                <a href="nuevo_prof" class="buttons-bienvenida waves-effect waves-light btn-large color3"><i class="material-icons left">school</i>Docente &nbsp;&nbsp;&nbsp;</a>
+                <a class="btn-floating btn-large waves-effect waves-light color2"><i class="material-icons">help</i></a>
+            </div>
+        </div>
+
+        <div class="card-bienvenida-text shadow-3">
+            <p class="colorText"><a class="colorText" href="login_general">¿Ya tiene una cuenta?</a></p>
+        </div>
+    </section>
+
+    <div class="footer hide-on-med-and-down">
+        <p>JCP_helper &copy; Todos los derechos reservados</p>
+    </div>
+
+    </body>
+    
+    
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/materialize.min.js"></script>
+    <script src="../static/js/materializeCall.js"></script>
+    <script src="../static/js/selectorTema.js"></script>
+    
+    
+    </html>

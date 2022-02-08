@@ -2,10 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
-body{
-    
-}
-
 h1,h2,h3 { 
     font-family: 'Montserrat-Black',sans-serif;  
 
@@ -18,13 +14,91 @@ p{
     color: #8f8f8f;
 }
 
+.mainBody{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 
-.footer-padding {
-	padding-bottom: 60px;
+	width: 100%;
+	padding: 20px;
 }
 
+/*Estilos para el carousel de la página del desktop*/
+
+.carouselOne, .carouselTwo, .carouselThree, .carouselFour{
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-origin: initial;
+}
+
+.carouselOne{background-image: url('../images/carousel_one.jpg');}
+.carouselTwo{background-image: url('../images/carousel_two.jpg');}
+.carouselThree{background-image: url('../images/carousel_three.jpg');}
+.carouselFour{background-image: url('../images/carousel_four.jpg');}
+
+/*Sección de bienvenida*/
+
+.title-general{
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	width: 100%;
+	height: auto;
+}
+
+.card-bienvenida,.card-bienvenida-text{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 80%;
+	margin-top: 10px;
+
+	border-radius: 20px;
+
+	background-image: url('../images/card_bienvenida.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.card-bienvenida-button-welcome{padding: 30px;}
+.card-bienvenida-text{height: 100px;}
+.card-bienvenida-text > p{
+	font-size: 20px;
+	font-weight: 400;
+	font-family: Roboto;
+}
+
+.card-bienvenida{height: 300px;}
+
+.buttons-bienvenida{
+	border-radius: 30px !important;
+}
+
+.cards-bienvenida-desktop{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+
+	width: 70%;
+}
+
+.cards-bienvenida-desktop > div{
+	margin: 0 50px 0 50px;
+}
+
+/*Estilos para el pie de página*/
+
 .footer {
-	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	padding-bottom: 10px;
 	text-align: center;
 	bottom: 0;
 	width: 100%;

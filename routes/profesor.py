@@ -3,5 +3,5 @@ from . import routes
 
 
 @routes.route('/nuevo_prof')
-def login_Prof():
-    return render_template('profesor/login_prof.html')
+def signup_Prof():
+    return render_template('profesor/signup_prof.html')
