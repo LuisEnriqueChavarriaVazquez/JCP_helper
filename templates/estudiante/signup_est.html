@@ -1,11 +1,185 @@
-{% extends "layout.html" %}
+<!doctype html>
+<html lang="en">
 
-{% block title %}
-    login_est
-    {{super()}}
-{% endblock %}
+<head>
+    <title>Sign up docente</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/cardsMain.css">
+    <link rel="stylesheet" href="../static/css/materialize.css">
+    <link rel="stylesheet" href="../static/css/sombras.css">
+    <link rel="stylesheet" href="" id="theme">
+    <link href="http://fonts.cdnfonts.com/css/roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-{% block content %}
-    <h4>Soy estudiante</h4>
-{% endblock %}
+</head>
+
+<body>
+
+    <!--Menu de página de inicio-->
+    <nav class="color2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Sign up estudiante.</a>
+            <a href="bienvenida" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Sign up estudiante.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenida" class="btn color3 button-rounded">Volver al inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="mainBody">
+        <div class="title-general">
+            <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Creación de cuenta</h4>
+            <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Creación de cuenta</h3>
+        </div>
+
+        <!--Todo el contenido del formulario-->
+        <form>
+            <section class="centerAligner verticalAligner">
+                <!--Datos básicos de la cuenta-->
+                <div class="card-bienvenida-signup card-bienvenida shadow-3" style="padding: 30px;">
+                    <div class="row">
+                        <h5 class="colorText hide-on-large-only">Datos de básicos.</h5>
+                        <h4 class="colorText hide-on-med-and-down">Datos de básicos.</h4>
+                        <br>
+                        <div class="input-field col s12 m6 l6">
+                            <input placeholder="Escriba su nombre completo" class="colorText truncate" id="text"
+                                type="text" class="validate">
+                            <label for="text">Nombre <b class="red-text">*</b> </label>
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                            <input placeholder="Escriba su alias" class="colorText truncate" id="text" type="text"
+                                class="validate">
+                            <label for="text">Alias <b class="red-text">*</b></label>
+                        </div>
+                        <div class="input-field col s12 m6 l12">
+                            <input placeholder="Escriba su correo electrónico" class="colorText truncate" id="email"
+                                type="email" class="validate">
+                            <label for="email">Correo <b class="red-text">*</b></label>
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                            <input placeholder="Escriba su contraseña" class="colorText truncate" id="password"
+                                type="password" class="validate">
+                            <label for="password">Password <b class="red-text">*</b></label>
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                            <input placeholder="Confirme su contraseña" class="colorText truncate" id="password"
+                                type="password" class="validate">
+                            <label for="password">Confirmación <b class="red-text">*</b></label>
+                        </div>
+                        <div class="input-field col s12 m6 l12">
+                            <input placeholder="Escriba su grupo" class="colorText truncate" id="text" type="text"
+                                class="validate">
+                            <label for="text">Grupo (Opcional)</label>
+                        </div>
+                        <div class="input-field col s12 m6 l12">
+                            <input placeholder="Escriba su escuela de procedencia" class="colorText truncate"
+                                id="text" type="text" class="validate">
+                            <label for="text">Escuela de procedencia <b class="red-text">*</b></label>
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                            <textarea placeholder="Escriba una descripción para su perfil"
+                                class="colorText materialize-textarea" id="text"
+                                class="validate" style="min-height: 60px;"></textarea>
+                            <label for="text" class="truncate">Descripción general (Opcional)</label>
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                            <input placeholder="Escriba su area de especialización" class="colorText truncate"
+                                id="text" type="text" class="validate">
+                            <label for="text">Área de especialización (Opcional)</label>
+                        </div>
+                    </div>
+                </div>
+                <!--Foto de perfil-->
+                <div class="card-bienvenida-signup card-bienvenida shadow-3" style="padding: 30px;">
+                    <div class="row centerAligner verticalAligner">
+                        <h5 class="colorText hide-on-large-only">Foto de perfil.</h5>
+                        <h4 class="colorText hide-on-med-and-down">Foto de perfil.</h4>
+                        <br>
+                        <div class="col 12 centerAligner verticalAligner">
+                            <div>
+                                <image id="profileImageEst" src="../../static/images/user.png"
+                                    style="width: 80px; height: 80px;" class="shadow-4" />
+                            </div>
+                            <br>
+                            <div style="margin: 5px 0px 20px 0px;" class="centerAligner">
+                                <label for="imageUploadEst"
+                                    class="centerAligner custom-file-upload color3 btn waves-effect waves-light button-rounded">
+                                    <i class="fa fa-cloud-upload"></i> Elegir foto
+                                </label>
+                                <input id="imageUploadEst" type="file" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Seccion de contacto-->
+                <div class="card-bienvenida-signup card-bienvenida shadow-3" style="padding: 30px;">
+                    <div>
+                        <div class="row">
+                            <h5 class="colorText hide-on-large-only">Datos de contacto.</h5>
+                            <h4 class="colorText hide-on-med-and-down">Datos de contacto.</h4>
+                            <br>
+                            <div class="input-field col s12 m6 l6">
+                                <input placeholder="Escriba un email alternativo" class="colorText truncate" id="email"
+                                    type="email" class="validate">
+                                <label for="email">Email alternativo (Opcional)</label>
+                            </div>
+                            <div class="input-field col s12 m6 l6">
+                                <input placeholder="Escriba su cuenta de LinkedIn" class="colorText truncate" id="text"
+                                    type="text" class="validate">
+                                <label for="text">LinkedIn (Opcional)</label>
+                            </div>
+                            <div class="input-field col s12 m6 l6">
+                                <input placeholder="Escriba su cuenta de Facebook" class="colorText truncate" id="text"
+                                    type="text" class="validate">
+                                <label for="text">Facebook (Opcional)</label>
+                            </div>
+                            <div class="input-field col s12 m6 l6">
+                                <input placeholder="Escriba su cuenta de instagram" class="colorText truncate" id="text"
+                                    type="text" class="validate">
+                                <label for="text">Instagram (Opcional)</label>
+                            </div>
+                            <div class="input-field col s12 m6 l6">
+                                <input placeholder="Escriba su cuenta de VK" class="colorText truncate" id="text"
+                                    type="text" class="validate">
+                                <label for="text">VK (Opcional)</label>
+                            </div>
+                            <div class="input-field col s12 m6 l6">
+                                <input placeholder="Escriba su número de teléfono" class="colorText truncate"
+                                    id="number" type="number" class="validate">
+                                <label for="number">Número de teléfono (Opcional)</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </form>
+
+        <div class="card-bienvenida-text shadow-3">
+            <a href="#!" class="buttons-bienvenida waves-effect waves-light btn-large color3"><i
+                    class="material-icons left">done</i>Crear cuenta &nbsp;&nbsp;&nbsp;</a>
+        </div>
+    </section>
+
+    <br>
+    <div class="footer hide-on-med-and-down">
+        <p>JCP_helper &copy; Todos los derechos reservados</p>
+    </div>
+
+</body>
+
+
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/materialize.min.js"></script>
+<script src="../static/js/materializeCall.js"></script>
+<script src="../static/js/selectorTema.js"></script>
+
+
+</html>

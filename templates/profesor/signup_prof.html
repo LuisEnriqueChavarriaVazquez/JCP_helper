@@ -24,10 +24,10 @@
     <!--Menu de página de inicio-->
     <nav class="color2">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Sign up.</a>
+            <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Sign up docente.</a>
             <a href="bienvenida" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Sign up.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Sign up docente.</p>
             <ul class="right hide-on-med-and-down">
                 <li><a href="bienvenida" class="btn color3 button-rounded">Volver al inicio</a></li>
             </ul>
@@ -79,16 +79,11 @@
                                 id="text" type="text" class="validate">
                             <label for="text">Escuela de procedencia <b class="red-text">*</b></label>
                         </div>
-                        <div class="input-field col s12 m6 l12">
-                            <input placeholder="Escriba su grupo" class="colorText truncate" id="text" type="text"
-                                class="validate">
-                            <label for="text">Grupo (Opcional)</label>
-                        </div>
                         <div class="input-field col s12 m6 l6">
                             <textarea placeholder="Escriba una descripción para su perfil"
                                 class="colorText materialize-textarea" id="text"
-                                class="validate"></textarea>
-                            <label for="text">Descripción general <b class="red-text">*</b></label>
+                                class="validate" style="min-height: 60px;"></textarea>
+                            <label for="text" class="truncate">Descripción general (Opcional)</label>
                         </div>
                         <div class="input-field col s12 m6 l6">
                             <input placeholder="Escriba su area de especialización" class="colorText truncate"
@@ -105,16 +100,16 @@
                         <br>
                         <div class="col 12 centerAligner verticalAligner">
                             <div>
-                                <image id="profileImage" src="../../static/images/user.png"
+                                <image id="profileImageProf" src="../../static/images/user.png"
                                     style="width: 80px; height: 80px;" class="shadow-4" />
                             </div>
                             <br>
                             <div style="margin: 5px 0px 20px 0px;" class="centerAligner">
-                                <label for="file-upload"
+                                <label for="imageUploadProf"
                                     class="centerAligner custom-file-upload color3 btn waves-effect waves-light button-rounded">
-                                    <i class="fa fa-cloud-upload"></i> Custom Upload
+                                    <i class="fa fa-cloud-upload"></i> Elegir foto
                                 </label>
-                                <input id="file-upload" type="file" />
+                                <input id="imageUploadProf" type="file" />
                             </div>
                         </div>
                     </div>

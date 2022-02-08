@@ -121,6 +121,14 @@ input[type="file"] {
     cursor: pointer;
 }
 
+#profileImageEst, #profileImageProf {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
 /*Diseño para los navbar en dispositivos móbiles*/
 
 .titleMobile{
