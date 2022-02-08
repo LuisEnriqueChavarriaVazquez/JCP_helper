@@ -73,7 +73,9 @@ p{
 }
 
 .card-bienvenida{height: 300px;}
-.card-bienvenida-signup{height: auto !important;}
+.card-bienvenida-signup{
+	height: auto;
+}
 
 .cards-bienvenida-desktop{
 	display: flex;
@@ -111,13 +113,21 @@ p{
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+/*Image picker*/
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    cursor: pointer;
+}
+
 /*Diseño para los navbar en dispositivos móbiles*/
 
 .titleMobile{
 	margin: 0px !important;
 }
 
-/*Border*/
+/*butttons*/
 
 .buttons-bienvenida, .button-rounded{
 	border-radius: 30px !important;
@@ -130,3 +140,20 @@ p{
 	font-weight: 500;
 	text-decoration: underline;
 }
+
+/*Alinear los elementos al centro con una clase*/
+.centerAligner{
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+	width: 100% !important;
+}
+
+.verticalAligner{
+	flex-direction: column !important;
+}
+
+.horizontalAligner{
+	flex-direction: row !important;
+}
+
