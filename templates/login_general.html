@@ -3,19 +3,9 @@
 
 <head>
     <title>{% block title %}| JCP{% endblock %}</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS v5.0.2 -->
-    <link rel="stylesheet" href="../static/css/styles.css">
-    <link rel="stylesheet" href="../static/css/cardsMain.css">
-    <link rel="stylesheet" href="../static/css/materialize.css">
-    <link rel="stylesheet" href="../static/css/sombras.css">
-    <link rel="stylesheet" href="" id="theme">
-    <link href="http://fonts.cdnfonts.com/css/roboto" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
 
 </head>
 
@@ -151,15 +141,7 @@
 
 </body>
 
-
-<script src="../static/js/jquery.js"></script>
-<script src="../static/js/materialize.min.js"></script>
-<script src="../static/js/materializeCall.js"></script>
-<script src="../static/js/selectorTema.js"></script>
-<!--Este link es temporal puesto que hay que registrar la app en linea para tener un dominio-->
-<script async defer crossorigin="anonymous"
-    src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v13.0&appId=210544583044581&autoLogAppEvents=1"
-    nonce="f56MTTwx"></script>
-
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
 
 </html>

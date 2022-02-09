@@ -3,47 +3,40 @@
 
 <head>
     <title>{% block title %}| JCP{% endblock %}</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS v5.0.2 -->
-    <link rel="stylesheet" href="../static/css/styles.css">
-    <link rel="stylesheet" href="../static/css/cardsMain.css">
-    <link rel="stylesheet" href="../static/css/materialize.css">
-    <link rel="stylesheet" href="../static/css/sombras.css">
-    <link rel="stylesheet" href="" id="theme">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+   <!--Jalamos todo el contenido del encabezado-->
+   {% include "includes/encabezadoRecursos.html" %}
 
 
 </head>
+
 <body>
 
     <!--Menu de página de inicio-->
     <nav class="color2 z-depth-3">
         <div class="nav-wrapper">
-        <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;JCP_helper.</a>
-        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="#!" class="btn color3 button-rounded">Cuestionaro</a></li>
-            <li><a href="#!" class="btn color3 button-rounded">Configuraciones</a></li>
-            <li><a href="#!" class="btn color3 button-rounded">Tutorial</a></li>
-            <li><a href="#!" class="btn color3 button-rounded">Ayuda</a></li>
-            <li><a href="#!" class="btn color3 button-rounded">Cerrar sesión</a></li>
-          </ul>
+            <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;JCP_helper.</a>
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="#!" class="btn color3 button-rounded">Cuestionaro</a></li>
+                <li><a href="#!" class="btn color3 button-rounded">Configuraciones</a></li>
+                <li><a href="#!" class="btn color3 button-rounded">Tutorial</a></li>
+                <li><a href="#!" class="btn color3 button-rounded">Ayuda</a></li>
+                <li><a href="#!" class="btn color3 button-rounded">Cerrar sesión</a></li>
+            </ul>
         </div>
     </nav>
 
-    
+
     <ul id="slide-out" class="sidenav">
         <li>
             <div class="user-view">
                 <div class="background">
                     <img src="../static/images/sidenavImage.jpg" width="100%">
                 </div>
-                    <a href="#user"><img class="circle" src="../static/images/user.png"></a>
-                    <a href="#name"><span class="white-text name">Nombre del usuario</span></a>
-                    <a href="#email"><span class="white-text email">Alias del usuario</span></a>
+                <a href="#user"><img class="circle" src="../static/images/user.png"></a>
+                <a href="#name"><span class="white-text name">Nombre del usuario</span></a>
+                <a href="#email"><span class="white-text email">Alias del usuario</span></a>
             </div>
         </li>
         <li><a href="#!"><i class="material-icons">book</i>Gestionar cuestionarios.</a></li>
@@ -53,24 +46,30 @@
         <li><a href="#!"><i class="material-icons">directions_run</i>Cerrar sesión.</a></li>
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
-            <li>
-                <a class="collapsible-header">Temas<i class="material-icons">arrow_drop_down</i></a>
-                <div class="collapsible-body">
-                <ul>
-                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresDefault">Normal</a></li>
-                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresAqua">Aqua</a></li>
-                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBlue">Azul</a></li>
-                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBronce">Bronce</a></li>
-                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresCafe">Cafe</a></li>
-                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresGotico">Gótico</a></li>
-                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresNaranja">Naranja</a></li>
-                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPink">Rosa</a></li>
-                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPurple">Purpura</a></li>
-                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresRed">Rojo</a></li>
-                    <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresModoOscuro">Modo Oscuro</a></li>
-                </ul>
-                </div>
-            </li>
+                <li>
+                    <a class="collapsible-header">Temas<i class="material-icons">arrow_drop_down</i></a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresDefault">Normal</a>
+                            </li>
+                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresAqua">Aqua</a></li>
+                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBlue">Azul</a></li>
+                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBronce">Bronce</a>
+                            </li>
+                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresCafe">Cafe</a></li>
+                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresGotico">Gótico</a>
+                            </li>
+                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresNaranja">Naranja</a>
+                            </li>
+                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPink">Rosa</a></li>
+                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPurple">Purpura</a>
+                            </li>
+                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresRed">Rojo</a></li>
+                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresModoOscuro">Modo
+                                    Oscuro</a></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </li>
     </ul>
@@ -79,45 +78,43 @@
     <p>Algo</p>
     {% endblock %}
 
-    <section class="mainBody">        
+    <section class="mainBody">
         <div>
             <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Menú principal</h4>
             <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Menú principal</h3>
         </div>
-        
+
         <section class="contenedorCard row">
             <div class="col s12 m6 l4">
                 <div class="cardMain shadow-2">
                     <div class="colorText">Crear cuestionario</div>
                 </div>
             </div>
-            
+
             <div class="col s12 m6 l4">
                 <div class="cardMain shadow-2">
                     <div class="colorText">Gestionar cuestionarios</div>
                 </div>
             </div>
-            
+
             <div class="col s12 m12 l4">
                 <div class="cardMain shadow-2">
                     <div class="colorText">Comunidad</div>
                 </div>
             </div>
         </section>
-        
+
     </section>
     <div class="footer hide-on-med-and-down">
         <p>JCP_helper &copy; Todos los derechos reservados</p>
     </div>
 
 
-    </body>
-    
-    
-    <script src="../static/js/jquery.js"></script>
-    <script src="../static/js/materialize.min.js"></script>
-    <script src="../static/js/materializeCall.js"></script>
-    <script src="../static/js/selectorTema.js"></script>
-    
-    
-    </html>
+</body>
+
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+
+</html>
