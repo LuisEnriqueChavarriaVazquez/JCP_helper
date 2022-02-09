@@ -1,10 +1,10 @@
 from operacionesBD.conexion import obtener_conexion
 
-def insertar_estudiante(nombre, apellidos,email,password, edad,grupo):
+def insertar_estudiante(nombre,alias,foto,correo,password,es_proc,grupo,desc_alum,area_esp_a,correoA,linkedinA,facebookA,instagramA,vkA,telefonoA):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO estudiantes(nombre, apellidos,email,password, edad,grupo) VALUES (%s, %s, %s,%s,%s,%s)",
-        (nombre, apellidos,email,password, edad,grupo))
+        cursor.execute("INSERT INTO estudiantes(nombreA,aliasA,fotoA,correoA,passwordA,esc_proc,grupo,desc_alum,area_esp_a,correoA_alt,linkedinA,facebookA,instagramA,vkA,telefonoA) VALUES(%s, %s, %s,%s,%s,%s, %s, %s,%s,%s,%s, %s, %s,%s,%s)",
+        (nombre,alias,foto,correo,password,es_proc,grupo,desc_alum,area_esp_a,correoA,linkedinA,facebookA,instagramA,vkA,telefonoA))
     conexion.commit()
     conexion.close()
 
