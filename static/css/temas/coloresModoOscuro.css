@@ -1,10 +1,18 @@
-.color1 {background-color:  #000006;}
-.color2 {background-color:  #0c1f26;}
-.color3 {background-color:  #284856;}
-.color4 {background-color:  #467e95;}
-.color5 {background-color:  #559c9e;}
+.color1 {background-color:  #0e0e0e;}
+.color2 {background-color:  #0f0f0f;}
+.color3 {background-color:  #161616;}
+.color4 {background-color:  #2c2c2c;}
+.color5 {background-color:  #303030;}
 
-.colorGrey {background-color: #dddddd;}
-.colorGreyWhiter {background-color: #ececec;}
-.colorText {color: #fff !important;}
-.colorTextReverse {color: #000 !important;}
+.colorGrey {background-color: #252525;}
+.colorGreyWhiter {background-color: #272727;}
+.colorText {color: rgb(255, 255, 255) !important;}
+.colorTextReverse {color: rgb(255, 255, 255) !important;}
+
+body{
+    background-color: #181818;
+}
+
+h1,h2,h3,h4,h5, p{
+    color: #fff !important;
+}
