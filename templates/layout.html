@@ -3,7 +3,7 @@
 
 <head>
     <title>{% block title %}| JCP{% endblock %}</title>
-    
+
    <!--Jalamos todo el contenido del encabezado-->
    {% include "includes/encabezadoRecursos.html" %}
 
@@ -105,9 +105,8 @@
         </section>
 
     </section>
-    <div class="footer hide-on-med-and-down">
-        <p>JCP_helper &copy; Todos los derechos reservados</p>
-    </div>
+    <!--Metemos el footer en la app-->
+    {% include "includes/footer.html" %}
 
 
 </body>
