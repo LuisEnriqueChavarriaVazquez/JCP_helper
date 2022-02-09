@@ -1,4 +1,7 @@
-from flask import render_template
+from crypt import methods
+import re
+from aiohttp import request
+from flask import flash, render_template,request
 from . import routes
 from operacionesBD import Op_estudiante
 
@@ -9,5 +12,25 @@ def signup_Est():
 ##Pagina de bienvenida
 @routes.route('/bienvenidaEstudiante')
 def bienvenidaEstudiante():
-    return render_template('profesor/bienvenidaEstudiante.html')
+    return render_template('estudiante/bienvenidaEstudiante.html')
 
+@routes.route('/nuevo_estudiante',methods=["POST"])
+def nuevo_estudiante():
+    if request.method=="POST":
+        nombre=request.form["nombre"]
+        alias=request.form["alias"]
+        foto=request.form["foto"]
+        correo=request.form["correo"]
+        password=request.form["password"]
+        es_proc=request.form["es_proc"]
+        grupo=request.form["grupo"]
+        desc_alum=request.form["desc_alum"]
+        area_esp_a=request.form["area_esp_a"]
+        correoA=request.form["correoA"]
+        linkedinA=request.form["linkedinA"]
+        facebookA=request.form["facebookA"]
+        instagramA=request.form["instagramA"]
+        vkA=request.form["vkA"]
+        telefonoA=request.form["telefonoA"]
+        Op_estudiante.insertar_estudiante(nombre,alias,foto,correo,password,es_proc,grupo,desc_alum,area_esp_a,correoA,linkedinA,facebookA,instagramA,vkA,telefonoA)
+        flash(f"{nombre} te has registrado correctamente!!")
