@@ -149,6 +149,13 @@ input[type="file"] {
 	text-decoration: underline;
 }
 
+.linkAuxiliarHuge{
+	font-style: italic;
+	font-weight: 500;
+	text-decoration: underline;
+	font-size: 15px;
+}
+
 /*Alinear los elementos al centro con una clase*/
 .centerAligner{
 	display: flex !important;
@@ -161,6 +168,14 @@ input[type="file"] {
 	display: flex !important;
 	justify-content: center !important;
 	align-items: left !important;
+	width: 100% !important;
+}
+
+.centerLeftHorizontalAligner{
+	display: flex !important;
+	justify-content: left !important;
+	align-items: left !important;
+	flex-direction: row !important;
 	width: 100% !important;
 }
 
