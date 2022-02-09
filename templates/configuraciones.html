@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Configuraciones</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+</head>
+
+<body>
+
+    <!--Menu de página de inicio-->
+    <nav class="color2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Configuraciones.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Configuraciones.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <section class="mainBody">
+        <section style="width: 100%;">
+            <div class="title-general">
+                <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Temas</h4>
+                <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Temas</h3>
+            </div>
+
+            <div class="opcionesContainer">
+                <ul class="collapsible">
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">format_paint</i>Selector de temas
+                        </div>
+                        <div class="collapsible-body">
+
+                            <div class="opcionesContainerInterno row">
+
+                                <div class="col s12 m12 l12">
+                                    <div class="card bordered1 colorGreyWhiter shadow-2">
+                                        <div class="card-stacked">
+                                            <div class="card-content centerAligner verticalAligner">
+                                                <div>
+                                                    <p class="colorTextReverse muestraDeColorText">Paleta actual</p>
+                                                </div>
+                                                <div class="centerAligner horizontalAligner">
+                                                    <div id="paleta1" class="shadow-3 paleta color1"></div>
+                                                    <div class="shadow-3 paleta color2"></div>
+                                                    <div class="shadow-3 paleta color3"></div>
+                                                    <div class="shadow-3 paleta color4"></div>
+                                                    <div id="paleta5" class="shadow-3 paleta color5"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col s12 m4 l3">
+                                    <div class="card bordered1 colorGreyWhiter shadow-2">
+                                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresAqua">
+                                            <div class="card-stacked">
+                                                <div class="card-content centerAligner verticalAligner">
+                                                    <div>
+                                                        <p class="colorTextReverse muestraDeColorText">Aqua</p>
+                                                    </div>
+                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                        style="background-color: #125163;"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="col s12 m4 l3">
+                                    <div class="card bordered1 colorGreyWhiter shadow-2">
+                                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBlue">
+                                            <div class="card-stacked">
+                                                <div class="card-content centerAligner verticalAligner">
+                                                    <div>
+                                                        <p class="colorTextReverse muestraDeColorText">Blue</p>
+                                                    </div>
+                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                        style="background-color: #3e5b65;"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="col s12 m4 l3">
+                                    <div class="card bordered1 colorGreyWhiter shadow-2">
+                                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBronce">
+                                            <div class="card-stacked">
+                                                <div class="card-content centerAligner verticalAligner">
+                                                    <div>
+                                                        <p class="colorTextReverse muestraDeColorText">Bronce</p>
+                                                    </div>
+                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                        style="background-color: #9b4b00;"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="col s12 m4 l3">
+                                    <div class="card bordered1 colorGreyWhiter shadow-2">
+                                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresCafe">
+                                            <div class="card-stacked">
+                                                <div class="card-content centerAligner verticalAligner">
+                                                    <div>
+                                                        <p class="colorTextReverse muestraDeColorText">Café</p>
+                                                    </div>
+                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                        style="background-color: #775e57;"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="col s12 m4 l3">
+                                    <div class="card bordered1 colorGreyWhiter shadow-2">
+                                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresDefault">
+                                            <div class="card-stacked">
+                                                <div class="card-content centerAligner verticalAligner">
+                                                    <div>
+                                                        <p class="colorTextReverse muestraDeColorText">Default</p>
+                                                    </div>
+                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                        style="background-color: #377e5b;"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="col s12 m4 l3">
+                                    <div class="card bordered1 colorGreyWhiter shadow-2">
+                                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresGotico">
+                                            <div class="card-stacked">
+                                                <div class="card-content centerAligner verticalAligner">
+                                                    <div>
+                                                        <p class="colorTextReverse muestraDeColorText">Gótico</p>
+                                                    </div>
+                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                        style="background-color: #75656a;"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="col s12 m4 l3">
+                                    <div class="card bordered1 colorGreyWhiter shadow-2">
+                                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresNaranja">
+                                            <div class="card-stacked">
+                                                <div class="card-content centerAligner verticalAligner">
+                                                    <div>
+                                                        <p class="colorTextReverse muestraDeColorText">Modo Oscuro</p>
+                                                    </div>
+                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                        style="background-color: #000;"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="col s12 m4 l3">
+                                    <div class="card bordered1 colorGreyWhiter shadow-2">
+                                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPink">
+                                            <div class="card-stacked">
+                                                <div class="card-content centerAligner verticalAligner">
+                                                    <div>
+                                                        <p class="colorTextReverse muestraDeColorText">Naranja</p>
+                                                    </div>
+                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                        style="background-color: #bc521c;"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="col s12 m4 l4">
+                                    <div class="card bordered1 colorGreyWhiter shadow-2">
+                                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPurple">
+                                            <div class="card-stacked">
+                                                <div class="card-content centerAligner verticalAligner">
+                                                    <div>
+                                                        <p class="colorTextReverse muestraDeColorText">Pink</p>
+                                                    </div>
+                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                        style="background-color: #b0537a;"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="col s12 m6 l4">
+                                    <div class="card bordered1 colorGreyWhiter shadow-2">
+                                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresRed">
+                                            <div class="card-stacked">
+                                                <div class="card-content centerAligner verticalAligner">
+                                                    <div>
+                                                        <p class="colorTextReverse muestraDeColorText">Purple</p>
+                                                    </div>
+                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                        style="background-color: #7a5a89;"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="col s12 m6 l4">
+                                    <div class="card bordered1 colorGreyWhiter shadow-2">
+                                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresModoOscuro">
+                                            <div class="card-stacked">
+                                                <div class="card-content verticalAligner centerAligner">
+                                                    <div>
+                                                        <p class="colorTextReverse muestraDeColorText">Red</p>
+                                                    </div>
+                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                        style="background-color: #9c3537;"></div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+
+        </section>
+
+        <section style="width: 100%;">
+            <div class="title-general">
+                <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Cuenta</h4>
+                <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Cuenta</h3>
+            </div>
+
+            <div class="opcionesContainer">
+                <ul class="collapsible">
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section style="width: 100%;">
+            <div class="title-general">
+                <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Idioma</h4>
+                <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Idioma</h3>
+            </div>
+
+            <div class="opcionesContainer">
+                <ul class="collapsible">
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+                        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </section>
+    <br><br>
+    <!--Metemos el footer en la app-->
+    {% include "includes/footer.html" %}
+
+
+</body>
+
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+
+</html>

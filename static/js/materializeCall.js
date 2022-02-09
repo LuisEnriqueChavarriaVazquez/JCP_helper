@@ -1,4 +1,7 @@
 $(document).ready(function(){
+    /*
+    //  LLamadas a los elementos de materialize
+    */
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
     $('.carousel.carousel-slider').carousel({
@@ -8,6 +11,7 @@ $(document).ready(function(){
     });
     $('.modal').modal();
     $('ul.tabs').tabs();
+    $('.collapsible').collapsible();
 
     /*
     //  Código para la parte de elegir la foto de perfil

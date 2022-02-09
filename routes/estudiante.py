@@ -6,3 +6,8 @@ from operacionesBD import Op_estudiante
 def signup_Est():
     return render_template('estudiante/signup_est.html')
 
+##Pagina de bienvenida
+@routes.route('/bienvenidaEstudiante')
+def bienvenidaEstudiante():
+    return render_template('profesor/bienvenidaEstudiante.html')
+

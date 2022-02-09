@@ -165,3 +165,36 @@ input[type="file"] {
 	flex-direction: row !important;
 }
 
+
+/*Configuracion del menu de opciones de la aplicacion*/
+.opcionesContainer{
+	width: 100%;
+	padding: 10px 35px;
+}
+
+.opcionesContainerInterno{
+	width: 100%;
+	padding: 10px 0px;
+}
+
+.muestraDeColor{
+	width: 100px; height: 15px;
+	margin-top: 3px;
+}
+
+.muestraDeColorText{
+	font-weight: 500;
+}
+
+.paleta{
+	width: 40px;
+	height: 40px;
+}
+
+#paleta1{
+	border-radius: 10px 0 0 10px;
+}
+
+#paleta5{
+	border-radius: 0 10px 10px 0;
+}

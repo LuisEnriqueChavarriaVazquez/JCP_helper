@@ -51,7 +51,7 @@ $(document).ready(function () {
     }
 
     function coloresModoOscuro(){
-        localStorage.setItem("tema", "../static/css/temas/a_oscuro_dark.css"); 
+        localStorage.setItem("tema", "../static/css/temas/coloresModoOscuro.css"); 
         temaGuardado = localStorage.getItem("tema");
     }
 

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>{% block title %}| JCP{% endblock %}</title>
+    <title>Bienvenida Profesor</title>
 
    <!--Jalamos todo el contenido del encabezado-->
    {% include "includes/encabezadoRecursos.html" %}
@@ -35,6 +35,7 @@
                     <img src="../static/images/sidenavImage.jpg" width="100%">
                 </div>
                 <a href="#user"><img class="circle" src="../static/images/user.png"></a>
+                <a href="#name"><span class="white-text name"><b>Cuenta de docente</b></span></a>
                 <a href="#name"><span class="white-text name">Nombre del usuario</span></a>
                 <a href="#email"><span class="white-text email">Alias del usuario</span></a>
             </div>
@@ -73,10 +74,6 @@
             </ul>
         </li>
     </ul>
-
-    {% block content %}
-    <p>Algo</p>
-    {% endblock %}
 
     <section class="mainBody">
         <div>
