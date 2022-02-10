@@ -1,3 +1,10 @@
+//Cargador de las paginas web
+window.onload = function(){
+    $('#onload').fadeOut();
+    $('body').removeClass('oculto');
+}
+
+
 $(document).ready(function(){
     /*
     //  LLamadas a los elementos de materialize
@@ -61,6 +68,5 @@ $(document).ready(function(){
     $("#imageUploadProf").change(function(){
         previewProfileImageProf( this );
     });
-
 });
         
