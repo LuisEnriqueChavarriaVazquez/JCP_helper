@@ -24,6 +24,10 @@ p{
 	padding: 20px;
 }
 
+.mainBodyAdicional{
+    padding: 0;
+}
+
 /*Estilos para el carousel de la página del desktop*/
 
 .carouselOne, .carouselTwo, .carouselThree, .carouselFour{
