@@ -1,5 +1,4 @@
 from flask import flash, render_template,request
-import base64
 from . import routes
 from operacionesBD import Op_estudiante
 
