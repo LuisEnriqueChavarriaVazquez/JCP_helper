@@ -1,0 +1,30 @@
+  
+  /*Pendiente para una futura versión*/
+  /*input[type=color]{
+    --size: 100px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    width: 0;
+    height: 0;
+    background: white;
+    margin: calc(var(--size)/-2) 0 0 calc(var(--size)/-2);
+  }
+    
+  input[type=color]::before{
+    content: '';
+    display: block;
+    background: var(--value);
+    text-transform: uppercase;
+    width: var(--size);
+    height: var(--size);
+    margin: calc(var(--size)/2) 0 0 calc(var(--size)/2);
+    border: 2px black;
+    position: relative;
+    z-index: 1;
+    border-radius: 50%;
+    cursor: pointer;
+  }*/

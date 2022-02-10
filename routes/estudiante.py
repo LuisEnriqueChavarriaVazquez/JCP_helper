@@ -2,6 +2,36 @@ from flask import flash, render_template,request
 from . import routes
 from operacionesBD import Op_estudiante
 
+##
+## Links para la parte del panel central
+##
+
+##Ruta para la vista de comunidad del estudiante
+@routes.route('/comunidad_estudiante')
+def comunidad_estudiante():
+    return render_template('profesor/b_comunidad_estudiante.html')
+
+##Ruta para la vista de gestion de cuestionarios
+@routes.route('/gestionar_cuestionarios_estudiante')
+def gestionar_cuestionarios_estudiante():
+    return render_template('profesor/b_gestionar_cuestionarios.html')
+
+##Ruta para la vista de gestion de estadisticas
+@routes.route('/gestionar_estadisticas_estudiante')
+def gestionar_estadisticas_estudiante():
+    return render_template('profesor/b_gestionar_estadisticas.html')
+
+##Ruta para la vista de gestion de grupos
+@routes.route('/gestionar_grupos_estudiante')
+def gestionar_grupos_estudiante():
+    return render_template('profesor/b_gestionar_grupos.html')
+
+
+##
+## Parte del sign up del estudiante
+##
+
+##Ruta para la pagina de sign up del estudiante
 @routes.route('/signup_est')
 def signup_Est():
     return render_template('estudiante/signup_est.html')

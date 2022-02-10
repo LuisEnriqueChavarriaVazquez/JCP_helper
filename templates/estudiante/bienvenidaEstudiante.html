@@ -4,8 +4,8 @@
 <head>
     <title>Bienvenida Profesor</title>
 
-   <!--Jalamos todo el contenido del encabezado-->
-   {% include "includes/encabezadoRecursos.html" %}
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
 
 
 </head>
@@ -15,14 +15,15 @@
     <!--Menu de página de inicio-->
     <nav class="color2 z-depth-3">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;JCP_helper.</a>
-            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i
+                    class="material-icons">menu</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Panel central.</p>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="#!" class="btn color3 button-rounded">Cuestionaro</a></li>
-                <li><a href="configuraciones" class="btn color3 button-rounded">Configuraciones</a></li>
-                <li><a href="#!" class="btn color3 button-rounded">Tutorial</a></li>
-                <li><a href="#!" class="btn color3 button-rounded">Ayuda</a></li>
-                <li><a href="#!" class="btn color3 button-rounded">Cerrar sesión</a></li>
+                <li><a href="configuraciones" class="btn color2 button-rounded"><i
+                            class="material-icons left">settings</i>Configuraciones</a></li>
+                <li><a href="#!" class="btn color2 button-rounded"><i class="material-icons left">help</i>Ayuda</a></li>
+                <li><a href="#!" class="btn color3 button-rounded"><i
+                            class="material-icons left">directions_run</i>Cerrar sesión</a></li>
             </ul>
         </div>
     </nav>
@@ -40,11 +41,14 @@
                 <a href="#email"><span class="white-text email">Alias del usuario</span></a>
             </div>
         </li>
-        <li><a href="#!"><i class="material-icons">book</i>Gestionar cuestionarios.</a></li>
+        <li><a href="#!"><i class="material-icons">workspaces</i>Gestionar grupos.</a></li>
+        <li><a href="#!"><i class="material-icons">rule</i>Gestionar cuestionarios.</a></li>
+        <li><a href="#!"><i class="material-icons">poll</i>Gestionar estadísticas.</a></li>
+        <li><a href="#!"><i class="material-icons">supervised_user_circle</i>Comunidad.</a></li>
+        <hr>
+        <li><a href="#!"><i class="material-icons">school</i>Tutorial.</a></li>
         <li><a href="configuraciones"><i class="material-icons">settings</i>Configuraciones.</a></li>
         <li><a href="#!"><i class="material-icons">help</i>Ayuda.</a></li>
-        <li><a href="#!"><i class="material-icons">child_care</i>Tutorial.</a></li>
-        <li><a href="#!"><i class="material-icons">directions_run</i>Cerrar sesión.</a></li>
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
                 <li>
@@ -73,35 +77,204 @@
                 </li>
             </ul>
         </li>
+        <hr>
+        <li><a href="#!"><i class="material-icons">directions_run</i>Cerrar sesión.</a></li>
     </ul>
 
-    <section class="mainBody">
-        <div>
-            <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Menú principal</h4>
-            <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Menú principal</h3>
+    <section class="mainBodyAdicional">
+        <div class="title-general colorGrey">
+            <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Menú de opciones</h4>
+            <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Menú de opciones</h3>
         </div>
 
-        <section class="contenedorCard row">
-            <div class="col s12 m6 l4">
-                <div class="cardMain shadow-2">
-                    <div class="colorText">Crear cuestionario</div>
+        <!--Para dispositivos de tabletas-->
+        <section class="hide-on-small-only hide-on-med-only centerAligner verticalAligner colorGrey" style="padding: 30px;">
+            <section class="centerAligner horizontalAligner">
+                <div class="cardMainDesktopPanel shadow-2 bordered2">
+                    <div class="cardMainDesktopPanelHead centerAligner">Gestionar grupos</div>
+                    <div class="centerAligner horizontalAligner">
+                        <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
+                            <p><i class="material-icons">workspaces</i></p>
+                        </div>
+                        <div class="cardMainDesktopPanelRight centerAlignerNoWidth colorGreyWhiter">Crear, editar,
+                            eliminar y administrar los grupos de estudiantes.</div>
+                    </div>
                 </div>
+
+                <div class="cardMainDesktopPanel shadow-2 bordered2">
+                    <div class="cardMainDesktopPanelHead centerAligner">Gestionar cuestionarios</div>
+                    <div class="centerAligner horizontalAligner">
+                        <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
+                            <p><i class="material-icons">rule</i></p>
+                        </div>
+                        <div class="cardMainDesktopPanelRight centerAlignerNoWidth colorGreyWhiter">Crear, editar, eliminar,
+                            administrar los cuestionarios.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="centerAligner horizontalAligner">
+                <div class="cardMainDesktopPanel shadow-2 bordered2">
+                    <div class="cardMainDesktopPanelHead centerAligner">Gestionar estadísticas</div>
+                    <div class="centerAligner horizontalAligner">
+                        <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
+                            <p><i class="material-icons">poll</i></p>
+                        </div>
+                        <div class="cardMainDesktopPanelRight centerAlignerNoWidth colorGreyWhiter">Ver estadísticas diversas sobre
+                            los grupos creados y las pruebas publicadas.</div>
+                    </div>
+                </div>
+
+                <div class="cardMainDesktopPanel shadow-2 bordered2">
+                    <div class="cardMainDesktopPanelHead centerAligner">Comunidad</div>
+                    <div class="centerAligner horizontalAligner">
+                        <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
+                            <p><i class="material-icons">supervised_user_circle</i></p>
+                        </div>
+                        <div class="cardMainDesktopPanelRight centerAlignerNoWidth colorGreyWhiter">Acceder a la comunidad para poder
+                            compartir y ver cuestionarios.</div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!--Para dispositivos de tabletas-->
+        <section class="hide-on-small-only hide-on-large-only centerAligner verticalAligner colorGrey">
+            <section class="centerAligner horizontalAligner containerCardsDesktop">
+                <div class="shadow-4 bordered2 cardMainCarouselContainer">
+                    <div class="centerAligner cardCarouselMainHead">
+                        <p><i class="material-icons">workspaces</i></p>
+                    </div>
+                    <div class="colorGreyWhiter cardCarouselMainBody centerAligner">Gestionar grupos</div>
+                    <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">Crear, editar, eliminar y
+                        administrar los grupos de estudiantes.</div>
+                </div>
+
+                <div class="shadow-4 bordered2 cardMainCarouselContainer">
+                    <div class="centerAligner cardCarouselMainHead">
+                        <p><i class="material-icons">rule</i></p>
+                    </div>
+                    <div class="colorGreyWhiter cardCarouselMainBody centerAligner">Gestionar cuestionarios</div>
+                    <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">Crear, editar, eliminar,
+                        administrar los cuestionarios.</div>
+                </div>
+            </section>
+
+            <section class="centerAligner horizontalAligner containerCardsDesktop">
+                <div class="shadow-4 bordered2 cardMainCarouselContainer">
+                    <div class="centerAligner cardCarouselMainHead">
+                        <p><i class="material-icons">poll</i></p>
+                    </div>
+                    <div class="colorGreyWhiter cardCarouselMainBody centerAligner">Gestionar estadísticas</div>
+                    <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">Ver estadísticas diversas sobre
+                        los grupos creados y las pruebas publicadas.</div>
+                </div>
+
+                <div class="shadow-4 bordered2 cardMainCarouselContainer">
+                    <div class="centerAligner cardCarouselMainHead">
+                        <p><i class="material-icons">supervised_user_circle</i></p>
+                    </div>
+                    <div class="colorGreyWhiter cardCarouselMainBody centerAligner">Comunidad</div>
+                    <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">Acceder a la comunidad para poder
+                        compartir y ver cuestionarios.</div>
+                </div>
+            </section>
+            <br><br>
+        </section>
+
+        <!--Para dispositivos móviles-->
+        <section class="owl-carousel owl-theme hide-on-med-and-up colorGrey">
+            <div class="item">
+                <a href="gestionar_grupos">
+                    <div class="shadow-2e bordered2">
+                        <div class="centerAligner cardCarouselMainHead">
+                            <p><i class="material-icons">workspaces</i></p>
+                        </div>
+                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Gestionar
+                            grupos</div>
+                        <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">
+                            <p class="center-align colorTextReverse">Crear, editar, eliminar y administrar los grupos de
+                                estudiantes.</p>
+                        </div>
+                    </div>
+                </a>
             </div>
 
-            <div class="col s12 m6 l4">
-                <div class="cardMain shadow-2">
-                    <div class="colorText">Gestionar cuestionarios</div>
-                </div>
+            <div class="item">
+                <a href="gestionar_cuestionarios">
+                    <div class="shadow-2e bordered2">
+                        <div class="centerAligner cardCarouselMainHead">
+                            <p><i class="material-icons">style</i></p>
+                        </div>
+                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Gestionar
+                            cuestionarios</div>
+                        <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">
+                            <p class="center-align colorTextReverse">Crear, editar, eliminar, administrar los
+                                cuestionarios.</p>
+                        </div>
+                    </div>
+                </a>
             </div>
 
-            <div class="col s12 m12 l4">
-                <div class="cardMain shadow-2">
-                    <div class="colorText">Comunidad</div>
-                </div>
+            <div class="item">
+                <a href="gestionar_estadisticas">
+                    <div class="shadow-2e bordered2">
+                        <div class="centerAligner cardCarouselMainHead">
+                            <p><i class="material-icons">poll</i></p>
+                        </div>
+                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Gestionar
+                            estadísticas</div>
+                        <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">
+                            <p class="center-align colorTextReverse">Ver estadísticas diversas sobre los grupos creados
+                                y
+                                las pruebas
+                                publicadas.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="item">
+                <a href="comunidad_profesor">
+                    <div class="shadow-2e bordered2">
+                        <div class="centerAligner cardCarouselMainHead">
+                            <p><i class="material-icons">supervised_user_circle</i></p>
+                        </div>
+                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Comunidad</div>
+                        <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">
+                            <p class="center-align colorTextReverse">Acceder a la comunidad para poder compartir y ver
+                                cuestionarios.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="item" style="width: 100px;">
+
             </div>
         </section>
 
+        <!--Resumen de actividad-->
+        <section class="centerAligner verticalAligner mainBody">
+            <div class="title-general">
+                <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Resumen de actividad</h4>
+                <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Resumen de actividad</h3>
+            </div>
+            <div class="rounded4 colorGrey shadow-2" style="width: 100%; margin: 0 40px 0 40px; padding: 0 0 0 30px;">
+                <p>Futuros recuadros</p>
+            </div><br>
+            <div class="rounded4 colorGrey shadow-2" style="width: 100%; margin: 0 40px 0 40px; padding: 0 0 0 30px;">
+                <p>Futuros recuadros</p>
+            </div><br>
+            <div class="rounded4 colorGrey shadow-2" style="width: 100%; margin: 0 40px 0 40px; padding: 0 0 0 30px;">
+                <p>Futuros recuadros</p>
+            </div><br>
+        </section>
+
+
     </section>
+
+    <br><br><br>
+
     <!--Metemos el footer en la app-->
     {% include "includes/footer.html" %}
 
