@@ -1,6 +1,5 @@
-import re
-from aiohttp import request
 from flask import flash, render_template,request
+import base64
 from . import routes
 from operacionesBD import Op_estudiante
 
@@ -18,7 +17,7 @@ def nuevo_estudiante():
     if request.method=="POST":
         nombre=request.form["nombre"]
         alias=request.form["alias"]
-        foto=request.form["foto"]
+        foto=request.files["foto"]
         correo=request.form["correo"]
         password=request.form["password"]
         es_proc=request.form["es_proc"]
@@ -33,3 +32,4 @@ def nuevo_estudiante():
         telefonoA=request.form["telefonoA"]
         Op_estudiante.insertar_estudiante(nombre,alias,foto,correo,password,es_proc,grupo,desc_alum,area_esp_a,correoA,linkedinA,facebookA,instagramA,vkA,telefonoA)
         flash(f"{nombre} te has registrado correctamente!!")
+        return render_template("estudiante/bienvenidaEstudiante.html")
