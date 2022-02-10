@@ -2,7 +2,35 @@ from flask import render_template,flash,request
 from . import routes
 from operacionesBD import Op_profesor
 
+##
+## Links para la parte del panel central
+##
 
+##Ruta para la vista de comunidad del profesor
+@routes.route('/comunidad_profesor')
+def comunidad_profesor():
+    return render_template('profesor/a_comunidad_profesor.html')
+
+##Ruta para la vista de gestion de cuestionarios
+@routes.route('/gestionar_cuestionarios')
+def gestionar_cuestionarios():
+    return render_template('profesor/a_gestionar_cuestionarios.html')
+
+##Ruta para la vista de gestion de estadisticas
+@routes.route('/gestionar_estadisticas')
+def gestionar_estadisticas():
+    return render_template('profesor/a_gestionar_estadisticas.html')
+
+##Ruta para la vista de gestion de grupos
+@routes.route('/gestionar_grupos')
+def gestionar_grupos():
+    return render_template('profesor/a_gestionar_grupos.html')
+
+##
+## Parte del sign up del profesor
+##
+
+##Ruta para la pagina de sign up del profesor
 @routes.route('/signup_prof')
 def signup_Prof():
     return render_template('profesor/signup_prof.html')
@@ -31,3 +59,4 @@ def nuevo_profesor():
 @routes.route('/bienvenidaProfesor')
 def bienvenidaProfesor():
     return render_template('profesor/bienvenidaProfesor.html')
+

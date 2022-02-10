@@ -160,6 +160,10 @@ input[type="file"] {
 	font-size: 15px;
 }
 
+.linkNull{
+	text-decoration: none;
+}
+
 /*Alinear los elementos al centro con una clase*/
 .centerAligner{
 	display: flex !important;
