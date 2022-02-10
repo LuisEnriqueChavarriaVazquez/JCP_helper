@@ -172,6 +172,12 @@ input[type="file"] {
 	width: 100% !important;
 }
 
+.centerAlignerNoWidth{
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+}
+
 .centerLeftAligner{
 	display: flex !important;
 	justify-content: center !important;

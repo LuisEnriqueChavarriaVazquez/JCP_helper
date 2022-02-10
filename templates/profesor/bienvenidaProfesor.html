@@ -82,13 +82,64 @@
     </ul>
 
     <section class="mainBodyAdicional">
-        <div class="title-general">
+        <div class="title-general colorGrey">
             <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Menú de opciones</h4>
             <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Menú de opciones</h3>
         </div>
 
-        <!--Para dispositivos de tabletas y computadoras-->
-        <section class="hide-on-small-only hide-on-large-only centerAligner verticalAligner">
+        <!--Para dispositivos de tabletas-->
+        <section class="hide-on-small-only hide-on-med-only centerAligner verticalAligner colorGrey" style="padding: 30px;">
+            <section class="centerAligner horizontalAligner">
+                <div class="cardMainDesktopPanel shadow-2 bordered2">
+                    <div class="cardMainDesktopPanelHead centerAligner">Gestionar grupos</div>
+                    <div class="centerAligner horizontalAligner">
+                        <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
+                            <p><i class="material-icons">workspaces</i></p>
+                        </div>
+                        <div class="cardMainDesktopPanelRight centerAlignerNoWidth colorGreyWhiter">Crear, editar,
+                            eliminar y administrar los grupos de estudiantes.</div>
+                    </div>
+                </div>
+
+                <div class="cardMainDesktopPanel shadow-2 bordered2">
+                    <div class="cardMainDesktopPanelHead centerAligner">Gestionar cuestionarios</div>
+                    <div class="centerAligner horizontalAligner">
+                        <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
+                            <p><i class="material-icons">rule</i></p>
+                        </div>
+                        <div class="cardMainDesktopPanelRight centerAlignerNoWidth colorGreyWhiter">Crear, editar, eliminar,
+                            administrar los cuestionarios.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="centerAligner horizontalAligner">
+                <div class="cardMainDesktopPanel shadow-2 bordered2">
+                    <div class="cardMainDesktopPanelHead centerAligner">Gestionar estadísticas</div>
+                    <div class="centerAligner horizontalAligner">
+                        <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
+                            <p><i class="material-icons">poll</i></p>
+                        </div>
+                        <div class="cardMainDesktopPanelRight centerAlignerNoWidth colorGreyWhiter">Ver estadísticas diversas sobre
+                            los grupos creados y las pruebas publicadas.</div>
+                    </div>
+                </div>
+
+                <div class="cardMainDesktopPanel shadow-2 bordered2">
+                    <div class="cardMainDesktopPanelHead centerAligner">Comunidad</div>
+                    <div class="centerAligner horizontalAligner">
+                        <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
+                            <p><i class="material-icons">supervised_user_circle</i></p>
+                        </div>
+                        <div class="cardMainDesktopPanelRight centerAlignerNoWidth colorGreyWhiter">Acceder a la comunidad para poder
+                            compartir y ver cuestionarios.</div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!--Para dispositivos de tabletas-->
+        <section class="hide-on-small-only hide-on-large-only centerAligner verticalAligner colorGrey">
             <section class="centerAligner horizontalAligner containerCardsDesktop">
                 <div class="shadow-4 bordered2 cardMainCarouselContainer">
                     <div class="centerAligner cardCarouselMainHead">
@@ -128,10 +179,11 @@
                         compartir y ver cuestionarios.</div>
                 </div>
             </section>
+            <br><br>
         </section>
 
         <!--Para dispositivos móviles-->
-        <section class="owl-carousel owl-theme hide-on-med-and-up">
+        <section class="owl-carousel owl-theme hide-on-med-and-up colorGrey">
             <div class="item">
                 <a href="gestionar_grupos">
                     <div class="shadow-2e bordered2">
@@ -199,7 +251,6 @@
             <div class="item" style="width: 100px;">
 
             </div>
-
         </section>
 
         <!--Resumen de actividad-->
@@ -221,6 +272,8 @@
 
 
     </section>
+
+    <br><br><br>
 
     <!--Metemos el footer en la app-->
     {% include "includes/footer.html" %}
