@@ -13,7 +13,7 @@ def obtener_estudiantes():
     conexion = obtener_conexion()
     estudiantes = []
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT id, nombre, apellidos,email, edad,grupo FROM estudiantes")
+        cursor.execute("SELECT*FROM alumnos")
         estudiantes = cursor.fetchall()
     conexion.close()
     return estudiantes
@@ -22,7 +22,7 @@ def obtener_estudiantes():
 def eliminar_estudiante(id):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("DELETE FROM estudiantes WHERE id = %s", (id,))
+        cursor.execute("DELETE FROM alumnos WHERE idA = %s", (id,))
     conexion.commit()
     conexion.close()
 
@@ -32,16 +32,17 @@ def obtener_estudiante_por_id(id):
     estudiante = None
     with conexion.cursor() as cursor:
         cursor.execute(
-            "SELECT id, nombre, apellidos, edad FROM estudiantes WHERE id = %s", (id,))
+            "SELECT*FROM alumnos WHERE idA = %s", (id,))
         estudiante = cursor.fetchone()
     conexion.close()
     return estudiante
 
+#pendiente
 
-def actualizar_estudiante(nombre, apellidos, edad,grupo, id):
-    conexion = obtener_conexion()
-    with conexion.cursor() as cursor:
-        cursor.execute("UPDATE estudiantes SET nombre = %s, apellidos = %s, edad = %s, grupo=%s WHERE id = %s",
-        (nombre, apellidos, edad,grupo, id))
-    conexion.commit()
-    conexion.close()
+# def actualizar_estudiante(nombre, apellidos, edad,grupo, id):
+#     conexion = obtener_conexion()
+#     with conexion.cursor() as cursor:
+#         cursor.execute("UPDATE estudiantes SET nombre = %s, apellidos = %s, edad = %s, grupo=%s WHERE id = %s",
+#         (nombre, apellidos, edad,grupo, id))
+#     conexion.commit()
+#     conexion.close()
