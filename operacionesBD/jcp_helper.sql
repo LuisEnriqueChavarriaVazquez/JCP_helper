@@ -33,7 +33,7 @@ CREATE TABLE `alumnos` (
   `aliasA` varchar(100) NOT NULL,
   `fotoA` blob NOT NULL,
   `correoA` varchar(100) NOT NULL,
-  `passwordA` varchar(50) NOT NULL,
+  `passwordA` varchar(100) NOT NULL,
   `es_proc` varchar(150) NOT NULL,
   `grupo` varchar(10) DEFAULT NULL,
   `desc_alum` varchar(200) NOT NULL,

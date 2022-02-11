@@ -1,6 +1,7 @@
 from flask import flash, render_template,request
 from . import routes
 from operacionesBD import Op_estudiante
+import bcrypt
 
 ##
 ## Links para la parte del panel central
@@ -49,6 +50,12 @@ def nuevo_estudiante():
         foto=request.files["foto"]
         correo=request.form["correo"]
         password=request.form["password"]
+
+        # encriptamos la contraseña
+        password = password.encode('utf-8')
+        hashed = bcrypt.hashpw(password, bcrypt.gensalt()) 
+
+
         es_proc=request.form["es_proc"]
         grupo=request.form["grupo"]
         desc_alum=request.form["desc_alum"]
@@ -59,6 +66,6 @@ def nuevo_estudiante():
         instagramA=request.form["instagramA"]
         vkA=request.form["vkA"]
         telefonoA=request.form["telefonoA"]
-        Op_estudiante.insertar_estudiante(nombre,alias,foto,correo,password,es_proc,grupo,desc_alum,area_esp_a,correoA,linkedinA,facebookA,instagramA,vkA,telefonoA)
+        Op_estudiante.insertar_estudiante(nombre,alias,foto,correo,hashed,es_proc,grupo,desc_alum,area_esp_a,correoA,linkedinA,facebookA,instagramA,vkA,telefonoA)
         flash(f"{nombre} te has registrado correctamente!!")
         return render_template("estudiante/bienvenidaEstudiante.html")

@@ -1,6 +1,7 @@
 from flask import render_template,flash,request
 from . import routes
 from operacionesBD import Op_profesor
+import bcrypt
 
 ##
 ## Links para la parte del panel central
@@ -43,6 +44,11 @@ def nuevo_profesor():
         foto=request.files["foto"]
         correo=request.form["correo"]
         password=request.form["password"]
+
+        # encriptamos la contraseña
+        password = password.encode('utf-8')
+        hashed = bcrypt.hashpw(password, bcrypt.gensalt()) 
+
         correo_alt=request.form["correo_alt"]
         linkedinP=request.form["linkedinP"]
         facebookP=request.form["facebookP"]
@@ -51,7 +57,7 @@ def nuevo_profesor():
         telefonoP=request.form["telefonoP"]
         unidad_ac=request.form["unidad_ac"]
         desc_perfil=request.form["desc_perfil"]
-        Op_profesor.insertar_profesor(nombre,alias,foto,correo,password,correo_alt,linkedinP,facebookP,instagramP,vkP,telefonoP,unidad_ac,desc_perfil)
+        Op_profesor.insertar_profesor(nombre,alias,foto,correo,hashed,correo_alt,linkedinP,facebookP,instagramP,vkP,telefonoP,unidad_ac,desc_perfil)
         flash(f"{nombre} te has registrado correctamente")
         return render_template('profesor/bienvenidaProfesor.html')
 
