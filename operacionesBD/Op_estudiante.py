@@ -27,12 +27,11 @@ def eliminar_estudiante(id):
     conexion.close()
 
 
-def obtener_estudiante_por_id(id):
+def login_est(correo):
     conexion = obtener_conexion()
     estudiante = None
     with conexion.cursor() as cursor:
-        cursor.execute(
-            "SELECT*FROM alumnos WHERE idA = %s", (id,))
+        cursor.execute("SELECT*FROM alumnos WHERE correoA = %s", (correo))
         estudiante = cursor.fetchone()
     conexion.close()
     return estudiante

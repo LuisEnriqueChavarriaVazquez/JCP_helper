@@ -1,4 +1,4 @@
-from flask import flash, render_template,request
+from flask import flash, render_template,request,redirect,url_for
 from . import routes
 from operacionesBD import Op_estudiante
 import bcrypt
@@ -49,7 +49,7 @@ def nuevo_estudiante():
         alias=request.form["alias"]
         foto=request.files["foto"]
         correo=request.form["correo"]
-        password=request.form["password"]
+        password=str(request.form["password"])
 
         # encriptamos la contraseña
         password = password.encode('utf-8')
@@ -69,3 +69,20 @@ def nuevo_estudiante():
         Op_estudiante.insertar_estudiante(nombre,alias,foto,correo,hashed,es_proc,grupo,desc_alum,area_esp_a,correoA,linkedinA,facebookA,instagramA,vkA,telefonoA)
         flash(f"{nombre} te has registrado correctamente!!")
         return render_template("estudiante/bienvenidaEstudiante.html")
+
+@routes.route('/login_estudiante',methods=["POST"])
+def login_estudiante():
+    if request.method=="POST":
+        correo=request.form["correoE"]
+        password=request.form["passwordE"]
+        password = password.encode('utf-8')
+        result=Op_estudiante.login_est(correo)
+        if result!=None:
+            passBD=str(result[5])
+            passBD=passBD.encode('utf-8')
+            if bcrypt.checkpw(password,passBD):
+                return render_template('estudiante/bienvenidaEstudiante.html')  
+            else:
+                return redirect(url_for('routes.login_general'))   
+        else:
+            return redirect(url_for('routes.login_general'))       

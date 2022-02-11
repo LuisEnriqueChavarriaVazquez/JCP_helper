@@ -22,8 +22,7 @@ def login_prof(correo):
     conexion = obtener_conexion()
     profesor = None
     with conexion.cursor() as cursor:
-        cursor.execute(
-            "SELECT*FROM profesores WHERE correoP = %s", (correo))
+        cursor.execute("SELECT*FROM profesores WHERE correoP = %s", (correo))
         profesor = cursor.fetchone()
     conexion.close()
     return profesor
