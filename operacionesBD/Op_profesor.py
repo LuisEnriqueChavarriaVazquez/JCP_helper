@@ -17,3 +17,13 @@ def obtener_profesores():
         profesores=cursor.fetchall()
     conexion.close()
     return profesores
+
+def login_prof(correo):
+    conexion = obtener_conexion()
+    profesor = None
+    with conexion.cursor() as cursor:
+        cursor.execute(
+            "SELECT*FROM profesores WHERE correoP = %s", (correo))
+        profesor = cursor.fetchone()
+    conexion.close()
+    return profesor

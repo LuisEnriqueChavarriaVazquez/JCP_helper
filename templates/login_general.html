@@ -43,20 +43,21 @@
 
                 <div class="card-bienvenida card-bienvenida-signup shadow-3" style="padding: 30px;">
                     <div>
-                        <form>
+                        <form action="{{ url_for('routes.login_profesor') }}" method="post">
                             <div class="row">
                                 <div class="input-field col s12">
                                     <input placeholder="Escriba su correo electrónico" class="colorText truncate"
-                                        id="mail" type="email" class="validate">
+                                        id="mail" name="correoP" type="email" class="validate" required>
                                     <label for="mail">Correo</label>
                                 </div>
                                 <div class="input-field col s12">
                                     <input placeholder="Escriba su contraseña completa" class="colorText truncate"
-                                        id="password" type="password" class="validate">
+                                        id="password" name="passwordP" type="password" class="validate" required>
                                     <label for="password">Contraseña</label>
                                 </div>
                             </div>
-                        </form>
+                            
+                        
 
                         <!--Botones puestos de manera temporal-->
                         <section class="centerAligner verticalAligner">
@@ -78,9 +79,10 @@
                 </div>
 
                 <div class="card-bienvenida-text shadow-3">
-                    <a href="#!" class="buttons-bienvenida waves-effect waves-light btn-large color3"><i
-                            class="material-icons left">done</i>Acceder &nbsp;&nbsp;&nbsp;</a>
+                    <button type="submit" class="buttons-bienvenida waves-effect waves-light btn-large color3"><i
+                            class="material-icons left">done</i>Acceder &nbsp;&nbsp;&nbsp;</button>
                 </div>
+            </form>
             </section>
         </div>
         <!--Inicio de la pestaña dos-->

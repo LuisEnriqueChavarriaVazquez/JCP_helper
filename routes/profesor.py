@@ -1,4 +1,4 @@
-from flask import render_template,flash,request
+from flask import render_template,flash,request, url_for, redirect
 from . import routes
 from operacionesBD import Op_profesor
 import bcrypt
@@ -60,6 +60,24 @@ def nuevo_profesor():
         Op_profesor.insertar_profesor(nombre,alias,foto,correo,hashed,correo_alt,linkedinP,facebookP,instagramP,vkP,telefonoP,unidad_ac,desc_perfil)
         flash(f"{nombre} te has registrado correctamente")
         return render_template('profesor/bienvenidaProfesor.html')
+
+@routes.route('/login_profesor',methods=["POST"])
+def login_profesor():
+    if request.method=="POST":
+        correo=request.form["correoP"]
+        password=request.form["passwordP"]
+        password = password.encode('utf-8')
+        result=Op_profesor.login_prof(correo)
+        if result!=None:
+            passBD=str(result[5])
+            passBD=passBD.encode('utf-8')
+            if bcrypt.checkpw(password,passBD):
+                return render_template('profesor/bienvenidaProfesor.html')  
+            else:
+                return redirect(url_for('routes.login_general'))   
+        else:
+            return redirect(url_for('routes.login_general'))       
+
 
 ##Pagina de bienvenida
 @routes.route('/bienvenidaProfesor')
