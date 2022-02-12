@@ -66,6 +66,7 @@
 .cardMainCarouselContainer{
     width: auto !important;
     padding: 0 !important;
+    margin: 0 10px 0 10px;
 }
 
 .containerCardsDesktop{
@@ -83,10 +84,27 @@
 /*Cards para el panel central con tamaño de escritorio*/
 
 .cardMainDesktopPanel{
-    width: 100%;
+    width: 390px;
     padding: 0px;
-    margin: 0 40px 40px 40px;
+    margin: 0 10px 30px 10px;
 }
+
+/*
+** 
+*/
+
+@media only screen and (min-width: 1200px) {
+    .cardMainDesktopPanel {
+        width: 550px;
+    }
+  }
+
+  @media only screen and (min-width: 1500px) {
+    .cardMainDesktopPanel {
+        width: 650px;
+    }
+  }
+  
 
 .cardMainDesktopPanelHead{
     height: 70px;
