@@ -1,21 +1,176 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
+    <title>{% block title %}| JCP{% endblock %}</title>
+
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
 
-    <title>Saber más</title>
 </head>
 
 <body class="oculto">
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/cargador.html" %}
-    
-    <p>cuestionarios</p>
+
+    <!--Menu de página de inicio-->
+    <nav class="color2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Cuestionarios.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Cuestionarios.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Seccion para dispositivos tableta-->
+    <section class="mainBodyAdicional">
+        <div class="title-general colorGrey">
+            <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Gestión cuestionarios</h4>
+            <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Gestión cuestionarios</h3>
+        </div>
+
+        <section class="centerAligner containerTabletaSecondary hide-on-small-only hide-on-large-only colorGrey">
+            <a href="gestionar_grupos">
+                <div class="cardSecondary cardSecondaryTablet shadow-2 bordered2 colorGreyWhiter">
+                    <div class="centerAligner iconSecondary">
+                        <p><i class="material-icons">note_add</i></p>
+                    </div>
+                    <div class="centerAligner textSecondary">Crear cuestionario</div>
+                </div>
+            </a>
+
+            <a href="gestionar_grupos">
+                <div class="cardSecondary cardSecondaryTablet shadow-2 bordered2 colorGreyWhiter">
+                    <div class="centerAligner iconSecondary">
+                        <p><i class="material-icons">account_box</i></p>
+                    </div>
+                    <div class="centerAligner textSecondary">Cuestionarios personales</div>
+                </div>
+            </a>
+
+            <a href="gestionar_grupos">
+                <div class="cardSecondary cardSecondaryTablet shadow-2 bordered2 colorGreyWhiter">
+                    <div class="centerAligner iconSecondary">
+                        <p><i class="material-icons">public</i></p>
+                    </div>
+                    <div class="centerAligner textSecondary">Cuestionarios compartidos</div>
+                </div>
+            </a>
+        </section>
+    </section>
+
+    <!--Seccion para dispositivos escritorio-->
+    <section class="mainBodyAdicional hide-on-small-only hide-on-med-only colorGrey">
+        <section class="centerAligner horizontalAligner">
+            <a href="">
+                <div class="cardMainDesktopPanelEDITED cardMainDesktopPanel shadow-2 bordered2">
+                    <div class="cardMainDesktopPanelHead centerAligner">Crear cuestionario</div>
+                    <div class="centerAligner verticalAligner">
+                        <div
+                            class="cardMainDesktopPanelLeft cardMainDesktopPanelLeftEDITED centerAlignerNoWidth colorGreyWhiter">
+                            <p><i class="material-icons">note_add</i></p>
+                        </div>
+                        <div
+                            class="cardMainDesktopPanelRight cardMainDesktopPanelRightEDITED flow-text centerAlignerNoWidth colorTextReverse colorGreyWhiter">
+                            Genere nuevos grupos y agregue alumnos.</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="">
+                <div class="cardMainDesktopPanelEDITED cardMainDesktopPanel shadow-2 bordered2">
+                    <div class="cardMainDesktopPanelHead centerAligner">Personales</div>
+                    <div class="centerAligner verticalAligner">
+                        <div
+                            class="cardMainDesktopPanelLeft cardMainDesktopPanelLeftEDITED centerAlignerNoWidth colorGreyWhiter">
+                            <p><i class="material-icons">account_box</i></p>
+                        </div>
+                        <div
+                            class="cardMainDesktopPanelRight cardMainDesktopPanelRightEDITED flow-text centerAlignerNoWidth colorTextReverse colorGreyWhiter">
+                            Vea los grupos que ha creado y editelos.</div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="">
+                <div class="cardMainDesktopPanelEDITED cardMainDesktopPanel shadow-2 bordered2">
+                    <div class="cardMainDesktopPanelHead centerAligner">Compartidos</div>
+                    <div class="centerAligner verticalAligner">
+                        <div
+                            class="cardMainDesktopPanelLeft cardMainDesktopPanelLeftEDITED centerAlignerNoWidth colorGreyWhiter">
+                            <p><i class="material-icons">public</i></p>
+                        </div>
+                        <div
+                            class="cardMainDesktopPanelRight cardMainDesktopPanelRightEDITED flow-text centerAlignerNoWidth colorTextReverse colorGreyWhiter">
+                            Más contenido en la comunidad.</div>
+                    </div>
+                </div>
+            </a>
+        </section>
+    </section>
+
+    <!--Seccion para dispositivos moviles-->
+    <section class="mainBodyAdicional">
+        <section class="owl-carousel owl-theme hide-on-med-and-up colorGrey">
+            <div class="item">
+                <a href="gestionar_grupos">
+                    <div class="cardSecondary shadow-2 bordered2 colorGreyWhiter">
+                        <div class="centerAligner iconSecondary">
+                            <p><i class="material-icons">note_add</i></p>
+                        </div>
+                        <div class="center-align centerAligner textSecondary">Crear cuestionario</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="item">
+                <a href="gestionar_grupos">
+                    <div class="cardSecondary shadow-2 bordered2 colorGreyWhiter">
+                        <div class="centerAligner iconSecondary">
+                            <p><i class="material-icons">account_box</i></p>
+                        </div>
+                        <div class="center-align centerAligner textSecondary">Cuestionarios personales</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="item">
+                <a href="gestionar_grupos">
+                    <div class="cardSecondary shadow-2 bordered2 colorGreyWhiter">
+                        <div class="centerAligner iconSecondary">
+                            <p><i class="material-icons">public</i></p>
+                        </div>
+                        <div class="center-align centerAligner textSecondary">Cuestionarios compartidos</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="item" style="width: 200px;">
+            </div>
+        </section>
+    </section>
+
+    <!--Seccion de alumnos en los grupos-->
+
+    <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
+        <li class="tab"><a class="active coloredText" href="#test1">Resumen personal</a></li>
+        <li class="tab"><a href="#test2" class="coloredText">Resumen compartidos</a></li>
+    </ul>
+    <div id="test1" class="col s12">
+        Info del resumen personal
+    </div>
+    <div id="test2" class="col s12">
+        Info del resumen compartidos
+    </div>
+
 
     <!--Metemos el footer en la app-->
     {% include "includes/footer.html" %}
+
 </body>
 
 <!--Jalamos todo el contenido del encabezado-->

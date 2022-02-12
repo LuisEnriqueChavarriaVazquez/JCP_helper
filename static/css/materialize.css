@@ -3,6 +3,7 @@
  * Copyright 2014-2017 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
+
 .materialize-red {
   background-color: #e51c23 !important;
 }
@@ -5088,7 +5089,7 @@ small {
 }
 
 .tabs .tab a:focus, .tabs .tab a:focus.active {
-  background-color: rgba(246, 178, 181, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
   outline: none;
 }
 
@@ -5106,8 +5107,8 @@ small {
 .tabs .indicator {
   position: absolute;
   bottom: 0;
-  height: 2px;
-  background-color: #f6b2b5;
+  height: 3px;
+  background-color: #808080;
   will-change: left, right;
 }
 

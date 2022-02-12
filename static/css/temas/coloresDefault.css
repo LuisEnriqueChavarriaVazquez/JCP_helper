@@ -6,6 +6,8 @@
 
 .colorGrey {background-color: #dddddd;}
 .colorGreyWhiter {background-color: #ececec;}
+
+.coloredText {color: #377e5b !important;}
 .colorText {color: #fff !important;}
 .colorTextReverse {color: #000 !important;}
 
