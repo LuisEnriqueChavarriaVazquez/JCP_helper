@@ -43,7 +43,7 @@
                         <br>
                         <div class="input-field col s12 m6 l6">
                             <input placeholder="Escriba su nombre completo" class="colorText truncate" id="text"
-                                type="text" name="nombre" class="validate">
+                                type="text" name="nombre" class="validate" required>
                             <label for="text">Nombre <b class="red-text">*</b> </label>
                         </div>
                         <div class="input-field col s12 m6 l6">
@@ -53,17 +53,17 @@
                         </div>
                         <div class="input-field col s12 m6 l12">
                             <input placeholder="Escriba su correo electrónico" class="colorText truncate" id="email"
-                                type="email" name="correo" class="validate">
+                                type="email" name="correo" class="validate" required>
                             <label for="email">Correo <b class="red-text">*</b></label>
                         </div>
                         <div class="input-field col s12 m6 l6">
                             <input placeholder="Escriba su contraseña" class="colorText truncate" id="password"
-                                type="password" name="password" class="validate">
+                                type="password" name="password" class="validate" required>
                             <label for="password">Password <b class="red-text">*</b></label>
                         </div>
                         <div class="input-field col s12 m6 l6">
                             <input placeholder="Confirme su contraseña" class="colorText truncate" id="password"
-                                type="password" name="password2" class="validate">
+                                type="password" name="password2" class="validate" required>
                             <label for="password">Confirmación <b class="red-text">*</b></label>
                         </div>
                         <div class="input-field col s12 m6 l12">
@@ -96,7 +96,7 @@
                                     class="centerAligner custom-file-upload color3 btn waves-effect waves-light button-rounded">
                                     <i class="fa fa-cloud-upload"></i> Elegir foto
                                 </label>
-                                <input id="imageUploadProf" name="foto" type="file" />
+                                <input id="imageUploadProf" name="foto" type="file" required/>
                             </div>
                         </div>
                     </div>
@@ -141,11 +141,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="card-bienvenida-text shadow-3">
+                    <button type="submit" class="buttons-bienvenida waves-effect waves-light btn-large color3"><i
+                            class="material-icons left">done</i>Registrarse &nbsp;&nbsp;&nbsp;</button>
+                </div>
             </section>
-        <div class="card-bienvenida-text shadow-3">
-            <button type="submit" class="buttons-bienvenida waves-effect waves-light btn-large color3"><i
-                    class="material-icons left">done</i>Crear cuenta &nbsp;&nbsp;&nbsp;</button>
-        </div>
     </form>
     </section>
 
