@@ -72,7 +72,8 @@ def login_profesor():
             passBD=str(result[5])
             passBD=passBD.encode('utf-8')
             if bcrypt.checkpw(password,passBD):
-                return render_template('profesor/bienvenidaProfesor.html')  
+                print(result[3])
+                return render_template('profesor/bienvenidaProfesor.html',datos=result)  
             else:
                 return redirect(url_for('routes.login_general'))   
         else:
