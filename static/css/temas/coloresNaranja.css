@@ -8,3 +8,8 @@
 .colorGreyWhiter {background-color: #ececec;}
 .colorText {color: #fff !important;}
 .colorTextReverse {color: #000 !important;}
+
+.borderDecoration{
+    border-bottom: 5px #bc521c solid;
+}
+

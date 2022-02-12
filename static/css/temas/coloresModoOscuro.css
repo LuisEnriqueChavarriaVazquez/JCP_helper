@@ -9,6 +9,10 @@
 .colorText {color: rgb(255, 255, 255) !important;}
 .colorTextReverse {color: rgb(255, 255, 255) !important;}
 
+.borderDecoration{
+    border-bottom: 5px #161616 solid;
+}
+
 body{
     background-color: #181818;
 }

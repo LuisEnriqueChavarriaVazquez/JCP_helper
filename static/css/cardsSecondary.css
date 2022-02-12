@@ -31,27 +31,27 @@
 
 /*Card secondary alumno*/
 
-.cardAlumno{
-	height: 60px;
-	width: 100% !important;
-	padding: 20px;
-	margin-bottom: 20px;
-	cursor: pointer;
+.cardAlumnoSecondary{
+	padding: 10px;
+	margin: 0px 15px 5px 0px;
+	
+	width: 100%;
+	height: 80px !important;
 }
 
-.iconoAlumno{
-	width: 20% !important;
-}
-
-.iconoAlumno > img{
+.userSecondary{
 	width: 40px;
 	height: 40px;
 }
 
-.nombreAlumno{
-	width: 80% !important;
-	padding-left: 10px;
-	padding-right: 10px;
+.iconContenedorUserSecondary{
+	padding: 10px;
+	width: 15%;
+}
+
+.textContenedorUserSecondary{
+	padding: 0 10px 0 15px;
+	width: 85%;
 }
 
 /*Modelos para la tableta*/
@@ -59,6 +59,7 @@
 	margin-right: 5px;
 	margin-left: 5px;
 }
+
 
 /*Adaptacion de las card de bienvenida del escritorio para
 la seccion de los grupos*/
@@ -76,4 +77,32 @@ la seccion de los grupos*/
 	border-radius: 0 0 20px 20px !important;
 	width: 100% !important;
 }
+
+.cardMainDesktopPanelEDITED{
+	width: 300px !important;
+}
+
+/*
+** 
+*/
+
+@media only screen and (min-width: 1200px) {
+    .cardMainDesktopPanelEDITED {
+        width: 350px !important;
+    }
+
+	.cardMainDesktopPanelLeftEDITED > p > i{
+		font-size: 65px;
+	}
+  }
+
+  @media only screen and (min-width: 1500px) {
+    .cardMainDesktopPanelEDITED {
+        width: 400px !important;
+    }
+
+	.cardMainDesktopPanelLeftEDITED > p > i{
+		font-size: 70px;
+	}
+  }
 
