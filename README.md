@@ -23,9 +23,9 @@ Numero | Recursos Utilizados
 ###Favor de hacer un respaldo de los documentos, por favor amigos.
 
 ***
-[Pagina de heroku para hacer pruebas](https://jcpprueba.herokuapp.com/).
+[Pagina de heroku para hacer pruebas](https://jcphelperdos.herokuapp.com/).
 
-[Link a la documentación del trabajo](https://docs.google.com/document/d/1JCiC0r5ErAKl3hveNv_s_GEKfJfFCxoox7qhAoZeTn8/edit).
+[Link a la documentación del trabajo](https://docs.google.com/document/d/1oxEhEVl6O1erCn2nud5_2VKQUbxIlUUT/edit).
 
 [Link a documentos del TT](https://drive.google.com/drive/folders/1xM7VRvivOMT78cPrdiXmzwETw2PiQeVK).
 
