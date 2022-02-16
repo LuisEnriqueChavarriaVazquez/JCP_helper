@@ -1,9 +1,8 @@
 # JCP_helper
 ## Proyecto de titulación
 ***
-
-![Logotipo de la aplicacion]('/logo_compu')
-
+<img src="PROYECTO_DOCUMENTACION\JCP_HELPER_DOCUMENTACION\Diagramas y diseños\Logos de la app\logo_compu.png" alt="Logo de JCP_Helper" style="zoom:50%;" />
+<img src="PROYECTO_DOCUMENTACION\JCP_HELPER_DOCUMENTACION\Diagramas y diseños\Logos de la app\logo_celular.png" alt="Logo de JCP_Helper de celular" style="zoom:50%;" />
 ***
 ### Integrantes del equipo
 * Juarez Espinosa Ulises
