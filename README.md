@@ -2,7 +2,7 @@
 ## Proyecto de titulación
 ***
 
-![Logotipo de la aplicacion]('/logo_compu.png')
+![Logotipo de la aplicacion]('/logo_compu')
 
 ***
 ### Integrantes del equipo
