@@ -2,8 +2,7 @@
 ## Proyecto de titulación
 ***
 
-![Logotipo de la aplicacion]('/PROYECTO_DOCUMENTACION/JCP_HELPER_DOCUMENTACION/Diagramas y diseños/Logos de la app/logo_compu.png')
-![Logotipo de la aplicacion]('/PROYECTO_DOCUMENTACION/JCP_HELPER_DOCUMENTACION/Diagramas y diseños/Logos de la app/logo_celular.png')
+![Logotipo de la aplicacion]('/logo_compu.png')
 
 ***
 ### Integrantes del equipo
