@@ -1,0 +1,26 @@
+.informeCard{
+    background-image: url('../images/card.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: initial;
+
+    width: 60%;
+    height: 100px;
+    padding: 20px;
+}
+
+.informeCardIcon{
+    padding: 10px;
+}
+
+.informeCardIcon > i{
+    font-size: 35px;
+    font-style: normal;
+}
+
+
+.informeCardText{
+    padding: 10px;
+    font-size: 15px;
+}
