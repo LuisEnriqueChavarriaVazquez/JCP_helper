@@ -62,7 +62,7 @@ p{
 
 	border-radius: 20px;
 
-	background-image: url('../images/card_bienvenida.jpg');
+	/*En la parte de los estilos*/
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;

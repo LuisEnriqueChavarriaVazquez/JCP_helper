@@ -19,3 +19,28 @@
 .borderDecorationStrong{
     border-bottom: 5px #74232d solid;
 }
+
+/*Fondos dinámicos*/
+.cardCarouselMainHead{
+    background-image: url('../../images/fondos/rojo/rojo_2.png');
+}
+
+.cardMain{
+    background-image: url('../../images/fondos/rojo/rojo_2.png');
+}
+
+.cardMainDesktopPanelHead{
+    background-image: url('../../images/fondos/rojo/rojo_3.png');
+}
+
+.informeCard{
+    background-image: url('../../images/fondos/rojo/rojo_4.png');
+}
+
+.iconSecondary{
+    background-image: url('../../images/fondos/rojo/rojo_5.png') ;
+}
+
+.card-bienvenida,.card-bienvenida-text{
+    background-image: url('../../images/fondos/rojo/rojo_1.png');
+}

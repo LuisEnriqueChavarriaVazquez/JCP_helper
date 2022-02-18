@@ -19,3 +19,28 @@
 .borderDecorationStrong{
     border-bottom: 5px #743b5e solid;
 }
+
+/*Fondos dinámicos*/
+.cardCarouselMainHead{
+    background-image: url('../../images/fondos/cafe/cafe_2.png');
+}
+
+.cardMain{
+    background-image: url('../../images/fondos/cafe/cafe_3.png');
+}
+
+.cardMainDesktopPanelHead{
+    background-image: url('../../images/fondos/cafe/cafe_2.png');
+}
+
+.informeCard{
+    background-image: url('../../images/fondos/cafe/cafe_3.png');
+}
+
+.iconSecondary{
+    background-image: url('../../images/fondos/cafe/cafe_2.png') ;
+}
+
+.card-bienvenida,.card-bienvenida-text{
+    background-image: url('../../images/fondos/cafe/cafe_1.png');
+}
