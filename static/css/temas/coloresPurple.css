@@ -14,3 +14,7 @@
 .borderDecoration{
     border-bottom: 5px #7a5a89 solid;
 }
+
+.borderDecorationStrong{
+    border-bottom: 5px #4c4668 solid;
+}

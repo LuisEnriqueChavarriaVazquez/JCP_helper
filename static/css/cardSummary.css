@@ -1,0 +1,36 @@
+/*CARD SUMMARY PARA MÓVILES*/
+
+.bodySummary{
+    padding: 10px 35px 0 35px !important;
+}
+
+.cardSummary{
+    padding: 10px;
+    height: 80px;
+    width: 100%;
+    margin: 0 40px 15px 40px !important;
+}
+
+.counterSummary{
+    width: 30%;
+    padding: 5px 20px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.statisticSummary{
+    width: 70%;
+    font-weight: 600;
+}
+
+/*CARD SUMMARY PARA TABLETAS*/
+
+.fontTabletSummary{
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.fontCounterSummary{
+    font-size: 35px;
+    font-weight: 600;
+}

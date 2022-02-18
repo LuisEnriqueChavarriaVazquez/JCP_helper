@@ -39,8 +39,8 @@
                 </div>
                 <a href="#user"><img class="circle" src="../static/images/user.png"></a>
                 <a href="#name"><span class="white-text name"><b>Cuenta de docente</b></span></a>
-                <a href="#name"><span class="white-text name">{{datos[1]}}</span></a>
-                <a href="#email"><span class="white-text email">{{datos[2]}}</span></a>
+                <!--<a href="#name"><span class="white-text name"></span></a>
+                <a href="#email"><span class="white-text email"></span></a>-->
             </div>
         </li>
         <li><a href="#!"><i class="material-icons">workspaces</i>Gestionar grupos.</a></li>
@@ -286,22 +286,104 @@
         </section>
 
         <!--Resumen de actividad-->
-        <section class="centerAligner verticalAligner mainBodyAdicional">
-            <div class="title-general">
-                <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Resumen</h4>
-                <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Resumen</h3>
+        <div class="title-general">
+            <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Resumen</h4>
+            <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Resumen</h3>
+        </div>
+        
+        <!--Resumen para dispositivos móviles-->
+        <section class="centerAligner verticalAligner bodySummary hide-on-med-only hide-on-large-only">
+            <div class="centerAligner borderDecorationStrong cardSummary shadow-1 bordered1 colorGreyWhiter">
+                <div class="counterSummary center-align bordered3 color3 colorText shadow-1e">8</div>
+                <div class="statisticSummary truncate flow-text colorTextReverse">&nbsp; &nbsp; Número de grupos</div>
             </div>
-            <div class="rounded4 colorGrey shadow-2" style="width: 100%; margin: 0 40px 0 40px; padding: 0 0 0 30px;">
-                <p>Futuros recuadros</p>
-            </div><br>
-            <div class="rounded4 colorGrey shadow-2" style="width: 100%; margin: 0 40px 0 40px; padding: 0 0 0 30px;">
-                <p>Futuros recuadros</p>
-            </div><br>
-            <div class="rounded4 colorGrey shadow-2" style="width: 100%; margin: 0 40px 0 40px; padding: 0 0 0 30px;">
-                <p>Futuros recuadros</p>
-            </div><br>
+
+            <div class="centerAligner borderDecorationStrong cardSummary shadow-1 bordered1 colorGreyWhiter">
+                <div class="counterSummary center-align bordered3 color4 colorText shadow-1e">120</div>
+                <div class="statisticSummary truncate flow-text colorTextReverse">&nbsp; &nbsp; Número de estudiantes</div>
+            </div>
+
+            <div class="centerAligner borderDecorationStrong cardSummary shadow-1 bordered1 colorGreyWhiter">
+                <div class="counterSummary center-align bordered3 color2 colorText shadow-1e">19</div>
+                <div class="statisticSummary truncate flow-text colorTextReverse">&nbsp; &nbsp; Número de cuestionarios</div>
+            </div>
+
+            <div class="centerAligner borderDecorationStrong cardSummary shadow-1 bordered1 colorGreyWhiter">
+                <div class="counterSummary center-align bordered3 color1 colorText shadow-1e">19</div>
+                <div class="statisticSummary truncate flow-text colorTextReverse">&nbsp; &nbsp; Número de temas</div>
+            </div>
         </section>
 
+        <!--Resumen para dispositivos tabletas-->
+        <section class="bodySummary hide-on-small-only">
+            <div class="opcionesContainerInterno row">
+                <div class="col s12 m6 l4">
+                    <div class="card bordered1 borderDecoration colorGreyWhiter shadow-2">
+                        <a onclick="M.toast({html: 'Lenguaje cambiado.'})" href="#!" id="coloresAqua">
+                            <div class="card-stacked">
+                                <div class="card-content centerAligner verticalAligner">
+                                    <div>
+                                        <p class="colorTextReverse fontTabletSummary">Número de grupos</p>
+                                    </div>
+                                    <div class="fontCounterSummary colorTextReverse">
+                                        6
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col s12 m6 l4">
+                    <div class="card bordered1 borderDecoration colorGreyWhiter shadow-2">
+                        <a onclick="M.toast({html: 'Lenguaje cambiado.'})" href="#!" id="coloresAqua">
+                            <div class="card-stacked">
+                                <div class="card-content centerAligner verticalAligner">
+                                    <div>
+                                        <p class="colorTextReverse fontTabletSummary">Número de estudiantes</p>
+                                    </div>
+                                    <div class="fontCounterSummary colorTextReverse">
+                                        80
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col s12 m6 l4">
+                    <div class="card bordered1 borderDecoration colorGreyWhiter shadow-2">
+                        <a onclick="M.toast({html: 'Lenguaje cambiado.'})" href="#!" id="coloresAqua">
+                            <div class="card-stacked">
+                                <div class="card-content centerAligner verticalAligner">
+                                    <div>
+                                        <p class="colorTextReverse fontTabletSummary">
+                                            Número de cuestionarios</p>
+                                    </div>
+                                    <div class="fontCounterSummary colorTextReverse">
+                                        10
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col s12 m6 l12">
+                    <div class="card bordered1 borderDecoration colorGreyWhiter shadow-2">
+                        <a onclick="M.toast({html: 'Lenguaje cambiado.'})" href="#!" id="coloresAqua">
+                            <div class="card-stacked">
+                                <div class="card-content centerAligner verticalAligner">
+                                    <div>
+                                        <p class="colorTextReverse fontTabletSummary">Número de temas</p>
+                                    </div>
+                                    <div class="fontCounterSummary colorTextReverse">
+                                        8
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </section>
 
