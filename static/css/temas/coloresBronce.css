@@ -22,25 +22,25 @@
 
 /*Fondos dinámicos*/
 .cardCarouselMainHead{
-    background-image: url('../../images/fondos/azul/azul_4.png');
+    background-image: url('../../images/fondos/naranja/naranja_2.png');
 }
 
 .cardMain{
-    background-image: url('../../images/fondos/azul/azul_3.png');
+    background-image: url('../../images/fondos/naranja/naranja_3.png');
 }
 
 .cardMainDesktopPanelHead{
-    background-image: url('../../images/fondos/azul/azul_2.png');
+    background-image: url('../../images/fondos/naranja/naranja_4.png');
 }
 
 .informeCard{
-    background-image: url('../../images/fondos/azul/azul_3.png');
+    background-image: url('../../images/fondos/naranja/naranja_6.png');
 }
 
 .iconSecondary{
-    background-image: url('../../images/fondos/azul/azul_2.png') ;
+    background-image: url('../../images/fondos/naranja/naranja_5.png') ;
 }
 
 .card-bienvenida,.card-bienvenida-text{
-    background-image: url('../../images/fondos/azul/azul_1.png');
+    background-image: url('../../images/fondos/naranja/naranja_1.png');
 }
