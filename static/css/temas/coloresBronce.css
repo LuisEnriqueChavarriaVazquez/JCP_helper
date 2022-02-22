@@ -44,3 +44,8 @@
 .card-bienvenida,.card-bienvenida-text{
     background-image: url('../../images/fondos/naranja/naranja_1.png');
 }
+
+/*Barra de carga*/
+.progress .indeterminate {
+    background-color: #712c00;
+}

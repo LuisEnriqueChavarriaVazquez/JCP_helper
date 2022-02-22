@@ -24,13 +24,16 @@
             </ul>
         </div>
         <!--Sección para elegir el tipo de stat-->
-
         <ul class="tabs tabs-fixed-width tab-demo z-depth-1 color2">
             <li class="tab"><a class="active coloredText colorText" href="#test1">Informes</a></li>
             <li class="tab"><a href="#test2" class="colorText">Grupos</a></li>
             <li class="tab"><a href="#test3" class="colorText">Cuestionarios</a></li>
             <li class="tab"><a href="#test4" class="colorText">Comunidad</a></li>
+            <li class="tab"><a href="#test5" class="colorText">Estudiantes</a></li>
         </ul>
+        <div class="progress color4 hidderMine" id="hidder" style="margin: 0px;">
+            <div class="indeterminate"></div>
+        </div>
     </nav>
     <br><br><br><br><br><br>
 
@@ -45,18 +48,23 @@
         {% include "includes/estadisticasDocente/3_informes_estadisticas.html" %}
     </div>
     <div id="test2" class="col s12">
-        <!--Graficas para dispositivos móviles.-->
-        {% include "includes/estadisticasDocente/2_datos_graficas_small.html" %}
+        <!--Graficas de la seccion.-->
+        {% include "includes/estadisticasDocente/2_datos_graficas_grupos.html" %}
     </div>
     <div id="test3" class="col s12">
-        <section style="margin: 30px;">
-            Tercera
-        </section>
+        <!--Graficas de la seccion.-->
+        {% include "includes/estadisticasDocente/2_datos_graficas_cuestionarios.html" %}
     </div>
     <div id="test4" class="col s12">
-        <section style="margin: 30px;">
-            Cuarta
-        </section>
+        <!--Graficas de la seccion.-->
+        {% include "includes/estadisticasDocente/2_datos_graficas_comunidad.html" %}
+    </div>
+    <div id="test5" class="col s12">
+        <!--Listado de los alumnos por grupo.-->
+        {% include "includes/estadisticasDocente/4_alumnos_por_grupo.html" %}
+
+        <!--Listado de los alumnos por grupo.-->
+        {% include "includes/estadisticasDocente/4_alumnos_graficas.html" %}
     </div>
 
 
