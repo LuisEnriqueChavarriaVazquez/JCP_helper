@@ -22,7 +22,7 @@
 
 /*Fondos dinámicos*/
 .cardCarouselMainHead{
-    background-image: url('../../images/fondos/cafe/cafe_2.png');
+    background-image: url('../../images/fondos/cafe/cafe_1.png');
 }
 
 .cardMain{
@@ -30,15 +30,15 @@
 }
 
 .cardMainDesktopPanelHead{
-    background-image: url('../../images/fondos/cafe/cafe_2.png');
+    background-image: url('../../images/fondos/cafe/cafe_4.png');
 }
 
 .informeCard{
-    background-image: url('../../images/fondos/cafe/cafe_3.png');
+    background-image: url('../../images/fondos/cafe/cafe_5.png');
 }
 
 .iconSecondary{
-    background-image: url('../../images/fondos/cafe/cafe_2.png') ;
+    background-image: url('../../images/fondos/cafe/cafe_6.png') ;
 }
 
 .card-bienvenida,.card-bienvenida-text{

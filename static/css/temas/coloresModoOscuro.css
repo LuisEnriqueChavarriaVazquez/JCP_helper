@@ -30,25 +30,25 @@ h1,h2,h3,h4,h5, p{
 
 /*Fondos dinámicos*/
 .cardCarouselMainHead{
-    background-image: url('../../images/fondos/black/black_1.jpg');
+    background-image: url('../../images/fondos/black/black_1.png');
 }
 
 .cardMain{
-    background-image: url('../../images/fondos/black/black_2.jpg');
+    background-image: url('../../images/fondos/black/black_2.png');
 }
 
 .cardMainDesktopPanelHead{
-    background-image: url('../../images/fondos/black/black_3.jpg');
+    background-image: url('../../images/fondos/black/black_3.png');
 }
 
 .informeCard{
-    background-image: url('../../images/fondos/black/black_4.jpg');
+    background-image: url('../../images/fondos/black/black_4.png');
 }
 
 .iconSecondary{
-    background-image: url('../../images/fondos/black/black_2.jpg') ;
+    background-image: url('../../images/fondos/black/black_2.png') ;
 }
 
 .card-bienvenida,.card-bienvenida-text{
-    background-image: url('../../images/fondos/black/black_1.jpg');
+    background-image: url('../../images/fondos/black/black_1.png');
 }

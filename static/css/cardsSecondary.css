@@ -70,7 +70,8 @@ la seccion de los grupos*/
 }
 
 .cardMainDesktopPanelLeftEDITED > p > i{
-	font-size: 60px;
+	font-size: 80px !important;
+	margin-top: 30px !important;
 }
 
 .cardMainDesktopPanelRightEDITED{

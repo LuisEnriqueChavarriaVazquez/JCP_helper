@@ -10,12 +10,12 @@
 
 </head>
 
-<body class="oculto">
+<body class="oculto colorGrey">
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/cargador.html" %}
 
     <!--Menu de página de inicio-->
-    <nav class="color2 z-depth-3">
+    <nav class="color2 z-depth-3 fixedNavbarMine">
         <div class="nav-wrapper">
             <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i
                     class="material-icons">menu</i></a>
@@ -29,6 +29,7 @@
             </ul>
         </div>
     </nav>
+    <br><br><br>
 
 
     <ul id="slide-out" class="sidenav colorWhite">
@@ -215,7 +216,7 @@
         </section>
 
         <!--Para dispositivos móviles-->
-        <section class="owl-carousel owl-theme hide-on-med-and-up colorGrey">
+        <section class="owl-one owl-carousel owl-theme hide-on-med-and-up colorGrey">
             <div class="item">
                 <a href="gestionar_grupos">
                     <div class="borderDecoration shadow-2e bordered2">

@@ -22,7 +22,7 @@
 
 /*Fondos dinámicos*/
 .cardCarouselMainHead{
-    background-image: url('../../images/fondos/aqua/aqua_2.png');
+    background-image: url('../../images/fondos/aqua/aqua_1.png');
 }
 
 .cardMain{
@@ -30,17 +30,17 @@
 }
 
 .cardMainDesktopPanelHead{
-    background-image: url('../../images/fondos/aqua/aqua_2.png');
+    background-image: url('../../images/fondos/aqua/aqua_4.png');
 }
 
 .informeCard{
-    background-image: url('../../images/fondos/aqua/aqua_1.png');
+    background-image: url('../../images/fondos/aqua/aqua_3.png');
 }
 
 .iconSecondary{
-    background-image: url('../../images/fondos/aqua/aqua_2.png') ;
+    background-image: url('../../images/fondos/aqua/aqua_5.png') ;
 }
 
 .card-bienvenida,.card-bienvenida-text{
-    background-image: url('../../images/fondos/aqua/aqua_1.png');
+    background-image: url('../../images/fondos/aqua/aqua_6.png');
 }

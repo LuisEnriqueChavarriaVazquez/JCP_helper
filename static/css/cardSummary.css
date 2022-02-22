@@ -11,11 +11,24 @@
     margin: 0 40px 15px 40px !important;
 }
 
+.cardSummaryCarousel{
+    padding: 10px;
+    height: 80px;
+    width: 300px !important;
+}
+
 .counterSummary{
     width: 30%;
     padding: 5px 20px;
     font-size: 25px;
     font-weight: 600;
+}
+
+.counterSummaryCarousel{
+    width: 30%;
+    padding: 5px 20px;
+    font-size: 20px;
+    font-weight: 400;
 }
 
 .statisticSummary{
