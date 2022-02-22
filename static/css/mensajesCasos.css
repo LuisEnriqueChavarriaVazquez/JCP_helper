@@ -1,0 +1,40 @@
+.cajaMensaje{
+    width: 100%;
+    height: auto;
+}
+
+.imagenMensaje{
+    width: 100%;
+}
+
+.imagenMensaje > img{
+    width: 100%;
+}
+
+@media only screen and (min-width: 500px) {
+    .imagenMensaje > img {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .imagenMensaje > img {
+        width: 55%;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .imagenMensaje > img {
+        width: 45%;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .imagenMensaje > img {
+        width: 35%;
+    }
+}
+
+.textoMensaje > p{
+    font-weight: 600;
+}

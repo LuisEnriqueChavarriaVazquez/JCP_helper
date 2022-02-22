@@ -5108,7 +5108,7 @@ small {
   position: absolute;
   bottom: 0;
   height: 3px;
-  background-color: #808080;
+  background-color: #fff;
   will-change: left, right;
 }
 

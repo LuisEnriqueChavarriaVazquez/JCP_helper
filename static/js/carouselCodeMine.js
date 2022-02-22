@@ -68,3 +68,26 @@ $('.owl-three').owlCarousel({
         }
     }
 })
+
+/*
+    Es el carousel para nuestra parte las estadisticas del sistema en las cards solamente
+*/
+$('.owl-four').owlCarousel({
+    loop:false,
+    margin:2,
+    autoWidth:true,
+    touchDrag:true,
+    nav:false,
+    dotsData: false,
+    dots: false,
+    fluidSpeed: true,
+    center: true,
+    responsive:{
+        0:{
+            items:1.2
+        },
+        600:{
+            items:1.2
+        }
+    }
+})

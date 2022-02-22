@@ -23,155 +23,53 @@
                 <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
             </ul>
         </div>
+        <!--Sección para elegir el tipo de stat-->
+
+        <ul class="tabs tabs-fixed-width tab-demo z-depth-1 color2">
+            <li class="tab"><a class="active coloredText colorText" href="#test1">Informes</a></li>
+            <li class="tab"><a href="#test2" class="colorText">Grupos</a></li>
+            <li class="tab"><a href="#test3" class="colorText">Cuestionarios</a></li>
+            <li class="tab"><a href="#test4" class="colorText">Comunidad</a></li>
+        </ul>
     </nav>
-    <br><br><br>
+    <br><br><br><br><br><br>
 
-    <!--Seccion de datos relevantes en las estadisticas
-        para las tabletas y para los esxritorios.-->
-    <section class="mainBodyAdicional">
-        <div class="title-general colorGrey">
-            <h4 class="hide-on-large-only hide-on-small-only">&nbsp;&nbsp;&nbsp;&nbsp;Datos relevantes</h4>
-            <h5 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;</h5>
-        </div>
+    <!--Datos generales para tabletas y escritorio-->
+    {% include "includes/estadisticasDocente/1_datos_generales_med_large.html" %}
 
-        <section class="containerTabletaSecondary hide-on-small-only colorGreyWhiter bordered2 shadow-1e row"
-            style="margin: 0 65px 0 65px; padding: 20px;">
-            <div class="col s12 hide-on-med-and-down">
-                <h5>Datos relevantes</h5>
-            </div>
-            <div class="col s12 m6 l3">
-                <div class="card bordered1 borderDecoration colorGreyWhiter shadow-2">
-                    <a href="#!" id="coloresAqua">
-                        <div class="card-stacked">
-                            <div class="card-content centerAligner verticalAligner">
-                                <div>
-                                    <p class="colorTextReverse fontTabletSummary">Dato relevante 1</p>
-                                </div>
-                                <div class="fontCounterSummary colorTextReverse">
-                                    80
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col s12 m6 l3">
-                <div class="card bordered1 borderDecoration colorGreyWhiter shadow-2">
-                    <a href="#!" id="coloresAqua">
-                        <div class="card-stacked">
-                            <div class="card-content centerAligner verticalAligner">
-                                <div>
-                                    <p class="colorTextReverse fontTabletSummary">Dato relevante 2</p>
-                                </div>
-                                <div class="fontCounterSummary colorTextReverse">
-                                    80
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col s12 m6 l3">
-                <div class="card bordered1 borderDecoration colorGreyWhiter shadow-2">
-                    <a href="#!" id="coloresAqua">
-                        <div class="card-stacked">
-                            <div class="card-content centerAligner verticalAligner">
-                                <div>
-                                    <p class="colorTextReverse fontTabletSummary">Dato relevante 3</p>
-                                </div>
-                                <div class="fontCounterSummary colorTextReverse">
-                                    80
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col s12 m6 l3">
-                <div class="card bordered1 borderDecoration colorGreyWhiter shadow-2">
-                    <a href="#!" id="coloresAqua">
-                        <div class="card-stacked">
-                            <div class="card-content centerAligner verticalAligner">
-                                <div>
-                                    <p class="colorTextReverse fontTabletSummary">Dato relevante 4</p>
-                                </div>
-                                <div class="fontCounterSummary colorTextReverse">
-                                    80
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </section>
+    <!--Datos generales para moviles-->
+    {% include "includes/estadisticasDocente/1_datos_generales_small.html" %}
 
-    <div class="title-general colorGrey">
-        <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Datos relevantes</h4>
-        <h5 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+
+    <div id="test1" class="col s12">
+        {% include "includes/estadisticasDocente/3_informes_estadisticas.html" %}
     </div>
-    <!--Seccion de las estadisticas gráficas para la 
-        version de dispositvos moviles.-->
-        <section class="mainBodyAdicional centerAligner">
-            <section class="owl-carousel owl-three owl-theme hide-on-med-and-up colorGrey">
-                <div class="item">
-                    <div class="centerAligner borderDecorationStrong cardSummaryCarousel shadow-1e bordered1 colorGreyWhiter">
-                        <div class="counterSummaryCarousel center-align bordered3 color3 colorText shadow-1e">8</div>
-                        <div class="statisticSummary truncate flow-text colorTextReverse">&nbsp; &nbsp; Número de grupos</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="centerAligner borderDecorationStrong cardSummaryCarousel shadow-1e bordered1 colorGreyWhiter">
-                        <div class="counterSummaryCarousel center-align bordered3 color4 colorText shadow-1e">120</div>
-                        <div class="statisticSummary truncate flow-text colorTextReverse">&nbsp; &nbsp; Número de estudiantes</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="centerAligner borderDecorationStrong cardSummaryCarousel shadow-1e bordered1 colorGreyWhiter">
-                        <div class="counterSummaryCarousel center-align bordered3 color2 colorText shadow-1e">19</div>
-                        <div class="statisticSummary truncate flow-text colorTextReverse">&nbsp; &nbsp; Número de cuestionarios</div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="centerAligner borderDecorationStrong cardSummaryCarousel shadow-1e bordered1 colorGreyWhiter">
-                        <div class="counterSummaryCarousel center-align bordered3 color1 colorText shadow-1e">19</div>
-                        <div class="statisticSummary truncate flow-text colorTextReverse">&nbsp; &nbsp; Número de temas</div>
-                    </div>
-                </div>
-                
-                <div class="item" style="width: 200px;">
-                </div>
-            </section>
+    <div id="test2" class="col s12">
+        <!--Graficas para dispositivos móviles.-->
+        {% include "includes/estadisticasDocente/2_datos_graficas_small.html" %}
+    </div>
+    <div id="test3" class="col s12">
+        <section style="margin: 30px;">
+            Tercera
         </section>
-        
-        <!--Seccion de datos relevantes en las estadisticas
-            para los dispositivos moviles.-->
-        <section class="mainBodyAdicional centerAligner">
-            <section class="owl-carousel owl-three owl-theme hide-on-med-and-up colorGrey">
-                <div class="item">
-                    
-                </div>
-                <div class="item">
-                    
-                </div>
-                <div class="item">
-                    
-                </div>
-                <div class="item">
-                    
-                </div>
-    
-                <div class="item" style="width: 200px;">
-                </div>
-            </section>
+    </div>
+    <div id="test4" class="col s12">
+        <section style="margin: 30px;">
+            Cuarta
         </section>
-        
-        <!--Metemos el footer en la app-->
-        {% include "includes/footer.html" %}
-        
-    </body>
-    
-    <!--Jalamos todo el contenido del encabezado-->
-    {% include "includes/footerRecursos.html" %}
-    
-    </html>
+    </div>
+
+
+
+
+
+
+    <!--Metemos el footer en la app-->
+    {% include "includes/footer.html" %}
+
+</body>
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+</html>

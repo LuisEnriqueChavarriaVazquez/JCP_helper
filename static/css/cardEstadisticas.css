@@ -1,0 +1,22 @@
+/*Aqui estan las tarjetas base de las gráficas.*/
+
+.cuerpoCardGrafica{
+    width: 300px;
+    height: 400px;
+    margin: 0px  5px 10px 5px;
+}
+
+.tituloCardGrafica{
+    font-weight: 600;
+    padding: 20px;
+}
+
+.graficoCardGrafica{
+    padding: 20px 10px 20px 10px;
+}
+
+/*Ocultamos secciones enteras de las gráficas*/
+
+.hidderMine{
+    display: none;
+}

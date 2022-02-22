@@ -1,0 +1,77 @@
+<!--Seccion de datos relevantes en las estadisticas
+            para los dispositivos moviles.-->
+<div class="title-general colorGrey">
+    <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Gráficas</h4>
+    <h5 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Gráficas</h5>
+    &nbsp;&nbsp;&nbsp;
+    <!-- Dropdown Trigger -->
+    <a class='dropdown-trigger btn button-rounded colorGreyWhiter colorTextReverse' href='#' data-target='dropdown1'><i class="material-icons">settings</i></a>
+
+    <!-- Dropdown Structure -->
+    <ul id='dropdown1' class='dropdown-content'>
+        <li class="hide-on-med-and-up"><a href="#!" id="listaGrafGrupos" class="colorTextReverse"><i class="colorTextReverse material-icons">view_list</i>Lista</a></li>
+        <li class="hide-on-med-and-up"><a href="#!" id="carouselGrafGrupos" class="colorTextReverse"><i class="colorTextReverse material-icons">swap_horiz</i>Carrusel</a></li>
+        <li class="hide-on-small-only"><a href="#!" id="dashboardGrafGrupos" class="colorTextReverse"><i class="colorTextReverse material-icons">dashboard</i>Cuadricula</a></li>
+        <li class="hide-on-small-only"><a href="#!" id="dashboardVerticalGrafGrupos" class="colorTextReverse"><i class="colorTextReverse material-icons">vertical_split</i>Vertical</a></li>
+    </ul>
+</div>
+
+<section style="margin: 0px;" id="carouselGrafGruposSegmento" class="hide-on-med-and-up">
+    <!--Carousel con algunas cuantas graficas.-->
+    <section class="owl-carousel owl-four owl-theme hide-on-med-and-up colorGrey">
+        <div class="item">
+            <div class="bordered2 shadow-2e cuerpoCardGrafica colorWhite">
+                <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
+                </div>
+                <div class="graficoCardGrafica bordered2Down centerAligner">
+                    {% include "includes/mensajesCasos/error.html" %}
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="bordered2 shadow-2e cuerpoCardGrafica colorWhite">
+                <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
+                </div>
+                <div class="graficoCardGrafica bordered2Down centerAligner">
+                    {% include "includes/mensajesCasos/error.html" %}
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="bordered2 shadow-2e cuerpoCardGrafica colorWhite">
+                <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
+                </div>
+                <div class="graficoCardGrafica bordered2Down centerAligner">
+                    {% include "includes/mensajesCasos/error.html" %}
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="bordered2 shadow-2e cuerpoCardGrafica colorWhite">
+                <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
+                </div>
+                <div class="graficoCardGrafica bordered2Down centerAligner">
+                    {% include "includes/mensajesCasos/error.html" %}
+                </div>
+            </div>
+        </div>
+
+        <div class="item" style="width: 200px;">
+        </div>
+    </section>
+</section>
+
+<!--Listado de los elementos-->
+<section style="margin: 0px;" class="hidderMine hide-on-med-and-up" id="listadoGrafGruposSegmento">
+    <p>Listado</p>
+</section>
+
+<!--Listado de los elementos-->
+<section style="margin: 0px;" class="hidderMine hide-on-small-only" id="dashboardGrafGruposSegmento">
+    <p>dashboard</p>
+</section>
+
+<!--Listado de los elementos-->
+<section style="margin: 0px;" class="hidderMine hide-on-small-only" id="dashboardVerticalGrafGruposSegmento">
+    <p>dashboard vertical</p>
+</section>
