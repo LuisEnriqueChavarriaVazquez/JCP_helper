@@ -45,6 +45,10 @@
     background-image: url('../../images/fondos/rosa/rosa_7.png');
 }
 
+.fondoDinamico{
+    background-image: url('../../images/fondos/rosa/rosa_1.png');
+}
+
 /*Barra de carga*/
 .progress .indeterminate {
     background-color: #743b5e;

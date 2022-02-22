@@ -47,6 +47,10 @@
     background-image: url('../../images/fondos/cafe/cafe_1.png');
 }
 
+.fondoDinamico{
+    background-image: url('../../images/fondos/cafe/cafe_1.png');
+}
+
 /*Barra de carga*/
 .progress .indeterminate {
     background-color: #4a3238;

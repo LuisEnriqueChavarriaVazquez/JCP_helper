@@ -27,23 +27,27 @@
 }
 
 .cardMain{
-    background-image: url('../../images/fondos/cafe/cafe_3.png');
+    background-image: url('../../images/fondos/naranja/naranja_3.png');
 }
 
 .cardMainDesktopPanelHead{
-    background-image: url('../../images/fondos/cafe/cafe_2.png');
+    background-image: url('../../images/fondos/naranja/naranja_2.png');
 }
 
 .informeCard{
-    background-image: url('../../images/fondos/cafe/cafe_3.png');
+    background-image: url('../../images/fondos/naranja/naranja_3.png');
 }
 
 .iconSecondary{
-    background-image: url('../../images/fondos/cafe/cafe_2.png') ;
+    background-image: url('../../images/fondos/naranja/naranja_2.png') ;
 }
 
 .card-bienvenida,.card-bienvenida-text{
-    background-image: url('../../images/fondos/cafe/cafe_1.png');
+    background-image: url('../../images/fondos/naranja/naranja_1.png');
+}
+
+.fondoDinamico{
+    background-image: url('../../images/fondos/naranja/naranja_1.png');
 }
 
 /*Barra de carga*/

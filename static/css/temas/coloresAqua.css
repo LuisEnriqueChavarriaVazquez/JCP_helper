@@ -45,6 +45,10 @@
     background-image: url('../../images/fondos/aqua/aqua_6.png');
 }
 
+.fondoDinamico{
+    background-image: url('../../images/fondos/aqua/aqua_1.png');
+}
+
 /*Barra de carga*/
 .progress .indeterminate {
     background-color: #122d3e;

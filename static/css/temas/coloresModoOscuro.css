@@ -53,6 +53,10 @@ h1,h2,h3,h4,h5, p{
     background-image: url('../../images/fondos/black/black_1.png');
 }
 
+.fondoDinamico{
+    background-image: url('../../images/fondos/black/black_1.png');
+}
+
 /*Barra de carga*/
 .progress .indeterminate {
     background-color: #2c2c2c;
