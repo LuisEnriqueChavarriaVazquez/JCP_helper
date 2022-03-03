@@ -140,3 +140,47 @@
     padding-left: 20px;
     padding-right: 20px;
 }
+
+/*CARDS DE LA COMUNIDAD*/
+
+.cardComunidadBusqueda{
+    padding: 6px;
+    margin: 20px;
+    width: 200px;
+}
+
+.cardBackgroundBusqueda{
+    padding: 12px;
+    width: 100%;
+    height: 150px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+}
+
+.cardTitleBusqueda{
+    margin-top: 4px;
+}
+
+.cardTitleBusqueda > div{
+    font-weight: 600 !important;
+}
+
+.cardUserBusqueda{
+    margin-top: 4px;
+}
+
+.imageUserBusqueda{
+    width: 40px;
+    height: auto;
+}
+
+.imageUserBusqueda > img{
+    width: 40px;
+    height: auto;
+}

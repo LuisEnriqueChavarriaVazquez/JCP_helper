@@ -91,3 +91,26 @@ $('.owl-four').owlCarousel({
         }
     }
 })
+
+/*
+    Para las recomendaciones en pequeños globitos
+*/
+$('.owl-five').owlCarousel({
+    loop:false,
+    margin:10,
+    autoWidth:true,
+    touchDrag:true,
+    nav:false,
+    dotsData: false,
+    dots: false,
+    fluidSpeed: true,
+    center: false,
+    responsive:{
+        0:{
+            items:1.2
+        },
+        600:{
+            items:1.2
+        }
+    }
+})
