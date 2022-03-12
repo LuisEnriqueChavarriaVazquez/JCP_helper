@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-02-2022 a las 00:57:01
+-- Tiempo de generación: 13-03-2022 a las 00:43:44
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.3.22
 
@@ -36,7 +36,7 @@ CREATE TABLE `alumnos` (
   `passwordA` varchar(100) NOT NULL,
   `es_proc` varchar(150) NOT NULL,
   `grupo` varchar(10) DEFAULT NULL,
-  `desc_alum` varchar(200) NOT NULL,
+  `desc_alum` varchar(200) DEFAULT NULL,
   `area_esp_a` varchar(100) DEFAULT NULL,
   `correoA_alt` varchar(100) DEFAULT NULL,
   `linkedinA` varchar(150) DEFAULT NULL,
@@ -44,6 +44,52 @@ CREATE TABLE `alumnos` (
   `instagramA` varchar(150) DEFAULT NULL,
   `vkA` varchar(150) DEFAULT NULL,
   `telefonoA` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cuestionarios`
+--
+
+CREATE TABLE `cuestionarios` (
+  `idC` int(11) NOT NULL,
+  `titulo` varchar(150) NOT NULL,
+  `fecha` varchar(150) NOT NULL,
+  `autor` varchar(150) NOT NULL,
+  `temas` varchar(200) NOT NULL,
+  `tipo` varchar(100) NOT NULL,
+  `lenguaje` varchar(10) NOT NULL,
+  `opciones` varchar(400) NOT NULL,
+  `respuesta` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `grupos`
+--
+
+CREATE TABLE `grupos` (
+  `idG` int(11) NOT NULL,
+  `Nombre` varchar(50) NOT NULL,
+  `Descripcion` varchar(150) NOT NULL,
+  `Fondo` blob NOT NULL,
+  `codigo` varchar(10) NOT NULL,
+  `lenguajes` varchar(100) NOT NULL,
+  `temas` varchar(450) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `notificaciones`
+--
+
+CREATE TABLE `notificaciones` (
+  `idN` int(11) NOT NULL,
+  `texto` varchar(300) NOT NULL,
+  `fecha` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -80,6 +126,24 @@ ALTER TABLE `alumnos`
   ADD PRIMARY KEY (`idA`);
 
 --
+-- Indices de la tabla `cuestionarios`
+--
+ALTER TABLE `cuestionarios`
+  ADD PRIMARY KEY (`idC`);
+
+--
+-- Indices de la tabla `grupos`
+--
+ALTER TABLE `grupos`
+  ADD PRIMARY KEY (`idG`);
+
+--
+-- Indices de la tabla `notificaciones`
+--
+ALTER TABLE `notificaciones`
+  ADD PRIMARY KEY (`idN`);
+
+--
 -- Indices de la tabla `profesores`
 --
 ALTER TABLE `profesores`
@@ -94,6 +158,24 @@ ALTER TABLE `profesores`
 --
 ALTER TABLE `alumnos`
   MODIFY `idA` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `cuestionarios`
+--
+ALTER TABLE `cuestionarios`
+  MODIFY `idC` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `grupos`
+--
+ALTER TABLE `grupos`
+  MODIFY `idG` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `notificaciones`
+--
+ALTER TABLE `notificaciones`
+  MODIFY `idN` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `profesores`
