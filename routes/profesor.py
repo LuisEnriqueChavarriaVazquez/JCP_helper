@@ -39,25 +39,22 @@ def signup_Prof():
 @routes.route('/nuevo_profesor',methods=["POST"])
 def nuevo_profesor():
     if request.method=="POST":
+
         nombre=request.form["nombre"]
-        alias=request.form["aliasP"]
+        alias=request.form["alias"]
         foto=request.files["foto"]
         correo=request.form["correo"]
-        password=request.form["password"]
+        contra=request.form["contra"]
+        unidad_academica=request.form["unidad_academica"]
+        descripcion=request.form["descripcion"]
 
         # encriptamos la contraseña
-        password = password.encode('utf-8')
-        hashed = bcrypt.hashpw(password, bcrypt.gensalt()) 
+        contra = contra.encode('utf-8')
+        hashed = bcrypt.hashpw(contra, bcrypt.gensalt()) 
 
-        correo_alt=request.form["correo_alt"]
-        linkedinP=request.form["linkedinP"]
-        facebookP=request.form["facebookP"]
-        instagramP=request.form["instagramP"]
-        vkP=request.form["vkP"]
-        telefonoP=request.form["telefonoP"]
-        unidad_ac=request.form["unidad_ac"]
-        desc_perfil=request.form["desc_perfil"]
-        Op_profesor.insertar_profesor(nombre,alias,foto,correo,hashed,correo_alt,linkedinP,facebookP,instagramP,vkP,telefonoP,unidad_ac,desc_perfil)
+
+
+        Op_profesor.insertar_profesor(nombre,alias,foto,correo,hashed,unidad_academica,descripcion)
         flash(f"{nombre} te has registrado correctamente")
         return render_template('profesor/bienvenidaProfesor.html')
 
@@ -72,7 +69,6 @@ def login_profesor():
             passBD=str(result[5])
             passBD=passBD.encode('utf-8')
             if bcrypt.checkpw(password,passBD):
-                print(result[3])
                 return render_template('profesor/bienvenidaProfesor.html',datos=result)  
             else:
                 return redirect(url_for('routes.login_general'))   

@@ -1,10 +1,10 @@
 from operacionesBD.conexion import obtener_conexion
 
-def insertar_profesor(nombre,alias,foto,correo,password,correoAlt,linkedin,facebook,instagram,vk,telefono,unidad_ac,desc_perfil):
+def insertar_profesor(nombre,alias,foto,correo,contra,unidad_academica,descripcion):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO profesores(nombreP,aliasP,fotoP,correoP,passwordP,correoP_alt,linkedinP,facebookP,instagramP,vkP,telefonoP,unidad_ac,desc_perfil_p) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
-        (nombre,alias,foto,correo,password,correoAlt,linkedin,facebook,instagram,vk,telefono,unidad_ac,desc_perfil))
+        cursor.execute("INSERT INTO docentes(Nombre,Alias,Foto,correo,contra,unidad_academica,descripcion) VALUES(%s,%s,%s,%s,%s,%s,%s)",
+        (nombre,alias,foto,correo,contra,unidad_academica,descripcion))
     conexion.commit()
     conexion.close()
 
@@ -13,7 +13,7 @@ def obtener_profesores():
     profesores=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT*FROM profesores")
+        cursor.execute("SELECT*FROM docentes")
         profesores=cursor.fetchall()
     conexion.close()
     return profesores
@@ -22,7 +22,7 @@ def login_prof(correo):
     conexion = obtener_conexion()
     profesor = None
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT*FROM profesores WHERE correoP = %s", (correo))
+        cursor.execute("SELECT*FROM docentes WHERE correo = %s", (correo))
         profesor = cursor.fetchone()
     conexion.close()
     return profesor

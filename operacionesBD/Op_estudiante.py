@@ -1,10 +1,10 @@
 from operacionesBD.conexion import obtener_conexion
 
-def insertar_estudiante(nombre,alias,foto,correo,password,es_proc,grupo,desc_alum,area_esp_a,correoA,linkedinA,facebookA,instagramA,vkA,telefonoA):
+def insertar_estudiante(nombre,alias,foto,correo,contra,area,escuela,descripcion):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO alumnos(nombreA,aliasA,fotoA,correoA,passwordA,es_proc,grupo,desc_alum,area_esp_a,correoA_alt,linkedinA,facebookA,instagramA,vkA,telefonoA) VALUES(%s, %s, %s,%s,%s,%s, %s, %s,%s,%s,%s, %s, %s,%s,%s)",
-        (nombre,alias,foto,correo,password,es_proc,grupo,desc_alum,area_esp_a,correoA,linkedinA,facebookA,instagramA,vkA,telefonoA))
+        cursor.execute("INSERT INTO alumnos(Nombre,Alias,Foto,correo,contra,area,escuela,descripcion) VALUES(%s, %s, %s,%s,%s,%s, %s, %s)",
+        (nombre,alias,foto,correo,contra,area,escuela,descripcion))
     conexion.commit()
     conexion.close()
 
@@ -22,7 +22,7 @@ def obtener_estudiantes():
 def eliminar_estudiante(id):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("DELETE FROM alumnos WHERE idA = %s", (id,))
+        cursor.execute("DELETE FROM alumnos WHERE IDAlumno = %s", (id,))
     conexion.commit()
     conexion.close()
 
@@ -31,7 +31,7 @@ def login_est(correo):
     conexion = obtener_conexion()
     estudiante = None
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT*FROM alumnos WHERE correoA = %s", (correo))
+        cursor.execute("SELECT*FROM alumnos WHERE correo = %s", (correo))
         estudiante = cursor.fetchone()
     conexion.close()
     return estudiante
