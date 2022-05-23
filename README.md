@@ -19,7 +19,7 @@
 
 [Link a la documentación del trabajo](https://drive.google.com/drive/folders/1m-9EhEoLwXtuKkZPg5s3rUFJSfDsQrPG?usp=sharing).
 
-[Repositorio de la documentación](https://github.com/LuisEnriqueChavarriaVazquez/jcphelper_documentaci-n).
+[Repositorio de la documentación](https://github.com/LuisEnriqueChavarriaVazquez/jcp_helper_docu).
 
 
 ***
