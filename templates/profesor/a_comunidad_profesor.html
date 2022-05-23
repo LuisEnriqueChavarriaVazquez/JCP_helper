@@ -5,7 +5,7 @@
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
 
-    <title>Saber más</title>
+    <title>Comunidad</title>
 </head>
 
 <body class="oculto">
@@ -29,30 +29,293 @@
     <section>
         <div class="fondoDinamico headerComunidad shadow-2e headerComunidad"></div>
         <div class="contenedorBuscador centerAligner">
-            <input type="text" class="browser-default shadow-2e flow-text" placeholder="Buscar cuestionarios" id="buscadorInput">
+            <input type="text" class="browser-default shadow-2e flow-text" placeholder="Buscar cuestionarios"
+                id="buscadorInput">
         </div>
     </section>
 
     <!--Metemos el footer en la app-->
     {% include "includes/comunidadDocente/sliderRecomendaciones.html" %}
 
-    <section>
-        <div class="cardComunidadBusqueda colorGrey bordered2">
-            <div class="cardBackgroundBusqueda bordered2 shadow-3e"
-             style="background-image: url('https://dical.es/modules/ph_simpleblog/covers/18.jpg');">
-            </div>
-            <div class="cardTitleBusqueda">
-                <div class="miniBadge colorWhite shadow-2e bordered5">Cuestionario Ejemplo</div>
-            </div>
-            <div class="cardUserBusqueda">
-                <div class="imageUserBusqueda">
-                    <img src="../../static/images/user.png" class="shadow-2e bordered5">
+    <div class="title-general">
+        <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Resultados</h5>
+        <h4 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Resultados</h4>
+    </div>
+
+    <section class="mainBodyAdicional">
+        <!--Sección para dispositivos mas grandes-->
+        <section class="hide-on-small-only" style="padding: 20px;">
+            <div class="row">
+                <div class="col m6 l3">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="../../static/images/carousel_two.jpg">
+                            <span class="card-title">Nombre_cuestionario</span>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Ver cuestionario</a>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    Docente XYZ
+                <div class="col m6 l3">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="../../static/images/carousel_two.jpg">
+                            <span class="card-title">Nombre_cuestionario</span>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Ver cuestionario</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m6 l3">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="../../static/images/carousel_two.jpg">
+                            <span class="card-title">Nombre_cuestionario</span>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Ver cuestionario</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+        <!--Seccion para dispositivos moviles-->
+        <section class="owl-five owl-carousel owl-theme hide-on-med-and-up">
+            <div class="item" style="margin-left: 20px;">
+                <a href="gestionar_grupos">
+                    <div class="cardComunidadBusqueda colorGreyWhiter bordered2 shadow-2e">
+                        <div class="cardBackgroundBusqueda bordered2 shadow-3e"
+                            style="background-image: url('../../static/images/carousel_two.jpg');">
+                        </div>
+                        <div class="cardTitleBusqueda">
+                            <div class="miniBadge">Nombre_cuestionario</div>
+                        </div>
+                        <div class="cardUserBusqueda">
+                            <div class="aligner_image_name">
+                                <div class="imageUserBusqueda">
+                                    <img src="../../static/images/user.png" class="shadow-2e bordered5">
+                                </div>
+                                <div class="docente_name_card_community">
+                                    Docente XYZ
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="gestionar_grupos">
+                    <div class="cardComunidadBusqueda colorGreyWhiter bordered2 shadow-2e">
+                        <div class="cardBackgroundBusqueda bordered2 shadow-3e"
+                            style="background-image: url('../../static/images/carousel_two.jpg');">
+                        </div>
+                        <div class="cardTitleBusqueda">
+                            <div class="miniBadge">Nombre_cuestionario</div>
+                        </div>
+                        <div class="cardUserBusqueda">
+                            <div class="aligner_image_name">
+                                <div class="imageUserBusqueda">
+                                    <img src="../../static/images/user.png" class="shadow-2e bordered5">
+                                </div>
+                                <div class="docente_name_card_community">
+                                    Docente XYZ
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="gestionar_grupos">
+                    <div class="cardComunidadBusqueda colorGreyWhiter bordered2 shadow-2e">
+                        <div class="cardBackgroundBusqueda bordered2 shadow-3e"
+                            style="background-image: url('../../static/images/carousel_two.jpg');">
+                        </div>
+                        <div class="cardTitleBusqueda">
+                            <div class="miniBadge">Nombre_cuestionario</div>
+                        </div>
+                        <div class="cardUserBusqueda">
+                            <div class="aligner_image_name">
+                                <div class="imageUserBusqueda">
+                                    <img src="../../static/images/user.png" class="shadow-2e bordered5">
+                                </div>
+                                <div class="docente_name_card_community">
+                                    Docente XYZ
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="gestionar_grupos">
+                    <div class="cardComunidadBusqueda colorGreyWhiter bordered2 shadow-2e">
+                        <div class="cardBackgroundBusqueda bordered2 shadow-3e"
+                            style="background-image: url('../../static/images/carousel_two.jpg');">
+                        </div>
+                        <div class="cardTitleBusqueda">
+                            <div class="miniBadge">Nombre_cuestionario</div>
+                        </div>
+                        <div class="cardUserBusqueda">
+                            <div class="aligner_image_name">
+                                <div class="imageUserBusqueda">
+                                    <img src="../../static/images/user.png" class="shadow-2e bordered5">
+                                </div>
+                                <div class="docente_name_card_community">
+                                    Docente XYZ
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="item" style="width: 200px;">
+            </div>
+        </section>
+    </section>
+
+    <!--Recomendaciones extra-->
+
+    <div class="title-general">
+        <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Podría interesarle</h5>
+        <h4 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Podría interesarle</h4>
+    </div>
+
+    <section class="mainBodyAdicional">
+        <!--Sección para dispositivos mas grandes-->
+        <section class="hide-on-small-only" style="padding: 20px;">
+            <div class="row">
+                <div class="col m6 l3">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="../../static/images/carousel_two.jpg">
+                            <span class="card-title">Nombre_cuestionario</span>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Ver cuestionario</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m6 l3">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="../../static/images/carousel_two.jpg">
+                            <span class="card-title">Nombre_cuestionario</span>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Ver cuestionario</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m6 l3">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="../../static/images/carousel_two.jpg">
+                            <span class="card-title">Nombre_cuestionario</span>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Ver cuestionario</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Seccion para dispositivos moviles-->
+        <section class="owl-five owl-carousel owl-theme hide-on-med-and-up">
+            <div class="item" style="margin-left: 20px;">
+                <a href="gestionar_grupos">
+                    <div class="cardComunidadBusqueda colorGreyWhiter bordered2 shadow-2e">
+                        <div class="cardBackgroundBusqueda bordered2 shadow-3e"
+                            style="background-image: url('../../static/images/carousel_two.jpg');">
+                        </div>
+                        <div class="cardTitleBusqueda">
+                            <div class="miniBadge">Nombre_cuestionario</div>
+                        </div>
+                        <div class="cardUserBusqueda">
+                            <div class="aligner_image_name">
+                                <div class="imageUserBusqueda">
+                                    <img src="../../static/images/user.png" class="shadow-2e bordered5">
+                                </div>
+                                <div class="docente_name_card_community">
+                                    Docente XYZ
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="gestionar_grupos">
+                    <div class="cardComunidadBusqueda colorGreyWhiter bordered2 shadow-2e">
+                        <div class="cardBackgroundBusqueda bordered2 shadow-3e"
+                            style="background-image: url('../../static/images/carousel_two.jpg');">
+                        </div>
+                        <div class="cardTitleBusqueda">
+                            <div class="miniBadge">Nombre_cuestionario</div>
+                        </div>
+                        <div class="cardUserBusqueda">
+                            <div class="aligner_image_name">
+                                <div class="imageUserBusqueda">
+                                    <img src="../../static/images/user.png" class="shadow-2e bordered5">
+                                </div>
+                                <div class="docente_name_card_community">
+                                    Docente XYZ
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="gestionar_grupos">
+                    <div class="cardComunidadBusqueda colorGreyWhiter bordered2 shadow-2e">
+                        <div class="cardBackgroundBusqueda bordered2 shadow-3e"
+                            style="background-image: url('../../static/images/carousel_two.jpg');">
+                        </div>
+                        <div class="cardTitleBusqueda">
+                            <div class="miniBadge">Nombre_cuestionario</div>
+                        </div>
+                        <div class="cardUserBusqueda">
+                            <div class="aligner_image_name">
+                                <div class="imageUserBusqueda">
+                                    <img src="../../static/images/user.png" class="shadow-2e bordered5">
+                                </div>
+                                <div class="docente_name_card_community">
+                                    Docente XYZ
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="item">
+                <a href="gestionar_grupos">
+                    <div class="cardComunidadBusqueda colorGreyWhiter bordered2 shadow-2e">
+                        <div class="cardBackgroundBusqueda bordered2 shadow-3e"
+                            style="background-image: url('../../static/images/carousel_two.jpg');">
+                        </div>
+                        <div class="cardTitleBusqueda">
+                            <div class="miniBadge">Nombre_cuestionario</div>
+                        </div>
+                        <div class="cardUserBusqueda">
+                            <div class="aligner_image_name">
+                                <div class="imageUserBusqueda">
+                                    <img src="../../static/images/user.png" class="shadow-2e bordered5">
+                                </div>
+                                <div class="docente_name_card_community">
+                                    Docente XYZ
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="item" style="width: 200px;">
+            </div>
+        </section>
     </section>
 
     <!--Metemos el footer en la app-->

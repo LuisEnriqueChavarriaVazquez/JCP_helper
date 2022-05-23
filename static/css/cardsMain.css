@@ -144,8 +144,8 @@
 /*CARDS DE LA COMUNIDAD*/
 
 .cardComunidadBusqueda{
-    padding: 6px;
-    margin: 20px;
+    padding: 8px 8px 14px 8px;
+    margin: 5px 5px 20px 5px;
     width: 200px;
 }
 
@@ -181,6 +181,32 @@
 }
 
 .imageUserBusqueda > img{
-    width: 40px;
+    width: 40px !important;
     height: auto;
+}
+
+
+.aligner_image_name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aligner_image_name > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aligner_image_name > div:first-child{
+    width: 30%;
+}
+
+.aligner_image_name > div:last-child{
+    width: 70%;
+}
+
+
+.docente_name_card_community{
+    font-weight: 600;
 }
