@@ -1,7 +1,0 @@
-Es el formulario que estamos usando para recolección de algunos datos de valor con voluntarios.
-
-Esto lo usamos para conocer un poco el pensar de nuestro target y desde luego con ayuda de otras estadísticas estamos refinando aspectos relacionados a lo que nuestros usuarios buscan.
-
-Dicha encuesta la cerraremos el día 20 para poder vaciar los datos y hacer el correspondiente análisis.
-
-https://forms.gle/VGZdD3qbKhRYUeUk8

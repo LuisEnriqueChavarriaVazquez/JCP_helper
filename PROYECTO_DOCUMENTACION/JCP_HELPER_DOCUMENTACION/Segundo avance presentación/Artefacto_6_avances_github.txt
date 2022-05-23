@@ -1,3 +1,0 @@
-Le incluimos nuestros avances, de github. Ya estamos preparando un pequeño video teaser para mostrarlo en nuestra presentación, de modo que pueda parecer como un pequeño comercial de menos de un minutos donde se decriban las funcionalidades y se vea la interfaz y operaciones en su esplendor.
-
-https://github.com/LuisEnriqueChavarriaVazquez/JCP_helper
