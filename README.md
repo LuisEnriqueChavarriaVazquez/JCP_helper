@@ -4,6 +4,7 @@
 <img src="static\images\logo_compu.png" alt="Logo de JCP_Helper" style="zoom:50%;" />
 <img src="static\images\logo_celular.png" alt="Logo de JCP_Helper de celular" style="zoom:50%;" />
 ***
+
 ### Integrantes del equipo
 * Juarez Espinosa Ulises
 * Machorro Vences Ricardo Alberto
@@ -16,8 +17,12 @@
 ***
 [Pagina de heroku para hacer pruebas](https://jcphelperdos.herokuapp.com/).
 
-[Link a la documentación del trabajo](https://docs.google.com/document/d/1oxEhEVl6O1erCn2nud5_2VKQUbxIlUUT/edit).
+[Link a la documentación del trabajo](https://drive.google.com/drive/folders/1m-9EhEoLwXtuKkZPg5s3rUFJSfDsQrPG?usp=sharing).
 
+[Repositorio de la documentación](https://github.com/LuisEnriqueChavarriaVazquez/jcphelper_documentaci-n).
+
+
+***
 [Link a documentos del TT](https://drive.google.com/drive/folders/1xM7VRvivOMT78cPrdiXmzwETw2PiQeVK).
 
 [Aprbación del protocolo](https://drive.google.com/file/d/1TtiE5vmOUr62eWuJAX9T_ZUzeF34hmzr/view?usp=sharing).
@@ -31,7 +36,7 @@ Numero | Recursos Utilizados
 4 | Google Icons
 6 | Jquery
 7 | Owl carousel
-8 | Favor de agregar si encuentran más herramientas
+8 | El resto de herramientas estan descritas en la documentación
 
 
 
