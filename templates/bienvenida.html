@@ -8,6 +8,21 @@
 
 </head>
 
+
+
+<style>
+    th,
+    td {
+        padding: 30px !important;
+    }
+
+    a{
+        font-size: 20px;
+        font-weight: 600;
+    }
+</style>
+
+
 <body class="oculto">
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/cargador.html" %}
@@ -17,10 +32,6 @@
         <div class="nav-wrapper">
             <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;JCP_helper.</a>
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="signup_est" class="btn color3 button-rounded">Soy estudiante</a></li>
-                <li><a href="signup_prof" class="btn color3 button-rounded">Soy docente</a></li>
-            </ul>
         </div>
     </nav>
 
@@ -32,152 +43,103 @@
                     <img src="../static/images/sidenavImage.jpg" width="100%">
                 </div>
                 <br>
-                <a href="#name"><span class="white-text name">¡Bienvenido!</span></a>
+                <a href="#name"><span class="white-text name">¡Bienvenido a la prueba!</span></a>
                 <br>
             </div>
         </li>
-        <li><a href="nuevo_prof"><i class="material-icons">school</i>Soy docente.</a></li>
-        <li><a href="signup_est"><i class="material-icons">child_care</i>Soy estudiante.</a></li>
     </ul>
-
-    <div class="carousel carousel-slider hide-on-small-only center">
-        <div class="carousel-fixed-item center">
-            <!---Este boton nos debe mandar a una guia con las cosas que se pueden hacer-->
-            <a class="btn waves-effect color1" href="saber_mas">Saber más</a>
-        </div>
-        <div class="carousel-item carouselOne white-text" href="#one!">
-            <h2>Potencia el aprendizaje.</h2>
-            <p class="white-text">Simplicidad y variedad al alcance de todos.</p>
-        </div>
-        <div class="carousel-item carouselThree black-text" href="#three!">
-            <h2>En casa o en el aula.</h2>
-            <p class="white-text">Herramienta ideal para trabajo online o presencial.</p>
-        </div>
-        <div class="carousel-item carouselFour black-text" href="#four!">
-            <h2>Acceso a banco de datos.</h2>
-            <p class="white-text">Obtenga acceso a material para crear pruebas</p>
-        </div>
-        <div class="carousel-item carouselTwo black-text" href="#two!">
-            <h2>Acceso a estadísticas.</h2>
-            <p class="white-text">Inspeccione datos sobre rendimiento académico.</p>
-        </div>
-    </div>
 
     <section class="mainBody">
         <div class="title-general">
-            <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Crear una cuenta</h4>
-            <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Crear una cuenta</h3>
+            <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Acceso de prueba</h4>
+            <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Acceso de prueba</h3>
         </div>
 
-        <div class="card-bienvenida-text shadow-3">
-            <p class="colorText">¿Que tipo de usuario es?</p>
+        <div class="card color2">
+            <div class="card-content">
+                <p class="colorText">En la siguiente página usted puede acceder a las vistas de la aplicación y del
+                    mismo modo tener acceso alinks importantes como acceso a la documentación o repositorios con el
+                    código del proyecto hasta el momento.
+                    
+                    <br>
+
+                    NOTA: Los links estan direccionando hacia el host heroku.
+                </p>
+            </div>
+            <div class="card-tabs">
+                <ul class="tabs tabs-fixed-width">
+                    <li class="tab color2"><a class="colorText active" href="#test4">Vistas</a></li>
+                    <li class="tab color2"><a class="colorText" href="#test5">Documentación</a></li>
+                </ul>
+            </div>
+            <div class="card-content colorGrey">
+                <div id="test4">
+                    <h5>Vistas</h5>
+                    <a href="https://jcphelperdos.herokuapp.com/login_general">Log in general</a><br>
+                    <a href="https://jcphelperdos.herokuapp.com/saber_mas">Saber más</a><br>
+                    <a href="https://jcphelperdos.herokuapp.com/comunidad_profesor">comunidad_profesor</a><br>
+                    <a href="https://jcphelperdos.herokuapp.com/gestionar_cuestionarios">gestionar_cuestionarios</a><br>
+                    <a href="https://jcphelperdos.herokuapp.com/gestionar_estadisticas">gestionar_estadisticas</a><br>
+                    <a href="https://jcphelperdos.herokuapp.com/gestionar_grupos">gestionar_grupos</a><br>
+                    <a href="https://jcphelperdos.herokuapp.com/signup_prof">signup_prof</a><br>
+                    <!--<a href="https://jcphelperdos.herokuapp.com/nuevo_profesor">nuevo_profesor</a><br>-->
+                    <!--<a href="https://jcphelperdos.herokuapp.com/login_profesor">login_profesor</a><br>-->
+                    <a href="https://jcphelperdos.herokuapp.com/bienvenidaProfesor">bienvenidaProfesor</a><br>
+                    <a href="https://jcphelperdos.herokuapp.com/comunidad_estudiante">comunidad_estudiante</a><br>
+                    <a href="https://jcphelperdos.herokuapp.com/gestionar_cuestionarios_estudiante">gestionar_cuestionarios_estudiante</a><br>
+                    <a href="https://jcphelperdos.herokuapp.com/gestionar_estadisticas_estudiante">gestionar_estadisticas_estudiante</a><br>
+                    <a href="https://jcphelperdos.herokuapp.com/gestionar_grupos_estudiante">gestionar_grupos_estudiante</a><br>
+                    <a href="https://jcphelperdos.herokuapp.com/signup_est">signup_est</a><br>
+                    <a href="https://jcphelperdos.herokuapp.com/bienvenidaEstudiante">bienvenidaEstudiante</a><br>
+                    <!--<a href="https://jcphelperdos.herokuapp.com/nuevo_estudiante">nuevo_estudiante</a><br>-->
+                    <!--<a href="https://jcphelperdos.herokuapp.com/login_estudiante">login_estudiante</a><br>-->
+                    <a href="https://jcphelperdos.herokuapp.com/configuraciones">configuraciones</a><br>
+                </div>
+                <div id="test5">
+                    <h5>Documentación</h5>
+                    <table class="highlight striped shadow-2">
+                        <thead>
+                            <tr>
+                                <th>Descripción</th>
+                                <th>Link</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Documentación del trabajo</td>
+                                <td><a
+                                        href="https://drive.google.com/drive/folders/1m-9EhEoLwXtuKkZPg5s3rUFJSfDsQrPG">Enlace</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Repositorio de la documentación</td>
+                                <td><a href="https://github.com/LuisEnriqueChavarriaVazquez/jcp_helper_docu">Enlace</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Repositorio del código</td>
+                                <td><a href="https://github.com/LuisEnriqueChavarriaVazquez/JCP_helper">Enlace</a></td>
+                            </tr>
+                            <tr>
+                                <td>Link de documentos catt</td>
+                                <td><a
+                                        href="https://drive.google.com/drive/folders/1xM7VRvivOMT78cPrdiXmzwETw2PiQeVK">Enlace</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Aprobación de protocolo</td>
+                                <td><a
+                                        href="https://drive.google.com/file/d/1TtiE5vmOUr62eWuJAX9T_ZUzeF34hmzr/view">Enlace</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
-        <!--Para la versión de movil y tableta-->
-        <div class="card-bienvenida shadow-3 hide-on-large-only">
-            <div class="card-bienvenida-button-welcome centerAligner">
-                <a href="signup_est" class="truncate buttons-bienvenida waves-effect waves-light btn-large color3"><i
-                        class="material-icons left">child_care</i>Estudiante</a>
-                <a class="hide-on-small-only btn-floating btn-large waves-effect waves-light color2  modal-trigger" href="#modal1"><i
-                        class="material-icons">info</i></a>
-            </div>
-            <div class="card-bienvenida-button-welcome">
-                <a href="signup_prof" class="truncate buttons-bienvenida waves-effect waves-light btn-large color3"><i
-                        class="material-icons left">school</i>Docente &nbsp;&nbsp;&nbsp;</a>
-                <a class="hide-on-small-only btn-floating btn-large waves-effect waves-light color2  modal-trigger" href="#modal2"><i
-                        class="material-icons">info</i></a>
-            </div>
-        </div>
-
-        <!--Para la versión de escritorio-->
-        <br class="hide-on-med-and-down">
-        <section class="cards-bienvenida-desktop hide-on-med-and-down">
-
-            <div class="card shadow-3">
-                <div class="card-image">
-                    <img src="../static/images/example.jpg">
-                    <span class="card-title">Docente</span>
-                </div>
-                <div class="card-content">
-                    <p>Puede crear pruebas personalizadas para los estudiantes y evaluar el rendimiento académico de los
-                        mismo,
-                        por otra parte también puede compartir sus evaluaciones y acceder a bancos de preguntas para
-                        hacer las
-                        pruebas.</p>
-                </div>
-                <div class="card-action">
-                    <a class="btn color3 button-rounded" href="signup_prof">Soy docente</a>
-                </div>
-            </div>
-
-            <div class="card shadow-3">
-                <div class="card-image">
-                    <img src="../static/images/example.jpg">
-                    <span class="card-title">Estudiante</span>
-                </div>
-                <div class="card-content">
-                    <p>Acceda para poder resolver las pruebas que tus docentes hayan hecho y evalua tu rendimiento
-                        académico en
-                        cada prueba, accede a las estadisticas cuando lo desee y ponga a prueba sus conocimientos dentro
-                        de la clase.</p>
-                </div>
-                <div class="card-action">
-                    <a class="btn color3 button-rounded" href="signup_est">Soy estudiante</a>
-                </div>
-            </div>
-        </section>
-        <br class="hide-on-med-and-down">
-
-        <div class="card-bienvenida-text shadow-3">
-            <p class="colorText hide-on-large-only"><a class="colorText" href="login_general">¿Ya tiene una cuenta?</a>
-            </p>
-            <p class="hide-on-med-and-down"><a class="btn-large button-rounded color2 colorText" href="login_general"><i
-                        class="material-icons left">done</i>¿Ya tiene una cuenta?</a></p>
-        </div>
     </section>
-
-
-    <br>
-
-    <div class="footer hide-on-med-and-down">
-        <p>JCP_helper &copy; Todos los derechos reservados</p>
-    </div>
-
-
-    <!--Modales con explicaciones de que es ser docente o que es ser estudiante-->
-
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <h4>Docente</h4>
-            <p>Puede crear pruebas personalizadas para los estudiantes y evaluar el rendimiento académico de los mismo,
-                por otra parte también puede compartir sus evaluaciones y acceder a bancos de preguntas para hacer las
-                pruebas.</p>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">De acuerdo</a>
-        </div>
-    </div>
-
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <h4>Estudiante</h4>
-            <p>Acceda para poder resolver las pruebas que tus docentes hayan hecho y evalua tu rendimiento académico en
-                cada prueba, accede a las estadisticas cuando lo desee y ponga a prueba sus conocimientos dentro de la
-                clase.</p>
-        </div>
-        <!--Metemos el footer en la app-->
-        {% include "includes/footer.html" %}
-    </div>
-
-    <!--Fin de los modals-->
-
-
-    <!--Boton para acceder a una mini guia de como funciona la app "APRENDER MAS"-->
-    <div class="fixed-action-btn">
-        <a class="btn-floating btn-large color2" href="saber_mas">
-            <i class="large material-icons">help</i>
-        </a>
-    </div>
 
 </body>
 

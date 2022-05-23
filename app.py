@@ -10,7 +10,6 @@ app.secret_key="jcp_helper"
 
 @app.route('/')
 def index():
-    
     return render_template('bienvenida.html')
 
 if __name__=='__main__':

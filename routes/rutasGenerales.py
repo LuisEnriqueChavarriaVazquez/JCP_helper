@@ -2,11 +2,6 @@ from flask import render_template
 from . import routes
 
 #Este sirve para recibir al usuario
-@routes.route('/bienvenida')
-def bienvenida():
-    return render_template('bienvenida.html')
-
-#Este sirve para recibir al usuario
 @routes.route('/login_general')
 def login_general():
     return render_template('login_general.html')
