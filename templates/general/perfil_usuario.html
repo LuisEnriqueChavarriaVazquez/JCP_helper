@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
+    <title>Comunidad</title>
+</head>
+
+<body class="oculto">
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+    <!--Menu de página de inicio-->
+    <nav class="color2 fixedNavbarMine">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Perfil de usuario.</a>
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Perfil de usuario.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+    <br><br>
+
+    <!--Header del icono de usuario-->
+    <section>
+        <div class="fondoDinamico headerComunidad shadow-2e headerComunidad"></div>
+        <div class="contenedorBuscador centerAligner">
+            <img src="../../static/images/user.png" width="60px">
+        </div>
+    </section>
+
+
+    <section class="mainBodyAdicional">
+       
+    </section>
+
+    <!--Metemos el footer en la app-->
+    {% include "includes/footer.html" %}
+</body>
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+</html>
