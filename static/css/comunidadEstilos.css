@@ -28,3 +28,48 @@
     top: -30px;
 }
 
+/*Card de la comunidad pantalla grande y mediana*/
+.card_Comunidad_Grande{margin: 20px;}
+
+/*Modificar en caso de tamaño de pantalla*/
+.imagen_card_Comunidad_Grande > img{width: 100% !important;}
+
+.padre_datos_card_Comunidad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.imagen_card_usuario_Comunidad_Grande > img{ width: 100% !important;}
+
+.imagen_card_usuario_Comunidad_Grande{
+    display: flex;
+    justify-content: center;
+    padding: 15px 20px 20px 20px;
+    width: 20%;
+}
+
+.imagen_card_usuario_Comunidad_Grande > img{
+    padding: 0;
+    margin: 0;
+}
+
+.text_card_grande{width: 80%;}
+
+.text_card_grande > p{
+    width: 80%;
+    padding-left: 20px;
+}
+
+.text_card_grande > p:first-child{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px 10px 0 0 !important;
+}
+
+.text_card_grande > p:last-child{
+    font-size: 15px;
+    font-weight: 300;
+    margin-top: 0px;
+}
