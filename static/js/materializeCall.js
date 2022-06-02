@@ -1,11 +1,11 @@
 //Cargador de las paginas web
-window.onload = function(){
+window.onload = function () {
     $('#onload').fadeOut();
     $('body').removeClass('oculto');
 }
 
 
-$(document).ready(function(){
+$(document).ready(function () {
     /*
     //  LLamadas a los elementos de materialize
     */
@@ -14,7 +14,7 @@ $(document).ready(function(){
     $('.carousel.carousel-slider').carousel({
         fullWidth: true,
         indicators: true
-        
+
     });
     $('.modal').modal();
     $('ul.tabs').tabs();
@@ -25,49 +25,61 @@ $(document).ready(function(){
     //  Código para la parte de elegir la foto de perfil
     */
     //Acceder a el selector de fotos cuando presionemos la imagen
-    $("#profileImageEst").click(function(e) {
+    $("#profileImageEst").click(function (e) {
         $("#imageUploadEst").click();
     });
 
     //Ver la imagen que hemos seleccionado en nuestro formulario antes de enviar
-    function previewProfileImageEst( uploader ) {   
+    function previewProfileImageEst(uploader) {
         //Nos aseguramos que el archivo fue elegido
         if (uploader.files && uploader.files[0]) {
             var imageFile = uploader.files[0];
-            var reader = new FileReader();    
+            var reader = new FileReader();
             reader.onload = function (e) {
                 //Establecemos la data con la imagen que elegimos
                 $('#profileImageEst').attr('src', e.target.result);
-            }    
-            reader.readAsDataURL( imageFile );
+            }
+            reader.readAsDataURL(imageFile);
         }
     }
-    
-    $("#imageUploadEst").change(function(){
-        previewProfileImageEst( this );
+
+    $("#imageUploadEst").change(function () {
+        previewProfileImageEst(this);
     });
 
     //Acceder a el selector de fotos cuando presionemos la imagen
-    $("#profileImageProf").click(function(e) {
+    $("#profileImageProf").click(function (e) {
         $("#imageUploadProf").click();
     });
 
     //Ver la imagen que hemos seleccionado en nuestro formulario antes de enviar
-    function previewProfileImageProf( uploader ) {   
+    function previewProfileImageProf(uploader) {
         //Nos aseguramos que el archivo fue elegido
         if (uploader.files && uploader.files[0]) {
             var imageFile = uploader.files[0];
-            var reader = new FileReader();    
+            var reader = new FileReader();
             reader.onload = function (e) {
                 //Establecemos la data con la imagen que elegimos
                 $('#profileImageProf').attr('src', e.target.result);
-            }    
-            reader.readAsDataURL( imageFile );
+            }
+            reader.readAsDataURL(imageFile);
         }
     }
-    
-    $("#imageUploadProf").change(function(){
-        previewProfileImageProf( this );
+
+    $("#imageUploadProf").change(function () {
+        previewProfileImageProf(this);
+    });
+
+    //Se modifca el buscador cuando se hace scroll down
+    $(window).scroll(function () {
+        $('.buscador_scroll_down').toggleClass("buscador_scrolled_down", ($(window).scrollTop() > 40));
+        var buscador = document.getElementById("buscadorInput");
+        if($(window).scrollTop() > 55){
+            buscador.classList.add("color2");
+            buscador.classList.remove("colorWhite");
+        }else{
+            buscador.classList.add("colorWhite");
+            buscador.classList.remove("color2");
+        }
     });
 });
-        

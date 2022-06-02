@@ -9,16 +9,13 @@
     background-origin: initial;
 }
 
-.contenedorBuscador{
-    width: 100%;
-}
-
 #buscadorInput{
     width: 80%;
     padding: 12px 20px;
     font-size: 20px;
     display: inline-block;
     border: 1px solid #fff;
+    color: #000;
     outline: none !important;
     border-radius: 500px;
 }
@@ -30,4 +27,17 @@
 
 .mainBodyAdicionalComunidadGrande{
     padding: 10px;
+}
+
+/*Para el buscador*/
+
+.buscador_scrolled_down{
+    width: 100% !important;
+    height: 72px !important;
+    position:fixed !important;
+    border-radius: 0px !important;
+    z-index: 10000000000 !important;
+    border: 0px solid #000 !important;
+    color: #fff !important;
+    font-size: 15px !important;
 }
