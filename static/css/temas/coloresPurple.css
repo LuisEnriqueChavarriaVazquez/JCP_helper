@@ -1,10 +1,11 @@
-.color1 {background-color:  #26334d;}
-.color2 {background-color:  #4c4668;}
+.color1 {background-color:  #3b264d;}
+.color2 {background-color:  #594668;}
 .color3 {background-color:  #7a5a89;}
 .color4 {background-color:  #be77b0;}
 .color5 {background-color:  #dc91d1;}
 
 .colorGrey {background-color: #dddddd;}
+.colorGreyDarker {background-color: #cacaca;}
 .colorGreyWhiter {background-color: #ececec;}
 .colorWhite {background-color: #fff;}
 
@@ -17,7 +18,7 @@
 }
 
 .borderDecorationStrong{
-    border-bottom: 5px #4c4668 solid;
+    border-bottom: 5px #5c4668 solid;
 }
 
 /*Fondos dinámicos*/
@@ -47,6 +48,11 @@
 
 .fondoDinamico{
     background-image: url('../../images/fondos/morado/morado_1.png');
+}
+
+
+.icon_app{
+    background-image: url('../../images/logo_app/purple_icon.png');
 }
 
 /*Barra de carga*/

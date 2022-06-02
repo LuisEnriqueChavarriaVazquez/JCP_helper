@@ -5,6 +5,7 @@
 .color5 {background-color:  #ffb2bf;}
 
 .colorGrey {background-color: #dddddd;}
+.colorGreyDarker {background-color: #cacaca;}
 .colorGreyWhiter {background-color: #ececec;}
 .colorWhite {background-color: #fff;}
 
@@ -47,6 +48,10 @@
 
 .fondoDinamico{
     background-image: url('../../images/fondos/rosa/rosa_1.png');
+}
+
+.icon_app{
+    background-image: url('../../images/logo_app/pink_icon.png');
 }
 
 /*Barra de carga*/

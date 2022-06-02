@@ -5,6 +5,7 @@
 .color5 {background-color: #1dafc7;}
 
 .colorGrey {background-color: #dddddd;}
+.colorGreyDarker {background-color: #cacaca;}
 .colorGreyWhiter {background-color: #ececec;}
 .colorWhite {background-color: #fff;}
 
@@ -48,6 +49,11 @@
 .fondoDinamico{
     background-image: url('../../images/fondos/aqua/aqua_1.png');
 }
+
+.icon_app{
+    background-image: url('../../images/logo_app/aqua_icon.png');
+}
+
 
 /*Barra de carga*/
 .progress .indeterminate {

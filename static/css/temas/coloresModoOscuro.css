@@ -7,6 +7,7 @@
 .colorGrey {background-color: #333333;}
 .colorGreyWhiter {background-color: #272727;}
 .colorWhite {background-color: #2b2b2b;}
+.colorGreyDarker {background-color: #242424;}
 
 .coloredText {color: rgb(255, 255, 255) !important;}
 .colorText {color: rgb(255, 255, 255) !important;}
@@ -56,6 +57,11 @@ h1,h2,h3,h4,h5, p{
 .fondoDinamico{
     background-image: url('../../images/fondos/black/black_1.png');
 }
+
+.icon_app{
+    background-image: url('../../images/logo_app/grey_icon.png');
+}
+
 
 /*Barra de carga*/
 .progress .indeterminate {

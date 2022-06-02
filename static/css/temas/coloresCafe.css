@@ -1,24 +1,25 @@
-.color1 {background-color:  #251d22;}
-.color2 {background-color:  #4a3238;}
-.color3 {background-color:  #775e57;}
-.color4 {background-color:  #a4927e;}
-.color5 {background-color:  #c2bb99;}
+.color1 {background-color:  #2c1b18;}
+.color2 {background-color:  #4e342e;}
+.color3 {background-color:  #5d4037;}
+.color4 {background-color:  #bcaaa4;}
+.color5 {background-color:  #d7ccc8;}
 
 .colorGrey {background-color: #dddddd;}
+.colorGreyDarker {background-color: #cacaca;}
 .colorGreyWhiter {background-color: #ececec;}
 .colorWhite {background-color: #fff;}
 
 
-.coloredText {color: #775e57 !important;}
+.coloredText {color: #5d4037 !important;}
 .colorText {color: #fff !important;}
 .colorTextReverse {color: #000 !important;}
 
 .borderDecoration{
-    border-bottom: 5px #775e57 solid;
+    border-bottom: 5px #5d4037 solid;
 }
 
 .borderDecorationStrong{
-    border-bottom: 5px #4a3238 solid;
+    border-bottom: 5px #4e342e solid;
 }
 
 
@@ -51,7 +52,12 @@
     background-image: url('../../images/fondos/cafe/cafe_1.png');
 }
 
+.icon_app{
+    background-image: url('../../images/logo_app/brown_icon.png');
+}
+
+
 /*Barra de carga*/
 .progress .indeterminate {
-    background-color: #4a3238;
+    background-color: #4e342e;
 }

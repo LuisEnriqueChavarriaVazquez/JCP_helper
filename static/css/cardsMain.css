@@ -210,3 +210,49 @@
 .docente_name_card_community{
     font-weight: 600;
 }
+
+
+/*Card de la comunidad pantalla grande y mediana*/
+.card_Comunidad_Grande{margin: 0 5px 30px 5px;}
+
+/*Modificar en caso de tamaño de pantalla*/
+.imagen_card_Comunidad_Grande > img{width: 100% !important;}
+
+.padre_datos_card_Comunidad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.imagen_card_usuario_Comunidad_Grande > img{ width: 100% !important;}
+
+.imagen_card_usuario_Comunidad_Grande{
+    display: flex;
+    justify-content: center;
+    padding: 10px 15px 15px 15px;
+    width: 30%;
+}
+
+.imagen_card_usuario_Comunidad_Grande > img{
+    padding: 0;
+    margin: 0;
+}
+
+.text_card_grande{width: 70%;}
+
+.text_card_grande > p{
+    width: 70%;
+}
+
+.text_card_grande > p:first-child{
+    font-size: 18px;
+    font-weight: 600;
+    margin: 10px 0 0 0 !important;
+}
+
+.text_card_grande > p:last-child{
+    font-size: 13px;
+    font-weight: 300;
+    margin-top: 0px;
+}

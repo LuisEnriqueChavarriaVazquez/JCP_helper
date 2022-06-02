@@ -5,6 +5,7 @@
 .color5 {background-color:  #ffad07;}
 
 .colorGrey {background-color: #dddddd;}
+.colorGreyDarker {background-color: #cacaca;}
 .colorGreyWhiter {background-color: #ececec;}
 .colorWhite {background-color: #fff;}
 
@@ -48,6 +49,12 @@
 .fondoDinamico{
     background-image: url('../../images/fondos/naranja/naranja_1.png');
 }
+
+.icon_app{
+    background-image: url('../../images/logo_app/orange_icon.png');
+}
+
+
 
 /*Barra de carga*/
 .progress .indeterminate {

@@ -1,0 +1,59 @@
+.footerOwn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 10px 20px 10px;
+}
+
+.logo_app_footer{
+    width: 100px !important;
+    height:  100px;
+    background-position: center;
+    background-size: cover;
+}
+
+.titulo_footer{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.texto_footer{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/*Contenedor del texto inferior*/
+.text_love_footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_footer_uno{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    width: 100%;
+}
+
+.container_footer_uno > div{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    width: 33%;
+    padding: 0 0 0 20px;
+}
+
+.container_footer_uno > div > p{
+    margin: 0 !important;
+}
+
+.text_love_footer{
+    margin: 0 0 0 0;
+    padding: 10px 20px;
+    width: 100%;
+}
