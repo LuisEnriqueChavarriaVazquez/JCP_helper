@@ -40,4 +40,12 @@ $(window).scroll(function () {
         icon_browser_mine.classList.add("icon_browser_mine");
         icon_browser_mine.classList.remove("icon_browser_mine_sticky");
     }
+
+    let slider_recomendaciones = document.getElementById("slider_recomendaciones_id");
+
+    if ($(window).scrollTop() > (136)) {
+        slider_recomendaciones.classList.add("slider_recomendaciones_sticky", "color2");
+    } else {
+        slider_recomendaciones.classList.remove("slider_recomendaciones_sticky", "color2");
+    }
 });
