@@ -13,7 +13,7 @@
     {% include "includes/cargador.html" %}
 
     <!--Menu de página de inicio-->
-    <nav class="color2 fixedNavbarMine">
+    <nav class="color2 shadow-2e" style="z-index:20000;">
         <div class="nav-wrapper">
             <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Comunidad.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
@@ -24,15 +24,17 @@
             </ul>
         </div>
     </nav>
-    <br><br>
 
-    <section>
-        <div class="fondoDinamico headerComunidad shadow-2e headerComunidad"></div>
-        <div class="contenedorBuscador centerAligner">
-            <input type="text" class="browser-default shadow-2e flow-text buscador_scroll_down" placeholder="Buscar cuestionarios"
-                id="buscadorInput">
+    <section class="container_browser" id="container_browser_id_uno">
+        <div class="fondoDinamico headerComunidad shadow-2e" id="fondo_browser_id_dos"></div>
+        <div class="contenedorBuscador centerAligner" id="container_browser_id_dos">
+            <div class="icon_browser_mine" id="icon_browser_mine"><i class="material-icons colorText">search</i></div>
+            <input type="text" class="browser-default shadow-2e flow-text" placeholder="Buscar cuestionarios"
+                id="buscadorInput_tres">
         </div>
     </section>
+
+    <br><br><br><br><br><br>
 
     <!--Slider palabras clave-->
     {% include "includes/comunidadDocente/sliderRecomendaciones.html" %}
@@ -45,7 +47,7 @@
     <!--Para dispositivos de tamaño grande-->
     <section class="mainBodyAdicional mainBodyAdicionalComunidadGrande hide-on-small-only">
         <div class="row">
-            <div class="col m4 l3">
+            <div class="col m4 l2">
                 <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
                     <div class="imagen_card_Comunidad_Grande">
                         <img src="../../static/images/carousel_three.jpg" class="bordered2Up">
@@ -61,7 +63,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col m4 l3">
+            <div class="col m4 l2">
                 <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
                     <div class="imagen_card_Comunidad_Grande">
                         <img src="../../static/images/carousel_three.jpg" class="bordered2Up">
@@ -77,7 +79,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col m4 l3">
+            <div class="col m4 l2">
                 <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
                     <div class="imagen_card_Comunidad_Grande">
                         <img src="../../static/images/carousel_three.jpg" class="bordered2Up">
@@ -93,7 +95,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col m4 l3">
+            <div class="col m4 l2">
                 <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
                     <div class="imagen_card_Comunidad_Grande">
                         <img src="../../static/images/carousel_three.jpg" class="bordered2Up">
@@ -149,7 +151,7 @@
     </div>
     <section class="mainBodyAdicional mainBodyAdicionalComunidadGrande hide-on-small-only">
         <div class="row">
-            <div class="col m4 l3">
+            <div class="col m4 l2">
                 <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
                     <div class="imagen_card_Comunidad_Grande">
                         <img src="../../static/images/carousel_three.jpg" class="bordered2Up">
@@ -165,7 +167,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col m4 l3">
+            <div class="col m4 l2">
                 <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
                     <div class="imagen_card_Comunidad_Grande">
                         <img src="../../static/images/carousel_three.jpg" class="bordered2Up">
@@ -181,7 +183,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col m4 l3">
+            <div class="col m4 l2">
                 <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
                     <div class="imagen_card_Comunidad_Grande">
                         <img src="../../static/images/carousel_three.jpg" class="bordered2Up">
@@ -197,7 +199,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col m4 l3">
+            <div class="col m4 l2">
                 <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
                     <div class="imagen_card_Comunidad_Grande">
                         <img src="../../static/images/carousel_three.jpg" class="bordered2Up">

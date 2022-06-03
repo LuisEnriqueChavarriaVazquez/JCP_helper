@@ -1,43 +1,94 @@
+.container_browser{
+    position: relative;
+    z-index: 19999;
+    
+}
+
 .headerComunidad{
     width: 100%;
     height: 80px;
+
+    position: absolute;
 
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     background-origin: initial;
+    transition: all .2s ease-in-out;
 }
 
-#buscadorInput{
+.buscador_input_tres{
     width: 80%;
     padding: 12px 20px;
-    font-size: 20px;
+    font-size: 18px;
     display: inline-block;
-    border: 1px solid #fff;
+    border: #fff solid 1px;
     color: #000;
     outline: none !important;
     border-radius: 500px;
+    transition: all .2s ease-in-out;
 }
 
 .contenedorBuscador{
-    position: relative;
-    top: -30px;
+    position: absolute;
+    top: 55px;
+
+    transition: all .3s ease-in-out;
 }
 
 .mainBodyAdicionalComunidadGrande{
     padding: 10px;
 }
 
-/*Para el buscador*/
+.icon_browser_mine{
+    display: none;
+}
 
-.buscador_scrolled_down{
-    width: 100% !important;
-    height: 72px !important;
-    position:fixed !important;
-    border-radius: 0px !important;
-    z-index: 10000000000 !important;
-    border: 0px solid #000 !important;
-    color: #fff !important;
-    font-size: 15px !important;
+/*Para el buscador cuando hacemos sticky*/
+.contenedorBuscador_sticky{
+    position: fixed;
+    top: 0;
+    z-index: 19999;
+    width: 100%;
+}
+
+.headerComunidad_sticky{
+    height: 0;
+    transition: all .2s ease-in-out;
+}
+
+.contenedorBuscador_fixed{
+    height: 64px;
+    width: 100%;
+    padding: 5px 10px;
+
+    transition: all .5s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.buscador_input_tres_sticky{
+    width: 90%;
+    padding: 8px 20px;
+    margin: 0px 10px 0 5px;
+    font-size: 15px;
+    display: inline-block;
+    border: #fff solid 1px;
+    color: #000;
+    outline: none !important;
+    border-radius: 5px;
+    transition: all .2s ease-in-out;
+}
+
+.icon_browser_mine_sticky{
+    width: 10%;
+    height: 64px;
+    font-size: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

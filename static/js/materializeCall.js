@@ -69,17 +69,4 @@ $(document).ready(function () {
     $("#imageUploadProf").change(function () {
         previewProfileImageProf(this);
     });
-
-    //Se modifca el buscador cuando se hace scroll down
-    $(window).scroll(function () {
-        $('.buscador_scroll_down').toggleClass("buscador_scrolled_down", ($(window).scrollTop() > 40));
-        var buscador = document.getElementById("buscadorInput");
-        if($(window).scrollTop() > 55){
-            buscador.classList.add("color2");
-            buscador.classList.remove("colorWhite");
-        }else{
-            buscador.classList.add("colorWhite");
-            buscador.classList.remove("color2");
-        }
-    });
 });
