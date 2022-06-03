@@ -1,24 +1,24 @@
-.color1 {background-color:  #2b2631;}
-.color2 {background-color:  #4d4147;}
-.color3 {background-color:  #75656a;}
-.color4 {background-color:  #b4a2b2;}
-.color5 {background-color:  #e0c8e0;}
+.color1 {background-color:  #312626;}
+.color2 {background-color:  #4d4141;}
+.color3 {background-color:  #756565;}
+.color4 {background-color:  #b4a2a2;}
+.color5 {background-color:  #e0c8c8;}
 
 .colorGrey {background-color: #dddddd;}
 .colorGreyDarker {background-color: #cacaca;}
 .colorGreyWhiter {background-color: #ececec;}
 .colorWhite {background-color: #fff;}
 
-.coloredText {color: #75656a !important;}
+.coloredText {color: #756565 !important;}
 .colorText {color: #fff !important;}
 .colorTextReverse {color: #000 !important;}
 
 .borderDecoration{
-    border-bottom: 5px #75656a solid;
+    border-bottom: 5px #756565 solid;
 }
 
 .borderDecorationStrong{
-    border-bottom: 5px #4d4147 solid;
+    border-bottom: 5px #4d4141 solid;
 }
 
 /*Fondos dinámicos*/
@@ -57,5 +57,5 @@
 
 /*Barra de carga*/
 .progress .indeterminate {
-    background-color: #4d4147;
+    background-color: #4d4141;
 }
