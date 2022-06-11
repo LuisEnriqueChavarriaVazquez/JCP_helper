@@ -18,13 +18,14 @@
             <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Configuraciones.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Configuraciones.</p>
+            <p class="titleMobile colorText flow-text hide-on-large-only hide-on-med-only">Configuraciones.</p>
             <ul class="right hide-on-med-and-down">
                 <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver</a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Selección de las opciones de la cuenta -->
 
     <section class="mainBody">
         <section style="width: 100%;">
@@ -40,35 +41,42 @@
                             style="margin-bottom: 5px;"><i class="material-icons">settings</i>Opciones de la cuenta.
                         </div>
                         <div class="bordered5 collapsible-body row">
-                            <div
-                                class="col s12 m12 l12 colorGreyWhiter bordered1 shadow-2e centerLeftHorizontalAligner">
-                                <p><i class="material-icons colorTextReverse">build</i></p>
-                                &nbsp;&nbsp;
-                                <p class="linkAuxiliarHuge"><a href="#!" class="colorTextReverse"><b>Modificar datos de
-                                            la
-                                            cuenta.</b></a></p>
-                            </div><br>&nbsp;
-
-                            <div
-                                class="col s12 m12 l12 colorGreyWhiter bordered1 shadow-2e centerLeftHorizontalAligner">
-                                <p><i class="material-icons colorTextReverse">supervisor_account</i></p>
-                                &nbsp;&nbsp;
-                                <p class="linkAuxiliarHuge"><a href="#!" class="colorTextReverse"><b>Ver perfil.</b></a>
-                                </p>
-                            </div><br>&nbsp;
-
-                            <div class="col s12 m12 l12 badColor bordered1 shadow-2e centerLeftHorizontalAligner">
-                                <p><i class="material-icons colorTextReverse">report_problem</i></p>
-                                &nbsp;&nbsp;
-                                <p class="linkAuxiliarHuge"><a href="#!" class="colorTextReverse"><b>Eliminar
-                                            cuenta.</b></a></p>
-                            </div><br>&nbsp;
+                            <div class="col s12 m6 l4 cardConfiguracionesMainPadre">
+                                <div class="cardConfiguracionesMain shadow-2 bordered1 colorGreyWhiter">
+                                    <div class="iconCardConfiguraciones color1 bordered5 shadow-2e"><i
+                                            class="material-icons colorText">manage_accounts</i></div>
+                                    <div class="textCardConfiguraciones colorTextReverse">Modificar cuenta</div>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 l4 cardConfiguracionesMainPadre">
+                                <div class="cardConfiguracionesMain shadow-2 bordered1 colorGreyWhiter">
+                                    <div class="iconCardConfiguraciones color1 bordered5 shadow-2e"><i
+                                            class="material-icons colorText">description</i></div>
+                                    <div class="textCardConfiguraciones colorTextReverse">Acceso a informes</div>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 l4 cardConfiguracionesMainPadre">
+                                <div class="cardConfiguracionesMain shadow-2 bordered1 colorGreyWhiter">
+                                    <div class="iconCardConfiguraciones color1 bordered5 shadow-2e"><i
+                                            class="material-icons colorText">account_box</i></div>
+                                    <div class="textCardConfiguraciones colorTextReverse">Vistazo perfil</div>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 l4 cardConfiguracionesMainPadre">
+                                <div class="cardConfiguracionesMain shadow-2 bordered1 colorGreyWhiter">
+                                    <div class="iconCardConfiguraciones color1 bordered5 shadow-2e"><i
+                                            class="material-icons colorText">delete</i></div>
+                                    <div class="textCardConfiguraciones colorTextReverse">Eliminar cuenta</div>
+                                </div>
+                            </div>
                         </div>
                     </li>
                 </ul>
             </div>
         </section>
-        
+
+        <!-- Selección de los temas en general -->
+
         <section style="width: 100%;">
             <div class="title-general">
                 <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Temas</h5>
@@ -104,7 +112,22 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <!-- Color aqua -->
+
+                                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresAqua">
+                                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                                            <div class="colorSelectorMuestraPhone">
+                                                <div class="shadow-2e" style="background-color: #125163;"></div>
+                                            </div>
+                                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                                Aqua
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyWhiter shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresAqua">
                                             <div class="card-stacked">
@@ -112,7 +135,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Aqua</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #125163;"></div>
                                                 </div>
                                             </div>
@@ -120,7 +143,22 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <!-- Color azul -->
+
+                                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBlue">
+                                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                                            <div class="colorSelectorMuestraPhone">
+                                                <div class="shadow-2e" style="background-color: #3e5b65;"></div>
+                                            </div>
+                                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                                Blue
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyWhiter shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBlue">
                                             <div class="card-stacked">
@@ -128,7 +166,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Blue</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #3e5b65;"></div>
                                                 </div>
                                             </div>
@@ -136,7 +174,22 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <!-- Color bronce -->
+
+                                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBronce">
+                                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                                            <div class="colorSelectorMuestraPhone">
+                                                <div class="shadow-2e" style="background-color: #9b4b00;"></div>
+                                            </div>
+                                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                                Bronce
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyWhiter shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBronce">
                                             <div class="card-stacked">
@@ -144,7 +197,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Bronce</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #9b4b00;"></div>
                                                 </div>
                                             </div>
@@ -152,7 +205,22 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <!-- Color cafe -->
+
+                                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresCafe">
+                                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                                            <div class="colorSelectorMuestraPhone">
+                                                <div class="shadow-2e" style="background-color: #775e57;"></div>
+                                            </div>
+                                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                                Cafe
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyWhiter shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresCafe">
                                             <div class="card-stacked">
@@ -160,7 +228,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Café</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #775e57;"></div>
                                                 </div>
                                             </div>
@@ -168,15 +236,30 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <!-- Color Green -->
+
+                                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresDefault">
+                                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                                            <div class="colorSelectorMuestraPhone">
+                                                <div class="shadow-2e" style="background-color: #377e5b;"></div>
+                                            </div>
+                                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                                Verde
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyWhiter shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresDefault">
                                             <div class="card-stacked">
                                                 <div class="card-content centerAligner verticalAligner">
                                                     <div>
-                                                        <p class="colorTextReverse muestraDeColorText">Default</p>
+                                                        <p class="colorTextReverse muestraDeColorText">Verde</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #377e5b;"></div>
                                                 </div>
                                             </div>
@@ -184,7 +267,22 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <!-- Color Gótico -->
+
+                                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresGotico">
+                                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                                            <div class="colorSelectorMuestraPhone">
+                                                <div class="shadow-2e" style="background-color: #75656a;"></div>
+                                            </div>
+                                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                                Gótico
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyWhiter shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresGotico">
                                             <div class="card-stacked">
@@ -192,7 +290,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Gótico</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #75656a;"></div>
                                                 </div>
                                             </div>
@@ -200,7 +298,22 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <!-- Color Naranja -->
+
+                                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresNaranja">
+                                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                                            <div class="colorSelectorMuestraPhone">
+                                                <div class="shadow-2e" style="background-color: #bc521c;"></div>
+                                            </div>
+                                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                                Naranja
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyWhiter shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresNaranja">
                                             <div class="card-stacked">
@@ -208,7 +321,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Naranja</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #bc521c;"></div>
                                                 </div>
                                             </div>
@@ -216,7 +329,22 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <!-- Color Pink -->
+
+                                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPink">
+                                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                                            <div class="colorSelectorMuestraPhone">
+                                                <div class="shadow-2e" style="background-color: #b0537a;"></div>
+                                            </div>
+                                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                                Pink
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyWhiter shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPink">
                                             <div class="card-stacked">
@@ -224,7 +352,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Pink</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #b0537a;"></div>
                                                 </div>
                                             </div>
@@ -232,7 +360,22 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <!-- Color Purple -->
+
+                                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPurple">
+                                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                                            <div class="colorSelectorMuestraPhone">
+                                                <div class="shadow-2e" style="background-color: #594668;"></div>
+                                            </div>
+                                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                                Purple
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyWhiter shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPurple">
                                             <div class="card-stacked">
@@ -240,15 +383,30 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Purple</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
-                                                        style="background-color: #7a5a89;"></div>
+                                                    <div class="bordered5 muestraDeColor"
+                                                        style="background-color: #594668;"></div>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <!-- Color Red -->
+
+                                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresRed">
+                                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                                            <div class="colorSelectorMuestraPhone">
+                                                <div class="shadow-2e" style="background-color: #9c3537;"></div>
+                                            </div>
+                                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                                Red
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyWhiter shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresRed">
                                             <div class="card-stacked">
@@ -256,7 +414,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Red</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #9c3537;"></div>
                                                 </div>
                                             </div>
@@ -265,15 +423,30 @@
                                 </div>
 
                                 <!--Colores oscuros-->
-                                <div class="col s12 m4 l3">
+                                <!-- Color Modo Oscuro -->
+
+                                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresModoOscuro">
+                                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                                            <div class="colorSelectorMuestraPhone">
+                                                <div class="shadow-2e" style="background-color: #000000;"></div>
+                                            </div>
+                                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                                Oscuro
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyDarker shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresModoOscuro">
                                             <div class="card-stacked">
                                                 <div class="card-content centerAligner verticalAligner">
                                                     <div>
-                                                        <p class="colorTextReverse muestraDeColorText">Modo Oscuro</p>
+                                                        <p class="colorTextReverse muestraDeColorText">Oscuro</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #000000;"></div>
                                                 </div>
                                             </div>
@@ -281,7 +454,22 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <!-- Color Dark aqua -->
+
+                                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_aqua">
+                                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                                            <div class="colorSelectorMuestraPhone">
+                                                <div class="shadow-2e" style="background-color: #00312f;"></div>
+                                            </div>
+                                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                                Dark aqua
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyDarker shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_aqua">
                                             <div class="card-stacked">
@@ -289,7 +477,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Dark aqua</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #00312f;"></div>
                                                 </div>
                                             </div>
@@ -297,7 +485,22 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <!-- Color Dark blue -->
+
+                                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_blue">
+                                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                                            <div class="colorSelectorMuestraPhone">
+                                                <div class="shadow-2e" style="background-color: #001846;"></div>
+                                            </div>
+                                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                                Dark blue
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyDarker shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_blue">
                                             <div class="card-stacked">
@@ -305,7 +508,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Dark blue</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #001846;"></div>
                                                 </div>
                                             </div>
@@ -313,7 +516,22 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <!-- Color Dark green -->
+
+                                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_green">
+                                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                                            <div class="colorSelectorMuestraPhone">
+                                                <div class="shadow-2e" style="background-color: #023600;"></div>
+                                            </div>
+                                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                                Dark green
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyDarker shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_green">
                                             <div class="card-stacked">
@@ -321,7 +539,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Dark green</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #023600;"></div>
                                                 </div>
                                             </div>
@@ -329,7 +547,22 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <!-- Color Dark orange -->
+
+                                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_orange">
+                                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                                            <div class="colorSelectorMuestraPhone">
+                                                <div class="shadow-2e" style="background-color: #461c00;"></div>
+                                            </div>
+                                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                                Dark orange
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyDarker shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_orange">
                                             <div class="card-stacked">
@@ -337,7 +570,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Dark orange</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #461c00;"></div>
                                                 </div>
                                             </div>
@@ -345,7 +578,22 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <!-- Color Dark pink -->
+
+                                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_pink">
+                                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                                            <div class="colorSelectorMuestraPhone">
+                                                <div class="shadow-2e" style="background-color: #3d003a;"></div>
+                                            </div>
+                                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                                Dark pink
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyDarker shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_pink">
                                             <div class="card-stacked">
@@ -353,7 +601,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Dark pink</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #3d003a;"></div>
                                                 </div>
                                             </div>
@@ -361,7 +609,22 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <!-- Color Dark purple -->
+
+                                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_purple">
+                                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                                            <div class="colorSelectorMuestraPhone">
+                                                <div class="shadow-2e" style="background-color: #22004e;"></div>
+                                            </div>
+                                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                                Dark purple
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyDarker shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_purple">
                                             <div class="card-stacked">
@@ -369,7 +632,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Dark purple</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #22004e;"></div>
                                                 </div>
                                             </div>
@@ -377,7 +640,22 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <!-- Color Dark red -->
+
+                                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_red">
+                                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                                            <div class="colorSelectorMuestraPhone">
+                                                <div class="shadow-2e" style="background-color: #470001;"></div>
+                                            </div>
+                                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                                Dark red
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyDarker shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_red">
                                             <div class="card-stacked">
@@ -385,7 +663,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Dark red</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #470001;"></div>
                                                 </div>
                                             </div>
@@ -393,7 +671,22 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <!-- Color Dark yellow -->
+
+                                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_yellow">
+                                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                                            <div class="colorSelectorMuestraPhone">
+                                                <div class="shadow-2e" style="background-color: #312a00;"></div>
+                                            </div>
+                                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                                Dark yellow
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyDarker shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_yellow">
                                             <div class="card-stacked">
@@ -401,7 +694,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Dark yellow</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #312a00;"></div>
                                                 </div>
                                             </div>
@@ -416,6 +709,8 @@
             </div>
         </section>
 
+        <!-- Selección de los temas para personas con problemas visuales -->
+
         <section style="width: 100%;">
             <div class="title-general">
                 <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Accesibilidad</h5>
@@ -426,7 +721,8 @@
                 <ul class="collapsible bordered5 colorWhite">
                     <li>
                         <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
-                            style="margin-bottom: 5px;"><i class="material-icons">settings_accessibility</i>Selector de temas adaptados
+                            style="margin-bottom: 5px;"><i class="material-icons">settings_accessibility</i>Selector de
+                            temas adaptados
                         </div>
                         <div class="bordered5 collapsible-body colorWhite">
 
@@ -451,7 +747,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyDarker shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_yellow">
                                             <div class="card-stacked">
@@ -459,7 +755,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Dark yellow</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #312a00;"></div>
                                                 </div>
                                             </div>
@@ -467,7 +763,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyDarker shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_yellow">
                                             <div class="card-stacked">
@@ -475,7 +771,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Dark yellow</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #312a00;"></div>
                                                 </div>
                                             </div>
@@ -483,7 +779,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m4 l3">
+                                <div class="col s12 m4 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyDarker shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_yellow">
                                             <div class="card-stacked">
@@ -491,7 +787,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Dark yellow</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #312a00;"></div>
                                                 </div>
                                             </div>
@@ -499,7 +795,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col s12 m12 l3">
+                                <div class="col s12 m12 l3 hide-on-small-only">
                                     <div class="card bordered1 colorGreyDarker shadow-2">
                                         <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_yellow">
                                             <div class="card-stacked">
@@ -507,7 +803,7 @@
                                                     <div>
                                                         <p class="colorTextReverse muestraDeColorText">Dark yellow</p>
                                                     </div>
-                                                    <div class="bordered1 shadow-2 muestraDeColor"
+                                                    <div class="bordered5 muestraDeColor"
                                                         style="background-color: #312a00;"></div>
                                                 </div>
                                             </div>
@@ -521,6 +817,8 @@
                 </ul>
             </div>
         </section>
+
+        <!-- Selección de los idiomas -->
 
         <section style="width: 100%;">
             <div class="title-general">

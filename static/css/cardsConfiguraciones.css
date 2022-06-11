@@ -1,0 +1,31 @@
+.cardConfiguracionesMain, .iconCardConfiguraciones, .textCardConfiguraciones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.textCardConfiguraciones{
+    justify-content: left !important;
+}
+
+.cardConfiguracionesMainPadre{
+    margin-bottom: 20px;
+}
+
+.cardConfiguracionesMain{
+    padding: 10px;
+}
+
+
+.iconCardConfiguraciones{
+    width: 25% !important;
+    padding: 7px 5px;
+}
+
+.textCardConfiguraciones{
+    width: 75% !important;
+    font-size: 15px;
+    font-weight: 500;
+    padding-left: 10px;
+}

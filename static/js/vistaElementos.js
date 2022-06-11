@@ -16,12 +16,12 @@ $(document).ready(function () {
     var dashboardVerticalGrafGruposSegmento = document.getElementById("dashboardVerticalGrafGruposSegmento");
 
     //Sustituir por la URL
-    if(window.location.href != "http://127.0.0.1:5000/comunidad_profesor"){
-        setInterval(cargadorQuitar, 2000);
-        function cargadorQuitar() {
-            cargador.style.display = 'none';
-        }
-    }
+    // if(window.location.href != "http://127.0.0.1:5000/comunidad_profesor"){
+    //     setInterval(cargadorQuitar, 2000);
+    //     function cargadorQuitar() {
+    //         cargador.style.display = 'none';
+    //     }
+    // }
     
 
     //Para los dispositivos móviles
