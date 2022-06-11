@@ -5,10 +5,10 @@
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
 
-    <title>Comunidad</title>
+    <title>Perfil de usuario</title>
 </head>
 
-<body class="oculto">
+<body class="ocultoc colorGreyWhiter">
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/cargador.html" %}
 
@@ -28,9 +28,14 @@
 
     <!--Header del icono de usuario-->
     <section>
-        <div class="fondoDinamico headerComunidad shadow-2e headerComunidad"></div>
-        <div class="contenedorBuscador centerAligner">
-            <img src="../../static/images/user.png" width="60px">
+        <div>
+            <div class="fondoDinamico fondoPerfilDiseno shadow-3e"></div>
+            <div class="datos_perfil_container">
+                <div><img class="fotoPerfil shadow-2e" src="../../static/images/user.png" alt="foto del usuario"></div>
+                <p class="colorTextReverse nombre_perfil">Nombre usuario</p>
+                <p class="colorTextReverse alias_perfil">Alias del usuario</p>
+                <p class="colorTextReverse descripcion_perfil">Lorem ipsum, dolor sit amet  prueba prueba prueba consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            </div>
         </div>
     </section>
 
