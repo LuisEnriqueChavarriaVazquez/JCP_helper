@@ -5,6 +5,7 @@ $(document).ready(function () {
     let buscador_box_secundario = document.getElementById("container_browser_id_dos");
     let buscador_input = document.getElementById("buscadorInput_tres");
     let icon_browser_mine = document.getElementById("icon_browser_mine");
+    let icon_search_voice_mine = document.getElementById("icon_search_voice_mine")
     
     //Para cuando la app inicie
     //Caja principal
@@ -17,6 +18,7 @@ $(document).ready(function () {
     buscador_input.classList.add("buscador_input_tres");
     //Icono del buscador
     icon_browser_mine.classList.add("icon_browser_mine");
+    icon_search_voice_mine.classList.add("icon_search_voice_mine")
     
     //Se modifca el buscador cuando se hace scroll down
     $(window).scroll(function () {
@@ -37,6 +39,9 @@ $(document).ready(function () {
             //Icono del buscador
             icon_browser_mine.classList.add("icon_browser_mine_sticky");
             icon_browser_mine.classList.remove("icon_browser_mine");
+            //Icono de microfono
+            icon_search_voice_mine.classList.add("icon_search_voice_mine_sticky");
+            icon_search_voice_mine.classList.remove("icon_search_voice_mine");
         } else {
             //Caja principal
             buscador_contenedor.classList.add("container_browser");
@@ -53,6 +58,9 @@ $(document).ready(function () {
             //Icono del buscador
             icon_browser_mine.classList.add("icon_browser_mine");
             icon_browser_mine.classList.remove("icon_browser_mine_sticky");
+            //Icono de microfono
+            icon_search_voice_mine.classList.add("icon_search_voice_mine");
+            icon_search_voice_mine.classList.remove("icon_search_voice_mine_sticky");
         }
     
         let slider_recomendaciones = document.getElementById("slider_recomendaciones_id");

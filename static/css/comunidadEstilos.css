@@ -18,8 +18,12 @@
     transition: all .2s ease-in-out;
 }
 
+.box_browser{
+    width:70%;
+}
+
 .buscador_input_tres{
-    width: 80%;
+    width: 100%;
     padding: 12px 20px;
     font-size: 18px;
     display: inline-block;
@@ -31,6 +35,8 @@
 }
 
 .contenedorBuscador{
+    width: 100%;
+    padding: 0 10px;
     position: absolute;
     top: 55px;
 
@@ -41,7 +47,7 @@
     padding: 10px;
 }
 
-.icon_browser_mine{
+.icon_browser_mine, .icon_search_voice_mine{
     display: none;
 }
 
@@ -72,7 +78,7 @@
 }
 
 .buscador_input_tres_sticky{
-    width: 90%;
+    width: 95%;
     padding: 8px 20px;
     margin: 0px 10px 0 5px;
     font-size: 15px;
@@ -87,7 +93,18 @@
 .icon_browser_mine_sticky{
     width: 10%;
     height: 64px;
-    font-size: 8px;
+    font-size: 7px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon_search_voice_mine_sticky{
+    width: 10%;
+    height: 36px;
+    margin: 10px;
+    font-size: 7px;
     display: flex;
     justify-content: center;
     align-items: center;

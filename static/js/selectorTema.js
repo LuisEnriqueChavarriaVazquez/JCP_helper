@@ -15,7 +15,7 @@ $(document).ready(function () {
 
     // Solo se ejecuta en la pantalla de configuraciones
     // Debe ser puesta la URL final
-    if (window.location.href == "http://127.0.0.1:5000/configuraciones" || window.location.href == "http://127.0.0.1:5000/configuraciones#!") {
+    if (window.location.href == "http://127.0.0.1:5000/configuraciones" || window.location.href == "http://127.0.0.1:5000/configuraciones#!" || window.location.href == "https://jcphelperdos.herokuapp.com/configuraciones#!" || window.location.href == "https://jcphelperdos.herokuapp.com/configuraciones") {
         function insertar_phone() {
             contenedorColores.innerHTML = `
                     <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
@@ -546,7 +546,7 @@ $(document).ready(function () {
         var w = window.innerWidth;
 
         // Solo aplica a la página de configuraciones.html
-        if (window.location.href == "http://127.0.0.1:5000/configuraciones" || window.location.href == "http://127.0.0.1:5000/configuraciones#!") {
+        if (window.location.href == "http://127.0.0.1:5000/configuraciones" || window.location.href == "http://127.0.0.1:5000/configuraciones#!" || window.location.href == "https://jcphelperdos.herokuapp.com/configuraciones#!" || window.location.href == "https://jcphelperdos.herokuapp.com/configuraciones") {
             if (w < 600) {
                 insertar_phone();
             } else if (w > 600) {
@@ -791,7 +791,7 @@ $(document).ready(function () {
         
         Esto no sobrecarga el procesador porque por lo regular el tamaño de la pantalla
         se mantiene estático*/
-        if (window.location.href == "http://127.0.0.1:5000/configuraciones" || window.location.href == "http://127.0.0.1:5000/configuraciones#!") {
+        if (window.location.href == "http://127.0.0.1:5000/configuraciones" || window.location.href == "http://127.0.0.1:5000/configuraciones#!" || window.location.href == "https://jcphelperdos.herokuapp.com/configuraciones#!" || window.location.href == "https://jcphelperdos.herokuapp.com/configuraciones") {
             if (newWidth < 600) {
                 for (var i = 0; i < 1; i++) {
                     console.log("Menor");
