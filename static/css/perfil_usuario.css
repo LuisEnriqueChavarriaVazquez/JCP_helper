@@ -7,6 +7,18 @@
     background-attachment: fixed;
 }
 
+@media only screen and (min-width: 600px) {
+    .fondoPerfilDiseno{
+        height: 150px;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .fondoPerfilDiseno{
+        height: 200px;
+    }
+}
+
 .fotoPerfil{
     width: 120px;
     border-radius: 100%;
@@ -46,3 +58,63 @@
     margin-top: 10px;
     padding: 5px 20px;
 }
+
+/*Boton para elegir el fondo de perfil*/
+
+.iconEditContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: left;
+    padding: 20px;
+}
+
+.iconEditContainer > p{
+    height: 50px;
+}
+
+.iconEditContainer > p > a{
+    padding: 5px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foto_fondo_picker{
+    width: 100%;
+    height: 75px;
+    margin: 8px 5px;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@media only screen and (min-width: 600px) {
+    .foto_fondo_picker{
+        height: 100px;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .foto_fondo_picker{
+        height: 120px;
+    }
+}
+
+#foto_1{background-image: url('../images/fondos/aqua/aqua_1.png');}
+#foto_2{background-image: url('../images/fondos/aqua/aqua_2.png');}
+#foto_3{background-image: url('../images/fondos/aqua/aqua_3.png');}
+#foto_4{background-image: url('../images/fondos/aqua/aqua_4.png');}
+#foto_5{background-image: url('../images/fondos/aqua/aqua_5.png');}
+#foto_6{background-image: url('../images/fondos/aqua/aqua_6.png');}
+#foto_7{background-image: url('../images/fondos/azul/azul_1.png');}
+#foto_8{background-image: url('../images/fondos/azul/azul_2.png');}
+#foto_9{background-image: url('../images/fondos/azul/azul_3.png');}
+#foto_10{background-image: url('../images/fondos/azul/azul_4.png');}
+#foto_11{background-image: url('../images/fondos/black/black_1.png');}
+#foto_12{background-image: url('../images/fondos/black/black_2.png');}
+#foto_13{background-image: url('../images/fondos/black/black_3.png');}
+#foto_14{background-image: url('../images/fondos/black/black_4.png');}
+#foto_15{background-image: url('../images/fondos/black/black_5.png');}

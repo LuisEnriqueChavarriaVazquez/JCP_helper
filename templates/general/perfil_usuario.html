@@ -16,8 +16,7 @@
     <nav class="color2 fixedNavbarMine">
         <div class="nav-wrapper">
             <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Perfil de usuario.</a>
-            <a href="#" data-target="slide-out" class="sidenav-trigger"><i
-                    class="material-icons">arrow_back</i></a>
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">arrow_back</i></a>
             <p class="titleMobile colorText flow-text hide-on-med-and-up">Perfil de usuario.</p>
             <ul class="right hide-on-med-and-down">
                 <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
@@ -29,20 +28,89 @@
     <!--Header del icono de usuario-->
     <section>
         <div>
-            <div class="fondoDinamico fondoPerfilDiseno shadow-3e"></div>
+            <div class="fondoDinamico fondoPerfilDiseno shadow-3e">
+                <div class="iconEditContainer">
+                    <p>
+                        <a href="#modal1" class="modal-trigger colorGreyWhiter bordered2 shadow-2e colorTextReverse waves-effect"><i class="material-icons">photo_library</i></a>
+                    </p>
+                </div>
+            </div>
             <div class="datos_perfil_container">
                 <div><img class="fotoPerfil shadow-2e" src="../../static/images/user.png" alt="foto del usuario"></div>
                 <p class="colorTextReverse nombre_perfil">Nombre usuario</p>
                 <p class="colorTextReverse alias_perfil">Alias del usuario</p>
-                <p class="colorTextReverse descripcion_perfil">Lorem ipsum, dolor sit amet  prueba prueba prueba consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                <p class="colorTextReverse descripcion_perfil">Lorem ipsum, dolor sit amet prueba prueba prueba
+                    consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum,
+                    dolor sit amet consectetur adipisicing elit.</p>
             </div>
         </div>
     </section>
 
 
     <section class="mainBodyAdicional">
-       
+
     </section>
+
+    <!-- Modal para elegir el tema del perfil -->
+    <div id="modal1" class="modal modal-fixed-footer">
+        <div class="modal-content">
+        <h5>Temas</h5>
+          <div class="fotosSelector">
+            <div class="fotosIndividual">
+                <div class="row">
+                    <div class="col s6 m3 l3">
+                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_1"></div>
+                    </div>
+                    <div class="col s6 m3 l3">
+                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_2"></div>
+                    </div>
+                    <div class="col s6 m3 l3">
+                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_3"></div>
+                    </div>
+                    <div class="col s6 m3 l3">
+                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_4"></div>
+                    </div>
+                    <div class="col s6 m3 l3">
+                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_5"></div>
+                    </div>
+                    <div class="col s6 m3 l3">
+                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_6"></div>
+                    </div>
+                    <div class="col s6 m3 l3">
+                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_7"></div>
+                    </div>
+                    <div class="col s6 m3 l3">
+                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_8"></div>
+                    </div>
+                    <div class="col s6 m3 l3">
+                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_9"></div>
+                    </div>
+                    <div class="col s6 m3 l3">
+                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_10"></div>
+                    </div>
+                    <div class="col s6 m3 l3">
+                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_11"></div>
+                    </div>
+                    <div class="col s6 m3 l3">
+                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_12"></div>
+                    </div>
+                    <div class="col s6 m3 l3">
+                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_13"></div>
+                    </div>
+                    <div class="col s6 m3 l3">
+                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_14"></div>
+                    </div>
+                    <div class="col s6 m3 l3">
+                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_15"></div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Listo</a>
+        </div>
+      </div>
 
     <!--Metemos el footer en la app-->
     {% include "includes/footer.html" %}
