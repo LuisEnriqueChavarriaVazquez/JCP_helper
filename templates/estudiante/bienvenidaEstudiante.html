@@ -89,7 +89,15 @@
             <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Menú de opciones</h4>
             <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Menú de opciones</h3>
         </div>
-
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div id="login_success">
+            <p>{{ message }}</p>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
         <!--Para dispositivos de tabletas-->
         <section class="hide-on-small-only hide-on-med-only centerAligner verticalAligner colorGrey" style="padding: 30px;">
             <section class="centerAligner horizontalAligner">

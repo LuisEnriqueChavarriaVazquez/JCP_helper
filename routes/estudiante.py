@@ -75,6 +75,8 @@ def login_estudiante():
             if bcrypt.checkpw(password,passBD):
                 return render_template('estudiante/bienvenidaEstudiante.html')  
             else:
+                flash("Usuario o contraseña incorrectos!")
                 return redirect(url_for('routes.login_general'))   
         else:
+            flash("Usuario o contraseña incorrectos!")
             return redirect(url_for('routes.login_general'))       

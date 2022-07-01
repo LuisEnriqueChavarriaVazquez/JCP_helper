@@ -1,6 +1,6 @@
-from flask import Flask, redirect, url_for, render_template,request,flash
-from flask_mysqldb import MySQL
+from flask import Flask, render_template
 from routes import *
+
 
 
 app=Flask(__name__)

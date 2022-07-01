@@ -1,6 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 h1,h2,h3 { 
     font-family: 'Montserrat-Black',sans-serif;  
@@ -9,10 +10,33 @@ h1,h2,h3 {
 h2,h3{
     font-weight: bold;
 }
-
-p{
-    color: #8f8f8f;
+/* Mensaje de error en el login*/
+#error_login {
+	text-align: center;
+	background-color: #EB5353;
+	padding: 3px 3px;
+	margin-bottom: 15px;
+	margin-top: -20px;
 }
+#error_login p{
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+}
+
+/*Mensaje de login exitoso*/
+#login_success {
+	text-align: center;
+	background-color: #357C3C;
+	padding: 3px 3px;
+	margin-bottom: 15px;
+	width: 60%;
+	margin: auto;
+}
+#login_success p{
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+}
+
 
 .mainBody{
 	display: flex;

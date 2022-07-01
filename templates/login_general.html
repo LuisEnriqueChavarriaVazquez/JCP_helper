@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>{% block title %}| JCP{% endblock %}</title>
+    <title>{% block title %}login | JCP{% endblock %}</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -17,11 +17,11 @@
     <nav class="color2">
         <div class="nav-wrapper">
             <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Log in.</a>
-            <a href="bienvenida" data-target="slide-out" class="sidenav-trigger"><i
+            <a href="/" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
             <p class="titleMobile colorText flow-text hide-on-med-and-up">Log in.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="bienvenida" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="/" class="btn color3 button-rounded">Volver al inicio</a></li>
             </ul>
         </div>
     </nav>
@@ -56,6 +56,15 @@
                                     <label for="password">Contraseña</label>
                                 </div>
                             </div>
+                            {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                            {% for message in messages %}
+                            <div id="error_login">
+                                <p>{{ message }}</p>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                            {% endwith %}
                             
                         
 
