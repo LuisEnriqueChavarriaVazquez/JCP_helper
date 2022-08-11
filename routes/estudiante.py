@@ -49,14 +49,21 @@ def nuevo_estudiante():
         alias=request.form["alias"]
         foto=request.files["foto"]
         correo=request.form["correo"]
-        contra=str(request.form["contra"])
+
+        contra=request.form["contra"]
+        contra2=request.form["contra2"]
+
+        if contra==contra2:
+            # encriptamos la contraseña
+            contra = contra.encode('utf-8')
+            hashed = bcrypt.hashpw(contra, bcrypt.gensalt())
+        else:
+            flash("Las contraseñas no coinciden.")
+            return redirect(url_for("routes.signup_Est"))
+
         area=request.form["area"]
         escuela=request.form["escuela"]
         descripcion=request.form["descripcion"]
-
-        # encriptamos la contraseña
-        contra = contra.encode('utf-8')
-        hashed = bcrypt.hashpw(contra, bcrypt.gensalt()) 
         
         Op_estudiante.insertar_estudiante(nombre,alias,foto,correo,hashed,area,escuela,descripcion)
         flash(f"{nombre} te has registrado correctamente!!")

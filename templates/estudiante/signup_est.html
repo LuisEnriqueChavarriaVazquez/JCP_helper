@@ -66,11 +66,17 @@
                                 type="password" name="contra2" class="validate" required>
                             <label for="password">Confirmación <b class="red-text">*</b></label>
                         </div>
-                        <!-- <div class="input-field col s12 m6 l12">
-                            <input placeholder="Escriba su grupo" class="colorText truncate" id="text" type="text"
-                                name="grupo" class="validate">
-                            <label for="text">Grupo (Opcional)</label>
-                        </div> -->
+                        <div class="input-field col s12 m6 l12">
+                            {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                            {% for message in messages %}
+                            <div id="error_login">
+                                <p>{{ message }}</p>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                            {% endwith %}
+                        </div>
                         <div class="input-field col s12 m6 l12">
                             <input placeholder="Escriba su escuela de procedencia" class="colorText truncate"
                                 id="text" type="text" name="escuela" class="validate">

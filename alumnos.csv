@@ -1,0 +1,21 @@
+idAlumno,Alumno,Grupo,Lenguaje,N_preguntas,T_preguntas,Calificación
+1,Martín Perez Garcia,3CM12,Python,10,"Opción multiple,4,Verdero-Falso,3,Completar espacios,3",9
+2,Jesús Hernández Jimenez,4CV11,Java,12,"Opción multiple,4,Verdero-Falso,4,Completar espacios,4",8
+3,Maria Jaime Angel,2CM1,C,11,"Opción multiple,5,Verdero-Falso,4,Completar espacios,1",10
+4,Belinda Velasco Sanchez,1CV8,Python,10,"Opción multiple,4,Verdero-Falso,3,Completar espacios,3",7
+5,Paola Juárez Nieto,3CM12,Java,12,"Opción multiple,4,Verdero-Falso,4,Completar espacios,4",9
+6,Laura Pausini Torres,4CV11,C,11,"Opción multiple,5,Verdero-Falso,4,Completar espacios,1",6
+7,Evelyn Alvarez Cazares ,2CM1,Python,10,"Opción multiple,4,Verdero-Falso,3,Completar espacios,3",9
+8,Gabriela Luján Chavez ,1CV8,Java,12,"Opción multiple,4,Verdero-Falso,4,Completar espacios,4",8
+9,Mariela Castrejón Espinosa,3CM12,C,11,"Opción multiple,5,Verdero-Falso,4,Completar espacios,1",10
+10,Fernando Aristeguieta Rivas,4CV11,Python,10,"Opción multiple,4,Verdero-Falso,3,Completar espacios,3",7
+11,Nestor Araujo Fernández,2CM1,Java,12,"Opción multiple,4,Verdero-Falso,4,Completar espacios,4",9
+12,Guillermo Ochoa Torres,1CV8,C,11,"Opción multiple,5,Verdero-Falso,4,Completar espacios,1",6
+13,Edson Alvarez Alcantara,3CM12,Python,10,"Opción multiple,4,Verdero-Falso,3,Completar espacios,3",9
+14,Leonel Angel López,4CV11,Java,12,"Opción multiple,4,Verdero-Falso,4,Completar espacios,4",8
+15,Rodolfo Ambriz Velasco ,2CM1,C,11,"Opción multiple,5,Verdero-Falso,4,Completar espacios,1",10
+16,Guadalupe Esquivel Martinez,1CV8,Python,10,"Opción multiple,4,Verdero-Falso,3,Completar espacios,3",7
+17,Andrea Esquivel Rueda,3CM12,Java,12,"Opción multiple,4,Verdero-Falso,4,Completar espacios,4",9
+18,Jatziry Ocampo Morales,4CV11,C,11,"Opción multiple,5,Verdero-Falso,4,Completar espacios,1",6
+19,Karla Ocampo Macias,2CM1,Python,10,"Opción multiple,4,Verdero-Falso,3,Completar espacios,3",10
+20,Leonardo Ruiz Uriostegui,1CV8,Java,12,"Opción multiple,4,Verdero-Falso,4,Completar espacios,4",10

@@ -45,12 +45,18 @@ def nuevo_profesor():
         foto=request.files["foto"]
         correo=request.form["correo"]
         contra=request.form["contra"]
+        contra2=request.form["contra2"]
+
+        if contra==contra2:
+            # encriptamos la contraseña
+            contra = contra.encode('utf-8')
+            hashed = bcrypt.hashpw(contra, bcrypt.gensalt())
+        else:
+            flash("Las contraseñas no coinciden.")
+            return redirect(url_for("routes.signup_Prof"))
+        
         unidad_academica=request.form["unidad_academica"]
         descripcion=request.form["descripcion"]
-
-        # encriptamos la contraseña
-        contra = contra.encode('utf-8')
-        hashed = bcrypt.hashpw(contra, bcrypt.gensalt()) 
 
 
 
