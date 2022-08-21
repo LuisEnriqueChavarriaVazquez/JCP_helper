@@ -2,6 +2,10 @@ from flask import render_template,flash,request, url_for, redirect
 from . import routes
 from operacionesBD import Op_profesor
 import bcrypt
+import pandas as pd
+import json
+import plotly
+import plotly.express as px
 
 ##
 ## Links para la parte del panel central
@@ -20,7 +24,39 @@ def gestionar_cuestionarios():
 ##Ruta para la vista de gestion de estadisticas
 @routes.route('/gestionar_estadisticas')
 def gestionar_estadisticas():
-    return render_template('profesor/a_gestionar_estadisticas.html')
+
+    #Grafica de ejemplo 1
+    df = pd.DataFrame({
+        "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
+        "Amount": [4, 1, 2, 2, 4, 5],
+        "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
+    })
+
+    fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
+
+    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+    header="Fruit in North America"
+    description = """
+    A academic study of the number of apples, oranges and bananas in the cities of
+    San Francisco and Montreal would probably not come up with this chart.
+    """
+    
+    #Grafico de ejemplo 2
+    df2 = pd.DataFrame({
+        "Vegetables": ["Lettuce", "Cauliflower", "Carrots", "Lettuce", "Cauliflower", "Carrots"],
+        "Amount": [10, 15, 8, 5, 14, 25],
+        "City": ["London", "London", "London", "Madrid", "Madrid", "Madrid"]
+    })
+
+    fig2 = px.bar(df2, x="Vegetables", y="Amount", color="City", barmode="stack")
+
+    graphJSON2 = json.dumps(fig2, cls=plotly.utils.PlotlyJSONEncoder)
+    header2="Vegetables in Europe"
+    description2 = """
+    The rumor that vegetarians are having a hard time in London and Madrid can probably not be
+    explained by this chart.
+    """
+    return render_template('profesor/a_gestionar_estadisticas.html', graphJSON=graphJSON, header=header,description=description, graphJSON2=graphJSON2, header2=header2,description2=description2)
 
 ##Ruta para la vista de gestion de grupos
 @routes.route('/gestionar_grupos')

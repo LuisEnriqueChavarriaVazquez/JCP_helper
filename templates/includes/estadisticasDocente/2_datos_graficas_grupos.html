@@ -118,7 +118,7 @@
             <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
             </div>
             <div class="graficoCardGrafica bordered2Down centerAligner">
-                {% include "includes/mensajesCasos/error.html" %}
+                <div id='chart5' class='chart'”></div>
             </div>
         </div>
     </div>
@@ -127,7 +127,7 @@
             <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
             </div>
             <div class="graficoCardGrafica bordered2Down centerAligner">
-                {% include "includes/mensajesCasos/error.html" %}
+                <div id='chart6' class='chart'”></div>
             </div>
         </div>
     </div>
@@ -136,7 +136,7 @@
             <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
             </div>
             <div class="graficoCardGrafica bordered2Down centerAligner">
-                {% include "includes/mensajesCasos/error.html" %}
+                <div id='chart7' class='chart'”></div>
             </div>
         </div>
     </div>
@@ -145,7 +145,7 @@
             <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
             </div>
             <div class="graficoCardGrafica bordered2Down centerAligner">
-                {% include "includes/mensajesCasos/error.html" %}
+                <div id='chart8' class='chart'”></div>
             </div>
         </div>
     </div>
@@ -200,3 +200,13 @@
         </div>
     </div>
 </section>
+
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+<script type='text/javascript'>
+  var graphs = {{graphJSON | safe}};
+  var graphs2={{graphJSON2 | safe}}
+  Plotly.plot('chart5',graphs,{});
+  Plotly.plot('chart6',graphs,{});
+  Plotly.plot('chart7',graphs2,{});
+  Plotly.plot('chart8',graphs2,{})
+</script>
