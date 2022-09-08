@@ -93,6 +93,29 @@ $('.owl-four').owlCarousel({
 })
 
 /*
+    Carousel para los datos del perfil
+*/
+$('.owl-six').owlCarousel({
+    loop:false,
+    margin:2,
+    autoWidth:true,
+    touchDrag:true,
+    nav:false,
+    dotsData: false,
+    dots: false,
+    fluidSpeed: true,
+    center: false,
+    responsive:{
+        0:{
+            items:1.2
+        },
+        600:{
+            items:1.2
+        }
+    }
+})
+
+/*
     Para las recomendaciones en pequeños globitos
 */
 $('.owl-five').owlCarousel({

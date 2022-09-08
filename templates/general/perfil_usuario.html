@@ -27,14 +27,18 @@
 
     <!--Header del icono de usuario-->
     <section>
-        <div>
-            <div class="fondoDinamico fondoPerfilDiseno shadow-3e">
+        <div class="dataContainerUserMain" style="height: 370px !important">
+            <!-- Fondo con la foto elegida por el usuario -->
+            <div class="fondoDinamico fondoPerfilDiseno shadow-3e" id="fondoDinamicoUsuario">
                 <div class="iconEditContainer">
                     <p>
-                        <a href="#modal1" class="modal-trigger colorGreyWhiter bordered2 shadow-2e colorTextReverse waves-effect"><i class="material-icons">photo_library</i></a>
+                        <a href="#modal1"
+                            class="modal-trigger colorGreyWhiter bordered2 shadow-2e colorTextReverse waves-effect"><i
+                                class="material-icons">photo_library</i></a>
                     </p>
                 </div>
             </div>
+            <!-- Datos del cliente -->
             <div class="datos_perfil_container">
                 <div><img class="fotoPerfil shadow-2e" src="../../static/images/user.png" alt="foto del usuario"></div>
                 <p class="colorTextReverse nombre_perfil">Nombre usuario</p>
@@ -44,73 +48,68 @@
                     dolor sit amet consectetur adipisicing elit.</p>
             </div>
         </div>
-    </section>
+        <!-- Carousel de datos del cliente -->
+        <!--Seccion para dispositivos moviles-->
+        <section class="owl-six owl-carousel owl-theme hide-on-med-and-up">
+            <div class="item" style="margin-left: 20px;">
+                <a href="gestionar_grupos">
+                    <div class="cardComunidadBusqueda colorGreyWhiter bordered1 shadow-2e">
+                        <h5>Datos generales.</h5>
+                        <p class="colorTextReverse">Dato x</p>
+                        <p class="colorTextReverse">Dato del alumno número uno.</p>
+                        <hr>
+                        <p class="colorTextReverse">Dato x</p>
+                        <p class="colorTextReverse">Dato del alumno número dos, alumno número dos alumno número dos.</p>
+                        <hr>
+                        <p class="colorTextReverse">Dato x</p>
+                        <p class="colorTextReverse">Dato del alumno número tres, alumno número tres alumno número tres.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="item" style="margin-left: 20px;">
+                <a href="gestionar_grupos">
+                    <div class="cardComunidadBusqueda colorGreyWhiter bordered1 shadow-2e">
+                        <h5>Adicionales.</h5>
+                        <p class="colorTextReverse">Dato x</p>
+                        <p class="colorTextReverse">Dato del alumno número uno.</p>
+                        <hr>
+                        <p class="colorTextReverse">Dato x</p>
+                        <p class="colorTextReverse">Dato del alumno número dos, alumno número dos alumno número dos.</p>
+                        <hr>
+                        <p class="colorTextReverse">Dato x</p>
+                        <p class="colorTextReverse">Dato del alumno número tres, alumno número tres alumno número tres.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="item" style="width: 200px;">
+            </div>
+        </section>
+        <section>
+            <div>
+                <p>Datos de contacto.</p>
+                <div>
 
-
-    <section class="mainBodyAdicional">
-
+                </div>
+            </div>
+        </section>
     </section>
 
     <!-- Modal para elegir el tema del perfil -->
-    <div id="modal1" class="modal modal-fixed-footer">
+    <div id="modal1" class="modal modal-fixed-footer bordered2" style="height: 80vh !important;">
         <div class="modal-content">
-        <h5>Temas</h5>
-          <div class="fotosSelector">
-            <div class="fotosIndividual">
-                <div class="row">
-                    <div class="col s6 m3 l3">
-                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_1"></div>
-                    </div>
-                    <div class="col s6 m3 l3">
-                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_2"></div>
-                    </div>
-                    <div class="col s6 m3 l3">
-                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_3"></div>
-                    </div>
-                    <div class="col s6 m3 l3">
-                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_4"></div>
-                    </div>
-                    <div class="col s6 m3 l3">
-                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_5"></div>
-                    </div>
-                    <div class="col s6 m3 l3">
-                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_6"></div>
-                    </div>
-                    <div class="col s6 m3 l3">
-                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_7"></div>
-                    </div>
-                    <div class="col s6 m3 l3">
-                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_8"></div>
-                    </div>
-                    <div class="col s6 m3 l3">
-                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_9"></div>
-                    </div>
-                    <div class="col s6 m3 l3">
-                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_10"></div>
-                    </div>
-                    <div class="col s6 m3 l3">
-                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_11"></div>
-                    </div>
-                    <div class="col s6 m3 l3">
-                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_12"></div>
-                    </div>
-                    <div class="col s6 m3 l3">
-                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_13"></div>
-                    </div>
-                    <div class="col s6 m3 l3">
-                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_14"></div>
-                    </div>
-                    <div class="col s6 m3 l3">
-                        <div class="foto_fondo_picker bordered1 shadow-2" id="foto_15"></div>
+            <h5>Temas</h5>
+            <div class="fotosSelector">
+                <div class="fotosIndividual">
+                    <div class="row" id="popUpThemes">
+                        <!-- Se insertan los elementos del selector de temas. -->
                     </div>
                 </div>
             </div>
-          </div>
         </div>
         <div class="modal-footer">
-          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Listo</a>
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Listo</a>
         </div>
-      </div>
+    </div>
 
     <!--Metemos el footer en la app-->
     {% include "includes/footer.html" %}
