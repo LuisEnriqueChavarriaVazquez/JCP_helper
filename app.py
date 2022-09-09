@@ -1,7 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask
+from flask import render_template
 from routes import *
-
-
 
 app=Flask(__name__)
 app.register_blueprint(routes)
