@@ -125,3 +125,9 @@ def login_profesor():
 def bienvenidaProfesor():
     return render_template('profesor/bienvenidaProfesor.html')
 
+
+#Creación cuestionarios
+@routes.route('/creacion_cuestionarios')
+def creacion_cuestionarios():
+    return render_template('profesor/cuestionarios_creacion.html')
+

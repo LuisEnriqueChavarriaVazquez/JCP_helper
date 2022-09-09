@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+<head>
+    <title>{% block title %}| JCP{% endblock %}</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
+</head>
+
+<body class="oculto colorGrey">
+
+{% include "includes/cargador.html" %}
+
+
+<nav class="color2 z-depth-3" >
+    <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">&nbsp;&nbsp;&nbsp;JCP_helper</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a ><input id="nombre" placeholder="nombre" type="text" class="validate"></a></li>
+            <li><a class="waves-effect waves-light btn">Guardar</a></li>
+            
+        </ul>
+    </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+    <li><a><input id="nombre" placeholder="nombre" type="text" class="validate"></a></li>
+    <li><a class="waves-effect waves-light btn">Guardar</a></li>
+   
+</ul>
+
+
+    <div class="row">
+    <div class="col s5">
+
+        <div class="card horizontal">
+           
+            <div class="card-stacked">
+                <div class="card-content">
+                    <h4 class="center-align">Tipo preguntas</h4>
+
+                   <div class="row">
+                    <div class="col s12 ">
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modalOpccionMultiple"><i class="material-icons left">storage</i>Opcción multiple</a>
+                    </div>
+                    </div>
+             <!--       <div class="row">
+                    <div class="col s12 ">
+                    <a class="waves-effect waves-light btn modal-trigger " href="#modalSeleccionMultiple"><i class="material-icons left">title</i>Selección multiple</a>
+                    </div>
+                    </div>-->
+                    <div class="row">
+                    <div class="col s12 ">
+                    
+                    <a class="waves-effect waves-light btn modal-trigger " href="#modalRellenarEspacios"><i class="material-icons left">title</i>Rellenar espacios</a>
+                    </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12 ">
+                    
+                    <a class="waves-effect waves-light btn modal-trigger"  href="#modalEjercicios"><i class="material-icons left">rate_review</i>Ejercicios</a>
+                    </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col s12 ">
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modalArrastrar"><i class="material-icons left">subtitles</i>Arrastrar</a>
+                </div>
+                </div>
+                
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+<div id="modalOpccionMultiple" class="modal">
+    <div class="modal-content">
+        <h4>Opcción multiple</h4>
+        <form class="col s12">
+        <div class="row">       
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <label for="textarea1">Pregunta</label>
+                    </div>
+                </div>
+        </div>
+
+        </form>
+    </div>
+</div>
+
+<!--<div id="modalSeleccionMultiple" class="modal">
+    <div class="modal-content">
+        <h4>Selección multiple</h4>
+    </div>
+</div> -->
+
+<div id="modalRellenarEspacios" class="modal">
+    <div class="modal-content">
+        <h4>Rellenar espacios</h4>
+        <form class="col s12">
+            <div class="row">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <label for="textarea1">Pregunta</label>
+                    </div>
+                </div>
+            </div>
+        
+        </form>
+    </div>
+</div>
+
+<div id="modalEjercicios" class="modal">
+    <div class="modal-content">
+        <h4>Ejercicios</h4>
+        <form class="col s12">
+            <div class="row">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <label for="textarea1">Pregunta</label>
+                    </div>
+                </div>
+            </div>
+        
+        </form>
+    </div>
+</div>
+
+<div id="modalArrastrar" class="modal">
+    <div class="modal-content">
+        <h4>Arrastrar</h4>
+        <form class="col s12">
+            <div class="row">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <label for="textarea1">Pregunta</label>
+                    </div>
+                </div>
+            </div>
+        
+        </form>
+    </div>
+</div>
+
+    <div class="col s7">
+        <div class="row">
+            <div class="col s12 ">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">
+                            <h5 class="center-align">
+                                Titulo del cuestionario
+                            </h5>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+<!--<div class="container">
+    
+<div class="row">
+    <div class="col s4">
+            <a class="waves-effect waves-light btn  modal-trigger" href="#modal1">Agregar pregunta</a>
+
+    </div>
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Tipo preguntas</h4>
+            <a class="waves-effect waves-light btn"><i class="material-icons left">storage</i>selección</a>
+            <a class="waves-effect waves-light btn"><i class="material-icons left">title</i>abiertas</a>
+            <a class="waves-effect waves-light btn"><i class="material-icons left">rate_review</i>practicas</a>
+            <a class="waves-effect waves-light btn"><i class="material-icons left">subtitles</i>completar</a>
+        </div>
+        
+    </div>
+    <div class="col s8">
+       
+        <div class="row">
+            <div class="col s12 ">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title"><h5 class="center-align">
+                            <input id="nombre" placeholder="Escriba una pregunta" type="text" class="validate">
+                        </h5></span>
+                        <div class="row">
+
+                        <div class="col s6">
+                            <div class="card horizontal">
+                                <div class="card-content">
+                                    <input id="opccionA" placeholder="opccion A" type="text" class="validate">
+                                </div>
+                            </div>
+                        </div>
+
+                            <div class="col s6">
+                                <div class="card horizontal">
+                                    <div class="card-content">
+                                        <input id="opccionB" placeholder="opccion B" type="text" class="validate">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                        
+                            <div class="col s6">
+                                <div class="card horizontal">
+                                    <div class="card-content">
+                                        <input id="opccionC" placeholder="opccion C" type="text" class="validate">
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="col s6">
+                                <div class="card horizontal">
+                                    <div class="card-content">
+                                        <input id="opccionD" placeholder="opccion D" type="text" class="validate">
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+</div>-->
+
+
+</body >
+
+
+</html>
