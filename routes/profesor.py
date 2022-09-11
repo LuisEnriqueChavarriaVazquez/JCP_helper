@@ -131,3 +131,9 @@ def bienvenidaProfesor():
 def creacion_cuestionarios():
     return render_template('profesor/cuestionarios_creacion.html')
 
+
+#Java coder runner
+
+@routes.route("/java_runner")
+def java_runner():
+    return render_template('profesor/java_runner.html')
