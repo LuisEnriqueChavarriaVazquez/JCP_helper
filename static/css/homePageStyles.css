@@ -1,0 +1,27 @@
+.mainBody-cardBienvenida{
+    width: 80%;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 20px;
+
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+}
+
+.mainBody-cardBienvenida-cardLogo{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.mainBody-cardBienvenida div img{
+    width: 80%;
+    border-radius: 20px;
+}

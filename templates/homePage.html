@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}Inicio | JCP{% endblock %}</title>
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+    <!--Estos estilos quedan aqui para evitar que se mezclen con otros-->
+    <link rel="stylesheet" href="../static/css/homePageStyles.css">
+
+</head>
+
+<body class="oculto">
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+    <!--Menu de página de inicio-->
+    <nav class="color2 z-depth-3">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;JCP_helper.</a>
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+
+
+    <ul id="slide-out" class="sidenav">
+        <li>
+            <div class="user-view">
+                <div class="background">
+                    <img src="../static/images/sidenavImage.jpg" width="100%">
+                </div>
+                <br>
+                <a href="#name"><span class="white-text name">¡Bienvenido a la prueba!</span></a>
+                <br>
+            </div>
+        </li>
+    </ul>
+
+    <section class="mainBody">
+        <!--<div class="title-general">
+            <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Acceso de prueba</h5>
+            <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Acceso de prueba</h3>
+        </div>-->
+        <div class="mainBody-cardBienvenida">
+            <div class="mainBody-cardBienvenida-cardLogo">
+                <img src="../static/images/carousel_four.jpg">
+            </div>
+            <div class="mainBody-cardBienvenida-cardText">
+                <h1>Bienvenido a <br> JCP_helper</h1>
+                <p>Obtenga métricas sobre su progreso en el aprendizaje de programación</p>
+            </div>
+        </div>
+
+
+    </section>
+
+</body>
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+
+</html>

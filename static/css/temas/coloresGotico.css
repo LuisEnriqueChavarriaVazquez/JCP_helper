@@ -1,53 +1,53 @@
-.color1 {background-color:  #312626;}
-.color2 {background-color:  #4d4141;}
-.color3 {background-color:  #756565;}
-.color4 {background-color:  #b4a2a2;}
-.color5 {background-color:  #e0c8c8;}
+.color1 {background-color:  #313131;}
+.color2 {background-color:  #444444;}
+.color3 {background-color:  #747474;}
+.color4 {background-color:  #bbbbbb;}
+.color5 {background-color:  #e2e2e2;}
 
 .colorGrey {background-color: #dddddd;}
 .colorGreyDarker {background-color: #cacaca;}
 .colorGreyWhiter {background-color: #ececec;}
 .colorWhite {background-color: #fff;}
 
-.coloredText {color: #756565 !important;}
+.coloredText {color: #777777 !important;}
 .colorText {color: #fff !important;}
 .colorTextReverse {color: #000 !important;}
 
 .borderDecoration{
-    border-bottom: 5px #756565 solid;
+    border-bottom: 5px #747474 solid;
 }
 
 .borderDecorationStrong{
-    border-bottom: 5px #4d4141 solid;
+    border-bottom: 5px #4d4d4d solid;
 }
 
 /*Fondos dinámicos*/
 .cardCarouselMainHead{
-    background-image: url('../../images/fondos/cafe/cafe_1.png');
+    background-image: url('../../images/fondos/gotico/gotico_1.png');
 }
 
 .cardMain{
-    background-image: url('../../images/fondos/cafe/cafe_3.png');
+    background-image: url('../../images/fondos/gotico/gotico_3.png');
 }
 
 .cardMainDesktopPanelHead{
-    background-image: url('../../images/fondos/cafe/cafe_4.png');
+    background-image: url('../../images/fondos/gotico/gotico_4.png');
 }
 
 .informeCard{
-    background-image: url('../../images/fondos/cafe/cafe_5.png');
+    background-image: url('../../images/fondos/gotico/gotico_5.png');
 }
 
 .iconSecondary{
-    background-image: url('../../images/fondos/cafe/cafe_6.png') ;
+    background-image: url('../../images/fondos/gotico/gotico_6.png') ;
 }
 
 .card-bienvenida,.card-bienvenida-text{
-    background-image: url('../../images/fondos/cafe/cafe_1.png');
+    background-image: url('../../images/fondos/gotico/gotico_1.png');
 }
 
 .fondoDinamico{
-    background-image: url('../../images/fondos/cafe/cafe_1.png');
+    background-image: url('../../images/fondos/gotico/gotico_1.png');
 }
 
 .icon_app{
@@ -57,5 +57,5 @@
 
 /*Barra de carga*/
 .progress .indeterminate {
-    background-color: #4d4141;
+    background-color: #4d4d4d;
 }
