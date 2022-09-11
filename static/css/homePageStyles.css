@@ -9,7 +9,7 @@
     height: 80px !important;
     display: grid;
     position: fixed;
-    grid-template-columns: 1fr 6fr 1fr 1fr ;
+    grid-template-columns: .5fr 2fr 1fr ;
     grid-template-rows: 100px;
     
     justify-content: center;
@@ -34,8 +34,13 @@
     background-size: contain;
 }
 
+.menuButtonsNavDesktop{
+    display: flex;
+}
+
 .menuButtonsNavDesktop > a{
     border-radius: 50px;
+    margin-left: 10px;
 }
 
 /*Sección de encabezado*/
@@ -114,6 +119,17 @@
     width: 50%;
 }
 
+.titleInfoContainer div{
+    padding: 0px 50px;
+    border-radius: 400px;
+    margin-top: 20px;
+}
+
+.titleInfoContainer div p{
+    font-size: 20px;
+    font-weight: 400;
+}
+
 .iconBoxInfo{
     width: 500px;
     height: 500px;
@@ -133,10 +149,11 @@
     padding: 50px 200px;
 
     grid-template-columns: repeat(4, 1fr) ;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     grid-template-areas: 
         "area1 area2 area2 area3"
-        "area4 area2 area2 area5"    
+        "area4 area2 area2 area5"
+        "area6 area7 area7 area8"     
     ;
     gap: 10px;
 
@@ -147,7 +164,7 @@
 
 .gridInfoContainer div h3{
     height: auto;
-    width: 400px;
+    width: 100% !important;
     padding: 20px;
     box-sizing: border-box;
     border-radius: 500px;
@@ -163,13 +180,17 @@
 .itemInfo-3{ grid-area: area2;}
 .itemInfo-4{ grid-area: area4;}
 .itemInfo-5{ grid-area: area5;}
+.itemInfo-6{ grid-area: area6;}
+.itemInfo-7{ grid-area: area7;}
+.itemInfo-8{ grid-area: area8;}
 
 /*Galeria de fotos*/
 
 .desktopInfoContainer{
     width: 100%;
     height: auto;
-    padding: 100px 300px;
+    margin-bottom: 30px;
+    padding: 0px 300px;
     display: flex;
     justify-content: center;
     align-items: center;
