@@ -1,27 +1,281 @@
-.mainBody-cardBienvenida{
-    width: 80%;
-    box-sizing: border-box;
-    padding: 20px;
-    border-radius: 20px;
 
-    display: grid;
-    justify-content: center;
-    align-items: center;
-
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    gap: 20px;
+*{
+    font-family: Roboto;
 }
 
-.mainBody-cardBienvenida-cardLogo{
-    padding: 20px;
-    display: flex;
+/*Sección de menú*/
+.navHomePage{
+    width: 100%;
+    height: 80px !important;
+    display: grid;
+    position: fixed;
+    grid-template-columns: .5fr 2fr 1fr ;
+    grid-template-rows: 100px;
+    
     justify-content: center;
     align-content: center;
 
+    justify-items: center;
+    align-items: center;
+
+    z-index: 1000 !important;
 }
 
-.mainBody-cardBienvenida div img{
+.brand-logoContainer{
+    border-radius: 20px;
+}
+
+.menuIconHomePage{
+    height: 50px;
+    width: 50px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.menuButtonsNavDesktop{
+    display: flex;
+}
+
+.menuButtonsNavDesktop > a{
+    border-radius: 50px;
+    margin-left: 10px;
+}
+
+/*Sección de encabezado*/
+
+.mainBody-headerContainer{
+    width: 100%;
+    height: 60vh;
+    padding: 40px 40px 40px 100px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+
+    background-image: url('../images/home_page/home_page_1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.iconPrincipalContainer{
+    width: 300px;
+    height: 300px;
+
+    display: flex;
+    justify-content: center !important;
+    align-content: center !important;
+    padding: 30px 20px 20px 20px;
+}
+
+.iconPrincipalContainer .icon_app{
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.mainBody-headerContainer h1{
+    font-weight: 700;
+    font-family: Roboto;
+}
+
+.mainBody-headerContainer p{
+    font-size: 20px;
+}
+
+.mainBody-headerContainer div{
+    box-sizing: border-box;
+    margin-top: 30px;
+    width: 50%;
+}
+
+.mainBody-headerContainer div a{
+    width: 200px;
+}
+
+/*Sección de info*/
+
+.titleInfoContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+}
+
+.titleInfoContainer h2{
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.titleInfoContainer hr{
+    background-color: rgb(44, 44, 44) !important;
+    height: 1.5px;
+    width: 50%;
+}
+
+.titleInfoContainer div{
+    padding: 0px 50px;
+    border-radius: 400px;
+    margin-top: 20px;
+}
+
+.titleInfoContainer div p{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.iconBoxInfo{
+    width: 500px;
+    height: 500px;
+    background-image: url(../images/brand_app/triple.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.gridInfoContainer{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+
+    width: 100%;
+    height: auto;
+    padding: 50px 200px;
+
+    grid-template-columns: repeat(4, 1fr) ;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+        "area1 area2 area2 area3"
+        "area4 area2 area2 area5"
+        "area6 area7 area7 area8"     
+    ;
+    gap: 10px;
+
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+}
+
+.gridInfoContainer div h3{
+    height: auto;
+    width: 100% !important;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 500px;
+}
+
+.gridInfoContainer div p{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.itemInfo-1{ grid-area: area1;}
+.itemInfo-2{ grid-area: area3;}
+.itemInfo-3{ grid-area: area2;}
+.itemInfo-4{ grid-area: area4;}
+.itemInfo-5{ grid-area: area5;}
+.itemInfo-6{ grid-area: area6;}
+.itemInfo-7{ grid-area: area7;}
+.itemInfo-8{ grid-area: area8;}
+
+/*Galeria de fotos*/
+
+.desktopInfoContainer{
+    width: 100%;
+    height: auto;
+    padding: 0px 300px 50px 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.imageGalleryContainer{
     width: 80%;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) ;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas: 
+    "area1 area2 area2"
+    "area3 area2 area2"
+    "area3 area4 area5"
+    "area6 area7 area8"
+    ;
+    gap: 10px;
+    
+    justify-content: center;
+    align-content: center;
+}
+
+.imageGalleryContainer div img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+.imageGalleryContainer div{
+    object-fit: contain;
+}
+
+.imageGalleryItem-1{
+    grid-area: area1;
+}
+
+.imageGalleryItem-2{
+    grid-area: area2;
+}
+.imageGalleryItem-3{
+    grid-area: area3;
+}
+.imageGalleryItem-4{
+    grid-area: area4;
+}
+.imageGalleryItem-5{
+    grid-area: area5;
+}
+.imageGalleryItem-6{
+    grid-area: area6;
+}
+.imageGalleryItem-7{
+    grid-area: area7;
+}
+.imageGalleryItem-8{
+    grid-area: area8;
+}
+
+/*Tabla comparativa de JCP*/
+
+.containerTablaComparativa{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.containerTablaComparativa .titleInfoModified hr{
+    height: 1px !important;
+}
+
+.tableMainContainer{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 40px 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tableMainContainer div{
+    width: 100%;
+    padding: 10px;
     border-radius: 20px;
 }

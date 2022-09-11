@@ -14,14 +14,12 @@
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/cargador.html" %}
 
-    <!--Menu de página de inicio-->
-    <nav class="color2 z-depth-3">
+    <!--Menu de página de inicio con moviles-->
+    <nav class="color2 z-depth-3 hide-on-med-and-up">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;JCP_helper.</a>
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
     </nav>
-
 
     <ul id="slide-out" class="sidenav">
         <li>
@@ -36,27 +34,253 @@
         </li>
     </ul>
 
-    <section class="mainBody">
+    <!--Menu para las tables y los escritorios-->
+
+    <section class="navHomePage color1 shadow-3e hide-on-med-and-down">
+        <div class="brand-logoContainer">
+            <a href="" class="brand-logo hide-on-small-only">
+                <div class="menuIconHomePage icon_app"></div>
+            </a>
+        </div>
+        <div></div>
+        <div class="menuButtonsNavDesktop">
+            <a class="waves-effect waves-light btn-large color3"><i class="material-icons left">person</i>Acceder</a>
+            <a class="waves-effect waves-light btn-large color2"><i
+                    class="material-icons left">person_add</i>Registrarse</a>
+        </div>
+    </section>
+    <br><br><br>
+
+    <section class="mainBody mainBodyAdicional">
         <!--<div class="title-general">
             <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Acceso de prueba</h5>
             <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Acceso de prueba</h3>
         </div>-->
-        <div class="mainBody-cardBienvenida">
-            <div class="mainBody-cardBienvenida-cardLogo">
-                <img src="../static/images/carousel_four.jpg">
+
+        <div class="mainBody-headerContainer shadow-2">
+            <div>
+                <h1 class="titleHomePage colorText">Bienvenido a JCP_helper</h1>
+                <p class="colorText">Obtenga <b>métricas</b> de sus resultados <br> en el aprendizaje y enseñanza de
+                    programación.</p>
+
+                <div class="menuButtonsNavDesktop">
+                    <a class="waves-effect waves-light btn-large colorGrey colorTextReverse">Conocer más</a>
+                </div>
             </div>
-            <div class="mainBody-cardBienvenida-cardText">
-                <h1>Bienvenido a <br> JCP_helper</h1>
-                <p>Obtenga métricas sobre su progreso en el aprendizaje de programación</p>
+            <div class="iconPrincipalContainer">
+                <div class="icon_app">
+                    <!--La imagen esta puesta como background-->
+                </div>
             </div>
         </div>
 
+        <section>
+            <div class="titleInfoContainer colorTextReverse">
+                <h2>Saque el máximo provecho a JCP</h2>
+                <hr>
+            </div>
+            <div class="gridInfoContainer">
+                <div class="itemInfo-1">
+                    <h3 class="colorText color2 shadow-1e">
+                        <span class="material-icons md-36">brush</span>
+                        Diseñar
+                    </h3>
+                    <p>Cree pruebas personalizadas de acuerdo a sus necesidades.</p>
+                </div>
+                <div class="itemInfo-2">
+                    <h3 class="colorText color2 shadow-1e">
+                        <span class="material-icons md-36">check_circle</span>
+                        Evaluar
+                    </h3>
+                    <p>Ponga a prueba los conocimientos adquiridos.</p>
+                </div>
+                <div class="itemInfo-3">
+                    <div class="iconBoxInfo"></div>
+                </div>
+                <div class="itemInfo-4">
+                    <h3 class="colorText color2 shadow-1e">
+                        <span class="material-icons md-36">insights</span>
+                        Medir
+                    </h3>
+                    <p>Mida sus resultados y documente su avance.</p>
+                </div>
+                <div class="itemInfo-5">
+                    <h3 class="colorText color2 shadow-1e">
+                        <span class="material-icons md-36">backup</span>
+                        Compartir
+                    </h3>
+                    <p>Acceda a bancos de datos con preguntas de otros usuarios.</p>
+                </div>
+                <div class="itemInfo-6">
+
+                </div>
+                <div class="itemInfo-7">
+                    <h3 class="colorText color2 shadow-1e">
+                        <span class="material-icons md-36">psychology</span>
+                        Machine Learning
+                    </h3>
+                    <p>Obtenga métricas basadas en nuestros modelos de ML.</p>
+                </div>
+                <div class="itemInfo-8">
+
+                </div>
+            </div>
+        </section>
+
+        <section class="desktopInfoContainer colorGreyWhiter">
+            <div class="titleInfoContainer colorTextReverse">
+                <h2>Aprenda donde usted quiera.</h2>
+                <hr>
+                <div class="color1 colorText">
+                    <p>Utilize <b>JCP</b> donde usted quiera, en <b>celular, tableta o computadora</b>.</p>
+                </div>
+            </div>
+            <div class="imageGalleryContainer">
+                <div class="imageGalleryItem-1">
+                    <img class="materialboxed shadow-1" src="../static/images/brand_app/bannerHome (1).png">
+                </div>
+                <div class="imageGalleryItem-2">
+                    <img class="materialboxed shadow-1" src="../static/images/brand_app/bannerHome (2).png">
+                </div>
+                <div class="imageGalleryItem-3">
+                    <img class="materialboxed shadow-1" src="../static/images/brand_app/bannerHome (9).png">
+                </div>
+                <div class="imageGalleryItem-4">
+                    <img class="materialboxed shadow-1" src="../static/images/brand_app/bannerHome (4).png">
+                </div>
+                <div class="imageGalleryItem-5">
+                    <img class="materialboxed shadow-1" src="../static/images/brand_app/bannerHome (5).png">
+                </div>
+                <div class="imageGalleryItem-6">
+                    <img class="materialboxed shadow-1" src="../static/images/brand_app/bannerHome (6).png">
+                </div>
+                <div class="imageGalleryItem-7">
+                    <img class="materialboxed shadow-1" src="../static/images/brand_app/bannerHome (7).png">
+                </div>
+                <div class="imageGalleryItem-8">
+                    <img class="materialboxed shadow-1" src="../static/images/brand_app/bannerHome (8).png">
+                </div>
+            </div>
+        </section>
+
+        <section class="containerTablaComparativa color2">
+            <div class="titleInfoContainer titleInfoModified colorText">
+                <h2>Oferta de valor incomparable.</h2>
+                <hr>
+                <div class="color1 colorText">
+                    <p>Conozca todas la funcionalidades</b>.</p>
+                </div>
+            </div>
+            <div class="tableMainContainer">
+                <div class="colorGrey">
+                    <table class="highlight responsive-table">
+                        <thead>
+                            <tr>
+                                <th>Característica</th>
+                                <th>JCP_helper</th>
+                                <th>Google Forms</th>
+                                <th>Online exam builder</th>
+                                <th>Kahoot!</th>
+                                <th>Growledge</th>
+                                <th>Gexcat</th>
+                                <th>Socrative</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Pruebas personalizadas</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Banco de preguntas</td>
+                                <td>❌</td>
+                                <td>❌</td>
+                                <td>❌</td>
+                                <td>❌</td>
+                                <td>❌</td>
+                                <td>❌</td>
+                                <td>❌</td>
+                            </tr>
+                            <tr>
+                                <td>Interfaz responsiva</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Interfaz personalizable</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Generador de reportes</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Live coder</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Registro de resultados</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Modelos de análisis de métricas</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
 
     </section>
+
 
 </body>
 
 <!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footer.html" %}
 {% include "includes/footerRecursos.html" %}
 
 
