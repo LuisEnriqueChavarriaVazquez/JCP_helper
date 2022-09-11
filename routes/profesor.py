@@ -133,7 +133,12 @@ def creacion_cuestionarios():
 
 
 #Java coder runner
-
 @routes.route("/java_runner")
 def java_runner():
     return render_template('profesor/java_runner.html')
+
+
+#Python coder runner
+@routes.route('/python_runner')
+def python_runner():
+    return render_template("profesor/python_runner.html")
