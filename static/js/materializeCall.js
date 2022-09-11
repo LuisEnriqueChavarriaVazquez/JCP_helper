@@ -10,6 +10,7 @@ $(document).ready(function () {
     //  LLamadas a los elementos de materialize
     */
     $('.sidenav').sidenav();
+    $('.materialboxed').materialbox();
     $('.collapsible').collapsible();
     $('.carousel.carousel-slider').carousel({
         fullWidth: true,
