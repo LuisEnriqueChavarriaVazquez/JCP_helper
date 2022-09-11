@@ -268,7 +268,7 @@
 .tableMainContainer{
     width: 100%;
     box-sizing: border-box;
-    padding: 20px 200px;
+    padding: 40px 200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -277,4 +277,5 @@
 .tableMainContainer div{
     width: 100%;
     padding: 10px;
+    border-radius: 20px;
 }

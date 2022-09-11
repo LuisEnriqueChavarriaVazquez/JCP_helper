@@ -1,1 +1,1 @@
-web: gunicorn app:app
+ECHO est  activado.
