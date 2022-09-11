@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang=en>
+
+<head>
+    <script data-ezscrex=false data-cfasync=false data-pagespeed-no-defer>var __ez = __ez || {}; __ez.stms = Date.now(); __ez.evt = {}; __ez.script = {}; __ez.ck = __ez.ck || {}; __ez.template = {}; __ez.template.isOrig = true; __ez.queue = (function () {
+            var count = 0, incr = 0, items = [], timeDelayFired = false, hpItems = [], lpItems = [], allowLoad = true; var obj = {
+                func: function (name, funcName, parameters, isBlock, blockedBy, deleteWhenComplete, proceedIfError) {
+                    var self = this; this.name = name; this.funcName = funcName; this.parameters = parameters === null ? null : (parameters instanceof Array) ? parameters : [parameters]; this.isBlock = isBlock; this.blockedBy = blockedBy; this.deleteWhenComplete = deleteWhenComplete; this.isError = false; this.isComplete = false; this.isInitialized = false; this.proceedIfError = proceedIfError; this.isTimeDelay = false; this.process = function () {
+                        log("... func = " + name); self.isInitialized = true; self.isComplete = true; log("... func.apply: " + name); var funcs = self.funcName.split('.'); var func = null; if (funcs.length > 3) { } else if (funcs.length === 3) { func = window[funcs[0]][funcs[1]][funcs[2]]; } else if (funcs.length === 2) { func = window[funcs[0]][funcs[1]]; } else { func = window[self.funcName]; }
+                        if (typeof func !== 'undefined' && func !== null) { func.apply(null, this.parameters); }
+                        if (self.deleteWhenComplete === true) delete items[name]; if (self.isBlock === true) { log("----- F'D: " + self.name); processAll(); }
+                    }
+                }, file: function (name, path, isBlock, blockedBy, async, defer, proceedIfError) { var self = this; this.name = name; this.path = path; this.async = async; this.defer = defer; this.isBlock = isBlock; this.blockedBy = blockedBy; this.isInitialized = false; this.isError = false; this.isComplete = false; this.proceedIfError = proceedIfError; this.isTimeDelay = false; this.process = function () { self.isInitialized = true; log("... file = " + name); var scr = document.createElement('script'); scr.src = path; if (async === true) scr.async = true; else if (defer === true) scr.defer = true; scr.onerror = function () { log("----- ERR'D: " + self.name); self.isError = true; if (self.isBlock === true) { processAll(); } }; scr.onreadystatechange = scr.onload = function () { var state = scr.readyState; log("----- F'D: " + self.name); if ((!state || /loaded|complete/.test(state))) { self.isComplete = true; if (self.isBlock === true) { processAll(); } } }; document.getElementsByTagName('head')[0].appendChild(scr); } }, fileLoaded: function (name, isComplete) { this.name = name; this.path = ""; this.async = false; this.defer = false; this.isBlock = false; this.blockedBy = []; this.isInitialized = true; this.isError = false; this.isComplete = isComplete; this.proceedIfError = false; this.isTimeDelay = false; this.process = function () { }; }
+            }; function init() { window.addEventListener("load", function () { setTimeout(function () { timeDelayFired = true; log('TDELAY -----'); processAll(); }, 5000); }, false); }
+            function addFile(name, path, isBlock, blockedBy, async, defer, proceedIfError, priority) {
+                var item = new obj.file(name, path, isBlock, blockedBy, async, defer, proceedIfError); if (priority === true) { hpItems[name] = item } else { lpItems[name] = item }
+                items[name] = item; checkIfBlocked(item);
+            }
+            function setallowLoad(settobool) { allowLoad = settobool }
+            function addFunc(name, func, parameters, isBlock, blockedBy, autoInc, deleteWhenComplete, proceedIfError, priority) {
+                if (autoInc === true) name = name + "_" + incr++; var item = new obj.func(name, func, parameters, isBlock, blockedBy, deleteWhenComplete, proceedIfError); if (priority === true) { hpItems[name] = item } else { lpItems[name] = item }
+                items[name] = item; checkIfBlocked(item);
+            }
+            function addTimeDelayFile(name, path) { var item = new obj.file(name, path, false, [], false, false, true); item.isTimeDelay = true; log(name + ' ... ' + ' FILE! TDELAY'); lpItems[name] = item; items[name] = item; checkIfBlocked(item); }
+            function addTimeDelayFunc(name, func, parameters) { var item = new obj.func(name, func, parameters, false, [], true, true); item.isTimeDelay = true; log(name + ' ... ' + ' FUNCTION! TDELAY'); lpItems[name] = item; items[name] = item; checkIfBlocked(item); }
+            function checkIfBlocked(item) { if (isBlocked(item) === true || allowLoad == false) return; item.process(); }
+            function isBlocked(item) {
+                if (item.isTimeDelay === true && timeDelayFired === false) { log(item.name + " blocked = TIME DELAY!"); return true; }
+                if (item.blockedBy instanceof Array) { for (var i = 0; i < item.blockedBy.length; i++) { var block = item.blockedBy[i]; if (items.hasOwnProperty(block) === false) { log(item.name + " blocked = " + block); return true; } else if (item.proceedIfError === true && items[block].isError === true) { return false; } else if (items[block].isComplete === false) { log(item.name + " blocked = " + block); return true; } } }
+                return false;
+            }
+            function markLoaded(filename) {
+                if (!filename || 0 === filename.length) { return; }
+                if (filename in items) { var item = items[filename]; if (item.isComplete === true) { log(item.name + ' ' + filename + ': error loaded duplicate') } else { item.isComplete = true; item.isInitialized = true; } } else { items[filename] = new obj.fileLoaded(filename, true); }
+                log("markLoaded dummyfile: " + items[filename].name);
+            }
+            function logWhatsBlocked() { for (var i in items) { if (items.hasOwnProperty(i) === false) continue; var item = items[i]; isBlocked(item) } }
+            function log(msg) { var href = window.location.href; var reg = new RegExp('[?&]ezq=([^&#]*)', 'i'); var string = reg.exec(href); var res = string ? string[1] : null; if (res === "1") console.debug(msg); }
+            function processAll() { count++; if (count > 200) return; log("let's go"); processItems(hpItems); processItems(lpItems); }
+            function processItems(list) { for (var i in list) { if (list.hasOwnProperty(i) === false) continue; var item = list[i]; if (item.isComplete === true || isBlocked(item) || item.isInitialized === true || item.isError === true) { if (item.isError === true) { log(item.name + ': error') } else if (item.isComplete === true) { log(item.name + ': complete already') } else if (item.isInitialized === true) { log(item.name + ': initialized already') } } else { item.process(); } } }
+            init(); return { addFile: addFile, addDelayFile: addTimeDelayFile, addFunc: addFunc, addDelayFunc: addTimeDelayFunc, items: items, processAll: processAll, setallowLoad: setallowLoad, markLoaded: markLoaded, logWhatsBlocked: logWhatsBlocked, };
+        })(); __ez.evt.add = function (e, t, n) { e.addEventListener ? e.addEventListener(t, n, !1) : e.attachEvent ? e.attachEvent("on" + t, n) : e["on" + t] = n() }, __ez.evt.remove = function (e, t, n) { e.removeEventListener ? e.removeEventListener(t, n, !1) : e.detachEvent ? e.detachEvent("on" + t, n) : delete e["on" + t] }; __ez.script.add = function (e) { var t = document.createElement("script"); t.src = e, t.async = !0, t.type = "text/javascript", document.getElementsByTagName("head")[0].appendChild(t) }; __ez.dot = {}; __ez.vep = (function () {
+            var pixels = [], pxURL = "/detroitchicago/grapefruit.gif"; function AddPixel(vID, pixelData) { if (__ez.dot.isDefined(vID) && __ez.dot.isValid(pixelData)) { pixels.push({ type: 'video', video_impression_id: vID, domain_id: __ez.dot.getDID(), t_epoch: __ez.dot.getEpoch(0), data: __ez.dot.dataToStr(pixelData) }); } }
+            function Fire() {
+                if (typeof document.visibilityState !== 'undefined' && document.visibilityState === "prerender") { return; }
+                if (__ez.dot.isDefined(pixels) && pixels.length > 0) {
+                    while (pixels.length > 0) {
+                        var j = 5; if (j > pixels.length) { j = pixels.length; }
+                        var pushPixels = pixels.splice(0, j); var pixelURL = __ez.dot.getURL(pxURL) + "?orig=" + (__ez.template.isOrig === true ? 1 : 0) + "&v=" + btoa(JSON.stringify(pushPixels)); __ez.dot.Fire(pixelURL);
+                    }
+                }
+                pixels = [];
+            }
+            return { Add: AddPixel, Fire: Fire };
+        })();</script>
+    <script data-ezscrex=false data-cfasync=false
+        data-pagespeed-no-defer>__ez.pel = (function () {
+                var pixels = [], pxURL = "/porpoiseant/army.gif"; function AddAndFirePixel(adSlot, pixelData) { AddPixel(adSlot, pixelData, 0, 0, 0, 0, 0); Fire(); }
+                function AddAndFireOrigPixel(adSlot, pixelData) { AddPixel(adSlot, pixelData, 0, 0, 0, 0, 0, true); Fire(); }
+                function GetCurrentPixels() { return pixels; }
+                function AddPixel(adSlot, pixelData, revenue, est_revenue, bid_floor_filled, bid_floor_prev, stat_source_id, isOrig) {
+                    if (!__ez.dot.isDefined(adSlot) || __ez.dot.isAnyDefined(adSlot.getSlotElementId, adSlot.ElementId) == false) { return; }
+                    var ad_position_id = parseInt(__ez.dot.getTargeting(adSlot, 'ap')); var impId = __ez.dot.getSlotIID(adSlot), adUnit = __ez.dot.getAdUnit(adSlot, isOrig); var compId = parseInt(__ez.dot.getTargeting(adSlot, "compid")); var lineItemId = 0; var creativeId = 0; var ezimData = getEzimData(adSlot); if (typeof ezimData == 'object') {
+                        if (ezimData.creative_id !== undefined) { creativeId = ezimData.creative_id; }
+                        if (ezimData.line_item_id !== undefined) { lineItemId = ezimData.line_item_id; }
+                    }
+                    if (__ez.dot.isDefined(impId, adUnit) && __ez.dot.isValid(pixelData)) { if (impId !== "0" && adUnit !== "") { pixels.push({ type: "impression", impression_id: impId, domain_id: __ez.dot.getDID(), unit: adUnit, t_epoch: __ez.dot.getEpoch(0), revenue: revenue, est_revenue: est_revenue, ad_position: ad_position_id, ad_size: "", bid_floor_filled: bid_floor_filled, bid_floor_prev: bid_floor_prev, stat_source_id: stat_source_id, country_code: __ez.dot.getCC(), pageview_id: __ez.dot.getPageviewId(), comp_id: compId, line_item_id: lineItemId, creative_id: creativeId, data: __ez.dot.dataToStr(pixelData), is_orig: isOrig || __ez.template.isOrig, }); } }
+                }
+                function AddPixelById(impFullId, pixelData, isOrig) { var vals = impFullId.split('/'); if (__ez.dot.isDefined(impFullId) && vals.length === 3 && __ez.dot.isValid(pixelData)) { var adUnit = vals[0], impId = vals[2]; pixels.push({ type: "impression", impression_id: impId, domain_id: __ez.dot.getDID(), unit: adUnit, t_epoch: __ez.dot.getEpoch(0), pageview_id: __ez.dot.getPageviewId(), data: __ez.dot.dataToStr(pixelData), is_orig: isOrig || __ez.template.isOrig }); } }
+                function Fire() {
+                    if (typeof document.visibilityState !== 'undefined' && document.visibilityState === "prerender") return; if (__ez.dot.isDefined(pixels) && pixels.length > 0) {
+                        var allPixels = [pixels.filter(function (pixel) { return pixel.is_orig }), pixels.filter(function (pixel) { return !pixel.is_orig })]; allPixels.forEach(function (pixels) {
+                            while (pixels.length > 0) {
+                                var isOrig = pixels[0].is_orig || false; var j = 5; if (j > pixels.length) { j = pixels.length; }
+                                var pushPixels = pixels.splice(0, j); var pixelURL = __ez.dot.getURL(pxURL) + "?orig=" + (isOrig === true ? 1 : 0) + "&sts=" + btoa(JSON.stringify(pushPixels)); if (typeof window.isAmp !== 'undefined' && isAmp && typeof window._ezaq !== 'undefined' && _ezaq.hasOwnProperty("domain_id")) { pixelURL += "&visit_uuid=" + _ezaq['visit_uuid']; }
+                                __ez.dot.Fire(pixelURL);
+                            }
+                        })
+                    }
+                    pixels = [];
+                }
+                function getEzimData(adSlot) {
+                    if (typeof _ezim_d == "undefined") { return false }
+                    var adUnitName = __ez.dot.getAdUnitPath(adSlot).split('/').pop(); if (typeof _ezim_d === 'object' && _ezim_d.hasOwnProperty(adUnitName)) { return _ezim_d[adUnitName]; }
+                    for (var ezimKey in _ezim_d) { if (ezimKey.split('/').pop() === adUnitName) { return _ezim_d[ezimKey]; } }
+                    return false;
+                }
+                return { Add: AddPixel, AddAndFire: AddAndFirePixel, AddAndFireOrig: AddAndFireOrigPixel, AddById: AddPixelById, Fire: Fire, GetPixels: GetCurrentPixels, };
+            })();</script>
+    <script data-ezscrex=false data-cfasync=false>__ez.ssaf = []; __ez.sswp = 4; __ez.ssv = 214957; __ez.sshsdef = false;</script>
+    <link rel=preconnect href=//en.wikipedia.org crossorigin>
+    <link rel=preconnect href=//www.programiz.com crossorigin>
+    <link rel=preconnect href=//online-ide.com crossorigin>
+    <link rel=preconnect href=//s7.addthis.com crossorigin>
+    <link rel=preconnect href=//cdnjs.cloudflare.com crossorigin>
+    <link rel=preconnect href=//www.googletagmanager.com crossorigin>
+    <link rel=preconnect href=//go.java crossorigin>
+    <link rel=preconnect href=//fonts.googleapis.com crossorigin>
+    <link rel=preconnect href=//ace.c9.io crossorigin>
+    <link rel=preconnect href=//www.w3schools.com crossorigin>
+    <link rel=preconnect href=//go.ezoic.net crossorigin>
+    <title>Java Compiler</title>
+    <meta charset=utf-8>
+    <meta http-equiv=x-ua-compatible content="IE=edge">
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name=viewport>
+    <meta name=description
+        content="Build and Run your java code instantly. Online-Java is a quick and easy tool that helps you to build, compile, test your programs online.">
+    <meta name=keywords content="online java compiler,online java editor,online java ide">
+    <meta name=robots content="index, follow">
+    <meta name=googlebot content="index, follow">
+    <meta name=apple-mobile-web-app-capable content="yes">
+    <meta name=apple-touch-fullscreen content="yes">
+    <link rel=icon type=image/png href=https://www.online-java.com/favicon.png>
+    <link rel=preload href=https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.css as=style
+        onload="this.onload=null;this.rel='stylesheet'"><noscript>
+        <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.css>
+    </noscript>
+    <link rel=preload href=https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/transition.min.css
+        as=style onload="this.onload=null;this.rel='stylesheet'"><noscript>
+        <link rel=stylesheet
+            href=https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/transition.min.css>
+    </noscript>
+    <link rel=preload
+        href="https://www.online-java.com/assets/bower_components/bootstrap/dist/css/bootstrap.min.css?ez_used_css_s=152"
+        as=style onload="this.onload=null;this.rel='stylesheet'"><noscript>
+        <link rel=stylesheet
+            href="https://www.online-java.com/assets/bower_components/bootstrap/dist/css/bootstrap.min.css?ff=1&wps=true&ez_used_css_s=152">
+    </noscript>
+    <link rel=preload href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css as=style
+        onload="this.onload=null;this.rel='stylesheet'"><noscript>
+        <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css>
+    </noscript>
+    <link rel=preload href="https://www.online-java.com/assets/dist/css/ide.css?v=a4&ez_used_css_s=152" as=style
+        onload="this.onload=null;this.rel='stylesheet'"><noscript>
+        <link rel=stylesheet
+            href="https://www.online-java.com/assets/dist/css/ide.css?ff=1&v=a4&wps=true&ez_used_css_s=152">
+    </noscript>
+    <link rel=preload
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600,600italic,700&display=optional"
+        ezfontsrc="https://fonts.googleapis.com/css?display=optional&family=Source+Sans+Pro%3A300%2C400%2C600%2C700%2C300italic%2C400italic%2C600italic"
+        as=style onload="this.onload=null;this.rel='stylesheet'"><noscript>
+        <link rel=stylesheet
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,400italic,600,600italic,700&display=optional"
+            ezfontsrc="https://fonts.googleapis.com/css?display=optional&family=Source+Sans+Pro%3A300%2C400%2C600%2C700%2C300italic%2C400italic%2C600italic"
+            as=style>
+    </noscript>
+    <script src=https://www.online-java.com/assets/bower_components/jquery/dist/jquery.min.js></script>
+    <script src=https://www.online-java.com/assets/bower_components/bootstrap/dist/js/bootstrap.min.js></script>
+    <script src="https://www.online-java.com/assets/dist/js/ide.js?v=a4"></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.8/ace.js></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.8/ext-language_tools.min.js></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.8/ext-settings_menu.min.js></script>
+    <script async src=https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.8/ext-keybinding_menu.min.js></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/split.js/1.2.0/split.min.js></script>
+    <link href=https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css rel=preload as=style
+        onload="this.onload=null;this.rel='stylesheet'"><noscript>
+        <link href=https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css rel=stylesheet>
+    </noscript>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js></script>
+    <script async src=https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/dropdown.min.js></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/transition.min.js></script>
+    <script>(function (h, o, t, j, a, r) { h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) }; h._hjSettings = { hjid: 2000072, hjsv: 6 }; a = o.getElementsByTagName('head')[0]; r = o.createElement('script'); r.async = 1; r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv; a.appendChild(r); })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178430600-1"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date()); gtag('config', 'UA-178430600-1');</script>
+    <link rel=preload as=font
+        href=https://www.online-java.com/assets/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2
+        crossorigin>
+    <link rel=preload as=font
+        href=https://www.online-java.com/assets/dist/css/vicasso/afe27afa1552f15b1f4f7090a35260bb.woff2 crossorigin>
+    <link rel=canonical href=https://www.online-java.com />
+    <script>var ezouid = "1";</script>
+    <base href=https://www.online-java.com />
+    <script>var ezoTemplate = 'old_site_noads'; if (typeof ezouid == 'undefined') { var ezouid = 'none'; }
+        var ezoFormfactor = '1'; var ezo_elements_to_check = Array();</script>
+    <script
+        data-ezscrex=false>var soc_app_id = '0'; var did = 313437; var ezdomain = 'online-java.com'; var ezoicSearchable = 1;</script>
+    <script data-ezscrex=false
+        data-cfasync=false>var _ezaq = { "ad_cache_level": 0, "ad_lazyload_version": 0, "ad_load_version": 0, "city": "Bardhaman", "country": "IN", "days_since_last_visit": 0, "domain_id": 313437, "engaged_time_visit": 72, "ezcache_level": 1, "ezcache_skip_code": 11, "form_factor_id": 1, "framework_id": 1, "is_return_visitor": true, "is_sitespeed": 1, "last_page_load": "1644552343778", "last_pageview_id": "14e4a496-0a79-42a1-720a-fae8e217467f", "lt_cache_level": 0, "metro_code": 0, "page_ad_positions": "", "page_view_count": 0, "page_view_id": "6e0cce53-2596-4e04-73ec-77be72dfec07", "position_selection_id": 0, "postal_code": "711413", "pv_event_count": 0, "response_size_orig": 31240, "response_time_orig": 792, "serverid": "18.141.234.55:4367", "state": "WB", "t_epoch": 1644552861, "template_id": 120, "time_on_site_visit": 548, "url": "https://www.online-java.com/", "user_id": 0, "word_count": 608, "worst_bad_word_level": 0 }; var _ezExtraQueries = "&ez_orig=1";</script>
+    <script data-ezscrex=false data-pagespeed-no-defer
+        data-cfasync=false>function create_ezolpl(pvID, rv) { var d = new Date(); d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000)); var expires = "expires=" + d.toUTCString(); __ez.ck.setByCat("ezux_lpl_313437=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3); }
+            function attach_ezolpl(pvID, rv) {
+                if (document.readyState === "complete") { create_ezolpl(pvID, rv); }
+                if (window.attachEvent) { window.attachEvent("onload", create_ezolpl, pvID, rv); } else { if (window.onload) { var curronload = window.onload; var newonload = function (evt) { curronload(evt); create_ezolpl(pvID, rv); }; window.onload = newonload; } else { window.onload = create_ezolpl.bind(null, pvID, rv); } }
+            }
+            __ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["6e0cce53-2596-4e04-73ec-77be72dfec07", "true"], false, ['/detroitchicago/boise.js'], true, false, false, false);</script>
+    <script>var _audins_dom = "online_java_com", _audins_did = 313437; __ez.queue.addFile('/detroitchicago/cmbv2.js', '/detroitchicago/cmbv2.js?gcb=195-0&cb=04-1y02-5y06-12y07-1y19-5y0b-5y0d-14y13-3y17-4y1c-2y1d-1y21-3y53-1&cmbcb=20&sj=x04x02x06x07x19x0bx0dx13x17x1cx1dx21x53&abt=UseStandaloneForAll', true, [], true, false, true, false);</script>
+    <script
+        defer>__ez.queue.addFile('/detroitchicago/cmbdv2.js', '/detroitchicago/cmbdv2.js?gcb=195-0&cb=03-5y0c-5y18-4&cmbcb=20&sj=x03x0cx18&abt=UseStandaloneForAll', true, ['/detroitchicago/cmbv2.js'], true, false, true, false);</script>
+</head>
+
+<body class=dark>
+    <div>
+        <nav class="nav navbar-top primary">
+            <h2 class=nav_logo><i class="fas fa-code"></i><span>Java Compiler</span></h2>
+
+        </nav>
+        <div class=container id=container>
+            <div id=header-control>
+                <div class=btn-group><button type=button class="btn btn-default btn-custom" id=open_file
+                        onclick=openFile(dispFile) data-toggle=tooltip data-container=body data-placement=right
+                        title="Open File from Disk"><i class="fas fa-folder-open"></i></button>
+                    <button type=button class="btn btn-default btn-custom" onclick=save_code_modal() id=save_file
+                        data-toggle=tooltip data-container=body data-placement=right title="Save File to Disk - F9"><i
+                            class="fas fa-save"></i></button>
+                    <button type=button class="btn btn-default btn-custom" onclick=share_code_modal()
+                        data-toggle=tooltip data-container=body data-placement=right title="Share Code - F10"><i
+                            class="fas fa-share-alt"></i></button>
+                </div>
+                <div class="btn-group setting-btn" role=group><button type=button class="btn btn-default"
+                        id=toggle-theme data-toggle=tooltip data-container=body data-placement=left
+                        title="Change Theme"><i class="fas fa-moon fa-lg"></i></button>
+                    <button type=button class="btn btn-default" onclick=about_modal() id=info data-toggle=tooltip
+                        data-container=body data-placement=left title="About Site"><i
+                            class="fas fa-info-circle"></i></button>
+                    <button type=button class="btn btn-default" onclick=ace_setting() id=setting data-toggle=tooltip
+                        data-container=body data-placement=left title=Settings><i class="fas fa-cogs"></i></button>
+                </div>
+            </div>
+            <div id=mi class=split>
+                <ul class="nav nav-tabs" role=tablist>
+                    <li class=active id=editor-1><a data-toggle=tab>main.py</a>
+                    <li id=new_file_btn><button type=button class="btn btn-default btn-sm add-editor" id=create_tab
+                            data-title="New File"><i class="fas fa-plus"></i></button>
+                </ul>
+                <div id=editor></div>
+                <div class=boxed id=editor_footer></div>
+                <div class=control-bar>
+                    <div id=control-btn><button type=button class="btn btn-success btn-sm" id=run-btn
+                            onclick=run_python() data-toggle=popover data-placement=bottom data-trigger=hover
+                            data-content=F8><i class="fa fa-play"></i> <strong>Run</strong></button></div>
+                    <input class=textbox id=input_arguments placeholder="Command Line Arguments">
+                </div>
+            </div>
+            <div id=d class=split>
+                <div class=boxed1 id=output_header>
+                    <div id=hint-section></div>
+                    <div class="btn-group status" id=tool-btn><button type=button data-toggle=tooltip
+                            data-container=body data-placement=right title="Copy to Clipboard"
+                            class="btn btn-default btn-sm status" onclick=copy_output()><i
+                                class="fas fa-copy"></i></button>
+                        <button type=button data-toggle=tooltip data-container=body data-placement=right title=Download
+                            class="btn btn-default btn-sm status" onclick=download_modal()><i
+                                class="fas fa-download"></i></button>
+                        <button type=button data-toggle=tooltip data-container=body data-placement=right title=Clear
+                            class="btn btn-default btn-sm status" onclick=clear_output()><i
+                                class="fas fa-eraser"></i></button>
+                    </div><button type=button data-toggle=tooltip data-container=body data-placement=right
+                        title=Expand/Collapse class="btn btn-default btn-sm status" id=term-expand
+                        onclick=term_expand()><i class="fas fa-expand-alt fa-lg"></i></button>
+                     <div id=output-status></div>
+                </div>
+                <div id=terminal>
+                    <div id=progress-status></div>
+                    <div class=boxed2 id=output>
+                        <div class=wrapper id=wrap></div>
+                        <form id=term-form><input id=term-input autocomplete=off></form>
+                    </div>
+                </div>
+            </div><br><br>
+        </div>
+        <div class="modal fade" tabindex=-1 role=dialog id=downloadResult>
+            <div class=modal-dialog role=document>
+                <div class=modal-content>
+                    <div class=modal-header><button type=button class=close data-dismiss=modal aria-label=Close><span
+                                aria-hidden=true>×</span></button>
+                        <h3 class=modal-title>Download Result</h3>
+                    </div>
+                    <div class=modal-body>
+                        <form>
+                            <div class=form-group><label for=name>File Name:</label>
+                                <input class=form-control id=download_file_name value=main_output.txt>
+                            </div>
+                        </form>
+                    </div>
+                    <div class=modal-footer><button type=button class="btn btn-default"
+                            data-dismiss=modal>Close</button>
+                        <button class="btn btn-primary" onclick=download_output() data-dismiss=modal>Download</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" tabindex=-1 role=dialog id=closeEditorTab>
+            <div class=modal-dialog role=document>
+                <div class=modal-content>
+                    <div class=modal-header><button type=button class=close data-dismiss=modal aria-label=Close><span
+                                aria-hidden=true>×</span></button>
+                        <h3 class=modal-title id=close_file_title>Close File</h3>
+                    </div>
+                    <div class=modal-body>
+                        <p>Your changes will be lost. Are you sure you want to Close the file ?
+                    </div>
+                    <div class=modal-footer><button type=button class="btn btn-default" data-dismiss=modal>No</button>
+                        <button class="btn btn-primary" onclick=close_editor_tab() data-dismiss=modal>Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" tabindex=-1 role=dialog id=saveEditorTab>
+            <div class=modal-dialog role=document>
+                <div class=modal-content>
+                    <div class=modal-header><button type=button class=close data-dismiss=modal aria-label=Close><span
+                                aria-hidden=true>×</span></button>
+                        <h3 class=modal-title id=save_file_title>Save</h3>
+                    </div>
+                    <div class=modal-body>
+                        <p>Do you want to save the file ?
+                        <form>
+                            <div class=form-group><label for=name>File Name:</label>
+                                <input class=form-control id=code_file_name value=main.py>
+                            </div>
+                        </form>
+                    </div>
+                    <div class=modal-footer><button type=button class="btn btn-default" data-dismiss=modal>No</button>
+                        <button class="btn btn-primary" onclick=download_code() data-dismiss=modal>Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>ace.require("ace/ext/language_tools"); var editor = ace.edit("editor"); ace.require('ace/ext/settings_menu').init(editor); var editor_cnt = 1, editor_index = 1, active_editor = 1, editor_session = []; var request, init_ts, open_file_name; var lang = "java"; default_content = get_script(lang); var prev_result = 'in'; var site_url = "https://www.online-java.com/"
+            var base_url = "https://www.online-java.com/"
+            var share_url = base_url; var exe_cnt = 0; var addthis_share = { url: share_url, }
+            var csrf_token_name = 'ci_csrf_token'
+            var csrf_token = ''
+            var isMobile = window.orientation > -1; toastr.options = { "closeButton": true, "debug": false, "newestOnTop": true, "positionClass": "toast-top-right", "preventDuplicates": true, "preventOpenDuplicates": true, "maxOpened": 1, "onclick": null, "showDuration": "100", "hideDuration": "1000", "timeOut": "3000", "extendedTimeOut": "1000", "showEasing": "swing", "hideEasing": "linear", }; var instance = Split(['#mi', '#d'], { direction: 'vertical', sizes: [66, 28], gutterSize: 5, cursor: 'row-resize', minSize: [0, 180], onDrag: function () { editor.resize(); }, }); function term_expand() {
+                var element = document.getElementById('term-expand').innerHTML; if (element === '<i class="fas fa-expand-alt fa-lg"></i>') { instance.setSizes([0, 94]); editor.resize(); document.getElementById('term-expand').innerHTML = '<i class="fas fa-compress-alt fa-lg"></i>' } else { instance.setSizes([66, 28]); editor.resize(); document.getElementById('term-expand').innerHTML = '<i class="fas fa-expand-alt fa-lg"></i>' }
+                $('#term-expand').blur(); $('[data-toggle="tooltip"]').tooltip('hide');
+            }
+            editor.setOptions({ enableBasicAutocompletion: true, enableLiveAutocompletion: true, enableSnippets: true, showPrintMargin: false, fixedWidthGutter: true, autoScrollEditorIntoView: true, copyWithEmptySelection: true, highlightActiveLine: false, }); editor.setTheme("ace/theme/tomorrow_night_bright"); editor.container.style.lineHeight = 1.5; editor_session[0] = ace.createEditSession(default_content, "ace/mode/python"); editor.setSession(editor_session[0]); var active_editor_id = $('#editor-1').children('a'); var active_file_name = 'main.py'; var repl_host = get_host(); var command_list = []; var command_index = 0; var cur_cmd; var hint_glow; var y = document.getElementById('editor_footer'); var output = document.getElementById('output'); var exec_detail = document.getElementById('output-status'); var progress_status = document.getElementById('progress-status'); $(function () { $('[data-toggle="tooltip"]').tooltip({ delay: { show: 750, hide: 50 } }) }); $(function () { $('[data-toggle="popover"]').popover({ delay: { "show": 0, hide: 0 } }) }); $('.popover-dismiss').popover({ trigger: 'hover' }); editor.session.setMode("ace/mode/" + get_mode(lang)); document.getElementById('editor-1').innerHTML = '<a data-toggle="tab">' + get_scriptname(lang) + '</a>'; $(".nav-tabs").on("click", "a", function (e) { e.preventDefault(); detail_chk = (e.detail === undefined) ? 1 : e.detail; if (!$(this).hasClass('add-editor') && !$(this).children('input').hasClass('thVal') && detail_chk == 1) { active_editor = parseInt($(this).parent().attr('id').split('-')[1]); active_editor_id = $(this); editor.setSession(editor_session[active_editor - 1]); active_file_name = $(this).html(); $(this).tab('show'); editor.focus(); update_editor_footer(); } }).on("click", "span", function () {
+                close_tab = $(this).parent(); close_tab.children('a').click(); $('#close_file_title').text('Close - ' + active_file_name); if (editor.getValue() === "") { close_editor_tab(); }
+                else { $("#closeEditorTab").modal('show'); }
+            }); $('#rename_file').click(function (e) { e.stopPropagation(); e.preventDefault(); active_editor_id.dblclick(); }); let theme = localStorage.getItem('theme') !== undefined && localStorage.getItem('theme') !== null ? localStorage.getItem('theme') : 'dark'
+            if (theme === 'dark') { $('body').addClass('dark'); document.getElementById('toggle-theme').innerHTML = '<i class="fas fa-sun fa-lg"></i>'; editor.setTheme("ace/theme/tomorrow_night_bright"); } else { $('body').removeClass('dark'); document.getElementById('toggle-theme').innerHTML = '<i class="fas fa-moon fa-lg"></i>'; editor.setTheme("ace/theme/textmate"); }
+            $('#toggle-theme').click(function (e) {
+                document.body.classList.toggle('dark'); if ($('body').hasClass("dark")) { editor.setTheme("ace/theme/tomorrow_night_bright"); document.getElementById('toggle-theme').innerHTML = '<i class="fas fa-sun fa-lg"></i>'; localStorage.setItem('theme', 'dark'); } else { editor.setTheme("ace/theme/textmate"); document.getElementById('toggle-theme').innerHTML = '<i class="fas fa-moon fa-lg"></i>'; localStorage.setItem('theme', 'light'); }
+                $('#toggle-theme').blur(); $('[data-toggle="tooltip"]').tooltip('hide');
+            }); $('.add-editor').click(function (e) { e.stopPropagation(); e.preventDefault(); editor_cnt += 1; editor_index += 1; var id = editor_cnt; active_editor = id; editor_session[active_editor - 1] = ace.createEditSession('', "ace/mode/" + get_mode(lang)); editor.setSession(editor_session[active_editor - 1]); $(this).closest('li').before('<li id="editor-' + id + '"><a data-toggle="tab">Untitled' + id + '</a> <span> <i class="fa fa-times"></i></span></li>'); active_editor_id = $(".nav-tabs li").children('a').last(); active_editor_id.tab('show'); active_editor_id.dblclick(); update_editor_footer(); editor.selection.on('changeCursor', function (e) { update_editor_footer(); }); editor.selection.on('changeSelection', function (e) { update_editor_footer(); }); }); $(document).on('dblclick', '.nav-tabs > li > a', function (event) {
+                if ($(event.target).attr('class') != "thVal") { event.stopPropagation(); event.preventDefault(); var currentEle = $(this); var value = $(this).html(); if (value.search('<input') === -1) updateVal(currentEle, value); }
+            }); editor.focus(); editor.navigateFileEnd(); update_editor_footer(); editor.selection.on('changeCursor', function (e) { update_editor_footer(); }); editor.selection.on('changeSelection', function (e) { update_editor_footer(); }); $('.status button').attr('disabled', 'disabled'); $('#stop-btn').attr('disabled', 'disabled'); socket_options = { transports: ["websocket"], 'timeout': 3000, 'connect timeout': 3000, 'reconnection': true, 'reconnectionDelay': 1000, 'reconnectionDelayMax': 5000, 'reconnectionAttempts': 5 }; $(document).keyup(function (e) { IsCtrl = false; IsShift = false; }).keydown(function (e) {
+                if (e.which == 17) { IsCtrl = true; }
+                if (e.which == 16) { IsShift = true; }
+                switch (e.which) { case 119: run_python(); e.preventDefault(); break; case 120: share_code_modal(); e.preventDefault(); break; case 121: save_code_modal(); e.preventDefault(); break; }
+            }); $('#output').on('click', function () { $('#term-input').focus(); }); window.onbeforeunload = goodbye;</script>
+        <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e908e7d111adc12"></script>
+    </div>
+    <script data-ezscrex=false data-cfasync=false
+        data-pagespeed-no-defer>try {
+                var __ezlcp; const fd = window._ezfd || {}
+                fd.measure = fd.measure || function (cb) { cb() }
+                function __ezlcpcd() {
+                    fd.measure(function () {
+                        const po = new PerformanceObserver((entryList) => {
+                            const entries = entryList.getEntries(); const lcpElement = entries[entries.length - 1]; var vh = window.innerHeight || Math.max(document.documentElement.clientHeight, document.body.clientHeight); var scrollTop = window.pageYOffset || document.documentElement.scrollTop; if (lcpElement.element.getBoundingClientRect().top + scrollTop < vh) {
+                                if (lcpElement != undefined && lcpElement.element.parentElement != undefined && lcpElement.element.parentElement.id == "ez-cookie-template") { return; }
+                                __ezlcp = lcpElement;
+                            }
+                        }); po.observe({ type: 'largest-contentful-paint', buffered: true });
+                    });
+                }; __ezlcpcd(); function __ez_sendLCPElement() {
+                    fd.measure(function () {
+                        if (window.__ezlcp && typeof window.__ezlcp.element != 'undefined' && window._ezaq && typeof window._ezaq.domain_id != 'undefined') {
+                            var vh = window.innerHeight || Math.max(document.documentElement.clientHeight, document.body.clientHeight); var json = { url: document.URL, formfactor: window.ezoFormfactor, domainid: window._ezaq.domain_id, element: __ezlcp.element.outerHTML, viewht: vh, }; var url = "/cheetah/lcpel.go"; if ((typeof window.ezJsu !== "undefined" && window.ezJsu === true) || (typeof window._ez_sa !== "undefined" && window._ez_sa === true) || ((typeof window.isAmp != 'undefined') && window.isAmp === true) || ((typeof window.ezWp !== 'undefined') && window.ezWp === true) || ((typeof window._ez_send_requests_through_ezoic !== 'undefined') && window._ez_send_requests_through_ezoic === true)) { url = "//g.ezoic.net" + url; }
+                            var xhr = new XMLHttpRequest(); xhr.open("POST", url, true); xhr.setRequestHeader('Content-Type', 'text/plain'); xhr.send(JSON.stringify(json));
+                        } else { setTimeout(__ez_sendLCPElement, 4000); }
+                    });
+                }
+                if (window.addEventListener) { window.addEventListener('load', function () { setTimeout(__ez_sendLCPElement, 2000); }, false); }
+            } catch (e) { }</script>
+    <script style=display:none async></script>
+    <script data-cfasync=false></script>
+</body>
+
+</html>
