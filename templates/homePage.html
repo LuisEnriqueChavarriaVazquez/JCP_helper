@@ -15,7 +15,7 @@
     {% include "includes/cargador.html" %}
 
     <!--Menu de página de inicio con moviles-->
-    <nav class="color2 z-depth-3 hide-on-med-and-up">
+    <nav class="color2 z-depth-3 hide-on-large-only">
         <div class="nav-wrapper">
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
@@ -49,7 +49,9 @@
                     class="material-icons left">person_add</i>Registrarse</a>
         </div>
     </section>
-    <br><br><br>
+    <div class="color3 hide-on-med-and-down">
+        <br><br>
+    </div>
 
     <section class="mainBody mainBodyAdicional">
         <!--<div class="title-general">
@@ -57,17 +59,44 @@
             <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Acceso de prueba</h3>
         </div>-->
 
+        <div class="carousel carousel-slider center caruselHomePage">
+            <div class="carousel-fixed-item center">
+                    <a class="waves-effect btnCarouselHome waves-light btn-large color1"><i
+                            class="material-icons left">person</i>Acceder</a>
+            </div>
+            <div class="carousel-item carouselItemModified informeCard white-text" href="#one!">
+                <h2 class="titleCarousel titleCarouselOne">Diseñe</h2>
+                <p class="white-text">Pruebas totalmente personalizadas.</p>
+            </div>
+            <div class="carousel-item carouselItemModified iconSecondary white-text" href="#two!">
+                <h2 class="titleCarousel">Mida</h2>
+                <p class="white-text">Obtenga reportes de sus resultados.</p>
+            </div>
+            <div class="carousel-item carouselItemModified fondoDinamico white-text" href="#three!">
+                <h2 class="titleCarousel">Machine Learning</h2>
+                <p class="white-text">Mediciones basadas en modelos de ML.</p>
+            </div>
+            <div class="carousel-item carouselItemModified cardMainDesktopPanelHead white-text" href="#four!">
+                <h2 class="titleCarousel">Comparta</h2>
+                <p class="white-text">Acceda a bancos de datos.</p>
+            </div>
+        </div>
+
+        <div class="title-general colorGreyWhiter">
+            <h5 class="hide-on-med-and-up">&nbsp;&nbsp;&nbsp;&nbsp;Versatilidad garantizada</h5>
+        </div>
+
         <div class="mainBody-headerContainer shadow-2">
             <div>
                 <h1 class="titleHomePage colorText">Bienvenido a JCP_helper</h1>
                 <p class="colorText">Obtenga <b>métricas</b> de sus resultados <br> en el aprendizaje y enseñanza de
                     programación.</p>
 
-                <div class="menuButtonsNavDesktop">
+                <div class="menuButtonsNavDesktop hide-on-med-and-down">
                     <a class="waves-effect waves-light btn-large colorGrey colorTextReverse">Conocer más</a>
                 </div>
             </div>
-            <div class="iconPrincipalContainer">
+            <div class="iconPrincipalContainer hide-on-med-and-down">
                 <div class="icon_app">
                     <!--La imagen esta puesta como background-->
                 </div>
@@ -81,44 +110,44 @@
             </div>
             <div class="gridInfoContainer">
                 <div class="itemInfo-1">
-                    <h3 class="colorText color2 shadow-1e">
-                        <span class="material-icons md-36">brush</span>
+                    <h4 class="colorText color2 shadow-1e">
+                        <span class="material-icons md-24">brush</span>
                         Diseñar
-                    </h3>
+                    </h4>
                     <p>Cree pruebas personalizadas de acuerdo a sus necesidades.</p>
                 </div>
                 <div class="itemInfo-2">
-                    <h3 class="colorText color2 shadow-1e">
-                        <span class="material-icons md-36">check_circle</span>
+                    <h4 class="colorText color2 shadow-1e">
+                        <span class="material-icons md-24">check_circle</span>
                         Evaluar
-                    </h3>
+                    </h4>
                     <p>Ponga a prueba los conocimientos adquiridos.</p>
                 </div>
                 <div class="itemInfo-3">
                     <div class="iconBoxInfo"></div>
                 </div>
                 <div class="itemInfo-4">
-                    <h3 class="colorText color2 shadow-1e">
-                        <span class="material-icons md-36">insights</span>
+                    <h4 class="colorText color2 shadow-1e">
+                        <span class="material-icons md-24">insights</span>
                         Medir
-                    </h3>
+                    </h4>
                     <p>Mida sus resultados y documente su avance.</p>
                 </div>
                 <div class="itemInfo-5">
-                    <h3 class="colorText color2 shadow-1e">
-                        <span class="material-icons md-36">backup</span>
+                    <h4 class="colorText color2 shadow-1e">
+                        <span class="material-icons md-24">backup</span>
                         Compartir
-                    </h3>
+                    </h4>
                     <p>Acceda a bancos de datos con preguntas de otros usuarios.</p>
                 </div>
                 <div class="itemInfo-6">
 
                 </div>
                 <div class="itemInfo-7">
-                    <h3 class="colorText color2 shadow-1e">
-                        <span class="material-icons md-36">psychology</span>
+                    <h4 class="colorText color2 shadow-1e">
+                        <span class="material-icons md-24">psychology</span>
                         Machine Learning
-                    </h3>
+                    </h4>
                     <p>Obtenga métricas basadas en nuestros modelos de ML.</p>
                 </div>
                 <div class="itemInfo-8">
@@ -127,6 +156,7 @@
             </div>
         </section>
 
+        
         <section class="desktopInfoContainer colorGreyWhiter">
             <div class="titleInfoContainer colorTextReverse">
                 <h2>Aprenda donde usted quiera.</h2>
@@ -160,9 +190,14 @@
                 <div class="imageGalleryItem-8">
                     <img class="materialboxed shadow-1" src="../static/images/brand_app/bannerHome (8).png">
                 </div>
+
             </div>
         </section>
 
+
+        <div class="title-general color2">
+            <h5 class="hide-on-med-and-up colorText">&nbsp;&nbsp;&nbsp;&nbsp;Oferta incomparable</h5>
+        </div>
         <section class="containerTablaComparativa color2 shadow-4e">
             <div class="titleInfoContainer titleInfoModified colorText">
                 <h2>Oferta de valor incomparable.</h2>
@@ -274,7 +309,7 @@
             </div>
         </section>
 
-        <section class="containerCreateAccountHome">
+        <section class="containerCreateAccountHome hide-on-med-and-down">
             <div class="containerCreateAccountHomeSecondary">
                 <h4 class="colorText">¿Esta listo para vivir la experiencia JCP?</h4>
                 <div class="colorGreyWhiter cardContainerWhatToDo">
