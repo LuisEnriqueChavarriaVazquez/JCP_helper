@@ -21,6 +21,12 @@
     z-index: 1000 !important;
 }
 
+@media only screen and (max-width: 1360px){
+	.navHomePage{
+        grid-template-columns: .5fr .8fr 1fr;
+    }
+}
+
 .brand-logoContainer{
     border-radius: 20px;
 }
@@ -47,8 +53,8 @@
 
 .mainBody-headerContainer{
     width: 100%;
-    height: 60vh;
-    padding: 40px 40px 40px 100px;
+    height: 55vh;
+    padding: 20px 20px 20px 100px;
     box-sizing: border-box;
 
     display: flex;
@@ -61,6 +67,30 @@
     background-size: cover;
     background-attachment: fixed;
 }
+
+@media only screen and (max-width: 950px){
+	.mainBody-headerContainer{
+        height: 55vh;
+        padding: 0px 20px 0px 100px;
+    }
+}
+
+@media only screen and (max-width: 800px){
+	.mainBody-headerContainer{
+        display: none;
+    }
+}
+
+@media only screen and (max-height: 600px){
+	.mainBody-headerContainer{
+        display: none;
+    }
+}
+
+
+
+
+
 
 .iconPrincipalContainer{
     width: 300px;
@@ -119,6 +149,13 @@
     width: 50%;
 }
 
+@media only screen and (max-width: 800px){
+
+    .titleInfoContainer{
+        display: none;
+    }
+}
+
 .titleInfoContainer div{
     padding: 0px 50px;
     border-radius: 400px;
@@ -146,7 +183,7 @@
 
     width: 100%;
     height: auto;
-    padding: 50px 200px;
+    padding: 50px 150px;
 
     grid-template-columns: repeat(4, 1fr) ;
     grid-template-rows: repeat(3, 1fr);
@@ -160,14 +197,16 @@
     justify-items: center;
     align-items: center;
     text-align: center;
+    box-sizing: border-box;
 }
 
-.gridInfoContainer div h3{
+
+.gridInfoContainer div h4{
     height: auto;
     width: 100% !important;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
-    border-radius: 500px;
+    border-radius: 800px;
 }
 
 .gridInfoContainer div p{
@@ -184,17 +223,62 @@
 .itemInfo-7{ grid-area: area7;}
 .itemInfo-8{ grid-area: area8;}
 
+@media only screen and (max-width:800px){
+    .gridInfoContainer{
+        display: none;
+    }
+}
+
+
+@media only screen and (min-width:800px) and (max-width: 1400px){
+    .gridInfoContainer{
+        width: 100%;
+        box-sizing: border-box;
+    
+        grid-template-columns: 1fr 1fr ;
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-areas: 
+            "area2 area2"
+            "area2 area2"
+            "area4 area1" 
+            "area3 area5"
+            "area7 area7"    
+        !important;
+    
+        justify-items: center;
+        align-items: flex-start;
+        text-align: center;
+    }
+
+    .itemInfo-6, .itemInfo-8{ display: none;}
+}
+
+@media only screen and (min-width: 800px){
+    .caruselHomePage{
+        display: none;
+    }
+}
+
+
 /*Galeria de fotos*/
 
 .desktopInfoContainer{
     width: 100%;
     height: auto;
-    padding: 0px 300px 50px 300px;
+    padding: 0px 100px 50px 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
+
+@media only screen and (max-width: 1360px){
+	.desktopInfoContainer{
+        padding: 0px 50px 50px 50px;
+    }
+}
+
+
 
 .imageGalleryContainer{
     width: 80%;
@@ -212,6 +296,45 @@
     
     justify-content: center;
     align-content: center;
+}
+
+@media only screen and (max-width: 750px){
+    .desktopInfoContainer{
+        padding: 0px 0px 10px 0px;
+    }
+
+    .imageGalleryContainer{
+        grid-template-columns: repeat(2, 1fr) ;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: 
+        "area1 area2"
+        "area4 area5"
+        "area6 area7";
+    }
+
+    .imageGalleryItem-3,.imageGalleryItem-8{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 425px){
+    .desktopInfoContainer{
+        padding: 0px 0px 10px 0px;
+    }
+
+    .imageGalleryContainer{
+        grid-template-columns: 1fr ;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas: 
+        "area6"
+        "area7"
+        "area5"
+        "area4";
+    }
+
+    .imageGalleryItem-3,.imageGalleryItem-8,.imageGalleryItem-1,.imageGalleryItem-2{
+        display: none;
+    }
 }
 
 .imageGalleryContainer div img{
@@ -294,6 +417,24 @@
     border-radius: 0 0 20px 20px;
 }
 
+@media only screen and (max-width: 1124px){
+    .tableMainContainer{
+        width: 100%;
+        box-sizing: border-box;
+        padding: 40px 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 990px){
+    .ourColumn{
+        font-size: 20px;
+        border-radius: 20px;
+    }
+}
+
 .containerCreateAccountHome{
     width: 100%;
     padding: 20px 200px;
@@ -330,7 +471,7 @@
 }
 
 .containerCreateAccountHomeSecondary h4{
-    font-size: 40px;
+    font-size: 30px  !important;
     font-weight: 700;
     margin-bottom: 40px;
 }
@@ -355,4 +496,26 @@
     border-radius: 500px;
     margin: 10px;
     width: 50%;
+}
+
+
+.carouselItemModified{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 0px;
+}
+
+.titleCarousel{
+    font-size: 35px !important;
+    font-weight: 700 !important;
+    font-family: Roboto !important;
+}
+
+.titleCarouselOne{
+    margin-top: 10px;
+}
+
+.btnCarouselHome{
+    border-radius: 500px;
 }
