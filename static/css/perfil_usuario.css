@@ -1,30 +1,23 @@
-.fondoPerfilDiseno{
+.fondoPerfilDiseno {
     width: 100%;
-    height: 110px;
+    height: 160px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-@media only screen and (min-width: 600px) {
-    .fondoPerfilDiseno{
-        height: 150px;
-    }
+.fotoPerfil {
+    width: 160px;
+    border-radius: 500px;
+    border: 5px solid #fff;
 }
 
-@media only screen and (min-width: 1000px) {
-    .fondoPerfilDiseno{
-        height: 200px;
-    }
+.dataContainerUserMain {
+    max-height: 460px;
 }
 
-.fotoPerfil{
-    width: 120px;
-    border-radius: 100%;
-}
-
-.datos_perfil_container{
+.datos_perfil_container {
     width: 100%;
     top: -60px;
     position: relative;
@@ -34,24 +27,27 @@
     flex-direction: column;
 }
 
-.nombre_perfil, .alias_perfil, .descripcion_perfil{
+.nombre_perfil,
+.alias_perfil,
+.descripcion_perfil {
     margin: 0;
     text-align: center;
 }
 
-.nombre_perfil{
+.nombre_perfil {
     width: 100%;
     font-size: 25px;
     font-weight: 700;
 }
 
-.alias_perfil{
+.alias_perfil {
     width: 100%;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
+    border-radius: 20px;
 }
 
-.descripcion_perfil{
+.descripcion_perfil {
     width: 100%;
     font-size: 15px;
     font-weight: 400;
@@ -59,8 +55,91 @@
     padding: 5px 20px;
 }
 
+@media only screen and (min-width: 600px) {
+    .fondoPerfilDiseno {
+        height: 220px;
+    }
 
-.containerScrolled{
+    .fotoPerfil {
+        width: 150px;
+        border-radius: 20px;
+        border: none;
+
+        position: absolute;
+        left: 40px;
+        top: -120px;
+    }
+
+    .allDataUserContainer {
+        position: absolute;
+        top: 70px;
+
+        margin: 10px 25px;
+
+        display: flex;
+        text-align: left !important;
+        flex-direction: column;
+    }
+
+    .nombre_perfil,
+    .alias_perfil,
+    .descripcion_perfil {
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        font-family: Roboto;
+    }
+
+    .nombre_perfil {
+        font-size: 45px;
+    }
+
+    .alias_perfil {
+        font-weight: 800;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .descripcion_perfil {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .fondoPerfilDiseno {
+        height: 260px;
+    }
+
+    .fotoPerfil {
+        width: 200px;
+        border-radius: 20px;
+        border: none;
+
+        position: absolute;
+        left: 40px;
+        top: -160px;
+    }
+
+    .nombre_perfil {
+        font-size: 47px;
+    }
+
+    .alias_perfil {
+        font-weight: 800;
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .descripcion_perfil {
+        font-size: 20px;
+    }
+
+    .allDataUserContainer {
+        margin: 10px 50px;
+    }
+}
+
+.containerScrolled {
     width: 100%;
     height: 60px;
     top: 56px;
@@ -68,19 +147,18 @@
     z-index: 10;
 }
 
-
-@media screen and (min-width: 600px){
-    .containerScrolled{
+@media screen and (min-width: 600px) {
+    .containerScrolled {
         top: 64px;
     }
 }
 
-.containerScrolledHide{
+.containerScrolledHide {
     top: -60px;
     z-index: 10;
 }
 
-.containerScrolledSon{
+.containerScrolledSon {
     width: 100%;
     height: 60px;
     display: flex;
@@ -90,39 +168,38 @@
     align-items: center;
 }
 
-.containerScrolledSon img{
-    width: 37px;
-    height: 37px;
+.containerScrolledSon img {
+    width: 42px;
+    height: 42px;
     margin: 5px 10px 5px 20px;
-}
-
-.containerScrolledSon p{
-    
+    border-radius: 500px;
+    border: 2px solid #fff;
 }
 
 /*Boton para elegir el fondo de perfil*/
 
-.iconEditContainer{
+.iconEditContainer {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: right;
     align-items: left;
-    padding: 20px;
+    flex-direction: row;
+    padding: 20px 10px;
 }
 
-.iconEditContainer > p{
+.iconEditContainer>p {
     height: 50px;
 }
 
-.iconEditContainer > p > a{
+.iconEditContainer>p>a {
     padding: 5px 25px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.foto_fondo_picker{
+.foto_fondo_picker {
     /*width: 100%;*/
     height: 70px;
     margin: 4px 4px;
@@ -134,14 +211,168 @@
 }
 
 @media only screen and (min-width: 600px) {
-    .foto_fondo_picker{
+    .foto_fondo_picker {
         height: 100px;
     }
 }
 
 @media only screen and (min-width: 1000px) {
-    .foto_fondo_picker{
+    .foto_fondo_picker {
         height: 120px;
     }
 }
 
+/*Grid data container*/
+.gridDataProfileContainer {
+    width: 100%;
+
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+        "area1"
+        "area2"
+        "area3"
+        "area4"
+    ;
+
+    justify-items: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.itemDataGridGeneral {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.itemDataGridGeneral .iconDataProfile,
+.textDataProfile {
+    width: 100%;
+    margin: 0;
+}
+
+.itemDataGridGeneral .iconDataProfile {
+    margin: 0;
+    text-align: center;
+    display: flex;
+    justify-content: left;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+
+    padding: 15px 10px;
+    border-radius: 20px 20px 0 0;
+}
+
+.itemDataGridGeneral .iconDataProfile>i {
+    margin: 0 10px;
+}
+
+.itemDataGridGeneral .textDataProfile {
+    padding: 20px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 0 0 20px 20px;
+}
+
+
+#itemDataGrid-1 {
+    grid-area: area1;
+}
+
+#itemDataGrid-2 {
+    grid-area: area2;
+}
+
+#itemDataGrid-3 {
+    grid-area: area3;
+}
+
+#itemDataGrid-4 {
+    grid-area: area4;
+}
+
+.iconDataProfile {
+    font-size: 20px;
+}
+
+
+@media only screen and (min-width: 600px) {
+
+    /*Grid data container*/
+    .gridDataProfileContainer {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4, auto);
+        grid-template-areas:
+            "area1 area2"
+            "area3 area4"
+        ;
+
+        justify-items: center;
+        align-items: center;
+        gap: 30px;
+
+        box-sizing: border-box;
+        padding: 40px;
+    }
+
+    .dataContainerFatherContainer {
+        position: absolute;
+        width: 100%;
+        top: 530px;
+    }
+
+    .itemDataGridGeneral .iconDataProfile {   
+        padding: 15px 10px;
+        border-radius: 10px 10px 0 0;
+        font-weight: 700;
+    }
+    
+    .itemDataGridGeneral .textDataProfile {
+        padding: 20px 20px;
+        font-size: 21px;
+        font-weight: 600;
+        border-radius: 0 0 10px 10px;
+    }
+
+}
+
+@media only screen and (min-width: 1000px) {
+    .dataContainerFatherContainer {
+        position: absolute;
+        width: 100%;
+        top: 570px;
+    }
+
+    .itemDataGridGeneral .iconDataProfile {   
+        padding: 15px 10px;
+        border-radius: 10px 10px 0 0;
+        font-weight: 700;
+    }
+    
+    .itemDataGridGeneral .textDataProfile {
+        padding: 20px 20px;
+        font-size: 22.5px;
+        font-weight: 600;
+        border-radius: 0 0 10px 10px;
+    }
+    
+}
+
+/*Agregar un tema online*/
+
+.addThemeOnlineContainer{
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.addThemeOnlineContainer input{
+    
+}

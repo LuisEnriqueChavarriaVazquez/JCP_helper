@@ -1,4 +1,3 @@
-
 function selectorFondoPerfilUsuario() {
     //El contenedor POP UP en donde guardamos los temas (cajitas de temas)
     const boxContainerPopUp = document.getElementById('popUpThemes');
@@ -35,6 +34,26 @@ function selectorFondoPerfilUsuario() {
 
     insertarCajasParaTemas();
 
+    /////////////////////////////////////////
+    //Para agregar imagenes con una URL
+    /*Es un input y un button*/
+    const fotoThemeSelectorUrl = document.querySelector('#fotoThemeSelectorUrl');
+    const fotoThemeSelectorUrlButton = document.querySelector('#fotoThemeSelectorUrlButton');
+ 
+    fotoThemeSelectorUrlButton.addEventListener('click', agregarImagenUrlTheme);
+ 
+    function agregarImagenUrlTheme(){
+        urlTheme = fotoThemeSelectorUrl.value;
+        if(urlTheme.indexOf("http") == -1){
+            return fotoThemeSelectorUrl.value = "ERROR";
+        }else{
+            localStorage.setItem('fondoElegidoPorUsuario', urlTheme);
+            fondoDinamicoUsuario.style.backgroundImage = "url('" + localStorage.getItem('fondoElegidoPorUsuario') + "')";
+        }
+    }
+    ///////////////////////////////////////////////
+
+
     //Selector del tema de fondo.
     /*
     * Se hace la selecciones de los temas para el background del cliente.
@@ -61,22 +80,21 @@ function selectorFondoPerfilUsuario() {
     }
 }
 
-// Datos del cliente
-const datos_perfil_containerSelector = document.querySelector('#datos_perfil_containerSelector');
-const datos_perfil_containerNombrePerfil = document.querySelector('#datos_perfil_containerNombrePerfil');
-const datos_perfil_containerAliasPerfil = document.querySelector('#datos_perfil_containerAliasPerfil');
-const datos_perfil_containerDescPerfil = document.querySelector('#datos_perfil_containerDescPerfil');
+function menuScrollProfileAnimation(){   
+    // Datos del cliente
+    const containerScrolled = document.querySelector('#containerScrolled');
+    
+    //Scroll del menú
+    $(window).scroll(function(){
+        if ($(window).scrollTop() > (100)) {
+            containerScrolled.classList.remove('containerScrolledHide');
+        }else{
+            containerScrolled.classList.add('containerScrolledHide');
+        }
+    });
+}
 
-const containerScrolled = document.querySelector('#containerScrolled');
-
-//Scroll del menú
-$(window).scroll(function(){
-    if ($(window).scrollTop() > (300)) {
-        containerScrolled.classList.remove('containerScrolledHide');
-    }else{
-        containerScrolled.classList.add('containerScrolledHide');
-    }
-});
 
 
 selectorFondoPerfilUsuario();
+menuScrollProfileAnimation();
