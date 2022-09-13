@@ -6,8 +6,6 @@
 
 <!-- Encabezado link-->
 <link rel="stylesheet" href="../static/css/temas/@coloresUniversales.css">
-<link rel="stylesheet" href="../static/css/cardsMain.css">
-<link rel="stylesheet" href="../static/css/materialize.css">
 <link rel="stylesheet" href="../static/css/sombras.css">
 <link rel="stylesheet" href="../static/css/border.css">
 <link rel="stylesheet" href="../static/css/personalizadorColor.css">
@@ -24,14 +22,22 @@
 <link rel="stylesheet" href="{{url_for('static', filename = 'css/cardsSeleccionTema.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename = 'css/perfil_usuario.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename = 'css/styles.css')}}" type="text/css">
+<link rel="stylesheet" href="../static/css/cardsMain.css">
+<!--
+    Nota == Si haces cambios a las rutas asegurate de dejar 
+    materialize hasta abajo, para que el navegador le de prioridad
+    a los estilos del framework, porque si no podria romperse 
+    el CSS del framework.
+-->
+<link rel="stylesheet" href="../static/css/materialize.css">
 
 
+
+<!------ESTILOS CON PRIORIDAD SUPERIOR----------------------------------------->
 <!--Para los mensajes en caso de que algo ocurra en la busqueda en la bd-->
 <link rel="stylesheet" href="{{url_for('static', filename = 'css/mensajesCasos.css')}}">
-
 <!--Elementos para el carousel-->
 <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
-
 <!--No borrar esta puesto para que el selector de temas funcione-->
 <link rel="stylesheet" href="" id="theme">
 
