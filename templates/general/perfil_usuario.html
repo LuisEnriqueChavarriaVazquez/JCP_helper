@@ -27,7 +27,7 @@
 
     <!--Header del icono de usuario-->
     <section>
-        <div class="dataContainerUserMain" style="height: 370px !important">
+        <div class="dataContainerUserMain">
             <!-- Fondo con la foto elegida por el usuario -->
             <div class="fondoDinamico fondoPerfilDiseno shadow-3e" id="fondoDinamicoUsuario">
                 <div class="iconEditContainer">
@@ -36,68 +36,68 @@
                             class="modal-trigger colorGreyWhiter bordered2 shadow-2e colorTextReverse waves-effect"><i
                                 class="material-icons">photo_library</i></a>
                     </p>
+                    &nbsp;&nbsp;
+                    <p>
+                        <a href="/configuraciones"
+                            class="modal-trigger colorGreyWhiter bordered2 shadow-2e colorTextReverse waves-effect"><i
+                                class="material-icons">settings</i></a>
+                    </p>
                 </div>
             </div>
+
             <!-- Datos del cliente -->
             <div class="datos_perfil_container" id="datos_perfil_containerSelector">
-                <div><img class="fotoPerfil shadow-2e" src="../../static/images/user.png" alt="foto del usuario"></div>
-                <p class="colorTextReverse nombre_perfil" id="datos_perfil_containerNombrePerfil">Nombre usuario</p>
-                <p class="colorTextReverse alias_perfil" id="datos_perfil_containerAliasPerfil">Alias del usuario</p>
-                <p class="colorTextReverse descripcion_perfil" id="datos_perfil_containerDescPerfil">Lorem ipsum, dolor sit amet prueba prueba prueba
-                    consectetur adipisicing elit. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Lorem ipsum,
-                    dolor sit amet consectetur adipisicing elit.</p>
+                <div>
+                    <img class="materialboxed fotoPerfil shadow-2e" src="../../static/images/avatares/avatar_1.jpg"
+                        alt="foto del usuario">
+                </div>
+                <div class="allDataUserContainer">
+                    <p class="colorTextReverse nombre_perfil" id="datos_perfil_containerNombrePerfil">Nombre usuario</p>
+                    <p class="colorTextReverse alias_perfil" id="datos_perfil_containerAliasPerfil">Alias del usuario</p>
+                    <p class="colorTextReverse descripcion_perfil flow-text" id="datos_perfil_containerDescPerfil">
+                        Pequeño texto de descripción de perfil del usuario
+                        Lorem ipsum dolor sit amet consectetur, adipisionsectetur adipisicing elit. Minus illum
+                        blanditiis
+                        recusandae, quis officiis ea quas magnam hic velit rem mollitia ad vel quidem eius eveniet
+                        consequatur odit minima! Tempora!
+                    </p>
+                </div>
             </div>
 
             <!--Nombre del cliente scroll-->
             <div class="containerScrolled containerScrolledHide color3 shadow-2e" id="containerScrolled">
                 <div class="containerScrolledSon">
-                    <img class="fotoPerfilScrolled" src="../../static/images/user.png" alt="foto del usuario">
+                    <img class="fotoPerfilScrolled" src="../../static/images/avatares/avatar_1.jpg"
+                        alt="foto del usuario">
                     <p class="nombreUsuarioScrolled titleMobile flow-text colorText">Nombre del usuario</p>
                 </div>
             </div>
         </div>
         <!-- Carousel de datos del cliente -->
         <!--Seccion para dispositivos moviles-->
-        <section class="owl-six owl-carousel owl-theme hide-on-med-and-up">
-            <div class="item" style="margin-left: 20px;">
-                <a href="gestionar_grupos">
-                    <div class="cardComunidadBusqueda colorGreyWhiter bordered1 shadow-2e">
-                        <h5>Datos generales.</h5>
-                        <p class="colorTextReverse">Dato x</p>
-                        <p class="colorTextReverse">Dato del alumno número uno.</p>
-                        <hr>
-                        <p class="colorTextReverse">Dato x</p>
-                        <p class="colorTextReverse">Dato del alumno número dos, alumno número dos alumno número dos.</p>
-                        <hr>
-                        <p class="colorTextReverse">Dato x</p>
-                        <p class="colorTextReverse">Dato del alumno número tres, alumno número tres alumno número tres.</p>
-                    </div>
-                </a>
-            </div>
-            <div class="item" style="margin-left: 20px;">
-                <a href="gestionar_grupos">
-                    <div class="cardComunidadBusqueda colorGreyWhiter bordered1 shadow-2e">
-                        <h5>Adicionales.</h5>
-                        <p class="colorTextReverse">Dato x</p>
-                        <p class="colorTextReverse">Dato del alumno número uno.</p>
-                        <hr>
-                        <p class="colorTextReverse">Dato x</p>
-                        <p class="colorTextReverse">Dato del alumno número dos, alumno número dos alumno número dos.</p>
-                        <hr>
-                        <p class="colorTextReverse">Dato x</p>
-                        <p class="colorTextReverse">Dato del alumno número tres, alumno número tres alumno número tres.</p>
-                    </div>
-                </a>
-            </div>
-            <div class="item" style="width: 200px;">
-            </div>
-        </section>
-        <section>
+        <section class="dataContainerFatherContainer">
             <div>
-                <p>Datos de contacto.</p>
-                <div>
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <div class="title-general">
+                    <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Datos de la cuenta</h5>
+                    <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Datos de la cuenta</h3>
+                </div>
+                <div class="gridDataProfileContainer">
+                    <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-1">
+                        <p class="iconDataProfile colorGreyDarker"><i class="material-icons md-24 colorTextReverse">email</i>Contacto</p>
+                        <p class="textDataProfile colorGrey">jeremias@gmail.com</p>
+                    </div>
+                    <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-2">
+                        <p class="iconDataProfile colorGreyDarker"><i class="material-icons md-24 colorTextReverse">school</i>Procedencia</p>
+                        <p class="textDataProfile colorGrey">Instituto Politécnico Nacional</p>
+                    </div>
+                    <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-3">
+                        <p class="iconDataProfile colorGreyDarker"><i class="material-icons md-24 colorTextReverse">doorbell</i>Unidad</p>
+                        <p class="textDataProfile colorGrey">ESCOM</p>
+                    </div>
+                    <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-4">
+                        <p class="iconDataProfile colorGreyDarker"><i class="material-icons md-24 colorTextReverse">adjust</i>Especialización</p>
+                        <p class="textDataProfile colorGrey">Diseño web frontend</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -121,7 +121,7 @@
     </div>
 
     <!--Metemos el footer en la app-->
-    {% include "includes/footer.html" %}
+    <!-- {% include "includes/footer.html" %} -->
 </body>
 
 <!--Jalamos todo el contenido del encabezado-->

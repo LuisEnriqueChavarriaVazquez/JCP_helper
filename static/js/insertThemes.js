@@ -71,12 +71,13 @@ const containerScrolled = document.querySelector('#containerScrolled');
 
 //Scroll del menú
 $(window).scroll(function(){
-    if ($(window).scrollTop() > (300)) {
+    if ($(window).scrollTop() > (100)) {
         containerScrolled.classList.remove('containerScrolledHide');
     }else{
         containerScrolled.classList.add('containerScrolledHide');
     }
 });
+
 
 
 selectorFondoPerfilUsuario();
