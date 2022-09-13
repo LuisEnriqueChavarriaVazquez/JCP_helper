@@ -26,7 +26,7 @@
     <br><br>
 
     <!--Header del icono de usuario-->
-    <section>
+    <section class="containerMasterProfile">
         <div class="dataContainerUserMain">
             <!-- Fondo con la foto elegida por el usuario -->
             <div class="fondoDinamico fondoPerfilDiseno shadow-3e" id="fondoDinamicoUsuario">
@@ -75,7 +75,7 @@
         </div>
         <!-- Carousel de datos del cliente -->
         <!--Seccion para dispositivos moviles-->
-        <section class="dataContainerFatherContainer">
+        <section class="dataContainerFatherContainer colorGreyDarker">
             <div>
                 <div class="title-general">
                     <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Datos de la cuenta</h5>
@@ -83,20 +83,20 @@
                 </div>
                 <div class="gridDataProfileContainer">
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-1">
-                        <p class="iconDataProfile colorGreyDarker"><i class="material-icons md-24 colorTextReverse">email</i>Contacto</p>
-                        <p class="textDataProfile colorGrey">jeremias@gmail.com</p>
+                        <p class="iconDataProfile colorGrey"><i class="material-icons md-24 colorTextReverse">email</i>Contacto</p>
+                        <p class="textDataProfile colorGreyWhiter">jeremias@gmail.com</p>
                     </div>
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-2">
-                        <p class="iconDataProfile colorGreyDarker"><i class="material-icons md-24 colorTextReverse">school</i>Procedencia</p>
-                        <p class="textDataProfile colorGrey">Instituto Politécnico Nacional</p>
+                        <p class="iconDataProfile colorGrey"><i class="material-icons md-24 colorTextReverse">school</i>Procedencia</p>
+                        <p class="textDataProfile colorGreyWhiter">Instituto Politécnico Nacional</p>
                     </div>
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-3">
-                        <p class="iconDataProfile colorGreyDarker"><i class="material-icons md-24 colorTextReverse">doorbell</i>Unidad</p>
-                        <p class="textDataProfile colorGrey">ESCOM</p>
+                        <p class="iconDataProfile colorGrey"><i class="material-icons md-24 colorTextReverse">doorbell</i>Unidad</p>
+                        <p class="textDataProfile colorGreyWhiter">ESCOM</p>
                     </div>
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-4">
-                        <p class="iconDataProfile colorGreyDarker"><i class="material-icons md-24 colorTextReverse">adjust</i>Especialización</p>
-                        <p class="textDataProfile colorGrey">Diseño web frontend</p>
+                        <p class="iconDataProfile colorGrey"><i class="material-icons md-24 colorTextReverse">adjust</i>Especialización</p>
+                        <p class="textDataProfile colorGreyWhiter">Diseño web frontend</p>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,13 @@
     <!-- Modal para elegir el tema del perfil -->
     <div id="modal1" class="modal modal-fixed-footer bordered2" style="height: 80vh !important;">
         <div class="modal-content">
-            <h5>Temas</h5>
+            <h5>Ingresar URL</h5>
+            <div class="colorGreyWhiter addThemeOnlineContainer shadow-1">
+                <input id="fotoThemeSelectorUrl" type="text" name="fotoThemeSelectorUrl" value="URL">
+                <a id="fotoThemeSelectorUrlButton" href="#" class="waves-effect btn color3 button-rounded"><i class="material-icons left">add_photo_alternate</i>Agregar</a>
+            </div>
+            <br>
+            <h5>Temas offline</h5>
             <div class="fotosSelector">
                 <div class="fotosIndividual">
                     <div class="row" id="popUpThemes">
