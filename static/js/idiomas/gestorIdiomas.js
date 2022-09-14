@@ -1,7 +1,7 @@
 
 textEspanol = [
     {
-        text1: '\tConfiguraciones',
+        text1: 'Configuraciones',
         text2: 'Configuraciones',
         text3: 'volver'
     }

@@ -15,7 +15,12 @@ def login_general():
 #No es exactamente un manual, simplemente es una página con información general
 @routes.route('/saber_mas')
 def saber_mas():
-    return render_template('saber_mas.html')
+    return render_template('general/saber_mas.html')
+
+#Terminos y condiciones
+@routes.route('/terminos_condiciones')
+def terminos_condiciones():
+    return render_template('general/terminos_condiciones.html')
 
 #Politicas
 @routes.route('/politica_cookies')
