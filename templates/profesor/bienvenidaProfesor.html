@@ -35,23 +35,21 @@
     <ul id="slide-out" class="sidenav colorWhite">
         <li>
             <div class="user-view">
-                <div class="background">
-                    <img src="../static/images/sidenavImage.jpg" width="100%">
-                </div>
-                <a href="#user"><img class="circle" src="../../static/images/avatares/avatar_1.jpg"></a>
+                <div class="background fondoDinamico" id="fondoBienvenida"></div>
+                <a href="#user"><img class="circle shadow-3e" src="../../static/images/avatares/avatar_3.jpg"></a>
                 <a href="#name"><span class="white-text name"><b>Cuenta de docente</b></span></a>
-                <!--<a href="#name"><span class="white-text name"></span></a>
-                <a href="#email"><span class="white-text email"></span></a>-->
+                <a href="#name"><span class="white-text name">Nombre del usuario</span></a>
+                <br>
             </div>
         </li>
-        <li><a href="#!" class="colorTextReverse"><i class="colorTextReverse material-icons">workspaces</i>Gestionar
+        <li><a href="#!" class="colorTextReverse"><i class="colorTextReverse material-icons">groups_2</i>Gestionar
                 grupos.</a></li>
         <li><a href="#!" class="colorTextReverse"><i class="colorTextReverse material-icons">rule</i>Gestionar
                 cuestionarios.</a></li>
-        <li><a href="#!" class="colorTextReverse"><i class="colorTextReverse material-icons">poll</i>Gestionar
+        <li><a href="#!" class="colorTextReverse"><i class="colorTextReverse material-icons">stacked_bar_chart</i>Gestionar
                 estadísticas.</a></li>
         <li><a href="#!" class="colorTextReverse"><i
-                    class="colorTextReverse material-icons">supervised_user_circle</i>Comunidad.</a></li>
+                    class="colorTextReverse material-icons">storage</i>Banco de datos.</a></li>
         <hr>
         <li><a href="#!" class="colorTextReverse"><i class="colorTextReverse material-icons">school</i>Tutorial.</a>
         </li>
@@ -148,7 +146,8 @@
                                         <div class="collapsible-body">
                                             <ul class="colorWhite">
                                                 <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="deuteranomalia" class="colorTextReverse">Deuteranomalia</a></li>
+                                                        id="deuteranomalia" class="colorTextReverse">Deuteranomalia</a>
+                                                </li>
                                                 <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
                                                         id="deuteranopia" class="colorTextReverse">Deuteranopia</a></li>
                                                 <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
@@ -173,8 +172,8 @@
     <!--Cuerpo principal del documento-->
     <section class="mainBodyAdicional">
         <div class="title-general colorGrey">
-            <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Menú de opciones</h4>
-            <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Menú de opciones</h3>
+            <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Menú de opciones</h5>
+            <h4 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Menú de opciones</h4>
         </div>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -194,7 +193,7 @@
                         <div class="cardMainDesktopPanelHead centerAligner">Gestionar grupos</div>
                         <div class="centerAligner horizontalAligner">
                             <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
-                                <p><i class="material-icons colorTextReverse">workspaces</i></p>
+                                <p><i class="material-icons colorTextReverse">groups_2</i></p>
                             </div>
                             <div
                                 class="cardMainDesktopPanelRight centerAlignerNoWidth colorTextReverse colorGreyWhiter">
@@ -227,7 +226,7 @@
                         <div class="cardMainDesktopPanelHead centerAligner">Gestionar estadísticas</div>
                         <div class="centerAligner horizontalAligner">
                             <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
-                                <p><i class="material-icons colorTextReverse">poll</i></p>
+                                <p><i class="material-icons colorTextReverse">stacked_bar_chart</i></p>
                             </div>
                             <div
                                 class="cardMainDesktopPanelRight centerAlignerNoWidth colorTextReverse colorGreyWhiter">
@@ -240,16 +239,14 @@
 
                 <a href="comunidad_profesor">
                     <div class="borderDecoration cardMainDesktopPanel shadow-2 bordered2">
-                        <div class="cardMainDesktopPanelHead centerAligner">Comunidad</div>
+                        <div class="cardMainDesktopPanelHead centerAligner">Banco de datos</div>
                         <div class="centerAligner horizontalAligner">
                             <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
-                                <p><i class="material-icons colorTextReverse">supervised_user_circle</i></p>
+                                <p><i class="material-icons colorTextReverse">storage</i></p>
                             </div>
                             <div
                                 class="cardMainDesktopPanelRight centerAlignerNoWidth colorTextReverse colorGreyWhiter">
-                                Acceder a la
-                                comunidad para poder
-                                compartir y ver cuestionarios.</div>
+                                Conozca más sobre el banco de datos y su funcionamiento.</div>
                         </div>
                     </div>
                 </a>
@@ -262,7 +259,7 @@
                 <a href="gestionar_grupos">
                     <div class="borderDecoration shadow-4 bordered2 cardMainCarouselContainer">
                         <div class="centerAligner cardCarouselMainHead">
-                            <p><i class="material-icons">workspaces</i></p>
+                            <p><i class="material-icons">groups_2</i></p>
                         </div>
                         <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner">Gestionar
                             grupos</div>
@@ -290,7 +287,7 @@
                 <a href="gestionar_estadisticas">
                     <div class="borderDecoration shadow-4 bordered2 cardMainCarouselContainer">
                         <div class="centerAligner cardCarouselMainHead">
-                            <p><i class="material-icons">poll</i></p>
+                            <p><i class="material-icons">stacked_bar_chart</i></p>
                         </div>
                         <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner">Gestionar
                             estadísticas</div>
@@ -304,13 +301,12 @@
                 <a href="comunidad_profesor">
                     <div class="borderDecoration shadow-4 bordered2 cardMainCarouselContainer">
                         <div class="centerAligner cardCarouselMainHead">
-                            <p><i class="material-icons">supervised_user_circle</i></p>
+                            <p><i class="material-icons">storage</i></p>
                         </div>
-                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner">Comunidad</div>
-                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner">Acceder a la
-                            comunidad para
-                            poder
-                            compartir y ver cuestionarios.</div>
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner">Banco de datos
+                        </div>
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner">Conozca más
+                            sobre el banco de datos y su funcionamiento</div>
                     </div>
                 </a>
             </section>
@@ -323,7 +319,7 @@
                 <a href="gestionar_grupos">
                     <div class="borderDecoration shadow-2e bordered2">
                         <div class="centerAligner cardCarouselMainHead">
-                            <p><i class="material-icons">workspaces</i></p>
+                            <p><i class="material-icons">groups_2</i></p>
                         </div>
                         <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Gestionar
                             grupos</div>
@@ -355,7 +351,7 @@
                 <a href="gestionar_estadisticas">
                     <div class="borderDecoration shadow-2e bordered2">
                         <div class="centerAligner cardCarouselMainHead">
-                            <p><i class="material-icons">poll</i></p>
+                            <p><i class="material-icons">stacked_bar_chart</i></p>
                         </div>
                         <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Gestionar
                             estadísticas</div>
@@ -373,12 +369,13 @@
                 <a href="comunidad_profesor">
                     <div class="borderDecoration shadow-2e bordered2">
                         <div class="centerAligner cardCarouselMainHead">
-                            <p><i class="material-icons">supervised_user_circle</i></p>
+                            <p><i class="material-icons">storage</i></p>
                         </div>
-                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Comunidad</div>
+                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Banco de datos
+                        </div>
                         <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">
-                            <p class="center-align colorTextReverse">Acceder a la comunidad para poder compartir y ver
-                                cuestionarios.</p>
+                            <p class="center-align colorTextReverse">Conozca más sobre el banco de datos y su
+                                funcionamiento.</p>
                         </div>
                     </div>
                 </a>
@@ -390,8 +387,8 @@
 
         <!--Resumen de actividad-->
         <div class="title-general">
-            <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Resumen</h4>
-            <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Resumen</h3>
+            <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Resumen general</h5>
+            <h4 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Resumen general</h4>
         </div>
 
         <!--Resumen para dispositivos móviles-->
