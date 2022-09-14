@@ -1,0 +1,61 @@
+.color1 {background-color: rgb(8, 17, 18);}
+.color2 {background-color: rgb(26, 51, 56);}
+.color3 {background-color: rgb(71, 120, 129);}
+.color4 {background-color: rgb(164, 180, 194);}
+.color5 {background-color: #d8d8b8;}
+
+.colorGrey {background-color: rgb(222, 209, 225);}
+.colorGreyDarker {background-color: rgb(223, 218, 235);}
+.colorGreyWhiter {background-color: rgb(203, 199, 214);}
+.colorWhite {background-color: rgb(223, 218, 235);}
+
+.coloredText {color: rgb(71, 120, 129) !important;}
+.colorText {color: rgb(223, 218, 235) !important;}
+.colorTextReverse {color: #000 !important;}
+
+.borderDecoration{
+    border-bottom: 5px rgb(71, 120, 129) solid;
+}
+
+.borderDecorationStrong{
+    border-bottom: 5px rgb(26, 51, 56) solid;
+}
+
+/*Fondos dinámicos*/
+/*Fondos dinámicos*/
+.cardCarouselMainHead{
+    background-image: url('../../images/fondos/adaptados/tritanopia/adaptada\ \(5\).png');
+}
+
+.cardMain{
+    background-image: url('../../images/fondos/adaptados/tritanopia/adaptada\ \(2\).png');
+}
+
+.cardMainDesktopPanelHead{
+    background-image: url('../../images/fondos/adaptados/tritanopia/adaptada\ \(1\).png');
+}
+
+.informeCard{
+    background-image: url('../../images/fondos/adaptados/tritanopia/adaptada\ \(2\).png');
+}
+
+.iconSecondary{
+    background-image: url('../../images/fondos/adaptados/tritanopia/adaptada\ \(1\).png') ;
+}
+
+.card-bienvenida,.card-bienvenida-text{
+    background-image: url('../../images/fondos/adaptados/tritanopia/adaptada\ \(3\).png');
+}
+
+.fondoDinamico{
+    background-image: url('../../images/fondos/adaptados/tritanopia/adaptada\ \(4\).png');
+}
+
+.icon_app{
+    background-image: url('../../images/logo_app/grey_icon.png');
+}
+
+/*Barra de carga*/
+.progress .indeterminate {
+    background-color: rgb(26, 51, 56);
+}

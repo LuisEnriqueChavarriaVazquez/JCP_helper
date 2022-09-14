@@ -1,0 +1,62 @@
+.color1 {background-color: #121000;}
+.color2 {background-color: #323028;}
+.color3 {background-color: #787056;}
+.color4 {background-color: #BFB287;}
+.color5 {background-color: #E0d4b5;}
+
+.colorGrey {background-color: #E0DBDB;}
+.colorGreyDarker {background-color: #CCC8C8;}
+.colorGreyWhiter {background-color: rgb(224, 219, 219);}
+.colorWhite {background-color: #F0EAEB;}
+
+.coloredText {color: #787056 !important;}
+.colorText {color: #F0EAEB !important;}
+.colorTextReverse {color: #000 !important;}
+
+.borderDecoration{
+    border-bottom: 5px #787056 solid;
+}
+
+.borderDecorationStrong{
+    border-bottom: 5px #323028 solid;
+}
+
+/*Fondos dinámicos*/
+/*Fondos dinámicos*/
+.cardCarouselMainHead{
+    background-image: url('../../images/fondos/adaptados/protanopia/adaptada\ \(5\).png');
+}
+
+.cardMain{
+    background-image: url('../../images/fondos/adaptados/protanopia/adaptada\ \(2\).png');
+}
+
+.cardMainDesktopPanelHead{
+    background-image: url('../../images/fondos/adaptados/protanopia/adaptada\ \(1\).png');
+}
+
+.informeCard{
+    background-image: url('../../images/fondos/adaptados/protanopia/adaptada\ \(2\).png');
+}
+
+.iconSecondary{
+    background-image: url('../../images/fondos/adaptados/protanopia/adaptada\ \(1\).png') ;
+}
+
+.card-bienvenida,.card-bienvenida-text{
+    background-image: url('../../images/fondos/adaptados/protanopia/adaptada\ \(3\).png');
+}
+
+.fondoDinamico{
+    background-image: url('../../images/fondos/adaptados/protanopia/adaptada\ \(4\).png');
+}
+
+.icon_app{
+    background-image: url('../../images/logo_app/grey_icon.png');
+}
+
+
+/*Barra de carga*/
+.progress .indeterminate {
+    background-color: #323028;
+}

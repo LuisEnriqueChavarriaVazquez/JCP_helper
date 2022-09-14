@@ -6,6 +6,7 @@ $(document).ready(function () {
 
     var newWidth, newHeight;
     var contenedorColores = document.getElementById("container_colors");
+    var contenedorColoresAdaptados = document.getElementById("container_colors_adapted");
     /*Escucha activa del tamaño de la pantalla*/
     window.addEventListener('resize', function (event) {
         newWidth = window.innerWidth;
@@ -245,7 +246,58 @@ $(document).ready(function () {
                                 </div>
                             </div>
                         </a>
-                    </div>`;
+                    </div>
+                    `;
+
+            contenedorColoresAdaptados.innerHTML = `
+            <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="protanopia">
+                    <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                        <div class="colorSelectorMuestraPhone">
+                            <div class="shadow-2e" style="background-color: #787056;"></div>
+                        </div>
+                        <div class="colorSelectorTextoPhone colorTextReverse">
+                            Protanopia
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="deuteranopia">
+                    <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                        <div class="colorSelectorMuestraPhone">
+                            <div class="shadow-2e" style="background-color: rgb(130, 108, 97);"></div>
+                        </div>
+                        <div class="colorSelectorTextoPhone colorTextReverse">
+                            Deuteranopia
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="tritanopia">
+                    <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                        <div class="colorSelectorMuestraPhone">
+                            <div class="shadow-2e" style="background-color: rgb(71, 120, 129);"></div>
+                        </div>
+                        <div class="colorSelectorTextoPhone colorTextReverse">
+                            Tritanopia
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="deuteranomalia">
+                    <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                        <div class="colorSelectorMuestraPhone">
+                            <div class="shadow-2e" style="background-color: rgb(102, 115, 95);"></div>
+                        </div>
+                        <div class="colorSelectorTextoPhone colorTextReverse">
+                            Deuteranomalia
+                        </div>
+                    </div>
+                </a>
+            </div>`;
         }
 
         function insertar_tableta_compu() {
@@ -520,7 +572,7 @@ $(document).ready(function () {
                             </a>
                         </div>
                     </div>
-                    <div class="col s12 m4 l3 hide-on-small-only">
+                    <div class="col s12 m12 l6 hide-on-small-only">
                         <div class="card bordered1 colorGreyDarker shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_yellow">
                                 <div class="card-stacked">
@@ -534,7 +586,71 @@ $(document).ready(function () {
                                 </div>
                             </a>
                         </div>
-                    </div>`;
+                    </div>
+                    `;
+
+            contenedorColoresAdaptados.innerHTML = `
+            <div class="col s12 m6 l3 hide-on-small-only">
+                <div class="card bordered1 colorGrey shadow-2">
+                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="protanopia">
+                        <div class="card-stacked">
+                            <div class="card-content verticalAligner centerAligner">
+                                <div>
+                                    <p class="colorTextReverse muestraDeColorText">Protanopia</p>
+                                </div>
+                                <div class="bordered5 muestraDeColor shadow-1e"
+                                    style="background-color: #787056;"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col s12 m6 l3 hide-on-small-only">
+                <div class="card bordered1 colorGrey shadow-2">
+                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="deuteranopia">
+                        <div class="card-stacked">
+                            <div class="card-content verticalAligner centerAligner">
+                                <div>
+                                    <p class="colorTextReverse muestraDeColorText">Deuteranopia</p>
+                                </div>
+                                <div class="bordered5 muestraDeColor shadow-1e"
+                                    style="background-color: rgb(130, 108, 97);"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col s12 m6 l3 hide-on-small-only">
+                <div class="card bordered1 colorGrey shadow-2">
+                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="tritanopia">
+                        <div class="card-stacked">
+                            <div class="card-content verticalAligner centerAligner">
+                                <div>
+                                    <p class="colorTextReverse muestraDeColorText">Tritanopia</p>
+                                </div>
+                                <div class="bordered5 muestraDeColor shadow-1e"
+                                    style="background-color: rgb(71, 120, 129);"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col s12 m6 l3 hide-on-small-only">
+                <div class="card bordered1 colorGrey shadow-2">
+                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="deuteranomalia">
+                        <div class="card-stacked">
+                            <div class="card-content verticalAligner centerAligner">
+                                <div>
+                                    <p class="colorTextReverse muestraDeColorText">Deuteranomalia</p>
+                                </div>
+                                <div class="bordered5 muestraDeColor shadow-1e"
+                                    style="background-color: rgb(102, 115, 95);"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            `;
         }
         //--------------------------------------------------------            
     }
@@ -546,6 +662,10 @@ $(document).ready(function () {
         var w = window.innerWidth;
 
         // Solo aplica a la página de configuraciones.html
+        /*
+            Cuando se suba la app al dominio debe ser modificado
+            el valor de la url.
+        */
         if (window.location.href == "http://127.0.0.1:5000/configuraciones" || window.location.href == "http://127.0.0.1:5000/configuraciones#!" || window.location.href == "https://jcphelperdos.herokuapp.com/configuraciones#!" || window.location.href == "https://jcphelperdos.herokuapp.com/configuraciones") {
             if (w < 600) {
                 insertar_phone();
@@ -561,7 +681,7 @@ $(document).ready(function () {
             tema.attr("href", temaAutomatico);
         }
 
-        //Craga automatica del tema anterior
+        //Carga automatica del tema anterior
         function automaticSetter() {
             temaAutomatico = localStorage.getItem("tema");
             tema.attr("href", temaAutomatico);
@@ -678,6 +798,29 @@ $(document).ready(function () {
             temaGuardado = localStorage.getItem("tema");
         }
 
+        /*
+            Temas accesibles para personas con debilidad visual.
+        */
+
+        function protanopia() {
+            localStorage.setItem("tema", "../static/css/temas/accesibilidadColoresProtanopia.css");
+            temaGuardado = localStorage.getItem("tema");
+        }
+
+        function deuteranopia() {
+            localStorage.setItem("tema", "../static/css/temas/accesibilidadColoresDeuteranopia.css");
+            temaGuardado = localStorage.getItem("tema");
+        }
+
+        function tritanopia() {
+            localStorage.setItem("tema", "../static/css/temas/accesibilidadColoresTritanopia.css");
+            temaGuardado = localStorage.getItem("tema");
+        }
+
+        function deuteranomalia() {
+            localStorage.setItem("tema", "../static/css/temas/accesibilidadColoresDeuteranomalia.css");
+            temaGuardado = localStorage.getItem("tema");
+        }
 
         //Funciones de click en cada uno de los temas
         document.getElementById('coloresDefault').addEventListener('click', function () {
@@ -772,6 +915,26 @@ $(document).ready(function () {
 
         document.getElementById('dark_yellow').addEventListener('click', function () {
             dark_yellow();
+            tema.attr("href", temaGuardado);
+        })
+
+        document.getElementById('protanopia').addEventListener('click', function () {
+            protanopia();
+            tema.attr("href", temaGuardado);
+        })
+
+        document.getElementById('deuteranopia').addEventListener('click', function () {
+            deuteranopia();
+            tema.attr("href", temaGuardado);
+        })
+
+        document.getElementById('tritanopia').addEventListener('click', function () {
+            tritanopia();
+            tema.attr("href", temaGuardado);
+        })
+
+        document.getElementById('deuteranomalia').addEventListener('click', function () {
+            deuteranomalia();
             tema.attr("href", temaGuardado);
         })
     }

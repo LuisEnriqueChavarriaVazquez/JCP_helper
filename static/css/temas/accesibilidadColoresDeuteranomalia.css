@@ -1,0 +1,61 @@
+.color1 {background-color: rgb(13, 13, 3);}
+.color2 {background-color: rgb(38, 47, 42);}
+.color3 {background-color: rgb(102, 115, 95);}
+.color4 {background-color: rgb(189, 177, 143);}
+.color5 {background-color: rgb(234, 209, 185);}
+
+.colorGrey {background-color: rgb(234, 216, 222);}
+.colorGreyDarker {background-color: rgb(213, 197, 202);}
+.colorGreyWhiter {background-color: rgb(213, 197, 202);}
+.colorWhite {background-color: rgb(234, 216, 222);}
+
+.coloredText {color: rgb(102, 115, 95) !important;}
+.colorText {color: rgb(234, 216, 222) !important;}
+.colorTextReverse {color: #000 !important;}
+
+.borderDecoration{
+    border-bottom: 5px rgb(102, 115, 95) solid;
+}
+
+.borderDecorationStrong{
+    border-bottom: 5px rgb(38, 47, 42) solid;
+}
+
+/*Fondos dinámicos*/
+.cardCarouselMainHead{
+    background-image: url('../../images/fondos/adaptados/deuteranomalia/adaptada\ \(5\).png');
+}
+
+.cardMain{
+    background-image: url('../../images/fondos/adaptados/deuteranomalia/adaptada\ \(2\).png');
+}
+
+.cardMainDesktopPanelHead{
+    background-image: url('../../images/fondos/adaptados/deuteranomalia/adaptada\ \(1\).png');
+}
+
+.informeCard{
+    background-image: url('../../images/fondos/adaptados/deuteranomalia/adaptada\ \(2\).png');
+}
+
+.iconSecondary{
+    background-image: url('../../images/fondos/adaptados/deuteranomalia/adaptada\ \(1\).png') ;
+}
+
+.card-bienvenida,.card-bienvenida-text{
+    background-image: url('../../images/fondos/adaptados/deuteranomalia/adaptada\ \(3\).png');
+}
+
+.fondoDinamico{
+    background-image: url('../../images/fondos/adaptados/deuteranomalia/adaptada\ \(4\).png');
+}
+
+.icon_app{
+    background-image: url('../../images/logo_app/grey_icon.png');
+}
+
+
+/*Barra de carga*/
+.progress .indeterminate {
+    background-color: rgb(38, 47, 42);
+}
