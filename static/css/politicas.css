@@ -15,7 +15,7 @@
 /*Estructura del encabezado con imagen*/
 
 .containerImagenPoliticaCookies{
-    width: 20%;
+    width: 18%;
 }
 
 .imagenPoliticaCookies{
@@ -90,7 +90,7 @@
 .politicasContainerMenu div li a{
     font-family: Roboto;
     font-weight: 700 !important; 
-    font-size: 18px;   
+    font-size: 16px;   
 }
 
 .titleSectionPoliticasMenu{
