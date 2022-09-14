@@ -20,6 +20,7 @@ $(document).ready(function () {
     $('ul.tabs').tabs();
     $('.collapsible').collapsible();
     $('.dropdown-trigger').dropdown();
+    $('.scrollspy').scrollSpy();
 
     /*
     //  Código para la parte de elegir la foto de perfil

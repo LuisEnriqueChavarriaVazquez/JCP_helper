@@ -10,19 +10,20 @@
 <link rel="stylesheet" href="../static/css/border.css">
 <link rel="stylesheet" href="../static/css/personalizadorColor.css">
 <link rel="stylesheet" href="../static/css/cargador.css">
-<link rel="stylesheet" href="../static/css/cardsSecondary.css">
-<link rel="stylesheet" href="{{url_for('static', filename = 'css/cardSummary.css')}}">
-<link rel="stylesheet" href="{{url_for('static', filename = 'css/cardInformes.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename = 'css/navbar.css')}}">
-<link rel="stylesheet" href="{{url_for('static', filename = 'css/cardEstadisticas.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename = 'css/comunidadEstilos.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename = 'css/ownBadges.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename = 'css/footer.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename = 'css/cardsConfiguraciones.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename = 'css/cardsSeleccionTema.css')}}">
-<link rel="stylesheet" href="{{url_for('static', filename = 'css/perfil_usuario.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/politicas.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename = 'css/styles.css')}}" type="text/css">
+<!--Mantener las card abajo de styles, para que tengan prioridad-->
 <link rel="stylesheet" href="../static/css/cardsMain.css">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/cardEstadisticas.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/cardInformes.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/cardSummary.css')}}">
+<link rel="stylesheet" href="../static/css/cardsSecondary.css">
 <!--
     Nota == Si haces cambios a las rutas asegurate de dejar 
     materialize hasta abajo, para que el navegador le de prioridad
@@ -34,6 +35,10 @@
 
 
 <!------ESTILOS CON PRIORIDAD SUPERIOR----------------------------------------->
+<!--Para los estilos del perfil de usuario
+    se requiere pasar por encima de materialize porque
+    el editor de fondo para el perfil requiere acceso al DOM-->
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/perfil_usuario.css')}}">
 <!--Para los mensajes en caso de que algo ocurra en la busqueda en la bd-->
 <link rel="stylesheet" href="{{url_for('static', filename = 'css/mensajesCasos.css')}}">
 <!--Elementos para el carousel-->
