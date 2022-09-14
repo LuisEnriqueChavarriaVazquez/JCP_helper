@@ -16,3 +16,12 @@ def login_general():
 @routes.route('/saber_mas')
 def saber_mas():
     return render_template('saber_mas.html')
+
+#Politicas
+@routes.route('/politica_cookies')
+def politica_cookies():
+    return render_template('general/politica_cookies.html')
+
+@routes.route('/politica_privacidad')
+def politica_privacidad():
+    return render_template('general/politica_privacidad.html')
