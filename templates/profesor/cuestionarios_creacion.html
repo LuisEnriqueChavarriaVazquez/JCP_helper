@@ -13,8 +13,11 @@
 
 <body class="oculto colorGrey">
 
+<!--Cargador de la página -->
+
 {% include "includes/cargador.html" %}
 
+<!--Sidevar de la pagina-->
 
 <nav class="color2 z-depth-3" >
     <div class="nav-wrapper">
@@ -34,10 +37,14 @@
    
 </ul>
 
+<!--Contenido de la pagina-->
 
     <div class="row">
+
+    <!--Seccion  para la creacion de los diferentes tipos de preguntas-->
     <div class="col s5">
 
+        <!--Menu de la seccion de preguntas-->
         <div class="card horizontal">
            
             <div class="card-stacked">
@@ -88,6 +95,8 @@
         </div>
     </div>
 
+
+<!--Modal para la creacion de preguntas de opcion multiple-->
 <div id="modalOpccionMultiple" class="modal">
     <div class="modal-content">
         <h4>Opcción multiple</h4>
@@ -100,16 +109,12 @@
                     </div>
                 </div>
         </div>
-
-        
-
-
     <div class="row">
         <div class="col s12">
-            <a>Opcion A</a>
-              <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
-         <textarea id="textarea1" class="materialize-textarea " data-length="20" ></textarea>
-            </a>
+                       <a>Opcion A</a>
+                        <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
+                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        </a>
         </div>
     </div>
 
@@ -117,7 +122,7 @@
         <div class="col s12">
             <a>Opcion B</a>
             <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
-                <textarea id="textarea1" class="materialize-textarea" data-length="20"></textarea>
+                <textarea id="textarea1" class="materialize-textarea"></textarea>
             </a>
         </div>
     </div>
@@ -126,7 +131,7 @@
         <div class="col s12">
             <a>Opcion C</a>
             <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
-                <textarea id="textarea1" class="materialize-textarea" data-length="20"></textarea>
+                <textarea id="textarea1" class="materialize-textarea"></textarea>
             </a>
         </div>
     </div>
@@ -135,7 +140,7 @@
         <div class="col s12">
             <a>Opcion D</a>
             <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
-                <textarea id="textarea1" class="materialize-textarea" data-length="20"></textarea>
+                <textarea id="textarea1" class="materialize-textarea"></textarea>
             </a>
         </div>
     </div>
@@ -157,6 +162,9 @@
         <h4>Selección multiple</h4>
     </div>
 </div> -->
+
+
+<!--Modal para la creacion de preguntas de rellenar espacios-->
 
 <div id="modalRellenarEspacios" class="modal">
     <div class="modal-content">
@@ -183,30 +191,31 @@
     </div>
 </div>
 
+<!--Modal para la creacion de preguntas de ejercicios-->
 <div id="modalEjercicios" class="modal">
     <div class="modal-content">
         <h4>Ejercicios</h4>
+    <div class="row">
+        <form class="col s12">
         <div class="row">
-            <div class="input-field col s6">
-                <input placeholder="escriba las instrucciones del ejercicio" id="titulo_ejercicio" type="text" class="validate">
-                <label for="titulo_ejercicio">Escriba el ejercicio</label>
-            </div>
-        </div>
-    <div class="row">
         <div class="input-field col s12">
-            <textarea id="textareaCode" class="materialize-textarea"  data-length="120"
-            style="height:200px;"></textarea>
-            <label for="textareaCode">Escriba el resultado del ejericio</label>
+            <textarea id="textarea1" class="materialize-textarea"></textarea>
+            <label for="textarea1">Pregunta</label>
         </div>
-    </div>
-    <div class="row">
-        <div class="col s12">
-            <a class="waves-effect waves-light btn ">Guardar</a>
         </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="codigoResultado" class="materialize-textarea"
+                     style="height: 600px;" ></textarea>
+                    <label for="codigoResultado">Codigo resultado</label>
+                </div>
+            </div>
+        </form>
     </div>
     </div>
 </div>
 
+<!--Modal para la creacion de preguntas de opcion de arrestar opciones-->
 <div id="modalArrastrar" class="modal">
     <div class="modal-content">
         <h4>Arrastrar</h4>
@@ -242,6 +251,7 @@
     </div>
 </div>
 
+<!--Seccion para la visulaización del cuestionario-->
     <div class="col s7">
         <div class="row">
             <div class="col s12 ">
@@ -256,13 +266,162 @@
                 </div>
             </div>
         </div>
+     <!--Ejemplo de pregunta se opcción multiple-->
+        <div class="row">
+            <div class="col s12 ">
+                <div class="card ">
+                    <div class="card-content ">
+                        <h4>Ejemplo pregunta opccion multiple</h4>
+                        <div class="row">
+                            <div class="col s12">
+                                <a>Opcion A</a>
+                                <a class="waves-effect waves-light btn " style="width: 100%; height:50px;">
+                                    Contenido opcion A
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <a>Opcion B</a>
+                                <a class="waves-effect waves-light btn " style="width: 100%; height:50px;">
+                                    Contenido opcion B
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <a>Opcion C</a>
+                                <a class="waves-effect waves-light btn " style="width: 100%; height:50px;">
+                                    Contenido opcion C
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <a>Opcion D</a>
+                                <a class="waves-effect waves-light btn " style="width: 100%; height:50px;">
+                                    Contenido opcion D
+                                </a>
+                            </div>
+                        </div>
+                      <div class="row">
+                         <div class="col s12">
+                                <a class="waves-effect waves-light btn">Cambiar</a>
+                         </div>
+                      </div>
+                        
+
+
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+
+        <!--Ejemplo de preguntas de rellenar espacios-->
+
+        <div class="row">
+            <div class="col s12 ">
+                <div class="card ">
+                    <div class="card-content ">
+                    <h4>Ejemplo de pregunta de rellenear espacios</h4>
+                  
+                        <div class="row">
+                           <h4>texto de ejemplo</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                texto de la pregunta
+                            </div>
+                           
+                        </div>
+                        <div class="row">
+                        <div class="col s12">
+                            <a class="waves-effect waves-light btn ">Cambiar</a>
+                        </div>
+                        </div>
+        
+        
+        
+        
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+
+       <!--Ejemplo de preguntas de ejercicios-->
+
+        <div class="row">
+            <div class="col s12 ">
+                <div class="card ">
+                    <div class="card-content ">
+                        <h4>Ejemplo de pregunta de ejercicios de código</h4>
+                         <div class="row">
+                            <div class="col s12">
+                           ejemplo código / objeto resultado
+                           </div>
+                         </div> 
+                        
+                         <div class="row">
+                            <div class="cols s12">
+                                    <a class="waves-effect waves-light btn ">Cambiar</a>
+                            </div>
+                         </div>
+        
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+
+        <!--Ejemplo de preguntas de arrastrar-->
 
 
         
+        <div class="row">
+            <div class="col s12 ">
+                <div class="card ">
+                    <div class="card-content ">
+                        <h4>Ejemplo pregunta de arrastrar</h4>
+                        
+                        <div class="row">
+                        <div class="col s6">
+                                <div class="input-field col s6">
+                                    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                                    <label for="first_name">First Name</label>
+                                </div>
+                        </div>
+                        
+                        <div class="col s6">
+                        <a class="waves-effect waves-light btn ">
+                            <input placeholder="Opccion" id="opccion" type="text" class="validate">
+                        </a>
 
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="cols s12">
+                            <a class="waves-effect waves-light btn ">Cambiar</a>
+                        </div>
+                    </div>
         
+                </div>
+            </div>
+        </div>
+
+
+   
+
+
+           
     </div>
-    </div>
+
+
+</div>
 
 
 
