@@ -15,12 +15,12 @@
     <!--Menu de página de inicio-->
     <nav class="color2">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Configuraciones.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">&nbsp;&nbsp;&nbsp;Configuraciones.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-large-only hide-on-med-only">Configuraciones.</p>
+            <p class="titleMobile colorText flow-text hide-on-large-only hide-on-med-only TDI">Configuraciones.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver</a></li>
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded TDI">Volver</a></li>
             </ul>
         </div>
     </nav>
@@ -160,71 +160,11 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="col s12 m4 l3 hide-on-small-only">
-                                    <div class="card bordered1 colorGreyDarker shadow-2">
-                                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_yellow">
-                                            <div class="card-stacked">
-                                                <div class="card-content verticalAligner centerAligner">
-                                                    <div>
-                                                        <p class="colorTextReverse muestraDeColorText">Dark yellow</p>
-                                                    </div>
-                                                    <div class="bordered5 muestraDeColor"
-                                                        style="background-color: #312a00;"></div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="col s12 m4 l3 hide-on-small-only">
-                                    <div class="card bordered1 colorGreyDarker shadow-2">
-                                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_yellow">
-                                            <div class="card-stacked">
-                                                <div class="card-content verticalAligner centerAligner">
-                                                    <div>
-                                                        <p class="colorTextReverse muestraDeColorText">Dark yellow</p>
-                                                    </div>
-                                                    <div class="bordered5 muestraDeColor"
-                                                        style="background-color: #312a00;"></div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="col s12 m4 l3 hide-on-small-only">
-                                    <div class="card bordered1 colorGreyDarker shadow-2">
-                                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_yellow">
-                                            <div class="card-stacked">
-                                                <div class="card-content verticalAligner centerAligner">
-                                                    <div>
-                                                        <p class="colorTextReverse muestraDeColorText">Dark yellow</p>
-                                                    </div>
-                                                    <div class="bordered5 muestraDeColor"
-                                                        style="background-color: #312a00;"></div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="col s12 m12 l3 hide-on-small-only">
-                                    <div class="card bordered1 colorGreyDarker shadow-2">
-                                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_yellow">
-                                            <div class="card-stacked">
-                                                <div class="card-content verticalAligner centerAligner">
-                                                    <div>
-                                                        <p class="colorTextReverse muestraDeColorText">Dark yellow</p>
-                                                    </div>
-                                                    <div class="bordered5 muestraDeColor"
-                                                        style="background-color: #312a00;"></div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-
+                                <!-- Se meten aqui los elementos de tarjetas de colores
+                                desde el código de JS en el archivo de selectorTema.js
+                            
+                                Solo los temas para discapacidad visual-->
+                                <section id="container_colors_adapted"></section>
                             </div>
                         </div>
                     </li>
@@ -250,7 +190,7 @@
                             <div class="bordered5 opcionesContainerInterno row">
                                 <div class="col s12 m6 l3">
                                     <div class="card bordered1 colorGreyWhiter shadow-2">
-                                        <a onclick="M.toast({html: 'Lenguaje cambiado.'})" href="#!" id="coloresAqua">
+                                        <a onclick="M.toast({html: 'Lenguaje cambiado a español.'})" href="#!" id="seleccionarEspanol">
                                             <div class="card-stacked">
                                                 <div class="card-content centerAligner verticalAligner">
                                                     <div>
@@ -265,7 +205,7 @@
                                 </div>
                                 <div class="col s12 m6 l3">
                                     <div class="card bordered1 colorGreyWhiter shadow-2">
-                                        <a onclick="M.toast({html: 'Lenguaje cambiado.'})" href="#!" id="coloresAqua">
+                                        <a onclick="M.toast({html: 'Language changed to english.'})" href="#!" id="seleccionarIngles">
                                             <div class="card-stacked">
                                                 <div class="card-content centerAligner verticalAligner">
                                                     <div>
@@ -280,7 +220,7 @@
                                 </div>
                                 <div class="col s12 m6 l3">
                                     <div class="card bordered1 colorGreyWhiter shadow-2">
-                                        <a onclick="M.toast({html: 'Lenguaje cambiado.'})" href="#!" id="coloresAqua">
+                                        <a onclick="M.toast({html: 'Idioma alterado para português.'})" href="#!" id="seleccionarPortugues">
                                             <div class="card-stacked">
                                                 <div class="card-content centerAligner verticalAligner">
                                                     <div>
@@ -296,7 +236,7 @@
                                 </div>
                                 <div class="col s12 m6 l3">
                                     <div class="card bordered1 colorGreyWhiter shadow-2">
-                                        <a onclick="M.toast({html: 'Lenguaje cambiado.'})" href="#!" id="coloresAqua">
+                                        <a onclick="M.toast({html: '语言改为中文.'})" href="#!" id="seleccionarChino">
                                             <div class="card-stacked">
                                                 <div class="card-content centerAligner verticalAligner">
                                                     <div>

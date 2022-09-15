@@ -1,0 +1,62 @@
+.color1 {background-color: #140F04;}
+.color2 {background-color: rgb(54, 46, 45);}
+.color3 {background-color: rgb(130, 108, 97);}
+.color4 {background-color: rgb(208, 171, 144);}
+.color5 {background-color: rgb(245, 205, 186);}
+
+.colorGrey {background-color: rgb(241, 213, 222);}
+.colorGreyDarker {background-color: rgb(220, 194, 203);}
+.colorGreyWhiter {background-color: rgb(220, 194, 203);}
+.colorWhite {background-color: rgb(255, 229, 237);}
+
+.coloredText {color: rgb(130, 108, 97) !important;}
+.colorText {color: rgb(255, 229, 237) !important;}
+.colorTextReverse {color: #000 !important;}
+
+.borderDecoration{
+    border-bottom: 5px rgb(130, 108, 97) solid;
+}
+
+.borderDecorationStrong{
+    border-bottom: 5px rgb(54, 46, 45) solid;
+}
+
+/*Fondos dinámicos*/
+/*Fondos dinámicos*/
+.cardCarouselMainHead{
+    background-image: url('../../images/fondos/adaptados/deuteranopia/adaptada\ \(5\).png');
+}
+
+.cardMain{
+    background-image: url('../../images/fondos/adaptados/deuteranopia/adaptada\ \(2\).png');
+}
+
+.cardMainDesktopPanelHead{
+    background-image: url('../../images/fondos/adaptados/deuteranopia/adaptada\ \(1\).png');
+}
+
+.informeCard{
+    background-image: url('../../images/fondos/adaptados/deuteranopia/adaptada\ \(2\).png');
+}
+
+.iconSecondary{
+    background-image: url('../../images/fondos/adaptados/deuteranopia/adaptada\ \(1\).png') ;
+}
+
+.card-bienvenida,.card-bienvenida-text{
+    background-image: url('../../images/fondos/adaptados/deuteranopia/adaptada\ \(3\).png');
+}
+
+.fondoDinamico{
+    background-image: url('../../images/fondos/adaptados/deuteranopia/adaptada\ \(4\).png');
+}
+
+.icon_app{
+    background-image: url('../../images/logo_app/grey_icon.png');
+}
+
+
+/*Barra de carga*/
+.progress .indeterminate {
+    background-color: rgb(54, 46, 45);
+}
