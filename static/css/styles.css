@@ -81,6 +81,10 @@ h2,h3{
 	height: auto;
 }
 
+.title-general{
+	padding: 0 0 10px 20px;
+}
+
 .card-bienvenida,.card-bienvenida-text{
 	display: flex;
 	justify-content: center;
