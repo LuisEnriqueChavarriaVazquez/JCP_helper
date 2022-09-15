@@ -87,3 +87,9 @@ def login_estudiante():
         else:
             flash("Usuario o contraseña incorrectos!")
             return redirect(url_for('routes.login_general'))       
+
+
+##Ruta para que los estudiantes respondan los cuestionarios
+@routes.route('/contestar_cuestionario_estudiante')
+def  contestar_cuestionario_estudiante():
+    return render_template('estudiante/contestar_cuestionario.html')
