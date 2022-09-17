@@ -1,0 +1,76 @@
+/*.color1 {background-color: #121b1d;}
+.color2 {background-color: #123b3e;}
+.color3 {background-color: #126063;}
+.color4 {background-color: #158a93;}
+.color5 {background-color: #1dc7be;}*/
+
+.colorGrey {background-color: #dddddd;}
+.colorGreyDarker {background-color: #cacaca;}
+.colorGreyWhiter {background-color: #ececec;}
+.colorWhite {background-color: #fff;}
+
+.coloredText {color: #121b1d !important;}
+.colorText {color: #fff !important;} 
+.colorTextReverse {color: #000 !important;} 
+
+/*
+.borderDecoration{
+    border-bottom: 5px #121b1d solid;
+}
+
+.borderDecorationStrong{
+    border-bottom: 5px #090e0f solid;
+}
+*/
+
+/*Fondos dinámicos*/
+.cardCarouselMainHead{
+    background-image: url('../../images/fondos/aqua/aqua_1.png');
+}
+
+.cardMain{
+    background-image: url('../../images/fondos/aqua/aqua_1.png');
+}
+
+.cardMainDesktopPanelHead{
+    background-image: url('../../images/fondos/aqua/aqua_4.png');
+}
+
+.informeCard{
+    background-image: url('../../images/fondos/aqua/aqua_3.png');
+}
+
+.iconSecondary{
+    background-image: url('../../images/fondos/aqua/aqua_5.png') ;
+}
+
+.card-bienvenida,.card-bienvenida-text{
+    background-image: url('../../images/fondos/aqua/aqua_6.png');
+}
+
+.fondoDinamico{
+    background-image: url('../../images/fondos/aqua/aqua_1.png');
+}
+
+.icon_app{
+    background-image: url('../../images/logo_app/aqua_icon.png');
+}
+
+
+/*Barra de carga*/
+/*
+.progress .indeterminate {
+    background-color: #121b1d;
+}
+*/
+
+
+/*Hover de los botones*/
+/*
+.btn:hover,
+.btn-large:hover,
+.btn-small:hover {
+    background-color: #126063 !important;
+    color: #fff !important;
+}
+*/

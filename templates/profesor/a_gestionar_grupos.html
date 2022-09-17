@@ -35,18 +35,31 @@
                     <p class="colorText">Nombre del usuario</p>
                 </div>
             </div>
-            <div class="colorGrey operationsContainerSecondarySideNav">
+            <div class="colorGreyWhiter operationsContainerSecondarySideNav">
                 <div class="operationButtonSideNav">
                     <h5>Operaciones.</h5>
                     <a class="waves-effect waves-light btn color2 shadow-2e"><i class="material-icons left">add</i>Crear
                         grupo</a>
                 </div>
                 <div class="operationButtonSideNav">
+                    <h5>Información.</h5>
+                    
+                    <div class="contadorElementosCardOperation colorGrey shadow-1e">
+                        <p class="colorGreyWhiter">
+                            Grupos: <span class="colorTextReverse" id="contadorGrupos">0</span>
+                        </p>
+                        <p class="colorGreyWhiter">
+                            Estudiantes: <span class="colorTextReverse" id="contadorEstudiantes">0</span>
+                        </p>
+                    </div>
+                    
+                </div>
+                <div class="operationButtonSideNav">
                     <h5>Secciones.</h5>
-                    <a class="waves-effect waves-light btn colorGreyWhiter colorTextReverse"><i
+                    <a class="waves-effect waves-light btn colorGrey colorTextReverse"><i
                             class="material-icons left">rule</i>Cuestionarios</a>
 
-                    <a class="waves-effect waves-light btn colorGreyWhiter colorTextReverse"><i
+                    <a class="waves-effect waves-light btn colorGrey colorTextReverse"><i
                             class="material-icons left">stacked_bar_chart</i>Estadísticas</a>
                 </div>
             </div>
@@ -65,7 +78,7 @@
                             <h5>Grupo 1</h5>
                         </div>
                         <div class="studentCountCardOperation">
-                            <i class="material-icons">people</i> 100
+                            <i class="material-icons">people</i> <span class="contadorAlumnosNumber">100</span>
                         </div>
                     </div>
                     <div class="sectionCardOperationDescription colorGreyWhiter">
@@ -89,31 +102,7 @@
                             <h5>Grupo 1</h5>
                         </div>
                         <div class="studentCountCardOperation">
-                            <i class="material-icons">people</i> 100
-                        </div>
-                    </div>
-                    <div class="sectionCardOperationDescription colorGreyWhiter">
-                        <p><b>Este grupo es de POO en JAVA</b></p>
-                    </div>
-                    <div class="sectionCardOperationActions colorGreyWhiter">
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">edit</i></a>
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">content_copy</i></a>
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">delete</i></a>
-                    </div>
-                </div>
-                <div class="cardOperationGroup shadow-1" id="">
-                    <div class="sectionCardOperationTitle fondoDinamico colorText">
-                        <div>
-                            <h5>Grupo 1</h5>
-                        </div>
-                        <div class="studentCountCardOperation">
-                            <i class="material-icons">people</i> 100
+                            <i class="material-icons">people</i> <span class="contadorAlumnosNumber">100</span>
                         </div>
                     </div>
                     <div class="sectionCardOperationDescription colorGreyWhiter">
@@ -147,7 +136,7 @@
         </section>
     </section>
 
-
+    
 </body>
 
 <!--Jalamos todo el contenido del encabezado-->

@@ -273,3 +273,17 @@
     justify-content: center;
     align-items: center;
 }
+
+
+/*Contador operaciones*/
+.contadorElementosCardOperation{
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.contadorElementosCardOperation p{
+    font-weight: 700;
+    font-size: 15px;
+    padding: 10px 15px;
+    border-radius: 500px;
+}

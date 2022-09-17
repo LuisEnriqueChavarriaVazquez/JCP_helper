@@ -249,6 +249,34 @@ $(document).ready(function () {
                     </div>
                     `;
 
+            /*
+                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
+                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresUsuario">
+                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
+                            <div class="colorSelectorMuestraPhone">
+                                <div class="shadow-2e" style="background: linear-gradient(
+                                    90deg,
+                                    rgba(255, 0, 0, 1) 0%,
+                                    rgba(255, 154, 0, 1) 10%,
+                                    rgba(208, 222, 33, 1) 20%,
+                                    rgba(79, 220, 74, 1) 30%,
+                                    rgba(63, 218, 216, 1) 40%,
+                                    rgba(47, 201, 226, 1) 50%,
+                                    rgba(28, 127, 238, 1) 60%,
+                                    rgba(95, 21, 242, 1) 70%,
+                                    rgba(186, 12, 248, 1) 80%,
+                                    rgba(251, 7, 217, 1) 90%,
+                                    rgba(255, 0, 0, 1) 100%
+                                );"></div>
+                            </div>
+                            <div class="colorSelectorTextoPhone colorTextReverse">
+                                Personalizado
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            */
+
             contenedorColoresAdaptados.innerHTML = `
             <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
                 <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="protanopia">
@@ -302,7 +330,7 @@ $(document).ready(function () {
 
         function insertar_tableta_compu() {
             contenedorColores.innerHTML = `
-                    <div class="col s12 m4 l3 hide-on-small-only">
+                    <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresAqua">
                                 <div class="card-stacked">
@@ -317,7 +345,7 @@ $(document).ready(function () {
                             </a>
                         </div>
                     </div>
-                    <div class="col s12 m4 l3 hide-on-small-only">
+                    <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBlue">
                                 <div class="card-stacked">
@@ -332,7 +360,7 @@ $(document).ready(function () {
                             </a>
                         </div>
                     </div>
-                    <div class="col s12 m4 l3 hide-on-small-only">
+                    <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBronce">
                                 <div class="card-stacked">
@@ -347,7 +375,7 @@ $(document).ready(function () {
                             </a>
                         </div>
                     </div>
-                    <div class="col s12 m4 l3 hide-on-small-only">
+                    <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresCafe">
                                 <div class="card-stacked">
@@ -362,7 +390,7 @@ $(document).ready(function () {
                             </a>
                         </div>
                     </div>
-                    <div class="col s12 m4 l3 hide-on-small-only">
+                    <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresDefault">
                                 <div class="card-stacked">
@@ -377,7 +405,7 @@ $(document).ready(function () {
                             </a>
                         </div>
                     </div>
-                    <div class="col s12 m4 l3 hide-on-small-only">
+                    <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresGotico">
                                 <div class="card-stacked">
@@ -392,7 +420,7 @@ $(document).ready(function () {
                             </a>
                         </div>
                     </div>
-                    <div class="col s12 m4 l3 hide-on-small-only">
+                    <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresNaranja">
                                 <div class="card-stacked">
@@ -407,7 +435,7 @@ $(document).ready(function () {
                             </a>
                         </div>
                     </div>
-                    <div class="col s12 m4 l3 hide-on-small-only">
+                    <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPink">
                                 <div class="card-stacked">
@@ -422,7 +450,7 @@ $(document).ready(function () {
                             </a>
                         </div>
                     </div>
-                    <div class="col s12 m4 l3 hide-on-small-only">
+                    <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPurple">
                                 <div class="card-stacked">
@@ -437,7 +465,7 @@ $(document).ready(function () {
                             </a>
                         </div>
                     </div>
-                    <div class="col s12 m4 l3 hide-on-small-only">
+                    <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresRed">
                                 <div class="card-stacked">
@@ -452,7 +480,7 @@ $(document).ready(function () {
                             </a>
                         </div>
                     </div>
-                    <div class="col s12 m4 l3 hide-on-small-only">
+                    <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyDarker shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresModoOscuro">
                                 <div class="card-stacked">
@@ -467,7 +495,7 @@ $(document).ready(function () {
                             </a>
                         </div>
                     </div>
-                    <div class="col s12 m4 l3 hide-on-small-only">
+                    <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyDarker shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_aqua">
                                 <div class="card-stacked">
@@ -482,7 +510,7 @@ $(document).ready(function () {
                             </a>
                         </div>
                     </div>
-                    <div class="col s12 m4 l3 hide-on-small-only">
+                    <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyDarker shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_blue">
                                 <div class="card-stacked">
@@ -497,7 +525,7 @@ $(document).ready(function () {
                             </a>
                         </div>
                     </div>
-                    <div class="col s12 m4 l3 hide-on-small-only">
+                    <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyDarker shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_green">
                                 <div class="card-stacked">
@@ -512,7 +540,7 @@ $(document).ready(function () {
                             </a>
                         </div>
                     </div>
-                    <div class="col s12 m4 l3 hide-on-small-only">
+                    <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyDarker shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_orange">
                                 <div class="card-stacked">
@@ -527,7 +555,7 @@ $(document).ready(function () {
                             </a>
                         </div>
                     </div>
-                    <div class="col s12 m4 l3 hide-on-small-only">
+                    <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyDarker shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_pink">
                                 <div class="card-stacked">
@@ -542,7 +570,7 @@ $(document).ready(function () {
                             </a>
                         </div>
                     </div>
-                    <div class="col s12 m4 l3 hide-on-small-only">
+                    <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyDarker shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_purple">
                                 <div class="card-stacked">
@@ -557,7 +585,7 @@ $(document).ready(function () {
                             </a>
                         </div>
                     </div>
-                    <div class="col s12 m4 l3 hide-on-small-only">
+                    <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyDarker shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_red">
                                 <div class="card-stacked">
@@ -572,7 +600,7 @@ $(document).ready(function () {
                             </a>
                         </div>
                     </div>
-                    <div class="col s12 m12 l6 hide-on-small-only">
+                    <div class="col s12 m12 l12 hide-on-small-only">
                         <div class="card bordered1 colorGreyDarker shadow-2">
                             <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_yellow">
                                 <div class="card-stacked">
@@ -588,6 +616,37 @@ $(document).ready(function () {
                         </div>
                     </div>
                     `;
+
+            /*
+                <div class="col s12 m6 l3 hide-on-small-only">
+                    <div class="card bordered1 colorGreyDarker shadow-2">
+                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresUsuario">
+                            <div class="card-stacked">
+                                <div class="card-content verticalAligner centerAligner">
+                                    <div>
+                                        <p class="colorTextReverse muestraDeColorText">Personalizado</p>
+                                    </div>
+                                    <div class="bordered5 muestraDeColor"
+                                        style="background: linear-gradient(
+                                            90deg,
+                                            rgba(255, 0, 0, 1) 0%,
+                                            rgba(255, 154, 0, 1) 10%,
+                                            rgba(208, 222, 33, 1) 20%,
+                                            rgba(79, 220, 74, 1) 30%,
+                                            rgba(63, 218, 216, 1) 40%,
+                                            rgba(47, 201, 226, 1) 50%,
+                                            rgba(28, 127, 238, 1) 60%,
+                                            rgba(95, 21, 242, 1) 70%,
+                                            rgba(186, 12, 248, 1) 80%,
+                                            rgba(251, 7, 217, 1) 90%,
+                                            rgba(255, 0, 0, 1) 100%
+                                        );"></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            */
 
             contenedorColoresAdaptados.innerHTML = `
             <div class="col s12 m6 l3 hide-on-small-only">
@@ -799,6 +858,15 @@ $(document).ready(function () {
         }
 
         /*
+        Tema de los usuarios
+        */
+
+        /*function coloresUsuario() {
+            localStorage.setItem("tema", "../static/css/temas/coloresUsuario.css");
+            temaGuardado = localStorage.getItem("tema");
+        }*/
+
+        /*
             Temas accesibles para personas con debilidad visual.
         */
 
@@ -877,6 +945,11 @@ $(document).ready(function () {
             coloresRed();
             tema.attr("href", temaGuardado);
         })
+
+        /*document.getElementById('coloresUsuario').addEventListener('click', function () {
+            coloresUsuario();
+            tema.attr("href", temaGuardado);
+        })*/
 
         document.getElementById('dark_aqua').addEventListener('click', function () {
             dark_aqua();

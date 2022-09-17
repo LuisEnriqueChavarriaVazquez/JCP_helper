@@ -30,3 +30,8 @@ def politica_cookies():
 @routes.route('/politica_privacidad')
 def politica_privacidad():
     return render_template('general/politica_privacidad.html')
+
+#Ayuda
+@routes.route('/ayuda')
+def ayuda():
+    return render_template('general/ayuda.html')
