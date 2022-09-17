@@ -235,3 +235,21 @@ input[type="file"] {
 	flex-direction: row !important;
 }
 
+/* card para las publicaciones de los docentes */
+.card-publicacion{
+	padding: 30px;
+	background-image: url('../images/fondos/verde/verde_1.png');
+}
+
+.btn-publicar{
+	border-radius: 15px;
+	height: 40px;
+	width: 100px;
+	transition: height 2s ease 0s;
+	transition: width 2s ease 0s;
+}
+.btn-publicar:hover{
+	height: 60px;
+	width: 112px;
+	border-radius: 15px;
+}
