@@ -4,7 +4,6 @@
 <head>
     <title>Crear publicacion</title>
 
-    <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
     <script src="https://cdn.ckeditor.com/4.19.1/standard-all/ckeditor.js"></script>
 
@@ -12,9 +11,8 @@
 
 <body class="oculto colorGrey">
 
-    <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/cargador.html" %}
-    
+
 
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
@@ -29,13 +27,25 @@
         </div>
     </nav>
     <br><br><br>
-    <form action="" method="post">
-        <label for="titulo">Ingresa el titulo de la publicacion</label>
-        <input name="titulo" type="text">
 
-        <label for="publicacion">Ingresa la publicacion</label>
-        <textarea name="publicacion" id="" cols="30" rows="10"></textarea>
-    </form>
+    <div class="container">
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="card-publicacion shadow-3" style="padding: 30px;">
+                
+                    <div class="input-field col s12 m6 l12">
+                        <input placeholder="titulo de la publicación" class="colorText truncate" id="titulo_pu"
+                            type="text" name="titulo" class="validate" required>
+                        <label for="titulo_pu">Titulo de la publicacion</label>
+                    </div><br>
+                    <div class="input-field col s12 m6 l12">
+                        <label for="publicacion">Ingresa la publicación</label><br>
+                        <textarea placeholder="Escribe la publicación" 
+                            id="publicacion" class="validate" name="descripcion" style="min-height: 60px;"></textarea>
+                    </div>
+            </div>
+        </form>
+    </div>
+
 
     <script>
         CKEDITOR.replace("publicacion")
