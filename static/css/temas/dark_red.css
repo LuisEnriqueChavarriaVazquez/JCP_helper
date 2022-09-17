@@ -67,3 +67,11 @@ h1,h2,h3,h4,h5, p{
 .progress .indeterminate {
     background-color: #2c2c2c;
 }
+
+/*Hover de los botones*/
+.btn:hover,
+.btn-large:hover,
+.btn-small:hover {
+    background-color: #252525 !important;
+    color: #fff !important;
+}

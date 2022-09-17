@@ -5261,8 +5261,13 @@ small {
   cursor: pointer;
 }
 
+/*
+  Esta parte es muy delicada, porque 
+  en los estilos de temas estoy sobreescribiendo el 
+  color de los botones, favor de tener cuidado si se hacen ajustes.
+*/
 .btn:hover, .btn-large:hover, .btn-small:hover {
-  background-color: #2bbbad;
+  background-color: #343434;
 }
 
 .btn-floating {
