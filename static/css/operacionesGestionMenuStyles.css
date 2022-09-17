@@ -120,7 +120,7 @@
 }
 
 .operationButtonSideNav {
-    padding: 10px 13px;
+    padding: 10px 22px;
 
     display: flex;
     flex-direction: column;
@@ -133,8 +133,8 @@
 
 /*Cards de los grupos*/
 .contenedorCardsGruposOperation {
-    margin-top: 59.72px;
-    padding: 20px 40px;
+    margin-top: 5px;
+    padding: 0px 40px 20px 40px;
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -143,10 +143,21 @@
     gap: 20px;
 }
 
+.contenedorCardsGruposOperationList {  /*Para vista de lista*/
+    margin-top: 5px;
+    padding: 0px 40px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+
+    gap: 10px;
+}
+
 @media screen and (min-width: 1400px) {
     .contenedorCardsGruposOperation {
-        margin-top: 65px;
-        padding: 20px 25px;
+        margin-top: 5px;
+        padding: 0px 50px;
 
         grid-template-columns: repeat(3, 1fr);
         grid-auto-rows: auto;
@@ -175,6 +186,15 @@
     border-radius: 20px;
 }
 
+.cardOperationGroupList{ /*para la lista*/
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 500px;
+}
+
 .cardOperationGroup div {
     width: 100%;
 }
@@ -185,7 +205,18 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto;
-    gap: 10px;
+    row-gap: 20px;
+    justify-content: center;
+    align-content: center;
+}
+
+.sectionCardOperationTitleList { /*Para la lista*/
+    border-radius: 500px 0 0 500px;
+    height: 60px;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
     justify-content: center;
     align-content: center;
 }
@@ -216,8 +247,25 @@
     padding: 0 0 0 20px;
 }
 
+.sectionCardOperationDescriptionList{ /*Para las listas*/
+    display: none;
+}
+
 .sectionCardOperationActions {
     border-radius: 0 0 20px 20px;
+    padding: 10px 40px 10px 40px !important;
+    height: 60px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+    justify-content: center;
+    align-content: center;
+}
+
+.sectionCardOperationActionsList { /*Estilos para la lista*/
+    border-radius: 0 500px 500px 0;
     padding: 10px 40px 10px 40px !important;
     height: 60px;
 
@@ -286,4 +334,26 @@
     font-size: 15px;
     padding: 10px 15px;
     border-radius: 500px;
+}
+
+/*Boton para las multiples vistas*/
+.viewsContainerOperation{
+    margin-top: 63.27px;
+    width: 100%;
+    height: 80px;
+    padding-left: 20px;
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.viewsContainerOperation div{
+    width: 100px;
+}
+
+@media screen and (max-width: 600px) {
+    .viewsContainerOperation{
+        display: none;
+    }
 }

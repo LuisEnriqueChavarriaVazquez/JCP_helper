@@ -13,6 +13,7 @@
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/cargador.html" %}
+    
 
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
@@ -43,7 +44,13 @@
                         grupo</a>
                 </div>
                 <div class="operationButtonSideNav">
-                    <h5>Información.</h5>
+                    <h5>Buscador.</h5>
+                    <input type="text" name="" id="">
+                    <a class="waves-effect waves-light btn colorGrey colorTextReverse"><i
+                            class="material-icons left">search</i>Buscar</a>
+                </div>
+                <div class="operationButtonSideNav">
+                    <h5>Conteo.</h5>
 
                     <div class="contadorElementosCardOperation colorGrey shadow-1e">
                         <p class="colorGreyWhiter" id="contadorGruposId">
@@ -55,14 +62,6 @@
                     </div>
 
                 </div>
-                <div class="operationButtonSideNav">
-                    <h5>Secciones.</h5>
-                    <a class="waves-effect waves-light btn colorGrey colorTextReverse"><i
-                            class="material-icons left">rule</i>Cuestionarios</a>
-
-                    <a class="waves-effect waves-light btn colorGrey colorTextReverse"><i
-                            class="material-icons left">stacked_bar_chart</i>Estadísticas</a>
-                </div>
             </div>
         </section>
 
@@ -72,9 +71,17 @@
                 <h6 class="hide-on-large-only hide-on-med-only">Grupos creados</h6>
                 <h5 class="hide-on-small-only">Grupos creados</h5>
             </div>
-            <div class="contenedorCardsGruposOperation">
-                <div class="cardOperationGroup shadow-1" id="">
-                    <div class="sectionCardOperationTitle fondoDinamico colorText">
+            <div class="viewsContainerOperation">
+                <div>
+                    <a id="buttonVistasAlternateGroup"
+                        class="waves-effect waves-light btn colorGreyWhiter colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                            id="iconVistasAlternateGroup" class="material-icons md-28">grid_view</i></a>
+                </div>
+            </div>
+            <div class="contenedorCardsGruposOperation" id="contenedorCardsGruposOperationId">
+
+                <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
+                    <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
                         <div>
                             <h5>Grupo 1</h5>
                         </div>
@@ -82,10 +89,10 @@
                             <i class="material-icons">people</i> <span class="contadorAlumnosNumber">100</span>
                         </div>
                     </div>
-                    <div class="sectionCardOperationDescription colorGreyWhiter">
+                    <div class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
                         <p><b>Este grupo es de POO en JAVA</b></p>
                     </div>
-                    <div class="sectionCardOperationActions colorGreyWhiter">
+                    <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
                         <a
                             class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
                                 class="material-icons">edit</i></a>
@@ -97,8 +104,8 @@
                                 class="material-icons">delete</i></a>
                     </div>
                 </div>
-                <div class="cardOperationGroup shadow-1" id="">
-                    <div class="sectionCardOperationTitle fondoDinamico colorText">
+                <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
+                    <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
                         <div>
                             <h5>Grupo 1</h5>
                         </div>
@@ -106,10 +113,10 @@
                             <i class="material-icons">people</i> <span class="contadorAlumnosNumber">100</span>
                         </div>
                     </div>
-                    <div class="sectionCardOperationDescription colorGreyWhiter">
+                    <div class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
                         <p><b>Este grupo es de POO en JAVA</b></p>
                     </div>
-                    <div class="sectionCardOperationActions colorGreyWhiter">
+                    <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
                         <a
                             class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
                                 class="material-icons">edit</i></a>
@@ -121,19 +128,19 @@
                                 class="material-icons">delete</i></a>
                     </div>
                 </div>
-                <div class="cardOperationGroup shadow-1" id="">
-                    <div class="sectionCardOperationTitle fondoDinamico colorText">
+                <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
+                    <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
                         <div>
-                            <h5>Grupo 4</h5>
+                            <h5>Grupo 1</h5>
                         </div>
                         <div class="studentCountCardOperation">
-                            <i class="material-icons">people</i> <span class="contadorAlumnosNumber">1000</span>
+                            <i class="material-icons">people</i> <span class="contadorAlumnosNumber">100</span>
                         </div>
                     </div>
-                    <div class="sectionCardOperationDescription colorGreyWhiter">
+                    <div class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
                         <p><b>Este grupo es de POO en JAVA</b></p>
                     </div>
-                    <div class="sectionCardOperationActions colorGreyWhiter">
+                    <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
                         <a
                             class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
                                 class="material-icons">edit</i></a>
@@ -145,19 +152,19 @@
                                 class="material-icons">delete</i></a>
                     </div>
                 </div>
-                <div class="cardOperationGroup shadow-1" id="">
-                    <div class="sectionCardOperationTitle fondoDinamico colorText">
+                <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
+                    <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
                         <div>
-                            <h5>Grupo 4</h5>
+                            <h5>Grupo 1</h5>
                         </div>
                         <div class="studentCountCardOperation">
-                            <i class="material-icons">people</i> <span class="contadorAlumnosNumber">1000</span>
+                            <i class="material-icons">people</i> <span class="contadorAlumnosNumber">100</span>
                         </div>
                     </div>
-                    <div class="sectionCardOperationDescription colorGreyWhiter">
+                    <div class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
                         <p><b>Este grupo es de POO en JAVA</b></p>
                     </div>
-                    <div class="sectionCardOperationActions colorGreyWhiter">
+                    <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
                         <a
                             class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
                                 class="material-icons">edit</i></a>
@@ -169,6 +176,127 @@
                                 class="material-icons">delete</i></a>
                     </div>
                 </div>
+                <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
+                    <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
+                        <div>
+                            <h5>Grupo 1</h5>
+                        </div>
+                        <div class="studentCountCardOperation">
+                            <i class="material-icons">people</i> <span class="contadorAlumnosNumber">100</span>
+                        </div>
+                    </div>
+                    <div class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
+                        <p><b>Este grupo es de POO en JAVA</b></p>
+                    </div>
+                    <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
+                        <a
+                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                class="material-icons">edit</i></a>
+                        <a
+                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                class="material-icons">content_copy</i></a>
+                        <a
+                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                class="material-icons">delete</i></a>
+                    </div>
+                </div>
+                <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
+                    <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
+                        <div>
+                            <h5>Grupo 1</h5>
+                        </div>
+                        <div class="studentCountCardOperation">
+                            <i class="material-icons">people</i> <span class="contadorAlumnosNumber">100</span>
+                        </div>
+                    </div>
+                    <div class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
+                        <p><b>Este grupo es de POO en JAVA</b></p>
+                    </div>
+                    <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
+                        <a
+                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                class="material-icons">edit</i></a>
+                        <a
+                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                class="material-icons">content_copy</i></a>
+                        <a
+                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                class="material-icons">delete</i></a>
+                    </div>
+                </div>
+                <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
+                    <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
+                        <div>
+                            <h5>Grupo 1</h5>
+                        </div>
+                        <div class="studentCountCardOperation">
+                            <i class="material-icons">people</i> <span class="contadorAlumnosNumber">100</span>
+                        </div>
+                    </div>
+                    <div class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
+                        <p><b>Este grupo es de POO en JAVA</b></p>
+                    </div>
+                    <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
+                        <a
+                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                class="material-icons">edit</i></a>
+                        <a
+                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                class="material-icons">content_copy</i></a>
+                        <a
+                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                class="material-icons">delete</i></a>
+                    </div>
+                </div>
+                <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
+                    <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
+                        <div>
+                            <h5>Grupo 1</h5>
+                        </div>
+                        <div class="studentCountCardOperation">
+                            <i class="material-icons">people</i> <span class="contadorAlumnosNumber">100</span>
+                        </div>
+                    </div>
+                    <div class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
+                        <p><b>Este grupo es de POO en JAVA</b></p>
+                    </div>
+                    <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
+                        <a
+                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                class="material-icons">edit</i></a>
+                        <a
+                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                class="material-icons">content_copy</i></a>
+                        <a
+                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                class="material-icons">delete</i></a>
+                    </div>
+                </div>
+                <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
+                    <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
+                        <div>
+                            <h5>Grupo 1</h5>
+                        </div>
+                        <div class="studentCountCardOperation">
+                            <i class="material-icons">people</i> <span class="contadorAlumnosNumber">100</span>
+                        </div>
+                    </div>
+                    <div class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
+                        <p><b>Este grupo es de POO en JAVA</b></p>
+                    </div>
+                    <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
+                        <a
+                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                class="material-icons">edit</i></a>
+                        <a
+                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                class="material-icons">content_copy</i></a>
+                        <a
+                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                class="material-icons">delete</i></a>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -191,6 +319,6 @@
 {% include "includes/footerRecursos.html" %}
 
 <script src="../../static/js/bienvenidaEfectos.js"></script>
-<script src="../../static/js/contadorGrupos.js"></script>
+<script src="../../static/js/operacionesGestionGrupos.js"></script>
 
 </html>
