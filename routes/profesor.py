@@ -142,3 +142,9 @@ def java_runner():
 @routes.route('/python_runner')
 def python_runner():
     return render_template("profesor/python_runner.html")
+
+
+# Formulario para que el docente haga una publicacion
+@routes.route('/crear_publicacion')
+def crear_publicacion_form():
+    return render_template('profesor/crear_publicacion.html')

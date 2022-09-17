@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Crear publicacion</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+    <script src="https://cdn.ckeditor.com/4.19.1/standard-all/ckeditor.js"></script>
+
+</head>
+
+<body class="oculto colorGrey">
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+    
+
+    <!--Menu de página de inicio-->
+    <nav class="color2 fixedNavbarMine">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Crear publicacion.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Crear publicacion.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+    <br><br><br>
+    <form action="" method="post">
+        <label for="titulo">Ingresa el titulo de la publicacion</label>
+        <input name="titulo" type="text">
+
+        <label for="publicacion">Ingresa la publicacion</label>
+        <textarea name="publicacion" id="" cols="30" rows="10"></textarea>
+    </form>
+
+    <script>
+        CKEDITOR.replace("publicacion")
+    </script>
+</body>
+
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+<script src="../../static/js/bienvenidaEfectos.js"></script>
+<script src="../../static/js/operacionesGestionGrupos.js"></script>
+
+</html>
