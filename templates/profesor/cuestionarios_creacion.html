@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 
@@ -11,13 +10,47 @@
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
 
+   
     <script>
+         
+      var contadorModalRellenarEspaciosCreacion=0;
+
+      //Opccion para agregar opccion a la opcción multiple
       $(document).ready(function () {
-            $("#btnAgregarModalOpcionMultiple").click(function () {
-                $("#contenedorOpccionesOpccionMultipleModal .hide").first().removeClass("hide");
+            $("#btnAgregarModalOpcionMultipleCreacion").click(function () {
+                $("#contenedorOpccionesOpccionMultipleModalCreacion .hide").first().removeClass("hide");
                
             });
         });
+
+  //Opccion para hacer que pongan los espacios en la de completar espacios
+         $(document).ready(function () {
+                $("#btnAgregarModalRellenarEspaciosCreacion").click(function () {
+                   var textoInput = $("#texAreaModalRellenarEspaciosCreacion").val();
+                    contadorModalRellenarEspaciosCreacion++;
+                    $("#texAreaModalRellenarEspaciosCreacion").val(textoInput+" [Blank "+contadorModalRellenarEspaciosCreacion+ "]");
+                    $("#contenedorOpccionEspaciosCreacion").append(
+ 
+                      "<div class='row'>"+
+                           "<div class='col s12'>"+
+                               "Blank " + contadorModalRellenarEspaciosCreacion +
+                            "</div>"+
+                        "</div>"+
+                        "  <div class='row'>"+
+                            "<div class='col s12'>" +
+                                 "<input type='type' class='validate'>"+
+                             "</div>" +
+                        "</div>"
+
+
+
+
+                    );
+                
+                });
+            });
+
+
     </script>
    
 
@@ -65,31 +98,31 @@
 
                 <div class="row">
                     <div class="col s12 ">
-                        <a class="waves-effect waves-light btn modal-trigger" id="botonModalOpccionMultiple"
-                            href="#modalOpccionMultiple" style="width: 100%;">Opcción multiple</a>
+                        <a class="waves-effect waves-light btn modal-trigger" id="botonModalOpccionMultipleCreacion"
+                            href="#modalOpccionMultipleCreacion" style="width: 100%;">Opcción multiple</a>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col s12 ">
 
-                        <a class="waves-effect waves-light btn modal-trigger " id="botonModalRellenarEspacios"
-                            href="#modalRellenarEspacios" style="width: 100%;">Rellenar espacios</a>
+                        <a class="waves-effect waves-light btn modal-trigger " id="botonModalRellenarEspaciosCreacion"
+                            href="#modalRellenarEspaciosCreacion" style="width: 100%;">Rellenar espacios</a>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col s12 ">
 
-                        <a class="waves-effect waves-light btn modal-trigger" id="botonModalEjericicios"
-                            href="#modalEjercicios" style="width: 100%;">Ejercicios</a>
+                        <a class="waves-effect waves-light btn modal-trigger" id="botonModalEjericiciosCreacion"
+                            href="#modalEjerciciosCreacion" style="width: 100%;">Ejercicios</a>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col s12 ">
-                        <a class="waves-effect waves-light btn modal-trigger" id="botonModalArrastar"
-                            href="#modalArrastrar" style="width: 100%;">Arrastrar</a>
+                        <a class="waves-effect waves-light btn modal-trigger" id="botonModalArrastarCreacion"
+                            href="#modalArrastrarCreacion" style="width: 100%;">Arrastrar</a>
                     </div>
                 </div>
 
@@ -100,28 +133,28 @@
 </div>
 
 <!--Modal para la creacion de preguntas de opcion multiple-->
-<div id="modalOpccionMultiple" class="modal">
+<div id="modalOpccionMultipleCreacion" class="modal">
     <div class="modal-content">
         <h4>Opcción multiple</h4>
-        <form class="col s12" id="formModalOpccionMultiple">
+        <form class="col s12" id="formModalOpccionMultipleCreacion">
             <div class="row">
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="textAreaPreguntaOpccionMultiple" class="materialize-textarea"
+                        <textarea id="textAreaPreguntaOpccionMultipleCreacion" class="materialize-textarea"
                             data-length="120"></textarea>
-                        <label for="textAreaPreguntaOpccionMultiple">Pregunta</label>
+                        <label for="textAreaPreguntaOpccionMultipleCreacion">Pregunta</label>
                     </div>
                 </div>
             </div>
 
             <div class="row">
-            <div class="col s12" id="contenedorOpccionesOpccionMultipleModal">
+            <div class="col s12" id="contenedorOpccionesOpccionMultipleModalCreacion">
             
             <div class="row">
                 <div class="col s12">
                     <a>Opcion A</a>
                     <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <textarea id="opcionACreacion" class="materialize-textarea"></textarea>
                     </a>
                 </div>
             </div>
@@ -130,7 +163,7 @@
                         <div class="col s12">
                             <a>Opcion B</a>
                             <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
-                                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                <textarea id="opcionBCreacion" class="materialize-textarea"></textarea>
                             </a>
                         </div>
                     </div>
@@ -139,7 +172,7 @@
                         <div class="col s12">
                             <a>Opcion C</a>
                             <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
-                                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                <textarea id="opcionCCreacion" class="materialize-textarea"></textarea>
                             </a>
                         </div>
                     </div>
@@ -148,7 +181,7 @@
                         <div class="col s12">
                             <a>Opcion D</a>
                             <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
-                                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                <textarea id="opcionDCreacion" class="materialize-textarea"></textarea>
                             </a>
                         </div>
                     </div>
@@ -158,12 +191,12 @@
             </div>
             <div class="row">
                 <div class="col s6">
-                    <a class="waves-effect waves-light btn " id="btnGuardarModalOpcionMultiple">
+                    <a class="waves-effect waves-light btn " id="btnGuardarModalOpcionMultipleCreacion">
                         Guardar
                     </a>
                 </div>
                 <div class="col s6">
-                    <a class="waves-effect waves-light btn " id="btnAgregarModalOpcionMultiple">
+                    <a class="waves-effect waves-light btn " id="btnAgregarModalOpcionMultipleCreacion">
                         Agregar
                     </a>
                 </div>
@@ -176,24 +209,41 @@
 
 <!--Modal para la creacion de preguntas de rellenar espacios-->
 
-<div id="modalRellenarEspacios" class="modal">
+<div id="modalRellenarEspaciosCreacion" class="modal">
     <div class="modal-content">
         <h4>Rellenar espacios</h4>
         <form class="col s12">
             <div class="row">
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                        <label for="textarea1">Escriba el texto a completar</label>
+                        <textarea id="texAreaModalRellenarEspaciosCreacion" class="materialize-textarea"></textarea>
+                        <label for="texAreaModalRellenarEspaciosCreacion">Escriba el texto a completar</label>
                     </div>
                 </div>
             </div>
+            <div class="row" >
+                <div class="col 12" id ="contenedorOpccionEspaciosCreacion">
+
+                </div>
+
+            </div>
+    <!--    <div class="row">
+            <div class="col s12">
+                Blank 1
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <input  type="type" class="validate">
+            </div>
+        </div>-->
+
             <div class="row">
                 <div class="col s6">
-                    <a class="waves-effect waves-light btn ">Agregar espacios</a>
+                    <a class="waves-effect waves-light btn " id="btnAgregarModalRellenarEspaciosCreacion">Agregar espacios</a>
                 </div>
                 <div class="col s6">
-                    <a class="waves-effect waves-light btn ">Guardar</a>
+                    <a class="waves-effect waves-light btn "  id="btnGuardarModalRellenarEspaciosCreacion">Guardar</a>
                 </div>
             </div>
 
@@ -202,7 +252,7 @@
 </div>
 
 <!--Modal para la creacion de preguntas de ejercicios-->
-<div id="modalEjercicios" class="modal">
+<div id="modalEjerciciosCreacion" class="modal">
     <div class="modal-content">
         <h4>Ejercicios</h4>
         <div class="row">
@@ -225,7 +275,7 @@
 </div>
 
 <!--Modal para la creacion de preguntas de opcion de arrestar opciones-->
-<div id="modalArrastrar" class="modal">
+<div id="modalArrastrarCreacion" class="modal">
     <div class="modal-content">
         <h4>Arrastrar</h4>
         <form class="col s12">
@@ -341,12 +391,7 @@
                     <div class="row">
                         <h4>texto de ejemplo</h4>
                     </div>
-                    <div class="row">
-                        <div class="col s12">
-                            texto de la pregunta
-                        </div>
-
-                    </div>
+                    
                     <div class="row">
                         <div class="col s12">
                             <a class="waves-effect waves-light btn ">Cambiar</a>
