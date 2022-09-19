@@ -50,6 +50,39 @@
                 });
             });
 
+ ///btnAgregarsModalArrastrarCreacion
+ /*
+    <div class="row">
+                <div class="input-field col s6">
+                    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                    <label for="first_name">First Name</label>
+                </div>
+                <div class="col s6 ">
+                    <a class="waves-effect waves-light btn ">
+                        <input placeholder="Opccion" id="opccion" type="text" class="validate">
+                    </a>
+                </div>
+            </div>
+ */
+
+    $(document).ready(function () {
+        $("#btnAgregarsModalArrastrarCreacion").click(function () {
+           $("#opccionesArrastarModalCreacion").append(
+                     " <div class='row'>"+
+                        " <div class='input - field col s6'>"+
+                            "  <input placeholder='Placeholder'   type='text'>"+
+                       "</div>"+
+                       "<div class='col s6 '>"+
+                        "<a class='waves - effect waves - light btn '>"+
+                            "<input placeholder='Opccion' id='opccion' type='text' class='validate'>"+
+                            "</a>"+
+                        "</div>"+
+                       "</div>" 
+
+           );
+
+        });
+    });
 
     </script>
    
@@ -282,13 +315,13 @@
             <div class="row">
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                        <label for="textarea1">Pregunta</label>
+                        <textarea id="texAreaModalArrastrarCreacion" class="materialize-textarea"></textarea>
+                        <label for="texAreaModalArrastrarCreacion">Pregunta</label>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
+          <!-- <div class="row">
                 <div class="input-field col s6">
                     <input placeholder="Placeholder" id="first_name" type="text" class="validate">
                     <label for="first_name">First Name</label>
@@ -298,11 +331,17 @@
                         <input placeholder="Opccion" id="opccion" type="text" class="validate">
                     </a>
                 </div>
-            </div>
+            </div>-->
+          <div class="row">
+             <div class="col s12" id="opccionesArrastarModalCreacion">
+
+             </div>
+          </div>
+
             <div class="row">
                 <div class="col s12 ">
-                    <a class="waves-effect waves-light btn ">Guardar</a>
-                    <a class="waves-effect waves-light btn ">Agregar</a>
+                    <a class="waves-effect waves-light btn "  id="btnGuardarModalArrastrarCreacion">Guardar</a>
+                    <a class="waves-effect waves-light btn "  id="btnAgregarsModalArrastrarCreacion">Agregar</a>
                 </div>
 
             </div>
