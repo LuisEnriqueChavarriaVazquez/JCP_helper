@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -32,12 +33,12 @@
                     $("#contenedorOpccionEspaciosCreacion").append(
  
                       "<div class='row'>"+
-                           "<div class='col s12'>"+
+                           "<div class='col s12 '>"+
                                "Blank " + contadorModalRellenarEspaciosCreacion +
                             "</div>"+
                         "</div>"+
                         "  <div class='row'>"+
-                            "<div class='col s12'>" +
+                            "<div class='col s12 blankContadorEspaciosCreacion'>" +
                                  "<input type='type' class='validate'>"+
                              "</div>" +
                         "</div>"
@@ -75,27 +76,7 @@
     //Opcion para guardar preguntas de opccion multiple
     $(document).ready(function () {
         $("#btnGuardarModalOpcionMultipleCreacion").click(function () {
-        /* var contenido=$("#modalOpccionMultipleCreacion .modal-content").children().clone();
-        
-           var contenedor=$("<div class='row'>"+
-                                      " <div class='col s12 '>"+
-                                           "<div class='card '>"+
-                                               " <div class='card-content'>"+
-                                                       
-                                   
-
-
-                                                  "</div>"+
-                                            "</div>"+
-                                        "</div>"+
-                              "</div>"
-                        );       
-           
-                    
-           $(contenedor).find(".card-content").append(contenido); 
-
-
-           $("#contenedorCuestionarioPreguntas").append(contenedor);*/
+       
 
            var pregunta= $("#textAreaPreguntaOpccionMultipleCreacion").val();
         
@@ -185,6 +166,64 @@
           
         });
     });
+
+
+    $(document).ready(function () {
+            $("#btnGuardarModalRellenarEspaciosCreacion").click(function () {
+
+                var contadorInicial=1;
+                var textoOpcciones="";
+                 $("#contenedorOpccionEspaciosCreacion .blankContadorEspaciosCreacion").each(function (index, obj) {
+                    
+                    textoOpcciones =  textoOpcciones + "<div class='row'>"+
+                           "<div class='col s12 '>"+
+                               "Blank " + contadorInicial +
+                            "</div>"+
+                        "</div>"+
+                        "  <div class='row'>"+
+                            "<div class='col s12 blankContadorEspaciosCreacion'>" +
+                                 "<input type='type' value='"+ $(this).val() +"' class='validate'>"+
+                             "</div>" +
+                        "</div>";
+                   contadorInicial++;
+                    
+                   
+                });
+
+                 var pregunta = $("#texAreaModalRellenarEspaciosCreacion").val();
+
+                    
+
+               var contenedor="<div class='row'>"+
+                                " <div class='col s12 ''>"+
+                                        "  <div class='card '>"+
+                                                    " <div class='card-content '>"+
+                                                         "<h4>Rellenar espacios</h4>"+
+                                                          " <div class='row'>"+
+                                                                        "<div class='input-field col s12'>"+
+                                                                            "<textarea  class='materialize-textarea'>"+
+                                                                                pregunta+
+                                                                                "</textarea>"+
+                                                                         "</div>" +  
+                                                            "</div>"+
+
+                                                            "<div class='row' >"+
+                                                                "<div class='col 12' >"+
+                                                                          textoOpcciones +
+                                                                "</div >"+
+
+                                                            "</div >"+
+                                                                
+
+                                                     "</div>"+
+                                            "</div>"+
+                                    "</div>"+
+                           "</div>"             
+                        ;  
+                     $("#contenedorCuestionarioPreguntas").append(contenedor);
+            });
+        });
+
 
     </script>
 
