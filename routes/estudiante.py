@@ -2,6 +2,9 @@ from flask import flash, render_template,request,redirect,url_for
 from . import routes
 from operacionesBD import Op_estudiante
 import bcrypt
+from flask_uploads import IMAGES, UploadSet
+
+photos = UploadSet("photos", IMAGES)
 
 ##
 ## Links para la parte del panel central
@@ -47,7 +50,16 @@ def nuevo_estudiante():
     if request.method=="POST":
         nombre=request.form["nombre"]
         alias=request.form["alias"]
-        foto=request.files["foto"]
+        file=request.files['foto']
+        category="alumnos"
+        pic=file.filename
+        photo=pic.replace("'","")
+        picture=photo.replace(" ","_")
+        
+        if picture.lower().endswith(('.png', '.jpg', '.jpeg')):
+            save_photo = photos.save(file, folder=category)
+            if save_photo:
+                foto=picture
         correo=request.form["correo"]
 
         contra=request.form["contra"]

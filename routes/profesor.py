@@ -6,10 +6,15 @@ import pandas as pd
 import json
 import plotly
 import plotly.express as px
+from flask_uploads import IMAGES, UploadSet
+
+photos = UploadSet("photos", IMAGES)
 
 ##
 ## Links para la parte del panel central
 ##
+
+
 
 ##Ruta para la vista de comunidad del profesor
 @routes.route('/comunidad_profesor')
@@ -78,7 +83,16 @@ def nuevo_profesor():
 
         nombre=request.form["nombre"]
         alias=request.form["alias"]
-        foto=request.files["foto"]
+        file=request.files['foto']
+        category="docentes"
+        pic=file.filename
+        photo=pic.replace("'","")
+        picture=photo.replace(" ","_")
+        
+        if picture.lower().endswith(('.png', '.jpg', '.jpeg')):
+            save_photo = photos.save(file, folder=category)
+            if save_photo:
+                foto=picture
         correo=request.form["correo"]
         contra=request.form["contra"]
         contra2=request.form["contra2"]
