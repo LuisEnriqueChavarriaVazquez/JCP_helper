@@ -82,6 +82,11 @@ function buscarGrupos() {
     //Se guarda el input de busqueda y el button de busqueda.
     const buscadorGruposGestor = document.getElementById('buscadorGruposGestor');
     const buscadorGruposButton = document.getElementById('buscadorGruposButton');
+
+    //Se guarda el input de busqueda y el button de busqueda para mobile.
+    const buscadorGruposGestorMobile = document.getElementById('buscadorInput_tres');
+    const buscadorGruposButtonMobile = document.getElementById('icon_browser_mine');
+
     //Se guarda el valor del nombre de cada grupo.
     let titleGroupContentId = document.getElementsByClassName('titleGroupContentId');
     //Se guardan los contenedores padres de las cards
@@ -106,6 +111,12 @@ function buscarGrupos() {
         }
     }
 
+    //Limpiamos los inputs de busqueda
+    function limpiarInputsBusqueda(){
+        buscadorGruposGestorMobile.value = "";
+        buscadorGruposGestor.value = "";
+    }
+
     //Funcion de busqueda cuando damos click
     function busquedaGrupos() {
         //Reiniciamos los elementos en pantalla
@@ -113,6 +124,14 @@ function buscarGrupos() {
 
         //Valor del input del buscador convertidor a minuscula y luego en array
         let buscadorValue = buscadorGruposGestor.value;
+
+        //En caso de que el input en modo pantalla grande este vacio, buscara en el input de mobile
+        if(buscadorGruposGestor.value == ''){
+            if(buscadorGruposGestorMobile != ''){
+                buscadorValue = buscadorGruposGestorMobile.value;
+            }
+        }
+
         buscadorValue = buscadorValue.toLowerCase();
         let buscadorValueArray = Array.from(buscadorValue);
 
@@ -162,9 +181,11 @@ function buscarGrupos() {
 
             //Ultima validación en caso de no haber encontrado nada
             if (encontrado == true) {
-                M.toast({ html: 'Busqueda exitosa.' })
+                M.toast({ html: 'Busqueda exitosa.' });
+                limpiarInputsBusqueda();
             } else {
                 M.toast({ html: 'No encontramos elementos que coincidan.' })
+                limpiarInputsBusqueda();
             }
 
         } else {
@@ -177,6 +198,14 @@ function buscarGrupos() {
     //Hacemos la busqueda con el boton de buscar
     buscadorGruposButton.addEventListener('click', busquedaGrupos);
     buscadorGruposGestor.addEventListener('keypress', function(e){
+        if (e.key === 'Enter') {
+            busquedaGrupos();
+        }
+    });
+
+    //Hacemos lo mismo de arriba pero para cuando es en dispositivos moviles
+    buscadorGruposButtonMobile.addEventListener('click', busquedaGrupos);
+    buscadorGruposGestorMobile.addEventListener('keypress', function(e){
         if (e.key === 'Enter') {
             busquedaGrupos();
         }
@@ -194,8 +223,6 @@ function buscadorMobileEstilosSticky(){
 
     //Elemento de la caja de titulo
     const cajaTituloBuscadorId = document.getElementById('cajaTituloBuscadorId');
-    const cajaTituloBuscadorContenidoId = document.getElementById('cajaTituloBuscadorContenidoId');
-    const cajaTituloBuscadorContenidoLargeId = document.getElementById('cajaTituloBuscadorContenidoLargeId');
     
     /*
         Para cuando la app inicie los estilos deben ser precargados
@@ -238,9 +265,7 @@ function buscadorMobileEstilosSticky(){
 
             //Titulo dinamico de la pagina
             cajaTituloBuscadorId.classList.add('color2');
-            cajaTituloBuscadorContenidoId.classList.add('colorText'); 
-            cajaTituloBuscadorContenidoLargeId.classList.add('colorText');
-            cajaTituloBuscadorId.classList.remove('colorGrey');
+            cajaTituloBuscadorId.classList.remove('color1');
         } else {
             //Caja principal
             buscador_contenedor.classList.add("container_browser");
@@ -263,9 +288,7 @@ function buscadorMobileEstilosSticky(){
 
             //Titulo dinamico de la pagina
             cajaTituloBuscadorId.classList.remove('color2');
-            cajaTituloBuscadorContenidoId.classList.remove('colorText'); 
-            cajaTituloBuscadorContenidoLargeId.classList.remove('colorText');
-            cajaTituloBuscadorId.classList.add('colorGrey');
+            cajaTituloBuscadorId.classList.add('color1');
         }
     });
 }

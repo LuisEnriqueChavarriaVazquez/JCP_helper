@@ -475,9 +475,9 @@
 
 .buscador_input_tres_sticky{
     width: 95%;
-    padding: 8px 20px;
+    padding: 4px 23px;
     margin: 0px 10px 0 5px;
-    font-size: 15px;
+    font-size: 12px;
     display: inline-block;
     border: #fff solid 1px;
     color: #000;
@@ -488,9 +488,9 @@
 
 .icon_browser_mine_sticky{
     width: 10%;
-    height: 64px;
-    font-size: 7px;
+    height: 36px;
     margin: 10px;
+    font-size: 7px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -506,10 +506,8 @@
     align-items: center;
 }
 
-.slider_recomendaciones_sticky{
-    position: sticky !important;
-    padding: 10px 0px 5px 0px;
-    z-index: 19999;
-    top: 62px;
-    transition: all .2s ease-in-out;
+@media screen and (max-width: 320px) {
+    .icon_search_voice_mine_sticky{
+        display: none;
+    }
 }
