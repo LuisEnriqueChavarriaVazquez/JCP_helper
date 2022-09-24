@@ -1,4 +1,5 @@
-from flask import flash, render_template,request,redirect,url_for
+from functools import wraps
+from flask import flash, render_template,request,redirect,url_for,session
 from . import routes
 from operacionesBD import Op_estudiante
 import bcrypt
@@ -10,23 +11,38 @@ photos = UploadSet("photos", IMAGES)
 ## Links para la parte del panel central
 ##
 
+def login_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session:
+            return f(*args, *kwargs)
+        else:
+            return render_template('login_general.html')
+
+    return wrap
+
+
 ##Ruta para la vista de comunidad del estudiante
 @routes.route('/comunidad_estudiante')
+#@login_required
 def comunidad_estudiante():
     return render_template('profesor/b_comunidad_estudiante.html')
 
 ##Ruta para la vista de gestion de cuestionarios
 @routes.route('/gestionar_cuestionarios_estudiante')
+#@login_required
 def gestionar_cuestionarios_estudiante():
     return render_template('profesor/b_gestionar_cuestionarios.html')
 
 ##Ruta para la vista de gestion de estadisticas
 @routes.route('/gestionar_estadisticas_estudiante')
+#@login_required
 def gestionar_estadisticas_estudiante():
     return render_template('profesor/b_gestionar_estadisticas.html')
 
 ##Ruta para la vista de gestion de grupos
 @routes.route('/gestionar_grupos_estudiante')
+#@login_required
 def gestionar_grupos_estudiante():
     return render_template('profesor/b_gestionar_grupos.html')
 
@@ -42,6 +58,7 @@ def signup_Est():
 
 ##Pagina de bienvenida
 @routes.route('/bienvenidaEstudiante')
+#@login_required
 def bienvenidaEstudiante():
     return render_template('estudiante/bienvenidaEstudiante.html')
 
@@ -92,7 +109,10 @@ def login_estudiante():
             passBD=str(result[5])
             passBD=passBD.encode('utf-8')
             if bcrypt.checkpw(password,passBD):
-                return render_template('estudiante/bienvenidaEstudiante.html')  
+                session['logged_in'] = True
+                session['IDAlumno']=result[0]
+                session['correoA'] = result[4]
+                return render_template('estudiante/bienvenidaEstudiante.html',datos=result)  
             else:
                 flash("Usuario o contraseña incorrectos!")
                 return redirect(url_for('routes.login_general'))   
@@ -103,5 +123,6 @@ def login_estudiante():
 
 ##Ruta para que los estudiantes respondan los cuestionarios
 @routes.route('/contestar_cuestionario_estudiante')
+#@login_required
 def  contestar_cuestionario_estudiante():
     return render_template('estudiante/contestar_cuestionario.html')

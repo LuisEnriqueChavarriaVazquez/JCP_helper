@@ -220,7 +220,7 @@ def login_profesor():
             passBD=passBD.encode('utf-8')
             if bcrypt.checkpw(password,passBD):
                 session['logged_in'] = True
-                session['iDDocente']=result[0]
+                session['IDDocente']=result[0]
                 session['correoS'] = result[4]
                 return render_template('profesor/bienvenidaProfesor.html',datos=result)  
             else:
