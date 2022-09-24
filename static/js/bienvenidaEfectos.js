@@ -1,6 +1,7 @@
 const fondoBienvenida = document.querySelector('#fondoBienvenida');
 const fondoActual = localStorage.getItem('fondoElegidoPorUsuario');
 
+//Elemento con ID
 function aplicarFondoSidenav(){
     //Esta validación es para que en caso de que exista el
     //fondo guardado en localStorage lo recuerde

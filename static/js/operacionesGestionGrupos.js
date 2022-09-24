@@ -32,7 +32,9 @@ function contarGruposAlumnos() {
 */
 function alternarVistas() {
     const buttonVistasAlternateGroup = document.getElementById('buttonVistasAlternateGroup');
+    const buttonVistasAlternateGroupMobile = document.getElementById('buttonVistasAlternateGroupMobile');
     const iconVistasAlternateGroup = document.getElementById('iconVistasAlternateGroup');
+    const iconVistasAlternateGroupMobile = document.getElementById('iconVistasAlternateGroupMobile');
 
     /*Contenedor principal*/
     const contenedorCardsGruposOperation = document.getElementById('contenedorCardsGruposOperationId');
@@ -46,11 +48,17 @@ function alternarVistas() {
     buttonVistasAlternateGroup.addEventListener('click', cambiarIcono);
     buttonVistasAlternateGroup.addEventListener('click', cambiarClaseLista);
 
+    //Llmando al boton para el cambio de vista para el boton de mobbile
+    buttonVistasAlternateGroupMobile.addEventListener('click', cambiarIcono);
+    buttonVistasAlternateGroupMobile.addEventListener('click', cambiarClaseLista);
+
     function cambiarIcono() {
         if (iconVistasAlternateGroup.innerText == 'grid_view') {
             iconVistasAlternateGroup.innerText = 'view_list';
+            iconVistasAlternateGroupMobile.innerText = 'view_list';
         } else {
             iconVistasAlternateGroup.innerText = 'grid_view';
+            iconVistasAlternateGroupMobile.innerText = 'grid_view';
         }
     }
 
@@ -103,8 +111,9 @@ function buscarGrupos() {
         //Reiniciamos los elementos en pantalla
         reiniciarElementosBuscador();
 
-        //Valor del input del buscador
+        //Valor del input del buscador convertidor a minuscula y luego en array
         let buscadorValue = buscadorGruposGestor.value;
+        buscadorValue = buscadorValue.toLowerCase();
         let buscadorValueArray = Array.from(buscadorValue);
 
         //Esta variable será true si encuentra el resultado
@@ -126,8 +135,12 @@ function buscarGrupos() {
             for (var j = 0; j < titleGroupContentId.length; j++) {
                 gruposActuales[j] = titleGroupContentId[j].innerText;
 
+                //Convertimos los valores a minuscula
+                gruposActuales[j] = gruposActuales[j].toLowerCase();
+
                 //Convertimos cada grupo en un array
                 grupoActualArray = Array.from(gruposActuales[j]);
+
 
                 //Los comparamos con el valor del input
                 arrayFinalBusqueda = compararArrays(buscadorValueArray, grupoActualArray);
@@ -170,7 +183,107 @@ function buscarGrupos() {
     });
 }
 
+function buscadorMobileEstilosSticky(){
+    //Guardamos cada uno de los elementos del buscador
+    const buscador_contenedor = document.getElementById("container_browser_id_uno");
+    const buscador_fondo = document.getElementById("fondo_browser_id_dos");
+    const buscador_box_secundario = document.getElementById("container_browser_id_dos");
+    const buscador_input = document.getElementById("buscadorInput_tres");
+    const icon_browser_mine = document.getElementById("icon_browser_mine");
+    const icon_search_voice_mine = document.getElementById("icon_search_voice_mine")
+
+    //Elemento de la caja de titulo
+    const cajaTituloBuscadorId = document.getElementById('cajaTituloBuscadorId');
+    const cajaTituloBuscadorContenidoId = document.getElementById('cajaTituloBuscadorContenidoId');
+    const cajaTituloBuscadorContenidoLargeId = document.getElementById('cajaTituloBuscadorContenidoLargeId');
+    
+    /*
+        Para cuando la app inicie los estilos deben ser precargados
+    */
+
+    //Caja principal
+    buscador_contenedor.classList.add("container_browser");
+    //Caja del fondo del buscador
+    buscador_fondo.classList.add("headerComunidad");
+    //Caja que contiene al input del buscador
+    buscador_box_secundario.classList.add("contenedorBuscador");
+    //Input del buscador
+    buscador_input.classList.add("buscador_input_tres");
+    //Icono del buscador
+    icon_browser_mine.classList.add("icon_browser_mine");
+    icon_search_voice_mine.classList.add("icon_search_voice_mine");
+    
+    //Se modifca el buscador cuando se hace scroll down
+    $(window).scroll(function () {
+    
+        if ($(window).scrollTop() > (110)) {
+            //Caja principal
+            buscador_contenedor.classList.add("contenedorBuscador_sticky");
+            buscador_contenedor.classList.remove("container_browser");
+            //Caja del fondo del buscador
+            buscador_fondo.classList.add("headerComunidad_sticky");
+            buscador_fondo.classList.remove("headerComunidad");
+            //Caja que contiene al input
+            buscador_box_secundario.classList.add("contenedorBuscador_fixed", "color2");
+            buscador_box_secundario.classList.remove("contenedorBuscador");
+            //Input del buscador
+            buscador_input.classList.add("buscador_input_tres_sticky");
+            buscador_input.classList.remove("buscador_input_tres");
+            //Icono del buscador
+            icon_browser_mine.classList.add("icon_browser_mine_sticky");
+            icon_browser_mine.classList.remove("icon_browser_mine");
+            //Icono de microfono
+            icon_search_voice_mine.classList.add("icon_search_voice_mine_sticky");
+            icon_search_voice_mine.classList.remove("icon_search_voice_mine");
+
+            //Titulo dinamico de la pagina
+            cajaTituloBuscadorId.classList.add('color2');
+            cajaTituloBuscadorContenidoId.classList.add('colorText'); 
+            cajaTituloBuscadorContenidoLargeId.classList.add('colorText');
+            cajaTituloBuscadorId.classList.remove('colorGrey');
+        } else {
+            //Caja principal
+            buscador_contenedor.classList.add("container_browser");
+            buscador_contenedor.classList.remove("contenedorBuscador_sticky");
+            //Caja del fondo del buscador
+            buscador_fondo.classList.add("headerComunidad");
+            buscador_fondo.classList.remove("headerComunidad_sticky");
+            //Caja que contiene al input del buscador
+            buscador_box_secundario.classList.add("contenedorBuscador");
+            buscador_box_secundario.classList.remove("contenedorBuscador_fixed", "color2");
+            //Input del buscador
+            buscador_input.classList.add("buscador_input_tres");
+            buscador_input.classList.remove("buscador_input_tres_sticky");
+            //Icono del buscador
+            icon_browser_mine.classList.add("icon_browser_mine");
+            icon_browser_mine.classList.remove("icon_browser_mine_sticky");
+            //Icono de microfono
+            icon_search_voice_mine.classList.add("icon_search_voice_mine");
+            icon_search_voice_mine.classList.remove("icon_search_voice_mine_sticky");
+
+            //Titulo dinamico de la pagina
+            cajaTituloBuscadorId.classList.remove('color2');
+            cajaTituloBuscadorContenidoId.classList.remove('colorText'); 
+            cajaTituloBuscadorContenidoLargeId.classList.remove('colorText');
+            cajaTituloBuscadorId.classList.add('colorGrey');
+        }
+    });
+}
+
+//Elemento con class
+function aplicarFondoSidenavMobile(){
+    //Esta validación es para que en caso de que exista el
+    //fondo guardado en localStorage lo recuerde
+    //sino, lo que hace es poner el fondo por defecto.
+    if (localStorage.getItem('fondoElegidoPorUsuario') != undefined) {
+        fondo_browser_id_dos.style.backgroundImage = "url('" + fondoActual + "')";
+    }
+}
+
 contarGruposAlumnos();
 alternarVistas();
 buscarGrupos();
+buscadorMobileEstilosSticky();
+aplicarFondoSidenavMobile();
+
 

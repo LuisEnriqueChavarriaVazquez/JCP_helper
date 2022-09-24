@@ -1,4 +1,4 @@
-.container_browser{
+/*.container_browser{
     position: relative;
     z-index: 19999;
     
@@ -52,7 +52,7 @@
 }
 
 /*Para el buscador cuando hacemos sticky*/
-.contenedorBuscador_sticky{
+/*.contenedorBuscador_sticky{
     position: fixed;
     top: 0;
     z-index: 19999;
@@ -116,4 +116,4 @@
     z-index: 19999;
     top: 62px;
     transition: all .2s ease-in-out;
-}
+}*/
