@@ -112,7 +112,7 @@ function buscarGrupos() {
     }
 
     //Limpiamos los inputs de busqueda
-    function limpiarInputsBusqueda(){
+    function limpiarInputsBusqueda() {
         buscadorGruposGestorMobile.value = "";
         buscadorGruposGestor.value = "";
     }
@@ -126,8 +126,8 @@ function buscarGrupos() {
         let buscadorValue = buscadorGruposGestor.value;
 
         //En caso de que el input en modo pantalla grande este vacio, buscara en el input de mobile
-        if(buscadorGruposGestor.value == ''){
-            if(buscadorGruposGestorMobile != ''){
+        if (buscadorGruposGestor.value == '') {
+            if (buscadorGruposGestorMobile != '') {
                 buscadorValue = buscadorGruposGestorMobile.value;
             }
         }
@@ -197,7 +197,7 @@ function buscarGrupos() {
 
     //Hacemos la busqueda con el boton de buscar
     buscadorGruposButton.addEventListener('click', busquedaGrupos);
-    buscadorGruposGestor.addEventListener('keypress', function(e){
+    buscadorGruposGestor.addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
             busquedaGrupos();
         }
@@ -205,14 +205,14 @@ function buscarGrupos() {
 
     //Hacemos lo mismo de arriba pero para cuando es en dispositivos moviles
     buscadorGruposButtonMobile.addEventListener('click', busquedaGrupos);
-    buscadorGruposGestorMobile.addEventListener('keypress', function(e){
+    buscadorGruposGestorMobile.addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
             busquedaGrupos();
         }
     });
 }
 
-function buscadorMobileEstilosSticky(){
+function buscadorMobileEstilosSticky() {
     //Guardamos cada uno de los elementos del buscador
     const buscador_contenedor = document.getElementById("container_browser_id_uno");
     const buscador_fondo = document.getElementById("fondo_browser_id_dos");
@@ -223,7 +223,7 @@ function buscadorMobileEstilosSticky(){
 
     //Elemento de la caja de titulo
     const cajaTituloBuscadorId = document.getElementById('cajaTituloBuscadorId');
-    
+
     /*
         Para cuando la app inicie los estilos deben ser precargados
     */
@@ -239,10 +239,10 @@ function buscadorMobileEstilosSticky(){
     //Icono del buscador
     icon_browser_mine.classList.add("icon_browser_mine");
     icon_search_voice_mine.classList.add("icon_search_voice_mine");
-    
+
     //Se modifca el buscador cuando se hace scroll down
     $(window).scroll(function () {
-    
+
         if ($(window).scrollTop() > (110)) {
             //Caja principal
             buscador_contenedor.classList.add("contenedorBuscador_sticky");
@@ -294,7 +294,7 @@ function buscadorMobileEstilosSticky(){
 }
 
 //Elemento con class
-function aplicarFondoSidenavMobile(){
+function aplicarFondoSidenavMobile() {
     //Esta validación es para que en caso de que exista el
     //fondo guardado en localStorage lo recuerde
     //sino, lo que hace es poner el fondo por defecto.
@@ -303,10 +303,53 @@ function aplicarFondoSidenavMobile(){
     }
 }
 
+//Función de reconocimiento de voz
+function reconocerVoz() {
+    //Guardo los elementos del buscador mobile
+    let buscador_input = document.getElementById("buscadorInput_tres");
+    let icon_search_voice_mine = document.getElementById("icon_search_voice_mine");
+    const buscadorGruposButtonMobile = document.getElementById('icon_browser_mine');
+
+    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+
+    var grammar = '#JSGF V1.0;'
+
+    var recognition = new SpeechRecognition();
+    var speechRecognitionList = new SpeechGrammarList();
+
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+
+    recognition.onresult = function (event) {
+        var last = event.results.length - 1;
+        var command = event.results[last][0].transcript;
+        buscador_input.value = command;
+        M.toast({ html: 'Busqueda por voz exitosa.' });
+        buscadorGruposButtonMobile.click();
+    };
+
+    recognition.onspeechend = function () {
+        recognition.stop();
+    };
+
+    recognition.onerror = function (event) {
+        M.toast({ html: 'Error en busqueda por voz ' + event.error });
+    }
+
+    icon_search_voice_mine.addEventListener('click', function () {
+        M.toast({ html: 'Dicte al dispositivo'});
+        recognition.start();
+    });
+}
+
 contarGruposAlumnos();
 alternarVistas();
 buscarGrupos();
 buscadorMobileEstilosSticky();
 aplicarFondoSidenavMobile();
+reconocerVoz();
 
 
