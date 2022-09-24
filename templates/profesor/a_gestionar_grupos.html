@@ -144,6 +144,15 @@
                 <h4>Crear nuevo grupo</h4>
                 <p>Ingrese los datos en el formulario para crear un nuevo grupo.</p>
                 <hr><br>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <div id="error_login">
+                    <p>{{ message }}</p>
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
                 <form class="col s12 popUpForm bordered2 colorGreyWhiter shadow-2e"
                     action="{{ url_for('routes.gestionar_grupos') }}" method="post">
                     <h5>Datos del grupo</h5>
@@ -157,25 +166,29 @@
                             <label for="descGrupo">Descripción del grupo</label>
                         </div>
                         <div class="input-field col s12">
-                            <input placeholder="Dejar vacio para fondo por defecto" id="fondoGrupo" name="fondoGrupo" type="text">
+                            <input placeholder="Dejar vacio para fondo por defecto" id="fondoGrupo" name="fondoGrupo"
+                                type="text">
                             <label for="fondoGrupo">URL de imagen de fondo del grupo</label>
                         </div>
+                    </div>
+
+                    <h5>Datos del grupo</h5>
+                    <div class="row">
                         <div class="input-field col s12">
                             <input id="codigoGrupo" name="codigoGrupo" type="text" value="">
-                            <label for="codigoGrupo">Código del grupo</label>
                         </div>
                     </div>
 
                     <h5>Datos adicionales</h5>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input placeholder="Escriba los lenguajes de este grupo" id="lenguajesGrupo" name="lenguajesGrupo" type="text"
-                                class="validate">
+                            <input placeholder="Escriba los lenguajes de este grupo" id="lenguajesGrupo"
+                                name="lenguajesGrupo" type="text" class="validate">
                             <label for="lenguajesGrupo">Lenguajes del grupo</label>
                         </div>
                         <div class="input-field col s12">
-                            <input placeholder="Escriba los temas del grupo" id="temasGrupo" name="temasGrupo" type="text"
-                                class="validate">
+                            <input placeholder="Escriba los temas del grupo" id="temasGrupo" name="temasGrupo"
+                                type="text" class="validate">
                             <label for="temasGrupo">Temas del grupo</label>
                         </div>
                     </div>
@@ -186,6 +199,10 @@
                         <div class="input-field col s12">
                             <input id="emailGrupo" type="email" name="emailGrupo" class="validate">
                             <label for="emailGrupo">Ingrese su email</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="passwordGrupo" type="password" name="passwordGrupo" class="validate">
+                            <label for="passwordGrupo">Ingrese su password</label>
                         </div>
                     </div>
 

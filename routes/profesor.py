@@ -76,14 +76,28 @@ def gestionar_grupos():
         lenguajesGrupo = request.form["lenguajesGrupo"]
         temasGrupo = request.form["temasGrupo"]
 
-        #Es el mail del docente para confirmar y obtener el id del maestro
+        #Es el mail/password del docente para confirmar y obtener el id del maestro
         emailGrupo = request.form["emailGrupo"]
+        passwordGrupo = request.form["passwordGrupo"]
         id_profesor = ""
-        if(emailGrupo != ''):
-            id_profesor = Op_profesor.obtener_profesores_id(emailGrupo)
-            print(id_profesor)
-            Op_profesor.insertar_grupo(id_profesor, nombreGrupo, descGrupo, fondoGrupo, codigoGrupo, temasGrupo, lenguajesGrupo)
-            
+        
+        #Se valida que haya contenido en su interior
+        if(emailGrupo != '' and  passwordGrupo != ''):
+            #Validación de los datos en el formulario
+            if(nombreGrupo != '' and descGrupo != '' and codigoGrupo != '' and lenguajesGrupo != '' and temasGrupo != ''):
+                id_profesor = Op_profesor.obtener_profesores_id(emailGrupo, passwordGrupo)
+                #Se valida que nos retorne algo
+                if(id_profesor != ""):
+                    #Si retorna cero entonces la contraseña y el mail no coinciden, o no existen
+                    if(id_profesor == '0'):
+                        flash("¡Correo o contraseña incorrecta!")
+                    else:
+                        Op_profesor.insertar_grupo(id_profesor, nombreGrupo, descGrupo, fondoGrupo, codigoGrupo, temasGrupo, lenguajesGrupo)
+            else:
+                flash("¡Faltan datos en el formulario!")
+        else:
+            flash("¡No ingreso su correo o su contraseña!")
+
         return render_template('profesor/a_gestionar_grupos.html')
     else:
         return render_template('profesor/a_gestionar_grupos.html')

@@ -18,16 +18,24 @@ def obtener_profesores():
     conexion.close()
     return profesores
 
-def obtener_profesores_id(correo):
+def obtener_profesores_id(correo, password):
     conexion=obtener_conexion()
     profesores_id=[]
+    id_profesor = ""
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT IDDocente FROM docentes WHERE correo = %s", (correo))
+        cursor.execute("SELECT IDDocente FROM docentes WHERE correo = %s AND contra = %s", (correo, password))
         profesores_id=cursor.fetchone()
-    id_profesor = ''.join(str(profesores_id[0]))
-    conexion.close()
-    return id_profesor
+    
+    if profesores_id is not None:
+        id_profesor = ''.join(str(profesores_id[0]))
+        conexion.close()
+        return id_profesor
+    else:
+        id_profesor = '0'
+        print("¡Correo o contraseña incorrecta!")
+        return id_profesor
+
 
 def login_prof(correo):
     conexion = obtener_conexion()
