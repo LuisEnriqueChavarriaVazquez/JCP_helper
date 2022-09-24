@@ -26,3 +26,11 @@ def login_prof(correo):
         profesor = cursor.fetchone()
     conexion.close()
     return profesor
+
+def insertar_grupo(nombreGrupo,descGrupo,fondoGrupo,codigoGrupo,lenguajesGrupo,temasGrupo):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("INSERT INTO grupos(default, 1, Nombre,Descripcion,Fondo,Código,Lenguajes,Temas) VALUES(%s,%s,%s,%s,%s,%s)",
+        (nombreGrupo,descGrupo,fondoGrupo,codigoGrupo,temasGrupo,lenguajesGrupo))
+    conexion.commit()
+    conexion.close()

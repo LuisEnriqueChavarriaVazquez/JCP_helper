@@ -163,6 +163,9 @@ function buscarGrupos() {
 
                 //Los comparamos con el valor del input
                 arrayFinalBusqueda = compararArrays(buscadorValueArray, grupoActualArray);
+                /*console.log(buscadorValueArray);
+                console.log(grupoActualArray);
+                console.log('Final ' + arrayFinalBusqueda);*/
 
                 if (arrayFinalBusqueda.length == 0) {
                     //Eliminamos los elementos que no coinciden en la busqueda
@@ -340,9 +343,41 @@ function reconocerVoz() {
     }
 
     icon_search_voice_mine.addEventListener('click', function () {
-        M.toast({ html: 'Dicte al dispositivo'});
+        M.toast({ html: 'Dicte al dispositivo' });
         recognition.start();
     });
+}
+
+function generadorCodigosGrupo() {
+    //Accedemos a los botones para entrar a los formularios de nuevo grupo
+    const buttonNuevoGrupo = document.getElementById('buttonNuevoGrupo');
+    const buttonNuevoGrupoMobile = document.getElementById('buttonNuevoGrupoMobile');
+    //Accedemos al input de código de grupo
+    const codigoGrupo = document.getElementById('codigoGrupo');
+
+    //Cada que abrimos el formulario se asigna nuevo codigo
+    buttonNuevoGrupo.addEventListener('click', asignarCodigo);
+    buttonNuevoGrupoMobile.addEventListener('click', asignarCodigo);
+
+    //Se asigna y genera el código
+    function asignarCodigo(){
+        //Guardamos la clave de grupo
+        let claveDeGrupo = makeid(60);
+        //Asginamos el value a el input
+        codigoGrupo.value = claveDeGrupo;
+    
+        //Generar el código
+        function makeid(length) {
+            var result = '';
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for (var i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() *
+                    charactersLength));
+            }
+            return result;
+        }
+    }
 }
 
 contarGruposAlumnos();
@@ -351,5 +386,6 @@ buscarGrupos();
 buscadorMobileEstilosSticky();
 aplicarFondoSidenavMobile();
 reconocerVoz();
+generadorCodigosGrupo();
 
 

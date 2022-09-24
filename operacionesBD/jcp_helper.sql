@@ -1,3 +1,4 @@
+drop database jcp_helper_db;
 create database if not exists jcp_helper_db;
 use jcp_helper_db;
 
@@ -25,6 +26,8 @@ Nombre varchar(60),
  descripcion varchar(100),
   primary key (IDDocente)
 );
+
+
 
 create table Cuestionarios(
 IDCuestionario int not null auto_increment,
@@ -55,17 +58,18 @@ create table Notificaciones_Docente(
 );
 
 create table Grupos(
-IDDocente int not null,
-IDGrupo int not null,
-Nombre varchar (60),
-Descripcion varchar(100),
-Fondo varchar (60),
-Código varchar (60),
-Lenguajes varchar (60),
-Temas varchar (60),
-primary key (IDDocente,IDGrupo),
-foreign key (IDDocente) references Docentes(IDDocente)
+   IDGrupo int auto_increment not null,
+   IDDocente int not null,
+   Nombre varchar (60),
+   Descripcion varchar(100),
+   Fondo varchar (60),
+   Codigo varchar (60),
+   Lenguajes varchar (60),
+   Temas varchar (60),
+   primary key (IDGrupo),
+   foreign key (IDDocente) references Docentes(IDDocente)
 );
+
 
 create table Alumnos_hacen_Cuestionario(
   IDCuestionario int not null,
@@ -104,3 +108,6 @@ create table Contacto_Docente(
 );
 
 
+insert into Docentes (IDDocente, Nombre, Alias, Foto, correo, contra, unidad_academica, descripcion) values (1, 'Roberto', 'Robertin', 'htkfkns', 'roberto@gmail.com', 'roberto', 'escom', 'Mi nombre es roberto');
+insert into Grupos (IDGrupo, IDDocente, Nombre, Descripcion, Fondo, Codigo, Lenguajes, Temas) values (default, 1, 'grupo1', 'grupos descripcion', 'fondo', 'Codigo del grupo', 'Lenguajes', 'Temas');
+insert into Grupos (IDGrupo, IDDocente, Nombre, Descripcion, Fondo, Codigo, Lenguajes, Temas) values (default, 1, 'grupo2', 'grupos descripcion', 'fondo', 'Codigo del grupo', 'Lenguajes', 'Temas');

@@ -257,3 +257,12 @@ input[type="file"] {
 	width: 112px;
 	border-radius: 15px;
 }
+
+/*Estilos para los formularios*/
+.popUpForm{
+	padding: 10px 20px;
+}
+
+.buttonPopUp{
+	width: 100%;
+}

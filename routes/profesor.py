@@ -66,7 +66,16 @@ def gestionar_estadisticas():
 ##Ruta para la vista de gestion de grupos
 @routes.route('/gestionar_grupos')
 def gestionar_grupos():
-    return render_template('profesor/a_gestionar_grupos.html')
+    # if request.method=="POST":
+    #     nombreGrupo = request.form["nombreGrupo"]
+    #     descGrupo = request.form["descGrupo"]
+    #     fondoGrupo = request.form["fondoGrupo"]
+    #     codigoGrupo = request.form["codigoGrupo"]
+    #     lenguajesGrupo = request.form["lenguajesGrupo"]
+    #     temasGrupo = request.form["temasGrupo"]
+
+    #     Op_profesor.insertar_grupo(nombreGrupo, descGrupo, fondoGrupo, codigoGrupo, temasGrupo, lenguajesGrupo)
+        return render_template('profesor/a_gestionar_grupos.html')
 
 ##
 ## Parte del sign up del profesor

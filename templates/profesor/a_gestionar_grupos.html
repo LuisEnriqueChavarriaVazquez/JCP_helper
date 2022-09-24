@@ -27,6 +27,8 @@
             </ul>
         </div>
     </nav>
+
+    <!--Menu lateral para las pantallas grandes-->
     <section class="operationContainerPrincipal">
         <section class="operationSideNav">
             <div class="infoUserOperation fondoDinamico shadow-2e" id="fondoBienvenida">
@@ -40,7 +42,8 @@
             <div class="colorGreyWhiter operationsContainerSecondarySideNav">
                 <div class="operationButtonSideNav">
                     <h5>Operaciones.</h5>
-                    <a class="waves-effect waves-light btn color2 shadow-2e"><i class="material-icons left">add</i>Crear
+                    <a class="waves-effect waves-light btn color2 shadow-2e modal-trigger" href="#modal1" id="buttonNuevoGrupo"><i
+                            class="material-icons left">add</i>Crear
                         grupo</a>
                 </div>
                 <div class="operationButtonSideNav">
@@ -67,9 +70,12 @@
         </section>
 
 
+        <!--Contenedor principal-->
         <section class="operationMainNav">
+            <!--Titulos de la página-->
             <div class="title-general color1 fixedTitleOperationMain shadow-2e" id="cajaTituloBuscadorId">
-                <h6 class="colorText hide-on-large-only hide-on-med-only" id="cajaTituloBuscadorContenidoId">Grupos creados</h6>
+                <h6 class="colorText hide-on-large-only hide-on-med-only" id="cajaTituloBuscadorContenidoId">Grupos
+                    creados</h6>
                 <h5 class="colorText hide-on-small-only" id="cajaTituloBuscadorContenidoLargeId">Grupos creados</h5>
             </div>
 
@@ -77,12 +83,15 @@
             <section class="container_browser hide-on-large-only" id="container_browser_id_uno">
                 <div class="fondoDinamico headerComunidad shadow-2e" id="fondo_browser_id_dos"></div>
                 <div class="contenedorBuscador centerAligner" id="container_browser_id_dos">
-                    <div class="icon_browser_mine shadow-2 bordered5 color3 colorText" id="icon_browser_mine"><i class="material-icons colorText">search</i></div>
+                    <div class="icon_browser_mine shadow-2 bordered5 color3 colorText" id="icon_browser_mine"><i
+                            class="material-icons colorText">search</i></div>
                     <div class="box_browser">
                         <input type="text" class="browser-default shadow-2e flow-text" placeholder="Buscar grupos"
                             id="buscadorInput_tres">
                     </div>
-                    <div class="icon_search_voice_mine shadow-2 bordered5 color3 colorText" id="icon_search_voice_mine"><i class="material-icons colorText">keyboard_voice</i></div>
+                    <div class="icon_search_voice_mine shadow-2 bordered5 color3 colorText" id="icon_search_voice_mine">
+                        <i class="material-icons colorText">keyboard_voice</i>
+                    </div>
                 </div>
             </section>
 
@@ -101,7 +110,7 @@
 
             <div class="contenedorCardsGruposOperation" id="contenedorCardsGruposOperationId">
 
-                <!--Grupos de ejemplo-->
+                <!--Grupos creados-->
                 <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
                     <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
                         <div>
@@ -126,162 +135,76 @@
                                 class="material-icons">delete</i></a>
                     </div>
                 </div>
-                <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
-                    <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
-                        <div>
-                            <h5 class="titleGroupContentId">Grupo 2</h5>
-                        </div>
-                        <div class="studentCountCardOperation">
-                            <i class="material-icons">people</i> <span class="contadorAlumnosNumber">100</span>
-                        </div>
-                    </div>
-                    <div class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
-                        <p><b>Este grupo es de POO en JAVA</b></p>
-                    </div>
-                    <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">edit</i></a>
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">content_copy</i></a>
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">delete</i></a>
-                    </div>
-                </div>
-                <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
-                    <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
-                        <div>
-                            <h5 class="titleGroupContentId">Grupo 2</h5>
-                        </div>
-                        <div class="studentCountCardOperation">
-                            <i class="material-icons">people</i> <span class="contadorAlumnosNumber">100</span>
-                        </div>
-                    </div>
-                    <div class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
-                        <p><b>Este grupo es de POO en JAVA</b></p>
-                    </div>
-                    <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">edit</i></a>
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">content_copy</i></a>
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">delete</i></a>
-                    </div>
-                </div>
-                <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
-                    <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
-                        <div>
-                            <h5 class="titleGroupContentId">Grupo 40</h5>
-                        </div>
-                        <div class="studentCountCardOperation">
-                            <i class="material-icons">people</i> <span class="contadorAlumnosNumber">100</span>
-                        </div>
-                    </div>
-                    <div class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
-                        <p><b>Este grupo es de POO en JAVA</b></p>
-                    </div>
-                    <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">edit</i></a>
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">content_copy</i></a>
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">delete</i></a>
-                    </div>
-                </div>
-                <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
-                    <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
-                        <div>
-                            <h5 class="titleGroupContentId">Grupo 40</h5>
-                        </div>
-                        <div class="studentCountCardOperation">
-                            <i class="material-icons">people</i> <span class="contadorAlumnosNumber">100</span>
-                        </div>
-                    </div>
-                    <div class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
-                        <p><b>Este grupo es de POO en JAVA</b></p>
-                    </div>
-                    <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">edit</i></a>
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">content_copy</i></a>
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">delete</i></a>
-                    </div>
-                </div>
-                <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
-                    <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
-                        <div>
-                            <h5 class="titleGroupContentId">Grupo 40</h5>
-                        </div>
-                        <div class="studentCountCardOperation">
-                            <i class="material-icons">people</i> <span class="contadorAlumnosNumber">100</span>
-                        </div>
-                    </div>
-                    <div class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
-                        <p><b>Este grupo es de POO en JAVA</b></p>
-                    </div>
-                    <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">edit</i></a>
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">content_copy</i></a>
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">delete</i></a>
-                    </div>
-                </div>
-                <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
-                    <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
-                        <div>
-                            <h5 class="titleGroupContentId">JAVA 1</h5>
-                        </div>
-                        <div class="studentCountCardOperation">
-                            <i class="material-icons">people</i> <span class="contadorAlumnosNumber">100</span>
-                        </div>
-                    </div>
-                    <div class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
-                        <p><b>Este grupo es de POO en JAVA</b></p>
-                    </div>
-                    <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">edit</i></a>
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">content_copy</i></a>
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">delete</i></a>
-                    </div>
-                </div>
             </div>
         </section>
+
+        <!-- Pop up para agregar nuevos grupos  con formulario-->
+        <div id="modal1" class="modal bordered2" style="height: 90vh !important;">
+            <div class="modal-content">
+                <h4>Crear nuevo grupo</h4>
+                <p>Ingrese los datos en el formulario para crear un nuevo grupo.</p>
+                <hr><br>
+                <form class="col s12 popUpForm bordered2 colorGreyWhiter shadow-2e" method="post">
+                    <h5>Datos del grupo</h5>
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input id="nombreGrupo" type="text" class="validate">
+                            <label for="nombreGrupo">Nombre de grupo</label>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input id="descGrupo" type="text" class="validate">
+                            <label for="descGrupo">Descripción del grupo</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input placeholder="Dejar vacio para fondo por defecto" id="fondoGrupo" type="text">
+                            <label for="fondoGrupo">URL de imagen de fondo del grupo</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="codigoGrupo" type="text" disabled value="codigo jdsjbsdjbjsd">
+                            <label for="codigoGrupo">Código del grupo</label>
+                        </div>
+                    </div>
+
+                    <h5>Datos adicionales</h5>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="Escriba los lenguajes de este grupo" id="lenguajesGrupo" type="text"
+                                class="validate">
+                            <label for="lenguajesGrupo">Lenguajes del grupo</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input placeholder="Escriba los temas del grupo" id="temasGrupo" type="text"
+                                class="validate">
+                            <label for="temasGrupo">Temas del grupo</label>
+                        </div>
+                    </div>
+
+
+                    <h5>Confirmar creación ingresando tu mail</h5>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="emailGrupo" type="email" class="validate">
+                            <label for="emailGrupo">Ingrese su email</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-large color2 bordered5 buttonPopUp">Crear</button>
+
+                </form>
+            </div>
+        </div>
 
         <!--Boton para los dispositivos moviles-->
         <section class="navbarOperationGroup color2 shadow-up-1e">
             <div></div>
             <div>
-                <div class="navbarOperationGroupCircle shadow-up-1e colorGrey">
-                    <div class="waves-effect">
-                        <i class="material-icons md-28">add</i>
+                <a href="#modal1" class="modal-trigger" id="buttonNuevoGrupoMobile">
+                    <div class="navbarOperationGroupCircle shadow-up-1e colorGrey">
+                        <div class="waves-effect">
+                            <i class="material-icons colorTextReverse md-28">add</i>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div></div>
         </section>
