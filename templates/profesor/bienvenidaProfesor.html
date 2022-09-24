@@ -35,12 +35,17 @@
     <ul id="slide-out" class="sidenav colorWhite">
         <li>
             <div class="user-view">
+            <!-- se tiene que estar logeado para ver el nombre y la foto -->
+            {% if datos %}
                 <div class="background fondoDinamico" id="fondoBienvenida"></div>
-                <a href="/perfil_usuario"><img class="circle shadow-3e" src="../../static/images/avatares/avatar_3.jpg"></a>
+                <a href="/perfil_usuario"><img class="circle shadow-3e" src="../../static/images/docentes/{{datos[3]}}"></a>
                 <a href="#"><span class="white-text name"><b>Cuenta de docente</b></span></a>
-                <a href="#"><span class="white-text name">Nombre del usuario</span></a>
+                <a href="#"><span class="white-text name">
+                {{datos[1]}}
+                </span></a>
                 <br>
             </div>
+            {% endif %}
         </li>
         <li><a href="/gestionar_grupos" class="colorTextReverse"><i class="colorTextReverse material-icons">groups_2</i>Gestionar
                 grupos.</a></li>
