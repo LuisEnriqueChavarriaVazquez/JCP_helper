@@ -1,5 +1,5 @@
 import email
-from flask import render_template,flash,request, url_for, redirect
+from flask import render_template,flash,request, url_for, redirect, session
 from . import routes
 from operacionesBD import Op_profesor
 import bcrypt
@@ -76,16 +76,18 @@ def gestionar_grupos():
         lenguajesGrupo = request.form["lenguajesGrupo"]
         temasGrupo = request.form["temasGrupo"]
 
-        #Es el mail/password del docente para confirmar y obtener el id del maestro
-        emailGrupo = request.form["emailGrupo"]
-        passwordGrupo = request.form["passwordGrupo"]
         id_profesor = ""
+        myGrupos = ""
+
+        #Mail de la session
+        if 'correoS' in session:
+            correoSession = session['correoS']
         
         #Se valida que haya contenido en su interior
-        if(emailGrupo != '' and  passwordGrupo != ''):
+        if(correoSession != ''):
             #Validación de los datos en el formulario
             if(nombreGrupo != '' and descGrupo != '' and codigoGrupo != '' and lenguajesGrupo != '' and temasGrupo != ''):
-                id_profesor = Op_profesor.obtener_profesores_id(emailGrupo, passwordGrupo)
+                id_profesor = Op_profesor.obtener_profesores_id(correoSession)
                 #Se valida que nos retorne algo
                 if(id_profesor != ""):
                     #Si retorna cero entonces la contraseña y el mail no coinciden, o no existen
@@ -97,10 +99,33 @@ def gestionar_grupos():
                 flash("¡Faltan datos en el formulario!")
         else:
             flash("¡No ingreso su correo o su contraseña!")
+        
+        #Guardo el id del profesor
+        id_profesor = Op_profesor.obtener_profesores_id(correoSession)
+        #Guardo los grupos de este profesor
+        myGrupos = Op_profesor.obtener_grupos_nombre_desc(id_profesor)
 
-        return render_template('profesor/a_gestionar_grupos.html')
+        return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos)
     else:
-        return render_template('profesor/a_gestionar_grupos.html')
+        #
+        #   Esto es lo que hace cuando se carga la página la primera vez
+        #   Busca los elementos en la base de datos con el correo de la sessión
+        #
+
+        id_profesor = ''
+
+        #Mail de la session
+        if 'correoS' in session:
+            correoSession = session['correoS']
+        
+        #Guardo el id del profesor
+        id_profesor = Op_profesor.obtener_profesores_id(correoSession)
+
+        #Guardo los grupos de este profesor
+        myGrupos = Op_profesor.obtener_grupos_nombre_desc(id_profesor)
+
+        #Retorno los grupos en la página para que puedan ser impresos
+        return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos)
 
 ##
 ## Parte del sign up del profesor
@@ -145,8 +170,8 @@ def nuevo_profesor():
 
 
         Op_profesor.insertar_profesor(nombre,alias,foto,correo,hashed,unidad_academica,descripcion)
-        flash(f"{nombre} te has registrado correctamente")
-        return render_template('profesor/bienvenidaProfesor.html')
+        #Nos manda al log in para poder guardar datos en la sesión
+        return render_template('login_general.html')
 
 @routes.route('/login_profesor',methods=["POST"])
 def login_profesor():
@@ -158,6 +183,7 @@ def login_profesor():
         if result!=None:
             passBD=str(result[5])
             passBD=passBD.encode('utf-8')
+            session['correoS'] = correo
             if bcrypt.checkpw(password,passBD):
                 return render_template('profesor/bienvenidaProfesor.html',datos=result)  
             else:

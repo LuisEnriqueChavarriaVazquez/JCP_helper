@@ -111,17 +111,18 @@
             <div class="contenedorCardsGruposOperation" id="contenedorCardsGruposOperationId">
 
                 <!--Grupos creados-->
+                {% for result_object in grupo %}
                 <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
                     <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
                         <div>
-                            <h5 class="titleGroupContentId">Computadoras</h5>
+                            <h5 class="titleGroupContentId">{{result_object[0]}}</h5>
                         </div>
                         <div class="studentCountCardOperation">
                             <i class="material-icons">people</i> <span class="contadorAlumnosNumber">100</span>
                         </div>
                     </div>
                     <div class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
-                        <p><b>Este grupo es de POO en JAVA</b></p>
+                        <p><b>{{result_object[1]}}</b></p>
                     </div>
                     <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
                         <a
@@ -135,6 +136,7 @@
                                 class="material-icons">delete</i></a>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </section>
 
@@ -190,19 +192,6 @@
                             <input placeholder="Escriba los temas del grupo" id="temasGrupo" name="temasGrupo"
                                 type="text" class="validate">
                             <label for="temasGrupo">Temas del grupo</label>
-                        </div>
-                    </div>
-
-
-                    <h5>Confirmar creación ingresando tu mail</h5>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="emailGrupo" type="email" name="emailGrupo" class="validate">
-                            <label for="emailGrupo">Ingrese su email</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <input id="passwordGrupo" type="password" name="passwordGrupo" class="validate">
-                            <label for="passwordGrupo">Ingrese su password</label>
                         </div>
                     </div>
 
