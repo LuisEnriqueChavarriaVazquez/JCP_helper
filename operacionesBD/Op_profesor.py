@@ -18,6 +18,17 @@ def obtener_profesores():
     conexion.close()
     return profesores
 
+def obtener_profesores_id(correo):
+    conexion=obtener_conexion()
+    profesores_id=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT IDDocente FROM docentes WHERE correo = %s", (correo))
+        profesores_id=cursor.fetchone()
+    id_profesor = ''.join(str(profesores_id[0]))
+    conexion.close()
+    return id_profesor
+
 def login_prof(correo):
     conexion = obtener_conexion()
     profesor = None
@@ -27,10 +38,10 @@ def login_prof(correo):
     conexion.close()
     return profesor
 
-def insertar_grupo(nombreGrupo,descGrupo,fondoGrupo,codigoGrupo,lenguajesGrupo,temasGrupo):
+def insertar_grupo(id_profesor, nombreGrupo,descGrupo,fondoGrupo,codigoGrupo,lenguajesGrupo,temasGrupo):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO grupos(default, 1, Nombre,Descripcion,Fondo,Código,Lenguajes,Temas) VALUES(%s,%s,%s,%s,%s,%s)",
-        (nombreGrupo,descGrupo,fondoGrupo,codigoGrupo,temasGrupo,lenguajesGrupo))
+        cursor.execute("INSERT INTO grupos(IDDocente,Nombre,Descripcion,Fondo,Codigo,Lenguajes,Temas) VALUES(%s,%s,%s,%s,%s,%s,%s)",
+        (id_profesor, nombreGrupo,descGrupo,fondoGrupo,codigoGrupo,temasGrupo,lenguajesGrupo))
     conexion.commit()
     conexion.close()

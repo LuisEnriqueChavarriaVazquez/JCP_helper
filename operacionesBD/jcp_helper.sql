@@ -27,8 +27,6 @@ Nombre varchar(60),
   primary key (IDDocente)
 );
 
-
-
 create table Cuestionarios(
 IDCuestionario int not null auto_increment,
 Titulo varchar(100),

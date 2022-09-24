@@ -1,3 +1,4 @@
+import email
 from flask import render_template,flash,request, url_for, redirect
 from . import routes
 from operacionesBD import Op_profesor
@@ -64,17 +65,27 @@ def gestionar_estadisticas():
     return render_template('profesor/a_gestionar_estadisticas.html', graphJSON=graphJSON, header=header,description=description, graphJSON2=graphJSON2, header2=header2,description2=description2)
 
 ##Ruta para la vista de gestion de grupos
-@routes.route('/gestionar_grupos')
+@routes.route('/gestionar_grupos',methods=['GET','POST'])
 def gestionar_grupos():
-    # if request.method=="POST":
-    #     nombreGrupo = request.form["nombreGrupo"]
-    #     descGrupo = request.form["descGrupo"]
-    #     fondoGrupo = request.form["fondoGrupo"]
-    #     codigoGrupo = request.form["codigoGrupo"]
-    #     lenguajesGrupo = request.form["lenguajesGrupo"]
-    #     temasGrupo = request.form["temasGrupo"]
+    if request.method=="POST":
+        #Variables del formulario
+        nombreGrupo = request.form["nombreGrupo"]
+        descGrupo = request.form["descGrupo"]
+        fondoGrupo = request.form["fondoGrupo"]
+        codigoGrupo = request.form["codigoGrupo"]
+        lenguajesGrupo = request.form["lenguajesGrupo"]
+        temasGrupo = request.form["temasGrupo"]
 
-    #     Op_profesor.insertar_grupo(nombreGrupo, descGrupo, fondoGrupo, codigoGrupo, temasGrupo, lenguajesGrupo)
+        #Es el mail del docente para confirmar y obtener el id del maestro
+        emailGrupo = request.form["emailGrupo"]
+        id_profesor = ""
+        if(emailGrupo != ''):
+            id_profesor = Op_profesor.obtener_profesores_id(emailGrupo)
+            print(id_profesor)
+            Op_profesor.insertar_grupo(id_profesor, nombreGrupo, descGrupo, fondoGrupo, codigoGrupo, temasGrupo, lenguajesGrupo)
+            
+        return render_template('profesor/a_gestionar_grupos.html')
+    else:
         return render_template('profesor/a_gestionar_grupos.html')
 
 ##

@@ -42,8 +42,8 @@
             <div class="colorGreyWhiter operationsContainerSecondarySideNav">
                 <div class="operationButtonSideNav">
                     <h5>Operaciones.</h5>
-                    <a class="waves-effect waves-light btn color2 shadow-2e modal-trigger" href="#modal1" id="buttonNuevoGrupo"><i
-                            class="material-icons left">add</i>Crear
+                    <a class="waves-effect waves-light btn color2 shadow-2e modal-trigger" href="#modal1"
+                        id="buttonNuevoGrupo"><i class="material-icons left">add</i>Crear
                         grupo</a>
                 </div>
                 <div class="operationButtonSideNav">
@@ -144,23 +144,24 @@
                 <h4>Crear nuevo grupo</h4>
                 <p>Ingrese los datos en el formulario para crear un nuevo grupo.</p>
                 <hr><br>
-                <form class="col s12 popUpForm bordered2 colorGreyWhiter shadow-2e" method="post">
+                <form class="col s12 popUpForm bordered2 colorGreyWhiter shadow-2e"
+                    action="{{ url_for('routes.gestionar_grupos') }}" method="post">
                     <h5>Datos del grupo</h5>
                     <div class="row">
                         <div class="input-field col s12 m6">
-                            <input id="nombreGrupo" type="text" class="validate">
+                            <input id="nombreGrupo" name="nombreGrupo" type="text" class="validate">
                             <label for="nombreGrupo">Nombre de grupo</label>
                         </div>
                         <div class="input-field col s12 m6">
-                            <input id="descGrupo" type="text" class="validate">
+                            <input id="descGrupo" name="descGrupo" type="text" class="validate">
                             <label for="descGrupo">Descripción del grupo</label>
                         </div>
                         <div class="input-field col s12">
-                            <input placeholder="Dejar vacio para fondo por defecto" id="fondoGrupo" type="text">
+                            <input placeholder="Dejar vacio para fondo por defecto" id="fondoGrupo" name="fondoGrupo" type="text">
                             <label for="fondoGrupo">URL de imagen de fondo del grupo</label>
                         </div>
                         <div class="input-field col s12">
-                            <input id="codigoGrupo" type="text" disabled value="codigo jdsjbsdjbjsd">
+                            <input id="codigoGrupo" name="codigoGrupo" type="text" value="">
                             <label for="codigoGrupo">Código del grupo</label>
                         </div>
                     </div>
@@ -168,12 +169,12 @@
                     <h5>Datos adicionales</h5>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input placeholder="Escriba los lenguajes de este grupo" id="lenguajesGrupo" type="text"
+                            <input placeholder="Escriba los lenguajes de este grupo" id="lenguajesGrupo" name="lenguajesGrupo" type="text"
                                 class="validate">
                             <label for="lenguajesGrupo">Lenguajes del grupo</label>
                         </div>
                         <div class="input-field col s12">
-                            <input placeholder="Escriba los temas del grupo" id="temasGrupo" type="text"
+                            <input placeholder="Escriba los temas del grupo" id="temasGrupo" name="temasGrupo" type="text"
                                 class="validate">
                             <label for="temasGrupo">Temas del grupo</label>
                         </div>
@@ -183,7 +184,7 @@
                     <h5>Confirmar creación ingresando tu mail</h5>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="emailGrupo" type="email" class="validate">
+                            <input id="emailGrupo" type="email" name="emailGrupo" class="validate">
                             <label for="emailGrupo">Ingrese su email</label>
                         </div>
                     </div>
