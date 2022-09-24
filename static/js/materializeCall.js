@@ -21,6 +21,7 @@ $(document).ready(function () {
     $('.collapsible').collapsible();
     $('.dropdown-trigger').dropdown();
     $('.scrollspy').scrollSpy();
+    $('input#input_text, textarea#descGrupo, textarea#codigoGrupo').characterCounter();
 
     /*
     //  Código para la parte de elegir la foto de perfil
