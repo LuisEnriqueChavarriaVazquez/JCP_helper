@@ -50,16 +50,19 @@ def wrappers(func, *args, **kwargs):
 
 ##Ruta para la vista de comunidad del profesor
 @routes.route('/comunidad_profesor')
+#@login_required
 def comunidad_profesor():
     return render_template('profesor/a_comunidad_profesor.html')
 
 ##Ruta para la vista de gestion de cuestionarios
 @routes.route('/gestionar_cuestionarios')
+#@login_required
 def gestionar_cuestionarios():
     return render_template('profesor/a_gestionar_cuestionarios.html')
 
 ##Ruta para la vista de gestion de estadisticas
 @routes.route('/gestionar_estadisticas')
+#@login_required
 def gestionar_estadisticas():
 
     #Grafica de ejemplo 1
@@ -97,6 +100,7 @@ def gestionar_estadisticas():
 
 ##Ruta para la vista de gestion de grupos
 @routes.route('/gestionar_grupos',methods=['GET','POST'])
+#@login_required
 def gestionar_grupos():
     if request.method=="POST":
         #Variables del formulario
@@ -229,13 +233,15 @@ def login_profesor():
 
 ##Pagina de bienvenida
 @routes.route('/bienvenidaProfesor')
-@login_required
+#@login_required
 def bienvenidaProfesor():
     return render_template('profesor/bienvenidaProfesor.html')
 
 
+
 #Creación cuestionarios
 @routes.route('/creacion_cuestionarios')
+#@login_required
 def creacion_cuestionarios():
     return render_template('profesor/cuestionarios_creacion.html')
 
@@ -254,5 +260,6 @@ def python_runner():
 
 # Formulario para que el docente haga una publicacion
 @routes.route('/crear_publicacion')
+#@login_required
 def crear_publicacion_form():
     return render_template('profesor/crear_publicacion.html')
