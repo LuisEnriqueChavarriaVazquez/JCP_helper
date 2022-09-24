@@ -43,6 +43,7 @@ function alternarVistas() {
     const sectionCardOperationTitle = document.getElementsByClassName('sectionCardOperationTitleId');
     const sectionCardOperationDescriptionListId = document.getElementsByClassName('sectionCardOperationDescriptionListId');
     const sectionCardOperationActions = document.getElementsByClassName('sectionCardOperationActionsId');
+    const studentCountCardOperation = document.getElementsByClassName('studentCountCardOperation');
 
     //Llmando al boton para el cambio de vista
     buttonVistasAlternateGroup.addEventListener('click', cambiarIcono);
@@ -73,6 +74,7 @@ function alternarVistas() {
             sectionCardOperationActions[i].classList.toggle('color2');
             sectionCardOperationActions[i].classList.toggle('colorGreyWhiter');
             sectionCardOperationActions[i].classList.toggle('sectionCardOperationActionsList');
+            studentCountCardOperation[i].classList.toggle('hiddenElement');
         }
     }
 }
