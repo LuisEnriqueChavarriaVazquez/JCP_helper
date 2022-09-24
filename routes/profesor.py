@@ -1,4 +1,4 @@
-import email
+from functools import wraps
 from flask import render_template,flash,request, url_for, redirect, session
 from . import routes
 from operacionesBD import Op_profesor
@@ -16,6 +16,37 @@ photos = UploadSet("photos", IMAGES)
 ##
 
 
+
+## funciones para el manejo de las sesiones
+
+def login_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session:
+            return f(*args, *kwargs)
+        else:
+            return render_template('login_general.html')
+
+    return wrap
+
+
+
+# def not_logged_in(f):
+#     @wraps(f)
+#     def wrap(*args, **kwargs):
+#         if 'logged_in' in session:
+#             return redirect(url_for('bienvenidaProfesor'))
+#         else:
+#             return f(*args, *kwargs)
+
+#     return wrap
+
+
+def wrappers(func, *args, **kwargs):
+    def wrapped():
+        return func(*args, **kwargs)
+
+    return wrapped
 
 ##Ruta para la vista de comunidad del profesor
 @routes.route('/comunidad_profesor')
@@ -183,8 +214,10 @@ def login_profesor():
         if result!=None:
             passBD=str(result[5])
             passBD=passBD.encode('utf-8')
-            session['correoS'] = correo
             if bcrypt.checkpw(password,passBD):
+                session['logged_in'] = True
+                session['iDDocente']=result[0]
+                session['correoS'] = result[4]
                 return render_template('profesor/bienvenidaProfesor.html',datos=result)  
             else:
                 flash("Usuario o contraseña incorrectos!")
@@ -196,6 +229,7 @@ def login_profesor():
 
 ##Pagina de bienvenida
 @routes.route('/bienvenidaProfesor')
+@login_required
 def bienvenidaProfesor():
     return render_template('profesor/bienvenidaProfesor.html')
 
