@@ -23,7 +23,8 @@
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/configuraciones" class="btn color2 button-rounded"><i
                             class="material-icons left">settings</i>Configuraciones</a></li>
-                <li><a href="/ayuda" class="btn color2 button-rounded"><i class="material-icons left">help</i>Ayuda</a></li>
+                <li><a href="/ayuda" class="btn color2 button-rounded"><i class="material-icons left">help</i>Ayuda</a>
+                </li>
                 <li><a href="#!" class="btn color3 button-rounded"><i
                             class="material-icons left">directions_run</i>Cerrar sesión</a></li>
             </ul>
@@ -35,23 +36,30 @@
     <ul id="slide-out" class="sidenav colorWhite">
         <li>
             <div class="user-view">
-            <!-- se tiene que estar logeado para ver el nombre y la foto -->
-            {% if datos %}
+                <!-- se tiene que estar logeado para ver el nombre y la foto -->
+                {% if datos %}
                 <div class="background fondoDinamico" id="fondoBienvenida"></div>
-                <a href="/perfil_docente"><img style="border: 3px solid #fff;" class="circle shadow-3e" src="../../static/images/docentes/{{datos[3]}}"></a>
+                <a href="/perfil_docente"><img style="border: 3px solid #fff;" class="circle shadow-3e"
+                        src="../../static/images/docentes/{{datos[3]}}"></a>
                 <a href="#"><span class="white-text name"><b>Cuenta de docente</b></span></a>
                 <a href="#"><span class="white-text name">
-                {{datos[1]}}
-                </span></a>
+                        {{datos[1]}}
+                    </span></a>
+                <a href="#"><span class="white-text name">
+                        {{datos[4]}}
+                    </span></a>
                 <br>
-            {% endif %}
+                {% endif %}
             </div>
         </li>
-        <li><a href="/gestionar_grupos" class="colorTextReverse"><i class="colorTextReverse material-icons">groups_2</i>Gestionar
+        <li><a href="/gestionar_grupos" class="colorTextReverse"><i
+                    class="colorTextReverse material-icons">groups_2</i>Gestionar
                 grupos.</a></li>
-        <li><a href="/gestionar_cuestionarios" class="colorTextReverse"><i class="colorTextReverse material-icons">rule</i>Gestionar
+        <li><a href="/gestionar_cuestionarios" class="colorTextReverse"><i
+                    class="colorTextReverse material-icons">rule</i>Gestionar
                 cuestionarios.</a></li>
-        <li><a href="/gestionar_estadisticas" class="colorTextReverse"><i class="colorTextReverse material-icons">stacked_bar_chart</i>Gestionar
+        <li><a href="/gestionar_estadisticas" class="colorTextReverse"><i
+                    class="colorTextReverse material-icons">stacked_bar_chart</i>Gestionar
                 estadísticas.</a></li>
         <li><a href="/banco_de_datos" class="colorTextReverse"><i
                     class="colorTextReverse material-icons">storage</i>Banco de datos.</a></li>

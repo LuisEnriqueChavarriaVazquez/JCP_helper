@@ -35,16 +35,56 @@ def obtener_profesores_id(correo):
         id_profesor = '0'
         return id_profesor
 
-def obtener_grupos_nombre_desc(id_profesor):
+##Operaciones de la gestion de grupos
+##
+## Nos retorna tuplas con nombre y descripcion de grupos de un profesor dado
+##
+def obtener_grupos_datos_importantes(id_profesor):
     conexion=obtener_conexion()
     grupos=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT nombre,descripcion FROM grupos WHERE IDDocente = %s", (id_profesor))
+        cursor.execute("SELECT IDGrupo,nombre,descripcion,codigo FROM grupos WHERE IDDocente = %s", (id_profesor))
         grupos=cursor.fetchall()
 
     conexion.close()
     return grupos
+
+##
+## Obtiene un codigo de los grupos
+##
+def obtener_grupos_codigo(id_profesor):
+    conexion=obtener_conexion()
+    grupos_codigos=[]
+    grupo = ""
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT codigo FROM grupos WHERE IDDocente = %s", (id_profesor))
+        grupos_codigos=cursor.fetchone()
+    
+    if grupos_codigos is not None:
+        grupo = ''.join(str(grupos_codigos[0]))
+        conexion.close()
+        return grupo
+    else:
+        grupo = '0'
+        return grupo
+##
+## Nos ayuda a eliminar un grupo con un Codigo de grupo en concreto, el cual es un valor único
+## Se ha empleado el codigo porque esta implicito en la DOM
+##
+def delete_grupos(codigoGrupo):
+    conexion=obtener_conexion()
+    confirmacionDeDelete = "Grupo eliminado"
+
+    with conexion.cursor() as cursor:
+        cursor.execute("DELETE from grupos WHERE codigo = %s", (codigoGrupo))
+
+    conexion.close()
+    return confirmacionDeDelete
+##
+## ###### FIN DEL GRUPO DE FUNCIONES DE GESTION DE GRUPOS
+##
 
 
 def login_prof(correo):

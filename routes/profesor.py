@@ -99,6 +99,9 @@ def gestionar_estadisticas():
     return render_template('profesor/a_gestionar_estadisticas.html', graphJSON=graphJSON, header=header,description=description, graphJSON2=graphJSON2, header2=header2,description2=description2)
 
 ##Ruta para la vista de gestion de grupos
+##
+##Bloque para render de la pagina de gestion de grupos
+##
 @routes.route('/gestionar_grupos',methods=['GET','POST'])
 #@login_required
 def gestionar_grupos():
@@ -138,9 +141,13 @@ def gestionar_grupos():
         #Guardo el id del profesor
         id_profesor = Op_profesor.obtener_profesores_id(correoSession)
         #Guardo los grupos de este profesor
-        myGrupos = Op_profesor.obtener_grupos_nombre_desc(id_profesor)
+        myGrupos = Op_profesor.obtener_grupos_datos_importantes(id_profesor)
 
-        return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos)
+        #Guardo los datos del docente (los de la sesion)
+        result = Op_profesor.datos_completos_docente_by_id(session['IDDocente'])
+
+        #domGruposApp.render se usa para poder interactuar con la dom y funciones de python
+        return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos, datos=result)
     else:
         #
         #   Esto es lo que hace cuando se carga la página la primera vez
@@ -157,10 +164,14 @@ def gestionar_grupos():
         id_profesor = Op_profesor.obtener_profesores_id(correoSession)
 
         #Guardo los grupos de este profesor
-        myGrupos = Op_profesor.obtener_grupos_nombre_desc(id_profesor)
+        myGrupos = Op_profesor.obtener_grupos_datos_importantes(id_profesor)
+
+        #Guardo los datos del docente (los de la sesion)
+        result = Op_profesor.datos_completos_docente_by_id(session['IDDocente'])
 
         #Retorno los grupos en la página para que puedan ser impresos
-        return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos)
+        #domGruposApp.render se usa para poder interactuar con la dom y funciones de python
+        return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos, datos=result)
 
 ##
 ## Parte del sign up del profesor

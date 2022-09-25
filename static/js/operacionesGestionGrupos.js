@@ -460,10 +460,10 @@ function interaccionFormularioAgregarGrupos() {
 
     //Activamos la funcion cuando damos click en un input
     generarTemasButton.addEventListener('click', generarInputsTema);
-    
+
     function generarInputsTema() {
-        seccionInputsTemasContenedor.innerHTML = '' 
-        for(var x = 0; x < numeroTemasGrupo.value; x++){
+        seccionInputsTemasContenedor.innerHTML = ''
+        for (var x = 0; x < numeroTemasGrupo.value; x++) {
             let input = document.createElement('input');
             input.classList.add('temaInputBoxElement');
             input.setAttribute('type', 'text');
@@ -474,14 +474,45 @@ function interaccionFormularioAgregarGrupos() {
 
     //Activamos el button para enlistar los temas
     enlistarTemasButton.addEventListener('click', enlistarTemas);
-    function enlistarTemas(){
+    function enlistarTemas() {
         let listado = '';
-        for(var m = 0; m < temaInputBoxElement.length; m++){
+        for (var m = 0; m < temaInputBoxElement.length; m++) {
             listado += temaInputBoxElement[m].value + " ";
         }
 
         temasGrupoInput.value = listado;
     }
+}
+
+function copyCodeGroup() {
+    //Todas las clases disponibles del boton
+    const buttonCopyClasses = document.getElementsByClassName("classIdentifierGroupButtonCopy");
+
+    //Los IDS son los mismo que los values
+    let allCodesIDValues = []
+
+    //Valor del boton
+    let valorButton = "";
+
+    //Guardamos todos los códigos disponibles
+    for(var k = 0; k <= buttonCopyClasses.length - 1; k++){
+        allCodesIDValues[k] = buttonCopyClasses[k].value;
+    }
+
+    console.log(allCodesIDValues);
+    console.log(buttonCopyClasses)
+
+    /*for (var i = 0; i < buttonCopy.length; i++) {
+        buttonCopy[i].addEventListener('click', function(){
+        })
+    }*/
+
+    /*function copiadoTexto(numeroElemento){
+        console.log(numeroElemento)
+        valorButton = buttonCopy[numeroElemento].value   
+        navigator.clipboard.writeText(valorButton);
+        M.toast({ html: 'Código copiado. ' + numeroElemento});
+    }*/
 }
 
 contarGruposAlumnos();
@@ -492,5 +523,6 @@ aplicarFondoSidenavMobile();
 reconocerVoz();
 generadorCodigosGrupo();
 interaccionFormularioAgregarGrupos();
+//copyCodeGroup();
 
 

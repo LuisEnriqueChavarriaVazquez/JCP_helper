@@ -32,12 +32,17 @@
     <section class="operationContainerPrincipal">
         <section class="operationSideNav">
             <div class="infoUserOperation fondoDinamico shadow-2e" id="fondoBienvenida">
+                <!-- se tiene que estar logeado para ver el nombre y la foto -->
+                {% if datos %}
                 <div class="imagenOperationContainer">
-                    <img src="../../static/images/avatares/avatar_1.jpg" class="shadow-2e">
+                    <img src="../../static/images/docentes/{{datos[3]}}" class="shadow-2e">
                 </div>
                 <div class="dataUserOperationContainer">
-                    <p class="colorText">Nombre del usuario</p>
+                    <p class="colorText"> {{datos[1]}}</p>
+                    <p class="colorText" id="correoUserData">{{datos[4]}}</p>
+                    <!--<button value="{{datos[4]}}" id="correoUserData" style="display: none;"></button>-->
                 </div>
+                {% endif %}
             </div>
             <div class="colorGreyWhiter operationsContainerSecondarySideNav">
                 <div class="operationButtonSideNav">
@@ -115,25 +120,30 @@
                 <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
                     <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
                         <div>
-                            <h5 class="titleGroupContentId">{{result_object[0]}}</h5>
+                            <h5 class="titleGroupContentId">{{result_object[1]}}</h5>
                         </div>
                         <div class="studentCountCardOperation">
                             <i class="material-icons">people</i> <span class="contadorAlumnosNumber">0</span>
                         </div>
                     </div>
                     <div class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
-                        <p><b>{{result_object[1]}}</b></p>
+                        <p><b>{{result_object[2]}}</b></p>
                     </div>
                     <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">edit</i></a>
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">content_copy</i></a>
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">delete</i></a>
+                        <button
+                            value="{{result_object[0]}}"
+                            class="classIdentifierGroupButtonEdit waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                class="material-icons">edit</i></button>
+                        <button
+                            value="{{result_object[3]}}"
+                            id="{{result_object[3]}}"
+                            class="classIdentifierGroupButtonCopy waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                class="material-icons">content_copy</i></button>
+                        <button
+                            value="{{result_object[0]}}"
+                            id="{{result_object[0]}}"
+                            class="classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                class="material-icons">delete</i></button>
                     </div>
                 </div>
                 {% endfor %}
