@@ -236,6 +236,10 @@ def login_profesor():
 de momento esta en try except para que no sea a fuerza estar logeado, y
 para que no de error al momento de pasar el IDDocente que no existira sino
 se esta logeado
+
+cuando se descomente @login_required ya no sera necesario el try-except porque antes
+de entrar a la funcion se darac cuenta que no se esta logeado y nos mandara a la pagina
+de login, evitando asi que se lance la excepcion de que no existe el IDDocente
 """
 @routes.route('/bienvenidaProfesor')
 #@login_required

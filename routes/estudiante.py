@@ -1,4 +1,5 @@
 from functools import wraps
+from unittest import result
 from flask import flash, render_template,request,redirect,url_for,session
 from . import routes
 from operacionesBD import Op_estudiante
@@ -56,11 +57,20 @@ def gestionar_grupos_estudiante():
 def signup_Est():
     return render_template('estudiante/signup_est.html')
 
-##Pagina de bienvenida
+
+##Pagina de bienvenida del alumno
+"""
+en este try except pasa lo mismo que con el del profesor, cuando se descomente el 
+@login_required ya no sera necesario porque siempre va  existir el IDAlumno
+"""
 @routes.route('/bienvenidaEstudiante')
 #@login_required
 def bienvenidaEstudiante():
-    return render_template('estudiante/bienvenidaEstudiante.html')
+    try:
+        result=Op_estudiante.datos_completos_alumno_by_id(session["IDAlumno"])
+        return render_template('estudiante/bienvenidaEstudiante.html',datos=result)
+    except:
+        return render_template('estudiante/bienvenidaEstudiante.html')
 
 @routes.route('/nuevo_estudiante',methods=["POST"])
 def nuevo_estudiante():
@@ -120,6 +130,19 @@ def login_estudiante():
             flash("Usuario o contraseña incorrectos!")
             return redirect(url_for('routes.login_general'))       
 
+
+#Perfil del alumno
+"""
+lo mismo para con esta funcion con el try except
+"""
+@routes.route('/perfil_alumno')
+#@login_required
+def perfil_alumno():
+    try:
+        result = Op_estudiante.datos_completos_alumno_by_id(session['IDAlumno'])
+        return render_template('estudiante/perfil_alumno.html',datos=result)
+    except:
+        return render_template('estudiante/perfil_alumno.html')
 
 ##Ruta para que los estudiantes respondan los cuestionarios
 @routes.route('/contestar_cuestionario_estudiante')

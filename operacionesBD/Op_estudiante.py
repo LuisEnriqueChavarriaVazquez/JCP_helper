@@ -36,6 +36,17 @@ def login_est(correo):
     conexion.close()
     return estudiante
 
+
+# va a servir para el perfil del alumno
+def datos_completos_alumno_by_id(IDAlumno):
+    conexion = obtener_conexion()
+    datosAlumnos = None
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT*FROM alumnos WHERE IDAlumno = %s", (IDAlumno))
+        datosAlumnos = cursor.fetchone()
+    conexion.close()
+    return datosAlumnos
+
 #pendiente
 
 # def actualizar_estudiante(nombre, apellidos, edad,grupo, id):
