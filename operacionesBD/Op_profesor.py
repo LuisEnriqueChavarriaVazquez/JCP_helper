@@ -56,6 +56,16 @@ def login_prof(correo):
     conexion.close()
     return profesor
 
+# va a servir para el perfil del docente
+def datos_completos_docente_by_id(IDDocente):
+    conexion = obtener_conexion()
+    datosProfesor = None
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT*FROM docentes WHERE IDDocente = %s", (IDDocente))
+        datosProfesor = cursor.fetchone()
+    conexion.close()
+    return datosProfesor
+
 def insertar_grupo(id_profesor, nombreGrupo,descGrupo,fondoGrupo,codigoGrupo,lenguajesGrupo,temasGrupo):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:

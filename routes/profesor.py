@@ -232,11 +232,33 @@ def login_profesor():
 
 
 ##Pagina de bienvenida
+"""
+de momento esta en try except para que no sea a fuerza estar logeado, y
+para que no de error al momento de pasar el IDDocente que no existira sino
+se esta logeado
+"""
 @routes.route('/bienvenidaProfesor')
 #@login_required
 def bienvenidaProfesor():
-    return render_template('profesor/bienvenidaProfesor.html')
+    try:
+        result = Op_profesor.datos_completos_docente_by_id(session['IDDocente'])
+        return render_template('profesor/bienvenidaProfesor.html',datos=result)
+    except:
+        return render_template('profesor/bienvenidaProfesor.html')
 
+
+#Perfil del docente
+"""
+lo mismo para con esta funcion con el try except
+"""
+@routes.route('/perfil_docente')
+#@login_required
+def perfil_docente():
+    try:
+        result = Op_profesor.datos_completos_docente_by_id(session['IDDocente'])
+        return render_template('profesor/perfil_docente.html',datos=result)
+    except:
+        return render_template('profesor/perfil_docente.html')
 
 
 #Creación cuestionarios

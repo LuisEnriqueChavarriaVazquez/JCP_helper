@@ -1,10 +1,7 @@
 from flask import render_template
 from . import routes
 
-#Este sirve para recibir al usuario
-@routes.route('/perfil_usuario')
-def perfil_usuario():
-    return render_template('general/perfil_usuario.html')
+
 
 #Este sirve para recibir al usuario
 @routes.route('/login_general')
