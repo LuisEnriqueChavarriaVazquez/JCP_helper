@@ -1,4 +1,5 @@
 from functools import wraps
+from unittest import result
 from flask import render_template,flash,request, url_for, redirect, session
 from . import routes
 from operacionesBD import Op_profesor
@@ -140,7 +141,9 @@ def gestionar_grupos():
         #Guardo los grupos de este profesor
         myGrupos = Op_profesor.obtener_grupos_nombre_desc(id_profesor)
 
-        return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos)
+        result=Op_profesor.datos_completos_docente_by_id(id_profesor)
+
+        return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos, datos=result)
     else:
         #
         #   Esto es lo que hace cuando se carga la página la primera vez
@@ -159,8 +162,10 @@ def gestionar_grupos():
         #Guardo los grupos de este profesor
         myGrupos = Op_profesor.obtener_grupos_nombre_desc(id_profesor)
 
+        result=Op_profesor.datos_completos_docente_by_id(id_profesor)
+
         #Retorno los grupos en la página para que puedan ser impresos
-        return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos)
+        return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos, datos=result)
 
 ##
 ## Parte del sign up del profesor
