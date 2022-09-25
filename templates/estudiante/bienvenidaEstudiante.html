@@ -35,14 +35,16 @@
     <ul id="slide-out" class="sidenav">
         <li>
             <div class="user-view">
+                {% if datos %}
                 <div class="background">
                     <img src="../static/images/sidenavImage.jpg" width="100%">
                 </div>
-                
-                <a href="#user"><img class="circle" src="../static/images/user.png"></a>
+
+                <a href="#user"><img class="circle" src="../../static/images/alumnos/{{datos[3]}}"></a>
                 <a href="#name"><span class="white-text name"><b>Cuenta de estudiante</b></span></a>
-                <a href="#name"><span class="white-text name">Nombre del usuario</span></a>
-                <a href="#email"><span class="white-text email">Alias del usuario</span></a>
+                <a href="#name"><span class="white-text name">{{datos[1]}}</span></a>
+                <a href="#email"><span class="white-text email">{{datos[2]}}</span></a>
+                {% endif %}
             </div>
         </li>
         <li><a href="#!"><i class="material-icons">workspaces</i>Gestionar grupos.</a></li>
