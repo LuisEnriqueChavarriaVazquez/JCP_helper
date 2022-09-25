@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Gestionar grupos</title>
+    <title>Gestionar cuestionarios</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -29,12 +29,14 @@
     <section class="operationContainerPrincipal">
         <section class="operationSideNav">
             <div class="infoUserOperation fondoDinamico shadow-2e" id="fondoBienvenida">
+                {% if datos %}
                 <div class="imagenOperationContainer">
-                    <img src="../../static/images/avatares/avatar_1.jpg" class="shadow-2e">
+                    <img src="../../static/images/docentes/{{datos[3]}}" class="shadow-2e">
                 </div>
                 <div class="dataUserOperationContainer">
-                    <p class="colorText">Nombre del usuario</p>
+                    <p class="colorText">{{datos[1]}}</p>
                 </div>
+                {% endif %}
             </div>
             <div class="colorGreyWhiter operationsContainerSecondarySideNav">
                 <div class="operationButtonSideNav">

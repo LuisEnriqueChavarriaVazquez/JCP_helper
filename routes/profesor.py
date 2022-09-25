@@ -1,4 +1,5 @@
 from functools import wraps
+from unittest import result
 from flask import render_template,flash,request, url_for, redirect, session
 from . import routes
 from operacionesBD import Op_profesor
@@ -58,7 +59,12 @@ def comunidad_profesor():
 @routes.route('/gestionar_cuestionarios')
 #@login_required
 def gestionar_cuestionarios():
-    return render_template('profesor/a_gestionar_cuestionarios.html')
+    try:
+        result=Op_profesor.datos_completos_docente_by_id(session["IDDocente"])
+        return render_template('profesor/a_gestionar_cuestionarios.html',datos=result)
+    except:
+        return render_template('profesor/a_gestionar_cuestionarios.html')
+
 
 ##Ruta para la vista de gestion de estadisticas
 @routes.route('/gestionar_estadisticas')
@@ -143,10 +149,8 @@ def gestionar_grupos():
         #Guardo los grupos de este profesor
         myGrupos = Op_profesor.obtener_grupos_datos_importantes(id_profesor)
 
-        #Guardo los datos del docente (los de la sesion)
-        result = Op_profesor.datos_completos_docente_by_id(session['IDDocente'])
+        result=Op_profesor.datos_completos_docente_by_id(id_profesor)
 
-        #domGruposApp.render se usa para poder interactuar con la dom y funciones de python
         return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos, datos=result)
     else:
         #
@@ -169,8 +173,9 @@ def gestionar_grupos():
         #Guardo los datos del docente (los de la sesion)
         result = Op_profesor.datos_completos_docente_by_id(session['IDDocente'])
 
+        result=Op_profesor.datos_completos_docente_by_id(id_profesor)
+
         #Retorno los grupos en la página para que puedan ser impresos
-        #domGruposApp.render se usa para poder interactuar con la dom y funciones de python
         return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos, datos=result)
 
 ##
