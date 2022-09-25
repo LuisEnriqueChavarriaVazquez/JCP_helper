@@ -79,9 +79,45 @@
        
 
            var pregunta= $("#textAreaPreguntaOpccionMultipleCreacion").val();
+
+           var opccionSel = $("input:radio[name ='grupoOpcionesModalOpcionMuliple']:checked").val()
         
+           var checkA = "";
+           var checkB = "";
+           var checkC = "";
+           var checkD = "";
+         
+
+           switch(opccionSel){
+           case "A":
+            checkA = "checked";
+            break;
+            case "B":
+             checkB = "checked";
+            break;
+            case "C":
+             checkC = "checked";
+            break;
+            case "D":
+             checkD = "checked";
+            break;
+           }
            var opcionA =   " <div class='row'>" +
-                                "<div class='col s12'>" +
+
+               "<div class='col s4'>"+
+                  " <p>"+
+                       "<label>"+
+                           "<input  type='radio' "+checkA+" />"+
+                           "<span>Correcta</span>"+
+                       "</label>"+
+                   "</p>"+
+
+
+               "</div>"+
+
+
+
+                                "<div class='col s8'>" +
                                     " <a>Opcion A</a>" +
                                     "<a class='waves-effect waves-light btn ' style='width: 100%; height:50px;'>" +
                                         "<textarea  class='materialize-textarea' style='height: 600px;'>"+
@@ -106,7 +142,19 @@
             }
 
             var   opcionB = " <div class='row "+opcionBOculto+" '>" +
-                                "<div class='col s12'>" +
+
+                 "<div class='col s4'>"+
+                  " <p>"+
+                       "<label>"+
+                           "<input  type='radio' "+checkB+" />"+
+                           "<span>Correcta</span>"+
+                       "</label>"+
+                   "</p>"+
+
+
+               "</div>"+
+
+                                "<div class='col s8'>" +
                                     " <a>Opcion B</a>" +
                                         "<a class='waves-effect waves-light btn ' style='width: 100%; height:50px;'>" +
                                          "<textarea  class='materialize-textarea' style='height: 600px;'>" +
@@ -117,7 +165,19 @@
                              "</div>";
 
             var   opcionC = " <div class='row "+opcionCOculto+" '>" +
-                                "<div class='col s12'>" +
+
+                "<div class='col s4'>"+
+                                " <p>"+
+                                    "<label>"+
+                                        "<input  type='radio' "+checkC+" />"+
+                                        "<span>Correcta</span>"+
+                                    "</label>"+
+                                "</p>"+
+
+
+                            "</div>"+
+                
+                                "<div class='col s8'>" +
                                     " <a>Opcion C</a>" +
                                         "<a class='waves-effect waves-light btn ' style='width: 100%; height:50px;'>" +
                                          "<textarea  class='materialize-textarea' style='height: 600px;'>" +
@@ -128,7 +188,18 @@
                              "</div>";
             
             var   opcionD = " <div class='row "+opcionDOculto+" '>" +
-                                "<div class='col s12'>" +
+
+                                "<div class='col s4'>"+
+                                " <p>"+
+                                    "<label>"+
+                                        "<input  type='radio' "+checkD+" />"+
+                                        "<span>Correcta</span>"+
+                                    "</label>"+
+                                "</p>"+
+
+
+                            "</div>"+
+                                "<div class='col s8'>" +
                                     " <a>Opcion D</a>" +
                                         "<a class='waves-effect waves-light btn ' style='width: 100%; height:50px;'>" +
                                          "<textarea  class='materialize-textarea' style='height: 600px;'>" +
@@ -167,7 +238,7 @@
         });
     });
 
-
+    //Opcion para dar la opccionde rellenar espacioss
     $(document).ready(function () {
             $("#btnGuardarModalRellenarEspaciosCreacion").click(function () {
 
@@ -223,6 +294,9 @@
                      $("#contenedorCuestionarioPreguntas").append(contenedor);
             });
         });
+
+        //Opcion para guardar preguntas de Arrastrar
+
 
 
     </script>
@@ -326,7 +400,19 @@
               <div class="col s12" id="contenedorOpccionesOpccionMultipleModalCreacion">
             
              <div class="row">
-                <div class="col s12">
+            <div class="col s4">
+          
+                <p>
+                    <label>
+                        <input name="grupoOpcionesModalOpcionMuliple" value="A" type="radio" checked />
+                        <span>Correcta</span>
+                    </label>
+                </p>
+           
+           
+            </div>
+                
+                <div class="col s8">
                     <a>Opcion A</a>
                     <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
                         <textarea id="opcionACreacion" class="materialize-textarea"></textarea>
@@ -335,7 +421,21 @@
              </div>
 
                    <div class="row hide" >
-                        <div class="col s12">
+
+                        <div class="col s4">
+                        
+                            <p>
+                                <label>
+                                    <input name="grupoOpcionesModalOpcionMuliple" value="B" type="radio"  />
+                                    <span>Correcta</span>
+                                </label>
+                            </p>
+                        
+                        
+                        </div>
+
+
+                        <div class="col s8">
                             <a>Opcion B</a>
                             <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
                                 <textarea id="opcionBCreacion" class="materialize-textarea"></textarea>
@@ -344,7 +444,19 @@
                     </div>
 
                     <div class="row hide">
-                        <div class="col s12">
+
+                        <div class="col s4">
+                        
+                            <p>
+                                <label>
+                                    <input name="grupoOpcionesModalOpcionMuliple" value="C" type="radio" />
+                                    <span>Correcta</span>
+                                </label>
+                            </p>
+                        
+                        
+                        </div>
+                        <div class="col s8">
                             <a>Opcion C</a>
                             <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
                                 <textarea id="opcionCCreacion" class="materialize-textarea"></textarea>
@@ -353,7 +465,19 @@
                     </div>
 
                     <div class="row hide">
-                        <div class="col s12">
+
+                        <div class="col s4">
+                        
+                            <p>
+                                <label>
+                                    <input name="grupoOpcionesModalOpcionMuliple" value="D" type="radio"  />
+                                    <span>Correcta</span>
+                                </label>
+                            </p>
+                        
+                        
+                        </div>
+                        <div class="col s8">
                             <a>Opcion D</a>
                             <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
                                 <textarea id="opcionDCreacion" class="materialize-textarea"></textarea>
@@ -402,16 +526,7 @@
                 </div>
 
             </div>
-    <!--    <div class="row">
-            <div class="col s12">
-                Blank 1
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12">
-                <input  type="type" class="validate">
-            </div>
-        </div>-->
+  
 
             <div class="row">
                 <div class="col s6">
@@ -463,17 +578,7 @@
                 </div>
             </div>
 
-          <!-- <div class="row">
-                <div class="input-field col s6">
-                    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                    <label for="first_name">First Name</label>
-                </div>
-                <div class="col s6 ">
-                    <a class="waves-effect waves-light btn ">
-                        <input placeholder="Opccion" id="opccion" type="text" class="validate">
-                    </a>
-                </div>
-            </div>-->
+         
           <div class="row">
              <div class="col s12" id="opccionesArrastarModalCreacion">
 
