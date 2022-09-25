@@ -55,6 +55,22 @@
     border-radius: 20px;
 }
 
+@media screen and (max-width: 990px) {
+    .politicasMainContainer{
+        width: 100%;
+        grid-template-columns: 1fr;
+        padding: 30px 30px;
+        box-sizing: border-box;
+    }
+
+    .politicasContainerInfo{
+        margin-top: 20px;
+        padding: 20px 10px;
+        border-radius: 20px;
+        box-sizing: border-box;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .politicasMainContainer{
         width: 100%;
@@ -64,16 +80,17 @@
     }
 
     .politicasContainerInfo{
-        padding: 0px 0px;
+        margin-top: 20px;
+        padding: 0px 5px;
         border-radius: 20px;
         box-sizing: border-box;
     }
 
     .contentPoliticasTexto{
-        padding: 10px 10px;
-        margin: 10px 4px;
+        padding: 10px 12px;
+        margin: 0px 10px;
         border-radius: 20px;
-        background-color: transparent !important;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     }
 }
 

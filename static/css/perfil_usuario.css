@@ -9,6 +9,8 @@
 
 .fotoPerfil {
     width: 160px;
+    height: 160px;
+    margin-bottom: 10px;
     border-radius: 500px;
     border: 5px solid #fff;
 }
@@ -62,8 +64,10 @@
 
     .fotoPerfil {
         width: 150px;
+        height: 150px;
         border-radius: 20px;
         border: none;
+        margin-bottom: 0;
 
         position: absolute;
         left: 40px;
@@ -72,9 +76,11 @@
 
     .allDataUserContainer {
         position: absolute;
+        width: 100%;
         top: 70px;
 
         margin: 10px 25px;
+        padding-left: 40px;
 
         display: flex;
         text-align: left !important;
@@ -112,6 +118,7 @@
 
     .fotoPerfil {
         width: 200px;
+        height: 200px;
         border-radius: 20px;
         border: none;
 
@@ -136,6 +143,7 @@
 
     .allDataUserContainer {
         margin: 10px 50px;
+        padding-left: 40px;
     }
 }
 
