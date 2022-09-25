@@ -59,7 +59,12 @@ def comunidad_profesor():
 @routes.route('/gestionar_cuestionarios')
 #@login_required
 def gestionar_cuestionarios():
-    return render_template('profesor/a_gestionar_cuestionarios.html')
+    try:
+        result=Op_profesor.datos_completos_docente_by_id(session["IDDocente"])
+        return render_template('profesor/a_gestionar_cuestionarios.html',datos=result)
+    except:
+        return render_template('profesor/a_gestionar_cuestionarios.html')
+
 
 ##Ruta para la vista de gestion de estadisticas
 @routes.route('/gestionar_estadisticas')
