@@ -484,35 +484,15 @@ function interaccionFormularioAgregarGrupos() {
     }
 }
 
-function copyCodeGroup() {
-    //Todas las clases disponibles del boton
-    const buttonCopyClasses = document.getElementsByClassName("classIdentifierGroupButtonCopy");
-
-    //Los IDS son los mismo que los values
-    let allCodesIDValues = []
-
-    //Valor del boton
-    let valorButton = "";
-
-    //Guardamos todos los códigos disponibles
-    for(var k = 0; k <= buttonCopyClasses.length - 1; k++){
-        allCodesIDValues[k] = buttonCopyClasses[k].value;
-    }
-
-    console.log(allCodesIDValues);
-    console.log(buttonCopyClasses)
-
-    /*for (var i = 0; i < buttonCopy.length; i++) {
-        buttonCopy[i].addEventListener('click', function(){
-        })
-    }*/
-
-    /*function copiadoTexto(numeroElemento){
-        console.log(numeroElemento)
-        valorButton = buttonCopy[numeroElemento].value   
-        navigator.clipboard.writeText(valorButton);
-        M.toast({ html: 'Código copiado. ' + numeroElemento});
-    }*/
+/*
+*   Este fue agregado de forma interna en el html
+*   con evento onclick debido a que era mucho rollo validar
+*   cada elemento para ver con cual coincidia. 
+*/
+function copyCodeGroup(codigo) {
+    valorButton = codigo  
+    navigator.clipboard.writeText(valorButton);
+    M.toast({ html: 'Código copiado.'});
 }
 
 contarGruposAlumnos();
@@ -523,6 +503,5 @@ aplicarFondoSidenavMobile();
 reconocerVoz();
 generadorCodigosGrupo();
 interaccionFormularioAgregarGrupos();
-//copyCodeGroup();
 
 
