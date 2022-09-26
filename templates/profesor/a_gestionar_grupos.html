@@ -117,7 +117,8 @@
                 <!--Grupos creados-->
                 {% for result_object in grupo %}
                 <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
-                    <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
+                    <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId"
+                        style="background-image: url({{result_object[4]}}), url(../../static/images/fondos/fondo.png); background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: hue;">
                         <div>
                             <h5 class="titleGroupContentId">{{result_object[2]}}</h5>
                         </div>
@@ -146,7 +147,7 @@
         </section>
 
         <!-- Pop up para agregar nuevos grupos  con formulario-->
-        <div id="modal1" class="modal bordered2 colorGreyWhiter" style="height: 90vh !important;">
+        <div id="modal1" class="modal bordered2 colorGrey" style="height: 90vh !important;">
             <div class="modal-content">
                 <h4>Crear nuevo grupo</h4>
                 <p>Ingrese los datos en el formulario para crear un nuevo grupo.</p>
@@ -179,7 +180,7 @@
                     <div class="row">
                         <div class="col s12">
                             <p>Fondo por defecto</p>
-                            <div class="muestraFondoForm fondoDinamico bordered1 shadow-2e"></div>
+                            <div class="muestraFondoForm fondoDinamico bordered1 shadow-2e" id="muestraFondoForm"></div>
                         </div>
                         <br><br><br><br><br>
                         <div class="input-field col s12 m12">
@@ -192,15 +193,15 @@
                         <div class="input-field col s12 m12">
                             <input placeholder="Fondo para el grupo" id="fondoGrupo" name="fondoGrupo" type="text"
                                 value="default">
-                            <label for="fondoGrupo">URL de imagen (use URL de la foto, no del proveedor)</label>
+                            <label for="fondoGrupo">URL de imagen</label>
                         </div>
                     </div>
 
                     <h5>Código del grupo</h5>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="codigoGrupo" style="min-height:55px;" name="codigoGrupo"
-                                class="materialize-textarea" value="" data-length="60"></textarea>
+                            <input type="hidden" id="codigoGrupo" style="min-height:55px;" name="codigoGrupo">
+                            <p class="muestraCodigoGrupo color5 bordered1 truncate" id="muestraCodigoGrupo"></p>
                         </div>
                     </div>
 

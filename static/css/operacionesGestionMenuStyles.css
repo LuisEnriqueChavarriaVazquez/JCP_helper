@@ -204,9 +204,10 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    align-items: center;
+    align-items: stretch;
     flex-direction: column;
 
+    min-height: 100%;
     border-radius: 20px;
 }
 
@@ -221,6 +222,7 @@
 
 .cardOperationGroup div {
     width: 100%;
+    flex: 1;
 }
 
 .sectionCardOperationTitle {
@@ -264,11 +266,14 @@
 }
 
 .sectionCardOperationTitle h5 {
-    margin: 10px 0 15px 0;
+    margin: 16px 0 16px 0;
+    font-size: 16px;
 }
 
 .sectionCardOperationDescription {
-    padding: 0 0 0 20px;
+    padding: 0 14px 0 14px;
+    height: auto;
+    font-size: 12px;
 }
 
 .sectionCardOperationDescriptionList{ /*Para las listas*/

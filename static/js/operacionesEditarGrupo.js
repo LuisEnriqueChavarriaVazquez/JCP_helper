@@ -18,6 +18,30 @@ function interaccionFormularioAgregarGrupos() {
         }
     }
 
+    //Leer el valor del input de fondo
+    fondoGrupoInput.addEventListener('focusout', cambiarFondoMuestra);
+    function cambiarFondoMuestra(){
+        if(fondoGrupoInput.value != ''){
+            muestraFondoForm.setAttribute('style', "background-image: url(\'"+ fondoGrupoInput.value +"\');" + "background-size: cover; background-repeat: no-repeat; background-position: center;");
+            muestraFondoForm.classList.remove('fondoDinamico');
+        }else if(fondoGrupoInput.value == '' || fondoGrupoInput.value == 'default'){
+            muestraFondoForm.classList.add('fondoDinamico');
+        }
+    }
+
+    //Validamos el fondo para ponerlo en la card muestra sin click
+    function validarFondoSinClick(){
+        if(fondoGrupoInput.value == 'default'){
+            muestraFondoForm.classList.add('fondoDinamico');
+        }else{
+            muestraFondoForm.setAttribute('style', "background-image: url(\'"+ fondoGrupoInput.value +"\');" + "background-size: cover; background-repeat: no-repeat; background-position: center;");
+            muestraFondoForm.classList.remove('fondoDinamico');
+        }
+    }
+
+    validarFondoSinClick();
+
+
     /*
         BLOQUE DOS
     */

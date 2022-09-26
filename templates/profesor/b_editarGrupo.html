@@ -33,11 +33,11 @@
         <h4 class="colorTextReverse hide-on-small-only">Formulario de {{groupInfo.2}}</h4>
     </div>
 
-     <!--Contenedor principal-->
-     <section class="contendorFormularioEditarGrupo">
+    <!--Contenedor principal-->
+    <section class="contendorFormularioEditarGrupo">
         <section class="contenedorFormularioPrincipal">
-            <form class="popUpForm bordered2 colorGreyWhiter shadow-2e"
-                action="/updateGroup/{{groupInfo.0}}" method="post">
+            <form class="popUpForm bordered2 colorGreyWhiter shadow-2e" action="/updateGroup/{{groupInfo.0}}"
+                method="post">
                 <h5>Datos del grupo</h5>
                 <div class="row">
                     <div class="input-field col s12 m6">
@@ -45,7 +45,8 @@
                         <label for="nombreGrupo">Nombre de grupo</label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <textarea id="descGrupo" name="descGrupo" class="validate" style="border: 0px solid #000; padding: 10px; margin-top: 5px;"
+                        <textarea id="descGrupo" name="descGrupo" class="validate"
+                            style="border: 0px solid #000; padding: 10px; margin-top: 5px;"
                             data-length="100">{{groupInfo.3}}</textarea>
                         <label for="descGrupo">Descripción del grupo</label>
                     </div>
@@ -55,7 +56,7 @@
                 <div class="row">
                     <div class="col s12">
                         <p>Fondo por defecto</p>
-                        <div class="muestraFondoForm fondoDinamico bordered1 shadow-2e"></div>
+                        <div class="muestraFondoForm fondoDinamico bordered1 shadow-2e" id="muestraFondoForm"></div>
                     </div>
                     <br><br><br><br><br>
                     <div class="input-field col s12 m12">
@@ -69,6 +70,13 @@
                         <input placeholder="Fondo para el grupo" id="fondoGrupo" name="fondoGrupo" type="text"
                             value="{{groupInfo.4}}">
                         <label for="fondoGrupo">URL de imagen</label>
+                    </div>
+                </div>
+
+                <h5>Código del grupo</h5>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <p class="muestraCodigoGrupo color5 bordered1 truncate" id="muestraCodigoGrupo">{{groupInfo.5}}</p>
                     </div>
                 </div>
 

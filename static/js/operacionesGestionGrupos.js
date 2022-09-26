@@ -356,6 +356,8 @@ function generadorCodigosGrupo() {
     const buttonNuevoGrupoMobile = document.getElementById('buttonNuevoGrupoMobile');
     //Accedemos al input de código de grupo
     const codigoGrupo = document.getElementById('codigoGrupo');
+    //Caja para mostrar en el formulario la clave
+    const muestraCodigoGrupo = document.getElementById('muestraCodigoGrupo');
 
     //Cada que abrimos el formulario se asigna nuevo codigo
     buttonNuevoGrupo.addEventListener('click', asignarCodigo);
@@ -367,6 +369,8 @@ function generadorCodigosGrupo() {
         let claveDeGrupo = makeid(60);
         //Asginamos el value a el input
         codigoGrupo.value = claveDeGrupo;
+        //Asignamos la clave a la caja de muestra
+        muestraCodigoGrupo.innerText = claveDeGrupo;
 
         //Generar el código
         function makeid(length) {
@@ -391,16 +395,46 @@ function interaccionFormularioAgregarGrupos() {
     //Seleccionamos el picker para elegir un fondo por defecto
     const fondoDefaultPicker = document.getElementById('fondoDefaultPicker');
     const fondoGrupoInput = document.getElementById('fondoGrupo');
+    const muestraFondoForm = document.getElementById('muestraFondoForm');
+
+    //Caja del titulo de las cards
+    const sectionCardOperationTitle = document.getElementsByClassName('sectionCardOperationTitle');
 
     //Funcion para validar el fondo por defecto
     fondoDefaultPicker.addEventListener('click', validarFondoDefault);
     function validarFondoDefault() {
         if (fondoDefaultPicker.checked != true) {
             fondoGrupoInput.value = '';
+            muestraFondoForm.classList.remove('fondoDinamico');
+            muestraFondoForm.removeAttribute('style');
         } else {
             fondoGrupoInput.value = 'default';
+            muestraFondoForm.classList.add('fondoDinamico');
         }
     }
+
+    //Leer el valor del input de fondo
+    fondoGrupoInput.addEventListener('focusout', cambiarFondoMuestra);
+    function cambiarFondoMuestra(){
+        if(fondoGrupoInput.value != ''){
+            muestraFondoForm.setAttribute('style', "background-image: url(\'"+ fondoGrupoInput.value +"\');" + "background-size: cover; background-repeat: no-repeat; background-position: center;");
+            muestraFondoForm.classList.remove('fondoDinamico');
+        }else if(fondoGrupoInput.value == '' || fondoGrupoInput.value == 'default'){
+            muestraFondoForm.classList.add('fondoDinamico');
+        }
+    }
+
+    //Evalua si las cards tienen fondo por dafault
+    function evaluarSiFondoDefault(){
+        let estiloDeFondo;
+        for(var y = 0; y < sectionCardOperationTitle.length; y++){
+            estiloDeFondo = sectionCardOperationTitle[y].getAttribute('style');
+            if(estiloDeFondo.indexOf("default") != -1){
+                sectionCardOperationTitle[y].removeAttribute('style');
+            }
+        }
+    }
+    evaluarSiFondoDefault();
 
     /*
         BLOQUE DOS

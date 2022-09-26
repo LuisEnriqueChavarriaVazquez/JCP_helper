@@ -60,7 +60,7 @@ create table Grupos(
    IDDocente int not null,
    Nombre varchar (60),
    Descripcion varchar(100),
-   Fondo varchar (60),
+   Fondo varchar (600),
    Codigo varchar (60),
    Lenguajes varchar (60),
    Temas varchar (60),
@@ -104,9 +104,3 @@ create table Contacto_Docente(
    primary key (IDDocente ,Tipo_Contacto,Contacto),
    foreign key (IDDocente) references Docentes(IDDocente)
 );
-
-
-insert into Docentes (IDDocente, Nombre, Alias, Foto, correo, contra, unidad_academica, descripcion) values (1, 'Roberto', 'Robertin', 'htkfkns', 'roberto@gmail.com', 'roberto', 'escom', 'Mi nombre es roberto');
-insert into Docentes (IDDocente, Nombre, Alias, Foto, correo, contra, unidad_academica, descripcion) values (2, 'Luis', 'Luisillo', 'htkfkns', 'luis@gmail.com', 'luis', 'escom', 'Mi nombre es luis');
-insert into Grupos (IDGrupo, IDDocente, Nombre, Descripcion, Fondo, Codigo, Lenguajes, Temas) values (default, 1, 'grupo1', 'grupos descripcion', 'fondo', 'Codigo del grupo', 'Lenguajes', 'Temas');
-insert into Grupos (IDGrupo, IDDocente, Nombre, Descripcion, Fondo, Codigo, Lenguajes, Temas) values (default, 1, 'grupo2', 'grupos descripcion', 'fondo', 'Codigo del grupo', 'Lenguajes', 'Temas');
