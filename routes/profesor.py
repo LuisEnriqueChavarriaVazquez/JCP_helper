@@ -171,12 +171,22 @@ def gestionar_grupos():
         myGrupos = Op_profesor.obtener_grupos_datos_importantes(id_profesor)
 
         #Guardo los datos del docente (los de la sesion)
-        result = Op_profesor.datos_completos_docente_by_id(session['IDDocente'])
 
         result=Op_profesor.datos_completos_docente_by_id(id_profesor)
 
         #Retorno los grupos en la página para que puedan ser impresos
         return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos, datos=result)
+
+##
+##Bloque para eliminar los grupos
+##
+
+@routes.route('/deleteGroup/<string:id>')
+def delete_group(id):
+    #Eliminamos el grupo con el ID dada
+    resultDelete = Op_profesor.delete_grupos(id)
+
+    return redirect(url_for('routes.gestionar_grupos')) 
 
 ##
 ## Parte del sign up del profesor

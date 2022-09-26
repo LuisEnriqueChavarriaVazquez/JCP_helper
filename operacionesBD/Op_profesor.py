@@ -73,13 +73,14 @@ def obtener_grupos_codigo(id_profesor):
 ## Nos ayuda a eliminar un grupo con un Codigo de grupo en concreto, el cual es un valor único
 ## Se ha empleado el codigo porque esta implicito en la DOM
 ##
-def delete_grupos(codigoGrupo):
+def delete_grupos(id_grupo):
     conexion=obtener_conexion()
-    confirmacionDeDelete = "Grupo eliminado"
+    confirmacionDeDelete = True
 
     with conexion.cursor() as cursor:
-        cursor.execute("DELETE from grupos WHERE codigo = %s", (codigoGrupo))
+        cursor.execute("DELETE from grupos WHERE IDGrupo = %s", (id_grupo))
 
+    conexion.commit()
     conexion.close()
     return confirmacionDeDelete
 ##
