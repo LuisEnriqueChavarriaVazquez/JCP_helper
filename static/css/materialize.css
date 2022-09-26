@@ -4335,6 +4335,7 @@ nav .brand-logo {
   display: inline-block;
   font-size: 2.1rem;
   padding: 0;
+  margin-left: 20px;
 }
 
 nav .brand-logo.center {
@@ -4346,6 +4347,7 @@ nav .brand-logo.center {
 @media only screen and (max-width: 992px) {
   nav .brand-logo {
     left: 50%;
+    margin-left: 0px;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
   }

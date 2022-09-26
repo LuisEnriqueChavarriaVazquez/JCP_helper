@@ -1,14 +1,53 @@
+/*Colores positivos*/
 .goodColor{
-    background-color: rgb(187, 255, 190);
-    color: rgb(20, 66, 34);
+    background-color: rgb(187, 255, 190) !important;
+    color: rgb(20, 66, 34) !important;
 }
 
+.goodColorButton{
+    width: 20%;
+    font-weight: 700;
+    background-color: rgb(141, 223, 166) !important;
+    color: rgb(20, 66, 34) !important;
+}
+
+
+/*Colores negativos*/
 .badColor{
-    background-color: rgb(255, 187, 187);
-    color: rgb(71, 20, 20);
+    background-color: rgb(255, 187, 187) !important;
+    color: rgb(71, 20, 20) !important;
 }
 
+.badColorButton{
+    width: 20%;
+    font-weight: 700;
+    background-color: rgb(223, 141, 141) !important;
+    color: rgb(71, 20, 20) !important;
+}
+
+/*Colores soso*/
 .sosoColor{
-    background-color: rgb(255, 228, 187);
-    color: rgb(70, 54, 22);
+    background-color: rgb(255, 228, 187) !important;
+    color: rgb(70, 54, 22) !important;
+}
+
+.sosoColorButton{
+    width: 20%;
+    font-weight: 700;
+    background-color: rgb(223, 208, 141) !important;
+    color: rgb(70, 54, 22) !important;
+}
+
+
+/*Colores info*/
+.infoColor{
+    background-color: rgb(187, 208, 255) !important;
+    color: rgb(22, 41, 70) !important;
+}
+
+.infoColorButton{
+    width: 20%;
+    font-weight: 700;
+    background-color: rgb(141, 160, 223) !important;
+    color: rgb(22, 41, 70) !important;
 }

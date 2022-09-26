@@ -72,7 +72,7 @@
             <ul class="collapsible collapsible-accordion">
                 <li>
                     <a class="collapsible-header colorTextReverse">Temas<i
-                            class="material-icons colorTextReverse">arrow_drop_down</i></a>
+                            class="material-icons colorTextReverse">expand_more</i></a>
                     <div class="collapsible-body">
                         <ul class="colorWhite">
                             <li>
@@ -171,6 +171,27 @@
                                     </li>
                                 </ul>
                             </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <hr>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li>
+                    <a class="collapsible-header colorTextReverse">Adicionales<i
+                            class="material-icons colorTextReverse">expand_more</i></a>
+                    <div class="collapsible-body">
+                        <ul class="colorWhite">
+                            <li><a href="/politica_cookies" class="colorTextReverse"><i
+                                        class="colorTextReverse material-icons">cookie</i>Cookies.</a></li>
+                            <li><a href="/politica_privacidad" class="colorTextReverse"><i
+                                        class="colorTextReverse material-icons">privacy_tip</i>Privacidad.</a></li>
+                            <li><a href="/terminos_condiciones" class="colorTextReverse"><i
+                                        class="colorTextReverse material-icons">gavel</i>Términos.</a></li>
+                            <li><a href="/saber_mas" class="colorTextReverse"><i
+                                        class="colorTextReverse material-icons">rocket</i>Saber más.</a></li>
                         </ul>
                     </div>
                 </li>
@@ -503,6 +524,66 @@
 
     <br><br><br>
 
+    <!--
+        Seccion de notificaciones
+    -->
+
+    <!--Modal para las notificaciones-->
+    <div id="modal1" class="modal bordered2 colorGreyWhiter" style="height: 100vh;">
+        <div class="modal-content">
+            <h4>Notificaciones</h4>
+            <div class="shadow-1 badColor bordered1 paddingerStyleNotificacion colorTextReverse notificacionContador">
+                <h6 class="badColor"><b>Politicas</b></h6>
+                <p class="badColor">¿Desea aceptar las politicas de cookies, de privacidad y los términos y condiciones?
+                </p>
+                <div>
+                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 badColorButton politicasNButton"><i
+                            class="material-icons md-24">done</i></a>
+                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 badColorButton politicasNButton"><i
+                            class="material-icons md-24">close</i></a>
+                </div>
+            </div>
+            <div class="shadow-1 infoColor bordered1 paddingerStyleNotificacion colorTextReverse notificacionContador">
+                <h6 class="infoColor"><b>Sección de ayuda </b></h6>
+                <p class="infoColor">¿Desea visitar la sección de ayuda?</p>
+                <div>
+                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 infoColorButton ayudaNButton"><i
+                            class="material-icons md-24">done</i></a>
+                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 infoColorButton ayudaNButton"><i
+                            class="material-icons md-24">close</i></a>
+                </div>
+            </div>
+            <div class="shadow-1 infoColor bordered1 paddingerStyleNotificacion colorTextReverse notificacionContador">
+                <h6 class="infoColor"><b>Crear un grupo</b></h6>
+                <p class="infoColor">Crear un primer grupo para comenzar</p>
+                <div>
+                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 infoColorButton crearGrupoNButton"><i
+                            class="material-icons md-24">done</i></a>
+                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 infoColorButton crearGrupoNButton"><i
+                            class="material-icons md-24">close</i></a>
+                </div>
+            </div>
+            <div class="shadow-1 sosoColor bordered1 paddingerStyleNotificacion colorTextReverse notificacionContador">
+                <h6 class="sosoColor"><b>Conocer los temas en la sección de configuraciones</b></h6>
+                <p class="sosoColor">Ajuste la página en caso de trastornos visuales</p>
+                <div>
+                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 sosoColorButton configuracionesNButton"><i
+                            class="material-icons md-24">done</i></a>
+                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 sosoColorButton configuracionesNButton"><i
+                            class="material-icons md-24">close</i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Boton para notificaciones-->
+    <div class="fixed-action-btn" id="buttonNotificationOurs">
+        <a class="btn-floating btn-large color3 modal-trigger" href="#modal1">
+            <i class="large material-icons animate__animated" id="iconNotificationOurs">notifications</i>
+        </a>
+        <div id="contadorNotificacion" class="color1 colorText bordered3">0</div>
+    </div>
+
     <!--Metemos el footer en la app-->
     {% include "includes/footer.html" %}
 
@@ -514,6 +595,7 @@
 {% include "includes/footerRecursos.html" %}
 
 <script src="../../static/js/bienvenidaEfectos.js"></script>
+<script src="../../static/js/efectosNotificaciones.js"></script>
 
 
 </html>

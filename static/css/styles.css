@@ -266,3 +266,24 @@ input[type="file"] {
 .buttonPopUp{
 	width: 100%;
 }
+
+/*auto padding*/
+.paddingerStyleNotificacion{
+	padding: 10px 20px 20px 20px;
+	margin-bottom: 10px;
+}
+
+#contadorNotificacion{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+
+	position: absolute;
+	top: 15px;
+	right: 5px;
+	z-index: 1000;
+
+	font-weight: 600;
+
+	width: 20px !important;
+}
