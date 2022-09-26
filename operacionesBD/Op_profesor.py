@@ -110,6 +110,17 @@ def edit_grupos(id_grupo):
     conexion.close()
     return confirmacionDeDelete
 
+def update_grupos(nombreGrupo, descGrupo, fondoGrupo, lenguajesGrupo, temasGrupo, id_grupo):
+    conexion=obtener_conexion()
+    confirmacionDeDelete = True
+
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE grupos SET nombre = %s, descripcion = %s, fondo = %s, lenguajes = %s, temas = %s WHERE IDGrupo = %s", (nombreGrupo, descGrupo, fondoGrupo, lenguajesGrupo, temasGrupo, id_grupo))
+
+    conexion.commit()
+    conexion.close()
+    return confirmacionDeDelete
+
 ##
 ## ###### FIN DEL GRUPO DE FUNCIONES DE GESTION DE GRUPOS
 ##

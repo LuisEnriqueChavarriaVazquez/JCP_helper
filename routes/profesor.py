@@ -201,6 +201,24 @@ def edit_group(id):
     return render_template('profesor/b_editarGrupo.html', groupInfo = pickedGroupData[0])
 
 ##
+##Bloque para update de los grupos
+##
+
+@routes.route('/updateGroup/<id>', methods=['POST'])
+def update_group(id):
+    if request.method == 'POST':
+        #Variables del formulario
+        id_grupo = id
+        nombreGrupo = request.form["nombreGrupo"]
+        descGrupo = request.form["descGrupo"]
+        fondoGrupo = request.form["fondoGrupo"]
+        lenguajesGrupo = request.form["lenguajesGrupo"]
+        temasGrupo = request.form["temasGrupo"]
+        Op_profesor.update_grupos(nombreGrupo, descGrupo, fondoGrupo, lenguajesGrupo, temasGrupo, id_grupo)
+        
+        return redirect(url_for('routes.gestionar_grupos')) 
+
+##
 ## Parte del sign up del profesor
 ##
 

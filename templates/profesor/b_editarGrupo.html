@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Gestionar grupos</title>
+    <title>Editar grupos</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -29,40 +29,45 @@
     </nav>
     <!--Titulos de la página-->
     <div class="title-general">
-        <h5 class="colorTextReverse hide-on-large-only hide-on-med-only">Formulario de edición</h5>
-        <h4 class="colorTextReverse hide-on-small-only">Formulario de edición</h4>
+        <h5 class="colorTextReverse hide-on-large-only hide-on-med-only">Formulario de {{groupInfo.2}}</h5>
+        <h4 class="colorTextReverse hide-on-small-only">Formulario de {{groupInfo.2}}</h4>
     </div>
 
      <!--Contenedor principal-->
      <section class="contendorFormularioEditarGrupo">
         <section class="contenedorFormularioPrincipal">
             <form class="popUpForm bordered2 colorGreyWhiter shadow-2e"
-                action="{{ url_for('routes.gestionar_grupos') }}" method="post">
+                action="/updateGroup/{{groupInfo.0}}" method="post">
                 <h5>Datos del grupo</h5>
                 <div class="row">
                     <div class="input-field col s12 m6">
-                        <input id="nombreGrupo" name="nombreGrupo" type="text" class="validate">
+                        <input id="nombreGrupo" name="nombreGrupo" type="text" class="validate" value="{{groupInfo.2}}">
                         <label for="nombreGrupo">Nombre de grupo</label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <textarea id="descGrupo" name="descGrupo" class="validate materialize-textarea"
-                            data-length="100"></textarea>
+                        <textarea id="descGrupo" name="descGrupo" class="validate" style="border: 0px solid #000; padding: 10px; margin-top: 5px;"
+                            data-length="100">{{groupInfo.3}}</textarea>
                         <label for="descGrupo">Descripción del grupo</label>
                     </div>
                 </div>
 
                 <h5>Diseño</h5>
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="col s12">
+                        <p>Fondo por defecto</p>
+                        <div class="muestraFondoForm fondoDinamico bordered1 shadow-2e"></div>
+                    </div>
+                    <br><br><br><br><br>
+                    <div class="input-field col s12 m12">
                         <label>
                             <input type="checkbox" id="fondoDefaultPicker" class="filled-in" checked="checked" />
                             <span>Fondo por defecto</span>
                         </label>
                     </div>
-                    <br><br><br><br>
-                    <div class="input-field col s12">
+                    <br><br><br><br><br><br>
+                    <div class="input-field col s12 m12">
                         <input placeholder="Fondo para el grupo" id="fondoGrupo" name="fondoGrupo" type="text"
-                            value="default">
+                            value="{{groupInfo.4}}">
                         <label for="fondoGrupo">URL de imagen</label>
                     </div>
                 </div>
@@ -91,7 +96,7 @@
                     <div class="input-field col s12">
                         <h6>Listado de lenguajes</h6>
                         <input placeholder="Escriba los lenguajes de este grupo" id="lenguajesGrupo"
-                            name="lenguajesGrupo" type="text" class="validate" value="Default">
+                            name="lenguajesGrupo" type="text" class="validate" value="{{groupInfo.6}}">
                     </div>
                 </div>
 
@@ -116,11 +121,11 @@
                     <div class="input-field col s12">
                         <h6>Listado de temas</h6>
                         <input placeholder="Escriba los temas del grupo" id="temasGrupo" name="temasGrupo" type="text"
-                            class="validate">
+                            class="validate" value="{{groupInfo.7}}">
                     </div>
                 </div>
 
-                <button type="submit" class="btn-large color2 bordered5 buttonPopUp">Crear</button>
+                <button type="submit" class="btn-large color2 bordered5 buttonPopUp">Editar</button>
             </form>
         </section>
     </section>
