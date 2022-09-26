@@ -529,3 +529,20 @@
         display: none;
     }
 }
+
+/*Estilos de la pagina para editar los grupos*/
+.contendorFormularioEditarGrupo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    padding: 5px 20px 20px 20px;
+}
+
+.contenedorFormularioPrincipal{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+}

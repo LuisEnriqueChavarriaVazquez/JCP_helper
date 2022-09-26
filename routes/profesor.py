@@ -189,6 +189,18 @@ def delete_group(id):
     return redirect(url_for('routes.gestionar_grupos')) 
 
 ##
+##Bloque para editar los grupos
+##
+
+@routes.route('/editGroup/<string:id>')
+def edit_group(id):
+    #Obtenemos los datos del grupo
+    pickedGroupData = Op_profesor.obtener_grupo_datos_importantes_unitario(id)
+
+    #Enviamos al usuario al formulario para editar la data
+    return render_template('profesor/b_editarGrupo.html', groupInfo = pickedGroupData[0])
+
+##
 ## Parte del sign up del profesor
 ##
 

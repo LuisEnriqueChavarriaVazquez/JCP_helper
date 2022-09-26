@@ -119,22 +119,23 @@
                 <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
                     <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId">
                         <div>
-                            <h5 class="titleGroupContentId">{{result_object[1]}}</h5>
+                            <h5 class="titleGroupContentId">{{result_object[2]}}</h5>
                         </div>
                         <div class="studentCountCardOperation">
                             <i class="material-icons">people</i> <span class="contadorAlumnosNumber">0</span>
                         </div>
                     </div>
                     <div class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
-                        <p><b>{{result_object[2]}}</b></p>
+                        <p><b>{{result_object[3]}}</b></p>
                     </div>
                     <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
+                        <!--Botones de cada grupo-->
                         <a
                             href="/editGroup/{{result_object[0]}}"
                             class="classIdentifierGroupButtonEdit waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
                                 class="material-icons">edit</i></a>
                         <a
-                            onclick="copyCodeGroup('{{result_object[3]}}')"
+                            onclick="copyCodeGroup('{{result_object[5]}}')"
                             class="classIdentifierGroupButtonCopy waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
                                 class="material-icons">content_copy</i></a>
                         <a
