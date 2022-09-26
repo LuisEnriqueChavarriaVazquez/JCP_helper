@@ -1,56 +1,90 @@
-.color1 {background-color:  #4d2c4c;}
-.color2 {background-color:  #743b5e;}
-.color3 {background-color:  #b0537a;}
-.color4 {background-color:  #fb7799;}
-.color5 {background-color:  #ffb2bf;}
+.color1 {
+    background-color: #4d2c4c;
+}
 
-.colorGrey {background-color: #dddddd;}
-.colorGreyDarker {background-color: #cacaca;}
-.colorGreyWhiter {background-color: #ececec;}
-.colorWhite {background-color: #fff;}
+.color2 {
+    background-color: #743b5e;
+}
 
-.coloredText {color: #b0537a !important;}
-.colorText {color: #fff !important;}
-.colorTextReverse {color: #000 !important;}
+.color3 {
+    background-color: #b0537a;
+}
 
-.borderDecoration{
+.color4 {
+    background-color: #fb7799;
+}
+
+.color5 {
+    background-color: #ffb2bf;
+}
+
+.colorGrey {
+    background-color: #dddddd;
+}
+
+.colorGreyDarker {
+    background-color: #cacaca;
+}
+
+.colorGreyWhiter {
+    background-color: #ececec;
+}
+
+.colorWhite {
+    background-color: #fff;
+}
+
+.coloredText {
+    color: #b0537a !important;
+}
+
+.colorText {
+    color: #fff !important;
+}
+
+.colorTextReverse {
+    color: #000 !important;
+}
+
+.borderDecoration {
     border-bottom: 5px #b0537a solid;
 }
 
-.borderDecorationStrong{
+.borderDecorationStrong {
     border-bottom: 5px #743b5e solid;
 }
 
 /*Fondos dinámicos*/
-.cardCarouselMainHead{
+.cardCarouselMainHead {
     background-image: url('../../images/fondos/rosa/rosa_2.png');
 }
 
-.cardMain{
+.cardMain {
     background-image: url('../../images/fondos/rosa/rosa_4.png');
 }
 
-.cardMainDesktopPanelHead{
+.cardMainDesktopPanelHead {
     background-image: url('../../images/fondos/rosa/rosa_3.png');
 }
 
-.informeCard{
+.informeCard {
     background-image: url('../../images/fondos/rosa/rosa_6.png');
 }
 
-.iconSecondary{
-    background-image: url('../../images/fondos/rosa/rosa_5.png') ;
+.iconSecondary {
+    background-image: url('../../images/fondos/rosa/rosa_5.png');
 }
 
-.card-bienvenida,.card-bienvenida-text{
+.card-bienvenida,
+.card-bienvenida-text {
     background-image: url('../../images/fondos/rosa/rosa_7.png');
 }
 
-.fondoDinamico{
+.fondoDinamico {
     background-image: url('../../images/fondos/rosa/rosa_1.png');
 }
 
-.icon_app{
+.icon_app {
     background-image: url('../../images/logo_app/pink_icon.png');
 }
 
@@ -65,4 +99,45 @@
 .btn-small:hover {
     background-color: #252525 !important;
     color: #fff !important;
+}
+
+
+/*Color de los formularios dinamico*/
+input:not([type]):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #b0537a;
+    -webkit-box-shadow: 0 1px 0 0 #b0537a;
+    box-shadow: 0 1px 0 0 #b0537a;
+}
+
+input:not([type]):focus:not([readonly])+label,
+input[type=text]:not(.browser-default):focus:not([readonly])+label,
+input[type=password]:not(.browser-default):focus:not([readonly])+label,
+input[type=email]:not(.browser-default):focus:not([readonly])+label,
+input[type=url]:not(.browser-default):focus:not([readonly])+label,
+input[type=time]:not(.browser-default):focus:not([readonly])+label,
+input[type=date]:not(.browser-default):focus:not([readonly])+label,
+input[type=datetime]:not(.browser-default):focus:not([readonly])+label,
+input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label,
+input[type=tel]:not(.browser-default):focus:not([readonly])+label,
+input[type=number]:not(.browser-default):focus:not([readonly])+label,
+input[type=search]:not(.browser-default):focus:not([readonly])+label,
+textarea.materialize-textarea:focus:not([readonly])+label {
+    color: #b0537a;
+}
+
+[type="checkbox"].filled-in:checked+span:not(.lever):after {
+    border: 2px solid #b0537a;
+    background-color: #b0537a;
 }
