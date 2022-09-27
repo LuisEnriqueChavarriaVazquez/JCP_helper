@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Bienvenida estudiante</title>
+    <title>Bienvenida Estudiante</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -10,7 +10,7 @@
 
 </head>
 
-<body class="oculto colorGrey">
+<body class="oculto colorGreyDarker">
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/cargador.html" %}
 
@@ -21,75 +21,186 @@
                     class="material-icons">menu</i></a>
             <p class="titleMobile colorText flow-text hide-on-med-and-up">Panel central.</p>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="configuraciones" class="btn color2 button-rounded"><i
+                <li><a href="/configuraciones" class="btn color2 button-rounded"><i
                             class="material-icons left">settings</i>Configuraciones</a></li>
-                <li><a href="#!" class="btn color2 button-rounded"><i class="material-icons left">help</i>Ayuda</a></li>
+                <li><a href="/ayuda" class="btn color2 button-rounded"><i class="material-icons left">help</i>Ayuda</a>
+                </li>
                 <li><a href="#!" class="btn color3 button-rounded"><i
                             class="material-icons left">directions_run</i>Cerrar sesión</a></li>
             </ul>
         </div>
     </nav>
-    <br><br><br><br>
+    <br><br><br>
 
-
-    <ul id="slide-out" class="sidenav">
+    <!--Menu para los dispositivos moviles-->
+    <ul id="slide-out" class="sidenav colorWhite">
         <li>
             <div class="user-view">
+                <!-- se tiene que estar logeado para ver el nombre y la foto -->
                 {% if datos %}
-                <div class="background">
-                    <img src="../static/images/sidenavImage.jpg" width="100%">
-                </div>
-
-                <a href="/perfil_alumno"><img style="border: 3px solid #fff;" class="circle shadow-3e" src="../../static/images/alumnos/{{datos[3]}}"></a>
+                <div class="background fondoDinamico" id="fondoBienvenida"></div>
+                <a href="/perfil_alumno"><img style="border: 3px solid #fff;" class="circle shadow-3e"
+                        src="../../static/images/alumnos/{{datos[3]}}"></a>
                 <a href="#"><span class="white-text name"><b>Cuenta de estudiante</b></span></a>
-                <a href="#"><span class="white-text name">{{datos[1]}}</span></a>
+                <a href="#"><span class="white-text name" style="margin-top: 0;">
+                        {{datos[1]}}
+                    </span></a>
+                <a href="#"><span class="white-text name" style="margin-top: 0;">
+                        {{datos[4]}}
+                    </span></a>
+                <br>
                 {% endif %}
             </div>
         </li>
-        <li><a href="#!"><i class="material-icons">workspaces</i>Gestionar grupos.</a></li>
-        <li><a href="#!"><i class="material-icons">rule</i>Gestionar cuestionarios.</a></li>
-        <li><a href="#!"><i class="material-icons">poll</i>Gestionar estadísticas.</a></li>
-        <li><a href="#!"><i class="material-icons">supervised_user_circle</i>Comunidad.</a></li>
+        <li><a href="/gestionar_grupos_alumno" class="colorTextReverse"><i
+                    class="colorTextReverse material-icons">groups_2</i>
+                Mis grupos.</a></li>
+        <li><a href="/gestionar_resultados_alumno" class="colorTextReverse"><i
+                    class="colorTextReverse material-icons">grade</i>Mis resultados.</a></li>
         <hr>
-        <li><a href="#!"><i class="material-icons">school</i>Tutorial.</a></li>
-        <li><a href="configuraciones"><i class="material-icons">settings</i>Configuraciones.</a></li>
-        <li><a href="#!"><i class="material-icons">help</i>Ayuda.</a></li>
+        <li><a href="/configuraciones" class="colorTextReverse"><i
+                    class="colorTextReverse material-icons">settings</i>Configuraciones.</a></li>
+        <li><a href="/ayuda" class="colorTextReverse"><i class="colorTextReverse material-icons">help</i>Ayuda.</a></li>
+        <hr>
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
                 <li>
-                    <a class="collapsible-header">Temas<i class="material-icons">arrow_drop_down</i></a>
+                    <a class="collapsible-header colorTextReverse">Temas<i
+                            class="material-icons colorTextReverse">expand_more</i></a>
                     <div class="collapsible-body">
-                        <ul>
-                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresDefault">Normal</a>
+                        <ul class="colorWhite">
+                            <li>
+                                <ul class="collapsible collapsible-accordion">
+                                    <li>
+                                        <a class="collapsible-header colorTextReverse">Temas clásicos<i
+                                                class="material-icons colorTextReverse">arrow_drop_down</i></a>
+                                        <div class="collapsible-body">
+                                            <ul class="colorWhite">
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="coloresDefault" class="colorTextReverse">Normal</a>
+                                                </li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="coloresAqua" class="colorTextReverse">Aqua</a></li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="coloresBlue" class="colorTextReverse">Azul</a></li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="coloresBronce" class="colorTextReverse">Bronce</a>
+                                                </li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="coloresCafe" class="colorTextReverse">Cafe</a></li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="coloresGotico" class="colorTextReverse">Gótico</a>
+                                                </li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="coloresNaranja" class="colorTextReverse">Naranja</a>
+                                                </li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="coloresPink" class="colorTextReverse">Rosa</a></li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="coloresPurple" class="colorTextReverse">Purpura</a>
+                                                </li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="coloresRed" class="colorTextReverse">Rojo</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
                             </li>
-                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresAqua">Aqua</a></li>
-                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBlue">Azul</a></li>
-                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBronce">Bronce</a>
+                            <li>
+                                <ul class="collapsible collapsible-accordion">
+                                    <li>
+                                        <a class="collapsible-header colorTextReverse">Temas oscuros<i
+                                                class="material-icons colorTextReverse">arrow_drop_down</i></a>
+                                        <div class="collapsible-body">
+                                            <ul class="colorWhite">
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="coloresModoOscuro" class="colorTextReverse">Modo
+                                                        Oscuro</a></li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="dark_aqua" class="colorTextReverse">Oscuro aqua</a>
+                                                </li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="dark_blue" class="colorTextReverse">Oscuro azul</a>
+                                                </li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="dark_green" class="colorTextReverse">Oscuro verde</a>
+                                                </li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="dark_orange" class="colorTextReverse">Oscuro
+                                                        naranja</a></li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="dark_pink" class="colorTextReverse">Oscuro rosa</a>
+                                                </li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="dark_purple" class="colorTextReverse">Oscuro purpura</a>
+                                                </li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="dark_red" class="colorTextReverse">Oscuro rojo</a></li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="dark_yellow" class="colorTextReverse">Oscuro amarillo</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
                             </li>
-                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresCafe">Cafe</a></li>
-                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresGotico">Gótico</a>
+                            <li>
+                                <ul class="collapsible collapsible-accordion">
+                                    <li>
+                                        <a class="collapsible-header colorTextReverse">Accesibilidad<i
+                                                class="material-icons colorTextReverse">arrow_drop_down</i></a>
+                                        <div class="collapsible-body">
+                                            <ul class="colorWhite">
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="deuteranomalia" class="colorTextReverse">Deuteranomalia</a>
+                                                </li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="deuteranopia" class="colorTextReverse">Deuteranopia</a></li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="protanopia" class="colorTextReverse">Protanopia</a></li>
+                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                        id="tritanopia" class="colorTextReverse">Tritanopia</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
                             </li>
-                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresNaranja">Naranja</a>
-                            </li>
-                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPink">Rosa</a></li>
-                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPurple">Purpura</a>
-                            </li>
-                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresRed">Rojo</a></li>
-                            <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresModoOscuro">Modo
-                                    Oscuro</a></li>
                         </ul>
                     </div>
                 </li>
             </ul>
         </li>
         <hr>
-        <li><a href="#!"><i class="material-icons">directions_run</i>Cerrar sesión.</a></li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li>
+                    <a class="collapsible-header colorTextReverse">Adicionales<i
+                            class="material-icons colorTextReverse">expand_more</i></a>
+                    <div class="collapsible-body">
+                        <ul class="colorWhite">
+                            <li><a href="/politica_cookies" class="colorTextReverse"><i
+                                        class="colorTextReverse material-icons">cookie</i>Cookies.</a></li>
+                            <li><a href="/politica_privacidad" class="colorTextReverse"><i
+                                        class="colorTextReverse material-icons">privacy_tip</i>Privacidad.</a></li>
+                            <li><a href="/terminos_condiciones" class="colorTextReverse"><i
+                                        class="colorTextReverse material-icons">gavel</i>Términos.</a></li>
+                            <li><a href="/saber_mas" class="colorTextReverse"><i
+                                        class="colorTextReverse material-icons">rocket</i>Saber más.</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <hr>
+        <li><a href="#!" class="colorTextReverse"><i class="material-icons colorTextReverse">directions_run</i>Cerrar
+                sesión.</a></li>
     </ul>
 
+    <!--Cuerpo principal del documento-->
     <section class="mainBodyAdicional">
-        <div class="title-general colorGrey">
-            <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Menú de opciones</h4>
-            <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Menú de opciones</h3>
+        <div class="title-general colorGreyDarker">
+            <h5 class="hide-on-large-only">Menú de opciones</h5>
+            <h4 class="hide-on-med-and-down">Menú de opciones</h4>
         </div>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -100,163 +211,93 @@
         {% endfor %}
         {% endif %}
         {% endwith %}
-        <!--Para dispositivos de tabletas-->
-        <section class="hide-on-small-only hide-on-med-only centerAligner verticalAligner colorGrey" style="padding: 30px;">
+        <!--Para dispositivos de escritorio-->
+        <section class="hide-on-small-only hide-on-med-only centerAligner verticalAligner colorGreyDarker"
+            style="padding: 30px;">
             <section class="centerAligner horizontalAligner">
-                <div class="cardMainDesktopPanel shadow-2 bordered2">
-                    <div class="cardMainDesktopPanelHead centerAligner">Gestionar grupos</div>
-                    <div class="centerAligner horizontalAligner">
-                        <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
-                            <p><i class="material-icons">workspaces</i></p>
+                <a href="gestionar_grupos_alumno">
+                    <div class="borderDecoration cardMainDesktopPanel shadow-2 bordered2">
+                        <div class="cardMainDesktopPanelHead centerAligner">Mis grupos</div>
+                        <div class="centerAligner horizontalAligner">
+                            <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
+                                <p><i class="material-icons colorTextReverse">groups_2</i></p>
+                            </div>
+                            <div
+                                class="cardMainDesktopPanelRight centerAlignerNoWidth colorTextReverse colorGreyWhiter">
+                                Acceda a sus grupos y resuelva sus cuestionarios.</div>
                         </div>
-                        <div class="cardMainDesktopPanelRight centerAlignerNoWidth colorGreyWhiter">Crear, editar,
-                            eliminar y administrar los grupos de estudiantes.</div>
                     </div>
-                </div>
+                </a>
 
-                <div class="cardMainDesktopPanel shadow-2 bordered2">
-                    <div class="cardMainDesktopPanelHead centerAligner">Gestionar cuestionarios</div>
-                    <div class="centerAligner horizontalAligner">
-                        <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
-                            <p><i class="material-icons">rule</i></p>
+                <a href="gestionar_resultados_alumno">
+                    <div class="borderDecoration cardMainDesktopPanel shadow-2 bordered2">
+                        <div class="cardMainDesktopPanelHead centerAligner">Mis cuestionarios</div>
+                        <div class="centerAligner horizontalAligner">
+                            <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
+                                <p><i class="material-icons colorTextReverse">grade</i></p>
+                            </div>
+                            <div
+                                class="cardMainDesktopPanelRight centerAlignerNoWidth colorTextReverse colorGreyWhiter">
+                                Revise sus resultado obtenidos en los cuestionarios.</div>
                         </div>
-                        <div class="cardMainDesktopPanelRight centerAlignerNoWidth colorGreyWhiter">Crear, editar, eliminar,
-                            administrar los cuestionarios.</div>
                     </div>
-                </div>
-            </section>
-
-            <section class="centerAligner horizontalAligner">
-                <div class="cardMainDesktopPanel shadow-2 bordered2">
-                    <div class="cardMainDesktopPanelHead centerAligner">Gestionar estadísticas</div>
-                    <div class="centerAligner horizontalAligner">
-                        <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
-                            <p><i class="material-icons">poll</i></p>
-                        </div>
-                        <div class="cardMainDesktopPanelRight centerAlignerNoWidth colorGreyWhiter">Ver estadísticas diversas sobre
-                            los grupos creados y las pruebas publicadas.</div>
-                    </div>
-                </div>
-
-                <div class="cardMainDesktopPanel shadow-2 bordered2">
-                    <div class="cardMainDesktopPanelHead centerAligner">Comunidad</div>
-                    <div class="centerAligner horizontalAligner">
-                        <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
-                            <p><i class="material-icons">supervised_user_circle</i></p>
-                        </div>
-                        <div class="cardMainDesktopPanelRight centerAlignerNoWidth colorGreyWhiter">Acceder a la comunidad para poder
-                            compartir y ver cuestionarios.</div>
-                    </div>
-                </div>
+                </a>
             </section>
         </section>
 
         <!--Para dispositivos de tabletas-->
-        <section class="hide-on-small-only hide-on-large-only centerAligner verticalAligner colorGrey">
+        <section class="hide-on-small-only hide-on-large-only centerAligner verticalAligner colorGreyDarker">
             <section class="centerAligner horizontalAligner containerCardsDesktop">
-                <div class="shadow-4 bordered2 cardMainCarouselContainer">
-                    <div class="centerAligner cardCarouselMainHead">
-                        <p><i class="material-icons">workspaces</i></p>
+                <a href="gestionar_grupos_alumno">
+                    <div class="borderDecoration shadow-4 bordered2 cardMainCarouselContainer">
+                        <div class="centerAligner cardCarouselMainHead">
+                            <p><i class="material-icons">groups_2</i></p>
+                        </div>
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner">Gestionar
+                            grupos</div>
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner">Acceda a sus grupos y resuelva sus cuestionarios.</div>
                     </div>
-                    <div class="colorGreyWhiter cardCarouselMainBody centerAligner">Gestionar grupos</div>
-                    <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">Crear, editar, eliminar y
-                        administrar los grupos de estudiantes.</div>
-                </div>
+                </a>
 
-                <div class="shadow-4 bordered2 cardMainCarouselContainer">
-                    <div class="centerAligner cardCarouselMainHead">
-                        <p><i class="material-icons">rule</i></p>
+                <a href="gestionar_resultados_alumno">
+                    <div class="borderDecoration shadow-4 bordered2 cardMainCarouselContainer">
+                        <div class="centerAligner cardCarouselMainHead">
+                            <p><i class="material-icons">grade</i></p>
+                        </div>
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner">Gestionar
+                            cuestionarios</div>
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner">Revise sus resultado obtenidos en los cuestionarios.</div>
                     </div>
-                    <div class="colorGreyWhiter cardCarouselMainBody centerAligner">Gestionar cuestionarios</div>
-                    <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">Crear, editar, eliminar,
-                        administrar los cuestionarios.</div>
-                </div>
-            </section>
-
-            <section class="centerAligner horizontalAligner containerCardsDesktop">
-                <div class="shadow-4 bordered2 cardMainCarouselContainer">
-                    <div class="centerAligner cardCarouselMainHead">
-                        <p><i class="material-icons">poll</i></p>
-                    </div>
-                    <div class="colorGreyWhiter cardCarouselMainBody centerAligner">Gestionar estadísticas</div>
-                    <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">Ver estadísticas diversas sobre
-                        los grupos creados y las pruebas publicadas.</div>
-                </div>
-
-                <div class="shadow-4 bordered2 cardMainCarouselContainer">
-                    <div class="centerAligner cardCarouselMainHead">
-                        <p><i class="material-icons">supervised_user_circle</i></p>
-                    </div>
-                    <div class="colorGreyWhiter cardCarouselMainBody centerAligner">Comunidad</div>
-                    <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">Acceder a la comunidad para poder
-                        compartir y ver cuestionarios.</div>
-                </div>
+                </a>
             </section>
             <br><br>
         </section>
 
         <!--Para dispositivos móviles-->
-        <section class="owl-carousel owl-theme hide-on-med-and-up colorGrey">
+        <section class="owl-one owl-carousel owl-theme hide-on-med-and-up colorGreyDarker">
             <div class="item">
-                <a href="gestionar_grupos">
-                    <div class="shadow-2e bordered2">
+                <a href="gestionar_grupos_alumno">
+                    <div class="borderDecoration shadow-2e bordered2">
                         <div class="centerAligner cardCarouselMainHead">
-                            <p><i class="material-icons">workspaces</i></p>
+                            <p><i class="material-icons">groups_2</i></p>
                         </div>
-                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Gestionar
-                            grupos</div>
+                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Mis grupos</div>
                         <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">
-                            <p class="center-align colorTextReverse">Crear, editar, eliminar y administrar los grupos de
-                                estudiantes.</p>
+                            <p class="center-align colorTextReverse">Acceda a sus grupos y resuelva sus cuestionarios.</p>
                         </div>
                     </div>
                 </a>
             </div>
 
             <div class="item">
-                <a href="gestionar_cuestionarios">
-                    <div class="shadow-2e bordered2">
+                <a href="gestionar_resultados_alumno">
+                    <div class="borderDecoration shadow-2e bordered2">
                         <div class="centerAligner cardCarouselMainHead">
-                            <p><i class="material-icons">style</i></p>
+                            <p><i class="material-icons">grade</i></p>
                         </div>
-                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Gestionar
-                            cuestionarios</div>
+                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Mis resultados</div>
                         <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">
-                            <p class="center-align colorTextReverse">Crear, editar, eliminar, administrar los
-                                cuestionarios.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="item">
-                <a href="gestionar_estadisticas">
-                    <div class="shadow-2e bordered2">
-                        <div class="centerAligner cardCarouselMainHead">
-                            <p><i class="material-icons">poll</i></p>
-                        </div>
-                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Gestionar
-                            estadísticas</div>
-                        <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">
-                            <p class="center-align colorTextReverse">Ver estadísticas diversas sobre los grupos creados
-                                y
-                                las pruebas
-                                publicadas.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="item">
-                <a href="comunidad_profesor">
-                    <div class="shadow-2e bordered2">
-                        <div class="centerAligner cardCarouselMainHead">
-                            <p><i class="material-icons">supervised_user_circle</i></p>
-                        </div>
-                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Comunidad</div>
-                        <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">
-                            <p class="center-align colorTextReverse">Acceder a la comunidad para poder compartir y ver
-                                cuestionarios.</p>
+                            <p class="center-align colorTextReverse">Revise sus resultado obtenidos en los cuestionarios.</p>
                         </div>
                     </div>
                 </a>
@@ -266,27 +307,89 @@
             </div>
         </section>
 
-        <!--Resumen de actividad-->
-        <section class="centerAligner verticalAligner mainBody">
-            <div class="title-general">
-                <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Resumen de actividad</h4>
-                <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Resumen de actividad</h3>
+        <!--Buscador de grupos-->
+        <section class="colorGreyWhiter contenedorBuscadorGrupo">
+            <div class="buscadorContainerMainStudent">
+                <input type="text" class="browser-default shadow-1 flow-text bordered5" placeholder="🔎 Ingrese su código de grupo">
             </div>
-            <div class="rounded4 colorGrey shadow-2" style="width: 100%; margin: 0 40px 0 40px; padding: 0 0 0 30px;">
-                <p>Futuros recuadros</p>
-            </div><br>
-            <div class="rounded4 colorGrey shadow-2" style="width: 100%; margin: 0 40px 0 40px; padding: 0 0 0 30px;">
-                <p>Futuros recuadros</p>
-            </div><br>
-            <div class="rounded4 colorGrey shadow-2" style="width: 100%; margin: 0 40px 0 40px; padding: 0 0 0 30px;">
-                <p>Futuros recuadros</p>
-            </div><br>
+            <div class="resultadoContainerMainStudent">
+                <div class="cardBusquedaGrupoMain shadow-3e">
+                    <div class="part1cardBusquedaGrupoMain fondoDinamico" style="background-color: url();">
+
+                    </div>
+                    <div class="part2cardBusquedaGrupoMain colorGreyDarker colorTextReverse">
+                        Nombre
+                    </div>
+                    <div class="part3cardBusquedaGrupoMain colorGrey">
+                        Descripción del grupo a buscar
+                    </div>
+                    <div class="part4cardBusquedaGrupoMain colorGreyDarker">
+                        <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 color2 colorText politicasNButton">Entrar</a>
+                    </div>
+                </div>
+            </div>
         </section>
 
-
     </section>
+    <!--
+        Seccion de notificaciones
+    -->
 
-    <br><br><br>
+    <!--Modal para las notificaciones-->
+    <div id="modal1" class="modal bordered2 colorGreyWhiter" style="height: 100vh;">
+        <div class="modal-content">
+            <h4>Notificaciones</h4>
+            <div class="shadow-1 badColor bordered1 paddingerStyleNotificacion colorTextReverse notificacionContador">
+                <h6 class="badColor"><b>Politicas</b></h6>
+                <p class="badColor">¿Desea aceptar las politicas de cookies, de privacidad y los términos y condiciones?
+                </p>
+                <div>
+                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 badColorButton politicasNButton"><i
+                            class="material-icons md-24">done</i></a>
+                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 badColorButton politicasNButton"><i
+                            class="material-icons md-24">close</i></a>
+                </div>
+            </div>
+            <div class="shadow-1 infoColor bordered1 paddingerStyleNotificacion colorTextReverse notificacionContador">
+                <h6 class="infoColor"><b>Sección de ayuda </b></h6>
+                <p class="infoColor">¿Desea visitar la sección de ayuda?</p>
+                <div>
+                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 infoColorButton ayudaNButton"><i
+                            class="material-icons md-24">done</i></a>
+                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 infoColorButton ayudaNButton"><i
+                            class="material-icons md-24">close</i></a>
+                </div>
+            </div>
+            <div class="shadow-1 infoColor bordered1 paddingerStyleNotificacion colorTextReverse notificacionContador">
+                <h6 class="infoColor"><b>Crear un grupo</b></h6>
+                <p class="infoColor">Crear un primer grupo para comenzar</p>
+                <div>
+                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 infoColorButton crearGrupoNButton"><i
+                            class="material-icons md-24">done</i></a>
+                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 infoColorButton crearGrupoNButton"><i
+                            class="material-icons md-24">close</i></a>
+                </div>
+            </div>
+            <div class="shadow-1 sosoColor bordered1 paddingerStyleNotificacion colorTextReverse notificacionContador">
+                <h6 class="sosoColor"><b>Conocer los temas en la sección de configuraciones</b></h6>
+                <p class="sosoColor">Ajuste la página en caso de trastornos visuales</p>
+                <div>
+                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 sosoColorButton configuracionesNButton"><i
+                            class="material-icons md-24">done</i></a>
+                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 sosoColorButton configuracionesNButton"><i
+                            class="material-icons md-24">close</i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Boton para notificaciones-->
+    <div class="fixed-action-btn" id="buttonNotificationOurs">
+        <a class="btn-floating btn-large color3 modal-trigger" href="#modal1">
+            <i class="large material-icons animate__animated" id="iconNotificationOurs">notifications</i>
+        </a>
+        <div id="contadorNotificacion" class="color1 colorText bordered3">0</div>
+    </div>
 
     <!--Metemos el footer en la app-->
     {% include "includes/footer.html" %}
@@ -297,6 +400,9 @@
 
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
+
+<script src="../../static/js/bienvenidaEfectos.js"></script>
+<script src="../../static/js/efectosNotificaciones.js"></script>
 
 
 </html>

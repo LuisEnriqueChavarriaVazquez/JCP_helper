@@ -24,27 +24,36 @@ h2,h3{
 /* Mensaje de error en el login*/
 #error_login {
 	text-align: center;
-	background-color: #EB5353;
+    background-color: rgb(223, 141, 141) !important;
 	padding: 3px 3px;
-	margin-bottom: 15px;
-	margin-top: -20px;
+	margin-bottom: 15px !important;
+	border-radius: 500px;
+	width: 70%;
+	margin: auto;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 #error_login p{
-	color: #fff;
+	font-weight: 900;
+	font-size: 16px;
+    color: rgb(71, 20, 20) !important;
 	font-family: 'Roboto', sans-serif;
 }
 
 /*Mensaje de login exitoso*/
 #login_success {
 	text-align: center;
-	background-color: #357C3C;
+    background-color: rgb(141, 223, 166) !important;
 	padding: 3px 3px;
-	margin-bottom: 15px;
-	width: 60%;
+	margin-bottom: 15px !important;
+	border-radius: 500px;
+	width: 70%;
 	margin: auto;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 #login_success p{
-	color: #fff;
+	font-weight: 900;
+	font-size: 16px;
+    color: rgb(20, 66, 34) !important;
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -304,4 +313,139 @@ input[type="file"] {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
+}
+
+/*buscador para la pagina de bienvenida de alumno*/
+.contenedorBuscadorGrupo{
+	width: 100%;
+	height: 400px;
+}
+
+@media screen and (max-width: 600px) {
+    .contenedorBuscadorGrupo{
+		margin-top: 50px;
+	}
+}
+
+.buscadorContainerMainStudent{
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.buscadorContainerMainStudent input{
+	width: 80%;
+	padding: 15px 20px;
+    font-size: 18px;
+    display: inline-block;
+    border: #fff solid 0px;
+    color: #000;
+    outline: none !important;
+    border-radius: 500px;
+
+	position: relative;
+	top: -25px;
+}
+
+.resultadoContainerMainStudent{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cardBusquedaGrupoMain{
+	width: 80%;
+	border-radius: 20px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr) ;
+	grid-template-rows: repeat(4, 60px);
+	grid-template-areas:
+		"area1 area2 area2"
+		"area1 area3 area3"
+		"area1 area3 area3"
+		"area1 area4 area4"
+	;
+	gap: 0;
+	margin: 20px;
+}
+
+
+.part1cardBusquedaGrupoMain{
+	grid-area: area1;
+	border-radius: 20px 0 0 20px;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.part2cardBusquedaGrupoMain{
+	grid-area: area2;
+	border-radius: 0 20px 0 0;
+	font-size: 20px;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	padding:  0 0 0 10px;
+}
+
+.part3cardBusquedaGrupoMain{
+	grid-area: area3;
+	padding: 10px;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.part4cardBusquedaGrupoMain{
+	grid-area: area4;
+	border-radius: 0 0 20px 0;
+	padding: 5px 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.part4cardBusquedaGrupoMain a{
+	width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+	.cardBusquedaGrupoMain{
+		width: 80%;
+		border-radius: 10px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr) ;
+		grid-template-rows: 60px auto 60px;
+		grid-template-areas:
+			"area2 area2 area2"
+			"area3 area3 area3"
+			"area4 area4 area4"
+		;
+		gap: 0;
+		margin: 20px;
+	}
+
+	.part1cardBusquedaGrupoMain{
+		display: none;
+	}
+
+	.part2cardBusquedaGrupoMain{
+		border-radius: 10px 10px 0 0;
+		padding-left: 20px;
+	}
+
+	.part3cardBusquedaGrupoMain{
+		padding: 10px 20px;
+	}
+	
+	.part4cardBusquedaGrupoMain{
+		border-radius: 0 0 10px 10px;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.cardBusquedaGrupoMain{
+		width: 60%;
+	}
 }

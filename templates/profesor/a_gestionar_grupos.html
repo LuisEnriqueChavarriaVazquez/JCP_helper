@@ -34,7 +34,9 @@
             <div class="infoUserOperation fondoDinamico shadow-2e" id="fondoBienvenida">
                 {% if datos %}
                 <div class="imagenOperationContainer">
-                    <img src="../../static/images/docentes/{{datos[3]}}" class="shadow-2e">
+                    <a href="/perfil_docente">
+                        <img src="../../static/images/docentes/{{datos[3]}}" class="shadow-2e circle" style="border: 3px solid #fff; width: 80px;">
+                    </a>
                 </div>
                 <div class="dataUserOperationContainer">
                     <p class="colorText"> {{datos[1]}}</p>
@@ -125,10 +127,12 @@
                             </div>
                             <div class="studentCountCardOperation">
                                 <div>
-                                    <i class="material-icons md-18">people</i> <span class="contadorAlumnosNumber">0</span>
+                                    <i class="material-icons md-18">people</i> <span
+                                        class="contadorAlumnosNumber">0</span>
                                 </div>
                                 <div>
-                                    <i class="material-icons md-18">article</i> <span class="contadorAlumnosNumber">0</span>
+                                    <i class="material-icons md-18">article</i> <span
+                                        class="contadorAlumnosNumber">0</span>
                                 </div>
                             </div>
                         </div>
@@ -145,8 +149,8 @@
                                 class="classIdentifierGroupButtonCopy waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
                                     class="material-icons md-24">content_copy</i></a>
                             <a href="/viewGroup/{{result_object[0]}}"
-                                    class="modal-trigger classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                        class="material-icons md-24">visibility</i></a>
+                                class="modal-trigger classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                    class="material-icons md-24">visibility</i></a>
                             <a href="#modal2"
                                 class="modal-trigger classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
                                     class="material-icons md-24">delete</i></a>
