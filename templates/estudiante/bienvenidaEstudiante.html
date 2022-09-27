@@ -204,18 +204,20 @@
         </div>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
+        {% if datosGrupo != Null %}
         {% for message in messages %}
         <div id="login_success">
             <p>{{ message }}</p>
         </div>
         {% endfor %}
         {% endif %}
+        {% endif %}
         {% endwith %}
         <!--Para dispositivos de escritorio-->
         <section class="hide-on-small-only hide-on-med-only centerAligner verticalAligner colorGreyDarker"
             style="padding: 30px;">
             <section class="centerAligner horizontalAligner">
-                <a href="gestionar_grupos_alumno">
+                <a href="/gestionar_grupos_alumno">
                     <div class="borderDecoration cardMainDesktopPanel shadow-2 bordered2">
                         <div class="cardMainDesktopPanelHead centerAligner">Mis grupos</div>
                         <div class="centerAligner horizontalAligner">
@@ -229,7 +231,7 @@
                     </div>
                 </a>
 
-                <a href="gestionar_resultados_alumno">
+                <a href="/gestionar_resultados_alumno">
                     <div class="borderDecoration cardMainDesktopPanel shadow-2 bordered2">
                         <div class="cardMainDesktopPanelHead centerAligner">Mis cuestionarios</div>
                         <div class="centerAligner horizontalAligner">
@@ -255,7 +257,8 @@
                         </div>
                         <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner">Gestionar
                             grupos</div>
-                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner">Acceda a sus grupos y resuelva sus cuestionarios.</div>
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner">Acceda a sus
+                            grupos y resuelva sus cuestionarios.</div>
                     </div>
                 </a>
 
@@ -266,7 +269,8 @@
                         </div>
                         <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner">Gestionar
                             cuestionarios</div>
-                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner">Revise sus resultado obtenidos en los cuestionarios.</div>
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner">Revise sus
+                            resultado obtenidos en los cuestionarios.</div>
                     </div>
                 </a>
             </section>
@@ -281,9 +285,11 @@
                         <div class="centerAligner cardCarouselMainHead">
                             <p><i class="material-icons">groups_2</i></p>
                         </div>
-                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Mis grupos</div>
+                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Mis grupos
+                        </div>
                         <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">
-                            <p class="center-align colorTextReverse">Acceda a sus grupos y resuelva sus cuestionarios.</p>
+                            <p class="center-align colorTextReverse">Acceda a sus grupos y resuelva sus cuestionarios.
+                            </p>
                         </div>
                     </div>
                 </a>
@@ -295,9 +301,11 @@
                         <div class="centerAligner cardCarouselMainHead">
                             <p><i class="material-icons">grade</i></p>
                         </div>
-                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Mis resultados</div>
+                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Mis resultados
+                        </div>
                         <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">
-                            <p class="center-align colorTextReverse">Revise sus resultado obtenidos en los cuestionarios.</p>
+                            <p class="center-align colorTextReverse">Revise sus resultado obtenidos en los
+                                cuestionarios.</p>
                         </div>
                     </div>
                 </a>
@@ -310,23 +318,38 @@
         <!--Buscador de grupos-->
         <section class="colorGreyWhiter contenedorBuscadorGrupo">
             <div class="buscadorContainerMainStudent">
-                <input type="text" class="browser-default shadow-1 flow-text bordered5" placeholder="🔎 Ingrese su código de grupo">
+                <input type="text" id="buscadorGruposCodigo" class="browser-default shadow-1 flow-text bordered5"
+                    placeholder="🔎 Ingrese su código de grupo">
             </div>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% if datosGrupo == Null %}
+            {% for message in messages %}
+            <div id="error_login">
+                <p>{{ message }}</p>
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endif %}
+            {% endwith %}
             <div class="resultadoContainerMainStudent">
+                {% if datosGrupo %}
                 <div class="cardBusquedaGrupoMain shadow-3e">
-                    <div class="part1cardBusquedaGrupoMain fondoDinamico" style="background-color: url();">
+                    <div id="cardBusqueda" class="part1cardBusquedaGrupoMain fondoDinamico" style="background-image: url('{{datosGrupo[4]}}');">
 
                     </div>
                     <div class="part2cardBusquedaGrupoMain colorGreyDarker colorTextReverse">
-                        Nombre
+                        {{datosGrupo[2]}}
                     </div>
                     <div class="part3cardBusquedaGrupoMain colorGrey">
-                        Descripción del grupo a buscar
+                        {{datosGrupo[3]}}
                     </div>
                     <div class="part4cardBusquedaGrupoMain colorGreyDarker">
-                        <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 color2 colorText politicasNButton">Entrar</a>
+                        <a href="/entrarGrupo/{{datosGrupo[0]}}"
+                            class="btn waves-effect waves-light bordered3 color2 colorText politicasNButton">Entrar</a>
                     </div>
                 </div>
+                {% endif %}
             </div>
         </section>
 
@@ -344,9 +367,11 @@
                 <p class="badColor">¿Desea aceptar las politicas de cookies, de privacidad y los términos y condiciones?
                 </p>
                 <div>
-                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 badColorButton politicasNButton"><i
+                    <a href="/bienvenidaProfesor"
+                        class="btn waves-effect waves-light bordered3 badColorButton politicasNButton"><i
                             class="material-icons md-24">done</i></a>
-                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 badColorButton politicasNButton"><i
+                    <a href="/bienvenidaProfesor"
+                        class="btn waves-effect waves-light bordered3 badColorButton politicasNButton"><i
                             class="material-icons md-24">close</i></a>
                 </div>
             </div>
@@ -354,9 +379,11 @@
                 <h6 class="infoColor"><b>Sección de ayuda </b></h6>
                 <p class="infoColor">¿Desea visitar la sección de ayuda?</p>
                 <div>
-                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 infoColorButton ayudaNButton"><i
+                    <a href="/bienvenidaProfesor"
+                        class="btn waves-effect waves-light bordered3 infoColorButton ayudaNButton"><i
                             class="material-icons md-24">done</i></a>
-                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 infoColorButton ayudaNButton"><i
+                    <a href="/bienvenidaProfesor"
+                        class="btn waves-effect waves-light bordered3 infoColorButton ayudaNButton"><i
                             class="material-icons md-24">close</i></a>
                 </div>
             </div>
@@ -364,9 +391,11 @@
                 <h6 class="infoColor"><b>Crear un grupo</b></h6>
                 <p class="infoColor">Crear un primer grupo para comenzar</p>
                 <div>
-                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 infoColorButton crearGrupoNButton"><i
+                    <a href="/bienvenidaProfesor"
+                        class="btn waves-effect waves-light bordered3 infoColorButton crearGrupoNButton"><i
                             class="material-icons md-24">done</i></a>
-                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 infoColorButton crearGrupoNButton"><i
+                    <a href="/bienvenidaProfesor"
+                        class="btn waves-effect waves-light bordered3 infoColorButton crearGrupoNButton"><i
                             class="material-icons md-24">close</i></a>
                 </div>
             </div>
@@ -374,9 +403,11 @@
                 <h6 class="sosoColor"><b>Conocer los temas en la sección de configuraciones</b></h6>
                 <p class="sosoColor">Ajuste la página en caso de trastornos visuales</p>
                 <div>
-                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 sosoColorButton configuracionesNButton"><i
+                    <a href="/bienvenidaProfesor"
+                        class="btn waves-effect waves-light bordered3 sosoColorButton configuracionesNButton"><i
                             class="material-icons md-24">done</i></a>
-                    <a href="/bienvenidaProfesor" class="btn waves-effect waves-light bordered3 sosoColorButton configuracionesNButton"><i
+                    <a href="/bienvenidaProfesor"
+                        class="btn waves-effect waves-light bordered3 sosoColorButton configuracionesNButton"><i
                             class="material-icons md-24">close</i></a>
                 </div>
             </div>
@@ -402,6 +433,7 @@
 {% include "includes/footerRecursos.html" %}
 
 <script src="../../static/js/bienvenidaEfectos.js"></script>
+<script src="../../static/js/buscadorGruposCodigo.js"></script>
 <script src="../../static/js/efectosNotificaciones.js"></script>
 
 

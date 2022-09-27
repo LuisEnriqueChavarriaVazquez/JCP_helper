@@ -47,6 +47,19 @@ def datos_completos_alumno_by_id(IDAlumno):
     conexion.close()
     return datosAlumnos
 
+# Obtiene los datos del grupo con su código
+#Lo mismo pero con IDGrupo (un grupo en concreto)
+def obtener_grupo_datos_importantes_unitario(codigo_grupo):
+    conexion=obtener_conexion()
+    grupos=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM grupos WHERE codigo = %s", (codigo_grupo))
+        grupos=cursor.fetchone()
+
+    conexion.close()
+    return grupos
+
 #pendiente
 
 # def actualizar_estudiante(nombre, apellidos, edad,grupo, id):

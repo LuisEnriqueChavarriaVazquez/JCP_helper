@@ -72,6 +72,21 @@ def bienvenidaEstudiante():
     except:
         return render_template('estudiante/bienvenidaEstudiante.html')
 
+##
+##Bloque para en la pagina de bienvenida buscar un grupo
+##
+
+@routes.route('/searchGroup/<string:codeGroup>')
+def search_group(codeGroup):
+    #Busca los datos de un grupo con su código
+    resultSearch = Op_estudiante.obtener_grupo_datos_importantes_unitario(codeGroup)
+    if(resultSearch is not None):
+        flash("Código correcto.")
+        return render_template('estudiante/bienvenidaEstudiante.html', datosGrupo = resultSearch)
+    else:
+        flash("Código incorrecto.")
+        return render_template('estudiante/bienvenidaEstudiante.html')
+
 @routes.route('/nuevo_estudiante',methods=["POST"])
 def nuevo_estudiante():
     if request.method=="POST":
