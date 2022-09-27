@@ -116,30 +116,52 @@
 
                 <!--Grupos creados-->
                 {% for result_object in grupo %}
-                <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
-                    <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId"
-                        style="background-image: url({{result_object[4]}}), url(../../static/images/fondos/fondo.png); background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: hue;">
-                        <div>
-                            <h5 class="titleGroupContentId">{{result_object[2]}}</h5>
+                <div>
+                    <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
+                        <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId"
+                            style="background-image: url({{result_object[4]}}), url(../../static/images/fondos/fondo.png); background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: hue;">
+                            <div>
+                                <h5 class="titleGroupContentId">{{result_object[2]}}</h5>
+                            </div>
+                            <div class="studentCountCardOperation">
+                                <div>
+                                    <i class="material-icons md-18">people</i> <span class="contadorAlumnosNumber">0</span>
+                                </div>
+                                <div>
+                                    <i class="material-icons md-18">article</i> <span class="contadorAlumnosNumber">0</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="studentCountCardOperation">
-                            <i class="material-icons">people</i> <span class="contadorAlumnosNumber">0</span>
+                        <div
+                            class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
+                            <p><b>{{result_object[3]}}</b></p>
+                        </div>
+                        <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
+                            <!--Botones de cada grupo-->
+                            <a href="/editGroup/{{result_object[0]}}"
+                                class="classIdentifierGroupButtonEdit waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                    class="material-icons md-24">edit</i></a>
+                            <a onclick="copyCodeGroup('{{result_object[5]}}')"
+                                class="classIdentifierGroupButtonCopy waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                    class="material-icons md-24">content_copy</i></a>
+                            <a href="/viewGroup/{{result_object[0]}}"
+                                    class="modal-trigger classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                        class="material-icons md-24">visibility</i></a>
+                            <a href="#modal2"
+                                class="modal-trigger classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                    class="material-icons md-24">delete</i></a>
                         </div>
                     </div>
-                    <div class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
-                        <p><b>{{result_object[3]}}</b></p>
-                    </div>
-                    <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
-                        <!--Botones de cada grupo-->
-                        <a href="/editGroup/{{result_object[0]}}"
-                            class="classIdentifierGroupButtonEdit waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">edit</i></a>
-                        <a onclick="copyCodeGroup('{{result_object[5]}}')"
-                            class="classIdentifierGroupButtonCopy waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">content_copy</i></a>
+                </div>
+                <!--Pop up de eliminar el grupo-->
+                <div id="modal2" class="modal bordered2 colorGrey">
+                    <div class="modal-content">
+                        <h4>¿Desea eliminar el grupo?</h4>
+                        <p>Este procedimiento no se puede revertir.</p>
+                        <hr>
                         <a href="/deleteGroup/{{result_object[0]}}"
-                            class="classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">delete</i></a>
+                            class="waves-effect waves-light btn badColorButton shadow-2e button-rounded"
+                            style="width: 100%;">Eliminar</a>
                     </div>
                 </div>
                 {% endfor %}

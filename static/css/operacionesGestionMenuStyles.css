@@ -229,7 +229,7 @@
     border-radius: 20px 20px 0 0;
 
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1.3fr 1fr;
     grid-template-rows: auto;
     row-gap: 20px;
     justify-content: center;
@@ -241,7 +241,7 @@
     height: 60px;
 
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: auto;
     justify-content: center;
     align-content: center;
@@ -264,7 +264,7 @@
     height: 100%;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -294,7 +294,7 @@
     height: 60px;
 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
     gap: 10px;
     justify-content: center;
@@ -306,10 +306,8 @@
     padding: 10px 40px 10px 40px !important;
     height: 60px;
 
-    
-
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
     gap: 10px;
     justify-content: center;
@@ -556,8 +554,158 @@
     padding: 5px 20px 20px 20px;
 }
 
+@media screen and (min-width: 1200px) {
+    .contendorFormularioEditarGrupo{    
+        padding: 5px 200px 20px 200px;
+    }
+}
+
 .contenedorFormularioPrincipal{
     width: 100%;
     box-sizing: border-box;
     padding: 5px;
 }
+
+/*Estilos de seccion para ver datos de grupo*/
+
+.encabezadoGrupo{
+    height: 160px;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}
+
+@media screen and (max-width: 600px) {
+    .encabezadoGrupo{
+        height: 120px;
+    }
+}
+
+.contenedorDataGrupo{
+    padding: 20px 25px;
+}
+
+.contenedorInformacionPrincipal{
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: 
+        "area1 area1"
+        "area2 area3"
+    ;
+    gap: 30px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.contenedorInformacionSecundarioUno{
+    grid-area: area1;
+}
+
+.contenedorInformacionSecundarioDos{
+    grid-area: area2;
+}
+
+.contenedorInformacionSecundarioTres{
+    grid-area: area3;
+}
+
+@media screen and (max-width: 1220px) {
+    .contenedorInformacionPrincipal{
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: 
+            "area1"
+            "area2"
+            "area3"
+        ;
+        gap: 30px;
+        padding: 30px;
+        box-sizing: border-box;
+    }
+
+    .contenedorDataGrupo{
+        padding: 10px 15px;
+    }
+}
+
+.cardCuestionarioGrupoVer{
+    height: auto;
+}
+
+.titleCardCuestionarioGrupoVer{
+    width: 100%;
+    height: 50px;
+    padding: 2.5px 20px 5px 20px;
+    border-radius: 20px 20px 0 0;
+}
+
+.descCardCuestionarioGrupoVer{
+    width: 100%;
+    height: auto;
+    padding: 2.5px 20px 5px 20px;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.cardCuestionarioGrupoVer div h6{
+    font-size: 20px;
+}
+
+/*Contendor estudiantes*/
+.contenedorEstudiantesInfo{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+}
+
+@media screen and (max-width: 1950px) {
+    .contenedorEstudiantesInfo{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 1800px) {
+    .contenedorEstudiantesInfo{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .contenedorEstudiantesInfo{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .contenedorEstudiantesInfo{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .contenedorEstudiantesInfo{
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/*Contador de los alumnos en la sección de ver*/
+#cuestionariosContador, #alumnosContador{
+    min-width: 40px;
+    max-width: 100px;
+    padding: 1px 5px 2px 5px;
+    margin-left: 20px;
+    border-radius: 500px;
+    font-weight: 700;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

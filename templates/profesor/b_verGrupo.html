@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Ver grupos</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
+</head>
+
+<body class="oculto colorGrey">
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+
+    <!--Menu de página de inicio-->
+    <nav class="color2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only">Ver grupo.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Ver grupo.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--Titulos de la página-->
+    <div class="title-general shadow-2e encabezadoGrupo"
+        style="background-image: url({{groupInfo.4}}), url(../../static/images/fondos/fondo.png); background-blend-mode: hue;">
+        <h5 class="colorText hide-on-large-only hide-on-med-only">Datos de {{groupInfo.2}}</h5>
+        <h4 class="colorText hide-on-small-only">Datos de {{groupInfo.2}}</h4>
+    </div>
+
+    <!--Contenedor principal-->
+    <section class="contenedorInformacionPrincipal">
+        <section class="contenedorInformacionSecundarioUno">
+            <div class="colorGreyWhiter bordered2 shadow-2e contenedorDataGrupo">
+                <h5>Datos generales</h5>
+                <hr>
+                <div>
+                    <h6>Descripción de grupo:</h6>
+                    <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1" style="text-align: left;">
+                        {{groupInfo.3}}</p>
+                </div>
+                <div>
+                    <h6>Lenguajes del grupo:</h6>
+                    <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1 truncate">{{groupInfo.6}}</p>
+                </div>
+                <div>
+                    <h6>Temas del grupo:</h6>
+                    <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1 truncate">{{groupInfo.7}}</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contenedorInformacionSecundarioDos">
+            <div class="opcionesContainer" style="padding: 0;">
+                <ul class="collapsible bordered5 colorWhite">
+                    <li>
+                        <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
+                            style="margin-bottom: 5px;"><i class="material-icons">article</i>Cuestionarios. <span id="cuestionariosContador" class="colorGrey"></span>
+                        </div>
+                        <div class="bordered5 collapsible-body">
+                            <section class="contenedorEstudiantesInfo">
+                                <a href="#">
+                                    <div class="colorText cardCuestionarioGrupoVer">
+                                        <div class="color1 titleCardCuestionarioGrupoVer">
+                                            <h6>Cuestionario 1</h6>
+                                        </div>
+                                        <div class="color2 descCardCuestionarioGrupoVer">
+                                            <p id="muestraCodigoGrupo" style="text-align: left;">Descripcion del cuestionario</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="colorText cardCuestionarioGrupoVer">
+                                        <div class="color1 titleCardCuestionarioGrupoVer">
+                                            <h6>Cuestionario 3</h6>
+                                        </div>
+                                        <div class="color2 descCardCuestionarioGrupoVer">
+                                            <p id="muestraCodigoGrupo" style="text-align: left;">Descripcion del cuestionario</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="colorText cardCuestionarioGrupoVer">
+                                        <div class="color1 titleCardCuestionarioGrupoVer">
+                                            <h6>Cuestionario 2</h6>
+                                        </div>
+                                        <div class="color2 descCardCuestionarioGrupoVer">
+                                            <p id="muestraCodigoGrupo" style="text-align: left;">Descripcion del cuestionario</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </section>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </section>
+
+        <section class="contenedorInformacionSecundarioTres">
+            <div class="opcionesContainer" style="padding: 0;">
+                <ul class="collapsible bordered5 colorWhite">
+                    <li>
+                        <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
+                            style="margin-bottom: 5px;"><i class="material-icons">people</i>Alumnos. <span id="alumnosContador" class="colorGrey"></span>
+                        </div>
+                        <div class="bordered5 collapsible-body">
+                            <section class="contenedorEstudiantesInfo">
+                                <a href="#">
+                                    <div
+                                        class="borderDecoration colorGrey cardAlumnoSecondary shadow-2 bordered1 centerAlignerNoWidth">
+                                        <div class="iconContenedorUserSecondary centerAlignerNoWidth">
+                                            <img src="../../static/images/avatares/avatar_1.jpg"
+                                                class="userSecondary bordered5 shadow-2">
+                                        </div>
+                                        <div class="textContenedorUserSecondary">
+                                            <p class="truncate colorTextReverse"><b>Usuario ejemplo</b></p>
+                                            <p class="truncate colorTextReverse">Correo del alumno</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div
+                                        class="borderDecoration colorGrey cardAlumnoSecondary shadow-2 bordered1 centerAlignerNoWidth">
+                                        <div class="iconContenedorUserSecondary centerAlignerNoWidth">
+                                            <img src="../../static/images/avatares/avatar_2.jpg"
+                                                class="userSecondary bordered5 shadow-2">
+                                        </div>
+                                        <div class="textContenedorUserSecondary">
+                                            <p class="truncate colorTextReverse"><b>Usuario ejemplo</b></p>
+                                            <p class="truncate colorTextReverse">Correo del alumno</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div
+                                        class="borderDecoration colorGrey cardAlumnoSecondary shadow-2 bordered1 centerAlignerNoWidth">
+                                        <div class="iconContenedorUserSecondary centerAlignerNoWidth">
+                                            <img src="../../static/images/avatares/avatar_3.jpg"
+                                                class="userSecondary bordered5 shadow-2">
+                                        </div>
+                                        <div class="textContenedorUserSecondary">
+                                            <p class="truncate colorTextReverse"><b>Usuario ejemplo</b></p>
+                                            <p class="truncate colorTextReverse">Correo del alumno</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div
+                                        class="borderDecoration colorGrey cardAlumnoSecondary shadow-2 bordered1 centerAlignerNoWidth">
+                                        <div class="iconContenedorUserSecondary centerAlignerNoWidth">
+                                            <img src="../../static/images/avatares/avatar_4.jpg"
+                                                class="userSecondary bordered5 shadow-2">
+                                        </div>
+                                        <div class="textContenedorUserSecondary">
+                                            <p class="truncate colorTextReverse"><b>Usuario ejemplo</b></p>
+                                            <p class="truncate colorTextReverse">Correo del alumno</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </section>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </section>
+
+</body>
+
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+<script src="../../static/js/operacionesVerGrupo.js"></script>
+
+</html>

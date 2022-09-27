@@ -219,6 +219,18 @@ def update_group(id):
         return redirect(url_for('routes.gestionar_grupos')) 
 
 ##
+##Bloque para ver datos de grupo
+##
+
+@routes.route('/viewGroup/<string:id>')
+def view_group(id):
+    #Obtenemos los datos del grupo
+    pickedGroupData = Op_profesor.obtener_grupo_datos_importantes_unitario(id)
+
+    #Enviamos al usuario al formulario para ver datos del grupo.
+    return render_template('profesor/b_verGrupo.html', groupInfo = pickedGroupData[0])
+
+##
 ## Parte del sign up del profesor
 ##
 

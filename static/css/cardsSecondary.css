@@ -32,7 +32,7 @@
 /*Card secondary alumno*/
 
 .cardAlumnoSecondary{
-	padding: 10px;
+	padding: 8px;
 	margin: 0px 15px 5px 0px;
 	
 	width: 100%;
@@ -49,9 +49,18 @@
 	width: 15%;
 }
 
+.iconContenedorUserSecondary img{
+	border-radius: 500px;
+	border: 3px solid #fff;
+}
+
 .textContenedorUserSecondary{
 	padding: 0 10px 0 15px;
 	width: 85%;
+}
+
+.textContenedorUserSecondary p{
+	margin: 0;
 }
 
 /*Modelos para la tableta*/
