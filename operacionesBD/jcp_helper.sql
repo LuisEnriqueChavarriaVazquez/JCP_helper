@@ -83,7 +83,7 @@ create table Alumnos_hacen_Cuestionario(
 create table Grupos_Alumnos(
    IDDocente int not null,
    IDGrupo int not null,
-  IDAlumno int not null,
+   IDAlumno int not null,
    primary key (IDGrupo,IDAlumno,IDDocente),
    foreign key (IDDocente,IDGrupo) references Grupos(IDDocente,IDGrupo),
    foreign key (IDAlumno) references Alumnos(IDAlumno)

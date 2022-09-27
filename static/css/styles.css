@@ -327,16 +327,23 @@ input[type="file"] {
 	}
 }
 
-.buscadorContainerMainStudent{
+.buscadorContainerMainStudent,.buscadorContainerMainStudent form {
 	width: 100%;
 	height: auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: row;
+}
+
+.buscadorContainerMainStudent form button{
+	margin-left: 10px;
+	position: relative;
+	top: -25px;
 }
 
 .buscadorContainerMainStudent input{
-	width: 80%;
+	width: 60%;
 	padding: 15px 20px;
     font-size: 18px;
     display: inline-block;

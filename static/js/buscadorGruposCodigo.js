@@ -37,5 +37,5 @@ function evaluarFondoCardBusqueda(){
     evaluarSiFondoDefault();
 }
 
-buscarGrupoPorCodigo();
+//buscarGrupoPorCodigo();
 evaluarFondoCardBusqueda();

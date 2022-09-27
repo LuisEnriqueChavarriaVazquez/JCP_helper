@@ -76,16 +76,43 @@ def bienvenidaEstudiante():
 ##Bloque para en la pagina de bienvenida buscar un grupo
 ##
 
-@routes.route('/searchGroup/<string:codeGroup>')
-def search_group(codeGroup):
+@routes.route('/search_group',methods=['GET','POST'])
+def search_group():
+    codigo=request.form["buscadorGruposCodigo"]
+    idUsuario=request.form["idUsuario"]
+
+    #Busca los datos del alumno con su ID
+    result=Op_estudiante.datos_completos_alumno_by_id(idUsuario)
+
+    #En caso de que el codigo venga vacio
+    if (codigo == "" or len(codigo) < 60):
+        flash("Código con formato incorrecto.")
+        return render_template('estudiante/bienvenidaEstudiante.html', datos = result)
+
     #Busca los datos de un grupo con su código
-    resultSearch = Op_estudiante.obtener_grupo_datos_importantes_unitario(codeGroup)
+    resultSearch = Op_estudiante.obtener_grupo_datos_importantes_unitario(codigo)
+
+    #Evalua si la tupla de datos esta llena (encontro el grupo)
     if(resultSearch is not None):
         flash("Código correcto.")
-        return render_template('estudiante/bienvenidaEstudiante.html', datosGrupo = resultSearch)
+        return render_template('estudiante/bienvenidaEstudiante.html', datosGrupo = resultSearch, datos = result)
     else:
-        flash("Código incorrecto.")
-        return render_template('estudiante/bienvenidaEstudiante.html')
+        flash("Código no encontrado.")
+        return render_template('estudiante/bienvenidaEstudiante.html', datos = result)
+
+##
+##Bloque para entrar al curso una vez que se buscó
+##
+@routes.route('/entrarGrupo/<string:id_grupo>/<string:id_docente>/<string:id_estudiante>')
+def entrar_grupo(id_grupo, id_docente, id_estudiante):
+    #Busca los datos del alumno con su ID
+    result=Op_estudiante.datos_completos_alumno_by_id(id_estudiante)
+    resultadoConsulta = Op_estudiante.insertar_estudiante_grupo(id_docente, id_grupo, id_estudiante)
+
+    if(resultadoConsulta == 'listo'):
+        return redirect(url_for("routes.bienvenidaEstudiante"))
+    else:
+        return redirect(url_for("routes.bienvenidaEstudiante"))
 
 @routes.route('/nuevo_estudiante',methods=["POST"])
 def nuevo_estudiante():

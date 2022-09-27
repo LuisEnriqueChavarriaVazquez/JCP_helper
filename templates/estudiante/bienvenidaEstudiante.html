@@ -318,8 +318,16 @@
         <!--Buscador de grupos-->
         <section class="colorGreyWhiter contenedorBuscadorGrupo">
             <div class="buscadorContainerMainStudent">
-                <input type="text" id="buscadorGruposCodigo" class="browser-default shadow-1 flow-text bordered5"
+                <form action="{{ url_for('routes.search_group')}}" method="post">
+                    <input type="text" name="buscadorGruposCodigo" id="buscadorGruposCodigo" class="browser-default shadow-1 flow-text bordered5"
                     placeholder="🔎 Ingrese su código de grupo">
+                    {% if datos %}
+                    <input type="hidden" name="idUsuario" value="{{datos[0]}}">
+                    {% endif %}
+                    <button class="btn waves-effect waves-light color2 colorText bordered5" type="submit">
+                        <i class="material-icons">search</i>
+                    </button>
+                </form>
             </div>
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -345,7 +353,7 @@
                         {{datosGrupo[3]}}
                     </div>
                     <div class="part4cardBusquedaGrupoMain colorGreyDarker">
-                        <a href="/entrarGrupo/{{datosGrupo[0]}}"
+                        <a href="/entrarGrupo/{{datosGrupo[0]}}/{{datosGrupo[1]}}/{{datos[0]}}"
                             class="btn waves-effect waves-light bordered3 color2 colorText politicasNButton">Entrar</a>
                     </div>
                 </div>

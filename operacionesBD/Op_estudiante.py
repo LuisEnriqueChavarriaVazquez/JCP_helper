@@ -60,6 +60,16 @@ def obtener_grupo_datos_importantes_unitario(codigo_grupo):
     conexion.close()
     return grupos
 
+#Insertar alumnos en grupos una vez que aceptan
+def insertar_estudiante_grupo( id_docente, id_grupo, id_estudiante):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("INSERT INTO Grupos_Alumnos (IDDocente, IDGrupo, IDAlumno) VALUES(%s, %s, %s)",
+        (id_docente, id_grupo, id_estudiante))
+    conexion.commit()
+    conexion.close()
+    return "listo"
+
 #pendiente
 
 # def actualizar_estudiante(nombre, apellidos, edad,grupo, id):
