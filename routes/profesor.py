@@ -372,6 +372,17 @@ def perfil_docente():
         return render_template('profesor/perfil_docente.html')
 
 
+@routes.route('/perfil_general_view/<string:id>')
+#@login_required
+def ver_perfil_alumno(id):
+    try:
+        datos = Op_profesor.datos_completos_alumno_by_id(id)
+        return render_template('general/perfil_general.html',datos=datos)
+    except:
+        #En caso de error
+        return redirect(url_for('routes.gestionar_grupos'))
+
+
 #Creación cuestionarios
 @routes.route('/creacion_cuestionarios')
 #@login_required

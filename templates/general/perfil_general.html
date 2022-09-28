@@ -15,12 +15,10 @@
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Perfil del alumno.</a>
-            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Perfil del alumno.</p>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="/bienvenidaEstudiante" class="btn color3 button-rounded">Volver al inicio</a></li>
-            </ul>
+            <a href="#" class="brand-logo hide-on-small-only">Perfil de usuario.</a>
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i
+                class="material-icons"></i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Perfil de usuario.</p>
         </div>
     </nav>
     <br><br>
@@ -31,17 +29,6 @@
             <!-- Fondo con la foto elegida por el usuario -->
             <div class="fondoDinamico fondoPerfilDiseno shadow-3e" id="fondoDinamicoUsuario">
                 <div class="iconEditContainer">
-                    <p>
-                        <a href="#modal1"
-                            class="modal-trigger colorGreyWhiter bordered2 shadow-2e colorTextReverse waves-effect"><i
-                                class="material-icons">photo_library</i></a>
-                    </p>
-                    &nbsp;&nbsp;
-                    <p>
-                        <a href="/configuraciones"
-                            class="modal-trigger colorGreyWhiter bordered2 shadow-2e colorTextReverse waves-effect"><i
-                                class="material-icons">settings</i></a>
-                    </p>
                 </div>
             </div>
 
@@ -49,14 +36,14 @@
             <div class="datos_perfil_container" id="datos_perfil_containerSelector">
                 {% if datos %}
                 <div>
-                    <img class="materialboxed fotoPerfil shadow-2e" src="../../static/images/alumnos/{{datos[3]}}"
+                    <img class="materialboxed fotoPerfil shadow-2e" src="../../static/images/alumnos/{{datos[0][3]}}"
                         alt="foto del usuario">
                 </div>
                 <div class="allDataUserContainer">
-                    <p class="colorTextReverse nombre_perfil" id="datos_perfil_containerNombrePerfil">{{datos[1]}}</p>
-                    <p class="colorTextReverse alias_perfil" id="datos_perfil_containerAliasPerfil">{{datos[2]}}</p>
+                    <p class="colorTextReverse nombre_perfil" id="datos_perfil_containerNombrePerfil">{{datos[0][1]}}</p>
+                    <p class="colorTextReverse alias_perfil" id="datos_perfil_containerAliasPerfil">{{datos[0][2]}}</p>
                     <p class="colorTextReverse descripcion_perfil flow-text" id="datos_perfil_containerDescPerfil">
-                        {{datos[8]}}
+                        {{datos[0][8]}}
                     </p>
                 </div>
                 {% endif %}
@@ -66,9 +53,9 @@
             <div class="containerScrolled containerScrolledHide color3 shadow-2e" id="containerScrolled">
                 <div class="containerScrolledSon">
                     {% if datos %}
-                    <img class="fotoPerfilScrolled" src="../../static/images/alumnos/{{datos[3]}}"
+                    <img class="fotoPerfilScrolled" src="../../static/images/alumnos/{{datos[0][3]}}"
                         alt="foto del usuario">
-                    <p class="nombreUsuarioScrolled titleMobile flow-text colorText">{{datos[1]}}</p>
+                    <p class="nombreUsuarioScrolled titleMobile flow-text colorText">{{datos[0][1]}}</p>
                     {% endif %}
                 </div>
             </div>
@@ -86,7 +73,7 @@
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-1">
                         <p class="iconDataProfile colorGrey"><i
                                 class="material-icons md-24 colorTextReverse">email</i>Contacto</p>
-                        <p class="textDataProfile colorGreyWhiter">{{datos[4]}}</p>
+                        <p class="textDataProfile colorGreyWhiter">{{datos[0][4]}}</p>
                     </div>
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-2">
                         <p class="iconDataProfile colorGrey"><i
@@ -96,12 +83,12 @@
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-3">
                         <p class="iconDataProfile colorGrey"><i
                                 class="material-icons md-24 colorTextReverse">doorbell</i>Unidad</p>
-                        <p class="textDataProfile colorGreyWhiter">{{datos[7]}}</p>
+                        <p class="textDataProfile colorGreyWhiter">{{datos[0][7]}}</p>
                     </div>
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-4">
                         <p class="iconDataProfile colorGrey"><i
                                 class="material-icons md-24 colorTextReverse">adjust</i>Especialización</p>
-                        <p class="textDataProfile colorGreyWhiter">{{datos[6]}}</p>
+                        <p class="textDataProfile colorGreyWhiter">{{datos[0][6]}}</p>
                     </div>
                 </div>
                 {% endif %}

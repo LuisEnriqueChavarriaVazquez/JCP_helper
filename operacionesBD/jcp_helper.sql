@@ -43,8 +43,8 @@ create table Notificaciones_Alumno(
  IDAlumno int not null,
  IDNotificacion_Alumno int not null,
  Texto varchar(100),
- primary key (IDAlumno,IDNotificacion_Alumno) ON DELETE CASCADE,
- foreign key (IDAlumno) references Alumnos(IDAlumno) ON DELETE CASCADE,
+ primary key (IDAlumno,IDNotificacion_Alumno),
+ foreign key (IDAlumno) references Alumnos(IDAlumno) ON DELETE CASCADE
 );
 
 create table Notificaciones_Docente(
@@ -101,6 +101,6 @@ create table Contacto_Docente(
    IDDocente int not null,
    Tipo_Contacto varchar (100),
    Contacto varchar (100),
-   primary key (IDDocente ,Tipo_Contacto,Contacto) ON DELETE CASCADE,
+   primary key (IDDocente ,Tipo_Contacto,Contacto),
    foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
 );
