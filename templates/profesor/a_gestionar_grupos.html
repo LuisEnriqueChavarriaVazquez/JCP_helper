@@ -117,18 +117,20 @@
             <div class="contenedorCardsGruposOperation" id="contenedorCardsGruposOperationId">
 
                 <!--Grupos creados-->
+                {% set x = namespace(value=-1) %}
                 {% for result_object in grupo %}
                 <div>
                     <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
                         <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId"
-                            style="background-image: url({{result_object[4]}}), url(../../static/images/fondos/fondo.png); background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: hue;">
-                            <div>
-                                <h5 class="titleGroupContentId">{{result_object[2]}}</h5>
-                            </div>
+                        style="background-image: url({{result_object[4]}}), url(../../static/images/fondos/fondo.png); background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: hue;">
+                        <div>
+                            <h5 class="titleGroupContentId">{{result_object[2]}}</h5>
+                        </div>
                             <div class="studentCountCardOperation">
                                 <div>
-                                    <i class="material-icons md-18">people</i> <span
-                                        class="contadorAlumnosNumber">0</span>
+                                    <i class="material-icons md-18">people</i> 
+                                    {% set x.value = x.value + 1 %}
+                                    <span class="contadorAlumnosNumber">{{idsAlumnos[x.value][0]}}</span>
                                 </div>
                                 <div>
                                     <i class="material-icons md-18">article</i> <span

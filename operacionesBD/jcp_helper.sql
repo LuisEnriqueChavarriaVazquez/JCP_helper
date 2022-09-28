@@ -43,8 +43,8 @@ create table Notificaciones_Alumno(
  IDAlumno int not null,
  IDNotificacion_Alumno int not null,
  Texto varchar(100),
- primary key (IDAlumno,IDNotificacion_Alumno),
- foreign key (IDAlumno) references Alumnos(IDAlumno)
+ primary key (IDAlumno,IDNotificacion_Alumno) ON DELETE CASCADE,
+ foreign key (IDAlumno) references Alumnos(IDAlumno) ON DELETE CASCADE,
 );
 
 create table Notificaciones_Docente(
@@ -52,7 +52,7 @@ create table Notificaciones_Docente(
  IDNotificacion_Docente int not null ,
  Texto varchar(100),
  primary key (IDDocente,IDNotificacion_Docente),
- foreign key (IDDocente) references Docentes(IDDocente)
+ foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
 );
 
 create table Grupos(
@@ -65,7 +65,7 @@ create table Grupos(
    Lenguajes varchar (60),
    Temas varchar (60),
    primary key (IDGrupo),
-   foreign key (IDDocente) references Docentes(IDDocente)
+   foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
 );
 
 
@@ -77,7 +77,7 @@ create table Alumnos_hacen_Cuestionario(
   Respuestas text,
   primary key (IDCuestionario,IDAlumno),
   foreign key (IDAlumno) references Alumnos(IDAlumno),
-  foreign key (IDCuestionario) references Cuestionarios(IDCuestionario)
+  foreign key (IDCuestionario) references Cuestionarios(IDCuestionario) ON DELETE CASCADE
 );
 
 create table Grupos_Alumnos(
@@ -86,7 +86,7 @@ create table Grupos_Alumnos(
    IDAlumno int not null,
    primary key (IDGrupo,IDAlumno,IDDocente),
    foreign key (IDDocente,IDGrupo) references Grupos(IDDocente,IDGrupo),
-   foreign key (IDAlumno) references Alumnos(IDAlumno)
+   foreign key (IDAlumno) references Alumnos(IDAlumno) ON DELETE CASCADE
 );
 
 create table Contacto_Alumno(
@@ -94,7 +94,7 @@ create table Contacto_Alumno(
    Tipo_Contacto varchar (100),
    Contacto varchar (100),
    primary key (IDAlumno ,Tipo_Contacto,Contacto),
-   foreign key (IDAlumno) references Alumnos(IDAlumno)
+   foreign key (IDAlumno) references Alumnos(IDAlumno) ON DELETE CASCADE
 );
 
 create table Contacto_Docente(
@@ -102,5 +102,5 @@ create table Contacto_Docente(
    Tipo_Contacto varchar (100),
    Contacto varchar (100),
    primary key (IDDocente ,Tipo_Contacto,Contacto),
-   foreign key (IDDocente) references Docentes(IDDocente)
+   foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
 );

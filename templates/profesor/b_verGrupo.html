@@ -61,7 +61,8 @@
                 <ul class="collapsible bordered5 colorWhite">
                     <li>
                         <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
-                            style="margin-bottom: 5px;"><i class="material-icons">article</i>Cuestionarios. <span id="cuestionariosContador" class="colorGrey"></span>
+                            style="margin-bottom: 5px;"><i class="material-icons">article</i>Cuestionarios. <span
+                                id="cuestionariosContador" class="colorGrey"></span>
                         </div>
                         <div class="bordered5 collapsible-body">
                             <section class="contenedorEstudiantesInfo">
@@ -71,7 +72,8 @@
                                             <h6>Cuestionario 1</h6>
                                         </div>
                                         <div class="color2 descCardCuestionarioGrupoVer">
-                                            <p id="muestraCodigoGrupo" style="text-align: left;">Descripcion del cuestionario</p>
+                                            <p id="muestraCodigoGrupo" style="text-align: left;">Descripcion del
+                                                cuestionario</p>
                                         </div>
                                     </div>
                                 </a>
@@ -81,7 +83,8 @@
                                             <h6>Cuestionario 3</h6>
                                         </div>
                                         <div class="color2 descCardCuestionarioGrupoVer">
-                                            <p id="muestraCodigoGrupo" style="text-align: left;">Descripcion del cuestionario</p>
+                                            <p id="muestraCodigoGrupo" style="text-align: left;">Descripcion del
+                                                cuestionario</p>
                                         </div>
                                     </div>
                                 </a>
@@ -91,7 +94,8 @@
                                             <h6>Cuestionario 2</h6>
                                         </div>
                                         <div class="color2 descCardCuestionarioGrupoVer">
-                                            <p id="muestraCodigoGrupo" style="text-align: left;">Descripcion del cuestionario</p>
+                                            <p id="muestraCodigoGrupo" style="text-align: left;">Descripcion del
+                                                cuestionario</p>
                                         </div>
                                     </div>
                                 </a>
@@ -108,62 +112,26 @@
                 <ul class="collapsible bordered5 colorWhite">
                     <li>
                         <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
-                            style="margin-bottom: 5px;"><i class="material-icons">people</i>Alumnos. <span id="alumnosContador" class="colorGrey"></span>
+                            style="margin-bottom: 5px;"><i class="material-icons">people</i>Alumnos. <span
+                                id="alumnosContador" class="colorGrey"></span>
                         </div>
                         <div class="bordered5 collapsible-body">
                             <section class="contenedorEstudiantesInfo">
-                                <a href="#">
+                                {%for i in range(0, datosAlumnos|length)%}
+                                <a href="/perfil_general_view/{{datosAlumnos[i][0][0]}}">
                                     <div
                                         class="borderDecoration colorGrey cardAlumnoSecondary shadow-2 bordered1 centerAlignerNoWidth">
                                         <div class="iconContenedorUserSecondary centerAlignerNoWidth">
-                                            <img src="../../static/images/avatares/avatar_1.jpg"
+                                            <img src="../../static/images/alumnos/{{datosAlumnos[i][0][3]}}"
                                                 class="userSecondary bordered5 shadow-2">
                                         </div>
                                         <div class="textContenedorUserSecondary">
-                                            <p class="truncate colorTextReverse"><b>Usuario ejemplo</b></p>
-                                            <p class="truncate colorTextReverse">Correo del alumno</p>
+                                            <p class="truncate colorTextReverse"><b>{{datosAlumnos[i][0][2]}}</b></p>
+                                            <p class="truncate colorTextReverse">{{datosAlumnos[i][0][4]}}</p>
                                         </div>
                                     </div>
                                 </a>
-                                <a href="#">
-                                    <div
-                                        class="borderDecoration colorGrey cardAlumnoSecondary shadow-2 bordered1 centerAlignerNoWidth">
-                                        <div class="iconContenedorUserSecondary centerAlignerNoWidth">
-                                            <img src="../../static/images/avatares/avatar_2.jpg"
-                                                class="userSecondary bordered5 shadow-2">
-                                        </div>
-                                        <div class="textContenedorUserSecondary">
-                                            <p class="truncate colorTextReverse"><b>Usuario ejemplo</b></p>
-                                            <p class="truncate colorTextReverse">Correo del alumno</p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div
-                                        class="borderDecoration colorGrey cardAlumnoSecondary shadow-2 bordered1 centerAlignerNoWidth">
-                                        <div class="iconContenedorUserSecondary centerAlignerNoWidth">
-                                            <img src="../../static/images/avatares/avatar_3.jpg"
-                                                class="userSecondary bordered5 shadow-2">
-                                        </div>
-                                        <div class="textContenedorUserSecondary">
-                                            <p class="truncate colorTextReverse"><b>Usuario ejemplo</b></p>
-                                            <p class="truncate colorTextReverse">Correo del alumno</p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div
-                                        class="borderDecoration colorGrey cardAlumnoSecondary shadow-2 bordered1 centerAlignerNoWidth">
-                                        <div class="iconContenedorUserSecondary centerAlignerNoWidth">
-                                            <img src="../../static/images/avatares/avatar_4.jpg"
-                                                class="userSecondary bordered5 shadow-2">
-                                        </div>
-                                        <div class="textContenedorUserSecondary">
-                                            <p class="truncate colorTextReverse"><b>Usuario ejemplo</b></p>
-                                            <p class="truncate colorTextReverse">Correo del alumno</p>
-                                        </div>
-                                    </div>
-                                </a>
+                                {%endfor%}
                             </section>
                         </div>
                     </li>

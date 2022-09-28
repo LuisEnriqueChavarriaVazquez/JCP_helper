@@ -99,17 +99,6 @@ def delete_grupos(id_grupo):
 ## Nos ayuda a editar un grupo
 ##
 
-def edit_grupos(id_grupo):
-    conexion=obtener_conexion()
-    confirmacionDeDelete = True
-
-    with conexion.cursor() as cursor:
-        cursor.execute("DELETE from grupos WHERE IDGrupo = %s", (id_grupo))
-
-    conexion.commit()
-    conexion.close()
-    return confirmacionDeDelete
-
 def update_grupos(nombreGrupo, descGrupo, fondoGrupo, lenguajesGrupo, temasGrupo, id_grupo):
     conexion=obtener_conexion()
     confirmacionDeDelete = True
@@ -120,6 +109,49 @@ def update_grupos(nombreGrupo, descGrupo, fondoGrupo, lenguajesGrupo, temasGrupo
     conexion.commit()
     conexion.close()
     return confirmacionDeDelete
+
+##
+## Obtiene los datos de los estudiantes vinculados a un grupo
+##
+def obtener_IDAlumno_dentro_de_grupo(id_grupo):
+    conexion=obtener_conexion()
+    alumnosIds=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT IDAlumno FROM grupos_alumnos WHERE IDGrupo = %s", (id_grupo))
+        alumnosIds=cursor.fetchall()
+
+    conexion.close()
+    return alumnosIds
+
+##
+## Obtiene los datos de los estudiantes vinculados a un grupo
+##
+def contar_IDAlumno_dentro_de_grupo(id_grupo):
+    conexion=obtener_conexion()
+    alumnosIds=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT COUNT(IDAlumno) FROM grupos_alumnos WHERE IDGrupo = %s", (id_grupo))
+        alumnosIds=cursor.fetchall()
+
+    conexion.close()
+    return alumnosIds
+
+##
+## Va a servir para el perfil del alumno
+##
+def datos_completos_alumno_by_id(IDAlumno):
+    conexion = obtener_conexion()
+    datosAlumnos = None
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT*FROM alumnos WHERE IDAlumno = %s", (IDAlumno))
+        datosAlumnos = cursor.fetchall()
+        
+    conexion.close()
+    return datosAlumnos
+    
 
 ##
 ## ###### FIN DEL GRUPO DE FUNCIONES DE GESTION DE GRUPOS

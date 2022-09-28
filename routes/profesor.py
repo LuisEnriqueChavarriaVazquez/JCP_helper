@@ -149,9 +149,21 @@ def gestionar_grupos():
         #Guardo los grupos de este profesor
         myGrupos = Op_profesor.obtener_grupos_datos_importantes(id_profesor)
 
+        ##Esta sesscion es para poder hacer el conteo de alumnos en un grupo
+        myGruposLista = []
+
+        for grupoLista in myGrupos:
+            myGruposLista.append(grupoLista)
+        
+        idsAlumnos = ()
+        for idGrupo in myGruposLista:
+            #Obtenemos y contamos los ids de los estudiantes dentro de un grupo para contarlos
+            idsAlumnos += (Op_profesor.contar_IDAlumno_dentro_de_grupo(idGrupo[0]))
+
+        #Datos del docente
         result=Op_profesor.datos_completos_docente_by_id(id_profesor)
 
-        return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos, datos=result)
+        return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos, datos=result, idsAlumnos = idsAlumnos)
     else:
         #
         #   Esto es lo que hace cuando se carga la página la primera vez
@@ -170,12 +182,22 @@ def gestionar_grupos():
         #Guardo los grupos de este profesor
         myGrupos = Op_profesor.obtener_grupos_datos_importantes(id_profesor)
 
-        #Guardo los datos del docente (los de la sesion)
+        ##Esta sesscion es para poder hacer el conteo de alumnos en un grupo
+        myGruposLista = []
 
+        for grupoLista in myGrupos:
+            myGruposLista.append(grupoLista)
+        
+        idsAlumnos = ()
+        for idGrupo in myGruposLista:
+            #Contamos los ids de los estudiantes dentro de un grupo para contarlos
+            idsAlumnos += (Op_profesor.contar_IDAlumno_dentro_de_grupo(idGrupo[0]))
+        print(idsAlumnos)
+        #Guardo los datos del docente (los de la sesion)
         result=Op_profesor.datos_completos_docente_by_id(id_profesor)
 
         #Retorno los grupos en la página para que puedan ser impresos
-        return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos, datos=result)
+        return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos, datos=result, idsAlumnos=idsAlumnos)
 
 ##
 ##Bloque para eliminar los grupos
@@ -227,8 +249,25 @@ def view_group(id):
     #Obtenemos los datos del grupo
     pickedGroupData = Op_profesor.obtener_grupo_datos_importantes_unitario(id)
 
+    ########## INFORMACION ESTUDIANTES EN GRUPOS
+    #Obtenemos los ids de los estudiantes dentro de un grupo
+    alumnosIdsDentroGrupo = Op_profesor.obtener_IDAlumno_dentro_de_grupo(id)
+    print(alumnosIdsDentroGrupo) # ((1, ), (2, ))
+
+    idSeparada = []
+    for singleID in alumnosIdsDentroGrupo:
+        idSeparada.append(singleID[0])
+    print(idSeparada) # [1,2]
+
+    datosAlumnos = []
+    for idAlumno in idSeparada:
+        print(str(idAlumno)) # 1,2
+        #Obtenemos los datos de los alumnos con los ids Obtenido
+        datosAlumnos.append(Op_profesor.datos_completos_alumno_by_id(str(idAlumno)))
+    print(datosAlumnos) #[((1,), (2,))]
+
     #Enviamos al usuario al formulario para ver datos del grupo.
-    return render_template('profesor/b_verGrupo.html', groupInfo = pickedGroupData[0])
+    return render_template('profesor/b_verGrupo.html', groupInfo = pickedGroupData[0], datosAlumnos = datosAlumnos)
 
 ##
 ## Parte del sign up del profesor
