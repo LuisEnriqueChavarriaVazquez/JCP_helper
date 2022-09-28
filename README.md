@@ -1,8 +1,8 @@
 # JCP_helper
 ## Proyecto de titulación
 ***
-<img src="static\images\logo_compu.png" alt="Logo de JCP_Helper" style="zoom:50%;" />
-<img src="static\images\logo_celular.png" alt="Logo de JCP_Helper de celular" style="zoom:50%;" />
+<img src="static\images\brand_app\logo_compu.png" alt="Logo de JCP_Helper" style="zoom:50%;" />
+<img src="static\images\\brand_applogo_celular.png" alt="Logo de JCP_Helper de celular" style="zoom:50%;" />
 ***
 
 ### Integrantes del equipo
