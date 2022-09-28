@@ -76,7 +76,7 @@ create table Alumnos_hacen_Cuestionario(
   Resultado_por_tipo_pregunta varchar (100),
   Respuestas text,
   primary key (IDCuestionario,IDAlumno),
-  foreign key (IDAlumno) references Alumnos(IDAlumno),
+  foreign key (IDAlumno) references Alumnos(IDAlumno) ON DELETE CASCADE,
   foreign key (IDCuestionario) references Cuestionarios(IDCuestionario) ON DELETE CASCADE
 );
 
@@ -85,7 +85,7 @@ create table Grupos_Alumnos(
    IDGrupo int not null,
    IDAlumno int not null,
    primary key (IDGrupo,IDAlumno,IDDocente),
-   foreign key (IDDocente,IDGrupo) references Grupos(IDDocente,IDGrupo),
+   foreign key (IDDocente,IDGrupo) references Grupos(IDDocente,IDGrupo) ON DELETE CASCADE,
    foreign key (IDAlumno) references Alumnos(IDAlumno) ON DELETE CASCADE
 );
 
@@ -101,6 +101,6 @@ create table Contacto_Docente(
    IDDocente int not null,
    Tipo_Contacto varchar (100),
    Contacto varchar (100),
-   primary key (IDDocente ,Tipo_Contacto,Contacto),
+   primary key (IDDocente ,Tipo_Contacto,Contacto) ON DELETE CASCADE,
    foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
 );
