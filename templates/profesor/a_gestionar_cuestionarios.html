@@ -14,10 +14,11 @@
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/cargador.html" %}
 
+
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Cuestionarios.</a>
+            <a href="#" class="brand-logo hide-on-small-only">Cuestionarios.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
             <p class="titleMobile colorText flow-text hide-on-med-and-up">Cuestionarios.</p>
@@ -26,87 +27,157 @@
             </ul>
         </div>
     </nav>
+
+    <!--Menu lateral para las pantallas grandes-->
     <section class="operationContainerPrincipal">
         <section class="operationSideNav">
             <div class="infoUserOperation fondoDinamico shadow-2e" id="fondoBienvenida">
                 {% if datos %}
                 <div class="imagenOperationContainer">
-                    <img src="../../static/images/docentes/{{datos[3]}}" class="shadow-2e">
+                    <a href="/perfil_docente">
+                        <img src="../../static/images/docentes/{{datos[3]}}" class="shadow-2e circle" style="border: 3px solid #fff; width: 80px;">
+                    </a>
                 </div>
                 <div class="dataUserOperationContainer">
-                    <p class="colorText">{{datos[1]}}</p>
+                    <p class="colorText"> {{datos[1]}}</p>
+                    <p class="colorText" id="correoUserData">{{datos[4]}}</p>
+                    <!--<button value="{{datos[4]}}" id="correoUserData" style="display: none;"></button>-->
                 </div>
                 {% endif %}
             </div>
             <div class="colorGreyWhiter operationsContainerSecondarySideNav">
                 <div class="operationButtonSideNav">
                     <h5>Operaciones.</h5>
-                    <a class="waves-effect waves-light btn color2 shadow-2e"><i class="material-icons left">add</i>Crear
+                    <a class="waves-effect waves-light btn color2 shadow-2e modal-trigger" href="/creacion_cuestionarios"
+                        id="buttonNuevoGrupo"><i class="material-icons left">add</i>Crear
                         cuestionario</a>
                 </div>
                 <div class="operationButtonSideNav">
-                    <h5>Información.</h5>
+                    <h5>Buscador.</h5>
+                    <input type="text" name="buscadorGruposGestor" id="buscadorGruposGestor"
+                        class="buscadorGruposGestor">
+                    <a class="waves-effect waves-light btn colorGrey colorTextReverse" id="buscadorGruposButton"><i
+                            class="material-icons left">search</i>Buscar</a>
+                </div>
+                <div class="operationButtonSideNav">
+                    <h5>Conteo.</h5>
 
                     <div class="contadorElementosCardOperation colorGrey shadow-1e">
                         <p class="colorGreyWhiter" id="contadorGruposId">
                             Cuestionarios:
                         </p>
                         <p class="colorGreyWhiter" id="contadorEstudiantesId">
-                            Respuestas:
+                            Estudiantes:
                         </p>
                     </div>
 
                 </div>
-                <div class="operationButtonSideNav">
-                    <h5>Secciones.</h5>
-                    <a class="waves-effect waves-light btn colorGrey colorTextReverse"><i
-                            class="material-icons left">group</i>Cuestionarios</a>
-
-                    <a class="waves-effect waves-light btn colorGrey colorTextReverse"><i
-                            class="material-icons left">stacked_bar_chart</i>Estadísticas</a>
-                </div>
             </div>
         </section>
 
 
+        <!--Contenedor principal-->
         <section class="operationMainNav">
-            <div class="title-general colorGrey fixedTitleOperationMain shadow-2e">
-                <h6 class="hide-on-large-only hide-on-med-only">Cuestionarios creados</h6>
-                <h5 class="hide-on-small-only">Cuestionarios creados</h5>
+            <!--Titulos de la página-->
+            <div class="title-general color1 fixedTitleOperationMain shadow-2e" id="cajaTituloBuscadorId">
+                <h6 class="colorText hide-on-large-only hide-on-med-only" id="cajaTituloBuscadorContenidoId">Cuestionarios creados</h6>
+                <h5 class="colorText hide-on-small-only" id="cajaTituloBuscadorContenidoLargeId">Cuestionarios creados</h5>
             </div>
-            <div class="contenedorCardsGruposOperation">
-                <div class="cardOperationGroup shadow-1" id="">
-                    <div class="sectionCardOperationTitle fondoDinamico colorText">
-                        <div>
-                            <h5>Cuestionario 1</h5>
-                        </div>
-                        <div class="studentCountCardOperation">
-                            <i class="material-icons">people</i> <span class="contadorAlumnosNumber">100</span>
-                        </div>
+
+            <!--Buscador para los dispositivos moviles-->
+            <section class="container_browser hide-on-large-only" id="container_browser_id_uno">
+                <div class="fondoDinamico headerComunidad shadow-2e" id="fondo_browser_id_dos"></div>
+                <div class="contenedorBuscador centerAligner" id="container_browser_id_dos">
+                    <div class="icon_browser_mine shadow-2 bordered5 color3 colorText" id="icon_browser_mine"><i
+                            class="material-icons colorText">search</i></div>
+                    <div class="box_browser">
+                        <input type="text" class="colorGreyWhiter browser-default shadow-2e flow-text" placeholder="🔎"
+                            id="buscadorInput_tres">
                     </div>
-                    <div class="sectionCardOperationDescription colorGreyWhiter">
-                        <p><b>Este grupo es de POO en JAVA</b></p>
-                    </div>
-                    <div class="sectionCardOperationActions colorGreyWhiter">
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">edit</i></a>
-                        <a
-                            class="waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                class="material-icons">delete</i></a>
+                    <div class="icon_search_voice_mine shadow-2 bordered5 color3 colorText" id="icon_search_voice_mine">
+                        <i class="material-icons colorText">keyboard_voice</i>
                     </div>
                 </div>
+            </section>
+
+            <!--Menu lateral para pantallas grandes-->
+            <div class="viewsContainerOperation">
+                <div>
+                    <a id="buttonVistasAlternateGroup"
+                        class="hide-on-small-only waves-effect waves-light btn colorGreyWhiter colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                            id="iconVistasAlternateGroup" class="material-icons md-28">grid_view</i></a>
+
+                    <a id="buttonVistasAlternateGroupMobile"
+                        class="hide-on-large-only hide-on-med-only waves-effect waves-light btn color1 colorText button-rounded centerAlignerNoWidth"><i
+                            id="iconVistasAlternateGroupMobile" class="material-icons md-24">grid_view</i></a>
+                </div>
+            </div>
+
+            <div class="contenedorCardsGruposOperation" id="contenedorCardsGruposOperationId">
+
+                <!--Grupos creados-->
+                {% set x = namespace(value=-1) %}
+                {% for result_object in grupo %}
+                <div>
+                    <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
+                        <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId"
+                        style="background-image: url({{result_object[4]}}), url(../../static/images/fondos/fondo.png); background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: hue;">
+                        <div>
+                            <h5 class="titleGroupContentId">{{result_object[2]}}</h5>
+                        </div>
+                            <div class="studentCountCardOperation">
+                                <div>
+                                    <i class="material-icons md-18">people</i> 
+                                    {% set x.value = x.value + 1 %}
+                                    <span class="contadorAlumnosNumber">{{idsAlumnos[x.value][0]}}</span>
+                                </div>
+                                <div>
+                                    <i class="material-icons md-18">checklist</i> <span
+                                        class="contadorAlumnosNumber">0</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
+                            <p><b>{{result_object[3]}}</b></p>
+                        </div>
+                        <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
+                            <!--Botones de cada grupo-->
+                            <a href="/viewGroup/{{result_object[0]}}"
+                                class="modal-trigger classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                    class="material-icons md-24">visibility</i></a>
+                            <a href="#modal{{result_object[0]}}"
+                                class="modal-trigger classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                    class="material-icons md-24">delete</i></a>
+                        </div>
+                    </div>
+                </div>
+                <!--Pop up de eliminar el grupo-->
+                <div id="modal{{result_object[0]}}" class="modal bordered2 colorGrey">
+                    <div class="modal-content">
+                        <h4>¿Desea eliminar el cuestionario?</h4>
+                        <p>Este procedimiento no se puede revertir.</p>
+                        <hr>
+                        <a href="/deleteGroup/{{result_object[0]}}"
+                            class="waves-effect waves-light btn badColorButton shadow-2e button-rounded"
+                            style="width: 100%;">Eliminar</a>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </section>
 
+        <!--Boton para los dispositivos moviles-->
         <section class="navbarOperationGroup color2 shadow-up-1e">
             <div></div>
             <div>
-                <div class="navbarOperationGroupCircle shadow-up-1e colorGrey">
-                    <div class="waves-effect">
-                        <i class="material-icons md-28">add</i>
+                <a href="/creacion_cuestionarios" class="modal-trigger" id="buttonNuevoGrupoMobile">
+                    <div class="navbarOperationGroupCircle shadow-up-1e colorGrey">
+                        <div class="waves-effect">
+                            <i class="material-icons colorTextReverse md-28">add</i>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div></div>
         </section>
@@ -118,6 +189,6 @@
 {% include "includes/footerRecursos.html" %}
 
 <script src="../../static/js/bienvenidaEfectos.js"></script>
-<script src="../../static/js/contadorGrupos.js"></script>
+<script src="../../static/js/operacionesGestionGrupos.js"></script>
 
 </html>
