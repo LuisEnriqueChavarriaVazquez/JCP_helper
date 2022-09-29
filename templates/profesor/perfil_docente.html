@@ -15,7 +15,7 @@
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Perfil del docente.</a>
+            <a href="#" class="brand-logo hide-on-small-only">Perfil del docente.</a>
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">arrow_back</i></a>
             <p class="titleMobile colorText flow-text hide-on-med-and-up">Perfil del docente.</p>
             <ul class="right hide-on-med-and-down">
@@ -28,8 +28,9 @@
     <!--Header del icono de usuario-->
     <section class="containerMasterProfile">
         <div class="dataContainerUserMain">
+            {% if datos %}
             <!-- Fondo con la foto elegida por el usuario -->
-            <div class="fondoDinamico fondoPerfilDiseno shadow-3e" id="fondoDinamicoUsuario">
+            <div class="fondoDinamico fondoPerfilDiseno shadow-3e" id="fondoDinamicoUsuario" style="background-image:url('{{datos[8]}}')">
                 <div class="iconEditContainer">
                     <p>
                         <a href="#modal1"
@@ -47,7 +48,6 @@
 
             <!-- Datos del cliente -->
             <div class="datos_perfil_container" id="datos_perfil_containerSelector">
-                {% if datos %}
                 <div>
                     <img class="materialboxed fotoPerfil shadow-2e" src="../../static/images/docentes/{{datos[3]}}"
                         alt="foto del usuario">
@@ -123,6 +123,10 @@
                 </div>
             </div>
         </div>
+        <form method="POST" id="fondoForm" action="/guardarFondo/{{datos[0]}}">
+            <input type="hidden" id="guardarFondoInput" name="fondo">
+            <button type="button" id="guardarFondoButton" onclick="submitForm()" style="display: none;"></button>
+        </form>
         <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Listo</a>
         </div>

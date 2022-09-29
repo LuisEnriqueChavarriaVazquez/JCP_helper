@@ -26,15 +26,15 @@
     <!--Header del icono de usuario-->
     <section class="containerMasterProfile">
         <div class="dataContainerUserMain">
+            {% if datos %}
             <!-- Fondo con la foto elegida por el usuario -->
-            <div class="fondoDinamico fondoPerfilDiseno shadow-3e" id="fondoDinamicoUsuario">
+            <div class="fondoDinamico fondoPerfilDiseno shadow-3e" id="fondoDinamicoUsuario" style="background-image: url('{{datos[0][9]}}');">
                 <div class="iconEditContainer">
                 </div>
             </div>
 
             <!-- Datos del cliente -->
             <div class="datos_perfil_container" id="datos_perfil_containerSelector">
-                {% if datos %}
                 <div>
                     <img class="materialboxed fotoPerfil shadow-2e" src="../../static/images/alumnos/{{datos[0][3]}}"
                         alt="foto del usuario">

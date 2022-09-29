@@ -12,6 +12,7 @@ create table Alumnos(
  area varchar(60),
  escuela varchar (100),
  descripcion varchar(100),
+ fondo varchar(800),
  primary key (IDAlumno)
 );
 
@@ -24,7 +25,8 @@ Nombre varchar(60),
  contra varchar(100),
  unidad_academica varchar (100),
  descripcion varchar(100),
-  primary key (IDDocente)
+ fondo varchar(800),
+ primary key (IDDocente)
 );
 
 create table Cuestionarios(
@@ -60,7 +62,7 @@ create table Grupos(
    IDDocente int not null,
    Nombre varchar (60),
    Descripcion varchar(100),
-   Fondo varchar (600),
+   Fondo varchar (800),
    Codigo varchar (60),
    Lenguajes varchar (60),
    Temas varchar (60),

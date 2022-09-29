@@ -1,10 +1,10 @@
 from operacionesBD.conexion import obtener_conexion
 
-def insertar_profesor(nombre,alias,foto,correo,contra,unidad_academica,descripcion):
+def insertar_profesor(nombre,alias,foto,correo,contra,unidad_academica,descripcion,fondo):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO docentes(Nombre,Alias,Foto,correo,contra,unidad_academica,descripcion) VALUES(%s,%s,%s,%s,%s,%s,%s)",
-        (nombre,alias,foto,correo,contra,unidad_academica,descripcion))
+        cursor.execute("INSERT INTO docentes(Nombre,Alias,Foto,correo,contra,unidad_academica,descripcion,fondo) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)",
+        (nombre,alias,foto,correo,contra,unidad_academica,descripcion,fondo))
     conexion.commit()
     conexion.close()
 
@@ -105,6 +105,21 @@ def update_grupos(nombreGrupo, descGrupo, fondoGrupo, lenguajesGrupo, temasGrupo
 
     with conexion.cursor() as cursor:
         cursor.execute("UPDATE grupos SET nombre = %s, descripcion = %s, fondo = %s, lenguajes = %s, temas = %s WHERE IDGrupo = %s", (nombreGrupo, descGrupo, fondoGrupo, lenguajesGrupo, temasGrupo, id_grupo))
+
+    conexion.commit()
+    conexion.close()
+    return confirmacionDeDelete
+
+##
+## Nos ayuda a modificar el fondo del docente
+##
+
+def update_fondo_docente(fondo, id_docente):
+    conexion=obtener_conexion()
+    confirmacionDeDelete = True
+
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE docentes SET fondo = %s WHERE IDDocente = %s", (fondo, id_docente))
 
     conexion.commit()
     conexion.close()

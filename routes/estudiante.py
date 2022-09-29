@@ -175,10 +175,11 @@ def nuevo_estudiante():
         area=request.form["area"]
         escuela=request.form["escuela"]
         descripcion=request.form["descripcion"]
+        fondo='default'
         
-        Op_estudiante.insertar_estudiante(nombre,alias,foto,correo,hashed,area,escuela,descripcion)
+        Op_estudiante.insertar_estudiante(nombre,alias,foto,correo,hashed,area,escuela,descripcion,fondo)
         flash(f"{nombre} te has registrado correctamente!!")
-        return render_template("estudiante/bienvenidaEstudiante.html")
+        return render_template("login_general.html")
 
 @routes.route('/login_estudiante',methods=["POST"])
 def login_estudiante():
@@ -221,3 +222,13 @@ def perfil_alumno():
 #@login_required
 def  contestar_cuestionario_estudiante():
     return render_template('estudiante/contestar_cuestionario.html')
+
+#Formulario para guardar fondos de perfil
+@routes.route('/guardarFondoEst/<string:id_alumno>',methods=['GET','POST'])
+#@login_required
+def guardarFondoEst(id_alumno):
+    if request.method=="POST":
+        #Variables del formulario
+        fondo = request.form["fondo"]
+        Op_estudiante.update_fondo_alumno(fondo, id_alumno)
+        return redirect(url_for('routes.perfil_alumno'))

@@ -49,6 +49,7 @@ function selectorFondoPerfilUsuario() {
         }else{
             localStorage.setItem('fondoElegidoPorUsuario', urlTheme);
             fondoDinamicoUsuario.style.backgroundImage = "url('" + localStorage.getItem('fondoElegidoPorUsuario') + "')";
+            document.getElementById("guardarFondoButton").click();
         }
     }
     ///////////////////////////////////////////////
@@ -69,6 +70,7 @@ function selectorFondoPerfilUsuario() {
             //Guardamos el valor del "Fondo" elegido en local storage
             localStorage.setItem('fondoElegidoPorUsuario', direccionesPhotos[banderitaThema]);
             fondoDinamicoUsuario.style.backgroundImage = "url('" + localStorage.getItem('fondoElegidoPorUsuario') + "')";
+            document.getElementById("guardarFondoButton").click();
         };
     };
 
@@ -78,6 +80,15 @@ function selectorFondoPerfilUsuario() {
     if (localStorage.getItem('fondoElegidoPorUsuario') != undefined) {
         fondoDinamicoUsuario.style.backgroundImage = "url('" + localStorage.getItem('fondoElegidoPorUsuario') + "')";
     }
+
+    //En caso de que en la base de datos el valor de fondo sea default se
+    //coloca un fondo por defecto
+    atributoStyle = fondoDinamicoUsuario.getAttribute('style');
+    if(atributoStyle.indexOf("default") != -1){
+        fondoDinamicoUsuario.removeAttribute('style');
+        fondoDinamicoUsuario.classList.add('fondoDinamico')
+    }
+    
 }
 
 function menuScrollProfileAnimation(){   
@@ -92,6 +103,18 @@ function menuScrollProfileAnimation(){
             containerScrolled.classList.add('containerScrolledHide');
         }
     });
+}
+
+//Guardar direccion del fondo en la base de datos
+function submitForm(){
+    //Obtener el valor del local storage
+    let fondo = localStorage.getItem('fondoElegidoPorUsuario');
+
+    // Guarda el valor del fondo en el input
+    document.getElementById("guardarFondoInput").value = fondo;
+
+    // Envia el formulario
+    document.getElementById("fondoForm").submit();
 }
 
 

@@ -1,10 +1,10 @@
 from operacionesBD.conexion import obtener_conexion
 
-def insertar_estudiante(nombre,alias,foto,correo,contra,area,escuela,descripcion):
+def insertar_estudiante(nombre,alias,foto,correo,contra,area,escuela,descripcion,fondo):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO alumnos(Nombre,Alias,Foto,correo,contra,area,escuela,descripcion) VALUES(%s, %s, %s,%s,%s,%s, %s, %s)",
-        (nombre,alias,foto,correo,contra,area,escuela,descripcion))
+        cursor.execute("INSERT INTO alumnos(Nombre,Alias,Foto,correo,contra,area,escuela,descripcion,fondo) VALUES(%s, %s, %s,%s,%s,%s, %s, %s, %s)",
+        (nombre,alias,foto,correo,contra,area,escuela,descripcion,fondo))
     conexion.commit()
     conexion.close()
 
@@ -91,6 +91,21 @@ def obtener_IDs_dentro_de_grupo(id_alumno):
 
     conexion.close()
     return idsObtenidos
+
+##
+## Nos ayuda a modificar el fondo del alumno
+##
+
+def update_fondo_alumno(fondo, id_alumno):
+    conexion=obtener_conexion()
+    confirmacionDeDelete = True
+
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE alumnos SET fondo = %s WHERE IDAlumno = %s", (fondo, id_alumno))
+
+    conexion.commit()
+    conexion.close()
+    return confirmacionDeDelete
 
 #pendiente
 

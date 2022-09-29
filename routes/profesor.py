@@ -308,10 +308,11 @@ def nuevo_profesor():
         
         unidad_academica=request.form["unidad_academica"]
         descripcion=request.form["descripcion"]
+        fondo="default"
 
 
 
-        Op_profesor.insertar_profesor(nombre,alias,foto,correo,hashed,unidad_academica,descripcion)
+        Op_profesor.insertar_profesor(nombre,alias,foto,correo,hashed,unidad_academica,descripcion,fondo)
         #Nos manda al log in para poder guardar datos en la sesión
         return render_template('login_general.html')
 
@@ -407,3 +408,13 @@ def python_runner():
 #@login_required
 def crear_publicacion_form():
     return render_template('profesor/crear_publicacion.html')
+
+#Formulario para guardar fondos de perfil
+@routes.route('/guardarFondo/<string:id_docente>',methods=['GET','POST'])
+#@login_required
+def guardarFondo(id_docente):
+    if request.method=="POST":
+        #Variables del formulario
+        fondo = request.form["fondo"]
+        Op_profesor.update_fondo_docente(fondo, id_docente)
+        return redirect(url_for('routes.perfil_docente'))
