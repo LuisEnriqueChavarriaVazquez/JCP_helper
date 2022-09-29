@@ -182,6 +182,39 @@ def login_prof(correo):
     conexion.close()
     return profesor
 
+
+############################EDICION DE PERFIL######################################
+##
+## Nos ayuda a subir los cambios del perfil del docente
+##
+
+def update_docente_perfil(id_docente,nombreUsuario,aliasUsuario,unidadAcademica,descUser):
+    conexion=obtener_conexion()
+    confirmacion = True
+
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE docentes SET nombre = %s, alias = %s, unidad_academica = %s, descripcion = %s WHERE IDDocente = %s", (nombreUsuario, aliasUsuario, unidadAcademica, descUser, id_docente))
+
+    conexion.commit()
+    conexion.close()
+    return confirmacion
+
+##
+## Nos ayuda a subir los cambios del perfil del docente CON PASSWORD INCLUIDO
+##
+
+def update_docente_perfil_con_password(id_docente,nombreUsuario,aliasUsuario,unidadAcademica,descUser,hashed):
+    conexion=obtener_conexion()
+    confirmacion = True
+
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE docentes SET nombre = %s, alias = %s, unidad_academica = %s, descripcion = %s, contra = %s WHERE IDDocente = %s", (nombreUsuario, aliasUsuario, unidadAcademica, descUser, hashed, id_docente))
+
+    conexion.commit()
+    conexion.close()
+    return confirmacion
+#####################################################################
+
 # va a servir para el perfil del docente
 def datos_completos_docente_by_id(IDDocente):
     conexion = obtener_conexion()

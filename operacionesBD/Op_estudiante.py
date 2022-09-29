@@ -43,6 +43,38 @@ def login_est(correo):
     conexion.close()
     return estudiante
 
+############################EDICION DE PERFIL######################################
+##
+## Nos ayuda a subir los cambios del perfil del docente
+##
+
+def update_alumno_perfil(id_alumno,nombreUsuario,aliasUsuario, area, escuela, descUser):
+    conexion=obtener_conexion()
+    confirmacion = True
+
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE alumnos SET nombre = %s, alias = %s, area = %s, escuela = %s, descripcion = %s WHERE IDAlumno = %s", (nombreUsuario, aliasUsuario, area, escuela, descUser, id_alumno))
+
+    conexion.commit()
+    conexion.close()
+    return confirmacion
+
+##
+## Nos ayuda a subir los cambios del perfil del docente CON PASSWORD INCLUIDO
+##
+
+def update_alumno_perfil_con_password(id_alumno,nombreUsuario,aliasUsuario, area, escuela, descUser, hashed):
+    conexion=obtener_conexion()
+    confirmacion = True
+
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE alumnos SET nombre = %s, alias = %s, area = %s, escuela = %s, descripcion = %s, contra = %s WHERE IDAlumno = %s", (nombreUsuario, aliasUsuario, area, escuela, descUser, hashed, id_alumno))
+
+    conexion.commit()
+    conexion.close()
+    return confirmacion
+#####################################################################
+
 
 # va a servir para el perfil del alumno
 def datos_completos_alumno_by_id(IDAlumno):

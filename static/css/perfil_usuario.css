@@ -320,7 +320,8 @@
         grid-template-rows: repeat(4, auto);
         grid-template-areas:
             "area1 area2"
-            "area3 area4"
+            "area3 area3"
+            "area4 area4"
         ;
 
         justify-items: center;
@@ -379,8 +380,4 @@
 .addThemeOnlineContainer{
     padding: 20px;
     border-radius: 20px;
-}
-
-.addThemeOnlineContainer input{
-    
 }

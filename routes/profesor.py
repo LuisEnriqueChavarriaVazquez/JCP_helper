@@ -372,6 +372,48 @@ def perfil_docente():
     except:
         return render_template('profesor/perfil_docente.html')
 
+##
+##Bloque para editar el perfil del profesor
+##
+@routes.route('/editarPerfilProfesor/<string:id>')
+def edit_perfil_profesor(id):
+    #Obtenemos los datos del profesor
+    result = Op_profesor.datos_completos_docente_by_id(id)
+
+    #Enviamos al usuario al formulario para editar la data
+    return render_template('profesor/b_editarPerfilProfesor.html', userInfo = result)
+
+##
+##Bloque para hacer el update del perfil
+##
+@routes.route('/updateProfesor/<id>', methods=['POST'])
+def update_docente(id):
+    if request.method == 'POST':
+        #Variables del formulario
+        id_docente = id
+        nombreUsuario = request.form["nombreUsuario"]
+        aliasUsuario = request.form["aliasUsuario"]
+        descUser = request.form["descUser"]
+        contraFirst = request.form["contraFirst"]
+        contraSecond = request.form["contraSecond"]
+        unidadAcademica = request.form["unidadAcademica"]
+        if contraFirst == "":
+            resultado = Op_profesor.update_docente_perfil(id_docente,nombreUsuario,aliasUsuario,unidadAcademica,descUser)
+            return redirect(url_for('routes.perfil_docente'))
+        else:
+            if contraFirst == contraSecond:
+                # encriptamos la contraseña
+                contraFirst = contraFirst.encode('utf-8')
+                hashed = bcrypt.hashpw(contraFirst, bcrypt.gensalt())
+                resultado = Op_profesor.update_docente_perfil_con_password(id_docente,nombreUsuario,aliasUsuario,unidadAcademica,descUser, hashed)
+                return redirect(url_for('routes.perfil_docente')) 
+            else:
+                flash("Las contraseña no coinciden o falta confirmación.")
+                #Obtenemos los datos del profesor
+                result = Op_profesor.datos_completos_docente_by_id(id_docente)
+                return render_template('profesor/b_editarPerfilProfesor.html', userInfo = result)
+
+
 
 @routes.route('/perfil_general_view/<string:id>')
 #@login_required

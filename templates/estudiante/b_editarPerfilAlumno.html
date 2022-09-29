@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Editar perfil</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
+</head>
+
+<body class="oculto colorGrey">
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+
+    <!--Menu de página de inicio-->
+    <nav class="color2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only">Editar perfil.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Editar perfil.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--Titulos de la página-->
+    <div class="title-general">
+        <h5 class="colorTextReverse hide-on-large-only hide-on-med-only">Formulario de edición.</h5>
+        <h4 class="colorTextReverse hide-on-small-only">Formulario de edición.</h4>
+    </div>
+
+    <!--Contenedor principal-->
+    <section class="contendorFormularioEditarGrupo">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div id="error_login">
+            <p>{{ message }}</p>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <section class="contenedorFormularioPrincipal">
+            <form class="popUpForm bordered2 colorGreyWhiter shadow-2e" action="/updateAlumno/{{userInfo.0}}"
+                method="post">
+                <h5>Datos de {{userInfo.1}}</h5>
+                <br>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input id="nombreUsuario" name="nombreUsuario" type="text" class="validate"
+                            value="{{userInfo.1}}">
+                        <label for="nombreUsuario">Nombre de usuario</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input id="aliasUsuario" name="aliasUsuario" type="text" class="validate"
+                            value="{{userInfo.2}}">
+                        <label for="aliasUsuario">Alias de usuario</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <textarea id="descUser" name="descUser" class="validate"
+                            style="border: 0px solid #000; padding: 10px; margin-top: 5px;"
+                            data-length="100">{{userInfo.8}}</textarea>
+                        <label for="descUser">Descripción</label>
+                    </div>
+                </div>
+
+                <h5>Seguridad</h5>
+                <br id="espacioExtra" class="hiddenElement">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="contraFirst" name="contraFirst" type="password" value="">
+                        <label for="contraFirst">Contraseña</label>
+                    </div>
+                    <div class="input-field col s12 hiddenElement" id="contraSecondContainer">
+                        <input id="contraSecond" name="contraSecond" type="password" value="">
+                        <label for="contraSecond">Confirmar contraseña</label>
+                    </div>
+                </div>
+
+                <h5>Datos académicos</h5>
+                <br>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="area" name="area" type="text" class="validate"
+                            value="{{userInfo.6}}">
+                        <label for="area">Area</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="escuela" name="escuela" type="text" class="validate"
+                            value="{{userInfo.7}}">
+                        <label for="escuela">Escuela</label>
+                    </div>
+                </div>
+
+                <br>
+                <button type="submit" class="btn-large color2 bordered5 buttonPopUp">Editar</button>
+            </form>
+        </section>
+    </section>
+
+</body>
+
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+<script src="../../static/js/operacionesEditarPerfil.js"></script>
+
+</html>

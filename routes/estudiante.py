@@ -217,6 +217,51 @@ def perfil_alumno():
     except:
         return render_template('estudiante/perfil_alumno.html')
 
+##
+##Bloque para editar el perfil del profesor
+##
+@routes.route('/editarPerfilAlumno/<string:id>')
+def edit_perfil_alumno(id):
+    #Obtenemos los datos del profesor
+    result = Op_estudiante.datos_completos_alumno_by_id(id)
+
+    #Enviamos al usuario al formulario para editar la data
+    return render_template('estudiante/b_editarPerfilAlumno.html', userInfo = result)
+
+##
+##Bloque para hacer el update del perfil
+##
+@routes.route('/updateAlumno/<id>', methods=['POST'])
+def update_alumno(id):
+    if request.method == 'POST':
+        #Variables del formulario
+        id_alumno = id
+        nombreUsuario = request.form["nombreUsuario"]
+        aliasUsuario = request.form["aliasUsuario"]
+        descUser = request.form["descUser"]
+        contraFirst = request.form["contraFirst"]
+        contraSecond = request.form["contraSecond"]
+        area = request.form["area"]
+        escuela = request.form["escuela"]
+        if contraFirst == "":
+            resultado = Op_estudiante.update_alumno_perfil(id_alumno,nombreUsuario,aliasUsuario, area, escuela, descUser)
+            return redirect(url_for('routes.perfil_alumno'))
+        else:
+            if contraFirst == contraSecond:
+                # encriptamos la contraseña
+                contraFirst = contraFirst.encode('utf-8')
+                hashed = bcrypt.hashpw(contraFirst, bcrypt.gensalt())
+                resultado = Op_estudiante.update_alumno_perfil_con_password(id_alumno,nombreUsuario,aliasUsuario, area, escuela, descUser, hashed)
+                return redirect(url_for('routes.perfil_alumno')) 
+            else:
+                flash("Las contraseña no coinciden o falta confirmación.")
+                #Obtenemos los datos del alumno
+                result = Op_estudiante.datos_completos_alumno_by_id(id_alumno)
+                return render_template('estudiante/b_editarPerfilAlumno.html', userInfo = result)
+
+
+
+
 ##Ruta para que los estudiantes respondan los cuestionarios
 @routes.route('/contestar_cuestionario_estudiante')
 #@login_required
