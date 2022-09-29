@@ -1,8 +1,10 @@
 from functools import wraps
+from queue import Empty
 from unittest import result
 from flask import flash, render_template,request,redirect,url_for,session
 from . import routes
 from operacionesBD import Op_estudiante
+from operacionesBD import Op_profesor
 import bcrypt
 from flask_uploads import IMAGES, UploadSet
 
@@ -113,6 +115,34 @@ def entrar_grupo(id_grupo, id_docente, id_estudiante):
         return redirect(url_for("routes.bienvenidaEstudiante"))
     else:
         return redirect(url_for("routes.bienvenidaEstudiante"))
+
+##
+##Bloque para salir de algun grupo una vez que se entró
+##
+@routes.route('/salirGrupo/<string:id_docente>/<string:id_grupo>/<string:id_estudiante>')
+def salir_grupo(id_docente, id_grupo ,id_estudiante):
+    #Saca al alumno del grupo
+    Op_estudiante.salir_de_grupo(id_docente, id_grupo ,id_estudiante)
+    return redirect(url_for("routes.bienvenidaEstudiante"))
+
+##
+##Bloque para ver mis grupos
+##
+@routes.route('/mis_grupos/<string:id_estudiante>')
+def mis_grupos(id_estudiante):
+    #Busca los IDS de maestros, grupos y alumnos vinculados
+    resultIds = Op_estudiante.obtener_IDs_dentro_de_grupo(id_estudiante)
+    
+    #Busca toda la data del grupo para mostrar
+    resultGroup = ()
+    for idGroup in resultIds:
+        resultGroup += Op_profesor.obtener_grupo_datos_importantes_unitario(idGroup[1])
+
+    #En caso de que este vacio retornamos un empty.
+    if(result is None):
+        return render_template("estudiante/b_mis_grupos.html", datosIds = "empty", datosGroup = "empty")
+    else:
+        return render_template("estudiante/b_mis_grupos.html", datosIds = resultIds, datosGroup = resultGroup)
 
 @routes.route('/nuevo_estudiante',methods=["POST"])
 def nuevo_estudiante():

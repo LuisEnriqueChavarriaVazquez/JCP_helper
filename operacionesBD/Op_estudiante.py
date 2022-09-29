@@ -22,7 +22,14 @@ def obtener_estudiantes():
 def eliminar_estudiante(id):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("DELETE FROM alumnos WHERE IDAlumno = %s", (id,))
+        cursor.execute("DELETE FROM alumnos WHERE IDAlumno = %s", (id))
+    conexion.commit()
+    conexion.close()
+
+def salir_de_grupo(id_docente, id_grupo ,id_estudiante):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("DELETE FROM grupos_alumnos WHERE IDDocente = %s and IDGrupo = %s and IDAlumno = %s", (id_docente, id_grupo ,id_estudiante))
     conexion.commit()
     conexion.close()
 
@@ -69,6 +76,21 @@ def insertar_estudiante_grupo( id_docente, id_grupo, id_estudiante):
     conexion.commit()
     conexion.close()
     return "listo"
+
+#Obtiene los IDDocente y IDGrupo con el IDALUMNO
+##
+## Obtiene los datos de los estudiantes vinculados a un grupo
+##
+def obtener_IDs_dentro_de_grupo(id_alumno):
+    conexion=obtener_conexion()
+    idsObtenidos=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM grupos_alumnos WHERE IDAlumno = %s", (id_alumno))
+        idsObtenidos=cursor.fetchall()
+
+    conexion.close()
+    return idsObtenidos
 
 #pendiente
 

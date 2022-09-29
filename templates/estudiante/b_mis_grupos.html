@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Mis grupos</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
+</head>
+
+<body class="oculto colorGrey">
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+
+    <!--Menu de página de inicio-->
+    <nav class="color2 fixedNavbarMine">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only">Mis grupos.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Mis grupos.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Menu lateral para las pantallas grandes-->
+    <section class="operationContainerPrincipalMyGroups">
+        <!--Contenedor principal-->
+        <section class="operationMainNavMyGroups">
+            <!--Titulos de la página-->
+            <div class="title-general color1 fixedTitleOperationMain shadow-2e" id="cajaTituloBuscadorId">
+                <h6 class="colorText hide-on-large-only hide-on-med-only" id="cajaTituloBuscadorContenidoId">Panel global</h6>
+                <h5 class="colorText hide-on-small-only" id="cajaTituloBuscadorContenidoLargeId">Panel global</h5>
+            </div>
+
+            <!--Buscador para los dispositivos moviles-->
+            <section class="container_browser" id="container_browser_id_uno">
+                <div class="fondoDinamico headerComunidad shadow-2e" id="fondo_browser_id_dos"></div>
+                <div class="contenedorBuscador centerAligner" id="container_browser_id_dos">
+                    <div class="icon_browser_mine shadow-2 bordered5 color3 colorText" id="icon_browser_mine"><i
+                            class="material-icons colorText">search</i></div>
+                    <div class="box_browser">
+                        <input type="text" class="colorGreyWhiter browser-default shadow-2e flow-text" placeholder="🔎"
+                            id="buscadorInput_tres">
+                    </div>
+                    <div class="icon_search_voice_mine shadow-2 bordered5 color3 colorText" id="icon_search_voice_mine">
+                        <i class="material-icons colorText">keyboard_voice</i>
+                    </div>
+                </div>
+            </section>
+
+            <!--Menu lateral para pantallas grandes-->
+            <div class="viewsContainerOperation">
+                <div>
+                    <a id="buttonVistasAlternateGroup"
+                        class="hide-on-small-only waves-effect waves-light btn colorGreyWhiter colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                            id="iconVistasAlternateGroup" class="material-icons md-28">grid_view</i></a>
+
+                    <a id="buttonVistasAlternateGroupMobile"
+                        class="hide-on-large-only hide-on-med-only waves-effect waves-light btn color1 colorText button-rounded centerAlignerNoWidth"><i
+                            id="iconVistasAlternateGroupMobile" class="material-icons md-24">grid_view</i></a>
+                </div>
+            </div>
+
+            <div class="contenedorCardsGruposOperationMyGroups" id="contenedorCardsGruposOperationId">
+                {% if datosGroup %}
+                {%for i in range(0, datosGroup|length)%}
+                <div>
+                    <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
+                        <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId"
+                            style="background-image: url({{datosGroup[i][4]}}), url(../../static/images/fondos/fondo.png); background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: hue;">
+                            <div>
+                                <h5 class="titleGroupContentId">{{datosGroup[i][2]}}</h5>
+                            </div>
+                            <div class="studentCountCardOperationMyGroups">
+                                <div>
+                                    <i class="material-icons md-18">article</i> <span
+                                        class="contadorAlumnosNumber">0</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
+                            <p><b>{{datosGroup[i][3]}}</b></p>
+                        </div>
+                        <div class="sectionCardOperationActionsMyGroup colorGreyWhiter sectionCardOperationActionsId">
+                            <!--Botones de cada grupo-->
+                            <a href="#modal{{datosIds[i][1]}}"
+                                class="modal-trigger classIdentifierGroupButtonEdit waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                    class="material-icons md-24">logout</i></a>
+
+                            <a href="/viewGroup/{{datosGroup[i][0]}}"
+                                class="modal-trigger classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                    class="material-icons md-24">visibility</i></a>
+                        </div>
+                    </div>
+                </div>
+                <!--Pop up para salir del grupo-->
+                <div id="modal{{datosIds[i][1]}}" class="modal bordered2 colorGrey">
+                    <div class="modal-content">
+                        <h4>¿Desea salir del grupo?</h4>
+                        <p>Se recomienda informar a su docente en caso de que el curso no haya terminado.</p>
+                        <hr>
+                        <a href="/salirGrupo/{{datosIds[i][0]}}/{{datosIds[i][1]}}/{{datosIds[i][2]}}"
+                            class="waves-effect waves-light btn badColorButton shadow-2e button-rounded"
+                            style="width: 100%;">Salir</a>
+                    </div>
+                </div>
+                {%endfor%}
+                {% endif %}
+            </div>
+        </section>
+
+    </section>
+</body>
+
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+<script src="../../static/js/bienvenidaEfectos.js"></script>
+<script src="../../static/js/misGruposOperaciones.js"></script>
+
+</html>

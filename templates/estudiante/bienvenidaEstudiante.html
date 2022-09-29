@@ -217,7 +217,7 @@
         <section class="hide-on-small-only hide-on-med-only centerAligner verticalAligner colorGreyDarker"
             style="padding: 30px;">
             <section class="centerAligner horizontalAligner">
-                <a href="/gestionar_grupos_alumno">
+                <a href="/mis_grupos/{{datos[0]}}">
                     <div class="borderDecoration cardMainDesktopPanel shadow-2 bordered2">
                         <div class="cardMainDesktopPanelHead centerAligner">Mis grupos</div>
                         <div class="centerAligner horizontalAligner">
@@ -230,10 +230,11 @@
                         </div>
                     </div>
                 </a>
+                
 
                 <a href="/gestionar_resultados_alumno">
                     <div class="borderDecoration cardMainDesktopPanel shadow-2 bordered2">
-                        <div class="cardMainDesktopPanelHead centerAligner">Mis cuestionarios</div>
+                        <div class="cardMainDesktopPanelHead centerAligner">Mis resultados</div>
                         <div class="centerAligner horizontalAligner">
                             <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
                                 <p><i class="material-icons colorTextReverse">grade</i></p>
@@ -250,12 +251,12 @@
         <!--Para dispositivos de tabletas-->
         <section class="hide-on-small-only hide-on-large-only centerAligner verticalAligner colorGreyDarker">
             <section class="centerAligner horizontalAligner containerCardsDesktop">
-                <a href="gestionar_grupos_alumno">
+                <a href="/mis_grupos/{{datos[0]}}">
                     <div class="borderDecoration shadow-4 bordered2 cardMainCarouselContainer">
                         <div class="centerAligner cardCarouselMainHead">
                             <p><i class="material-icons">groups_2</i></p>
                         </div>
-                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner">Gestionar
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner">Mis
                             grupos</div>
                         <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner">Acceda a sus
                             grupos y resuelva sus cuestionarios.</div>
@@ -267,8 +268,8 @@
                         <div class="centerAligner cardCarouselMainHead">
                             <p><i class="material-icons">grade</i></p>
                         </div>
-                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner">Gestionar
-                            cuestionarios</div>
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner">Mis
+                            resultados</div>
                         <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner">Revise sus
                             resultado obtenidos en los cuestionarios.</div>
                     </div>
@@ -280,7 +281,7 @@
         <!--Para dispositivos móviles-->
         <section class="owl-one owl-carousel owl-theme hide-on-med-and-up colorGreyDarker">
             <div class="item">
-                <a href="gestionar_grupos_alumno">
+                <a href="/mis_grupos/{{datos[0]}}">
                     <div class="borderDecoration shadow-2e bordered2">
                         <div class="centerAligner cardCarouselMainHead">
                             <p><i class="material-icons">groups_2</i></p>

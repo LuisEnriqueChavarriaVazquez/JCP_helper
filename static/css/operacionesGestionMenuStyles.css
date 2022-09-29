@@ -268,9 +268,16 @@
     align-items: center;
 }
 
-.studentCountCardOperation i {
+.studentCountCardOperation div {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.studentCountCardOperation div i {
     margin-right: 5px;
-    margin-bottom: 3px;
 }
 
 .sectionCardOperationTitle h5 {
