@@ -12,292 +12,9 @@
     {% include "includes/encabezadoRecursos.html" %}
 
    
-    <script>
+    <script  src="{{url_for('static', filename='js/configuracionCreacionCuestionario.js')}}">
          
-      var contadorModalRellenarEspaciosCreacion=0;
-
-      //Opccion para agregar opccion a la opcción multiple
-      $(document).ready(function () {
-            $("#btnAgregarModalOpcionMultipleCreacion").click(function () {
-                $("#contenedorOpccionesOpccionMultipleModalCreacion .hide").first().removeClass("hide");
-               
-            });
-        });
-
-  //Opccion para hacer que pongan los espacios en la de completar espacios
-         $(document).ready(function () {
-                $("#btnAgregarModalRellenarEspaciosCreacion").click(function () {
-                   var textoInput = $("#texAreaModalRellenarEspaciosCreacion").val();
-                    contadorModalRellenarEspaciosCreacion++;
-                    $("#texAreaModalRellenarEspaciosCreacion").val(textoInput+" [Blank "+contadorModalRellenarEspaciosCreacion+ "]");
-                    $("#contenedorOpccionEspaciosCreacion").append(
- 
-                      "<div class='row'>"+
-                           "<div class='col s12 '>"+
-                               "Blank " + contadorModalRellenarEspaciosCreacion +
-                            "</div>"+
-                        "</div>"+
-                        "  <div class='row'>"+
-                            "<div class='col s12 blankContadorEspaciosCreacion'>" +
-                                 "<input type='type' class='validate'>"+
-                             "</div>" +
-                        "</div>"
-
-
-
-
-                    );
-                
-                });
-            });
-
- ///btnAgregarsModalArrastrarCreacion
- 
-//Opccion para hacer que pongan los espacios en las preguntas  de completar espacios
-    $(document).ready(function () {
-        $("#btnAgregarsModalArrastrarCreacion").click(function () {
-           $("#opccionesArrastarModalCreacion").append(
-                     " <div class='row'>"+
-                        " <div class='input-field col s6'>"+
-                            "  <input placeholder='Placeholder'   type='text'>"+
-                       "</div>"+
-                       "<div class='col s6 '>"+
-                        "<a class='waves-effect waves-light btn '>"+
-                            "<input placeholder='Opccion' id='opccion' type='text' class='validate'>"+
-                            "</a>"+
-                        "</div>"+
-                       "</div>" 
-
-           );
-
-        });
-    });
- 
-    //Opcion para guardar preguntas de opccion multiple
-    $(document).ready(function () {
-        $("#btnGuardarModalOpcionMultipleCreacion").click(function () {
-       
-
-           var pregunta= $("#textAreaPreguntaOpccionMultipleCreacion").val();
-
-           var opccionSel = $("input:radio[name ='grupoOpcionesModalOpcionMuliple']:checked").val()
-        
-           var checkA = "";
-           var checkB = "";
-           var checkC = "";
-           var checkD = "";
-         
-
-           switch(opccionSel){
-           case "A":
-            checkA = "checked";
-            break;
-            case "B":
-             checkB = "checked";
-            break;
-            case "C":
-             checkC = "checked";
-            break;
-            case "D":
-             checkD = "checked";
-            break;
-           }
-           var opcionA =   " <div class='row'>" +
-
-               "<div class='col s4'>"+
-                  " <p>"+
-                       "<label>"+
-                           "<input  type='radio' "+checkA+" />"+
-                           "<span>Correcta</span>"+
-                       "</label>"+
-                   "</p>"+
-
-
-               "</div>"+
-
-
-
-                                "<div class='col s8'>" +
-                                    " <a>Opcion A</a>" +
-                                    "<a class='waves-effect waves-light btn ' style='width: 100%; height:50px;'>" +
-                                        "<textarea  class='materialize-textarea' style='height: 600px;'>"+
-                                            $("#opcionACreacion").val()+
-                                            "</textarea>"+
-                                    "</a>" +
-                                "</div>" +
-                            "</div>" ;
-            var opcionBOculto = "";
-            if($("#opcionBCreacion").val().length === 0){
-                 opcionBOculto ="hide";
-            }
-
-            var opcionCOculto = "";
-            if ($("#opcionCCreacion").val().length === 0) {
-                opcionCOculto = "hide";
-            }
-
-            var opcionDOculto = "";
-            if ($("#opcionDCreacion").val().length === 0) {
-                opcionDOculto = "hide";
-            }
-
-            var   opcionB = " <div class='row "+opcionBOculto+" '>" +
-
-                 "<div class='col s4'>"+
-                  " <p>"+
-                       "<label>"+
-                           "<input  type='radio' "+checkB+" />"+
-                           "<span>Correcta</span>"+
-                       "</label>"+
-                   "</p>"+
-
-
-               "</div>"+
-
-                                "<div class='col s8'>" +
-                                    " <a>Opcion B</a>" +
-                                        "<a class='waves-effect waves-light btn ' style='width: 100%; height:50px;'>" +
-                                         "<textarea  class='materialize-textarea' style='height: 600px;'>" +
-                                             $("#opcionBCreacion").val() +
-                                        "</textarea>" +
-                                        "</a>" +
-                                "</div>" +
-                             "</div>";
-
-            var   opcionC = " <div class='row "+opcionCOculto+" '>" +
-
-                "<div class='col s4'>"+
-                                " <p>"+
-                                    "<label>"+
-                                        "<input  type='radio' "+checkC+" />"+
-                                        "<span>Correcta</span>"+
-                                    "</label>"+
-                                "</p>"+
-
-
-                            "</div>"+
-                
-                                "<div class='col s8'>" +
-                                    " <a>Opcion C</a>" +
-                                        "<a class='waves-effect waves-light btn ' style='width: 100%; height:50px;'>" +
-                                         "<textarea  class='materialize-textarea' style='height: 600px;'>" +
-                                             $("#opcionCCreacion").val() +
-                                        "</textarea>" +
-                                        "</a>" +
-                                "</div>" +
-                             "</div>";
-            
-            var   opcionD = " <div class='row "+opcionDOculto+" '>" +
-
-                                "<div class='col s4'>"+
-                                " <p>"+
-                                    "<label>"+
-                                        "<input  type='radio' "+checkD+" />"+
-                                        "<span>Correcta</span>"+
-                                    "</label>"+
-                                "</p>"+
-
-
-                            "</div>"+
-                                "<div class='col s8'>" +
-                                    " <a>Opcion D</a>" +
-                                        "<a class='waves-effect waves-light btn ' style='width: 100%; height:50px;'>" +
-                                         "<textarea  class='materialize-textarea' style='height: 600px;'>" +
-                                             $("#opcionDCreacion").val() +
-                                        "</textarea>" +
-                                        "</a>" +
-                                "</div>" +
-                             "</div>";
-            
-            var contenedor="<div class='row'>"+
-                                " <div class='col s12 ''>"+
-                                        "  <div class='card '>"+
-                                                    " <div class='card-content '>"+
-                                                         "<h4>Opccion multiple</h4>"+
-
-                                                            " <div class='row'>"+
-                                                                        "<div class='input-field col s12'>"+
-                                                                            "<textarea  class='materialize-textarea'>"+
-                                                                                pregunta+
-                                                                                "</textarea>"+
-                                                                         "</div>" +  
-                                                                "</div>"+
-                                                            opcionA +
-                                                            opcionB +
-                                                            opcionC +
-                                                            opcionD +
-
-                                                     "</div>"+
-                                            "</div>"+
-                                    "</div>"+
-                           "</div>"             
-                        ;  
-
-                $("#contenedorCuestionarioPreguntas").append(contenedor);
-          
-        });
-    });
-
-    //Opcion para dar la opccionde rellenar espacioss
-    $(document).ready(function () {
-            $("#btnGuardarModalRellenarEspaciosCreacion").click(function () {
-
-                var contadorInicial=1;
-                var textoOpcciones="";
-                 $("#contenedorOpccionEspaciosCreacion .blankContadorEspaciosCreacion").each(function (index, obj) {
-                    
-                    textoOpcciones =  textoOpcciones + "<div class='row'>"+
-                           "<div class='col s12 '>"+
-                               "Blank " + contadorInicial +
-                            "</div>"+
-                        "</div>"+
-                        "  <div class='row'>"+
-                            "<div class='col s12 blankContadorEspaciosCreacion'>" +
-                                 "<input type='type' value='"+ $(this).val() +"' class='validate'>"+
-                             "</div>" +
-                        "</div>";
-                   contadorInicial++;
-                    
-                   
-                });
-
-                 var pregunta = $("#texAreaModalRellenarEspaciosCreacion").val();
-
-                    
-
-               var contenedor="<div class='row'>"+
-                                " <div class='col s12 ''>"+
-                                        "  <div class='card '>"+
-                                                    " <div class='card-content '>"+
-                                                         "<h4>Rellenar espacios</h4>"+
-                                                          " <div class='row'>"+
-                                                                        "<div class='input-field col s12'>"+
-                                                                            "<textarea  class='materialize-textarea'>"+
-                                                                                pregunta+
-                                                                                "</textarea>"+
-                                                                         "</div>" +  
-                                                            "</div>"+
-
-                                                            "<div class='row' >"+
-                                                                "<div class='col 12' >"+
-                                                                          textoOpcciones +
-                                                                "</div >"+
-
-                                                            "</div >"+
-                                                                
-
-                                                     "</div>"+
-                                            "</div>"+
-                                    "</div>"+
-                           "</div>"             
-                        ;  
-                     $("#contenedorCuestionarioPreguntas").append(contenedor);
-            });
-        });
-
-        //Opcion para guardar preguntas de Arrastrar
-
-
+     
 
     </script>
 
@@ -320,7 +37,7 @@
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             <li><a><input id="nombre" placeholder="nombre" type="text" class="validate"></a></li>
-            <li><a class="waves-effect waves-light btn">Guardar</a></li>
+            <li><a class="waves-effect waves-light btn" id="btnSave">Guardar</a></li>
 
         </ul>
     </div>
@@ -346,6 +63,8 @@
             <div class="card-content">
                 <h4 class="center-align">Tipo preguntas</h4>
 
+               <!--Boton para llamar modal de opcciones multiples-->
+
                 <div class="row">
                     <div class="col s12 ">
                         <a class="waves-effect waves-light btn modal-trigger" id="botonModalOpccionMultipleCreacion"
@@ -353,6 +72,8 @@
                     </div>
                 </div>
 
+
+                <!--Boton para llamar modal de rellenar espacios-->
                 <div class="row">
                     <div class="col s12 ">
 
@@ -360,6 +81,8 @@
                             href="#modalRellenarEspaciosCreacion" style="width: 100%;">Rellenar espacios</a>
                     </div>
                 </div>
+
+                <!--Boton para llamar modal de ejericicios-->
 
                 <div class="row">
                     <div class="col s12 ">
@@ -369,12 +92,18 @@
                     </div>
                 </div>
 
+                <!--Boton para llamar modal de pregutnas de arrastrar-->
+
                 <div class="row">
                     <div class="col s12 ">
                         <a class="waves-effect waves-light btn modal-trigger" id="botonModalArrastarCreacion"
                             href="#modalArrastrarCreacion" style="width: 100%;">Arrastrar</a>
                     </div>
                 </div>
+
+
+
+
 
             </div>
 
@@ -388,30 +117,35 @@
         <h4>Opcción multiple</h4>
         <form class="col s12" id="formModalOpccionMultipleCreacion">
            
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="textAreaPreguntaOpccionMultipleCreacion" class="materialize-textarea"></textarea>
-                        <label for="textAreaPreguntaOpccionMultipleCreacion">Pregunta</label>
-                    </div>
-                </div>
+        <!--Titulo de la pregunta -->
+
+         <div class="row">
+            <div class="input-field col s12">
+                <textarea id="textAreaPreguntaOpccionMultipleCreacion" class="materialize-textarea"></textarea>
+                <label for="textAreaPreguntaOpccionMultipleCreacion">Pregunta</label>
+            </div>
+        </div>
             
 
+
+        <!--Opcion A-->
           <div class="row">
               <div class="col s12" id="contenedorOpccionesOpccionMultipleModalCreacion">
             
              <div class="row">
-            <div class="col s4">
-          
+
+                <!--Opcion de tomar A como correcta-->
+                <div class="col s4">
                 <p>
                     <label>
                         <input name="grupoOpcionesModalOpcionMuliple" value="A" type="radio" checked />
                         <span>Correcta</span>
                     </label>
                 </p>
-           
-           
-            </div>
+               </div>
                 
+               <!--Contenido de opcion A-->
+
                 <div class="col s8">
                     <a>Opcion A</a>
                     <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
@@ -420,20 +154,21 @@
                 </div>
              </div>
 
-                   <div class="row hide" >
+            <!--Opcion B-->
+             <div class="row hide" >
 
-                        <div class="col s4">
-                        
-                            <p>
-                                <label>
-                                    <input name="grupoOpcionesModalOpcionMuliple" value="B" type="radio"  />
-                                    <span>Correcta</span>
-                                </label>
+
+                <!--Opcion de tomar B como correcta-->
+                    <div class="col s4">
+                         <p>
+                            <label>
+                                <input name="grupoOpcionesModalOpcionMuliple" value="B" type="radio"  />
+                                <span>Correcta</span>
+                            </label>
                             </p>
-                        
-                        
-                        </div>
+                    </div>
 
+                 <!--Contenido de opcion B-->
 
                         <div class="col s8">
                             <a>Opcion B</a>
@@ -443,19 +178,22 @@
                         </div>
                     </div>
 
+                <!--Opcion C-->
+
                     <div class="row hide">
 
+
+                <!--Opcion de tomar C como correcta-->
                         <div class="col s4">
-                        
                             <p>
                                 <label>
                                     <input name="grupoOpcionesModalOpcionMuliple" value="C" type="radio" />
                                     <span>Correcta</span>
                                 </label>
-                            </p>
-                        
-                        
+                            </p>      
                         </div>
+                
+                <!--Contenido de opcion C-->
                         <div class="col s8">
                             <a>Opcion C</a>
                             <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
@@ -464,19 +202,22 @@
                         </div>
                     </div>
 
+
+
+                <!--Opcion D-->
                     <div class="row hide">
 
+                <!--Opcion de tomar D como correcta-->
                         <div class="col s4">
-                        
                             <p>
                                 <label>
                                     <input name="grupoOpcionesModalOpcionMuliple" value="D" type="radio"  />
                                     <span>Correcta</span>
                                 </label>
                             </p>
-                        
-                        
                         </div>
+
+                <!--Contenido de opcion D-->
                         <div class="col s8">
                             <a>Opcion D</a>
                             <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
@@ -488,15 +229,28 @@
                 </div>
 
             </div>
+
+            
             <div class="row">
-                <div class="col s6">
+
+                <!--Guardar la pregunta en el cuestionario-->
+                <div class="col s12">
                     <a class="waves-effect waves-light btn " id="btnGuardarModalOpcionMultipleCreacion">
                         Guardar
                     </a>
-                </div>
-                <div class="col s6">
-                    <a class="waves-effect waves-light btn " id="btnAgregarModalOpcionMultipleCreacion">
+                
+
+                <!--Agregar opciones -->
+                
+                    <a class="waves-effect waves-light btn    " id="btnAgregarModalOpcionMultipleCreacion">
                         Agregar
+                    </a>
+               
+
+                <!--Eliminar opciones -->
+                
+                    <a class="waves-effect waves-light btn    " id="btnEliminarModalOpcionMultipleCreacion">
+                        Eliminar
                     </a>
                 </div>
 
@@ -512,6 +266,9 @@
     <div class="modal-content">
         <h4>Rellenar espacios</h4>
         <form class="col s12">
+
+            <!--Titulo de la pregunta -->
+
             <div class="row">
                 <div class="row">
                     <div class="input-field col s12">
@@ -520,6 +277,8 @@
                     </div>
                 </div>
             </div>
+
+            <!--Contenedor de espacios de creacion de elementos del espacio -->
             <div class="row" >
                 <div class="col 12" id ="contenedorOpccionEspaciosCreacion">
 
@@ -529,11 +288,18 @@
   
 
             <div class="row">
-                <div class="col s6">
+                <!--Agregar espacio-->
+                <div class="col s12">
                     <a class="waves-effect waves-light btn " id="btnAgregarModalRellenarEspaciosCreacion">Agregar espacios</a>
-                </div>
-                <div class="col s6">
+               
+                <!--Guardar la pregunta en el cuestionario-->
+               
                     <a class="waves-effect waves-light btn "  id="btnGuardarModalRellenarEspaciosCreacion">Guardar</a>
+                
+
+                <!--Eliminar espacio-->
+               
+                    <a class="waves-effect waves-light btn " id="btnEliminarModalRellenarEspaciosCreacion">Eliminar espacio</a>
                 </div>
             </div>
 
@@ -569,6 +335,9 @@
     <div class="modal-content">
         <h4>Arrastrar</h4>
         <form class="col s12">
+
+            <!--Titulo de la pregunta -->
+
             <div class="row">
                 <div class="row">
                     <div class="input-field col s12">
@@ -578,7 +347,8 @@
                 </div>
             </div>
 
-         
+        <!--Seccion para la creacion  de opcciones -->
+
           <div class="row">
              <div class="col s12" id="opccionesArrastarModalCreacion">
 
@@ -587,8 +357,12 @@
 
             <div class="row">
                 <div class="col s12 ">
+                    <!--GUardar pregunta-->
                     <a class="waves-effect waves-light btn "  id="btnGuardarModalArrastrarCreacion">Guardar</a>
+                    <!--Agregar opccion-->
                     <a class="waves-effect waves-light btn "  id="btnAgregarsModalArrastrarCreacion">Agregar</a>
+                    <!--Eliminar opccion-->
+                    <a class="waves-effect waves-light btn " id="btnEliminarModalArrastrarCreacion">Eliminar</a>
                 </div>
 
             </div>
@@ -612,150 +386,7 @@
             </div>
         </div>
     </div>
-    <!--Ejemplo de pregunta se opcción multiple-->
- <!--  <div class="row">
-        <div class="col s12 ">
-            <div class="card ">
-                <div class="card-content ">
-                    <h4>Ejemplo pregunta opccion multiple</h4>
-                    <div class="row">
-                        <div class="col s12">
-                            <a>Opcion A</a>
-                            <a class="waves-effect waves-light btn " style="width: 100%; height:50px;">
-                                Contenido opcion A
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s12">
-                            <a>Opcion B</a>
-                            <a class="waves-effect waves-light btn " style="width: 100%; height:50px;">
-                                Contenido opcion B
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s12">
-                            <a>Opcion C</a>
-                            <a class="waves-effect waves-light btn " style="width: 100%; height:50px;">
-                                Contenido opcion C
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s12">
-                            <a>Opcion D</a>
-                            <a class="waves-effect waves-light btn " style="width: 100%; height:50px;">
-                                Contenido opcion D
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s12">
-                            <a class="waves-effect waves-light btn">Cambiar</a>
-                        </div>
-                    </div>
-
-
-
-
-                </div>
-
-            </div>
-        </div>
-    </div>  -->
-
-
-    <!--Ejemplo de preguntas de rellenar espacios-->
-
-  <!-- <div class="row">
-        <div class="col s12 ">
-            <div class="card ">
-                <div class="card-content ">
-                    <h4>Ejemplo de pregunta de rellenear espacios</h4>
-
-                    <div class="row">
-                        <h4>texto de ejemplo</h4>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col s12">
-                            <a class="waves-effect waves-light btn ">Cambiar</a>
-                        </div>
-                    </div>
-
-
-
-
-                </div>
-
-            </div>
-        </div>
-    </div>-->
-
-    <!--Ejemplo de preguntas de ejercicios-->
-
-  <!--  <div class="row">
-        <div class="col s12 ">
-            <div class="card ">
-                <div class="card-content ">
-                    <h4>Ejemplo de pregunta de ejercicios de código</h4>
-                    <div class="row">
-                        <div class="col s12">
-                            ejemplo código / objeto resultado
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="cols s12">
-                            <a class="waves-effect waves-light btn ">Cambiar</a>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </div>-->
-
-    <!--Ejemplo de preguntas de arrastrar-->
-
-
-
-   <!-- <div class="row">
-        <div class="col s12 ">
-            <div class="card ">
-                <div class="card-content ">
-                    <h4>Ejemplo pregunta de arrastrar</h4>
-
-                    <div class="row">
-                        <div class="col s6">
-                            <div class="input-field col s6">
-                                <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                                <label for="first_name">First Name</label>
-                            </div>
-                        </div>
-
-                        <div class="col s6">
-                            <a class="waves-effect waves-light btn ">
-                                <input placeholder="Opccion" id="opccion" type="text" class="validate">
-                            </a>
-
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="cols s12">
-                            <a class="waves-effect waves-light btn ">Cambiar</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-    </div>-->
-
+   
 
 </div>
 
