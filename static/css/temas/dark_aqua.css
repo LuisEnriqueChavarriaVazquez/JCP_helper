@@ -62,6 +62,10 @@ h1,h2,h3,h4,h5, p{
     background-image: url('../../images/logo_app/grey_icon.png');
 }
 
+.iconBoxInfoDinamico{
+    background-image: url('../../images/brand_app/triple_oscuro.png');
+}
+
 
 /*Barra de carga*/
 .progress .indeterminate {

@@ -14,29 +14,40 @@
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/cargador.html" %}
 
-    <!--Menu de página de inicio con moviles-->
-    <nav class="color2 z-depth-3 hide-on-large-only">
+    <!--Menu de página de inicio-->
+    <nav class="color2 z-depth-3 fixedNavbarMine hide-on-large-only">
         <div class="nav-wrapper">
-            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">menu</i></a>
         </div>
     </nav>
+    <br><br>
 
-    <ul id="slide-out" class="sidenav">
+    <!--Menu para los dispositivos moviles-->
+    <ul id="slide-out" class="sidenav colorWhite">
         <li>
             <div class="user-view">
-                <div class="background">
-                    <img src="../static/images/sidenavImage.jpg" width="100%">
-                </div>
-                <br>
-                <a href="#name"><span class="white-text name">¡Bienvenido a la prueba!</span></a>
+                <div class="background fondoDinamico" id="fondoBienvenida"></div>
                 <br>
             </div>
         </li>
+        <li><a href="/login_general" class="colorTextReverse"><i class="colorTextReverse material-icons">person</i>Acceder</a></li>
+        <li><a href="/signup_est" class="colorTextReverse"><i class="colorTextReverse material-icons">school</i>Sign up estudiante</a></li>
+        <li><a href="/signup_prof" class="colorTextReverse"><i class="colorTextReverse material-icons">history_edu</i>Sign up profesor</a></li>
+        <hr>
+        <li><a href="/politica_cookies" class="colorTextReverse"><i
+                    class="colorTextReverse material-icons">cookie</i>Cookies.</a></li>
+        <li><a href="/politica_privacidad" class="colorTextReverse"><i
+                    class="colorTextReverse material-icons">privacy_tip</i>Privacidad.</a></li>
+        <li><a href="/terminos_condiciones" class="colorTextReverse"><i
+                    class="colorTextReverse material-icons">gavel</i>Términos.</a></li>
+        <li><a href="/saber_mas" class="colorTextReverse"><i class="colorTextReverse material-icons">rocket</i>Saber
+                más.</a></li>
     </ul>
 
     <!--Menu para las tables y los escritorios-->
 
-    <section class="navHomePage color1 shadow-3e hide-on-med-and-down">
+    <section class="navHomePage color1 shadow-3e hide-on-med-and-down fixedNavbarMine">
         <div class="brand-logoContainer">
             <a href="" class="brand-logo hide-on-small-only">
                 <div class="menuIconHomePage icon_app"></div>
@@ -44,7 +55,8 @@
         </div>
         <div></div>
         <div class="menuButtonsNavDesktop">
-            <a class="waves-effect waves-light btn-large color3"><i class="material-icons left">person</i>Acceder</a>
+            <a class="waves-effect waves-light btn-large color3" href="/login_general"><i
+                    class="material-icons left">person</i>Acceder</a>
             <a class="waves-effect waves-light btn-large color2"><i
                     class="material-icons left">person_add</i>Registrarse</a>
         </div>
@@ -53,16 +65,11 @@
         <br><br>
     </div>
 
-    <section class="mainBody mainBodyAdicional">
-        <!--<div class="title-general">
-            <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Acceso de prueba</h5>
-            <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Acceso de prueba</h3>
-        </div>-->
-
+    <section class="mainBody mainBodyAdicional colorGreyWhiter">
         <div class="carousel carousel-slider center caruselHomePage">
             <div class="carousel-fixed-item center">
-                    <a class="waves-effect btnCarouselHome waves-light btn-large color1"><i
-                            class="material-icons left">person</i>Acceder</a>
+                <a class="waves-effect btnCarouselHome waves-light btn-large color1" href="/login_general"><i
+                        class="material-icons left">person</i>Acceder</a>
             </div>
             <div class="carousel-item carouselItemModified informeCard white-text" href="#one!">
                 <h2 class="titleCarousel titleCarouselOne">Diseñe</h2>
@@ -82,18 +89,18 @@
             </div>
         </div>
 
-        <div class="title-general colorGreyWhiter">
-            <h5 class="hide-on-med-and-up">&nbsp;&nbsp;&nbsp;&nbsp;Versatilidad garantizada</h5>
+        <div class="title-general colorGreyWhiter hide-on-med-and-up">
+            <h5 class="hide-on-med-and-up">Versatilidad garantizada</h5>
         </div>
 
-        <div class="mainBody-headerContainer shadow-2">
+        <div class="mainBody-headerContainer shadow-5e">
             <div>
                 <h1 class="titleHomePage colorText">Bienvenido a JCP_helper</h1>
                 <p class="colorText">Obtenga <b>métricas</b> de sus resultados <br> en el aprendizaje y enseñanza de
                     programación.</p>
 
                 <div class="menuButtonsNavDesktop hide-on-med-and-down">
-                    <a class="waves-effect waves-light btn-large colorGrey colorTextReverse">Conocer más</a>
+                    <a class="waves-effect waves-light btn-large colorGrey colorTextReverse" href="#sectionId">Conocer más</a>
                 </div>
             </div>
             <div class="iconPrincipalContainer hide-on-med-and-down">
@@ -101,6 +108,12 @@
                     <!--La imagen esta puesta como background-->
                 </div>
             </div>
+        </div>
+
+        <div id="sectionId"></div>
+
+        <div class="hide-on-small-only">
+            <br><br><br>
         </div>
 
         <section>
@@ -124,7 +137,7 @@
                     <p>Ponga a prueba los conocimientos adquiridos.</p>
                 </div>
                 <div class="itemInfo-3">
-                    <div class="iconBoxInfo"></div>
+                    <div class="iconBoxInfo iconBoxInfoDinamico"></div>
                 </div>
                 <div class="itemInfo-4">
                     <h4 class="colorText color2 shadow-1e">
@@ -156,7 +169,7 @@
             </div>
         </section>
 
-        
+
         <section class="desktopInfoContainer colorGreyWhiter">
             <div class="titleInfoContainer colorTextReverse">
                 <h2>Aprenda donde usted quiera.</h2>
@@ -196,7 +209,7 @@
 
 
         <div class="title-general color2">
-            <h5 class="hide-on-med-and-up colorText">&nbsp;&nbsp;&nbsp;&nbsp;Oferta incomparable</h5>
+            <h5 class="hide-on-med-and-up colorText">Oferta incomparable</h5>
         </div>
         <section class="containerTablaComparativa color2 shadow-4e">
             <div class="titleInfoContainer titleInfoModified colorText">
@@ -309,14 +322,18 @@
             </div>
         </section>
 
-        <section class="containerCreateAccountHome hide-on-med-and-down">
+        <section class="containerCreateAccountHome">
             <div class="containerCreateAccountHomeSecondary">
-                <h4 class="colorText">¿Esta listo para vivir la experiencia JCP?</h4>
+                <p class="colorText tituloSeleccion">¿Qué tipo de usuario es?</p>
                 <div class="colorGreyWhiter cardContainerWhatToDo">
-                    <a class="waves-effect waves-light btn-large color3"><i
-                            class="material-icons left">school</i>Estudiante</a>
-                    <a class="waves-effect waves-light btn-large color2"><i
-                            class="material-icons left">history_edu</i>Docente</a>
+                    <div class="cardContainerWhatToDoSon1">
+                        <a class="waves-effect waves-light btn-large color3" href="/signup_est"><i
+                                class="material-icons left">school</i>Estudiante</a>
+                    </div>
+                    <div class="cardContainerWhatToDoSon2">
+                        <a class="waves-effect waves-light btn-large color2" href="/signup_prof"><i
+                                class="material-icons left">history_edu</i>Docente</a>
+                    </div>
                 </div>
             </div>
         </section>

@@ -88,6 +88,10 @@
     background-image: url('../../images/logo_app/pink_icon.png');
 }
 
+.iconBoxInfoDinamico{
+    background-image: url('../../images/brand_app/triple_rosa.png');
+}
+
 /*Barra de carga*/
 .progress .indeterminate {
     background-color: #743b5e;

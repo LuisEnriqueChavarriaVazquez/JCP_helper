@@ -115,21 +115,17 @@
 
             <div class="contenedorCardsGruposOperation" id="contenedorCardsGruposOperationId">
 
-                <!--Grupos creados-->
-                {% set x = namespace(value=-1) %}
-                {% for result_object in grupo %}
                 <div>
                     <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
                         <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId"
-                        style="background-image: url({{result_object[4]}}), url(../../static/images/fondos/fondo.png); background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: hue;">
+                        style="background-image: url('../../static/images/fondos/cafe/cafe_11.png'), url(../../static/images/fondos/fondo.png); background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: hue;">
                         <div>
-                            <h5 class="titleGroupContentId">{{result_object[2]}}</h5>
+                            <h5 class="titleGroupContentId">Cuestionario 1</h5>
                         </div>
                             <div class="studentCountCardOperation">
                                 <div>
                                     <i class="material-icons md-18">people</i> 
-                                    {% set x.value = x.value + 1 %}
-                                    <span class="contadorAlumnosNumber">{{idsAlumnos[x.value][0]}}</span>
+                                    <span class="contadorAlumnosNumber">0</span>
                                 </div>
                                 <div>
                                     <i class="material-icons md-18">checklist</i> <span
@@ -139,31 +135,22 @@
                         </div>
                         <div
                             class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
-                            <p><b>{{result_object[3]}}</b></p>
+                            <p><b>Soy un cuestionario sencillo</b></p>
                         </div>
                         <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
                             <!--Botones de cada grupo-->
-                            <a href="/viewGroup/{{result_object[0]}}"
+                            <a href="/viewGroup/id"
+                                class="modal-trigger classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                    class="material-icons md-24">edit</i></a>
+                            <a href="/viewGroup/id"
                                 class="modal-trigger classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
                                     class="material-icons md-24">visibility</i></a>
-                            <a href="#modal{{result_object[0]}}"
+                            <a href="#modalid"
                                 class="modal-trigger classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
                                     class="material-icons md-24">delete</i></a>
                         </div>
                     </div>
                 </div>
-                <!--Pop up de eliminar el grupo-->
-                <div id="modal{{result_object[0]}}" class="modal bordered2 colorGrey">
-                    <div class="modal-content">
-                        <h4>¿Desea eliminar el cuestionario?</h4>
-                        <p>Este procedimiento no se puede revertir.</p>
-                        <hr>
-                        <a href="/deleteGroup/{{result_object[0]}}"
-                            class="waves-effect waves-light btn badColorButton shadow-2e button-rounded"
-                            style="width: 100%;">Eliminar</a>
-                    </div>
-                </div>
-                {% endfor %}
             </div>
         </section>
 

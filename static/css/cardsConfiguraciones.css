@@ -34,19 +34,11 @@
 /*Se ajustan los estilos de los contenedores de las configuraciones*/
 
 .configuracionesMainBodyAdapterGrid{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: auto;
-    gap: 20px;
     padding: 20px;
 }
 
 @media screen and (min-width: 1200px){
     .configuracionesMainBodyAdapterGrid{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: auto;
-        gap: 20px;
-        padding: 20px;
+        padding: 20px 120px;
     }
 }

@@ -55,6 +55,10 @@
     background-image: url('../../images/logo_app/purple_icon.png');
 }
 
+.iconBoxInfoDinamico{
+    background-image: url('../../images/brand_app/triple_morado.png');
+}
+
 /*Barra de carga*/
 .progress .indeterminate {
     background-color: #4c4668;

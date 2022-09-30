@@ -47,12 +47,17 @@
 }
 
 .fondoDinamico{
-    background-image: url('../../images/fondos/rojo/rojo_1.png');
+    background-image: url('../../images/fondos/rojo/rojo_7.png');
 }
 
 .icon_app{
     background-image: url('../../images/logo_app/red_icon.png');
 }
+
+.iconBoxInfoDinamico{
+    background-image: url('../../images/brand_app/triple_rojo.png');
+}
+
 
 
 /*Barra de carga*/

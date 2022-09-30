@@ -55,6 +55,9 @@
     background-image: url('../../images/logo_app/grey_icon.png');
 }
 
+.iconBoxInfoDinamico{
+    background-image: url('../../images/brand_app/triple_protanopia.png');
+}
 
 /*Barra de carga*/
 .progress .indeterminate {

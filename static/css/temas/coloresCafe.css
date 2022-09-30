@@ -56,6 +56,10 @@
     background-image: url('../../images/logo_app/brown_icon.png');
 }
 
+.iconBoxInfoDinamico{
+    background-image: url('../../images/brand_app/triple_cafe.png');
+}
+
 
 /*Barra de carga*/
 .progress .indeterminate {
