@@ -199,6 +199,17 @@ def update_docente_perfil(id_docente,nombreUsuario,aliasUsuario,unidadAcademica,
     conexion.close()
     return confirmacion
 
+def update_docente_perfil_foto(id_docente, foto):
+    conexion=obtener_conexion()
+    confirmacion = True
+
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE docentes SET foto = %s WHERE IDDocente = %s", (foto, id_docente))
+
+    conexion.commit()
+    conexion.close()
+    return confirmacion
+
 ##
 ## Nos ayuda a subir los cambios del perfil del docente CON PASSWORD INCLUIDO
 ##

@@ -260,6 +260,30 @@ def update_alumno(id):
                 return render_template('estudiante/b_editarPerfilAlumno.html', userInfo = result)
 
 
+##
+##Bloque para hacer el update de la foto de perfil
+##
+@routes.route('/editarFotoPerfilAlumno/<string:id_alumno>', methods=['POST'])
+def editarFotoPerfilAlumno(id_alumno):
+    if request.method == 'POST':
+        #Variables del formulario
+        file=request.files['foto']
+        category="alumnos"
+        pic=file.filename
+        photo=pic.replace("'","")
+        picture=photo.replace(" ","_")
+        
+        if picture.lower().endswith(('.png', '.jpg', '.jpeg')):
+            save_photo = photos.save(file, folder=category)
+            if save_photo:
+                foto=picture
+                
+        if foto != "":
+            resultado = Op_estudiante.update_alumno_perfil_foto(id_alumno, foto)
+            return redirect(url_for('routes.perfil_alumno'))
+        else:
+            return redirect(url_for('routes.perfil_alumno'))
+
 
 
 ##Ruta para que los estudiantes respondan los cuestionarios

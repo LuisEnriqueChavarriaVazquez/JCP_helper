@@ -413,6 +413,29 @@ def update_docente(id):
                 result = Op_profesor.datos_completos_docente_by_id(id_docente)
                 return render_template('profesor/b_editarPerfilProfesor.html', userInfo = result)
 
+##
+##Bloque para hacer el update de la foto de perfil
+##
+@routes.route('/editarFotoPerfilDocente/<string:id_docente>', methods=['POST'])
+def editarFotoPerfilDocente(id_docente):
+    if request.method == 'POST':
+        #Variables del formulario
+        file=request.files['foto']
+        category="docentes"
+        pic=file.filename
+        photo=pic.replace("'","")
+        picture=photo.replace(" ","_")
+        
+        if picture.lower().endswith(('.png', '.jpg', '.jpeg')):
+            save_photo = photos.save(file, folder=category)
+            if save_photo:
+                foto=picture
+                
+        if foto != "":
+            resultado = Op_profesor.update_docente_perfil_foto(id_docente, foto)
+            return redirect(url_for('routes.perfil_docente'))
+        else:
+            return redirect(url_for('routes.perfil_docente'))
 
 
 @routes.route('/perfil_general_view/<string:id>')

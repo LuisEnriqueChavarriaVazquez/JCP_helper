@@ -45,7 +45,7 @@ def login_est(correo):
 
 ############################EDICION DE PERFIL######################################
 ##
-## Nos ayuda a subir los cambios del perfil del docente
+## Nos ayuda a subir los cambios del perfil del alumno
 ##
 
 def update_alumno_perfil(id_alumno,nombreUsuario,aliasUsuario, area, escuela, descUser):
@@ -59,8 +59,20 @@ def update_alumno_perfil(id_alumno,nombreUsuario,aliasUsuario, area, escuela, de
     conexion.close()
     return confirmacion
 
+def update_alumno_perfil_foto(id_alumno, foto):
+    conexion=obtener_conexion()
+    confirmacion = True
+
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE alumnos SET foto = %s WHERE IDAlumno = %s", (foto, id_alumno))
+
+    conexion.commit()
+    conexion.close()
+    return confirmacion
+
+
 ##
-## Nos ayuda a subir los cambios del perfil del docente CON PASSWORD INCLUIDO
+## Nos ayuda a subir los cambios del perfil del alumno CON PASSWORD INCLUIDO
 ##
 
 def update_alumno_perfil_con_password(id_alumno,nombreUsuario,aliasUsuario, area, escuela, descUser, hashed):

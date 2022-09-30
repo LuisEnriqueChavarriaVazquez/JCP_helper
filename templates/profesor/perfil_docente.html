@@ -30,7 +30,8 @@
         <div class="dataContainerUserMain">
             {% if datos %}
             <!-- Fondo con la foto elegida por el usuario -->
-            <div class="fondoDinamico fondoPerfilDiseno shadow-3e" id="fondoDinamicoUsuario" style="background-image:url('{{datos[8]}}')">
+            <div class="fondoDinamico fondoPerfilDiseno shadow-3e" id="fondoDinamicoUsuario"
+                style="background-image:url('{{datos[8]}}')">
                 <div class="iconEditContainer">
                     <p>
                         <a href="#modal1"
@@ -49,6 +50,9 @@
             <!-- Datos del cliente -->
             <div class="datos_perfil_container" id="datos_perfil_containerSelector">
                 <div>
+                    <a href="#modalFoto" class="modal-trigger">
+                        <div class="fondoLinkOff" id="opcionesFoto"></div>
+                    </a>
                     <img class="materialboxed fotoPerfil shadow-2e" src="../../static/images/docentes/{{datos[3]}}"
                         alt="foto del usuario">
                 </div>
@@ -60,6 +64,61 @@
                     </p>
                 </div>
                 {% endif %}
+            </div>
+
+            <!-- Modal con opciones de las fotos -->
+            <div id="modalFoto" class="modal bottom-sheet" style="height: 30vh;">
+                <div class="modal-content">
+                    <h5>Opciones</h5>
+                    <br>
+                    <section class="row optionsFotoContainer">
+                        <div class="col s12 m6">
+                            <div class="cardConfiguracionesMain shadow-2 bordered1 colorGreyWhiter">
+                                <div class="iconCardConfiguraciones color1 bordered5 shadow-2e"><i
+                                        class="material-icons colorText">visibility</i></div>
+                                <div class="textCardConfiguraciones colorTextReverse">Ver foto</div>
+                            </div>
+                        </div>
+                        <a href="#modalSubirFoto" class="modal-trigger">
+                            <div class="col s12 m6">
+                                <div class="cardConfiguracionesMain shadow-2 bordered1 colorGreyWhiter">
+                                    <div class="iconCardConfiguraciones color1 bordered5 shadow-2e"><i
+                                            class="material-icons colorText">edit</i></div>
+                                    <div class="textCardConfiguraciones colorTextReverse">Modificar foto</div>
+                                </div>
+                            </div>
+                        </a>
+                    </section>
+                </div>
+            </div>
+
+            <!-- Modal con opciones de las fotos -->
+            <div id="modalSubirFoto" class="modal bottom-sheet" style="height: 80vh;">
+                <div class="modal-content">
+                    <h5>Cambiar foto</h5>
+                    <br>
+                    <form enctype="multipart/form-data" action="/editarFotoPerfilDocente/{{datos[0]}}" method="post">
+                        <section class="optionsFotoContainer">
+                            <div class="centerAligner verticalAligner">
+                                <div>
+                                    <image id="profileImageProf" src="../../static/images/avatares/avatar_empty.jpg"
+                                        style="width: 110px; height: 110px;" class="shadow-4" />
+                                </div>
+                                <br>
+                                <div style="padding: 5px 40px 10px 40px;" class="centerAligner">
+                                    <label for="imageUploadProf"
+                                        class="centerAligner custom-file-upload color3 btn-large waves-effect waves-light button-rounded">
+                                        <i class="fa fa-cloud-upload"></i> Elegir
+                                    </label>
+                                    <input id="imageUploadProf" name="foto" type="file" required />
+                                    <button type="submit"
+                                        class="btn-large color1 waves-effect waves-light button-rounded"><i
+                                            class="material-icons">save</i></button>
+                                </div>
+                            </div>
+                        </section>
+                    </form>
+                </div>
             </div>
 
             <!--Nombre del cliente scroll-->
@@ -144,5 +203,6 @@
 {% include "includes/footerRecursos.html" %}
 
 <script src="../../static/js/insertThemes.js"></script>
+<script src="../../static/js/operacionesOpcionesFoto.js"></script>
 
 </html>
