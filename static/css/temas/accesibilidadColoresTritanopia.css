@@ -1,3 +1,8 @@
+::selection { 
+    background: rgb(71, 120, 129) ;
+    color:#fff; 
+}
+
 .color1 {background-color: rgb(8, 17, 18);}
 .color2 {background-color: rgb(26, 51, 56);}
 .color3 {background-color: rgb(71, 120, 129);}

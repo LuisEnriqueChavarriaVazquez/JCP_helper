@@ -1,3 +1,8 @@
+::selection { 
+    background: #5d4037;
+    color:#fff; 
+}
+
 .color1 {background-color:  #2c1b18;}
 .color2 {background-color:  #4e342e;}
 .color3 {background-color:  #5d4037;}

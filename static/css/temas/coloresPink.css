@@ -1,50 +1,22 @@
-.color1 {
-    background-color: #4d2c4c;
+::selection { 
+    background: #b0537a;
+    color:#fff; 
 }
 
-.color2 {
-    background-color: #743b5e;
-}
+.color1 {background-color: #4d2c4c;}
+.color2 {background-color: #743b5e;}
+.color3 {background-color: #b0537a;}
+.color4 {background-color: #fb7799;}
+.color5 {background-color: #ffb2bf;}
 
-.color3 {
-    background-color: #b0537a;
-}
+.colorGrey {background-color: #dddddd;}
+.colorGreyDarker {background-color: #cacaca;}
+.colorGreyWhiter {background-color: #ececec;}
+.colorWhite {background-color: #fff;}
 
-.color4 {
-    background-color: #fb7799;
-}
-
-.color5 {
-    background-color: #ffb2bf;
-}
-
-.colorGrey {
-    background-color: #dddddd;
-}
-
-.colorGreyDarker {
-    background-color: #cacaca;
-}
-
-.colorGreyWhiter {
-    background-color: #ececec;
-}
-
-.colorWhite {
-    background-color: #fff;
-}
-
-.coloredText {
-    color: #b0537a !important;
-}
-
-.colorText {
-    color: #fff !important;
-}
-
-.colorTextReverse {
-    color: #000 !important;
-}
+.coloredText {color: #b0537a !important;}
+.colorText {color: #fff !important;}
+.colorTextReverse {color: #000 !important;}
 
 .borderDecoration {
     border-bottom: 5px #b0537a solid;
