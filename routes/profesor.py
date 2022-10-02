@@ -1,5 +1,4 @@
 from functools import wraps
-from unittest import result
 from flask import render_template,flash,request, url_for, redirect, session
 from . import routes
 from operacionesBD import Op_profesor
@@ -9,6 +8,8 @@ import json
 import plotly
 import plotly.express as px
 from flask_uploads import IMAGES, UploadSet
+import requests
+import ast
 
 photos = UploadSet("photos", IMAGES)
 
@@ -455,6 +456,33 @@ def ver_perfil_alumno(id):
 def creacion_cuestionarios():
     return render_template('profesor/cuestionarios_creacion.html')
 
+
+#creacion del cuestionario del banco de pruebas
+@routes.route('/crear_cuestionario_del_banco',methods=['GET',"POST"])
+#@login_required
+def crear_cuestionario_del_banco():
+    return render_template("profesor/cuestionarios_del_banco.html")
+
+@routes.route('/obtener_preguntas_por_lenguaje',methods=["POST"])
+def obtener_preguntas_por_lenguaje():
+    
+    query=request.form["lenguaje"]
+    url=f"https://banco-de-datos.herokuapp.com/preguntas?lenguaje={query}"
+    response=requests.request("GET",url=url)
+    preguntas=response.text
+    preguntas=preguntas[1:-2]
+    preguntas=preguntas.replace("\"preguntas\":","")
+    preguntas = ast.literal_eval(preguntas)
+
+
+    print(type(preguntas))
+    contador=1
+    for i in preguntas:
+        print(i)
+        print("***************************************************************")
+        contador+=1
+    print(f"Numero de preguntas: {contador}")
+    return render_template("profesor/cuestionarios_del_banco.html",data=response)
 
 #Java coder runner
 @routes.route("/java_runner")
