@@ -475,14 +475,17 @@ def obtener_preguntas_por_lenguaje():
     preguntas = ast.literal_eval(preguntas)
 
 
-    print(type(preguntas))
-    contador=1
+    temas=[]
+    tipo_pregunta=[]
+
     for i in preguntas:
-        print(i)
-        print("***************************************************************")
-        contador+=1
-    print(f"Numero de preguntas: {contador}")
-    return render_template("profesor/cuestionarios_del_banco.html",data=response)
+        if i["tema"] not in temas:
+            temas.append(i["tema"])
+        
+        if i["tipo_pregunta"] not in tipo_pregunta:
+            tipo_pregunta.append(i["tipo_pregunta"])
+
+    return render_template("profesor/cuestionarios_del_banco.html",temas=temas,preguntas=tipo_pregunta,lenguaje=query)
 
 #Java coder runner
 @routes.route("/java_runner")
