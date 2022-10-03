@@ -169,8 +169,8 @@
                     <div class="row">
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="texAreaModalRellenarEspaciosCreacion"
-                                    class="materialize-textarea" placeholder="text"></textarea>
+                                <textarea id="texAreaModalRellenarEspaciosCreacion" class="materialize-textarea"
+                                    placeholder="text"></textarea>
                                 <label for="texAreaModalRellenarEspaciosCreacion">Escriba el texto a completar</label>
                             </div>
                         </div>
@@ -178,7 +178,6 @@
 
                     <h5><b>Defina los espacios</b></h5>
                     <!--Contenedor de espacios de creacion de elementos del espacio -->
-                
                     <div class="" id="contenedorOpccionEspaciosCreacion">
 
                     </div>
@@ -195,14 +194,14 @@
                         <!--Agregar opciones -->
                         <div class="botonesDelModalSon2">
                             <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
-                                id="btnAgregarModalRellenarEspaciosCreacion"><i
-                                    class="material-icons left">add</i>1 Espacio</a>
+                                id="btnAgregarModalRellenarEspaciosCreacion"><i class="material-icons left">add</i>1
+                                Espacio</a>
                         </div>
                         <!--Eliminar opciones -->
                         <div class="botonesDelModalSon3">
                             <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
-                                id="btnEliminarModalRellenarEspaciosCreacion"><i
-                                    class="material-icons left">remove</i>1 Espacio</a>
+                                id="btnEliminarModalRellenarEspaciosCreacion"><i class="material-icons left">remove</i>1
+                                Espacio</a>
                         </div>
                     </div>
                 </form>
@@ -210,22 +209,55 @@
         </div>
 
         <!--Modal para la creacion de preguntas de ejercicios-->
-        <div id="modalEjerciciosCreacion" class="modal">
+        <div id="modalEjerciciosCreacion" class="modal colorGrey bordered2 modalAltura">
             <div class="modal-content">
                 <h4>Ejercicios</h4>
+                <hr>
+                <p>Ingrese la descripción de un ejercicio y adjunte un código para retroalimentar el ejercicio una vez
+                    que el estudiante suba su propuesta de solución al problema que usted planteó</p>
                 <div class="row">
                     <form class="col s12">
+                        <h5><b>Describa el ejercicio</b></h5>
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                <label for="textarea1">Pregunta</label>
+                                <textarea id="descripcionProblema" class="materialize-textarea"></textarea>
+                                <label for="descripcionProblema">Descripción del problema</label>
                             </div>
                         </div>
+                        <h5><b>Código de retroalimentación</b></h5>
+                        <p class="muestraCodigoGrupo color5 bordered1">No es obligatorio pero se recomienda para que el
+                            alumno compare su propuesta.</p>
+                        <br>
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="codigoResultado" class="materialize-textarea"
-                                    style="height: 600px;"></textarea>
+                                <textarea id="codigoResultado" class="browser-default materialize-textarea"></textarea>
                                 <label for="codigoResultado">Codigo resultado</label>
+                            </div>
+                        </div>
+                        <h5><b>Vista previa del código</b></h5>
+                        <div class="previewCodeContainer bordered1">
+                            <code class="colorText">
+                                <pre id="codigoMuestra">
+
+                                </pre>
+                            </code>
+                        </div>
+
+
+                        <br><br><br><br>
+                        <!--Guardar la pregunta en el cuestionario-->
+                        <div class="botonesDelModalDosBotones colorGreyDarker">
+                            <!--Guardar opciones-->
+                            <div class="botonesDelModalSon1">
+                                <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                    id="crearEjercicioButton"><i
+                                        class="material-icons left">save</i>Guardar</a>
+                            </div>
+                            <!--Limpiar opciones -->
+                            <div class="botonesDelModalSon2">
+                                <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                    id="limpiarCasillasEjercicioButton"><i class="material-icons left">cleaning_services</i>
+                                    Limpiar</a>
                             </div>
                         </div>
                     </form>
@@ -283,17 +315,19 @@
                 <br>
                 <div class="containerOpciones colorGreyWhiter shadow-2e">
                     <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
-                    href="#modalOpccionMultipleCreacion"><i class="material-icons left md-32">abc</i>Opción múltiple</a>
+                        href="#modalOpccionMultipleCreacion"><i class="material-icons left md-32">abc</i>Opción
+                        múltiple</a>
                     <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
-                    href="#modalRellenarEspaciosCreacion"><i class="material-icons left md-32">draw</i>Rellenar
-                    espacios</a>
+                        href="#modalRellenarEspaciosCreacion"><i class="material-icons left md-32">draw</i>Rellenar
+                        espacios</a>
                     <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
-                    href="#modalEjerciciosCreacion"><i class="material-icons left md-32">code</i>Ejercicios</a>
+                        href="#modalEjerciciosCreacion"><i class="material-icons left md-32">code</i>Ejercicios</a>
                     <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
-                    href="#modalArrastrarCreacion"><i class="material-icons left md-32">swipe_vertical</i>Arrastrar</a>
+                        href="#modalArrastrarCreacion"><i
+                            class="material-icons left md-32">swipe_vertical</i>Arrastrar</a>
                     <a class="waves-effect waves-light btn-large bordered5 color1 shadow-2e"
-                    href="/crear_cuestionario_del_banco"><i class="material-icons left md-32">cloud</i>Banco de
-                    preguntas</a>
+                        href="/crear_cuestionario_del_banco"><i class="material-icons left md-32">cloud</i>Banco de
+                        preguntas</a>
                 </div>
             </section>
         </section>
@@ -302,15 +336,15 @@
         <section class="containerOpcionesMobileFather">
             <section class="containerOpcionesMobile bordered1 colorGreyDarker">
                 <a class="button1 waves-effect waves-light shadow-1 modal-trigger"
-                href="#modalOpccionMultipleCreacion"><i class="material-icons md-36 colorTextReverse">abc</i></a>
+                    href="#modalOpccionMultipleCreacion"><i class="material-icons md-36 colorTextReverse">abc</i></a>
                 <a class="button2 waves-effect waves-light shadow-1 modal-trigger"
-                href="#modalRellenarEspaciosCreacion"><i class="material-icons md-28 colorTextReverse">draw</i></a>
-                <a class="button3 waves-effect waves-light shadow-1 modal-trigger"
-                href="#modalEjerciciosCreacion"><i class="material-icons md-28 colorTextReverse">code</i></a>
-                <a class="button4 waves-effect waves-light shadow-1 modal-trigger"
-                href="#modalArrastrarCreacion"><i class="material-icons md-28 colorTextReverse">swipe_vertical</i></a>
-                <a class="button5 waves-effect waves-light shadow-1"
-                href="/crear_cuestionario_del_banco"><i class="material-icons md-28 colorTextReverse">cloud</i></a>
+                    href="#modalRellenarEspaciosCreacion"><i class="material-icons md-28 colorTextReverse">draw</i></a>
+                <a class="button3 waves-effect waves-light shadow-1 modal-trigger" href="#modalEjerciciosCreacion"><i
+                        class="material-icons md-28 colorTextReverse">code</i></a>
+                <a class="button4 waves-effect waves-light shadow-1 modal-trigger" href="#modalArrastrarCreacion"><i
+                        class="material-icons md-28 colorTextReverse">swipe_vertical</i></a>
+                <a class="button5 waves-effect waves-light shadow-1" href="/crear_cuestionario_del_banco"><i
+                        class="material-icons md-28 colorTextReverse">cloud</i></a>
             </section>
         </section>
 

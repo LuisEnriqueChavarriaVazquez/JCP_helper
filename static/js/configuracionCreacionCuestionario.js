@@ -479,4 +479,37 @@ function ingresarTitulo() {
   }
 }
 
+/*
+*  Función para mostrar el contenido de los ejercicios
+*/
+
+function agregarEjercicio(){
+  const descripcionProblema = document.getElementById('descripcionProblema');
+  const codigoResultado = document.getElementById('codigoResultado');
+  const codigoMuestra = document.getElementById('codigoMuestra');
+
+  //Boton de limpiar
+  const limpiarCasillasEjercicioButton = document.getElementById('limpiarCasillasEjercicioButton');
+
+  //Mostrar el código antes de agregarlo
+  codigoResultado.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      mostrarCódigoMuestra();
+    }
+  });
+
+  function mostrarCódigoMuestra(){
+    codigoMuestra.innerText = codigoResultado.value;
+  }
+
+  //Limpiar todas las casilla
+  limpiarCasillasEjercicioButton.addEventListener('click', limpiarCasillas);
+  function limpiarCasillas(){
+    descripcionProblema.value = "";
+    codigoResultado.value = "";
+    codigoMuestra.innerText = "";
+  }
+}
+
 ingresarTitulo();
+agregarEjercicio();

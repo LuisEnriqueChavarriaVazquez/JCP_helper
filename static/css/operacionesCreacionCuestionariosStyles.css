@@ -130,8 +130,37 @@
     align-items: center;
 }
 
+.botonesDelModalDosBotones{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    
+    width: 100%;
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+
+    position: absolute;
+    right: 0;
+
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.botonesDelModalDosBotones div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botonesDelModalDosBotones div a{
+    width: 80%;
+    margin: 5px 10px;
+}
+
 @media screen and (max-width: 700px) {
-    .botonesDelModal{
+    .botonesDelModal,.botonesDelModalDosBotones{
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto;
@@ -400,4 +429,13 @@
         width: 100%;
         margin-bottom: 10px;
     }
+}
+
+/*Preview de código en la sección de ejercicicos*/
+.previewCodeContainer{
+    width: 100%;
+    min-height: 100px;
+    padding: 10px 20px;
+    background-color: rgb(8, 21, 32);
+    overflow-x: scroll;
 }
