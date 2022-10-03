@@ -9,16 +9,6 @@ $(document).ready(function () {
   });
 });
 
-// Eliminar pregunta de opccion multiple
-$(document).ready(function () {
-  $("#contenedorCuestionarioPreguntas").on(
-    "click",
-    ".btnEliminarPreguntaEspacioBlanco",
-    function () {
-      $(this).closest(".preguntaRellenarEspacios").remove();
-    }
-  );
-});
 
 //Opccion para hacer que pongan los espacios en la de completar espacios
 $(document).ready(function () {
@@ -30,32 +20,42 @@ $(document).ready(function () {
     );
     $("#contenedorOpccionEspaciosCreacion").append(
       "<div class='row containerTextBlank'>" +
-        "<div class='col s12 m6 containerTextBlankSon1'>" +
-          "Blank " +
-          contadorModalRellenarEspaciosCreacion +
-        "</div>" +
-        "<div class='col s12 m6 containerTextBlankSon2'>" +
-          "<input type='text' class='browser-default blankContadorEspaciosCreacion '>" +
-        "</div>" +
+      "<div class='col s12 m6 containerTextBlankSon1'>" +
+      "Blank " +
+      contadorModalRellenarEspaciosCreacion +
+      "</div>" +
+      "<div class='col s12 m6 containerTextBlankSon2'>" +
+      "<input type='text' class='browser-default blankContadorEspaciosCreacion '>" +
+      "</div>" +
       "</div>"
     );
   });
 });
 
+// Eliminar pregunta de opccion multiple
+$(document).ready(function () {
+  $("#contenedorCuestionarioPreguntas").on(
+    "click",
+    ".btnEliminarPreguntaEspacioBlanco",
+    function () {
+      $(this).closest(".preguntaRellenarEspacios").remove();
+    }
+  );
+});
 //Opccion para hacer que pongan los espacios en las preguntas  de completar espacios
 $(document).ready(function () {
   $("#btnAgregarsModalArrastrarCreacion").click(function () {
     $("#opccionesArrastarModalCreacion").append(
       " <div class='row opccionLinea'>" +
-        " <div class='input-field col s6'>" +
-        "  <input placeholder='Placeholder'   type='text' class='textoArrastrarCreacion'>" +
-        "</div>" +
-        "<div class='col s6 '>" +
-        "<a class='waves-effect waves-light btn '  style='width: 100 %; height: 100px;'>" +
-        "<textarea placeholder='Opccion' id='opccion' class='materialize-textarea textoOpccionCreacion  '></textarea>" +
-        "</a>" +
-        "</div>" +
-        "</div>"
+      " <div class='input-field col s6'>" +
+      "  <input placeholder='Placeholder'   type='text' class='textoArrastrarCreacion'>" +
+      "</div>" +
+      "<div class='col s6 '>" +
+      "<a class='waves-effect waves-light btn '  style='width: 100 %; height: 100px;'>" +
+      "<textarea placeholder='Opccion' id='opccion' class='materialize-textarea textoOpccionCreacion  '></textarea>" +
+      "</a>" +
+      "</div>" +
+      "</div>"
     );
   });
 });
@@ -63,12 +63,15 @@ $(document).ready(function () {
 //Opcion para guardar preguntas de opccion multiple
 $(document).ready(function () {
   $("#btnGuardarModalOpcionMultipleCreacion").click(function () {
+    //Obtenemos el valor de la pregunta
     var pregunta = $("#textAreaPreguntaOpccionMultipleCreacion").val();
 
+    //Obtenemos la opción con checked
     var opccionSel = $(
       "input:radio[name ='grupoOpcionesModalOpcionMuliple']:checked"
     ).val();
 
+    //Evaluamos la que esta como checked
     var checkA = "";
     var checkB = "";
     var checkC = "";
@@ -88,27 +91,27 @@ $(document).ready(function () {
         checkD = "checked";
         break;
     }
+
+    //Guardamos lo que vamos a imprimir
     var opcionA =
-      " <div class='row'>" +
-      "<div class='col s4'>" +
-      " <p>" +
+      "<div class='row colorGreyWhiter bordered1 opcionContainer'>" +
+      "<div class='col s12 m3 labelContainer'>" +
       "<label>" +
       "<input  type='radio' " +
       checkA +
-      " />" +
+      "/>" +
       "<span>Correcta</span>" +
       "</label>" +
-      "</p>" +
       "</div>" +
-      "<div class='col s8'>" +
-      " <a>Opcion A</a>" +
-      "<a class='waves-effect waves-light btn ' style='width: 100%; height:50px;'>" +
-      "<textarea  class='materialize-textarea' style='height: 600px;'>" +
+      "<div class='col s12 m9'>" +
+      "<h6><b>Opción A</b></h6>" +
+      "<textarea id='opcionACreacion' class='materialize-textarea'>" +
       $("#opcionACreacion").val() +
       "</textarea>" +
-      "</a>" +
       "</div>" +
       "</div>";
+
+    //Validamos en caso de que este vacio
     var opcionBOculto = "";
     if ($("#opcionBCreacion").val().length === 0) {
       opcionBOculto = "hide";
@@ -124,110 +127,98 @@ $(document).ready(function () {
       opcionDOculto = "hide";
     }
 
+    //En caso de que tengan contenido imprimimos
     var opcionB =
-      " <div class='row " +
+      " <div class='row colorGreyWhiter bordered1 opcionContainer " +
       opcionBOculto +
-      " '>" +
-      "<div class='col s4'>" +
-      " <p>" +
+      "'>" +
+      "<div class='col s12 m3 labelContainer'>" +
       "<label>" +
       "<input  type='radio' " +
       checkB +
-      " />" +
+      "/>" +
       "<span>Correcta</span>" +
       "</label>" +
-      "</p>" +
       "</div>" +
-      "<div class='col s8'>" +
-      " <a>Opcion B</a>" +
-      "<a class='waves-effect waves-light btn ' style='width: 100%; height:50px;'>" +
-      "<textarea  class='materialize-textarea' style='height: 600px;'>" +
+      "<div class='col s12 m9'>" +
+      "<h6><b>Opción B</b></h6>" +
+      "<textarea class='materialize-textarea'>" +
       $("#opcionBCreacion").val() +
       "</textarea>" +
-      "</a>" +
       "</div>" +
       "</div>";
 
     var opcionC =
-      " <div class='row " +
+      "<div class='row colorGreyWhiter bordered1 opcionContainer " +
       opcionCOculto +
-      " '>" +
-      "<div class='col s4'>" +
-      " <p>" +
+      "'>" +
+      "<div class='col s12 m3 labelContainer'>" +
       "<label>" +
       "<input  type='radio' " +
       checkC +
-      " />" +
+      "/>" +
       "<span>Correcta</span>" +
       "</label>" +
-      "</p>" +
       "</div>" +
-      "<div class='col s8'>" +
-      " <a>Opcion C</a>" +
-      "<a class='waves-effect waves-light btn ' style='width: 100%; height:50px;'>" +
-      "<textarea  class='materialize-textarea' style='height: 600px;'>" +
+      "<div class='col s12 m9'>" +
+      "<h6><b>Opción C</b></h6>" +
+      "<textarea class='materialize-textarea'>" +
       $("#opcionCCreacion").val() +
       "</textarea>" +
-      "</a>" +
       "</div>" +
       "</div>";
 
-    var opcionD =
-      " <div class='row " +
+    var opcionD =   
+      "<div class='row colorGreyWhiter bordered1 opcionContainer " +
       opcionDOculto +
-      " '>" +
-      "<div class='col s4'>" +
-      " <p>" +
+      "'>" +
+      "<div class='col s12 m3 labelContainer'>" +
       "<label>" +
       "<input  type='radio' " +
       checkD +
-      " />" +
+      "/>" +
       "<span>Correcta</span>" +
       "</label>" +
-      "</p>" +
       "</div>" +
-      "<div class='col s8'>" +
-      " <a>Opcion D</a>" +
-      "<a class='waves-effect waves-light btn ' style='width: 100%; height:50px;'>" +
-      "<textarea  class='materialize-textarea' style='height: 600px;'>" +
+      "<div class='col s12 m9'>" +
+      "<h6><b>Opción D</b></h6>" +
+      "<textarea class='materialize-textarea'>" +
       $("#opcionDCreacion").val() +
       "</textarea>" +
-      "</a>" +
       "</div>" +
       "</div>";
 
     var contenedor =
       "<div class='row preguntaOpccionMultiple'>" +
-      " <div class='col s12 ''>" +
-      "  <div class='card '>" +
-      " <div class='card-content '>" +
-      "<h4>Opccion multiple</h4>" +
-      " <div class='row'>" +
-      "<div class='input-field col s12'>" +
-      "<textarea  class='materialize-textarea textoPregunta'>" +
-      pregunta +
-      "</textarea>" +
-      "</div>" +
-      "</div>" +
-      opcionA +
-      opcionB +
-      opcionC +
-      opcionD +
-      " <div class='row'>" +
-      "<div class='col s6'>" +
-      "<a class='waves-effect waves-light btn btnEliminarPreguntaOpcionMultiple'>" +
-      "Eliminar" +
-      "</a>" +
-      "</div>" +
-      "<div class='col s6'>" +
-      "<a class='waves-effect waves-light btn btnAgregarOpcionMultiple '>" +
-      "Agregar" +
-      "</a>" +
-      "</div>" +
-      "</div>" +
-      "</div>" +
-      "</div>" +
-      "</div>" +
+        "<div class='col s12'>" +
+          "<div class='card colorGrey bordered2'>" +
+            "<div class='card-content '>" +
+              "<h5>Opción múltiple</h5>" +
+            "<div class='row'>" +
+              "<div class='input-field col s12'>" +
+                  "<textarea class='materialize-textarea textoPregunta' placeholder='Pregunta'>" +
+                    pregunta +
+                  "</textarea>" +
+              "</div>" +
+            "</div>" +
+              opcionA +
+              opcionB +
+              opcionC +
+              opcionD +
+              "<div class='containerButtonsView'>" +
+                "<div>" +
+                "<a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnEliminarPreguntaOpcionMultiple'><i class='material-icons left'>delete_sweep</i>Eliminar todo</a>" +
+                "</div>" +
+                "<div>" +
+                "<a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnEliminarUltimaPreguntaOpcionMultiple'><i class='material-icons left'>delete</i>Eliminar última</a>" +
+                "</div>" +
+                "<div>" +
+                "<a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnAgregarOpcionMultiple'><i class='material-icons left'>add</i>Agregar</a>" +
+                "</div>" +
+              "</div>" +
+            "</div>" +
+          "</div>" +
+        "</div>" +
       "</div>";
     $("#contenedorCuestionarioPreguntas").append(contenedor);
   });
@@ -424,16 +415,16 @@ $(document).ready(function () {
         lugarDeEspacios.find(".blankContadorEspaciosCreacion").length + 1;
       lugarDeEspacios.append(
         "<div class='row'>" +
-          "<div class='col s12 '>" +
-          "Blank " +
-          numeroEspacios +
-          "</div>" +
-          "</div>" +
-          "  <div class='row'>" +
-          "<div class='col s12 '>" +
-          "<input type='type' class='blankContadorEspaciosCreacion'>" +
-          "</div>" +
-          "</div>"
+        "<div class='col s12 '>" +
+        "Blank " +
+        numeroEspacios +
+        "</div>" +
+        "</div>" +
+        "  <div class='row'>" +
+        "<div class='col s12 '>" +
+        "<input type='type' class='blankContadorEspaciosCreacion'>" +
+        "</div>" +
+        "</div>"
       );
 
       var preguntaAgregar =
@@ -450,7 +441,7 @@ $(document).ready(function () {
 /*
 *   Función para el ingreso del titulo
 */
-function ingresarTitulo(){
+function ingresarTitulo() {
   //Texto del titulo
   const tituloCuestionario = document.getElementById('tituloCuestionario');
   //Boton de guardado del titulo
@@ -466,15 +457,15 @@ function ingresarTitulo(){
 
   guardarTitulo.addEventListener('click', agregarTitulo);
   inputNombreCuestionario[0].addEventListener('keypress', function (e) {
-      if (e.key === 'Enter') {
-        agregarTitulo();
-      }
+    if (e.key === 'Enter') {
+      agregarTitulo();
+    }
   });
 
-  function agregarTitulo(){
-    if(nombreCuestionario.value == ""){
+  function agregarTitulo() {
+    if (nombreCuestionario.value == "") {
       nombreCuestionario.value = "Error";
-    }else{
+    } else {
       tituloCuestionario.innerText = nombreCuestionario.value;
       inputNombreCuestionario[0].classList.add('hiddenElement');
       contenedorTitulo[0].classList.remove('hiddenElement');
@@ -482,7 +473,7 @@ function ingresarTitulo(){
   }
 
   editTitulo.addEventListener('click', editarTitulo);
-  function editarTitulo(){
+  function editarTitulo() {
     nombreCuestionario.value = tituloCuestionario.innerText;
     inputNombreCuestionario[0].classList.remove('hiddenElement');
     contenedorTitulo[0].classList.add('hiddenElement');
