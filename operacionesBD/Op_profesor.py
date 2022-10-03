@@ -50,6 +50,28 @@ def obtener_grupos_datos_importantes(id_profesor):
     conexion.close()
     return grupos
 
+def obtener_grupos_IDS(id_profesor):
+    conexion=obtener_conexion()
+    grupos=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT IDGrupo FROM grupos WHERE IDDocente = %s", (id_profesor))
+        grupos=cursor.fetchall()
+
+    conexion.close()
+    return grupos
+
+def obtener_alumnos_con_profesor_IDS(id_profesor):
+    conexion=obtener_conexion()
+    alumnosIds=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT IDAlumno FROM grupos_alumnos WHERE IDDocente = %s", (id_profesor))
+        alumnosIds=cursor.fetchall()
+
+    conexion.close()
+    return alumnosIds
+
 #Lo mismo pero con IDGrupo (un grupo en concreto)
 def obtener_grupo_datos_importantes_unitario(id_grupo):
     conexion=obtener_conexion()

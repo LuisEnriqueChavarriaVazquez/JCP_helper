@@ -375,7 +375,14 @@ def login_profesor():
                 session['logged_in'] = True
                 session['IDDocente']=result[0]
                 session['correoS'] = result[4]
-                return render_template('profesor/bienvenidaProfesor.html',datos=result)  
+
+                #Cuenta los elementos
+                IDS_Alumnos = Op_profesor.obtener_alumnos_con_profesor_IDS(session['IDDocente'])
+                IDS_Grupos = Op_profesor.obtener_grupos_IDS(session['IDDocente'])
+                ##Contador de alumnos y grupos
+                contadorAlumnos = len(IDS_Alumnos)
+                contadorGrupos = len(IDS_Grupos)
+                return render_template('profesor/bienvenidaProfesor.html',datos=result, IDS_Alumnos = contadorAlumnos, IDS_Grupos = contadorGrupos)  
             else:
                 flash("Usuario o contraseña incorrectos!")
                 return redirect(url_for('routes.login_general'))   
@@ -399,7 +406,12 @@ de login, evitando asi que se lance la excepcion de que no existe el IDDocente
 def bienvenidaProfesor():
     try:
         result = Op_profesor.datos_completos_docente_by_id(session['IDDocente'])
-        return render_template('profesor/bienvenidaProfesor.html',datos=result)
+        IDS_Alumnos = Op_profesor.obtener_alumnos_con_profesor_IDS(session['IDDocente'])
+        IDS_Grupos = Op_profesor.obtener_grupos_IDS(session['IDDocente'])
+        ##Contador de alumnos y grupos
+        contadorAlumnos = len(IDS_Alumnos)
+        contadorGrupos = len(IDS_Grupos)
+        return render_template('profesor/bienvenidaProfesor.html',datos=result, IDS_Alumnos = contadorAlumnos, IDS_Grupos = contadorGrupos)
     except:
         return render_template('profesor/bienvenidaProfesor.html')
 
