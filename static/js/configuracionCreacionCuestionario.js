@@ -465,6 +465,11 @@ function ingresarTitulo(){
   const contenedorTitulo = document.getElementsByClassName('contenedorTitulo');
 
   guardarTitulo.addEventListener('click', agregarTitulo);
+  inputNombreCuestionario[0].addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        agregarTitulo();
+      }
+  });
 
   function agregarTitulo(){
     if(nombreCuestionario.value == ""){
