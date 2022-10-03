@@ -1,5 +1,5 @@
 ::selection { 
-    background: #121b1d;
+    background: #1c2b2e;
     color:#fff; 
 }
 
@@ -14,7 +14,7 @@
 .colorGreyWhiter {background-color: #ececec;}
 .colorWhite {background-color: #fff;}
 
-.coloredText {color: #121b1d !important;}
+.coloredText {color: #1c4047 !important;}
 .colorText {color: #fff !important;} 
 .colorTextReverse {color: #000 !important;} 
 

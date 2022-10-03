@@ -1,0 +1,10 @@
+.header{
+    text-align: center !important;
+    background-color: rgb(136, 185, 229) !important;
+    height: 70px !important;
+    line-height: 70px !important;
+}
+.chart{
+    margin-top: 30px !important;
+    text-align: center !important;
+}

@@ -1,83 +1,58 @@
-<div class="title-general colorGrey">
-    <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Listado de estudiantes</h4>
+<div class="title-general colorGrey" style="margin: 20px 0px 0px 0px;">
+    <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Listado de estudiantes</h5>
     <h5 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Listado de estudiantes</h5>
 </div>
-<section style="margin: 0 55px 55px 55px;">
+<section style="margin: 0 55px 0px 55px;">
     <!--Listado de los informes.-->
     <ul class="collapsible bordered2 colorWhite">
         <li>
-            <div class="collapsible-header bordered2Up"><i class="material-icons">workspaces</i>Grupos</div>
-            <div class="collapsible-body">
-                <section class="row">
-                    <a href="">
-                        <div
-                            class="borderDecoration col s12 m5 l3 colorGreyWhiter cardAlumnoSecondary shadow-2 bordered1 centerAlignerNoWidth">
-                            <div class="iconContenedorUserSecondary centerAlignerNoWidth">
-                                <img src="../../static/images/user.png" class="userSecondary bordered5 shadow-2">
+            <div class="bordered2 collapsible-header colorWhite colorTextReverse"
+                style="margin-bottom: 5px;"><i class="material-icons">groups_3</i>Grupos. <span
+                    id="gruposContador" class="colorGrey"></span>
+            </div>
+            <div class="bordered5 collapsible-body">
+                <section class="contenedorGruposInfoStats">
+                    {%for i in range(0, datosGrupo|length)%}
+                    <a href="/viewGroup/{{datosGrupo[i][0]}}">
+                        <div class="borderDecoration colorGreyWhiter shadow-1 bordered1 contenedorGruposInfoStatsContenedor">
+                            <div class="contenedorGruposInfoStatsContenedorSon1" style="background-image: url({{datosGrupo[i][4]}}), url(../../static/images/fondos/fondo.png); background-blend-mode: hue;">
+                            
                             </div>
-                            <div class="textContenedorUserSecondary">
-                                <p class="truncate colorTextReverse">Nombre del alumno</p>
-                                <p class="truncate colorTextReverse">Correo del alumno</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div
-                            class="borderDecoration col s12 m5 l3 colorGreyWhiter cardAlumnoSecondary shadow-2 bordered1 centerAlignerNoWidth">
-                            <div class="iconContenedorUserSecondary centerAlignerNoWidth">
-                                <img src="../../static/images/user.png" class="userSecondary bordered5 shadow-2">
-                            </div>
-                            <div class="textContenedorUserSecondary">
-                                <p class="truncate colorTextReverse">Nombre del alumno</p>
-                                <p class="truncate colorTextReverse">Correo del alumno</p>
+                            <div class="contenedorGruposInfoStatsContenedorSon2">
+                                <h6 class="colorTextReverse"><b>{{datosGrupo[i][2]}}</b></h6>
+                                <p class="colorTextReverse">{{datosGrupo[i][3]}}</p>
                             </div>
                         </div>
                     </a>
-                    <a href="">
-                        <div
-                            class="borderDecoration col s12 m5 l3 colorGreyWhiter cardAlumnoSecondary shadow-2 bordered1 centerAlignerNoWidth">
-                            <div class="iconContenedorUserSecondary centerAlignerNoWidth">
-                                <img src="../../static/images/user.png" class="userSecondary bordered5 shadow-2">
-                            </div>
-                            <div class="textContenedorUserSecondary">
-                                <p class="truncate colorTextReverse">Nombre del alumno</p>
-                                <p class="truncate colorTextReverse">Correo del alumno</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div
-                            class="borderDecoration col s12 m5 l3 colorGreyWhiter cardAlumnoSecondary shadow-2 bordered1 centerAlignerNoWidth">
-                            <div class="iconContenedorUserSecondary centerAlignerNoWidth">
-                                <img src="../../static/images/user.png" class="userSecondary bordered5 shadow-2">
-                            </div>
-                            <div class="textContenedorUserSecondary">
-                                <p class="truncate colorTextReverse">Nombre del alumno</p>
-                                <p class="truncate colorTextReverse">Correo del alumno</p>
-                            </div>
-                        </div>
-                    </a>
+                    {%endfor%}
                 </section>
             </div>
         </li>
+        {%for i in range(0, datosGrupo|length)%}
         <li>
-            <div class="collapsible-header"><i class="material-icons">group</i>Grupo 2</div>
-            <div class="collapsible-body">
-                {% include "includes/mensajesCasos/noEstudiantes.html" %}
-            </div>
-        </li>
-        <li>
-            <div class="collapsible-header"><i class="material-icons">group</i>Grupo 3</div>
-            <div class="collapsible-body">
-                {% include "includes/mensajesCasos/noEstudiantes.html" %}
-            </div>
-        </li>
-        <li>
-            <div class="collapsible-header bordered2Down"><i class="material-icons">group</i>Grupo 4
+            <div class="collapsible-header bordered2Down"><i class="material-icons">group</i>{{datosGrupo[i][2]}}<span
+                class="colorGrey alumnosContador">{{cantidadesDeAlumnos[i]}}</span>
             </div>
             <div class="collapsible-body">
-                {% include "includes/mensajesCasos/noEstudiantes.html" %}
+                <section class="contenedorEstudiantesInfo contenedorEstudiantesCounter">
+                    {%for j in range(0, datosGlobalesAlumnos[i]|length)%}
+                    <a href="/perfil_general_view/{{datosGlobalesAlumnos[i][j][0][0]}}">
+                        <div
+                            class="borderDecoration colorGrey cardAlumnoSecondary cardAlumnoCounter shadow-1 bordered1 centerAlignerNoWidth">
+                            <div class="iconContenedorUserSecondary centerAlignerNoWidth">
+                                <img src="../../static/images/alumnos/{{datosGlobalesAlumnos[i][j][0][3]}}"
+                                    class="userSecondary bordered5 shadow-2">
+                            </div>
+                            <div class="textContenedorUserSecondary">
+                                <p class="truncate colorTextReverse"><b>{{datosGlobalesAlumnos[i][j][0][2]}}</b></p>
+                                <p class="truncate colorTextReverse">{{datosGlobalesAlumnos[i][j][0][4]}}</p>
+                            </div>
+                        </div>
+                    </a>
+                    {%endfor%}
+                </section>
             </div>
         </li>
+        {%endfor%}
     </ul>
 </section>

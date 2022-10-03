@@ -31,7 +31,6 @@ def login_required(f):
     return wrap
 
 
-
 # def not_logged_in(f):
 #     @wraps(f)
 #     def wrap(*args, **kwargs):
@@ -67,9 +66,9 @@ def gestionar_cuestionarios():
 
 
 ##Ruta para la vista de gestion de estadisticas
-@routes.route('/gestionar_estadisticas')
+@routes.route('/gestionar_estadisticas/<string:id_grupo>')
 #@login_required
-def gestionar_estadisticas():
+def gestionar_estadisticas(id_grupo):
 
     #Grafica de ejemplo 1
     df = pd.DataFrame({
@@ -78,7 +77,7 @@ def gestionar_estadisticas():
         "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
     })
 
-    fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
+    fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="relative")
 
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     header="Fruit in North America"
@@ -102,7 +101,52 @@ def gestionar_estadisticas():
     The rumor that vegetarians are having a hard time in London and Madrid can probably not be
     explained by this chart.
     """
-    return render_template('profesor/a_gestionar_estadisticas.html', graphJSON=graphJSON, header=header,description=description, graphJSON2=graphJSON2, header2=header2,description2=description2)
+
+    #Obtenemos los datos del grupo
+    datosGrupo = Op_profesor.obtener_grupos_datos_importantes(id_grupo)
+    print(datosGrupo)
+
+    idGrupos = []
+    for singleIDGrupo in datosGrupo:
+        idGrupos.append(singleIDGrupo[0])
+    print(idGrupos) #[1,2]
+
+    datosGlobalesAlumnos = []
+    alumnosDentroGrupo = []
+
+    ########## INFORMACION ESTUDIANTES EN GRUPOS
+    #Obtenemos los ids de los estudiantes dentro de un grupo
+    for idGrupo in idGrupos:
+        alumnosIdsDentroGrupo = Op_profesor.obtener_IDAlumno_dentro_de_grupo(idGrupo)
+        print(alumnosIdsDentroGrupo) # ((1, ), (2, ))
+
+        idSeparada = []
+        for singleID in alumnosIdsDentroGrupo:
+            idSeparada.append(singleID[0])
+        print(idSeparada) # [1,2]
+
+        datosAlumnos = []
+        for idAlumno in idSeparada:
+            print(str(idAlumno)) # 1,2
+            #Obtenemos los datos de los alumnos con los ids Obtenido
+            datosAlumnos.append(Op_profesor.datos_completos_alumno_by_id(str(idAlumno)))
+        print(datosAlumnos) #[((1,), (2,))]
+
+        datosGlobalesAlumnos.append(datosAlumnos)
+        alumnosDentroGrupo.append(alumnosIdsDentroGrupo)
+    
+    print(datosGlobalesAlumnos) #[[((1,), (2,))], [((1,), (2,))]]
+    print(alumnosDentroGrupo)
+
+    #Contador de alumnos por grupo
+    cantidadesDeAlumnos = []
+    k = 0
+    for alumnoDentroGrupo in alumnosDentroGrupo:
+        cantidadesDeAlumnos.append(str(len(alumnoDentroGrupo)))
+        k += 1
+    print(cantidadesDeAlumnos)
+
+    return render_template('profesor/a_gestionar_estadisticas.html', datosGrupo=datosGrupo, datosGlobalesAlumnos = datosGlobalesAlumnos, cantidadesDeAlumnos = cantidadesDeAlumnos, graphJSON=graphJSON, header=header,description=description, graphJSON2=graphJSON2, header2=header2,description2=description2)
 
 ##Ruta para la vista de gestion de grupos
 ##

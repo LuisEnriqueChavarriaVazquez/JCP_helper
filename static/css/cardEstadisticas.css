@@ -1,3 +1,19 @@
+/*Ocultamos secciones enteras de las gráficas*/
+
+.hidderMine{
+    display: none;
+}
+
+/*Titulo de las gráficas (Para que el boton se alinee con el datos)*/
+.titleGraficas{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+    align-content: center;
+}
+
+
 /*Aqui estan las tarjetas base de las gráficas.*/
 
 .cuerpoCardGrafica{
@@ -20,16 +36,166 @@
 }
 
 .tituloCardGrafica{
-    font-weight: 600;
+    font-weight: 700;
     padding: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: auto;
+}
+
+
+/*Para mostrar los datos de los gráficos (titulo y porcentage)*/
+.porcentageGrafica i,.porcentageGrafica{
+    font-weight: 700;
+    font-size: 35px;
+    padding: 0px;
+    font-style: normal !important;
+}
+
+.porcentageGraficaText{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.porcentageGraficaTrends{
+    display: flex;
+    flex-direction: row;
+}
+
+.porcentageGraficaTrends span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 3px 3px 3px 10px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.tituloCardGraficaText{
+    display: flex;
+    justify-content: left;
+    align-items: center;
 }
 
 .graficoCardGrafica{
     padding: 20px 10px 20px 10px;
 }
 
-/*Ocultamos secciones enteras de las gráficas*/
 
-.hidderMine{
-    display: none;
+/*Para celular y tablet*/
+
+@media screen and (max-width: 750px) {
+    .tituloCardGrafica{
+        font-weight: 700;
+        padding: 20px;
+    
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2,auto);
+    }
+    
+    .porcentageGraficaText{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+    }
+
+    /*Para mostrar los datos de los gráficos (titulo y porcentage)*/
+    .porcentageGrafica i,.porcentageGrafica{
+        font-weight: 700;
+        font-size: 25px;
+        padding: 0px;
+        font-style: normal !important;
+    }
+    
+    .tituloCardGraficaText{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+}
+
+.viewsGraps{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px 20px;
+}
+
+.viewsGraps div{
+    margin: 0 10px;
+}
+
+/*contendorGrupos graficas perticulares*/
+
+.contenedorGrupos{
+    margin: 20px 55px;
+}
+
+/**
+** Para la sección de estadísticas
+**/
+
+.contenedorGruposInfoStats{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr) ;
+    grid-template-rows: auto;
+    gap: 20px;
+}
+
+.contenedorGruposInfoStatsContenedorSon2{
+     padding: 20px;
+     height: 180px;
+}
+
+@media screen and (max-width: 1400px) {
+    .contenedorGruposInfoStats{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .contenedorGruposInfoStats{
+        grid-template-columns: repeat(3, 1fr) ;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .contenedorGruposInfoStats{
+        grid-template-columns: repeat(2, 1fr) ;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .contenedorGruposInfoStats{
+        grid-template-columns: 1fr ;
+    }
+
+    .contenedorGruposInfoStatsContenedorSon2{
+        padding: 15px;
+        height: 150px;
+   }
+}
+
+.contenedorGruposInfoStatsContenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contenedorGruposInfoStatsContenedorSon1{
+    height: 55px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

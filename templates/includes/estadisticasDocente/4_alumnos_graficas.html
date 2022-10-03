@@ -1,203 +1,86 @@
 <!--Seccion de datos relevantes en las estadisticas
             para los dispositivos moviles.-->
-<div class="title-general colorGrey">
-    <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Gráficas</h4>
-    <h5 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Gráficas</h5>
+<div class="title-general colorGrey titleGraficas" style="margin: 20px 0px 0px 0px;">
+    <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Gráficas globales</h5>
+    <h4 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Gráficas globales</h4>
     &nbsp;&nbsp;&nbsp;
     <!-- Dropdown Trigger -->
-    <a class='dropdown-trigger btn button-rounded colorGreyWhiter colorTextReverse' href='#' data-target='dropdown4'><i
-            class="material-icons">settings</i></a>
-
-    <!-- Dropdown Structure -->
-    <ul id='dropdown4' class='dropdown-content'>
-        <li class="hide-on-med-and-up"><a href="#!" id="listaGrafEstudiantes" class="colorTextReverse"><i
-                    class="colorTextReverse material-icons">view_list</i>Lista</a></li>
-        <li class="hide-on-med-and-up"><a href="#!" id="carouselGrafEstudiantes" class="colorTextReverse"><i
-                    class="colorTextReverse material-icons">swap_horiz</i>Carrusel</a></li>
-        <li class="hide-on-small-only"><a href="#!" id="dashboardGrafEstudiantes" class="colorTextReverse"><i
-                    class="colorTextReverse material-icons">dashboard</i>Cuadricula</a></li>
-        <li class="hide-on-small-only"><a href="#!" id="dashboardVerticalGrafEstudiantes" class="colorTextReverse"><i
-                    class="colorTextReverse material-icons">vertical_split</i>Vertical</a></li>
-    </ul>
+    <a class='btn button-rounded colorGreyWhiter colorTextReverse' href='#'><i
+            class="material-icons md-24">grid_view</i></a>
 </div>
-
-<!--SECCION PARA LOS DISPOSITIVOS MÓVILES-->
-
-<section style="margin: 0px;" id="carouselGrafEstudiantesSegmento" class="hide-on-med-and-up">
-    <!--Carousel con algunas cuantas graficas.-->
-    <section class="owl-carousel owl-four owl-theme hide-on-med-and-up colorGrey">
-        <div class="item">
-            <div class="bordered2 shadow-2e cuerpoCardGrafica colorWhite">
-                <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
-                </div>
-                <div class="graficoCardGrafica bordered2Down centerAligner">
-                    {% include "includes/mensajesCasos/error.html" %}
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="bordered2 shadow-2e cuerpoCardGrafica colorWhite">
-                <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
-                </div>
-                <div class="graficoCardGrafica bordered2Down centerAligner">
-                    {% include "includes/mensajesCasos/error.html" %}
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="bordered2 shadow-2e cuerpoCardGrafica colorWhite">
-                <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
-                </div>
-                <div class="graficoCardGrafica bordered2Down centerAligner">
-                    {% include "includes/mensajesCasos/error.html" %}
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="bordered2 shadow-2e cuerpoCardGrafica colorWhite">
-                <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
-                </div>
-                <div class="graficoCardGrafica bordered2Down centerAligner">
-                    {% include "includes/mensajesCasos/error.html" %}
-                </div>
-            </div>
-        </div>
-
-        <div class="item" style="width: 200px;">
-        </div>
-    </section>
-</section>
-
-<!--Listado de los elementos-->
-<section style="margin: 0 50px 10px 50px;" class="row hidderMine hide-on-med-and-up" id="listadoGrafEstudiantesSegmento">
-    <div class="col s12 m6 l6">
-        <div class="bordered2 shadow-2e cuerpoCardGraficaLista colorWhite">
-            <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
-            </div>
-            <div class="graficoCardGrafica bordered2Down centerAligner">
-                {% include "includes/mensajesCasos/error.html" %}
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m6 l6">
-        <div class="bordered2 shadow-2e cuerpoCardGraficaLista colorWhite">
-            <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
-            </div>
-            <div class="graficoCardGrafica bordered2Down centerAligner">
-                {% include "includes/mensajesCasos/error.html" %}
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m6 l6">
-        <div class="bordered2 shadow-2e cuerpoCardGraficaLista colorWhite">
-            <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
-            </div>
-            <div class="graficoCardGrafica bordered2Down centerAligner">
-                {% include "includes/mensajesCasos/error.html" %}
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m6 l6">
-        <div class="bordered2 shadow-2e cuerpoCardGraficaLista colorWhite">
-            <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
-            </div>
-            <div class="graficoCardGrafica bordered2Down centerAligner">
-                {% include "includes/mensajesCasos/error.html" %}
-            </div>
-        </div>
-    </div>
-</section>
-
 
 <!--SECCION PARA LAS TABLETAS Y PARA LAS COMPUTADORAS DE ESCRITORIO-->
 
 <!--Listado de los elementos-->
-<section style="margin: 40px;" class="row hide-on-small-only" id="dashboardGrafEstudiantesSegmento">
-    <div class="col s12 m12 l12">
+<section style="margin: 20px 40px 20px 40px;" class="row" id="dashboardGrafGruposSegmento">
+    <div class="col s12 m12 l6">
         <div class="bordered2 shadow-2e cuerpoCardGraficaDashboard colorWhite">
-            <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
+            <div class="tituloCardGrafica flow-text bordered2Up colorGreyWhiter">
+                <div class="tituloCardGraficaText">
+                    Promedio general de grupos
+                </div>
+                <div class="porcentageGraficaText">
+                    <span class="porcentageGrafica coloredText"><i class="porcentageNumero">78</i>%</span>
+                    <div class="porcentageGraficaTrends">
+                        <span class="tendenciaGrafica goodColor"><i class="material-icons">trending_up</i></span>
+                        <span class="tendenciaGrafica badColor"><i class="material-icons">trending_down</i></span>
+                        <span class="tendenciaGrafica infoColor"><i class="material-icons">trending_flat</i></span>
+                    </div>
+                </div>
             </div>
-            <div class="graficoCardGrafica bordered2Down centerAligner">
-                {% include "includes/mensajesCasos/error.html" %}
+            <div class="graficoCardGrafica centerAligner">
+                <!-- <div id='chart14' class='chart' ”></div> -->
+            </div>
+            <div class="bordered2Down centerAligner colorGrey viewsGraps">
+                <div>
+                    <a class='btn button-rounded colorGreyWhiter colorTextReverse' href='#'><i
+                            class="material-icons md-24">bar_chart</i></a>
+                </div>
+                <div>
+                    <a class='btn button-rounded colorGreyWhiter colorTextReverse' href='#'><i
+                            class="material-icons md-24">show_chart</i></a>
+                </div>
+                <div>
+                    <a class='btn button-rounded colorGreyWhiter colorTextReverse' href='#'><i
+                            class="material-icons md-24">pie_chart</i></a>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col s12 m6 l6">
+    <div class="col s12 m12 l6">
         <div class="bordered2 shadow-2e cuerpoCardGraficaDashboard colorWhite">
-            <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
+            <div class="tituloCardGrafica flow-text bordered2Up colorGreyWhiter">
+                <div class="tituloCardGraficaText">
+                    Indice de aprobación de grupos
+                </div>
+                <div class="porcentageGraficaText">
+                    <span class="porcentageGrafica coloredText"><i class="porcentageNumero">59</i>%</span>
+                    <div class="porcentageGraficaTrends">
+                        <span class="tendenciaGrafica goodColor"><i class="material-icons">trending_up</i></span>
+                        <span class="tendenciaGrafica badColor"><i class="material-icons">trending_down</i></span>
+                        <span class="tendenciaGrafica infoColor"><i class="material-icons">trending_flat</i></span>
+                    </div>
+                </div>
             </div>
-            <div class="graficoCardGrafica bordered2Down centerAligner">
-                {% include "includes/mensajesCasos/error.html" %}
+            <div class="graficoCardGrafica centerAligner">
+                <!-- <div id='chart13' class='chart' ”></div> -->
             </div>
-        </div>
-    </div>
-    <div class="col s12 m6 l6">
-        <div class="bordered2 shadow-2e cuerpoCardGraficaDashboard colorWhite">
-            <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
-            </div>
-            <div class="graficoCardGrafica bordered2Down centerAligner">
-                {% include "includes/mensajesCasos/error.html" %}
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m12 l12">
-        <div class="bordered2 shadow-2e cuerpoCardGraficaDashboard colorWhite">
-            <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
-            </div>
-            <div class="graficoCardGrafica bordered2Down centerAligner">
-                {% include "includes/mensajesCasos/error.html" %}
+            <div class="bordered2Down centerAligner colorGrey viewsGraps">
+                <div>
+                    <a class='btn button-rounded colorGreyWhiter colorTextReverse' href='#'><i
+                            class="material-icons md-24">bar_chart</i></a>
+                </div>
+                <div>
+                    <a class='btn button-rounded colorGreyWhiter colorTextReverse' href='#'><i
+                            class="material-icons md-24">show_chart</i></a>
+                </div>
+                <div>
+                    <a class='btn button-rounded colorGreyWhiter colorTextReverse' href='#'><i
+                            class="material-icons md-24">pie_chart</i></a>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-
-<!--Listado de los elementos-->
-<section style="margin: 40px;" class="row hidderMine hide-on-small-only" id="dashboardVerticalGrafEstudiantesSegmento">
-    <div class="col s12 m6 l4">
-        <div class="bordered2 shadow-2e cuerpoCardGraficaLista colorWhite">
-            <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
-            </div>
-            <div class="graficoCardGrafica bordered2Down centerAligner">
-                {% include "includes/mensajesCasos/error.html" %}
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m6 l4">
-        <div class="bordered2 shadow-2e cuerpoCardGraficaLista colorWhite">
-            <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
-            </div>
-            <div class="graficoCardGrafica bordered2Down centerAligner">
-                {% include "includes/mensajesCasos/error.html" %}
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m6 l4">
-        <div class="bordered2 shadow-2e cuerpoCardGraficaLista colorWhite">
-            <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
-            </div>
-            <div class="graficoCardGrafica bordered2Down centerAligner">
-                {% include "includes/mensajesCasos/error.html" %}
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m6 l6">
-        <div class="bordered2 shadow-2e cuerpoCardGraficaLista colorWhite">
-            <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
-            </div>
-            <div class="graficoCardGrafica bordered2Down centerAligner">
-                {% include "includes/mensajesCasos/error.html" %}
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m6 l6">
-        <div class="bordered2 shadow-2e cuerpoCardGraficaLista colorWhite">
-            <div class="tituloCardGrafica flow-text bordered2Up center-align colorGreyWhiter">Titulo de la gráfica
-            </div>
-            <div class="graficoCardGrafica bordered2Down centerAligner">
-                {% include "includes/mensajesCasos/error.html" %}
-            </div>
-        </div>
-    </div>
-</section>
-<br>
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>

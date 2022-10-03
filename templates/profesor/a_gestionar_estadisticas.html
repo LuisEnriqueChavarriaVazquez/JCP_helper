@@ -5,7 +5,7 @@
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
 
-    <title>Saber más</title>
+    <title>Gestionar estadísticas</title>
 </head>
 
 <body class="oculto colorGrey">
@@ -15,7 +15,7 @@
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Estadísticas.</a>
+            <a href="#" class="brand-logo hide-on-small-only">Estadísticas.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
             <p class="titleMobile colorText flow-text hide-on-med-and-up">Estadísticas.</p>
@@ -25,17 +25,14 @@
         </div>
         <!--Sección para elegir el tipo de stat-->
         <ul class="tabs tabs-fixed-width tab-demo z-depth-1 color2">
-            <li class="tab"><a class="active coloredText colorText" href="#test1">Informes</a></li>
-            <li class="tab"><a href="#test2" class="colorText">Grupos</a></li>
-            <li class="tab"><a href="#test3" class="colorText">Cuestionarios</a></li>
-            <li class="tab"><a href="#test4" class="colorText">Comunidad</a></li>
-            <li class="tab"><a href="#test5" class="colorText">Estudiantes</a></li>
+            <li class="tab"><a href="#grupos" class="active colorText">Grupos</a></li>
+            <li class="tab"><a href="#cuestionarios" class="colorText">Cuestionarios</a></li>
+            <li class="tab"><a href="#alumnos" class="colorText">Alumnos</a></li>
         </ul>
-        <div class="progress color4 hidderMine" id="hidder" style="margin: 0px;">
-            <div class="indeterminate"></div>
-        </div>
     </nav>
     <br><br><br><br><br><br>
+
+    <!--Estos datos en la página son persistentes y muestran información en general-->
 
     <!--Datos generales para tabletas y escritorio-->
     {% include "includes/estadisticasDocente/1_datos_generales_med_large.html" %}
@@ -43,23 +40,20 @@
     <!--Datos generales para moviles-->
     {% include "includes/estadisticasDocente/1_datos_generales_small.html" %}
 
-
-    <div id="test1" class="col s12">
-        {% include "includes/estadisticasDocente/3_informes_estadisticas.html" %}
-    </div>
-    <div id="test2" class="col s12">
+    <!--
+        ----
+            Aqui empiezan los contenedores de gráficas
+        ----
+    -->
+    <div id="grupos" class="col s12">
         <!--Graficas de la seccion.-->
         {% include "includes/estadisticasDocente/2_datos_graficas_grupos.html" %}
     </div>
-    <div id="test3" class="col s12">
+    <div id="cuestionarios" class="col s12">
         <!--Graficas de la seccion.-->
         {% include "includes/estadisticasDocente/2_datos_graficas_cuestionarios.html" %}
     </div>
-    <div id="test4" class="col s12">
-        <!--Graficas de la seccion.-->
-        {% include "includes/estadisticasDocente/2_datos_graficas_comunidad.html" %}
-    </div>
-    <div id="test5" class="col s12">
+    <div id="alumnos" class="col s12">
         <!--Listado de los alumnos por grupo.-->
         {% include "includes/estadisticasDocente/4_alumnos_por_grupo.html" %}
 
@@ -80,6 +74,7 @@
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
 
-<script src="../../static/js/vistaElementos.js"></script>
+<script src="../../static/js/operacionesGraficas.js"></script>
+
 
 </html>
