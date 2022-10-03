@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear cuestionario del banco</title>
+</head>
+
+<body>
+    <form action="/obtener_preguntas_por_lenguaje" method="post">
+        <select name="lenguaje">
+            <option value="Python">Python</option>
+            <option value="Java">Java</option>
+            <option value="C">Lenguaje C</option>
+        </select>
+        <input type="submit" value="Aceptar">
+    </form>
+    {% if lenguaje %}
+    <h2>Configura tu cuestionario en {{lenguaje}} conforme a lo siguiente</h2>
+    {% endif %}
+
+    <form action="">
+        <p>Selecciona los temas que tendra el cuestionario</p>
+        {% if temas %}
+            {% for tema in temas %}
+                <input type="checkbox" name="{{tema}}">{{tema}}<br>
+            {% endfor %}
+        {% endif %}
+        <p>Selecciona los tipos de preguntas que tendra el cuestionario</p>
+        {% if preguntas %}
+            {% for pregunta in preguntas %}
+                <input type="checkbox" name="{{pregunta}}">{{pregunta}}<br>
+            {% endfor %}
+        {% endif %}
+    </form>
+</body>
+
+</html>
