@@ -2,8 +2,11 @@ function selectorFondoPerfilUsuario() {
     //El contenedor POP UP en donde guardamos los temas (cajitas de temas)
     const boxContainerPopUp = document.getElementById('popUpThemes');
 
-    //El fondo con la imagen del perfil
+    //El fondo con la imagen del perfil (Solo funciona en el perfil del usuario logeado)
     const fondoDinamicoUsuario = document.getElementById('fondoDinamicoUsuario');
+
+    //Funciona en la vista general de los perfiles
+    const fondoPerfilDiseno = document.getElementsByClassName('fondoPerfilDiseno');
 
     // Direcciones de la fotos
     direccionesPhotos = ['../static/images/fondos/aqua/aqua_1.png', '../static/images/fondos/aqua/aqua_2.png', '../static/images/fondos/aqua/aqua_3.png', '../static/images/fondos/aqua/aqua_4.png', '../static/images/fondos/aqua/aqua_5.png', '../static/images/fondos/aqua/aqua_6.png', '../static/images/fondos/aqua/aqua_7.png', '../static/images/fondos/aqua/aqua_8.png'
@@ -74,6 +77,15 @@ function selectorFondoPerfilUsuario() {
         };
     };
 
+    //En caso de que en la base de datos el valor de fondo sea default se
+    //coloca un fondo por defecto
+    atributoStyle = fondoPerfilDiseno[0].getAttribute('style');
+    if(atributoStyle.indexOf("default") != -1){
+        fondoPerfilDiseno[0].removeAttribute('style');
+        fondoPerfilDiseno[0].classList.add('fondoDinamico');
+        console.log('listo')
+    }
+    
     //Esta validación es para que en caso de que exista el
     //fondo guardado en localStorage lo recuerde
     //sino, lo que hace es poner el fondo por defecto.
@@ -88,6 +100,7 @@ function selectorFondoPerfilUsuario() {
         fondoDinamicoUsuario.removeAttribute('style');
         fondoDinamicoUsuario.classList.add('fondoDinamico')
     }
+
     
 }
 
