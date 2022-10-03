@@ -9,6 +9,17 @@ $(document).ready(function () {
   });
 });
 
+// Eliminar pregunta de opccion multiple
+$(document).ready(function () {
+  $("#contenedorCuestionarioPreguntas").on(
+    "click",
+    ".btnEliminarPreguntaEspacioBlanco",
+    function () {
+      $(this).closest(".preguntaRellenarEspacios").remove();
+    }
+  );
+});
+
 //Opccion para hacer que pongan los espacios en la de completar espacios
 $(document).ready(function () {
   $("#btnAgregarModalRellenarEspaciosCreacion").click(function () {
@@ -18,17 +29,15 @@ $(document).ready(function () {
       textoInput + " [Blank " + contadorModalRellenarEspaciosCreacion + "]"
     );
     $("#contenedorOpccionEspaciosCreacion").append(
-      "<div class='row'>" +
-        "<div class='col s12 '>" +
-        "Blank " +
-        contadorModalRellenarEspaciosCreacion +
+      "<div class='row containerTextBlank'>" +
+        "<div class='col s12 m6 containerTextBlankSon1'>" +
+          "Blank " +
+          contadorModalRellenarEspaciosCreacion +
         "</div>" +
+        "<div class='col s12 m6 containerTextBlankSon2'>" +
+          "<input type='text' class='browser-default blankContadorEspaciosCreacion '>" +
         "</div>" +
-        "  <div class='row'>" +
-        "<div class='col s12 '>" +
-        "<input type='type' class='blankContadorEspaciosCreacion '>" +
-        "</div>" +
-        "</div>"
+      "</div>"
     );
   });
 });
@@ -438,13 +447,41 @@ $(document).ready(function () {
 });
 
 
-// Eliminar pregunta de opccion multiple
-$(document).ready(function () {
-  $("#contenedorCuestionarioPreguntas").on(
-    "click",
-    ".btnEliminarPreguntaEspacioBlanco",
-    function () {
-      $(this).closest(".preguntaRellenarEspacios").remove();
+/*
+*   Función para el ingreso del titulo
+*/
+function ingresarTitulo(){
+  //Texto del titulo
+  const tituloCuestionario = document.getElementById('tituloCuestionario');
+  //Boton de guardado del titulo
+  const guardarTitulo = document.getElementById('guardarTitulo');
+  //Boton para editar el titulo
+  const editTitulo = document.getElementById('editarTitulo');
+  //Input del titulo
+  const nombreCuestionario = document.getElementById('nombreCuestionario');
+  //Contenedor principal del titulo del cuestionario
+  const inputNombreCuestionario = document.getElementsByClassName('inputNombreCuestionario');
+  //Contenedor principal del titulo texto
+  const contenedorTitulo = document.getElementsByClassName('contenedorTitulo');
+
+  guardarTitulo.addEventListener('click', agregarTitulo);
+
+  function agregarTitulo(){
+    if(nombreCuestionario.value == ""){
+      nombreCuestionario.value = "Error";
+    }else{
+      tituloCuestionario.innerText = nombreCuestionario.value;
+      inputNombreCuestionario[0].classList.add('hiddenElement');
+      contenedorTitulo[0].classList.remove('hiddenElement');
     }
-  );
-});
+  }
+
+  editTitulo.addEventListener('click', editarTitulo);
+  function editarTitulo(){
+    nombreCuestionario.value = tituloCuestionario.innerText;
+    inputNombreCuestionario[0].classList.remove('hiddenElement');
+    contenedorTitulo[0].classList.add('hiddenElement');
+  }
+}
+
+ingresarTitulo();

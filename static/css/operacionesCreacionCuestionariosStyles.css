@@ -1,0 +1,227 @@
+.containerCreacionCuestionarios{
+    display: grid;
+    grid-template-columns: 1.8fr 2fr;
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: 
+    "area3 area3"
+    "area1 area2"
+    ;
+}
+
+.containerCreacionCuestionariosSon1{
+    grid-area: area1;
+    padding: 20px 40px;
+}
+
+.containerCreacionCuestionariosSon2{
+    grid-area: area2;
+    padding: 20px 40px;
+}
+
+.containerCreacionCuestionariosSon3{
+    grid-area: area3;
+    padding: 20px 40px;
+}
+
+@media screen and (max-width: 850px) {
+    .containerCreacionCuestionarios{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: 
+        "area3"
+        "area1"
+        "area2"
+        ;
+    }
+    
+    .containerCreacionCuestionariosSon1{
+        grid-area: area1;
+        padding: 20px 40px;
+    }
+    
+    .containerCreacionCuestionariosSon2{
+        grid-area: area2;
+        padding: 20px 40px;
+    }
+    
+    .containerCreacionCuestionariosSon3{
+        grid-area: area3;
+        padding: 0px 40px;
+    }
+}
+
+/*Dentro de son 1*/
+.containerOpciones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 20px;
+    border-radius: 20px;
+}
+
+.containerOpciones a{
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+/*Contenedor de los botones del modal*/
+
+.botonesDelModal{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    
+    width: 100%;
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+
+    position: absolute;
+    right: 0;
+
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 700px) {
+    .botonesDelModal{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "area1"
+        "area2"
+        "area3";
+        
+        width: 100%;
+        padding: 20px;
+        border-radius: 0 0 20px 20px;
+    
+        position: absolute;
+        right: 0;
+    
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .botonesDelModalSon1{
+        grid-area:area1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .botonesDelModalSon2{
+        grid-area:area2;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .botonesDelModalSon3{
+        grid-area:area3;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .botonesDelModalSon1 a, .botonesDelModalSon2 a,  .botonesDelModalSon3 a{
+        width: 80%;
+        margin-bottom: 10px;
+    }
+}
+
+/*Diseño del input de nombre*/
+.inputNombreCuestionario{
+    width: 100%;
+    margin: 20px 0px;
+}
+
+.inputNombre{
+    width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: #fff solid 1px;
+    color: #000;
+    outline: none !important;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+
+.inputNombreCuestionario a{
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+}
+
+.contenedorTitulo{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.contenedorTitulo a{
+    margin-left: 10px;
+    position: relative;
+    top: 5px;
+}
+
+/*Modal de opción multiples*/
+.labelContainer{
+    display: flex !important;
+    justify-content: center !important;
+    align-content: center !important;
+    height: 100px !important;
+    padding: 35px !important;
+}
+
+.opcionContainer{
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    /*Modal de opción multiples*/
+    .labelContainer{
+        display: flex !important;
+        justify-content: left !important;
+        align-content: center !important;
+        height: auto !important;
+        padding: 10px 0px !important;
+    }
+}
+
+#contenedorOpccionEspaciosCreacion{
+    width: 100% !important;
+}
+
+
+.containerTextBlank{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.containerTextBlankSon1{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.containerTextBlankSon2{
+}
+
+.containerTextBlankSon2 input{
+    width: 100%;
+    padding: 10px 10px;
+    display: inline-block;
+    border: #fff solid 1px;
+    color: #000;
+    outline: none !important;
+    border-radius: 10px !important;
+}

@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 
@@ -6,403 +5,329 @@
 {% include "includes/footerRecursos.html" %}
 
 <head>
-    <title>{% block title %}| JCP{% endblock %}</title>
+    <title>Creación de cuestionarios</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
-
-   
-    <script  src="{{url_for('static', filename='js/configuracionCreacionCuestionario.js')}}">
-         
-     
-
-    </script>
-
-    
-   
 
 </head>
 
 <body class="oculto colorGrey">
 
-<!--Cargador de la página -->
+    <!--Cargador de la página -->
 
-{% include "includes/cargador.html" %}
+    {% include "includes/cargador.html" %}
 
-<!--Sidevar de la pagina-->
+    <!--Sidevar de la pagina-->
 
-<nav class="color2 z-depth-3">
-    <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">&nbsp;&nbsp;&nbsp;JCP_helper</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-            <li><a><input id="nombre" placeholder="nombre" type="text" class="validate"></a></li>
-            <li><a class="waves-effect waves-light btn" id="btnSave">Guardar</a></li>
+    <nav class="color2 z-depth-3">
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">&nbsp;&nbsp;&nbsp;JCP_helper</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
 
-        </ul>
-    </div>
-</nav>
-
-<ul class="sidenav" id="mobile-demo">
-    <li><a><input id="nombre" placeholder="nombre" type="text" class="validate"></a></li>
-    <li><a class="waves-effect waves-light btn">Guardar</a></li>
-
-</ul>
-
-<!--Contenido de la pagina-->
-
-<div class="row" id="contenedorGeneral">
-
-<!--Seccion  para la creacion de los diferentes tipos de preguntas-->
-<div class="col s5">
-
-    <!--Menu de la seccion de preguntas-->
-    <div class="card horizontal" id="seccionCreacionPreguntas">
-
-        <div class="card-stacked">
-            <div class="card-content">
-                <h4 class="center-align">Tipo preguntas</h4>
-
-               <!--Boton para llamar modal de opcciones multiples-->
-
-                <div class="row">
-                    <div class="col s12 ">
-                        <a class="waves-effect waves-light btn modal-trigger" id="botonModalOpccionMultipleCreacion"
-                            href="#modalOpccionMultipleCreacion" style="width: 100%;">Opcción multiple</a>
-                    </div>
-                </div>
-
-
-                <!--Boton para llamar modal de rellenar espacios-->
-                <div class="row">
-                    <div class="col s12 ">
-
-                        <a class="waves-effect waves-light btn modal-trigger " id="botonModalRellenarEspaciosCreacion"
-                            href="#modalRellenarEspaciosCreacion" style="width: 100%;">Rellenar espacios</a>
-                    </div>
-                </div>
-
-                <!--Boton para llamar modal de ejericicios-->
-
-                <div class="row">
-                    <div class="col s12 ">
-
-                        <a class="waves-effect waves-light btn modal-trigger" id="botonModalEjericiciosCreacion"
-                            href="#modalEjerciciosCreacion" style="width: 100%;">Ejercicios</a>
-                    </div>
-                </div>
-
-                <!--Boton para llamar modal de pregutnas de arrastrar-->
-
-                <div class="row">
-                    <div class="col s12 ">
-                        <a class="waves-effect waves-light btn modal-trigger" id="botonModalArrastarCreacion"
-                            href="#modalArrastrarCreacion" style="width: 100%;">Arrastrar</a>
-                    </div>
-                </div>
-
-
-
-
-
-            </div>
-
+            </ul>
         </div>
-        
-    </div>
-    <div class="row">
-        <div class="col s12 ">
+    </nav>
 
-            <a class="waves-effect waves-light btn modal-trigger "
-                href="/crear_cuestionario_del_banco" style="width: 100%;">Crear del banco de datos</a>
-        </div>
-    </div>
-</div>
+    <ul class="sidenav" id="mobile-demo">
+        <li><a><input id="nombre" placeholder="nombre" type="text" class="validate"></a></li>
+        <li><a class="waves-effect waves-light btn">Guardar</a></li>
+    </ul>
 
-<!--Modal para la creacion de preguntas de opcion multiple-->
-<div id="modalOpccionMultipleCreacion" class="modal">
-    <div class="modal-content">
-        <h4>Opcción multiple</h4>
-        <form class="col s12" id="formModalOpccionMultipleCreacion">
-           
-        <!--Titulo de la pregunta -->
+    <!--Contenido de la pagina-->
 
-         <div class="row">
-            <div class="input-field col s12">
-                <textarea id="textAreaPreguntaOpccionMultipleCreacion" class="materialize-textarea"></textarea>
-                <label for="textAreaPreguntaOpccionMultipleCreacion">Pregunta</label>
-            </div>
-        </div>
-            
+    <div class="row" id="contenedorGeneral">
+        <!--Modal para la creacion de preguntas de opcion multiple-->
+        <div id="modalOpccionMultipleCreacion" class="modal colorGrey bordered2" style="height: 50vh;">
+            <div class="modal-content">
+                <h4>Opción multiple</h4>
+                <hr>
+                <p>Diseñe preguntas de opción múltiples primero definiendo la preguntas, luego las opciones y por último
+                    la opción correcta.</p>
+                <hr>
+                <form class="col s12" id="formModalOpccionMultipleCreacion">
 
-
-        <!--Opcion A-->
-          <div class="row">
-              <div class="col s12" id="contenedorOpccionesOpccionMultipleModalCreacion">
-            
-             <div class="row">
-
-                <!--Opcion de tomar A como correcta-->
-                <div class="col s4">
-                <p>
-                    <label>
-                        <input name="grupoOpcionesModalOpcionMuliple" value="A" type="radio" checked />
-                        <span>Correcta</span>
-                    </label>
-                </p>
-               </div>
-                
-               <!--Contenido de opcion A-->
-
-                <div class="col s8">
-                    <a>Opcion A</a>
-                    <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
-                        <textarea id="opcionACreacion" class="materialize-textarea"></textarea>
-                    </a>
-                </div>
-             </div>
-
-            <!--Opcion B-->
-             <div class="row hide" >
-
-
-                <!--Opcion de tomar B como correcta-->
-                    <div class="col s4">
-                         <p>
-                            <label>
-                                <input name="grupoOpcionesModalOpcionMuliple" value="B" type="radio"  />
-                                <span>Correcta</span>
-                            </label>
-                            </p>
-                    </div>
-
-                 <!--Contenido de opcion B-->
-
-                        <div class="col s8">
-                            <a>Opcion B</a>
-                            <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
-                                <textarea id="opcionBCreacion" class="materialize-textarea"></textarea>
-                            </a>
-                        </div>
-                    </div>
-
-                <!--Opcion C-->
-
-                    <div class="row hide">
-
-
-                <!--Opcion de tomar C como correcta-->
-                        <div class="col s4">
-                            <p>
-                                <label>
-                                    <input name="grupoOpcionesModalOpcionMuliple" value="C" type="radio" />
-                                    <span>Correcta</span>
-                                </label>
-                            </p>      
-                        </div>
-                
-                <!--Contenido de opcion C-->
-                        <div class="col s8">
-                            <a>Opcion C</a>
-                            <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
-                                <textarea id="opcionCCreacion" class="materialize-textarea"></textarea>
-                            </a>
+                    <h5><b>Defina la pregunta</b></h5>
+                    <!--Titulo de la pregunta -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="textAreaPreguntaOpccionMultipleCreacion"
+                                class="materialize-textarea"></textarea>
+                            <label for="textAreaPreguntaOpccionMultipleCreacion">Pregunta</label>
                         </div>
                     </div>
 
 
+                    <h5><b>Defina las opciones</b></h5>
+                    <!--Opcion A-->
+                    <div class="row">
+                        <div class="col s12" id="contenedorOpccionesOpccionMultipleModalCreacion">
+                            <div class="row colorGreyWhiter bordered1 opcionContainer">
+                                <!--Opcion de tomar A como correcta-->
+                                <div class="col s12 m3 labelContainer">
+                                    <label>
+                                        <input name="grupoOpcionesModalOpcionMuliple" value="A" type="radio" checked />
+                                        <span>Correcta</span>
+                                    </label>
+                                </div>
+                                <!--Contenido de opcion A-->
+                                <div class="col s12 m9">
+                                    <h6><b>Opción A</b></h6>
+                                    <textarea id="opcionACreacion" class="materialize-textarea"></textarea>
+                                </div>
+                            </div>
 
-                <!--Opcion D-->
-                    <div class="row hide">
+                            <!--Opcion B-->
+                            <div class="row hide colorGreyWhiter bordered1 opcionContainer">
+                                <!--Opcion de tomar B como correcta-->
+                                <div class="col s12 m3 labelContainer">
+                                    <label>
+                                        <input name="grupoOpcionesModalOpcionMuliple" value="B" type="radio" />
+                                        <span>Correcta</span>
+                                    </label>
+                                </div>
+                                <!--Contenido de opcion B-->
+                                <div class="col s12 m9">
+                                    <h6><b>Opción B</b></h6>
+                                    <textarea id="opcionBCreacion" class="materialize-textarea"></textarea>
+                                </div>
+                            </div>
 
-                <!--Opcion de tomar D como correcta-->
-                        <div class="col s4">
-                            <p>
-                                <label>
-                                    <input name="grupoOpcionesModalOpcionMuliple" value="D" type="radio"  />
-                                    <span>Correcta</span>
-                                </label>
-                            </p>
+                            <!--Opcion C-->
+                            <div class="row hide colorGreyWhiter bordered1 opcionContainer">
+                                <!--Opcion de tomar C como correcta-->
+                                <div class="col s12 m3 labelContainer">
+                                    <label>
+                                        <input name="grupoOpcionesModalOpcionMuliple" value="C" type="radio" />
+                                        <span>Correcta</span>
+                                    </label>
+                                </div>
+                                <!--Contenido de opcion C-->
+                                <div class="col s12 m9">
+                                    <h6><b>Opción C</b></h6>
+                                    <textarea id="opcionCCreacion" class="materialize-textarea"></textarea>
+                                </div>
+                            </div>
+
+                            <!--Opcion D-->
+                            <div class="row hide colorGreyWhiter bordered1 opcionContainer">
+                                <!--Opcion de tomar D como correcta-->
+                                <div class="col s12 m3 labelContainer">
+                                    <p>
+                                        <label>
+                                            <input name="grupoOpcionesModalOpcionMuliple" value="D" type="radio" />
+                                            <span>Correcta</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <!--Contenido de opcion D-->
+                                <div class="col s12 m9">
+                                    <h6><b>Opción D</b></h6>
+                                    <textarea id="opcionDCreacion" class="materialize-textarea"></textarea>
+                                </div>
+                            </div>
                         </div>
-
-                <!--Contenido de opcion D-->
-                        <div class="col s8">
-                            <a>Opcion D</a>
-                            <a class="waves-effect waves-light btn " style="width: 100%; height:100px;">
-                                <textarea id="opcionDCreacion" class="materialize-textarea"></textarea>
-                            </a>
+                    </div>
+                    <br><br><br><br>
+                    <!--Guardar la pregunta en el cuestionario-->
+                    <div class="botonesDelModal colorGreyDarker">
+                        <!--Guardar opciones-->
+                        <div class="botonesDelModalSon1">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnGuardarModalOpcionMultipleCreacion"><i
+                                    class="material-icons left">save</i>Guardar</a>
+                        </div>
+                        <!--Agregar opciones -->
+                        <div class="botonesDelModalSon2">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnAgregarModalOpcionMultipleCreacion"><i
+                                    class="material-icons left">add</i>Agregar</a>
+                        </div>
+                        <!--Eliminar opciones -->
+                        <div class="botonesDelModalSon3">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnEliminarModalOpcionMultipleCreacion"><i
+                                    class="material-icons left">delete</i>Borrar</a>
                         </div>
                     </div>
-            
-                </div>
-
+                </form>
             </div>
-
-            
-            <div class="row">
-
-                <!--Guardar la pregunta en el cuestionario-->
-                <div class="col s12">
-                    <a class="waves-effect waves-light btn " id="btnGuardarModalOpcionMultipleCreacion">
-                        Guardar
-                    </a>
-                
-
-                <!--Agregar opciones -->
-                
-                    <a class="waves-effect waves-light btn    " id="btnAgregarModalOpcionMultipleCreacion">
-                        Agregar
-                    </a>
-               
-
-                <!--Eliminar opciones -->
-                
-                    <a class="waves-effect waves-light btn    " id="btnEliminarModalOpcionMultipleCreacion">
-                        Eliminar
-                    </a>
-                </div>
-
-            </div>
-
-        </form>
-    </div>
-</div>
-
-<!--Modal para la creacion de preguntas de rellenar espacios-->
-
-<div id="modalRellenarEspaciosCreacion" class="modal">
-    <div class="modal-content">
-        <h4>Rellenar espacios</h4>
-        <form class="col s12">
-
-            <!--Titulo de la pregunta -->
-
-            <div class="row">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="texAreaModalRellenarEspaciosCreacion" class="materialize-textarea"></textarea>
-                        <label for="texAreaModalRellenarEspaciosCreacion">Escriba el texto a completar</label>
-                    </div>
-                </div>
-            </div>
-
-            <!--Contenedor de espacios de creacion de elementos del espacio -->
-            <div class="row" >
-                <div class="col 12" id ="contenedorOpccionEspaciosCreacion">
-
-                </div>
-
-            </div>
-  
-
-            <div class="row">
-                <!--Agregar espacio-->
-                <div class="col s12">
-                    <a class="waves-effect waves-light btn " id="btnAgregarModalRellenarEspaciosCreacion">Agregar espacios</a>
-               
-                <!--Guardar la pregunta en el cuestionario-->
-               
-                    <a class="waves-effect waves-light btn "  id="btnGuardarModalRellenarEspaciosCreacion">Guardar</a>
-                
-
-                <!--Eliminar espacio-->
-               
-                    <a class="waves-effect waves-light btn " id="btnEliminarModalRellenarEspaciosCreacion">Eliminar espacio</a>
-                </div>
-            </div>
-
-        </form>
-    </div>
-</div>
-
-<!--Modal para la creacion de preguntas de ejercicios-->
-<div id="modalEjerciciosCreacion" class="modal">
-    <div class="modal-content">
-        <h4>Ejercicios</h4>
-        <div class="row">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                        <label for="textarea1">Pregunta</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="codigoResultado" class="materialize-textarea" style="height: 600px;"></textarea>
-                        <label for="codigoResultado">Codigo resultado</label>
-                    </div>
-                </div>
-            </form>
         </div>
-    </div>
-</div>
 
-<!--Modal para la creacion de preguntas de opcion de arrestar opciones-->
-<div id="modalArrastrarCreacion" class="modal">
-    <div class="modal-content">
-        <h4>Arrastrar</h4>
-        <form class="col s12">
-
-            <!--Titulo de la pregunta -->
-
-            <div class="row">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="texAreaModalArrastrarCreacion" class="materialize-textarea"></textarea>
-                        <label for="texAreaModalArrastrarCreacion">Pregunta</label>
+        <!--Modal para la creacion de preguntas de rellenar espacios-->
+        <div id="modalRellenarEspaciosCreacion" class="modal colorGrey bordered2" style="height: 50vh;">
+            <div class="modal-content">
+                <h4>Rellenar espacios</h4>
+                <hr>
+                <p>Ingrese un texto en el formulario, y posteriormente agregue los espacio en el texto de modo que el
+                    estudiante pueda completar con la respuesta correcta.</p>
+                <hr>
+                <form class="col s12">
+                    <h5><b>Defina el texto</b></h5>
+                    <!--Titulo de la pregunta -->
+                    <div class="row">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="texAreaModalRellenarEspaciosCreacion"
+                                    class="materialize-textarea" placeholder="text"></textarea>
+                                <label for="texAreaModalRellenarEspaciosCreacion">Escriba el texto a completar</label>
+                            </div>
+                        </div>
                     </div>
-                </div>
+
+                    <h5><b>Defina los espacios</b></h5>
+                    <!--Contenedor de espacios de creacion de elementos del espacio -->
+                
+                    <div class="" id="contenedorOpccionEspaciosCreacion">
+
+                    </div>
+
+                    <br><br><br><br>
+                    <!--Guardar la pregunta en el cuestionario-->
+                    <div class="botonesDelModal colorGreyDarker">
+                        <!--Guardar opciones-->
+                        <div class="botonesDelModalSon1">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnGuardarModalRellenarEspaciosCreacion"><i
+                                    class="material-icons left">save</i>Guardar</a>
+                        </div>
+                        <!--Agregar opciones -->
+                        <div class="botonesDelModalSon2">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnAgregarModalRellenarEspaciosCreacion"><i
+                                    class="material-icons left">add</i>Espacio</a>
+                        </div>
+                        <!--Eliminar opciones -->
+                        <div class="botonesDelModalSon3">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnEliminarModalRellenarEspaciosCreacion"><i
+                                    class="material-icons left">remove</i>Espacio</a>
+                        </div>
+                    </div>
+                </form>
             </div>
+        </div>
 
-        <!--Seccion para la creacion  de opcciones -->
-
-          <div class="row">
-             <div class="col s12" id="opccionesArrastarModalCreacion">
-
-             </div>
-          </div>
-
-            <div class="row">
-                <div class="col s12 ">
-                    <!--GUardar pregunta-->
-                    <a class="waves-effect waves-light btn "  id="btnGuardarModalArrastrarCreacion">Guardar</a>
-                    <!--Agregar opccion-->
-                    <a class="waves-effect waves-light btn "  id="btnAgregarsModalArrastrarCreacion">Agregar</a>
-                    <!--Eliminar opccion-->
-                    <a class="waves-effect waves-light btn " id="btnEliminarModalArrastrarCreacion">Eliminar</a>
-                </div>
-
-            </div>
-        </form>
-    </div>
-</div>
-
-
-<!--Seccion para la visulaización del cuestionario-->
-<div class="col s7" id="contenedorCuestionarioPreguntas">
-    <div class="row">
-        <div class="col s12 ">
-            <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
-                    <span class="card-title">
-                        <h5 class="center-align">
-                            Titulo del cuestionario
-                        </h5>
-                    </span>
+        <!--Modal para la creacion de preguntas de ejercicios-->
+        <div id="modalEjerciciosCreacion" class="modal">
+            <div class="modal-content">
+                <h4>Ejercicios</h4>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                <label for="textarea1">Pregunta</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="codigoResultado" class="materialize-textarea"
+                                    style="height: 600px;"></textarea>
+                                <label for="codigoResultado">Codigo resultado</label>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+
+        <!--Modal para la creacion de preguntas de opcion de arrestar opciones-->
+        <div id="modalArrastrarCreacion" class="modal">
+            <div class="modal-content">
+                <h4>Arrastrar</h4>
+                <form class="col s12">
+
+                    <!--Titulo de la pregunta -->
+
+                    <div class="row">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="texAreaModalArrastrarCreacion" class="materialize-textarea"></textarea>
+                                <label for="texAreaModalArrastrarCreacion">Pregunta</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Seccion para la creacion  de opcciones -->
+
+                    <div class="row">
+                        <div class="col s12" id="opccionesArrastarModalCreacion">
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12 ">
+                            <!--GUardar pregunta-->
+                            <a class="waves-effect waves-light btn " id="btnGuardarModalArrastrarCreacion">Guardar</a>
+                            <!--Agregar opccion-->
+                            <a class="waves-effect waves-light btn " id="btnAgregarsModalArrastrarCreacion">Agregar</a>
+                            <!--Eliminar opccion-->
+                            <a class="waves-effect waves-light btn " id="btnEliminarModalArrastrarCreacion">Eliminar</a>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
     </div>
-   
 
-</div>
+    <section class="containerCreacionCuestionarios">
+        <!--Opciones para crear el cuestionario-->
+        <section class="containerCreacionCuestionariosSon1">
+            <h5>Tipos de pregunta</h5>
+            <br>
+            <div class="containerOpciones colorGreyWhiter shadow-2e">
+                <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
+                    href="#modalOpccionMultipleCreacion"><i class="material-icons left md-32">abc</i>Opción múltiple</a>
+                <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
+                    href="#modalRellenarEspaciosCreacion"><i class="material-icons left md-32">draw</i>Rellenar
+                    espacios</a>
+                <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
+                    href="#modalEjerciciosCreacion"><i class="material-icons left md-32">code</i>Ejercicios</a>
+                <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
+                    href="#modalArrastrarCreacion"><i class="material-icons left md-32">swipe_vertical</i>Arrastrar</a>
+                <a class="waves-effect waves-light btn-large bordered5 color1 shadow-2e"
+                    href="/crear_cuestionario_del_banco"><i class="material-icons left md-32">storage</i>Banco de
+                    preguntas</a>
+            </div>
+        </section>
 
-</div>
+        <!--Vista general del cuestionario-->
+        <section class="containerCreacionCuestionariosSon2">
+            <div class="" id="contenedorCuestionarioPreguntas">
+                <div class="tituloCuestionario">
+                    <div class="contenedorTitulo hiddenElement">
+                        <h5 id="tituloCuestionario">Titulo del cuestionario</h5>
+                        <a class="waves-effect waves-light btn bordered5 color1 shadow-2e" href="#" id="editarTitulo"><i
+                                class="material-icons">edit</i></a>
+                    </div>
+                    <div class="inputNombreCuestionario">
+                        <input type="text" name="nombreCuestionario" id="nombreCuestionario"
+                            class="browser-default inputNombre shadow-1 flow-text bordered5"
+                            placeholder="Ingrese nombre del cuestionario">
+                        <a class="waves-effect waves-light btn color1 shadow-2e" href="#" id="guardarTitulo"><i
+                                class="material-icons left">save</i>Guardar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Vista general del proceso-->
+        <section class="containerCreacionCuestionariosSon3">
+            <div>
+                <h6>Aqui pondremos algunos puntos para completar el proceso...</h6>
+            </div>
+        </section>
+
+    </section>
 
 
-  
+
 </body>
-
+<script src="../../static/js/configuracionCreacionCuestionario.js"></script>
 
 </html>
