@@ -42,6 +42,7 @@ $(document).ready(function () {
     }
   );
 });
+
 //Opccion para hacer que pongan los espacios en las preguntas  de completar espacios
 $(document).ready(function () {
   $("#btnAgregarsModalArrastrarCreacion").click(function () {
@@ -60,7 +61,10 @@ $(document).ready(function () {
   });
 });
 
-//Opcion para guardar preguntas de opccion multiple
+//Insertar preguntas de opción multiples
+/*
+* FUNCION DE INSERCIÓN EN LA PREVIEW DE CUESTIONARIO
+*/
 $(document).ready(function () {
   $("#btnGuardarModalOpcionMultipleCreacion").click(function () {
     //Obtenemos el valor de la pregunta
@@ -191,7 +195,7 @@ $(document).ready(function () {
     var contenedor =
       "<div class='row preguntaOpccionMultiple'>" +
         "<div class='col s12'>" +
-          "<div class='card colorGrey bordered2'>" +
+          "<div class='card colorWhite bordered2'>" +
             "<div class='card-content '>" +
               "<h5>Opción múltiple</h5>" +
             "<div class='row'>" +
@@ -224,7 +228,10 @@ $(document).ready(function () {
   });
 });
 
-//Opcion para dar la opccionde rellenar espacioss
+//Insertar preguntas de rellenar espacio
+/*
+* FUNCION DE INSERCIÓN EN LA PREVIEW DE CUESTIONARIO
+*/
 $(document).ready(function () {
   $("#btnGuardarModalRellenarEspaciosCreacion").click(function () {
     var contadorInicial = 1;
@@ -233,17 +240,15 @@ $(document).ready(function () {
       function (index, obj) {
         textoOpcciones =
           textoOpcciones +
-          "<div class='row'>" +
-          "<div class='col s12 '>" +
+          "<div class='row containerTextBlank'>" +
+          "<div class='col s12 m6 containerTextBlankSon1 '>" +
           "Blank " +
           contadorInicial +
           "</div>" +
-          "</div>" +
-          "  <div class='row'>" +
-          "<div class='col s12 '>" +
-          "<input type='type' value='" +
+          "<div class='col s12 m6 containerTextBlankSon2 '>" +
+          "<input type='text' value='" +
           $(this).val() +
-          "' class='blankContadorEspaciosCreacion'>" +
+          "' class='browser-default blankContadorEspaciosCreacion'>" +
           "</div>" +
           "</div>";
         contadorInicial++;
@@ -255,12 +260,12 @@ $(document).ready(function () {
     var contenedor =
       "<div class='row preguntaRellenarEspacios'>" +
       " <div class='col s12 ''>" +
-      "  <div class='card '>" +
+      "  <div class='card colorWhite bordered2'>" +
       " <div class='card-content '>" +
-      "<h4>Rellenar espacios</h4>" +
+      "<h5>Rellenar espacios</h5>" +
       " <div class='row'>" +
       "<div class='input-field col s12'>" +
-      "<textarea  class='materialize-textarea textoPregunta'>" +
+      "<textarea  class='materialize-textarea textoPregunta' placeholder='Pregunta'>" +
       pregunta +
       "</textarea>" +
       "</div>" +
@@ -270,17 +275,13 @@ $(document).ready(function () {
       textoOpcciones +
       "</div >" +
       "</div >" +
-      " <div class='row'>" +
-      "<div class='col s6'>" +
-      "<a class='waves-effect waves-light btn btnEliminarPreguntaEspacioBlanco '>" +
-      "Eliminar" +
-      "</a>" +
-      "</div>" +
-      "<div class='col s6'>" +
-      "<a class='waves-effect waves-light btn btnAgregarEspacioBlanco '>" +
-      "Agregar" +
-      "</a>" +
-      "</div>" +
+      "<div class='containerButtonsView'>" +
+        "<div>" +
+          "<a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnEliminarPreguntaEspacioBlanco'><i class='material-icons left'>delete_sweep</i>Eliminar todas</a>" +
+        "</div>" +
+        "<div>" +
+          "<a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnAgregarEspacioBlanco'><i class='material-icons left'>add</i>Agregar</a>" +
+        "</div>" +
       "</div>" +
       "</div>" +
       "</div>" +
@@ -414,15 +415,13 @@ $(document).ready(function () {
       var numeroEspacios =
         lugarDeEspacios.find(".blankContadorEspaciosCreacion").length + 1;
       lugarDeEspacios.append(
-        "<div class='row'>" +
-        "<div class='col s12 '>" +
+        "<div class='row containerTextBlank'>" +
+        "<div class='col s12 m6 containerTextBlankSon1'>" +
         "Blank " +
         numeroEspacios +
         "</div>" +
-        "</div>" +
-        "  <div class='row'>" +
-        "<div class='col s12 '>" +
-        "<input type='type' class='blankContadorEspaciosCreacion'>" +
+        "<div class='col s12 m6 containerTextBlankSon2'>" +
+        "<input type='text' class='browser-default blankContadorEspaciosCreacion '>" +
         "</div>" +
         "</div>"
       );

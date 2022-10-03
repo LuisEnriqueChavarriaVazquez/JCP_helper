@@ -25,6 +25,11 @@
     grid-template-rows: repeat(2, auto);
 }
 
+.containerOpcionesFather{
+    position: fixed;
+    width: 38%;
+}
+
 .containerProcesoImagen{
     display: flex;
     justify-content: center;
@@ -64,7 +69,7 @@
     text-align: center;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 900px) {
     .containerCreacionCuestionarios{
         display: grid;
         grid-template-columns: 1fr;
@@ -253,15 +258,15 @@
     font-weight: 600;
 }
 
-.containerTextBlankSon2{
-}
-
 .containerTextBlankSon2 input{
-    width: 100%;
-    padding: 10px 10px;
-    display: inline-block;
-    border: #fff solid 1px;
-    color: #000;
+    width: 100% !important;
+    padding: 15px 10px !important;
+    display: inline-block !important;
+    border: rgb(192, 192, 192) solid 1px !important;
+    background-color: rgb(192, 192, 192) !important;
+    font-weight: 700;
+    font-size: 16px;
+    color: #000 !important;
     outline: none !important;
     border-radius: 10px !important;
 }
@@ -288,7 +293,7 @@
     }
 }
 
-@media screen and (min-width: 851px) {
+@media screen and (min-width: 900px) {
     .containerOpcionesMobileFather{
         display: none;
     }
@@ -340,10 +345,10 @@
 }
 
 .containerButtonsView div{
-    margin: 10px 20px;
+    margin: 10px 2px;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1300px) {
     .containerButtonsView{
         flex-direction: column;
     }
@@ -360,5 +365,39 @@
         width: 100%;
         margin-bottom: 10px;
     }
+}
 
+@media screen and (max-width: 900px) {
+    .containerButtonsView{
+        flex-direction: row;
+    }
+
+    .containerButtonsView{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .containerButtonsView div{
+        margin: 10px 2px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .containerButtonsView{
+        flex-direction: column;
+    }
+    
+    .containerButtonsView div{
+        margin: 0px 0px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .containerButtonsView div a{
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
