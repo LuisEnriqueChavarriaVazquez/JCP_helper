@@ -286,6 +286,20 @@ def insertar_grupo(id_profesor, nombreGrupo,descGrupo,fondoGrupo,codigoGrupo,len
     conexion.commit()
     conexion.close()
 
+##
+## Nos retorna tuplas con datos de cuestionarios del docente
+##
+def obtener_cuestionarios_datos_importantes(id_profesor):
+    conexion=obtener_conexion()
+    grupos=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM cuestionarios WHERE IDDocente = %s", (id_profesor))
+        grupos=cursor.fetchall()
+
+    conexion.close()
+    return grupos
+
 # va a servir para meter un JSON en un nuevo cuestionario
 def insertar_cuestionario_JSON(id_profesor, id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, archivoCuestionario):
     conexion = obtener_conexion()

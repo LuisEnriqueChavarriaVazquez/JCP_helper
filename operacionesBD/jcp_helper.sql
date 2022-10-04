@@ -52,7 +52,7 @@ Autor varchar(60),
 Temas varchar (60),
 Tipo varchar(60),
 Lenguaje varchar(60),
-Preguntas LONGTEXT,
+Preguntas varchar(200),
 primary key (IDCuestionario,IDGrupo,IDDocente),
 foreign key (IDGrupo) references Grupos(IDGrupo) ON DELETE CASCADE,
 foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE

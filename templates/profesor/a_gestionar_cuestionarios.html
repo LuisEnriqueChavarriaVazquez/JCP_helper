@@ -114,13 +114,14 @@
             </div>
 
             <div class="contenedorCardsGruposOperation" id="contenedorCardsGruposOperationId">
-
+                {% if datosCuestionarios %}
+                {%for i in range(0, datosCuestionarios|length)%}
                 <div>
                     <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
                         <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId"
                         style="background-image: url('../../static/images/fondos/cafe/cafe_11.png'), url(../../static/images/fondos/fondo.png); background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: hue;">
                         <div>
-                            <h5 class="titleGroupContentId">Cuestionario 1</h5>
+                            <h5 class="titleGroupContentId">{{datosCuestionarios[i][3]}}</h5>
                         </div>
                             <div class="studentCountCardOperation">
                                 <div>
@@ -135,7 +136,7 @@
                         </div>
                         <div
                             class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
-                            <p><b>Soy un cuestionario sencillo</b></p>
+                            <p><b>{{datosCuestionarios[i][7]}}</b></p>
                         </div>
                         <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
                             <!--Botones de cada grupo-->
@@ -151,6 +152,8 @@
                         </div>
                     </div>
                 </div>
+                {% endfor %}
+                {% endif %}
             </div>
         </section>
 

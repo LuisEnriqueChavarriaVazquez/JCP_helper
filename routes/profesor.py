@@ -62,7 +62,8 @@ def comunidad_profesor():
 def gestionar_cuestionarios():
     try:
         result=Op_profesor.datos_completos_docente_by_id(session["IDDocente"])
-        return render_template('profesor/a_gestionar_cuestionarios.html',datos=result)
+        resultCuestionarios = Op_profesor.obtener_cuestionarios_datos_importantes(session["IDDocente"])
+        return render_template('profesor/a_gestionar_cuestionarios.html',datos=result, datosCuestionarios = resultCuestionarios)
     except:
         return render_template('profesor/a_gestionar_cuestionarios.html')
 
@@ -588,11 +589,13 @@ def saveCuestionario(id_profesor):
     id_grupo = Op_profesor.obtener_id_grupo_con_nombre_grupo(grupoCuestionario)
     print(id_grupo)
 
-    #Guardamos el archivo
-    with open('static/cuestionarios/'+ tituloCuestionario + '.json', 'r') as file:
-        archivoCuestionario = file.read().replace('\n', '')
+    #Guardamos el archivo en una variable (solo texto)
+    #with open('static/cuestionarios/'+ tituloCuestionario + '.json', 'r') as file:
+        #archivoCuestionario = file.read().replace('\n', '')
+    
+    rutaCuestionario = 'static/cuestionarios/'+ tituloCuestionario + '.json'
 
-    result = Op_profesor.insertar_cuestionario_JSON(id_profesor, id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, archivoCuestionario)
+    result = Op_profesor.insertar_cuestionario_JSON(id_profesor, id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, rutaCuestionario)
     return redirect(url_for('routes.gestionar_cuestionarios'))
 
 # Formulario para que el docente haga una publicacion
