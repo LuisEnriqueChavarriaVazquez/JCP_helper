@@ -565,6 +565,7 @@ def python_runner():
 def guardarCuestionarioJSON(id_profesor):
     #Obtenemos el nombre del cuestionario
     nombreCuestionario = request.form["nombreCuestionario"]
+    nombreCuestionario = nombreCuestionario.replace(" ","_")
 
     #Creamos el documento JSON y lo guardamos
     with open('static/cuestionarios/'+ nombreCuestionario + '.json', 'w') as f:
