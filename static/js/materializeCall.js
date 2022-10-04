@@ -20,6 +20,7 @@ $(document).ready(function () {
     $('ul.tabs').tabs();
     $('.collapsible').collapsible();
     $('.dropdown-trigger').dropdown();
+    $('select').formSelect();
     $('.scrollspy').scrollSpy();
     $('input#input_text, textarea#descGrupo, textarea#codigoGrupo').characterCounter();
     $('.datepicker').datepicker();

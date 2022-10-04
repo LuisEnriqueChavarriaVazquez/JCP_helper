@@ -41,11 +41,13 @@
                 <h5>Datos del cuestionario</h5>
                 <div class="row">
                     <div class="input-field col s12 m6">
-                        <input id="tituloCuestionario" name="tituloCuestionario" type="text" class="validate" value="{{nombreCuestionario}}">
+                        <input id="tituloCuestionario" name="tituloCuestionario" type="text" class="validate"
+                            value="{{nombreCuestionario}}">
                         <label for="tituloCuestionario">Titulo de cuestionario</label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <input id="fechaCuestionario" name="fechaCuestionario" type="text" class="validate datepicker" value="">
+                        <input id="fechaCuestionario" name="fechaCuestionario" type="text" class="validate datepicker"
+                            value="">
                         <label for="fechaCuestionario">Fecha del cuestionario</label>
                     </div>
                     <div class="input-field col s12 m6">
@@ -61,13 +63,25 @@
                         <label for="tipoCuestionario">Tipo de cuestionario</label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <input id="lenguajeCuestionario" name="lenguajeCuestionario" type="text" class="validate" value="">
+                        <input id="lenguajeCuestionario" name="lenguajeCuestionario" type="text" class="validate"
+                            value="">
                         <label for="lenguajeCuestionario">Lenguaje de cuestionario</label>
                     </div>
-                    <div class="input-field col s12 m6">
+                    <!-- <div class="input-field col s12 m6">
                         <input id="grupoCuestionario" name="grupoCuestionario" type="text" class="validate" value="">
                         <label for="grupoCuestionario">Grupo del cuestionario</label>
+                    </div> -->
+                    <div class="input-field col s12 m6">
+                        <select id="grupoCuestionario" name="grupoCuestionario">
+                            {% if gruposNombres %}
+                            {%for i in range(0, gruposNombres|length)%}
+                            <option value="{{gruposNombres[i][2]}}">{{gruposNombres[i][2]}}</option>
+                            {% endfor %}
+                            {% endif%}
+                        </select>
+                        <label>Grupos</label>
                     </div>
+                    <br>
                 </div>
                 <button type="submit" class="btn-large color2 bordered5 buttonPopUp">Guardar</button>
             </form>

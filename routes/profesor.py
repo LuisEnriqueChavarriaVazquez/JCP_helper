@@ -566,13 +566,14 @@ def guardarCuestionarioJSON(id_profesor):
     #Obtenemos el nombre del cuestionario
     nombreCuestionario = request.form["nombreCuestionario"]
     nombreCuestionario = nombreCuestionario.replace(" ","_")
+    gruposNombres = Op_profesor.obtener_grupos_datos_importantes(id_profesor); 
 
     #Creamos el documento JSON y lo guardamos
     with open('static/cuestionarios/'+ nombreCuestionario + '.json', 'w') as f:
         print("Archivo JSON creado")
 
     #Leemos el archivo
-    return render_template('profesor/b_cuestionarios_creacion.html', id_profesor = id_profesor, nombreCuestionario = nombreCuestionario)
+    return render_template('profesor/b_cuestionarios_creacion.html', id_profesor = id_profesor, nombreCuestionario = nombreCuestionario, gruposNombres = gruposNombres)
 
 ###Segundo guardamos la data del cuestionario
 @routes.route('/saveCuestionario/<string:id_profesor>', methods=["POST"])
@@ -585,6 +586,8 @@ def saveCuestionario(id_profesor):
     tipoCuestionario = request.form["tipoCuestionario"]
     lenguajeCuestionario = request.form["lenguajeCuestionario"]
     grupoCuestionario = request.form["grupoCuestionario"]
+
+    print(grupoCuestionario)
 
     #Buscamos el grupo por su nombre
     id_grupo = Op_profesor.obtener_id_grupo_con_nombre_grupo(grupoCuestionario)

@@ -305,6 +305,6 @@ def insertar_cuestionario_JSON(id_profesor, id_grupo, tituloCuestionario, fechaC
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
         cursor.execute("INSERT INTO cuestionarios(IDGrupo, IDDocente, Titulo, Fecha, Autor, Temas, Tipo, Lenguaje, Preguntas) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)",
-        (id_profesor, id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, archivoCuestionario))
+        (id_grupo, id_profesor, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, archivoCuestionario))
     conexion.commit()
     conexion.close()
