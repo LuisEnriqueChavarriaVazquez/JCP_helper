@@ -1,3 +1,4 @@
+#from crypt import methods
 from functools import wraps
 from flask import render_template,flash,request, url_for, redirect, session
 from . import routes
@@ -507,10 +508,9 @@ def ver_perfil_alumno(id):
 
 
 #Creación cuestionarios
-@routes.route('/creacion_cuestionarios')
-#@login_required
-def creacion_cuestionarios():
-    return render_template('profesor/cuestionarios_creacion.html')
+@routes.route('/creacion_cuestionarios/<string:id_profesor>')
+def creacion_cuestionarios(id_profesor):
+    return render_template('profesor/cuestionarios_creacion.html', id_profesor = id_profesor)
 
 
 #creacion del cuestionario del banco de pruebas
@@ -554,6 +554,46 @@ def java_runner():
 def python_runner():
     return render_template("profesor/python_runner.html")
 
+
+###
+### Bloque para los cuestionarios de los docentes
+###
+
+###Primero guardamos el JSON
+@routes.route('/guardarCuestionarioJSON/<string:id_profesor>', methods=["POST"])
+def guardarCuestionarioJSON(id_profesor):
+    #Obtenemos el nombre del cuestionario
+    nombreCuestionario = request.form["nombreCuestionario"]
+
+    #Creamos el documento JSON y lo guardamos
+    with open('static/cuestionarios/'+ nombreCuestionario + '.json', 'w') as f:
+        print("Archivo JSON creado")
+
+    #Leemos el archivo
+    return render_template('profesor/b_cuestionarios_creacion.html', id_profesor = id_profesor, nombreCuestionario = nombreCuestionario)
+
+###Segundo guardamos la data del cuestionario
+@routes.route('/saveCuestionario/<string:id_profesor>', methods=["POST"])
+def saveCuestionario(id_profesor):
+    #Guardamos datos del formualario
+    tituloCuestionario = request.form["tituloCuestionario"]
+    fechaCuestionario = request.form["fechaCuestionario"]
+    autorCuestionario = request.form["autorCuestionario"]
+    temasCuestionario = request.form["temasCuestionario"]
+    tipoCuestionario = request.form["tipoCuestionario"]
+    lenguajeCuestionario = request.form["lenguajeCuestionario"]
+    grupoCuestionario = request.form["grupoCuestionario"]
+
+    #Buscamos el grupo por su nombre
+    id_grupo = Op_profesor.obtener_id_grupo_con_nombre_grupo(grupoCuestionario)
+    print(id_grupo)
+
+    #Guardamos el archivo
+    with open('static/cuestionarios/'+ tituloCuestionario + '.json', 'r') as file:
+        archivoCuestionario = file.read().replace('\n', '')
+
+    result = Op_profesor.insertar_cuestionario_JSON(id_profesor, id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, archivoCuestionario)
+    return redirect(url_for('routes.gestionar_cuestionarios'))
 
 # Formulario para que el docente haga una publicacion
 @routes.route('/crear_publicacion')

@@ -18,22 +18,18 @@
 
     {% include "includes/cargador.html" %}
 
-    <!--Sidevar de la pagina-->
-
-    <nav class="color2 z-depth-3">
+    <!--Menu de página de inicio-->
+    <nav class="color2 fixedNavbarMine">
         <div class="nav-wrapper">
-            <a href="#!" class="brand-logo">&nbsp;&nbsp;&nbsp;JCP_helper</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <a href="#" class="brand-logo hide-on-small-only">Crear cuestionario.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Crear cuestionario.</p>
             <ul class="right hide-on-med-and-down">
-
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
             </ul>
         </div>
     </nav>
-
-    <ul class="sidenav" id="mobile-demo">
-        <li><a><input id="nombre" placeholder="nombre" type="text" class="validate"></a></li>
-        <li><a class="waves-effect waves-light btn">Guardar</a></li>
-    </ul>
 
     <!--Contenido de la pagina-->
 
@@ -250,13 +246,13 @@
                             <!--Guardar opciones-->
                             <div class="botonesDelModalSon1">
                                 <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
-                                    id="crearEjercicioButton"><i
-                                        class="material-icons left">save</i>Guardar</a>
+                                    id="crearEjercicioButton"><i class="material-icons left">save</i>Guardar</a>
                             </div>
                             <!--Limpiar opciones -->
                             <div class="botonesDelModalSon2">
                                 <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
-                                    id="limpiarCasillasEjercicioButton"><i class="material-icons left">cleaning_services</i>
+                                    id="limpiarCasillasEjercicioButton"><i
+                                        class="material-icons left">cleaning_services</i>
                                     Limpiar</a>
                             </div>
                         </div>
@@ -350,22 +346,30 @@
 
         <!--Vista general del cuestionario-->
         <section class="containerCreacionCuestionariosSon2">
-            <div class="" id="contenedorCuestionarioPreguntas">
-                <div class="tituloCuestionario">
-                    <div class="contenedorTitulo hiddenElement">
-                        <h5 id="tituloCuestionario">Titulo del cuestionario</h5>
-                        <a class="waves-effect waves-light btn bordered5 color1 shadow-2e" href="#" id="editarTitulo"><i
-                                class="material-icons">edit</i></a>
-                    </div>
-                    <div class="inputNombreCuestionario">
-                        <input type="text" name="nombreCuestionario" id="nombreCuestionario"
-                            class="browser-default inputNombre shadow-1 flow-text bordered5"
-                            placeholder="Ingrese nombre del cuestionario">
-                        <a class="waves-effect waves-light btn color1 shadow-2e" href="#" id="guardarTitulo"><i
-                                class="material-icons left">save</i>Guardar</a>
+            <form action="/guardarCuestionarioJSON/{{id_profesor}}" method="post">
+                <div class="" id="contenedorCuestionarioPreguntas">
+                    <div class="tituloCuestionario">
+                        <div class="contenedorTitulo hiddenElement">
+                            <h5 id="tituloCuestionario">Titulo del cuestionario</h5>
+                            <a class="waves-effect waves-light btn bordered5 color1 shadow-2e" href="#"
+                                id="editarTitulo"><i class="material-icons">edit</i></a>
+                        </div>
+                        <div class="inputNombreCuestionario">
+                            <input type="text" name="nombreCuestionario" id="nombreCuestionario"
+                                class="browser-default inputNombre shadow-1 flow-text bordered5"
+                                placeholder="Ingrese nombre del cuestionario">
+                            <a class="waves-effect waves-light btn color1 shadow-2e" href="#" id="guardarTitulo"><i
+                                    class="material-icons left">done</i>Listo</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <!--Boton ir a la siguiente sección-->
+                <div class="fixed-action-btn buttonSaveJSON">
+                    <button type="submit" class="btn-floating btn-large color1">
+                        <i class="large material-icons">save</i>
+                    </button>
+                </div>
+            </form>
         </section>
 
         <!--Vista general del proceso-->
@@ -382,7 +386,6 @@
         </section>
 
     </section>
-
 
 
 </body>

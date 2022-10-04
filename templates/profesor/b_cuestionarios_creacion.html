@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Información adicional</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
+</head>
+
+<body class="oculto colorGrey">
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+
+    <!--Menu de página de inicio-->
+    <nav class="color2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only">Información adicional.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Información adicional.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--Titulos de la página-->
+    <div class="title-general">
+        <h5 class="colorTextReverse hide-on-large-only hide-on-med-only">Formulario de finalización.</h5>
+        <h4 class="colorTextReverse hide-on-small-only">Formulario de finalización.</h4>
+    </div>
+
+    <!--Contenedor principal-->
+    <section class="contendorFormularioEditarGrupo">
+        <section class="contenedorFormularioPrincipal">
+            <form class="popUpForm bordered2 colorGreyWhiter shadow-2e" action="/saveCuestionario/{{id_profesor}}"
+                method="post">
+                <h5>Datos del cuestionario</h5>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input id="tituloCuestionario" name="tituloCuestionario" type="text" class="validate" value="{{nombreCuestionario}}">
+                        <label for="tituloCuestionario">Titulo de cuestionario</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input id="fechaCuestionario" name="fechaCuestionario" type="text" class="validate datepicker" value="">
+                        <label for="fechaCuestionario">Fecha del cuestionario</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input id="autorCuestionario" name="autorCuestionario" type="text" class="validate" value="">
+                        <label for="autorCuestionario">Autor del cuestionario</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input id="temasCuestionario" name="temasCuestionario" type="text" class="validate" value="">
+                        <label for="temasCuestionario">Temas del cuestionario</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input id="tipoCuestionario" name="tipoCuestionario" type="text" class="validate" value="">
+                        <label for="tipoCuestionario">Tipo de cuestionario</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input id="lenguajeCuestionario" name="lenguajeCuestionario" type="text" class="validate" value="">
+                        <label for="lenguajeCuestionario">Lenguaje de cuestionario</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input id="grupoCuestionario" name="grupoCuestionario" type="text" class="validate" value="">
+                        <label for="grupoCuestionario">Grupo del cuestionario</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn-large color2 bordered5 buttonPopUp">Guardar</button>
+            </form>
+        </section>
+    </section>
+
+</body>
+
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+<script src="../../static/js/operacionesEditarGrupo.js"></script>
+
+</html>

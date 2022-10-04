@@ -48,7 +48,7 @@
             <div class="colorGreyWhiter operationsContainerSecondarySideNav">
                 <div class="operationButtonSideNav">
                     <h5>Operaciones.</h5>
-                    <a class="waves-effect waves-light btn color2 shadow-2e modal-trigger" href="/creacion_cuestionarios"
+                    <a class="waves-effect waves-light btn color2 shadow-2e modal-trigger" href="/creacion_cuestionarios/{{datos[0]}}"
                         id="buttonNuevoGrupo"><i class="material-icons left">add</i>Crear
                         cuestionario</a>
                 </div>
@@ -154,11 +154,12 @@
             </div>
         </section>
 
+        {% if datos %}
         <!--Boton para los dispositivos moviles-->
         <section class="navbarOperationGroup color2 shadow-up-1e">
             <div></div>
             <div>
-                <a href="/creacion_cuestionarios" class="modal-trigger" id="buttonNuevoGrupoMobile">
+                <a href="/creacion_cuestionarios/{{datos[0]}}" class="modal-trigger" id="buttonNuevoGrupoMobile">
                     <div class="navbarOperationGroupCircle shadow-up-1e colorGrey">
                         <div class="waves-effect">
                             <i class="material-icons colorTextReverse md-28">add</i>
@@ -168,6 +169,7 @@
             </div>
             <div></div>
         </section>
+        {% endif %}
     </section>
 </body>
 

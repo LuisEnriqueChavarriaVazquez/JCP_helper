@@ -104,6 +104,25 @@ def obtener_grupos_codigo(id_profesor):
         grupo = '0'
         return grupo
 ##
+## Obtiene un IDGrupo con nombre del grupo
+##
+def obtener_id_grupo_con_nombre_grupo(nombreGrupo):
+    conexion=obtener_conexion()
+    grupos_codigos=[]
+    grupo = ""
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT IDGrupo FROM grupos WHERE nombre = %s", (nombreGrupo))
+        grupos_codigos=cursor.fetchone()
+    
+    if grupos_codigos is not None:
+        grupo = ''.join(str(grupos_codigos[0]))
+        conexion.close()
+        return grupo
+    else:
+        grupo = '0'
+        return grupo
+##
 ## Nos ayuda a eliminar un grupo
 ##
 def delete_grupos(id_grupo):
@@ -258,10 +277,20 @@ def datos_completos_docente_by_id(IDDocente):
     conexion.close()
     return datosProfesor
 
+# va a servir para insertar un nuevo grupo
 def insertar_grupo(id_profesor, nombreGrupo,descGrupo,fondoGrupo,codigoGrupo,lenguajesGrupo,temasGrupo):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
         cursor.execute("INSERT INTO grupos(IDDocente,Nombre,Descripcion,Fondo,Codigo,Lenguajes,Temas) VALUES(%s,%s,%s,%s,%s,%s,%s)",
         (id_profesor, nombreGrupo,descGrupo,fondoGrupo,codigoGrupo,temasGrupo,lenguajesGrupo))
+    conexion.commit()
+    conexion.close()
+
+# va a servir para meter un JSON en un nuevo cuestionario
+def insertar_cuestionario_JSON(id_profesor, id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, archivoCuestionario):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("INSERT INTO cuestionarios(IDGrupo, IDDocente, Titulo, Fecha, Autor, Temas, Tipo, Lenguaje, Preguntas) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+        (id_profesor, id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, archivoCuestionario))
     conexion.commit()
     conexion.close()

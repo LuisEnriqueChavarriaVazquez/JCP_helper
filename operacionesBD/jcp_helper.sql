@@ -29,16 +29,33 @@ Nombre varchar(60),
  primary key (IDDocente)
 );
 
+create table Grupos(
+   IDGrupo int auto_increment not null,
+   IDDocente int not null,
+   Nombre varchar (60),
+   Descripcion varchar(100),
+   Fondo varchar (800),
+   Codigo varchar (60),
+   Lenguajes varchar (60),
+   Temas varchar (60),
+   primary key (IDGrupo),
+   foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
+);
+
 create table Cuestionarios(
 IDCuestionario int not null auto_increment,
+IDGrupo int not null,
+IDDocente int not null,
 Titulo varchar(100),
-Fecha datetime,
+Fecha varchar(100),
 Autor varchar(60),
 Temas varchar (60),
 Tipo varchar(60),
 Lenguaje varchar(60),
-Preguntas text,
-primary key (IDCuestionario)
+Preguntas LONGTEXT,
+primary key (IDCuestionario,IDGrupo,IDDocente),
+foreign key (IDGrupo) references Grupos(IDGrupo) ON DELETE CASCADE,
+foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
 );
 
 create table Notificaciones_Alumno(
@@ -57,18 +74,6 @@ create table Notificaciones_Docente(
  foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
 );
 
-create table Grupos(
-   IDGrupo int auto_increment not null,
-   IDDocente int not null,
-   Nombre varchar (60),
-   Descripcion varchar(100),
-   Fondo varchar (800),
-   Codigo varchar (60),
-   Lenguajes varchar (60),
-   Temas varchar (60),
-   primary key (IDGrupo),
-   foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
-);
 
 
 create table Alumnos_hacen_Cuestionario(
