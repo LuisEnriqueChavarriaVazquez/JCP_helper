@@ -518,12 +518,36 @@ def creacion_cuestionarios(id_profesor):
 @routes.route('/crear_cuestionario_del_banco',methods=['GET',"POST"])
 #@login_required
 def crear_cuestionario_del_banco():
+    if request.method == 'POST':
+        query=request.form["lenguaje"]
+        url=f"https://banco-de-datos.herokuapp.com/preguntas?lenguaje={query}"
+        response=requests.request("GET",url=url)
+        preguntas=response.text
+        preguntas=preguntas[1:-2]
+        preguntas=preguntas.replace("\"preguntas\":","")
+        preguntas = ast.literal_eval(preguntas)
+
+        temas=[]
+        tipo_pregunta=[]
+
+        for i in preguntas:
+            if i["tema"] not in temas:
+                temas.append(i["tema"])
+            
+            if i["tipo_pregunta"] not in tipo_pregunta:
+                tipo_pregunta.append(i["tipo_pregunta"])
+
+        return render_template("profesor/cuestionarios_del_banco.html",temas=temas,preguntas=tipo_pregunta,lenguaje=query)
+    
     return render_template("profesor/cuestionarios_del_banco.html")
 
-@routes.route('/obtener_preguntas_por_lenguaje',methods=["POST"])
-def obtener_preguntas_por_lenguaje():
-    
-    query=request.form["lenguaje"]
+
+"""
+esto le genera el cuestionario en base a sus criterios seleccionados
+"""
+@routes.route('/genera_preguntas_por_lenguaje',methods=["POST"])
+def genera_preguntas_por_lenguaje():
+    query=request.args.get("lenguaje")
     url=f"https://banco-de-datos.herokuapp.com/preguntas?lenguaje={query}"
     response=requests.request("GET",url=url)
     preguntas=response.text
@@ -531,18 +555,15 @@ def obtener_preguntas_por_lenguaje():
     preguntas=preguntas.replace("\"preguntas\":","")
     preguntas = ast.literal_eval(preguntas)
 
-
-    temas=[]
-    tipo_pregunta=[]
+    temas=request.form.getlist("temas")
+    tipo_preguntas=request.form.getlist("tipos")
+    cuestionario_personalizado=[]
 
     for i in preguntas:
-        if i["tema"] not in temas:
-            temas.append(i["tema"])
-        
-        if i["tipo_pregunta"] not in tipo_pregunta:
-            tipo_pregunta.append(i["tipo_pregunta"])
+        if i["tema"] in temas and i["tipo_pregunta"] in tipo_preguntas:
+            cuestionario_personalizado.append(i)
 
-    return render_template("profesor/cuestionarios_del_banco.html",temas=temas,preguntas=tipo_pregunta,lenguaje=query)
+    return render_template("profesor/cuestionario_del_banco_personalizado.html",preguntas=cuestionario_personalizado)
 
 #Java coder runner
 @routes.route("/java_runner")
