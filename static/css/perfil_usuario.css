@@ -546,6 +546,13 @@
     font-weight: 500;
 }
 
+.descriptionPostView{
+    padding: 20px;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0 0 10px 10px;
+}
+
 .actionPost{
     display: flex;
     justify-content: left;

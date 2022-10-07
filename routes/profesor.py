@@ -3,6 +3,7 @@ from functools import wraps
 from flask import render_template,flash,request, url_for, redirect, session
 from . import routes
 from operacionesBD import Op_profesor
+from operacionesBD import Op_estudiante
 import bcrypt
 import pandas as pd
 import json
@@ -549,7 +550,8 @@ def editarFotoPerfilDocente(id_docente):
 def ver_perfil_alumno(id):
     try:
         datos = Op_profesor.datos_completos_alumno_by_id(id)
-        return render_template('general/perfil_general.html',datos=datos)
+        post = Op_estudiante.obtenerPost(id)
+        return render_template('general/perfil_general.html',datos=datos, post = post)
     except:
         #En caso de error
         return redirect(url_for('routes.gestionar_grupos'))
