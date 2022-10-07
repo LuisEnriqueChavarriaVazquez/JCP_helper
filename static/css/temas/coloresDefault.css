@@ -117,3 +117,32 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     border: 2px solid #377e5b;
     background-color: #377e5b;
 }
+
+/* Date Display */
+.datepicker-date-display {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 auto;
+    -ms-flex: 1 auto;
+    flex: 1 auto;
+    background-color: #377e5b;
+    color: #fff;
+    padding: 20px 22px;
+    font-weight: 500;
+}
+
+.datepicker-table td.is-selected {
+    background-color: #377e5b;
+    color: #fff;
+}
+
+.datepicker-table td.is-today {
+    color: #377e5b;
+}
+
+.datepicker-cancel,
+.datepicker-clear,
+.datepicker-today,
+.datepicker-done {
+    color: #377e5b;
+    padding: 0 1rem;
+}

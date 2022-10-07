@@ -18,8 +18,6 @@ photos = UploadSet("photos", IMAGES)
 ## Links para la parte del panel central
 ##
 
-
-
 ## funciones para el manejo de las sesiones
 
 def login_required(f):
@@ -592,12 +590,15 @@ def guardarCuestionarioJSON(id_profesor):
     nombreCuestionario = nombreCuestionario.replace(" ","_")
     gruposNombres = Op_profesor.obtener_grupos_datos_importantes(id_profesor); 
 
+    #Buscamos los datos del profesor
+    datosProfesor = Op_profesor.datos_completos_docente_by_id(id_profesor)
+
     #Creamos el documento JSON y lo guardamos
     with open('static/cuestionarios/'+ nombreCuestionario + '.json', 'w') as f:
         print("Archivo JSON creado")
 
     #Leemos el archivo
-    return render_template('profesor/b_cuestionarios_creacion.html', id_profesor = id_profesor, nombreCuestionario = nombreCuestionario, gruposNombres = gruposNombres)
+    return render_template('profesor/b_cuestionarios_creacion.html', id_profesor = id_profesor,datosProfesor = datosProfesor, nombreCuestionario = nombreCuestionario, gruposNombres = gruposNombres)
 
 ###Segundo guardamos la data del cuestionario
 @routes.route('/saveCuestionario/<string:id_profesor>', methods=["POST"])

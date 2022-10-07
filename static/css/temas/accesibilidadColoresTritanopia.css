@@ -1,6 +1,6 @@
 ::selection { 
     background: rgb(71, 120, 129) ;
-    color:#fff; 
+    color:rgb(223, 218, 235); 
 }
 
 .color1 {background-color: rgb(8, 17, 18);}
@@ -74,7 +74,7 @@
 .btn-large:hover,
 .btn-small:hover {
     background-color: rgb(71, 120, 129) !important;
-    color: #fff !important;
+    color: rgb(223, 218, 235) !important;
 }
 
 /*Color de los formularios dinamico*/
@@ -115,4 +115,33 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 [type="checkbox"].filled-in:checked+span:not(.lever):after {
     border: 2px solid rgb(71, 120, 129);
     background-color: rgb(71, 120, 129);
+}
+
+/* Date Display */
+.datepicker-date-display {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 auto;
+    -ms-flex: 1 auto;
+    flex: 1 auto;
+    background-color: rgb(71, 120, 129);
+    color: rgb(223, 218, 235);
+    padding: 20px 22px;
+    font-weight: 500;
+}
+
+.datepicker-table td.is-selected {
+    background-color: rgb(71, 120, 129);
+    color: rgb(223, 218, 235);
+}
+
+.datepicker-table td.is-today {
+    color: rgb(71, 120, 129);
+}
+
+.datepicker-cancel,
+.datepicker-clear,
+.datepicker-today,
+.datepicker-done {
+    color: rgb(71, 120, 129);
+    padding: 0 1rem;
 }

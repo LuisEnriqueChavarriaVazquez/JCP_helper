@@ -27,10 +27,23 @@
             </ul>
         </div>
     </nav>
+
+    <!--Vista general del proceso-->
+    <section class="containerCreacionCuestionariosSon3Final">
+        <div class="containerProcesoImagen">
+            <div id="circleOne" class="shadow-2e color3 colorText">1</div>
+            <div id="lineMiddle" class="shadow-2e color3"></div>
+            <div id="circleTwo" class="shadow-2e color3 colorText">2</div>
+        </div>
+        <div class="containerProcesoData">
+            <div>Estructura principal</div>
+            <div>Datos adicionales</div>
+        </div>
+    </section>
+
     <!--Titulos de la página-->
     <div class="title-general">
         <h5 class="colorTextReverse hide-on-large-only hide-on-med-only">Formulario de finalización.</h5>
-        <h4 class="colorTextReverse hide-on-small-only">Formulario de finalización.</h4>
     </div>
 
     <!--Contenedor principal-->
@@ -38,40 +51,74 @@
         <section class="contenedorFormularioPrincipal">
             <form class="popUpForm bordered2 colorGreyWhiter shadow-2e" action="/saveCuestionario/{{id_profesor}}"
                 method="post">
+                <h5>Datos de creación</h5>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input id="autorCuestionario" name="autorCuestionario" type="text" class="validate"
+                            value="{{datosProfesor[1]}}">
+                        <label for="autorCuestionario">Autor del cuestionario</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input id="fechaCuestionario" name="fechaCuestionario" type="text" class="validate datepicker"
+                            value="">
+                        <label for="fechaCuestionario">Fecha de Creación</label>
+                    </div>
+                </div>
                 <h5>Datos del cuestionario</h5>
                 <div class="row">
                     <div class="input-field col s12 m6">
                         <input id="tituloCuestionario" name="tituloCuestionario" type="text" class="validate"
                             value="{{nombreCuestionario}}">
-                        <label for="tituloCuestionario">Titulo de cuestionario</label>
+                        <label for="tituloCuestionario">Nombre de cuestionario</label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <input id="fechaCuestionario" name="fechaCuestionario" type="text" class="validate datepicker"
-                            value="">
-                        <label for="fechaCuestionario">Fecha del cuestionario</label>
+                        <select id="temasCuestionario" name="temasCuestionario">
+                            {% if gruposNombres %}
+                            {%for i in range(0, gruposNombres|length)%}
+                            <option value="{{gruposNombres[i][7]}}">{{gruposNombres[i][7]}}</option>
+                            {% endfor %}
+                            {% endif%}
+                        </select>
+                        <label>Temas del cuestionario</label>
                     </div>
-                    <div class="input-field col s12 m6">
-                        <input id="autorCuestionario" name="autorCuestionario" type="text" class="validate" value="">
-                        <label for="autorCuestionario">Autor del cuestionario</label>
+
+                    <div id="oneInputTipo" class="input-field col s12 m12">
+                        <select id="tipoCuestionarioOne" name="tipoCuestionario">
+                            <option value="Diagnostico">Diagnóstico</option>
+                            <option value="Autodiagnostico">Autodiagnóstico</option>
+                            <option value="Autoevaluacion">Autoevaluación</option>
+                            <option value="Parcial">Parcial</option>
+                            <option value="Final">Final</option>
+                            <option value="Practica">Práctica</option>
+                            <option value="Juego">Juego</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <label>Tipo de cuestionario</label>
                     </div>
-                    <div class="input-field col s12 m6">
-                        <input id="temasCuestionario" name="temasCuestionario" type="text" class="validate" value="">
-                        <label for="temasCuestionario">Temas del cuestionario</label>
+                    <!--En caso de que seleccione otros-->
+                    <div id="twoInputTipo" class="hiddenElement input-field col s12 m12">
+                        <input id="tipoCuestionarioTwo" name="tipoCuestionario" type="text" class="validate"
+                            value="" disabled>
+                        <label for="tipoCuestionarioTwo">Escriba el tipo</label>
                     </div>
-                    <div class="input-field col s12 m6">
-                        <input id="tipoCuestionario" name="tipoCuestionario" type="text" class="validate" value="">
-                        <label for="tipoCuestionario">Tipo de cuestionario</label>
+
+                    <div id="oneInputLenguaje" class="input-field col s12 m12">
+                        <select id="lenguajeCuestionarioOne" name="lenguajeCuestionario">
+                            <option value="Java">Java</option>
+                            <option value="Python">Python</option>
+                            <option value="C/C++">C/C++</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <label>Lenguaje del cuestionario</label>
                     </div>
-                    <div class="input-field col s12 m6">
-                        <input id="lenguajeCuestionario" name="lenguajeCuestionario" type="text" class="validate"
-                            value="">
-                        <label for="lenguajeCuestionario">Lenguaje de cuestionario</label>
+                    <!--En caso de que seleccione otros-->
+                    <div id="twoInputLenguaje" class="hiddenElement input-field col s12 m12">
+                        <input id="lenguajeCuestionarioTwo" name="lenguajeCuestionario" type="text" class="validate"
+                            value="" disabled>
+                        <label for="lenguajeCuestionarioTwo">Escriba el lenguaje</label>
                     </div>
-                    <!-- <div class="input-field col s12 m6">
-                        <input id="grupoCuestionario" name="grupoCuestionario" type="text" class="validate" value="">
-                        <label for="grupoCuestionario">Grupo del cuestionario</label>
-                    </div> -->
-                    <div class="input-field col s12 m6">
+
+                    <div class="input-field col s12 m12">
                         <select id="grupoCuestionario" name="grupoCuestionario">
                             {% if gruposNombres %}
                             {%for i in range(0, gruposNombres|length)%}
@@ -79,7 +126,7 @@
                             {% endfor %}
                             {% endif%}
                         </select>
-                        <label>Grupos</label>
+                        <label>Grupo del cuestionario</label>
                     </div>
                     <br>
                 </div>
@@ -95,5 +142,7 @@
 {% include "includes/footerRecursos.html" %}
 
 <script src="../../static/js/operacionesEditarGrupo.js"></script>
+<script src="../../static/js/operacionesEditarCuestionario.js"></script>
+
 
 </html>

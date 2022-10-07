@@ -1,65 +1,99 @@
-::selection { 
+::selection {
     background: #9b4b00;
-    color:#fff; 
+    color: #fff;
 }
 
-.color1 {background-color:  #4f1502;}
-.color2 {background-color:  #712c00;}
-.color3 {background-color:  #9b4b00;}
-.color4 {background-color:  #cf7800;}
-.color5 {background-color:  #ffad07;}
+.color1 {
+    background-color: #4f1502;
+}
 
-.colorGrey {background-color: #dddddd;}
-.colorGreyDarker {background-color: #cacaca;}
-.colorGreyWhiter {background-color: #ececec;}
-.colorWhite {background-color: #fff;}
+.color2 {
+    background-color: #712c00;
+}
 
-.coloredText {color: #9b4b00 !important;}
-.colorText {color: #fff !important;}
-.colorTextReverse {color: #000 !important;}
+.color3 {
+    background-color: #9b4b00;
+}
 
-.borderDecoration{
+.color4 {
+    background-color: #cf7800;
+}
+
+.color5 {
+    background-color: #ffad07;
+}
+
+.colorGrey {
+    background-color: #dddddd;
+}
+
+.colorGreyDarker {
+    background-color: #cacaca;
+}
+
+.colorGreyWhiter {
+    background-color: #ececec;
+}
+
+.colorWhite {
+    background-color: #fff;
+}
+
+.coloredText {
+    color: #9b4b00 !important;
+}
+
+.colorText {
+    color: #fff !important;
+}
+
+.colorTextReverse {
+    color: #000 !important;
+}
+
+.borderDecoration {
     border-bottom: 5px #9b4b00 solid;
 }
 
-.borderDecorationStrong{
+.borderDecorationStrong {
     border-bottom: 5px #712c00 solid;
 }
 
 /*Fondos dinámicos*/
-.cardCarouselMainHead{
+.cardCarouselMainHead {
     background-image: url('../../images/fondos/naranja/naranja_2.png');
 }
 
-.cardMain{
+.cardMain {
     background-image: url('../../images/fondos/naranja/naranja_3.png');
 }
 
-.cardMainDesktopPanelHead{
+.cardMainDesktopPanelHead {
     background-image: url('../../images/fondos/naranja/naranja_4.png');
 }
 
-.informeCard{
+.informeCard {
     background-image: url('../../images/fondos/naranja/naranja_6.png');
 }
 
-.iconSecondary{
-    background-image: url('../../images/fondos/naranja/naranja_5.png') ;
+.iconSecondary {
+    background-image: url('../../images/fondos/naranja/naranja_5.png');
 }
 
-.card-bienvenida,.card-bienvenida-text{
+.card-bienvenida,
+.card-bienvenida-text {
     background-image: url('../../images/fondos/naranja/naranja_1.png');
 }
 
-.fondoDinamico{
+.fondoDinamico {
     background-image: url('../../images/fondos/naranja/naranja_7.png');
 }
 
-.icon_app{
+.icon_app {
     background-image: url('../../images/logo_app/orange_icon.png');
 }
 
-.iconBoxInfoDinamico{
+.iconBoxInfoDinamico {
     background-image: url('../../images/brand_app/triple_bronce.png');
 }
 
@@ -116,4 +150,33 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 [type="checkbox"].filled-in:checked+span:not(.lever):after {
     border: 2px solid #9b4b00;
     background-color: #9b4b00;
+}
+
+/* Date Display */
+.datepicker-date-display {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 auto;
+    -ms-flex: 1 auto;
+    flex: 1 auto;
+    background-color: #9b4b00;
+    color: #fff;
+    padding: 20px 22px;
+    font-weight: 500;
+}
+
+.datepicker-table td.is-selected {
+    background-color: #9b4b00;
+    color: #fff;
+}
+
+.datepicker-table td.is-today {
+    color: #9b4b00;
+}
+
+.datepicker-cancel,
+.datepicker-clear,
+.datepicker-today,
+.datepicker-done {
+    color: #9b4b00;
+    padding: 0 1rem;
 }
