@@ -138,13 +138,16 @@
                         <div
                             class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
                             <p style="margin: 10px 0 0 0 !important;"><b>Grupo: {{datosGrupos[i][0][0]}}</b></p>
-                            <p class="hide-on-small-only" style="margin: 0 0 5px 0 !important;">{{datosCuestionarios[i][7]}}</p>
+                            <p class="hide-on-small-only colorGrey bordered1" style="padding: 10px; margin: 5px 0 !important;">{{datosCuestionarios[i][7]}}</p>
                         </div>
                         <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
                             <!--Botones de cada grupo-->
-                            <a href="/viewGroup/id"
+                            <a href="/editCuestionario/{{datosCuestionarios[i][0]}}"
                                 class="modal-trigger classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
                                     class="material-icons md-24">edit</i></a>
+                            <a href="/viewGroup/id"
+                                    class="modal-trigger classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                        class="material-icons md-24">file_copy</i></a>
                             <a href="/viewGroup/id"
                                 class="modal-trigger classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
                                     class="material-icons md-24">visibility</i></a>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Editar información adicional</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
+</head>
+
+<body class="oculto colorGrey">
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+
+    <!--Menu de página de inicio-->
+    <nav class="color2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only">Información adicional.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Información adicional.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Vista general del proceso-->
+    <section class="containerCreacionCuestionariosSon3Final">
+        <div class="containerProcesoImagen">
+            <div id="circleOne" class="shadow-2e color3 colorText">1</div>
+            <div id="lineMiddle" class="shadow-2e color3"></div>
+            <div id="circleTwo" class="shadow-2e color3 colorText">2</div>
+        </div>
+        <div class="containerProcesoData">
+            <div>Estructura principal</div>
+            <div>Datos adicionales</div>
+        </div>
+    </section>
+
+    <!--Titulos de la página-->
+    <div class="title-general">
+        <h5 class="colorTextReverse hide-on-large-only hide-on-med-only">Formulario de finalización.</h5>
+    </div>
+
+    <!--Contenedor principal-->
+    <section class="contendorFormularioEditarGrupo">
+        <section class="contenedorFormularioPrincipal">
+            <form class="popUpForm bordered2 colorGreyWhiter shadow-2e" action="/updateCuestionarios/{{cuestionarioInfo[0]}}"
+                method="post">
+                <h5>Datos de creación</h5>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input id="autorCuestionario" name="autorCuestionario" type="text" class="validate"
+                            value="{{datosProfesor[1]}}">
+                        <label for="autorCuestionario">Autor del cuestionario</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input id="fechaCuestionario" name="fechaCuestionario" type="text" class="validate datepicker"
+                            value="{{cuestionarioInfo[4]}}">
+                        <label for="fechaCuestionario">Fecha de Creación</label>
+                    </div>
+                </div>
+                <h5>Datos del cuestionario</h5>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <input id="tituloCuestionario" name="tituloCuestionario" type="text" class="validate"
+                            value="{{cuestionarioInfo[3]}}">
+                        <label for="tituloCuestionario">Nombre de cuestionario</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <select id="temasCuestionario" name="temasCuestionario">
+                            {% if gruposNombres %}
+                            {%for i in range(0, gruposNombres|length)%}
+                            <option value="{{gruposNombres[i][7]}}">{{gruposNombres[i][7]}}</option>
+                            {% endfor %}
+                            {% endif%}
+                        </select>
+                        <label>Temas del cuestionario</label>
+                    </div>
+                    <!--En caso de que seleccione otros-->
+                    <div id="twoInputTipo" class="input-field col s12 m12">
+                        <input id="tipoCuestionarioTwo" name="tipoCuestionario" type="text" class="validate"
+                            value="{{cuestionarioInfo[7]}}">
+                        <label for="tipoCuestionarioTwo">Escriba el tipo</label>
+                    </div>
+                    <!--En caso de que seleccione otros-->
+                    <div id="twoInputLenguaje" class="input-field col s12 m12">
+                        <input id="lenguajeCuestionarioTwo" name="lenguajeCuestionario" type="text" class="validate"
+                            value="{{cuestionarioInfo[8]}}">
+                        <label for="lenguajeCuestionarioTwo">Escriba el lenguaje</label>
+                    </div>
+
+                    <div class="input-field col s12 m12">
+                        <select id="grupoCuestionario" name="grupoCuestionario">
+                            {% if gruposNombres %}
+                            {%for i in range(0, gruposNombres|length)%}
+                            <option value="{{gruposNombres[i][2]}}">{{gruposNombres[i][2]}}</option>
+                            {% endfor %}
+                            {% endif%}
+                        </select>
+                        <label>Grupo del cuestionario</label>
+                    </div>
+                    <br>
+                </div>
+                <button type="submit" class="btn-large color2 bordered5 buttonPopUp">Editar</button>
+            </form>
+        </section>
+    </section>
+
+</body>
+
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+<script src="../../static/js/operacionesEditarGrupo.js"></script>
+
+
+</html>

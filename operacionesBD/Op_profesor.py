@@ -311,6 +311,34 @@ def obtener_cuestionarios_datos_importantes(id_profesor):
     conexion.close()
     return grupos
 
+#Lo mismo pero con IDCuestionario (un cuestionario en concreto)
+def obtener_cuestionario_datos_importantes_unitario(id_cuestionario):
+    conexion=obtener_conexion()
+    cuestionarios=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM cuestionarios WHERE IDCuestionario = %s", (id_cuestionario))
+        cuestionarios=cursor.fetchall()
+
+    conexion.close()
+    return cuestionarios
+
+##
+## Nos ayuda a editar un cuestionario
+##
+
+def update_cuestionarios(id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, id_cuestionario):
+    conexion=obtener_conexion()
+    confirmacionUpdate = True
+
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE cuestionarios SET IDGrupo = %s, titulo = %s, fecha = %s, autor = %s, temas = %s, tipo = %s, lenguaje = %s WHERE IDCuestionario = %s", (id_grupo,tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, id_cuestionario))
+
+    conexion.commit()
+    conexion.close()
+    return confirmacionUpdate
+
+
 ##
 ## Obtiene los datos de los cuestionarios vinculados a un grupo
 ##
