@@ -355,8 +355,12 @@ def view_group(id):
         datosAlumnos.append(Op_profesor.datos_completos_alumno_by_id(str(idAlumno)))
     print(datosAlumnos) #[((1,), (2,))]
 
+    ######Obtención de información de los cuestionarios
+    datosCuestionarios = Op_profesor.obtener_cuestionarios_datos_importantes(pickedGroupData[0][1])
+    print(datosCuestionarios)
+
     #Enviamos al usuario al formulario para ver datos del grupo.
-    return render_template('profesor/b_verGrupo.html', groupInfo = pickedGroupData[0], datosAlumnos = datosAlumnos)
+    return render_template('profesor/b_verGrupo.html', groupInfo = pickedGroupData[0], datosAlumnos = datosAlumnos, datosCuestionarios = datosCuestionarios)
 
 ##
 ## Parte del sign up del profesor

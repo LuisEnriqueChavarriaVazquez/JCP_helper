@@ -30,8 +30,8 @@
     <!--Titulos de la página-->
     <div class="title-general shadow-2e encabezadoGrupo"
         style="background-image: url({{groupInfo.4}}), url(../../static/images/fondos/fondo.png); background-blend-mode: hue;">
-        <h5 class="colorText hide-on-large-only hide-on-med-only">Datos de {{groupInfo.2}}</h5>
-        <h4 class="colorText hide-on-small-only">Datos de {{groupInfo.2}}</h4>
+        <h5 class="colorText hide-on-large-only hide-on-med-only">{{groupInfo.2}}</h5>
+        <h4 class="colorText hide-on-small-only">{{groupInfo.2}}</h4>
     </div>
 
     <!--Contenedor principal-->
@@ -66,39 +66,21 @@
                         </div>
                         <div class="bordered5 collapsible-body">
                             <section class="contenedorEstudiantesInfo">
-                                <a href="#">
-                                    <div class="colorText cardCuestionarioGrupoVer">
-                                        <div class="color1 titleCardCuestionarioGrupoVer">
-                                            <h6>Cuestionario 1</h6>
+                                {%for i in range(0, datosCuestionarios|length)%}
+                                <!--Solo muestra los ids que coinciden-->
+                                {% if datosCuestionarios[i][1] == groupInfo.0%}
+                                <a href="verCuestionario/{{datosCuestionarios[i][1]}}">
+                                    <div class="colorTextReverse cardCuestionarioGrupoVer">
+                                        <div class="colorGrey titleCardCuestionarioGrupoVer">
+                                            <h6>{{datosCuestionarios[i][3]}}</h6>
                                         </div>
-                                        <div class="color2 descCardCuestionarioGrupoVer">
-                                            <p id="muestraCodigoGrupo" style="text-align: left;">Descripcion del
-                                                cuestionario</p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="#">
-                                    <div class="colorText cardCuestionarioGrupoVer">
-                                        <div class="color1 titleCardCuestionarioGrupoVer">
-                                            <h6>Cuestionario 3</h6>
-                                        </div>
-                                        <div class="color2 descCardCuestionarioGrupoVer">
-                                            <p id="muestraCodigoGrupo" style="text-align: left;">Descripcion del
-                                                cuestionario</p>
+                                        <div class="colorGreyDarker borderDecoration descCardCuestionarioGrupoVer">
+                                            <p id="muestraCodigoGrupo" style="text-align: left;">Tipo: {{datosCuestionarios[i][7]}}</p>
                                         </div>
                                     </div>
                                 </a>
-                                <a href="#">
-                                    <div class="colorText cardCuestionarioGrupoVer">
-                                        <div class="color1 titleCardCuestionarioGrupoVer">
-                                            <h6>Cuestionario 2</h6>
-                                        </div>
-                                        <div class="color2 descCardCuestionarioGrupoVer">
-                                            <p id="muestraCodigoGrupo" style="text-align: left;">Descripcion del
-                                                cuestionario</p>
-                                        </div>
-                                    </div>
-                                </a>
+                                {% endif %}
+                                {%endfor%}
                             </section>
                         </div>
                     </li>
@@ -120,10 +102,10 @@
                                 {%for i in range(0, datosAlumnos|length)%}
                                 <a href="/perfil_general_view/{{datosAlumnos[i][0][0]}}">
                                     <div
-                                        class="borderDecoration colorGrey cardAlumnoSecondary shadow-2 bordered1 centerAlignerNoWidth">
+                                        class="borderDecoration colorGrey cardAlumnoSecondary bordered1 centerAlignerNoWidth">
                                         <div class="iconContenedorUserSecondary centerAlignerNoWidth">
                                             <img src="../../static/images/alumnos/{{datosAlumnos[i][0][3]}}"
-                                                class="userSecondary bordered5 shadow-2">
+                                                class="userSecondary bordered5">
                                         </div>
                                         <div class="textContenedorUserSecondary">
                                             <p class="truncate colorTextReverse"><b>{{datosAlumnos[i][0][2]}}</b></p>

@@ -576,7 +576,7 @@
 /*Estilos de seccion para ver datos de grupo*/
 
 .encabezadoGrupo{
-    height: 160px;
+    height: 170px !important;
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
@@ -584,7 +584,7 @@
 
 @media screen and (max-width: 600px) {
     .encabezadoGrupo{
-        height: 120px;
+        height: 130px !important;
     }
 }
 
@@ -649,17 +649,18 @@
     width: 100%;
     height: 50px;
     padding: 2.5px 20px 5px 20px;
-    border-radius: 20px 20px 0 0;
+    border-radius: 10px 10px 0 0;
 }
 
 .descCardCuestionarioGrupoVer{
     width: 100%;
     height: auto;
     padding: 2.5px 20px 5px 20px;
-    border-radius: 0px 0px 20px 20px;
+    border-radius: 0px 0px 10px 10px;
 }
 
 .cardCuestionarioGrupoVer div h6{
+    font-weight: 700;
     font-size: 20px;
 }
 

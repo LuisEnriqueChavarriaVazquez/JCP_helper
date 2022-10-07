@@ -79,6 +79,7 @@ create table Notificaciones_Docente(
 create table Alumnos_hacen_Cuestionario(
   IDCuestionario int not null,
   IDAlumno int not null,
+  Acceso_cuestionario varchar(100),
   Resultado_general float,
   Resultado_por_tipo_pregunta varchar (100),
   Respuestas text,
