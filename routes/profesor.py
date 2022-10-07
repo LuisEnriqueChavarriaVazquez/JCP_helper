@@ -62,7 +62,10 @@ def comunidad_profesor():
 def gestionar_cuestionarios():
     try:
         result=Op_profesor.datos_completos_docente_by_id(session["IDDocente"])
-        resultCuestionarios = Op_profesor.obtener_cuestionarios_datos_importantes(session["IDDocente"])
+        try:
+            resultCuestionarios = Op_profesor.obtener_cuestionarios_datos_importantes(session["IDDocente"])
+        except:
+            return render_template('profesor/a_gestionar_cuestionarios.html',datos=result)
         return render_template('profesor/a_gestionar_cuestionarios.html',datos=result, datosCuestionarios = resultCuestionarios)
     except:
         return render_template('profesor/a_gestionar_cuestionarios.html')
