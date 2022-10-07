@@ -257,7 +257,7 @@
 
 .itemDataGridGeneral {
     width: 100%;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .itemDataGridGeneral .iconDataProfile,
@@ -275,8 +275,8 @@
     justify-items: center;
     align-items: center;
 
-    padding: 15px 10px;
-    border-radius: 20px 20px 0 0;
+    padding: 10px 10px;
+    border-radius: 10px 10px 0 0;
 }
 
 .itemDataGridGeneral .iconDataProfile>i {
@@ -284,10 +284,10 @@
 }
 
 .itemDataGridGeneral .textDataProfile {
-    padding: 20px 20px;
-    font-size: 18px;
+    padding: 10px 20px;
+    font-size: 16px;
     font-weight: 600;
-    border-radius: 0 0 20px 20px;
+    border-radius: 0 0 10px 10px;
 }
 
 
@@ -429,4 +429,118 @@
         left: 40px;
         top: -160px;
     }
+}
+
+/*Caja contenedor para los post de los profesores*/
+.postContainerParent{
+    margin-top: 650px;
+    padding-bottom: 40px;
+}
+
+.gridPostUser{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+    padding: 0 50px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .gridPostUser{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        padding: 0 30px;
+    }
+
+    .postContainerParent{
+        margin-top: 628px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .gridPostUser{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        padding: 0 15px;
+    }
+
+    .postContainerParent{
+        margin-top: 0;
+    }
+}
+
+.postCreatorContainer{
+    width: 100%;
+    padding: 10px 0;
+    margin: 10px 0;
+}
+
+.postCreatorContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#postCreatorInput{
+    width: 90%;
+	padding: 15px 10px;
+    font-size: 18px;
+    border: #fff solid 0px;
+    color: #000;
+    outline: none !important;
+    border-radius: 500px;
+}
+
+.postGeneral{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 60px 80px auto;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+.postGeneralSinFoto{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 0 140px auto;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+.tituloPost{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 20px 20px;
+    font-size: 25px;
+    font-weight: 500;
+    border-radius: 15px 15px 0 0;
+}
+
+.imagePost{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.descriptionPost{
+    padding: 20px;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.actionPost{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+}
+
+.actionPost a{
+    width: 25%;
+    margin: 5px;
 }

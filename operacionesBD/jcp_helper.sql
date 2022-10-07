@@ -58,6 +58,26 @@ foreign key (IDGrupo) references Grupos(IDGrupo) ON DELETE CASCADE,
 foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
 );
 
+create table PublicacionesDocente(
+IDPublicacionDocente int not null auto_increment,
+IDDocente int not null,
+Titulo varchar(100),
+Descripcion varchar(1000),
+Foto varchar(1200),
+primary key (IDPublicacionDocente, IDDocente),
+foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
+);
+
+create table PublicacionesAlumno(
+IDPublicacionAlumno int not null auto_increment,
+IDAlumno int not null,
+Titulo varchar(100),
+Descripcion varchar(1000),
+Foto varchar(1200),
+primary key (IDPublicacionAlumno, IDAlumno),
+foreign key (IDAlumno) references Alumnos(IDAlumno) ON DELETE CASCADE
+);
+
 create table Notificaciones_Alumno(
  IDAlumno int not null,
  IDNotificacion_Alumno int not null,
@@ -73,8 +93,6 @@ create table Notificaciones_Docente(
  primary key (IDDocente,IDNotificacion_Docente),
  foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
 );
-
-
 
 create table Alumnos_hacen_Cuestionario(
   IDCuestionario int not null,

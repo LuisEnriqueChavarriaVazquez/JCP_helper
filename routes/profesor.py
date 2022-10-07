@@ -473,7 +473,8 @@ lo mismo para con esta funcion con el try except
 def perfil_docente():
     try:
         result = Op_profesor.datos_completos_docente_by_id(session['IDDocente'])
-        return render_template('profesor/perfil_docente.html',datos=result)
+        post = Op_profesor.obtenerPost(session['IDDocente'])
+        return render_template('profesor/perfil_docente.html',datos=result, post = post)
     except:
         return render_template('profesor/perfil_docente.html')
 
@@ -734,10 +735,49 @@ def delete_cuestionario(id_cuestionario):
     return redirect(url_for('routes.gestionar_cuestionarios')) 
 
 # Formulario para que el docente haga una publicacion
-@routes.route('/crear_publicacion')
-#@login_required
-def crear_publicacion_form():
-    return render_template('profesor/crear_publicacion.html')
+@routes.route('/crearPost/<string:id_docente>', methods=["POST"])
+def crear_post(id_docente):
+    #Obtenemos los datos del formulario
+    tituloPost = request.form["tituloPost"]
+    fondoPost = request.form["fondoPost"]
+    descripcionPost = request.form["descripcionPost"]
+    if(tituloPost == "" or fondoPost == "" or descripcionPost == ""):
+        return redirect(url_for('routes.perfil_docente'))
+    else:
+        Op_profesor.crearPost(id_docente, tituloPost, descripcionPost, fondoPost)
+        return redirect(url_for('routes.perfil_docente'))
+
+# Formulario para borrar el post
+@routes.route('/deletePost/<string:id_publicacion>')
+def delete_post(id_publicacion):
+    Op_profesor.deletePost(id_publicacion)
+    return redirect(url_for('routes.perfil_docente'))
+
+#Para editar un post
+@routes.route('/editarPost/<string:id_publicacion>')
+def edit_post(id_publicacion):
+    #Obtenemos los datos del cuestionario
+    pickedPostData = Op_profesor.obtenerPostUnitario(id_publicacion)
+    print(pickedPostData)
+    #Enviamos al usuario al formulario para editar la data
+    return render_template('profesor/b_editarPost.html', post = pickedPostData)
+
+
+
+
+# Formulario para update de el post
+@routes.route('/updatePost/<string:id_publicacion>', methods=['POST'])
+def update_post(id_publicacion):
+    #Obtenemos los datos del formulario
+    tituloPostTwo = request.form["tituloPostTwo"]
+    fondoPostTwo = request.form["fondoPostTwo"]
+    descripcionPostTwo = request.form["descripcionPostTwo"]
+    if(tituloPostTwo == "" or fondoPostTwo == "" or descripcionPostTwo == ""):
+        print("No se edito")
+        return redirect(url_for('routes.perfil_docente'))
+    else:
+        Op_profesor.updatePost(id_publicacion,tituloPostTwo, descripcionPostTwo, fondoPostTwo)
+        return redirect(url_for('routes.perfil_docente'))
 
 #Formulario para guardar fondos de perfil
 @routes.route('/guardarFondo/<string:id_docente>',methods=['GET','POST'])
