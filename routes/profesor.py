@@ -762,9 +762,6 @@ def edit_post(id_publicacion):
     #Enviamos al usuario al formulario para editar la data
     return render_template('profesor/b_editarPost.html', post = pickedPostData)
 
-
-
-
 # Formulario para update de el post
 @routes.route('/updatePost/<string:id_publicacion>', methods=['POST'])
 def update_post(id_publicacion):

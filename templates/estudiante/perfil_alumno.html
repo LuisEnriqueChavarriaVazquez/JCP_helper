@@ -137,8 +137,8 @@
 
                 {% if datos %}
                 <div class="title-general">
-                    <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Datos de la cuenta</h5>
-                    <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Datos de la cuenta</h3>
+                    <h5 class="hide-on-large-only">Datos de la cuenta</h5>
+                    <h4 class="hide-on-med-and-down">Datos de la cuenta</h4>
                 </div>
                 <div class="gridDataProfileContainer">
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-1">
@@ -148,15 +148,10 @@
                     </div>
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-2">
                         <p class="iconDataProfile colorGrey"><i
-                                class="material-icons md-24 colorTextReverse">school</i>Procedencia</p>
-                        <p class="textDataProfile colorGreyWhiter">Instituto Politécnico Nacional</p>
-                    </div>
-                    <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-3">
-                        <p class="iconDataProfile colorGrey"><i
                                 class="material-icons md-24 colorTextReverse">doorbell</i>Unidad</p>
                         <p class="textDataProfile colorGreyWhiter">{{datos[7]}}</p>
                     </div>
-                    <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-4">
+                    <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-3">
                         <p class="iconDataProfile colorGrey"><i
                                 class="material-icons md-24 colorTextReverse">adjust</i>Especialización</p>
                         <p class="textDataProfile colorGreyWhiter">{{datos[6]}}</p>
@@ -165,7 +160,90 @@
                 {% endif %}
             </div>
         </section>
+        <!--Seccion para dispositivos moviles-->
+        <section class="postContainerParentStudent colorGrey">
+            <div>
+                <div class="title-general">
+                    <h5 class="hide-on-large-only">Publicaciones</h5>
+                    <h4 class="hide-on-med-and-down">Publicaciones</h4>
+                </div>
+                <div class="postCreatorContainer">
+                    <input href="#modalPublicacion" type="text" name="postCreator"
+                        class="modal-trigger browser-default shadow-1" id="postCreatorInput"
+                        placeholder="🖋️ Nuevo post">
+                </div>
+                <div class="gridPostUser">
+                    {%for i in range(0, post|length)%}
+                    {% if post %}
+                    <div class="postGeneral fotoValuePost borderDecoration">
+                        <div class="color2 colorText tituloPost">{{post[i][2]}}</div>
+                        <div class="imagePost" style="background-image:url('{{post[i][4]}}');"></div>
+                        <div class="descriptionPost colorGreyWhiter">{{post[i][3]}}</div>
+                        <div class="actionPost colorGreyWhiter">
+                            <a href="#modalBorrado{{post[i][0]}}" class="modal-trigger btn waves-effect colorGreyDarker bordered5"><i
+                                    class="material-icons colorTextReverse md-24">delete</i></a>
+                            <a href="editarPostAlumno/{{post[i][0]}}"
+                                class="modal-trigger btn waves-effect colorGreyDarker bordered5"><i
+                                    class="material-icons colorTextReverse md-24">edit</i></a>
+                        </div>
+                    </div>
+
+                    <!--Pop up de eliminar el post-->
+                    <div id="modalBorrado{{post[i][0]}}" class="modal bordered2 colorGrey">
+                        <div class="modal-content">
+                            <h4>¿Desea eliminar el post?</h4>
+                            <p>Este procedimiento no se puede revertir.</p>
+                            <hr>
+                            <a href="/deletePostAlumno/{{post[i][0]}}"
+                                class="waves-effect waves-light btn badColorButton shadow-2e button-rounded"
+                                style="width: 100%;">Eliminar</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
     </section>
+
+
+    <!--Modal para publicar nuevas cosas-->
+    <div id="modalPublicacion" class="modal bordered2 colorGrey" style="height: 80vh !important;">
+        <div class="modal-content">
+            <h5>Crear un nuevo POST</h5>
+            <p>Haga una publicación para que otros usuarios en la plataforma puedan verla.</p>
+            <hr>
+            <form class="col s12 popUpForm bordered2 colorGreyWhiter shadow-2e" action="crearPostAlumno/{{datos[0]}}"
+                method="post">
+
+                <h5>Datos del POST</h5>
+                <div class="row">
+                    <div class="input-field col s12 m12 l6">
+                        <input id="tituloPost" name="tituloPost" type="text" class="validate">
+                        <label for="tituloPost">Titulo del post</label>
+                    </div>
+                    <div class="input-field col s12 m12 l6">
+                        <textarea id="descripcionPost" name="descripcionPost" class="validate materialize-textarea"
+                            data-length="100"></textarea>
+                        <label for="descripcionPost">Descripción del post</label>
+                    </div>
+                </div>
+
+                <h5>Multimedia</h5>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input placeholder="Fondo para el grupo" id="fondoPost" name="fondoPost" type="text"
+                            value="No foto">
+                        <label for="fondoPost">URL de imagen</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-large color2 bordered5 buttonPopUp">Crear</button>
+
+            </form>
+        </div>
+    </div>
+    
 
     <!-- Modal para elegir el tema del perfil -->
     <div id="modal1" class="modal modal-fixed-footer bordered2" style="height: 80vh !important;">
@@ -211,5 +289,6 @@
 
 <script src="../../static/js/insertThemes.js"></script>
 <script src="../../static/js/operacionesOpcionesFoto.js"></script>
+<script src="../../static/js/perfilUsuarioPost.js"></script>
 
 </html>

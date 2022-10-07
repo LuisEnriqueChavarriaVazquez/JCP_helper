@@ -160,3 +160,61 @@ def update_fondo_alumno(fondo, id_alumno):
 #         (nombre, apellidos, edad,grupo, id))
 #     conexion.commit()
 #     conexion.close()
+
+####################################Operaciones para los post
+#Operacion para la creación de un post
+def crearPost(id_alumno, tituloPost, descripcionPost, fondoPost):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("INSERT INTO PublicacionesAlumno(IDAlumno, Titulo, Descripcion, Foto) VALUES(%s,%s,%s,%s)",
+        (id_alumno, tituloPost, descripcionPost, fondoPost))
+    conexion.commit()
+    conexion.close()
+
+#Operacion para obtener los post
+def obtenerPost(id_alumno):
+    conexion=obtener_conexion()
+    publicaciones=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM PublicacionesAlumno WHERE IDAlumno = %s", (id_alumno))
+        publicaciones=cursor.fetchall()
+
+    conexion.close()
+    return publicaciones
+
+#Operacion para obtener los post
+def obtenerPostUnitario(id_publicacion):
+    conexion=obtener_conexion()
+    publicaciones=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM PublicacionesAlumno WHERE IDPublicacionAlumno = %s", (id_publicacion))
+        publicaciones=cursor.fetchall()
+
+    conexion.close()
+    return publicaciones
+
+#Operacion para borrar los post
+def deletePost(id_publicacion):
+    conexion=obtener_conexion()
+    confirmacionDeDelete = True
+
+    with conexion.cursor() as cursor:
+        cursor.execute("DELETE from PublicacionesAlumno WHERE IDPublicacionAlumno = %s", (id_publicacion))
+
+    conexion.commit()
+    conexion.close()
+    return confirmacionDeDelete
+
+#Para editar los post
+def updatePost(id_publicacion,tituloPost, descripcionPost, fondoPost):
+    conexion=obtener_conexion()
+    confirmacionDeDelete = True
+
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE PublicacionesAlumno SET titulo = %s, descripcion = %s, foto = %s WHERE IDPublicacionAlumno = %s", (tituloPost, descripcionPost, fondoPost, id_publicacion))
+
+    conexion.commit()
+    conexion.close()
+    return confirmacionDeDelete

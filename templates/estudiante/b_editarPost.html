@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Editar post</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
+</head>
+
+<body class="oculto colorGrey">
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+
+    <!--Menu de página de inicio-->
+    <nav class="color2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only">Editar post.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Editar post.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--Titulos de la página-->
+    <div class="title-general">
+        <h5 class="colorTextReverse hide-on-large-only hide-on-med-only">Formulario de edición.</h5>
+        <h4 class="colorTextReverse hide-on-small-only">Formulario de edición.</h4>
+    </div>
+
+    <!--Contenedor principal-->
+    <section class="contendorFormularioEditarGrupo">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div id="error_login">
+            <p>{{ message }}</p>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <section class="contenedorFormularioPrincipal">
+            <form class="popUpForm bordered2 colorGreyWhiter shadow-2e" action="/updatePostAlumno/{{post[0][0]}}"
+                method="post">
+                <h5>Datos del POST</h5>
+                <div class="row">
+                    <div class="input-field col s12 m12 l6">
+                        <input value="{{post[0][2]}}" id="tituloPostTwo" name="tituloPostTwo" type="text"
+                            class="validate">
+                        <label for="tituloPostTwo">Titulo del post</label>
+                    </div>
+                    <div class="input-field col s12 m12 l6">
+                        <textarea id="descripcionPostTwo" name="descripcionPostTwo"
+                            class="validate materialize-textarea" data-length="100">{{post[0][3]}}</textarea>
+                        <label for="descripcionPostTwo">Descripción del post</label>
+                    </div>
+                </div>
+
+                <h5>Multimedia</h5>
+                <div class="row">
+                    <div class="input-field col s12 m12">
+                        <input placeholder="Fondo para el grupo" id="fondoPostTwo" name="fondoPostTwo" type="text"
+                            value="{{post[0][4]}}">
+                        <label for="fondoPostTwo">URL de imagen</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-large color2 bordered5 buttonPopUp">Editar</button>
+
+            </form>
+        </section>
+    </section>
+
+</body>
+
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+<script src="../../static/js/operacionesEditarPerfil.js"></script>
+
+</html>

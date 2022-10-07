@@ -213,7 +213,8 @@ lo mismo para con esta funcion con el try except
 def perfil_alumno():
     try:
         result = Op_estudiante.datos_completos_alumno_by_id(session['IDAlumno'])
-        return render_template('estudiante/perfil_alumno.html',datos=result)
+        post = Op_estudiante.obtenerPost(session['IDAlumno'])
+        return render_template('estudiante/perfil_alumno.html',datos=result, post = post)
     except:
         return render_template('estudiante/perfil_alumno.html')
 
@@ -291,6 +292,48 @@ def editarFotoPerfilAlumno(id_alumno):
 #@login_required
 def  contestar_cuestionario_estudiante():
     return render_template('estudiante/contestar_cuestionario.html')
+
+# Formulario para que el docente haga una publicacion
+@routes.route('/crearPostAlumno/<string:id_alumno>', methods=["POST"])
+def crear_post_alumno(id_alumno):
+    #Obtenemos los datos del formulario
+    tituloPost = request.form["tituloPost"]
+    fondoPost = request.form["fondoPost"]
+    descripcionPost = request.form["descripcionPost"]
+    if(tituloPost == "" or fondoPost == "" or descripcionPost == ""):
+        return redirect(url_for('routes.perfil_alumno'))
+    else:
+        Op_estudiante.crearPost(id_alumno, tituloPost, descripcionPost, fondoPost)
+        return redirect(url_for('routes.perfil_alumno'))
+
+# Formulario para borrar el post
+@routes.route('/deletePostAlumno/<string:id_publicacion>')
+def delete_post_alumno(id_publicacion):
+    Op_estudiante.deletePost(id_publicacion)
+    return redirect(url_for('routes.perfil_alumno'))
+
+#Para editar un post
+@routes.route('/editarPostAlumno/<string:id_publicacion>')
+def edit_post_alumno(id_publicacion):
+    #Obtenemos los datos del cuestionario
+    pickedPostData = Op_estudiante.obtenerPostUnitario(id_publicacion)
+    print(pickedPostData)
+    #Enviamos al usuario al formulario para editar la data
+    return render_template('estudiante/b_editarPost.html', post = pickedPostData)
+
+# Formulario para update de el post
+@routes.route('/updatePostAlumno/<string:id_publicacion>', methods=['POST'])
+def update_post_alumno(id_publicacion):
+    #Obtenemos los datos del formulario
+    tituloPostTwo = request.form["tituloPostTwo"]
+    fondoPostTwo = request.form["fondoPostTwo"]
+    descripcionPostTwo = request.form["descripcionPostTwo"]
+    if(tituloPostTwo == "" or fondoPostTwo == "" or descripcionPostTwo == ""):
+        print("No se edito")
+        return redirect(url_for('routes.perfil_alumno'))
+    else:
+        Op_estudiante.updatePost(id_publicacion,tituloPostTwo, descripcionPostTwo, fondoPostTwo)
+        return redirect(url_for('routes.perfil_alumno'))
 
 #Formulario para guardar fondos de perfil
 @routes.route('/guardarFondoEst/<string:id_alumno>',methods=['GET','POST'])
