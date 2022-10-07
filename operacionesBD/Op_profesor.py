@@ -338,6 +338,20 @@ def update_cuestionarios(id_grupo, tituloCuestionario, fechaCuestionario, autorC
     conexion.close()
     return confirmacionUpdate
 
+##
+## Nos ayuda a eliminar un cuestionario
+##
+def delete_cuestionarios(id_cuestionario):
+    conexion=obtener_conexion()
+    confirmacionDeDelete = True
+
+    with conexion.cursor() as cursor:
+        cursor.execute("DELETE from cuestionarios WHERE IDCuestionario = %s", (id_cuestionario))
+
+    conexion.commit()
+    conexion.close()
+    return confirmacionDeDelete
+
 
 ##
 ## Obtiene los datos de los cuestionarios vinculados a un grupo

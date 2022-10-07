@@ -681,11 +681,14 @@ def edit_cuestionario(id_cuestionario):
     print(pickedCuestionarioData)
     datosProfesor = Op_profesor.datos_completos_docente_by_id(pickedCuestionarioData[0][2])
 
+    #Obtenemos el nombre del grupo actual
+    nombreGrupo = Op_profesor.obtener_grupos_Nombre(pickedCuestionarioData[0][1])
+
     #Obtenemos los datos de los grupos
     gruposNombres = Op_profesor.obtener_grupos_datos_importantes(pickedCuestionarioData[0][2]); 
 
     #Enviamos al usuario al formulario para editar la data
-    return render_template('profesor/b_cuestionarios_edición_datos_adicionales.html', cuestionarioInfo = pickedCuestionarioData[0], datosProfesor = datosProfesor, gruposNombres = gruposNombres)
+    return render_template('profesor/b_cuestionarios_edición_datos_adicionales.html', cuestionarioInfo = pickedCuestionarioData[0], datosProfesor = datosProfesor, gruposNombres = gruposNombres, nombreGrupo = nombreGrupo)
 
 
 ##
@@ -699,7 +702,7 @@ def update_cuestionario(id_cuestionarios):
         id_cuestionario = id_cuestionarios
         tituloCuestionario = request.form["tituloCuestionario"]
         tituloCuestionario = tituloCuestionario.replace(" ","_")
-        
+
         fechaCuestionario = request.form["fechaCuestionario"]
         autorCuestionario = request.form["autorCuestionario"]
         temasCuestionario = request.form["temasCuestionario"]
@@ -713,6 +716,18 @@ def update_cuestionario(id_cuestionarios):
         Op_profesor.update_cuestionarios(id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, id_cuestionario)
         
         return redirect(url_for('routes.gestionar_cuestionarios')) 
+
+##
+##Bloque para eliminar los cuestionarios
+##Solo es un borrado lógico, los JSON no se borran del almacenamiento
+##
+
+@routes.route('/deleteCuestionario/<string:id_cuestionario>')
+def delete_cuestionario(id_cuestionario):
+    #Eliminamos el grupo con el ID dada
+    resultDelete = Op_profesor.delete_cuestionarios(id_cuestionario)
+
+    return redirect(url_for('routes.gestionar_cuestionarios')) 
 
 # Formulario para que el docente haga una publicacion
 @routes.route('/crear_publicacion')

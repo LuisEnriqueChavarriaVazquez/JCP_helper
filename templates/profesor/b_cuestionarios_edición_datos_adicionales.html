@@ -73,6 +73,7 @@
                     </div>
                     <div class="input-field col s12 m6">
                         <select id="temasCuestionario" name="temasCuestionario">
+                            <option value="{{cuestionarioInfo[6]}}" selected="selected">{{cuestionarioInfo[6]}} (Actual)</option>
                             {% if gruposNombres %}
                             {%for i in range(0, gruposNombres|length)%}
                             <option value="{{gruposNombres[i][7]}}">{{gruposNombres[i][7]}}</option>
@@ -96,6 +97,7 @@
 
                     <div class="input-field col s12 m12">
                         <select id="grupoCuestionario" name="grupoCuestionario">
+                            <option value="{{nombreGrupo[0][0]}}" selected="selected">{{nombreGrupo[0][0]}} (Actual)</option>
                             {% if gruposNombres %}
                             {%for i in range(0, gruposNombres|length)%}
                             <option value="{{gruposNombres[i][2]}}">{{gruposNombres[i][2]}}</option>
