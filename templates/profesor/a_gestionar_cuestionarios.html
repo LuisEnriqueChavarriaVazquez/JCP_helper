@@ -115,11 +115,12 @@
 
             <div class="contenedorCardsGruposOperation" id="contenedorCardsGruposOperationId">
                 {% if datosCuestionarios %}
+                {% if datosGrupos %}
                 {%for i in range(0, datosCuestionarios|length)%}
                 <div>
                     <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
                         <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId"
-                        style="background-image: url('../../static/images/fondos/cafe/cafe_11.png'), url(../../static/images/fondos/fondo.png); background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: hue;">
+                        style="background-image: url('../../static/images/fondos/black/black_7.png'); background-position: center; background-repeat: no-repeat; background-size: cover;">
                         <div>
                             <h5 class="titleGroupContentId">{{datosCuestionarios[i][3]}}</h5>
                         </div>
@@ -136,7 +137,8 @@
                         </div>
                         <div
                             class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
-                            <p><b>{{datosCuestionarios[i][7]}}</b></p>
+                            <p style="margin: 10px 0 0 0 !important;"><b>Grupo: {{datosGrupos[i][0][0]}}</b></p>
+                            <p class="hide-on-small-only" style="margin: 0 0 5px 0 !important;">{{datosCuestionarios[i][7]}}</p>
                         </div>
                         <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
                             <!--Botones de cada grupo-->
@@ -153,6 +155,7 @@
                     </div>
                 </div>
                 {% endfor %}
+                {% endif %}
                 {% endif %}
             </div>
         </section>

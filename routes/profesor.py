@@ -62,9 +62,13 @@ def gestionar_cuestionarios():
         result=Op_profesor.datos_completos_docente_by_id(session["IDDocente"])
         try:
             resultCuestionarios = Op_profesor.obtener_cuestionarios_datos_importantes(session["IDDocente"])
+            resultGrupos = []
+            for cuestionarioIdGrupo in resultCuestionarios:
+                resultGrupos.append(Op_profesor.obtener_grupos_Nombre(cuestionarioIdGrupo[1]))
+                print(resultGrupos)
         except:
             return render_template('profesor/a_gestionar_cuestionarios.html',datos=result)
-        return render_template('profesor/a_gestionar_cuestionarios.html',datos=result, datosCuestionarios = resultCuestionarios)
+        return render_template('profesor/a_gestionar_cuestionarios.html',datos=result, datosCuestionarios = resultCuestionarios, datosGrupos = resultGrupos)
     except:
         return render_template('profesor/a_gestionar_cuestionarios.html')
 
@@ -197,7 +201,8 @@ def gestionar_grupos():
         #Guardo los grupos de este profesor
         myGrupos = Op_profesor.obtener_grupos_datos_importantes(id_profesor)
 
-        ##Esta sesscion es para poder hacer el conteo de alumnos en un grupo
+        ####################
+        ##Esta seccion es para poder hacer el conteo de alumnos en un grupo
         myGruposLista = []
 
         for grupoLista in myGrupos:
@@ -207,11 +212,27 @@ def gestionar_grupos():
         for idGrupo in myGruposLista:
             #Obtenemos y contamos los ids de los estudiantes dentro de un grupo para contarlos
             idsAlumnos += (Op_profesor.contar_IDAlumno_dentro_de_grupo(idGrupo[0]))
+        
+        ####################
+        ##Esta sección es para poder hacer el conteo de los cuestionarios
+        myCuestionarios = Op_profesor.obtener_grupos_datos_importantes(id_profesor)
+        myCuestionariosLista = []
+
+        for cuestionarioLista in myCuestionarios:
+            myCuestionariosLista.append(cuestionarioLista)
+        print("------------------------")
+        print(myCuestionariosLista)
+        
+        idsCuestionarios = ()
+        for idCuestionarioGrupo in myCuestionariosLista:
+            #Contamos los ids de los estudiantes dentro de un grupo para contarlos
+            idsCuestionarios += (Op_profesor.contar_IDCuestionario_dentro_de_grupo(idCuestionarioGrupo[0]))
+        print(idsCuestionarios)
 
         #Datos del docente
         result=Op_profesor.datos_completos_docente_by_id(id_profesor)
 
-        return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos, datos=result, idsAlumnos = idsAlumnos)
+        return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos, datos=result, idsAlumnos = idsAlumnos, idsCuestionarios = idsCuestionarios)
     else:
         #
         #   Esto es lo que hace cuando se carga la página la primera vez
@@ -230,22 +251,42 @@ def gestionar_grupos():
         #Guardo los grupos de este profesor
         myGrupos = Op_profesor.obtener_grupos_datos_importantes(id_profesor)
 
-        ##Esta sesscion es para poder hacer el conteo de alumnos en un grupo
+        ###################
+        ##Esta seccion es para poder hacer el conteo de alumnos en un grupo
         myGruposLista = []
 
         for grupoLista in myGrupos:
             myGruposLista.append(grupoLista)
+        print(myGruposLista)
         
         idsAlumnos = ()
         for idGrupo in myGruposLista:
             #Contamos los ids de los estudiantes dentro de un grupo para contarlos
             idsAlumnos += (Op_profesor.contar_IDAlumno_dentro_de_grupo(idGrupo[0]))
         print(idsAlumnos)
+
+        ####################
+        ##Esta sección es para poder hacer el conteo de los cuestionarios
+        myCuestionarios = Op_profesor.obtener_grupos_datos_importantes(id_profesor)
+        myCuestionariosLista = []
+
+        for cuestionarioLista in myCuestionarios:
+            myCuestionariosLista.append(cuestionarioLista)
+        print("------------------------")
+        print(myCuestionariosLista)
+        
+        idsCuestionarios = ()
+        for idCuestionarioGrupo in myCuestionariosLista:
+            #Contamos los ids de los estudiantes dentro de un grupo para contarlos
+            idsCuestionarios += (Op_profesor.contar_IDCuestionario_dentro_de_grupo(idCuestionarioGrupo[0]))
+        print(idsCuestionarios)
+
+
         #Guardo los datos del docente (los de la sesion)
         result=Op_profesor.datos_completos_docente_by_id(id_profesor)
 
         #Retorno los grupos en la página para que puedan ser impresos
-        return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos, datos=result, idsAlumnos=idsAlumnos)
+        return render_template('profesor/a_gestionar_grupos.html', grupo = myGrupos, datos=result, idsAlumnos=idsAlumnos, idsCuestionarios = idsCuestionarios)
 
 ##
 ##Bloque para eliminar los grupos
