@@ -372,6 +372,11 @@ def view_group(id):
 def signup_Prof():
     return render_template('profesor/signup_prof.html')
 
+@routes.route('/profesor_logout')
+def profesor_logout():
+    session['logged_in'] = False
+    return redirect(url_for('routes.login_general'))
+
 @routes.route('/nuevo_profesor',methods=["POST"])
 def nuevo_profesor():
     if request.method=="POST":
