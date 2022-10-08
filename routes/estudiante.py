@@ -24,7 +24,10 @@ def login_required(f):
 
     return wrap
 
-
+@routes.route("/logoutEstudiante")
+def logoutEstudiante():
+    session['logged_in'] = False
+    return redirect(url_for("routes.login_general"))
 ##Ruta para la vista de comunidad del estudiante
 @routes.route('/comunidad_estudiante')
 #@login_required
