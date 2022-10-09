@@ -627,6 +627,8 @@ $(document).ready(function () {
 });
 
 //Opcion para guardar preguntas de Arrastrar (En la vista previa)
+//Guardar nuevo ejercicio
+var contadorArrastrarPreguntas = 0;
 $(document).ready(function () {
   $("#btnGuardarModalArrastrarCreacion").click(function () {
     var textoElementos = "";
@@ -640,14 +642,15 @@ $(document).ready(function () {
       var texto = $(this).find(".textoArrastrarCreacion").val();
       var opccion = $(this).find(".textoOpccionCreacion").val();
 
+      contadorArrastrarPreguntas++;
       textoElementos =
         textoElementos +
         `<div class='row opccionLinea'>
           <div class="col s12 m6">
-            <input value="`+ texto +`" placeholder='(a) Escriba el concepto' type='text' class='textoArrastrarCreacion browser-default conceptoDefinicion'>
+            <input id="conceptoArrastrarView` + contadorEjerciciosEnContenedor + `" value="`+ texto +`" placeholder='(a) Escriba el concepto' type='text' class='textoArrastrarCreacion browser-default conceptoDefinicion'>
           </div>
           <div class='col s12 m6'>
-            <input value="`+ opccion +`" placeholder='(b) Escriba la definición' type="text" class='textoOpccionCreacion browser-default conceptoDefinicion'>
+            <input id="definicionArrastrarView` + contadorEjerciciosEnContenedor + `" value="`+ opccion +`" placeholder='(b) Escriba la definición' type="text" class='textoOpccionCreacion browser-default conceptoDefinicion'>
           </div>
         </div>`;
     });
@@ -662,8 +665,8 @@ $(document).ready(function () {
               <div class='row col s12'>
                 <div class='input-field col s12'>
                   <i class="material-icons prefix">description</i>
-                  <textarea id="temporal" class='materialize-textarea textoPregunta'>`+ pregunta + `</textarea>
-                  <label for="temporal" class="active">Descripción del ejercicio</label>
+                  <textarea id="tituloArrastrar` + contadorEjerciciosEnContenedor + `" class='materialize-textarea textoPregunta'>`+ pregunta + `</textarea>
+                  <label for="tituloArrastrar` + contadorEjerciciosEnContenedor + `" class="active">Descripción del ejercicio</label>
                 </div>
               </div>
             </div>

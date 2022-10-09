@@ -75,9 +75,9 @@ def gestionar_cuestionarios():
 
 
 ##Ruta para la vista de gestion de estadisticas
-@routes.route('/gestionar_estadisticas/<string:id_grupo>')
+@routes.route('/gestionar_estadisticas/<string:id_docente>')
 #@login_required
-def gestionar_estadisticas(id_grupo):
+def gestionar_estadisticas(id_docente):
 
     #Grafica de ejemplo 1
     df = pd.DataFrame({
@@ -112,7 +112,7 @@ def gestionar_estadisticas(id_grupo):
     """
 
     #Obtenemos los datos del grupo
-    datosGrupo = Op_profesor.obtener_grupos_datos_importantes(id_grupo)
+    datosGrupo = Op_profesor.obtener_grupos_datos_importantes(id_docente)
     print(datosGrupo)
 
     idGrupos = []
@@ -155,7 +155,13 @@ def gestionar_estadisticas(id_grupo):
         k += 1
     print(cantidadesDeAlumnos)
 
-    return render_template('profesor/a_gestionar_estadisticas.html', datosGrupo=datosGrupo, datosGlobalesAlumnos = datosGlobalesAlumnos, cantidadesDeAlumnos = cantidadesDeAlumnos, graphJSON=graphJSON, header=header,description=description, graphJSON2=graphJSON2, header2=header2,description2=description2)
+    #Contador de cuestionarios
+    #Cuenta los elementos
+    IDS_Cuestionarios = Op_profesor.obtener_cuestionarios_IDS(id_docente)
+    ##Contador de alumnos y grupos y cuestionarios
+    contadorCuestionarios = len(IDS_Cuestionarios)
+
+    return render_template('profesor/a_gestionar_estadisticas.html', datosGrupo=datosGrupo, datosGlobalesAlumnos = datosGlobalesAlumnos, cantidadesDeAlumnos = cantidadesDeAlumnos,IDS_Cuestionarios = contadorCuestionarios, graphJSON=graphJSON, header=header,description=description, graphJSON2=graphJSON2, header2=header2,description2=description2)
 
 ##Ruta para la vista de gestion de grupos
 ##
@@ -433,10 +439,12 @@ def login_profesor():
                 #Cuenta los elementos
                 IDS_Alumnos = Op_profesor.obtener_alumnos_con_profesor_IDS(session['IDDocente'])
                 IDS_Grupos = Op_profesor.obtener_grupos_IDS(session['IDDocente'])
-                ##Contador de alumnos y grupos
+                IDS_Cuestionarios = Op_profesor.obtener_cuestionarios_IDS(session['IDDocente'])
+                ##Contador de alumnos y grupos y cuestionarios
                 contadorAlumnos = len(IDS_Alumnos)
                 contadorGrupos = len(IDS_Grupos)
-                return render_template('profesor/bienvenidaProfesor.html',datos=result, IDS_Alumnos = contadorAlumnos, IDS_Grupos = contadorGrupos)  
+                contadorCuestionarios = len(IDS_Cuestionarios)
+                return render_template('profesor/bienvenidaProfesor.html',datos=result, IDS_Alumnos = contadorAlumnos, IDS_Grupos = contadorGrupos, IDS_Cuestionarios = contadorCuestionarios)  
             else:
                 flash("Usuario o contraseña incorrectos!")
                 return redirect(url_for('routes.login_general'))   
@@ -462,10 +470,12 @@ def bienvenidaProfesor():
         result = Op_profesor.datos_completos_docente_by_id(session['IDDocente'])
         IDS_Alumnos = Op_profesor.obtener_alumnos_con_profesor_IDS(session['IDDocente'])
         IDS_Grupos = Op_profesor.obtener_grupos_IDS(session['IDDocente'])
+        IDS_Cuestionarios = Op_profesor.obtener_cuestionarios_IDS(session['IDDocente'])
         ##Contador de alumnos y grupos
         contadorAlumnos = len(IDS_Alumnos)
         contadorGrupos = len(IDS_Grupos)
-        return render_template('profesor/bienvenidaProfesor.html',datos=result, IDS_Alumnos = contadorAlumnos, IDS_Grupos = contadorGrupos)
+        contadorCuestionarios = len(IDS_Cuestionarios)
+        return render_template('profesor/bienvenidaProfesor.html',datos=result, IDS_Alumnos = contadorAlumnos, IDS_Grupos = contadorGrupos, IDS_Cuestionarios = contadorCuestionarios)
     except:
         return render_template('profesor/bienvenidaProfesor.html')
 

@@ -367,6 +367,18 @@ def contar_IDCuestionario_dentro_de_grupo(id_grupo):
     conexion.close()
     return cuestionariosIds
 
+#Con cuestionarios de un docente
+def obtener_cuestionarios_IDS(id_profesor):
+    conexion=obtener_conexion()
+    IDS_cuestionarios=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT IDCuestionario FROM cuestionarios WHERE IDDocente = %s", (id_profesor))
+        IDS_cuestionarios=cursor.fetchall()
+
+    conexion.close()
+    return IDS_cuestionarios
+
 
 # va a servir para meter un JSON en un nuevo cuestionario
 def insertar_cuestionario_JSON(id_profesor, id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, archivoCuestionario):
