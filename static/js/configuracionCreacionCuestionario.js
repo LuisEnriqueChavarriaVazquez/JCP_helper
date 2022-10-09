@@ -614,7 +614,7 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#btnAgregarsModalArrastrarCreacion").click(function () {
     $("#opccionesArrastarModalCreacion").append(
-      `<div class='row opccionLinea'>
+      `<div class='row opccionLinea opcionLineaModal'>
         <div class="col s12 m6">
           <input placeholder='(a) Escriba el concepto' type='text' class='textoArrastrarCreacion browser-default conceptoDefinicion'>
         </div>
@@ -695,7 +695,23 @@ $(document).ready(function () {
   });
 });
 
-// Eliminar pregunta de arrastrado (En el modal)
+//Eliminar concepto y definición (en el modal)
+function eliminarConceptoModal(){
+  //Obtenemos los elementos del modal
+  const opcionLineaModal = document.getElementsByClassName('opcionLineaModal');
+
+  //Boton de borrado del último elemento
+  const btnEliminarModalArrastrarCreacion = document.getElementById('btnEliminarModalArrastrarCreacion');
+
+  //Activamos el evento
+  btnEliminarModalArrastrarCreacion.addEventListener('click', eliminarUltimo);
+  function eliminarUltimo(){
+    opcionLineaModal[opcionLineaModal.length - 1].remove();
+  }
+} 
+eliminarConceptoModal();
+
+// Eliminar pregunta de arrastrado (En la vista previa)
 $(document).ready(function () {
   $("#contenedorCuestionarioPreguntas").on(
     "click",
