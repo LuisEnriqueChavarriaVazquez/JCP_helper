@@ -1,34 +1,16 @@
 var contadorModalRellenarEspaciosCreacion = 0;
 
-//Opccion para agregar opccion a la opcción multiple
+/* 
+  ######################################################
+  MODAL 1: OPCION MULTIPLE
+  ######################################################
+*/
+//Opcion para agregar opccion a la opción multiple
 $(document).ready(function () {
   $("#btnAgregarModalOpcionMultipleCreacion").click(function () {
     $("#contenedorOpccionesOpccionMultipleModalCreacion .hide")
       .first()
       .removeClass("hide");
-  });
-});
-
-
-//Opccion para hacer que pongan los espacios en la de completar espacios
-$(document).ready(function () {
-  $("#btnAgregarModalRellenarEspaciosCreacion").click(function () {
-    var textoInput = $("#texAreaModalRellenarEspaciosCreacion").val();
-    contadorModalRellenarEspaciosCreacion++;
-    $("#texAreaModalRellenarEspaciosCreacion").val(
-      textoInput + " [Blank " + contadorModalRellenarEspaciosCreacion + "]"
-    );
-    $("#contenedorOpccionEspaciosCreacion").append(
-      "<div class='row containerTextBlank'>" +
-      "<div class='col s12 m6 containerTextBlankSon1'>" +
-      "Blank " +
-      contadorModalRellenarEspaciosCreacion +
-      "</div>" +
-      "<div class='col s12 m6 containerTextBlankSon2'>" +
-      "<input type='text' class='browser-default blankContadorEspaciosCreacion '>" +
-      "</div>" +
-      "</div>"
-    );
   });
 });
 
@@ -43,22 +25,40 @@ $(document).ready(function () {
   );
 });
 
-//Opccion para hacer que pongan los espacios en las preguntas  de completar espacios
+// Agregar opcciones a las preguntas de opccion multiple
 $(document).ready(function () {
-  $("#btnAgregarsModalArrastrarCreacion").click(function () {
-    $("#opccionesArrastarModalCreacion").append(
-      " <div class='row opccionLinea'>" +
-      " <div class='input-field col s6'>" +
-      "  <input placeholder='Placeholder'   type='text' class='textoArrastrarCreacion'>" +
-      "</div>" +
-      "<div class='col s6 '>" +
-      "<a class='waves-effect waves-light btn '  style='width: 100 %; height: 100px;'>" +
-      "<textarea placeholder='Opccion' id='opccion' class='materialize-textarea textoOpccionCreacion  '></textarea>" +
-      "</a>" +
-      "</div>" +
-      "</div>"
-    );
-  });
+  $("#contenedorCuestionarioPreguntas").on(
+    "click",
+    ".btnAgregarOpcionMultiple",
+    function () {
+      var preguntaOpccionMultiple = $(this).closest(".preguntaOpccionMultiple");
+      preguntaOpccionMultiple.find(".hide").first().removeClass("hide");
+    }
+  );
+});
+
+// Agregar opcciones a las preguntas de opccion multiple
+$(document).ready(function () {
+  $("#contenedorCuestionarioPreguntas").on(
+    "click",
+    ".btnAgregarOpcionMultiple",
+    function () {
+      var preguntaOpccionMultiple = $(this).closest(".preguntaOpccionMultiple");
+      var elementoBorrar = preguntaOpccionMultiple.find(".hide").first();
+      elementoBorrar.removeClass(".hide");
+    }
+  );
+});
+
+// Eliminar pregunta de opccion multiple
+$(document).ready(function () {
+  $("#contenedorCuestionarioPreguntas").on(
+    "click",
+    ".btnEliminarPreguntaOpcionMultiple",
+    function () {
+      $(this).closest(".preguntaOpccionMultiple").remove();
+    }
+  );
 });
 
 //Insertar preguntas de opción multiples
@@ -228,6 +228,52 @@ $(document).ready(function () {
   });
 });
 
+
+/*
+  ######################################################
+  MODAL 2: RELLENADO DE ESPACIOS
+  ######################################################
+*/
+//Opccion para hacer que pongan los espacios en la de completar espacios
+$(document).ready(function () {
+  $("#btnAgregarModalRellenarEspaciosCreacion").click(function () {
+    var textoInput = $("#texAreaModalRellenarEspaciosCreacion").val();
+    contadorModalRellenarEspaciosCreacion++;
+    $("#texAreaModalRellenarEspaciosCreacion").val(
+      textoInput + " [Blank " + contadorModalRellenarEspaciosCreacion + "]"
+    );
+    $("#contenedorOpccionEspaciosCreacion").append(
+      "<div class='row containerTextBlank'>" +
+      "<div class='col s12 m6 containerTextBlankSon1'>" +
+      "Blank " +
+      contadorModalRellenarEspaciosCreacion +
+      "</div>" +
+      "<div class='col s12 m6 containerTextBlankSon2'>" +
+      "<input type='text' class='browser-default blankContadorEspaciosCreacion '>" +
+      "</div>" +
+      "</div>"
+    );
+  });
+});
+
+//Opccion para hacer que pongan los espacios en las preguntas  de completar espacios
+$(document).ready(function () {
+  $("#btnAgregarsModalArrastrarCreacion").click(function () {
+    $("#opccionesArrastarModalCreacion").append(
+      " <div class='row opccionLinea'>" +
+      " <div class='input-field col s6'>" +
+      "  <input placeholder='Placeholder'   type='text' class='textoArrastrarCreacion'>" +
+      "</div>" +
+      "<div class='col s6 '>" +
+      "<a class='waves-effect waves-light btn '  style='width: 100 %; height: 100px;'>" +
+      "<textarea placeholder='Opccion' id='opccion' class='materialize-textarea textoOpccionCreacion  '></textarea>" +
+      "</a>" +
+      "</div>" +
+      "</div>"
+    );
+  });
+});
+
 //Insertar preguntas de rellenar espacio
 /*
 * FUNCION DE INSERCIÓN EN LA PREVIEW DE CUESTIONARIO
@@ -290,6 +336,85 @@ $(document).ready(function () {
     $("#contenedorCuestionarioPreguntas").append(contenedor);
   });
 });
+
+// Agregar espacios en blanco
+$(document).ready(function () {
+  $("#contenedorCuestionarioPreguntas").on(
+    "click",
+    ".btnAgregarEspacioBlanco",
+    function () {
+      var preguntaRellenarEspacios = $(this).closest(
+        ".preguntaRellenarEspacios"
+      );
+
+      var lugarDeEspacios = preguntaRellenarEspacios.find(".espaciosBlancos");
+      var numeroEspacios =
+        lugarDeEspacios.find(".blankContadorEspaciosCreacion").length + 1;
+      lugarDeEspacios.append(
+        "<div class='row containerTextBlank'>" +
+        "<div class='col s12 m6 containerTextBlankSon1'>" +
+        "Blank " +
+        numeroEspacios +
+        "</div>" +
+        "<div class='col s12 m6 containerTextBlankSon2'>" +
+        "<input type='text' class='browser-default blankContadorEspaciosCreacion '>" +
+        "</div>" +
+        "</div>"
+      );
+
+      var preguntaAgregar =
+        preguntaRellenarEspacios.find(".textoPregunta").val() +
+        "[Blank" +
+        numeroEspacios +
+        "]";
+      preguntaRellenarEspacios.find(".textoPregunta").val(preguntaAgregar);
+    }
+  );
+});
+
+/*
+  ######################################################
+  MODAL 3: EJERCICIOS PLANTEADOS POR EL PROFESOR
+  ######################################################
+*/
+
+/*
+*  Función para mostrar el contenido de los ejercicios
+*/
+
+function agregarEjercicio(){
+  const descripcionProblema = document.getElementById('descripcionProblema');
+  const codigoResultado = document.getElementById('codigoResultado');
+  const codigoMuestra = document.getElementById('codigoMuestra');
+
+  //Boton de limpiar
+  const limpiarCasillasEjercicioButton = document.getElementById('limpiarCasillasEjercicioButton');
+
+  //Mostrar el código antes de agregarlo
+  codigoResultado.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      mostrarCódigoMuestra();
+    }
+  });
+
+  function mostrarCódigoMuestra(){
+    codigoMuestra.innerText = codigoResultado.value;
+  }
+
+  //Limpiar todas las casilla
+  limpiarCasillasEjercicioButton.addEventListener('click', limpiarCasillas);
+  function limpiarCasillas(){
+    descripcionProblema.value = "";
+    codigoResultado.value = "";
+    codigoMuestra.innerText = "";
+  }
+}
+
+/*
+  ######################################################
+  MODAL 4: PARA ARRASTRAR
+  ######################################################
+*/
 
 //Opcion para guardar preguntas de Arrastrar
 $(document).ready(function () {
@@ -365,77 +490,14 @@ $(document).ready(function () {
   });
 });
 
-// Agregar opcciones a las preguntas de opccion multiple
-$(document).ready(function () {
-  $("#contenedorCuestionarioPreguntas").on(
-    "click",
-    ".btnAgregarOpcionMultiple",
-    function () {
-      var preguntaOpccionMultiple = $(this).closest(".preguntaOpccionMultiple");
-      preguntaOpccionMultiple.find(".hide").first().removeClass("hide");
-    }
-  );
-});
 
-// Agregar opcciones a las preguntas de opccion multiple
-$(document).ready(function () {
-  $("#contenedorCuestionarioPreguntas").on(
-    "click",
-    ".btnAgregarOpcionMultiple",
-    function () {
-      var preguntaOpccionMultiple = $(this).closest(".preguntaOpccionMultiple");
-      var elementoBorrar = preguntaOpccionMultiple.find(".hide").first();
-      elementoBorrar.removeClass(".hide");
-    }
-  );
-});
 
-// Eliminar pregunta de opccion multiple
-$(document).ready(function () {
-  $("#contenedorCuestionarioPreguntas").on(
-    "click",
-    ".btnEliminarPreguntaOpcionMultiple",
-    function () {
-      $(this).closest(".preguntaOpccionMultiple").remove();
-    }
-  );
-});
 
-// Agregar espacios en blanco
-$(document).ready(function () {
-  $("#contenedorCuestionarioPreguntas").on(
-    "click",
-    ".btnAgregarEspacioBlanco",
-    function () {
-      var preguntaRellenarEspacios = $(this).closest(
-        ".preguntaRellenarEspacios"
-      );
-
-      var lugarDeEspacios = preguntaRellenarEspacios.find(".espaciosBlancos");
-      var numeroEspacios =
-        lugarDeEspacios.find(".blankContadorEspaciosCreacion").length + 1;
-      lugarDeEspacios.append(
-        "<div class='row containerTextBlank'>" +
-        "<div class='col s12 m6 containerTextBlankSon1'>" +
-        "Blank " +
-        numeroEspacios +
-        "</div>" +
-        "<div class='col s12 m6 containerTextBlankSon2'>" +
-        "<input type='text' class='browser-default blankContadorEspaciosCreacion '>" +
-        "</div>" +
-        "</div>"
-      );
-
-      var preguntaAgregar =
-        preguntaRellenarEspacios.find(".textoPregunta").val() +
-        "[Blank" +
-        numeroEspacios +
-        "]";
-      preguntaRellenarEspacios.find(".textoPregunta").val(preguntaAgregar);
-    }
-  );
-});
-
+/*
+  ######################################################
+  EXTRA: INTERACCIÓN EN GENERAL
+  ######################################################
+*/
 
 /*
 *   Función para el ingreso del titulo
@@ -479,37 +541,10 @@ function ingresarTitulo() {
   }
 }
 
-/*
-*  Función para mostrar el contenido de los ejercicios
-*/
 
-function agregarEjercicio(){
-  const descripcionProblema = document.getElementById('descripcionProblema');
-  const codigoResultado = document.getElementById('codigoResultado');
-  const codigoMuestra = document.getElementById('codigoMuestra');
 
-  //Boton de limpiar
-  const limpiarCasillasEjercicioButton = document.getElementById('limpiarCasillasEjercicioButton');
-
-  //Mostrar el código antes de agregarlo
-  codigoResultado.addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-      mostrarCódigoMuestra();
-    }
-  });
-
-  function mostrarCódigoMuestra(){
-    codigoMuestra.innerText = codigoResultado.value;
-  }
-
-  //Limpiar todas las casilla
-  limpiarCasillasEjercicioButton.addEventListener('click', limpiarCasillas);
-  function limpiarCasillas(){
-    descripcionProblema.value = "";
-    codigoResultado.value = "";
-    codigoMuestra.innerText = "";
-  }
-}
-
+//Funciones para el titulo
 ingresarTitulo();
+
+//Funcion para que el ejercicios (codigo se visualize en preview de codigo)
 agregarEjercicio();

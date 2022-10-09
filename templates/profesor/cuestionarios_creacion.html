@@ -31,10 +31,104 @@
         </div>
     </nav>
 
-    <!--Contenido de la pagina-->
 
-    <div class="row" id="contenedorGeneral">
-        <!--Modal para la creacion de preguntas de opcion multiple-->
+    <section class="containerCreacionCuestionarios">
+        <!--Opciones para crear el cuestionario en pantalla grande-->
+        <section class="containerCreacionCuestionariosSon1">
+            <section class="containerOpcionesFather">
+                <h5>Tipos de pregunta</h5>
+                <br>
+                <div class="containerOpciones colorGreyWhiter shadow-2e">
+                    <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
+                        href="#modalOpccionMultipleCreacion"><i class="material-icons left md-32">abc</i>Opción
+                        múltiple</a>
+                    <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
+                        href="#modalRellenarEspaciosCreacion"><i class="material-icons left md-32">draw</i>Rellenar
+                        espacios</a>
+                    <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
+                        href="#modalEjerciciosCreacion"><i class="material-icons left md-32">code</i>Ejercicios</a>
+                    <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
+                        href="#modalArrastrarCreacion"><i
+                            class="material-icons left md-32">swipe_vertical</i>Arrastrar</a>
+                    <a class="waves-effect waves-light btn-large bordered5 color1 shadow-2e"
+                        href="/crear_cuestionario_del_banco"><i class="material-icons left md-32">cloud</i>Banco de
+                        preguntas</a>
+                </div>
+            </section>
+        </section>
+
+        <!--Opciones para cuestionario en pantalla pequeña-->
+        <section class="containerOpcionesMobileFather">
+            <section class="containerOpcionesMobile bordered1 colorGreyDarker">
+                <a class="button1 waves-effect waves-light shadow-1 modal-trigger"
+                    href="#modalOpccionMultipleCreacion"><i class="material-icons md-36 colorTextReverse">abc</i></a>
+                <a class="button2 waves-effect waves-light shadow-1 modal-trigger"
+                    href="#modalRellenarEspaciosCreacion"><i class="material-icons md-28 colorTextReverse">draw</i></a>
+                <a class="button3 waves-effect waves-light shadow-1 modal-trigger" href="#modalEjerciciosCreacion"><i
+                        class="material-icons md-28 colorTextReverse">code</i></a>
+                <a class="button4 waves-effect waves-light shadow-1 modal-trigger" href="#modalArrastrarCreacion"><i
+                        class="material-icons md-28 colorTextReverse">swipe_vertical</i></a>
+                <a class="button5 waves-effect waves-light shadow-1" href="/crear_cuestionario_del_banco"><i
+                        class="material-icons md-28 colorTextReverse">cloud</i></a>
+            </section>
+        </section>
+
+        <!--Vista general del cuestionario-->
+        <section class="containerCreacionCuestionariosSon2">
+            <form action="/guardarCuestionarioJSON/{{id_profesor}}" method="post">
+                <div class="" id="contenedorCuestionarioPreguntas">
+                    <div class="tituloCuestionario">
+                        <div class="contenedorTitulo hiddenElement">
+                            <h5 id="tituloCuestionario">Titulo del cuestionario</h5>
+                            <a class="waves-effect waves-light btn bordered5 color1 shadow-2e" href="#"
+                                id="editarTitulo"><i class="material-icons">edit</i></a>
+                        </div>
+                        <div class="inputNombreCuestionario">
+                            <input type="text" name="nombreCuestionario" id="nombreCuestionario"
+                                class="browser-default inputNombre shadow-1 flow-text bordered5"
+                                placeholder="Ingrese nombre del cuestionario">
+                            <a class="waves-effect waves-light btn color1 shadow-2e" href="#" id="guardarTitulo"><i
+                                    class="material-icons left">done</i>Listo</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Boton ir a la siguiente sección-->
+                <div class="fixed-action-btn buttonSaveJSON">
+                    <button type="submit" class="btn-floating btn-large color1">
+                        <i class="large material-icons">save</i>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!--Vista general del proceso-->
+        <section class="containerCreacionCuestionariosSon3">
+            <div class="containerProcesoImagen">
+                <div id="circleOne" class="shadow-2e color3 colorText">1</div>
+                <div id="lineMiddle" class="shadow-2e colorGreyDarker"></div>
+                <div id="circleTwo" class="shadow-2e colorGreyDarker">2</div>
+            </div>
+            <div class="containerProcesoData">
+                <div>Estructura principal</div>
+                <div>Datos adicionales</div>
+            </div>
+        </section>
+    </section>
+
+    <!--
+        ########################################
+        Esta parte no es visible para el usuario a 
+        menos de que quiera ingresar algún tipo de pregunta
+        por eso son modals.
+        ########################################
+    -->
+    <!--Contenido de la pagina MODALS-->
+    <section class="row" id="contenedorGeneral">
+        <!--
+            ######################################################
+            MODAL 1: OPCION MULTIPLE
+            ######################################################
+        -->
         <div id="modalOpccionMultipleCreacion" class="modal colorGrey bordered2 modalAltura">
             <div class="modal-content">
                 <h4>Opción multiple</h4>
@@ -151,7 +245,11 @@
             </div>
         </div>
 
-        <!--Modal para la creacion de preguntas de rellenar espacios-->
+        <!--
+            ######################################################
+            MODAL 2: RELLENADO DE ESPACIOS
+            ######################################################
+        -->
         <div id="modalRellenarEspaciosCreacion" class="modal colorGrey bordered2 modalAltura">
             <div class="modal-content">
                 <h4>Rellenar espacios</h4>
@@ -204,7 +302,11 @@
             </div>
         </div>
 
-        <!--Modal para la creacion de preguntas de ejercicios-->
+        <!--
+            ######################################################
+            MODAL 3: EJERCICIOS PLANTEADOS POR EL PROFESOR
+            ######################################################
+        -->
         <div id="modalEjerciciosCreacion" class="modal colorGrey bordered2 modalAltura">
             <div class="modal-content">
                 <h4>Ejercicios</h4>
@@ -261,7 +363,11 @@
             </div>
         </div>
 
-        <!--Modal para la creacion de preguntas de opcion de arrestar opciones-->
+        <!--
+            ######################################################
+            MODAL 4: PARA ARRASTRAR LAS RESPUESTAS
+            ######################################################
+        -->
         <div id="modalArrastrarCreacion" class="modal">
             <div class="modal-content">
                 <h4>Arrastrar</h4>
@@ -300,91 +406,6 @@
                 </form>
             </div>
         </div>
-
-    </div>
-
-    <section class="containerCreacionCuestionarios">
-        <!--Opciones para crear el cuestionario en pantalla grande-->
-        <section class="containerCreacionCuestionariosSon1">
-            <section class="containerOpcionesFather">
-                <h5>Tipos de pregunta</h5>
-                <br>
-                <div class="containerOpciones colorGreyWhiter shadow-2e">
-                    <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
-                        href="#modalOpccionMultipleCreacion"><i class="material-icons left md-32">abc</i>Opción
-                        múltiple</a>
-                    <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
-                        href="#modalRellenarEspaciosCreacion"><i class="material-icons left md-32">draw</i>Rellenar
-                        espacios</a>
-                    <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
-                        href="#modalEjerciciosCreacion"><i class="material-icons left md-32">code</i>Ejercicios</a>
-                    <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
-                        href="#modalArrastrarCreacion"><i
-                            class="material-icons left md-32">swipe_vertical</i>Arrastrar</a>
-                    <a class="waves-effect waves-light btn-large bordered5 color1 shadow-2e"
-                        href="/crear_cuestionario_del_banco"><i class="material-icons left md-32">cloud</i>Banco de
-                        preguntas</a>
-                </div>
-            </section>
-        </section>
-
-        <!--Opciones para cuestionario en pantalla pequeña-->
-        <section class="containerOpcionesMobileFather">
-            <section class="containerOpcionesMobile bordered1 colorGreyDarker">
-                <a class="button1 waves-effect waves-light shadow-1 modal-trigger"
-                    href="#modalOpccionMultipleCreacion"><i class="material-icons md-36 colorTextReverse">abc</i></a>
-                <a class="button2 waves-effect waves-light shadow-1 modal-trigger"
-                    href="#modalRellenarEspaciosCreacion"><i class="material-icons md-28 colorTextReverse">draw</i></a>
-                <a class="button3 waves-effect waves-light shadow-1 modal-trigger" href="#modalEjerciciosCreacion"><i
-                        class="material-icons md-28 colorTextReverse">code</i></a>
-                <a class="button4 waves-effect waves-light shadow-1 modal-trigger" href="#modalArrastrarCreacion"><i
-                        class="material-icons md-28 colorTextReverse">swipe_vertical</i></a>
-                <a class="button5 waves-effect waves-light shadow-1" href="/crear_cuestionario_del_banco"><i
-                        class="material-icons md-28 colorTextReverse">cloud</i></a>
-            </section>
-        </section>
-
-        <!--Vista general del cuestionario-->
-        <section class="containerCreacionCuestionariosSon2">
-            <form action="/guardarCuestionarioJSON/{{id_profesor}}" method="post">
-                <div class="" id="contenedorCuestionarioPreguntas">
-                    <div class="tituloCuestionario">
-                        <div class="contenedorTitulo hiddenElement">
-                            <h5 id="tituloCuestionario">Titulo del cuestionario</h5>
-                            <a class="waves-effect waves-light btn bordered5 color1 shadow-2e" href="#"
-                                id="editarTitulo"><i class="material-icons">edit</i></a>
-                        </div>
-                        <div class="inputNombreCuestionario">
-                            <input type="text" name="nombreCuestionario" id="nombreCuestionario"
-                                class="browser-default inputNombre shadow-1 flow-text bordered5"
-                                placeholder="Ingrese nombre del cuestionario">
-                            <a class="waves-effect waves-light btn color1 shadow-2e" href="#" id="guardarTitulo"><i
-                                    class="material-icons left">done</i>Listo</a>
-                        </div>
-                    </div>
-                </div>
-                <!--Boton ir a la siguiente sección-->
-                <div class="fixed-action-btn buttonSaveJSON">
-                    <button type="submit" class="btn-floating btn-large color1">
-                        <i class="large material-icons">save</i>
-                    </button>
-                </div>
-            </form>
-        </section>
-
-        <!--Vista general del proceso-->
-        <section class="containerCreacionCuestionariosSon3">
-            <div class="containerProcesoImagen">
-                <div id="circleOne" class="shadow-2e color3 colorText">1</div>
-                <div id="lineMiddle" class="shadow-2e colorGreyDarker"></div>
-                <div id="circleTwo" class="shadow-2e colorGreyDarker">2</div>
-            </div>
-            <div class="containerProcesoData">
-                <div>Estructura principal</div>
-                <div>Datos adicionales</div>
-            </div>
-        </section>
-
     </section>
 
 
