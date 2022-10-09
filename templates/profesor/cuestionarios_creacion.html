@@ -152,7 +152,8 @@
 
 
                     <h5><b>Defina las opciones</b></h5>
-                    <p>Escriba las posibles opciones para la pregunta que se planteó y determine la respuesta correcta.</p>
+                    <p>Escriba las posibles opciones para la pregunta que se planteó y determine la respuesta correcta.
+                    </p>
                     <!--Opcion A-->
                     <div class="row">
                         <div class="col s12" id="contenedorOpccionesOpccionMultipleModalCreacion">
@@ -286,7 +287,8 @@
                     </div>
 
                     <h5><b>Defina los espacios</b></h5>
-                    <p>Agregue espacio a la estructura del texto de modo que puedan ser acompletados por el estudiante.</p>
+                    <p>Agregue espacio a la estructura del texto de modo que puedan ser acompletados por el estudiante.
+                    </p>
                     <!--Contenedor de espacios de creacion de elementos del espacio -->
                     <div class="" id="contenedorOpccionEspaciosCreacion">
 
@@ -345,8 +347,9 @@
                         </div>
                         <h5><b>Código de retroalimentación</b></h5>
                         <p>Escriba el código con la propuesta de solución para que el alumno pueda recibir
-                        retroalimentación, puede anexar un documento para leer el código o inclusive adjuntar algún enlace para
-                        dar acceso a documentos en linea.
+                            retroalimentación, puede anexar un documento para leer el código o inclusive adjuntar algún
+                            enlace para
+                            dar acceso a documentos en linea.
                         </p>
                         <br>
                         <div class="row colorGreyWhiter bordered2 contenedorOpcionesCodigo">
@@ -354,12 +357,12 @@
                                 <h6><b>Código de archivo</b></h6>
                             </div>
                             <div class="input-field col s12">
-                                <input type="file" id="inputfile" class="hidden"/>
+                                <input type="file" id="inputfile" class="hidden" />
                                 <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
-                                id="leerArchivoEjercicio" style="width: 100%;"><i
-                                class="material-icons left">upload_file</i>
-                                <label for="inputfile" class="colorText">Elegir archivo</label></a>
-                            </div>  
+                                    id="leerArchivoEjercicio" style="width: 100%;"><i
+                                        class="material-icons left">upload_file</i>
+                                    <label for="inputfile" class="colorText">Elegir archivo</label></a>
+                            </div>
                             <div class="col s12">
                                 <h6><b>Adjuntar enlace a carpeta online (múltiples archivos)</b></h6>
                             </div>
@@ -367,7 +370,7 @@
                                 <i class="material-icons prefix">cloud_circle</i>
                                 <input type="text" id="carpetaOnline"></input>
                                 <label for="carpetaOnline">Enlace de carpeta</label>
-                            </div>                        
+                            </div>
                             <div class="col s12">
                                 <h6><b>Código escrito manualmente</b></h6>
                             </div>
@@ -386,8 +389,7 @@
                             </code>
                         </div>
 
-
-                        <br><br><br><br>
+                        <br><br><br>
                         <!--Guardar la pregunta en el cuestionario-->
                         <div class="botonesDelModalDosBotones colorGrey">
                             <!--Guardar opciones-->
@@ -413,18 +415,21 @@
             MODAL 4: PARA ARRASTRAR LAS RESPUESTAS
             ######################################################
         -->
-        <div id="modalArrastrarCreacion" class="modal">
+        <div id="modalArrastrarCreacion" class="modal colorGrey bordered2 modalAltura">
             <div class="modal-content">
-                <h4>Arrastrar</h4>
+                <h4>Arrastrar y ordenar</h4>
+                <hr>
+                <p>Ingrese en la columna A el concepto y en la columna B la definición (el concepto y la definición
+                    deben estar a la misma altura)</p>
                 <form class="col s12">
-
+                    <h5><b>Descripción del ejercicio</b></h5>
                     <!--Titulo de la pregunta -->
-
                     <div class="row">
                         <div class="row">
                             <div class="input-field col s12">
+                                <i class="material-icons prefix">description</i>
                                 <textarea id="texAreaModalArrastrarCreacion" class="materialize-textarea"></textarea>
-                                <label for="texAreaModalArrastrarCreacion">Pregunta</label>
+                                <label for="texAreaModalArrastrarCreacion">Descripción del ejercicio</label>
                             </div>
                         </div>
                     </div>
@@ -437,16 +442,28 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col s12 ">
-                            <!--GUardar pregunta-->
-                            <a class="waves-effect waves-light btn " id="btnGuardarModalArrastrarCreacion">Guardar</a>
-                            <!--Agregar opccion-->
-                            <a class="waves-effect waves-light btn " id="btnAgregarsModalArrastrarCreacion">Agregar</a>
-                            <!--Eliminar opccion-->
-                            <a class="waves-effect waves-light btn " id="btnEliminarModalArrastrarCreacion">Eliminar</a>
+                    <div class="hide-on-small-only">
+                        <br><br><br>
+                    </div>
+                    <br><br><br><br><br><br>
+                    <!--Guardar la pregunta en el cuestionario-->
+                    <div class="botonesDelModal colorGrey">
+                        <!--Guardar opciones-->
+                        <div class="botonesDelModalSon1">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnGuardarModalArrastrarCreacion"><i
+                                    class="material-icons left">save</i>Guardar</a>
                         </div>
-
+                        <!--Agregar opciones -->
+                        <div class="botonesDelModalSon2">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnAgregarsModalArrastrarCreacion"><i class="material-icons left">add</i>Agregar</a>
+                        </div>
+                        <!--Eliminar opciones -->
+                        <div class="botonesDelModalSon3">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnEliminarModalArrastrarCreacion"><i class="material-icons left">remove</i>Eliminar</a>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -455,6 +472,9 @@
 
 
 </body>
+
+<!-- jsDelivr :: Sortable :: Latest (https://www.jsdelivr.com/package/npm/sortablejs) -->
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
 <script src="../../static/js/configuracionCreacionCuestionario.js"></script>
 
 </html>
