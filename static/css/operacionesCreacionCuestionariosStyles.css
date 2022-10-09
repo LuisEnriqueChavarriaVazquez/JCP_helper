@@ -530,6 +530,18 @@
     padding: 20px 10px;
 }
 
+
+/*Para las opciones de drag and drop*/
+
+.elementoListado{
+    padding: 10px 20px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 500px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
 /*buttonSaveJSON posicion del boton*/
 @media screen and (max-width: 600px) {
     .buttonSaveJSON{

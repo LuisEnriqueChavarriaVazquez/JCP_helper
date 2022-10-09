@@ -703,6 +703,25 @@ $(document).ready(function () {
   });
 });
 
+function crearListasDragAndDrop(){
+  const sortableConceptos = new Sortable(
+		document.querySelector('#conceptos'), {
+			draggable: 'div',
+      animation: 150,
+      ghostClass: 'colorGreyWhiter'
+		}
+	)
+
+  const sortableDefiniciones = new Sortable(
+		document.querySelector('#definiciones'), {
+			draggable: 'div',
+      animation: 150,
+      ghostClass: 'colorGreyWhiter'
+		}
+	)
+}
+
+crearListasDragAndDrop();
 
 
 
