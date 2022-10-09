@@ -139,9 +139,11 @@
                 <form class="col s12" id="formModalOpccionMultipleCreacion">
 
                     <h5><b>Defina la pregunta</b></h5>
+                    <p>Describa la pregunta o interrogante a responder.</p>
                     <!--Titulo de la pregunta -->
                     <div class="row">
                         <div class="input-field col s12">
+                            <i class="material-icons prefix">question_mark</i>
                             <textarea id="textAreaPreguntaOpccionMultipleCreacion"
                                 class="materialize-textarea"></textarea>
                             <label for="textAreaPreguntaOpccionMultipleCreacion">Pregunta</label>
@@ -150,6 +152,7 @@
 
 
                     <h5><b>Defina las opciones</b></h5>
+                    <p>Escriba las posibles opciones para la pregunta que se planteó y determine la respuesta correcta.</p>
                     <!--Opcion A-->
                     <div class="row">
                         <div class="col s12" id="contenedorOpccionesOpccionMultipleModalCreacion">
@@ -157,14 +160,16 @@
                                 <!--Opcion de tomar A como correcta-->
                                 <div class="col s12 m3 labelContainer">
                                     <label>
-                                        <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker" value="A" type="radio" checked />
+                                        <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker" value="A"
+                                            type="radio" checked />
                                         <span>Correcta</span>
                                     </label>
                                 </div>
                                 <!--Contenido de opcion A-->
                                 <div class="col s12 m9">
                                     <h6><b>Opción A</b></h6>
-                                    <textarea id="opcionACreacion" class="materialize-textarea opcionContainerModalContent"></textarea>
+                                    <textarea id="opcionACreacion"
+                                        class="materialize-textarea opcionContainerModalContent"></textarea>
                                 </div>
                             </div>
 
@@ -173,14 +178,16 @@
                                 <!--Opcion de tomar B como correcta-->
                                 <div class="col s12 m3 labelContainer">
                                     <label>
-                                        <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker" value="B" type="radio" />
+                                        <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker" value="B"
+                                            type="radio" />
                                         <span>Correcta</span>
                                     </label>
                                 </div>
                                 <!--Contenido de opcion B-->
                                 <div class="col s12 m9">
                                     <h6><b>Opción B</b></h6>
-                                    <textarea id="opcionBCreacion" class="materialize-textarea opcionContainerModalContent"></textarea>
+                                    <textarea id="opcionBCreacion"
+                                        class="materialize-textarea opcionContainerModalContent"></textarea>
                                 </div>
                             </div>
 
@@ -189,14 +196,16 @@
                                 <!--Opcion de tomar C como correcta-->
                                 <div class="col s12 m3 labelContainer">
                                     <label>
-                                        <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker" value="C" type="radio" />
+                                        <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker" value="C"
+                                            type="radio" />
                                         <span>Correcta</span>
                                     </label>
                                 </div>
                                 <!--Contenido de opcion C-->
                                 <div class="col s12 m9">
                                     <h6><b>Opción C</b></h6>
-                                    <textarea id="opcionCCreacion" class="materialize-textarea opcionContainerModalContent"></textarea>
+                                    <textarea id="opcionCCreacion"
+                                        class="materialize-textarea opcionContainerModalContent"></textarea>
                                 </div>
                             </div>
 
@@ -206,7 +215,8 @@
                                 <div class="col s12 m3 labelContainer">
                                     <p>
                                         <label>
-                                            <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker" value="D" type="radio" />
+                                            <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker" value="D"
+                                                type="radio" />
                                             <span>Correcta</span>
                                         </label>
                                     </p>
@@ -214,7 +224,8 @@
                                 <!--Contenido de opcion D-->
                                 <div class="col s12 m9">
                                     <h6><b>Opción D</b></h6>
-                                    <textarea id="opcionDCreacion" class="materialize-textarea opcionContainerModalContent"></textarea>
+                                    <textarea id="opcionDCreacion"
+                                        class="materialize-textarea opcionContainerModalContent"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -261,10 +272,12 @@
                 <hr>
                 <form class="col s12">
                     <h5><b>Defina el texto</b></h5>
+                    <p>Escriba la estructura que tendra el texto.</p>
                     <!--Titulo de la pregunta -->
                     <div class="row">
                         <div class="row">
                             <div class="input-field col s12">
+                                <i class="material-icons prefix">description</i>
                                 <textarea id="texAreaModalRellenarEspaciosCreacion" class="materialize-textarea"
                                     placeholder="text"></textarea>
                                 <label for="texAreaModalRellenarEspaciosCreacion">Escriba el texto a completar</label>
@@ -273,6 +286,7 @@
                     </div>
 
                     <h5><b>Defina los espacios</b></h5>
+                    <p>Agregue espacio a la estructura del texto de modo que puedan ser acompletados por el estudiante.</p>
                     <!--Contenedor de espacios de creacion de elementos del espacio -->
                     <div class="" id="contenedorOpccionEspaciosCreacion">
 
@@ -320,24 +334,51 @@
                 <div class="row">
                     <form class="col s12">
                         <h5><b>Describa el ejercicio</b></h5>
+                        <p>Escriba una descripción del problema/ejercicios a resolver para que sus alumnos conozcan a
+                            que resultado llegar.</p>
                         <div class="row">
                             <div class="input-field col s12">
+                                <i class="material-icons prefix">description</i>
                                 <textarea id="descripcionProblema" class="materialize-textarea"></textarea>
                                 <label for="descripcionProblema">Descripción del problema</label>
                             </div>
                         </div>
                         <h5><b>Código de retroalimentación</b></h5>
-                        <p class="muestraCodigoGrupo color5 bordered1">No es obligatorio pero se recomienda para que el
-                            alumno compare su propuesta.</p>
+                        <p>Escriba el código con la propuesta de solución para que el alumno pueda recibir
+                        retroalimentación, puede anexar un documento para leer el código o inclusive adjuntar algún enlace para
+                        dar acceso a documentos en linea.
+                        </p>
                         <br>
-                        <div class="row">
+                        <div class="row colorGreyWhiter bordered2 contenedorOpcionesCodigo">
+                            <div class="col s12">
+                                <h6><b>Código de archivo</b></h6>
+                            </div>
                             <div class="input-field col s12">
-                                <textarea id="codigoResultado" class="browser-default materialize-textarea"></textarea>
-                                <label for="codigoResultado">Codigo resultado</label>
+                                <input type="file" id="inputfile" class="hidden"/>
+                                <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="leerArchivoEjercicio" style="width: 100%;"><i
+                                class="material-icons left">upload_file</i>
+                                <label for="inputfile" class="colorText">Elegir archivo</label></a>
+                            </div>  
+                            <div class="col s12">
+                                <h6><b>Adjuntar enlace a carpeta online (múltiples archivos)</b></h6>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">cloud_circle</i>
+                                <input type="text" id="carpetaOnline"></input>
+                                <label for="carpetaOnline">Enlace de carpeta</label>
+                            </div>                        
+                            <div class="col s12">
+                                <h6><b>Código escrito manualmente</b></h6>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">history_edu</i>
+                                <textarea id="codigoResultado" class="materialize-textarea"></textarea>
+                                <label for="codigoResultado">Código a mano</label>
                             </div>
                         </div>
                         <h5><b>Vista previa del código</b></h5>
-                        <div class="previewCodeContainer bordered1">
+                        <div class="previewCodeContainer bordered2">
                             <code class="colorText">
                                 <pre id="codigoMuestra">
 
@@ -348,7 +389,7 @@
 
                         <br><br><br><br>
                         <!--Guardar la pregunta en el cuestionario-->
-                        <div class="botonesDelModalDosBotones colorGreyDarker">
+                        <div class="botonesDelModalDosBotones colorGrey">
                             <!--Guardar opciones-->
                             <div class="botonesDelModalSon1">
                                 <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"

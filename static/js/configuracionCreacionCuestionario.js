@@ -275,7 +275,7 @@ $(document).ready(function () {
 });
 
 //Funcion para remover espacio (en el modal)
-function eliminarEspacioModal(){
+function eliminarEspacioModal() {
   //Boton de elimnado
   const btnEliminarModalRellenarEspaciosCreacion = document.getElementById('btnEliminarModalRellenarEspaciosCreacion');
   //Contenedor de los espacios en el modal
@@ -287,14 +287,14 @@ function eliminarEspacioModal(){
   btnEliminarModalRellenarEspaciosCreacion.addEventListener('click', eliminarEspacio);
 
   //Funcion de elinar elemento
-  function eliminarEspacio(){
+  function eliminarEspacio() {
     //Trabajamos con los textos del input
     let textoInput = texAreaModalRellenarEspaciosCreacion.value;
-    console.log("1 "+ textoInput);
-    let textoReemplazado = '[Blank '+ contadorModalRellenarEspaciosCreacion +']';
-    console.log("2 "+ textoReemplazado);
-    let nuevoTextoInput = textoInput.replace(textoReemplazado,'');
-    console.log("3 "+ nuevoTextoInput);
+    console.log("1 " + textoInput);
+    let textoReemplazado = '[Blank ' + contadorModalRellenarEspaciosCreacion + ']';
+    console.log("2 " + textoReemplazado);
+    let nuevoTextoInput = textoInput.replace(textoReemplazado, '');
+    console.log("3 " + nuevoTextoInput);
     texAreaModalRellenarEspaciosCreacion.value = nuevoTextoInput;
     console.log(texAreaModalRellenarEspaciosCreacion);
 
@@ -303,7 +303,7 @@ function eliminarEspacioModal(){
 
     //Hace que el contador disminuya 1
     contadorModalRellenarEspaciosCreacion--;
-    
+
     M.toast({ html: 'Espacio eliminado' });
   }
 }
@@ -315,7 +315,6 @@ eliminarEspacioModal();
 /*
 * Agregar pregunta de completar espacio (En el modal)
 */
-var preguntasDeRellenado = 0;
 $(document).ready(function () {
   $("#btnGuardarModalRellenarEspaciosCreacion").click(function () {
     var contadorInicial = 1;
@@ -337,7 +336,6 @@ $(document).ready(function () {
     );
 
     var pregunta = $("#texAreaModalRellenarEspaciosCreacion").val();
-    preguntasDeRellenado++;
 
     var contenedor =
       `<div class='row preguntaRellenarEspacios'>
@@ -348,8 +346,8 @@ $(document).ready(function () {
               <div class='row'>
                 <div class='input-field col s12'>
                   <textarea  class='materialize-textarea textoPregunta textoPreguntaVistaPrevia' placeholder='Pregunta'>`
-                    + pregunta +
-                  `</textarea>
+      + pregunta +
+      `</textarea>
                 </div>
               </div>
               <div class='row containerTextBlank'>
@@ -415,7 +413,6 @@ $(document).ready(function () {
     ".btnEliminarPreguntaEspacioBlanco",
     function () {
       $(this).closest(".preguntaRellenarEspacios").remove();
-      preguntasDeRellenado--;
       M.toast({ html: 'Pregunta eliminada' });
     }
   );
@@ -428,13 +425,14 @@ $(document).ready(function () {
 */
 
 /*
-*  Función para mostrar el contenido de los ejercicios
+*  Función para mostrar el contenido de los ejercicios escritos a mano
 */
 
 function agregarEjercicio() {
   const descripcionProblema = document.getElementById('descripcionProblema');
   const codigoResultado = document.getElementById('codigoResultado');
   const codigoMuestra = document.getElementById('codigoMuestra');
+  const carpetaOnline = document.getElementById('carpetaOnline');
 
   //Boton de limpiar
   const limpiarCasillasEjercicioButton = document.getElementById('limpiarCasillasEjercicioButton');
@@ -455,9 +453,112 @@ function agregarEjercicio() {
   function limpiarCasillas() {
     descripcionProblema.value = "";
     codigoResultado.value = "";
+    carpetaOnline.value = "";
     codigoMuestra.innerText = "";
+    M.toast({ html: 'Casillas limpias' });
   }
 }
+
+agregarEjercicio();
+
+//Se carga el texto de los archivos de texto
+function agregarEjercicioArchivo() {
+  document.getElementById('inputfile')
+    .addEventListener('change', function () {
+
+      var fr = new FileReader();
+      fr.onload = function () {
+        document.getElementById('codigoMuestra')
+          .textContent = fr.result;
+      }
+
+      fr.readAsText(this.files[0]);
+    })
+}
+agregarEjercicioArchivo();
+
+//Guardar nuevo ejercicio
+function agregarEjercicioContenedor() {
+  //Descripcion
+  const descripcionProblema = document.getElementById('descripcionProblema');
+  //Codigo escrito a mano
+  const codigoResultado = document.getElementById('codigoResultado');
+  //Codigo de muestra
+  const codigoMuestra = document.getElementById('codigoMuestra');
+  //Carpeta online
+  const carpetaOnline = document.getElementById('carpetaOnline');
+
+  //Buton para agregar nuevo ejercicio
+  const crearEjercicioButton = document.getElementById('crearEjercicioButton');
+
+  //Contenedor de preguntas general
+  const contenedorCuestionarioPreguntas = document.getElementById('contenedorCuestionarioPreguntas');
+
+  crearEjercicioButton.addEventListener('click', agregarNuevaPregunta);
+  function agregarNuevaPregunta() {
+    let ejercicio =
+      `<div class='row preguntaOpccionMultiple'>
+          <div class='col s12'>
+            <div class='card colorWhite bordered2'>
+            <div class='card-content '>
+              <h5>Pregunta de ejercicio.</h5>
+              <div class='row'>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">description</i>
+                    <textarea id="descripcionProblema" class="materialize-textarea">` + descripcionProblema.value + `</textarea>
+                    <label class="active" for="descripcionProblema">Descripción del problema</label>
+                </div>
+              </div>
+              <div class="row colorGreyWhiter bordered2 contenedorOpcionesCodigo">
+                <div class="col s12">
+                    <h6><b>Código de archivo</b></h6>
+                </div>
+                <div class="input-field col s12">
+                    <input type="file" id="inputfile" class="hidden"/>
+                    <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                    id="leerArchivoEjercicio" style="width: 100%;"><i
+                    class="material-icons left">upload_file</i>
+                    <label for="inputfile" class="colorText">Elegir archivo</label></a>
+                </div>  
+                <div class="col s12">
+                    <h6><b>Adjuntar enlace a carpeta online (múltiples archivos)</b></h6>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">cloud_circle</i>
+                    <input type="text" id="carpetaOnline" value="`+ carpetaOnline.value +`"></input>
+                    <label class="active" for="carpetaOnline">Enlace de carpeta</label>
+                </div>                        
+                <div class="col s12">
+                    <h6><b>Código escrito manualmente</b></h6>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">history_edu</i>
+                    <textarea id="codigoResultado" class="materialize-textarea">`+ codigoResultado.value +`</textarea>
+                    <label class="active" for="codigoResultado">Código a mano</label>
+                </div>
+            </div>
+            <h5><b>Vista previa del código</b></h5>
+            <div class="previewCodeContainer bordered2">
+                <code class="colorText">
+                    <pre id="codigoMuestra">
+                    </pre>
+                </code>
+            </div>
+              <div class='containerButtonsView'>
+                <div>
+                  <a class='waves-effect waves-light btn bordered5 color1 shadow-2e btnEliminarEjercicio'><i class='material-icons left'>delete_sweep</i>Eliminar pregunta</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    $("#contenedorCuestionarioPreguntas").append(ejercicio);
+  }
+
+}
+
+agregarEjercicioContenedor();
 
 /*
   ######################################################
@@ -613,6 +714,3 @@ function ingresarTitulo() {
 
 //Funciones para el titulo
 ingresarTitulo();
-
-//Funcion para que el ejercicios (codigo se visualize en preview de codigo)
-agregarEjercicio();
