@@ -157,3 +157,8 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 [type="radio"].with-gap:checked + span:after {
   border: 2px solid rgb(71, 120, 129);
 }
+
+/*Para el icono de prefijo*/
+.input-field .prefix.active {
+    color: rgb(71, 120, 129);
+}

@@ -661,8 +661,9 @@ $(document).ready(function () {
             <div class='row'>
               <div class='row col s12'>
                 <div class='input-field col s12'>
-                  <textarea class='materialize-textarea textoPregunta'>`+ pregunta + `</textarea>
-                  <label class="active">Descripción del ejercicio</label>
+                  <i class="material-icons prefix">description</i>
+                  <textarea id="temporal" class='materialize-textarea textoPregunta'>`+ pregunta + `</textarea>
+                  <label for="temporal" class="active">Descripción del ejercicio</label>
                 </div>
               </div>
             </div>
@@ -694,7 +695,7 @@ $(document).ready(function () {
   });
 });
 
-// Eliminar pregunta de ejercicio (En la vista previa)
+// Eliminar pregunta de arrastrado (En el modal)
 $(document).ready(function () {
   $("#contenedorCuestionarioPreguntas").on(
     "click",
