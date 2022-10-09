@@ -11,12 +11,12 @@ $(document).ready(function () {
     $("#contenedorOpccionesOpccionMultipleModalCreacion .hide")
       .first()
       .removeClass("hide");
-      M.toast({html: 'Opción agregada'});
+    M.toast({ html: 'Opción agregada' });
   });
 });
 
 //Opcion para eliminar preguntas del opcion multiples (en el modal)
-function eliminarElementosDelModalOptMultiple(){
+function eliminarElementosDelModalOptMultiple() {
   const btnEliminarModalOpcionMultipleCreacion = document.getElementById('btnEliminarModalOpcionMultipleCreacion');
   const textAreaPreguntaOpccionMultipleCreacion = document.getElementById('textAreaPreguntaOpccionMultipleCreacion');
   const opcionContainerModal = document.getElementsByClassName('opcionContainerModal');
@@ -24,7 +24,7 @@ function eliminarElementosDelModalOptMultiple(){
 
   btnEliminarModalOpcionMultipleCreacion.addEventListener('click', ocultarElementos);
 
-  function ocultarElementos(){
+  function ocultarElementos() {
     //Se borra la pregunta del modal
     textAreaPreguntaOpccionMultipleCreacion.value = ''
 
@@ -34,11 +34,11 @@ function eliminarElementosDelModalOptMultiple(){
     opcionContainerModal[3].classList.add('hide');
 
     //Se borran los valores de los cuatro inputs de los modals
-    for(var i = 0; i < 4; i++){
+    for (var i = 0; i < 4; i++) {
       opcionContainerModalContent[i].value = '';
     }
 
-    M.toast({html: 'Casillas limpiadas'});
+    M.toast({ html: 'Casillas limpiadas' });
   }
 }
 eliminarElementosDelModalOptMultiple();
@@ -81,11 +81,11 @@ $(document).ready(function () {
         break;
     }
 
-    function agregarContenidoVistaPrevia(){
+    function agregarContenidoVistaPrevia() {
       contadorPreguntaOptMultiple = contadorPreguntaOptMultiple + 1;
       //Guardamos lo que vamos a imprimir
       var opcionA =
-      `<div class='row colorGreyWhiter bordered1 opcionContainer'> 
+        `<div class='row colorGreyWhiter bordered1 opcionContainer'> 
         <div class='col s12 m3 labelContainer'> 
           <label> 
             <input  type='radio' name='group` + contadorPreguntaOptMultiple + `' ` + checkA + `/> 
@@ -95,30 +95,30 @@ $(document).ready(function () {
         <div class='col s12 m9'> 
           <h6><b>Opción A</b></h6> 
           <textarea id='opcionACreacion' class='materialize-textarea'>`
-          + $("#opcionACreacion").val() +  
-          `</textarea> 
+        + $("#opcionACreacion").val() +
+        `</textarea> 
         </div> 
       </div>`;
-  
+
       //Validamos en caso de que este vacio (No se muestran)
       var opcionBOculto = "";
       if ($("#opcionBCreacion").val().length === 0) {
         opcionBOculto = "hide";
       }
-  
+
       var opcionCOculto = "";
       if ($("#opcionCCreacion").val().length === 0) {
         opcionCOculto = "hide";
       }
-  
+
       var opcionDOculto = "";
       if ($("#opcionDCreacion").val().length === 0) {
         opcionDOculto = "hide";
       }
-  
+
       //En caso de que tengan contenido imprimimos
       var opcionB =
-      `<div class='row colorGreyWhiter bordered1 opcionContainer ` + opcionBOculto + `'>` +
+        `<div class='row colorGreyWhiter bordered1 opcionContainer ` + opcionBOculto + `'>` +
         `<div class='col s12 m3 labelContainer'>
             <label>
               <input  type='radio' name='group` + contadorPreguntaOptMultiple + `' ` + checkB + `/>
@@ -128,13 +128,13 @@ $(document).ready(function () {
         <div class='col s12 m9'>
             <h6><b>Opción B</b></h6>
             <textarea class='materialize-textarea'>`
-            + $("#opcionBCreacion").val() +
-            `</textarea>
+        + $("#opcionBCreacion").val() +
+        `</textarea>
         </div>
       </div>`;
-  
+
       var opcionC =
-      `<div class='row colorGreyWhiter bordered1 opcionContainer ` + opcionCOculto + `'>` +
+        `<div class='row colorGreyWhiter bordered1 opcionContainer ` + opcionCOculto + `'>` +
         `<div class='col s12 m3 labelContainer'>
           <label>
             <input  type='radio' name='group` + contadorPreguntaOptMultiple + `' ` + checkC + ` />
@@ -144,13 +144,13 @@ $(document).ready(function () {
         <div class='col s12 m9'>
           <h6><b>Opción C</b></h6>
           <textarea class='materialize-textarea'>`
-          + $("#opcionCCreacion").val() +
-          `</textarea>
+        + $("#opcionCCreacion").val() +
+        `</textarea>
         </div>
       </div>`;
-  
-      var opcionD =   
-      `<div class='row colorGreyWhiter bordered1 opcionContainer ` + opcionDOculto + `'>` +
+
+      var opcionD =
+        `<div class='row colorGreyWhiter bordered1 opcionContainer ` + opcionDOculto + `'>` +
         `<div class='col s12 m3 labelContainer'>
           <label>
             <input  type='radio' name='group` + contadorPreguntaOptMultiple + `' ` + checkD + ` />
@@ -160,13 +160,13 @@ $(document).ready(function () {
         <div class='col s12 m9'>
           <h6><b>Opción D</b></h6>
           <textarea class='materialize-textarea'>`
-          + $("#opcionDCreacion").val() +
-          `</textarea>
+        + $("#opcionDCreacion").val() +
+        `</textarea>
         </div>
       </div>`;
-  
+
       var contenedor =
-      `<div class='row preguntaOpccionMultiple'>
+        `<div class='row preguntaOpccionMultiple'>
         <div class='col s12'>
           <div class='card colorWhite bordered2'>
             <div class='card-content '>
@@ -174,15 +174,15 @@ $(document).ready(function () {
             <div class='row'>
               <div class='input-field col s12'>
                 <textarea class='materialize-textarea textoPregunta' placeholder='Escriba la pregunta'>`
-                  + pregunta +
-                `</textarea>
+        + pregunta +
+        `</textarea>
               </div>
             </div>` +
-                opcionA +
-                opcionB +
-                opcionC +
-                opcionD +
-                `<div class='containerButtonsView'>
+        opcionA +
+        opcionB +
+        opcionC +
+        opcionD +
+        `<div class='containerButtonsView'>
                   <div>
                     <a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnAgregarOpcionMultiple'><i class='material-icons left'>add</i>Agregar 1</a>
                   </div>
@@ -190,7 +190,7 @@ $(document).ready(function () {
                     <a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnEliminarUltimaPreguntaOpcionMultiple'><i class='material-icons left'>remove</i>Eliminar 1</a>
                   </div>
                   <div>
-                    <a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnEliminarPreguntaOpcionMultiple'><i class='material-icons left'>delete_sweep</i>Eliminar pregunta</a>
+                    <a class='waves-effect waves-light btn bordered5 color1 shadow-2e btnEliminarPreguntaOpcionMultiple'><i class='material-icons left'>delete_sweep</i>Eliminar pregunta</a>
                   </div>
                 </div>
               </div>
@@ -198,7 +198,7 @@ $(document).ready(function () {
           </div>
         </div>`;
       $("#contenedorCuestionarioPreguntas").append(contenedor);
-      M.toast({html: 'Pregunta agregada a la vista previa'});
+      M.toast({ html: 'Pregunta agregada a la vista previa' });
     }
 
     agregarContenidoVistaPrevia();
@@ -214,7 +214,7 @@ $(document).ready(function () {
     function () {
       var preguntaOpccionMultiple = $(this).closest(".preguntaOpccionMultiple");
       preguntaOpccionMultiple.find(".hide").first().removeClass("hide").addClass("nohide");
-      M.toast({html: 'Opción agregada'});
+      M.toast({ html: 'Opción agregada' });
     }
   );
 });
@@ -228,7 +228,7 @@ $(document).ready(function () {
       var preguntaOpccionMultiple = $(this).closest(".preguntaOpccionMultiple");
       console.log(preguntaOpccionMultiple.find(".nohide").last());
       preguntaOpccionMultiple.find(".nohide").last().addClass("hide").removeClass("nohide");
-      M.toast({html: 'Opción borrada'});
+      M.toast({ html: 'Opción borrada' });
     }
   );
 });
@@ -240,7 +240,7 @@ $(document).ready(function () {
     ".btnEliminarPreguntaOpcionMultiple",
     function () {
       $(this).closest(".preguntaOpccionMultiple").remove();
-      M.toast({html: 'Pregunta eliminada'});
+      M.toast({ html: 'Pregunta eliminada' });
     }
   );
 });
@@ -252,18 +252,7 @@ $(document).ready(function () {
   ######################################################
 */
 
-// Eliminar pregunta de opccion multiple
-$(document).ready(function () {
-  $("#contenedorCuestionarioPreguntas").on(
-    "click",
-    ".btnEliminarPreguntaEspacioBlanco",
-    function () {
-      $(this).closest(".preguntaRellenarEspacios").remove();
-    }
-  );
-});
-
-//Opccion para hacer que pongan los espacios en la de completar espacios
+//Agregar 1 espacio en el modal de acompletar (En el modal)
 $(document).ready(function () {
   $("#btnAgregarModalRellenarEspaciosCreacion").click(function () {
     var textoInput = $("#texAreaModalRellenarEspaciosCreacion").val();
@@ -272,40 +261,59 @@ $(document).ready(function () {
       textoInput + " [Blank " + contadorModalRellenarEspaciosCreacion + "]"
     );
     $("#contenedorOpccionEspaciosCreacion").append(
-      "<div class='row containerTextBlank'>" +
-      "<div class='col s12 m6 containerTextBlankSon1'>" +
-      "Blank " +
-      contadorModalRellenarEspaciosCreacion +
-      "</div>" +
-      "<div class='col s12 m6 containerTextBlankSon2'>" +
-      "<input type='text' class='browser-default blankContadorEspaciosCreacion '>" +
-      "</div>" +
-      "</div>"
+      `<div class='row containerTextBlank containerTextBlankModal'>
+        <div class='col s12 m6 containerTextBlankSon1'> Blank `
+      + contadorModalRellenarEspaciosCreacion +
+      `</div>
+        <div class='col s12 m6 containerTextBlankSon2'>
+          <input type='text' class='browser-default blankContadorEspaciosCreacion'>
+        </div>
+      </div>`
     );
+    M.toast({ html: 'Espacio agregado' });
   });
 });
 
-//Opccion para hacer que pongan los espacios en las preguntas  de completar espacios
-$(document).ready(function () {
-  $("#btnAgregarsModalArrastrarCreacion").click(function () {
-    $("#opccionesArrastarModalCreacion").append(
-      " <div class='row opccionLinea'>" +
-      " <div class='input-field col s6'>" +
-      "  <input placeholder='Placeholder'   type='text' class='textoArrastrarCreacion'>" +
-      "</div>" +
-      "<div class='col s6 '>" +
-      "<a class='waves-effect waves-light btn '  style='width: 100 %; height: 100px;'>" +
-      "<textarea placeholder='Opccion' id='opccion' class='materialize-textarea textoOpccionCreacion  '></textarea>" +
-      "</a>" +
-      "</div>" +
-      "</div>"
-    );
-  });
-});
+//Funcion para remover espacio (en el modal)
+function eliminarEspacioModal(){
+  //Boton de elimnado
+  const btnEliminarModalRellenarEspaciosCreacion = document.getElementById('btnEliminarModalRellenarEspaciosCreacion');
+  //Contenedor de los espacios en el modal
+  const containerTextBlankModal = document.getElementsByClassName('containerTextBlankModal');
+  //Input de la pregunta
+  const texAreaModalRellenarEspaciosCreacion = document.getElementById('texAreaModalRellenarEspaciosCreacion');
+
+  //Cuando hacemos click en el boton se activa la funcion
+  btnEliminarModalRellenarEspaciosCreacion.addEventListener('click', eliminarEspacio);
+
+  //Funcion de elinar elemento
+  function eliminarEspacio(){
+    //Trabajamos con los textos del input
+    let textoInput = texAreaModalRellenarEspaciosCreacion.value;
+    console.log("1 "+ textoInput);
+    let textoReemplazado = '[Blank '+ contadorModalRellenarEspaciosCreacion +']';
+    console.log("2 "+ textoReemplazado);
+    let nuevoTextoInput = textoInput.replace(textoReemplazado,'');
+    console.log("3 "+ nuevoTextoInput);
+    texAreaModalRellenarEspaciosCreacion.value = nuevoTextoInput;
+    console.log(texAreaModalRellenarEspaciosCreacion);
+
+    //Elimina el último elemento de los espacio
+    containerTextBlankModal[containerTextBlankModal.length - 1].remove();
+
+    //Hace que el contador disminuya 1
+    contadorModalRellenarEspaciosCreacion--;
+    
+    M.toast({ html: 'Espacio eliminado' });
+  }
+}
+
+eliminarEspacioModal();
+
 
 //Insertar preguntas de rellenar espacio
 /*
-* FUNCION DE INSERCIÓN EN LA PREVIEW DE CUESTIONARIO
+* Agregar pregunta de completar espacio (En el modal)
 */
 $(document).ready(function () {
   $("#btnGuardarModalRellenarEspaciosCreacion").click(function () {
@@ -315,17 +323,14 @@ $(document).ready(function () {
       function (index, obj) {
         textoOpcciones =
           textoOpcciones +
-          "<div class='row containerTextBlank'>" +
-          "<div class='col s12 m6 containerTextBlankSon1 '>" +
-          "Blank " +
-          contadorInicial +
-          "</div>" +
-          "<div class='col s12 m6 containerTextBlankSon2 '>" +
-          "<input type='text' value='" +
-          $(this).val() +
-          "' class='browser-default blankContadorEspaciosCreacion'>" +
-          "</div>" +
-          "</div>";
+          `<div class='row containerTextBlank'>
+            <div class='col s12 m6 containerTextBlankSon1 '>Blank`
+          + contadorInicial +
+          `</div>
+            <div class='col s12 m6 containerTextBlankSon2 '>
+              <input type='text' value='` + $(this).val() + `' class='browser-default blankContadorEspaciosCreacion'>
+            </div>
+          </div>`;
         contadorInicial++;
       }
     );
@@ -333,40 +338,42 @@ $(document).ready(function () {
     var pregunta = $("#texAreaModalRellenarEspaciosCreacion").val();
 
     var contenedor =
-      "<div class='row preguntaRellenarEspacios'>" +
-      " <div class='col s12 ''>" +
-      "  <div class='card colorWhite bordered2'>" +
-      " <div class='card-content '>" +
-      "<h5>Rellenar espacios</h5>" +
-      " <div class='row'>" +
-      "<div class='input-field col s12'>" +
-      "<textarea  class='materialize-textarea textoPregunta' placeholder='Pregunta'>" +
-      pregunta +
-      "</textarea>" +
-      "</div>" +
-      "</div>" +
-      "<div class='row' >" +
-      "<div class='col 12 espaciosBlancos' >" +
-      textoOpcciones +
-      "</div >" +
-      "</div >" +
-      "<div class='containerButtonsView'>" +
-        "<div>" +
-          "<a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnEliminarPreguntaEspacioBlanco'><i class='material-icons left'>delete_sweep</i>Eliminar todas</a>" +
-        "</div>" +
-        "<div>" +
-          "<a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnAgregarEspacioBlanco'><i class='material-icons left'>add</i>Agregar</a>" +
-        "</div>" +
-      "</div>" +
-      "</div>" +
-      "</div>" +
-      "</div>" +
-      "</div>";
+      `<div class='row preguntaRellenarEspacios'>
+        <div class='col s12 ''>
+          <div class='card colorWhite bordered2'>
+            <div class='card-content '>
+              <h5>Rellenar espacios</h5>
+              <div class='row'>
+                <div class='input-field col s12'>
+                  <textarea  class='materialize-textarea textoPregunta' placeholder='Pregunta'>`
+      + pregunta +
+      `</textarea>
+                </div>
+              </div>
+              <div class='row containerTextBlank'>
+                <div class='col s12 espaciosBlancos' >` + textoOpcciones + `</div>
+              </div>
+              <div class='containerButtonsView'>
+                <div>
+                  <a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnAgregarEspacioBlanco'><i class='material-icons left'>add</i>1 espacio</a>
+                </div>
+                <div>
+                  <a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnEliminarEspacioBlanco'><i class='material-icons left'>remove</i>1 espacio</a>
+                </div>
+                <div>
+                  <a class='waves-effect waves-light btn bordered5 color1 shadow-2e btnEliminarPreguntaEspacioBlanco'><i class='material-icons left'>delete_sweep</i>Eliminar pregunta</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>`;
     $("#contenedorCuestionarioPreguntas").append(contenedor);
+    M.toast({ html: 'Pregunta agregada' });
   });
 });
 
-// Agregar espacios en blanco
+// Agregar espacios en blanco (En la vista previa)
 $(document).ready(function () {
   $("#contenedorCuestionarioPreguntas").on(
     "click",
@@ -380,16 +387,12 @@ $(document).ready(function () {
       var numeroEspacios =
         lugarDeEspacios.find(".blankContadorEspaciosCreacion").length + 1;
       lugarDeEspacios.append(
-        "<div class='row containerTextBlank'>" +
-        "<div class='col s12 m6 containerTextBlankSon1'>" +
-        "Blank " +
-        numeroEspacios +
-        "</div>" +
-        "<div class='col s12 m6 containerTextBlankSon2'>" +
-        "<input type='text' class='browser-default blankContadorEspaciosCreacion '>" +
-        "</div>" +
-        "</div>"
-      );
+        `<div class='row containerTextBlank'>
+          <div class='col s12 m6 containerTextBlankSon1'> Blank ` + numeroEspacios + `</div>
+          <div class='col s12 m6 containerTextBlankSon2'>
+            <input type='text' class='browser-default blankContadorEspaciosCreacion '>
+          </div>
+        </div>`);
 
       var preguntaAgregar =
         preguntaRellenarEspacios.find(".textoPregunta").val() +
@@ -397,6 +400,19 @@ $(document).ready(function () {
         numeroEspacios +
         "]";
       preguntaRellenarEspacios.find(".textoPregunta").val(preguntaAgregar);
+      M.toast({ html: 'Espacio agregado' });
+    }
+  );
+});
+
+// Eliminar pregunta de opccion multiple (En la vista previa)
+$(document).ready(function () {
+  $("#contenedorCuestionarioPreguntas").on(
+    "click",
+    ".btnEliminarPreguntaEspacioBlanco",
+    function () {
+      $(this).closest(".preguntaRellenarEspacios").remove();
+      M.toast({ html: 'Pregunta eliminada' });
     }
   );
 });
@@ -411,7 +427,7 @@ $(document).ready(function () {
 *  Función para mostrar el contenido de los ejercicios
 */
 
-function agregarEjercicio(){
+function agregarEjercicio() {
   const descripcionProblema = document.getElementById('descripcionProblema');
   const codigoResultado = document.getElementById('codigoResultado');
   const codigoMuestra = document.getElementById('codigoMuestra');
@@ -426,13 +442,13 @@ function agregarEjercicio(){
     }
   });
 
-  function mostrarCódigoMuestra(){
+  function mostrarCódigoMuestra() {
     codigoMuestra.innerText = codigoResultado.value;
   }
 
   //Limpiar todas las casilla
   limpiarCasillasEjercicioButton.addEventListener('click', limpiarCasillas);
-  function limpiarCasillas(){
+  function limpiarCasillas() {
     descripcionProblema.value = "";
     codigoResultado.value = "";
     codigoMuestra.innerText = "";
@@ -444,6 +460,25 @@ function agregarEjercicio(){
   MODAL 4: PARA ARRASTRAR
   ######################################################
 */
+
+//Agregar elemento para arrastrar (en la vista previa) 
+$(document).ready(function () {
+  $("#btnAgregarsModalArrastrarCreacion").click(function () {
+    $("#opccionesArrastarModalCreacion").append(
+      " <div class='row opccionLinea'>" +
+      " <div class='input-field col s6'>" +
+      "  <input placeholder='Placeholder'   type='text' class='textoArrastrarCreacion'>" +
+      "</div>" +
+      "<div class='col s6 '>" +
+      "<a class='waves-effect waves-light btn '  style='width: 100 %; height: 100px;'>" +
+      "<textarea placeholder='Opccion' id='opccion' class='materialize-textarea textoOpccionCreacion  '></textarea>" +
+      "</a>" +
+      "</div>" +
+      "</div>"
+    );
+    M.toast({ html: 'agregar' });
+  });
+});
 
 //Opcion para guardar preguntas de Arrastrar
 $(document).ready(function () {

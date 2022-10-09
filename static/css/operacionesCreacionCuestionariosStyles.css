@@ -148,7 +148,7 @@
     grid-template-rows: auto;
     
     width: 100%;
-    padding: 20px;
+    padding: 50px 20px;
     border-radius: 0 0 20px 20px;
 
     position: absolute;
@@ -165,7 +165,7 @@
     grid-template-rows: auto;
     
     width: 100%;
-    padding: 20px;
+    padding: 50px 20px;
     border-radius: 0 0 20px 20px;
 
     position: absolute;
@@ -184,7 +184,7 @@
 }
 
 .botonesDelModalDosBotones div a{
-    width: 80%;
+    width: 90%;
     margin: 5px 10px;
 }
 
@@ -305,6 +305,7 @@
 
 
 .containerTextBlank{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -318,17 +319,24 @@
 
 .containerTextBlankSon2 input{
     width: 100% !important;
-    padding: 15px 10px !important;
+    padding: 15px 10px 15px 20px !important;
     display: inline-block !important;
-    border: rgb(192, 192, 192) solid 1px !important;
-    background-color: rgb(192, 192, 192) !important;
-    font-weight: 700;
+    border: rgb(180, 180, 180) solid 1px !important;
+    background-color: rgb(238, 238, 238) !important;
+    font-weight: 600;
     font-size: 16px;
     color: #000 !important;
     outline: none !important;
     border-radius: 10px !important;
 }
 
+@media screen and (max-width: 600px) {
+    .containerTextBlankSon2 input{
+        width: 100% !important;
+        padding: 8px !important;
+        border-radius: 5px !important;
+    }
+}
 /*Opciones para mobile*/
 
 .containerOpcionesMobileFather{
@@ -386,12 +394,16 @@
 
 /*Altura de los modales*/
 .modalAltura{
-    height: 55vh;
+    min-height: 80vh;
+    max-width: 100vh;
+    height: auto;
 }
 
 @media screen and (max-width: 600px) {
     .modalAltura{
-        height: 100vh;
+        min-height: 80vh;
+        max-width: 100vh;
+        height: auto;
     }
 }
 
