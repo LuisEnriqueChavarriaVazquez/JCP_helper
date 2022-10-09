@@ -237,3 +237,14 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 .input-field .prefix.active {
     color: #fff;
 }
+
+/*Para los textos de los dropdown*/
+.dropdown-content li > a, .dropdown-content li > span {
+    font-size: 16px;
+    font-weight: 650;
+    background-color: #333333;
+    color: #fff;
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+}
