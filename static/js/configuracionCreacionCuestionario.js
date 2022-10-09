@@ -610,26 +610,23 @@ $(document).ready(function () {
   ######################################################
 */
 
-//Agregar elemento para arrastrar (en la vista previa) 
+//Agregar elemento para arrastrar (en el modal) 
 $(document).ready(function () {
   $("#btnAgregarsModalArrastrarCreacion").click(function () {
     $("#opccionesArrastarModalCreacion").append(
-      " <div class='row opccionLinea'>" +
-      " <div class='input-field col s6'>" +
-      "  <input placeholder='Placeholder'   type='text' class='textoArrastrarCreacion'>" +
-      "</div>" +
-      "<div class='col s6 '>" +
-      "<a class='waves-effect waves-light btn '  style='width: 100 %; height: 100px;'>" +
-      "<textarea placeholder='Opccion' id='opccion' class='materialize-textarea textoOpccionCreacion  '></textarea>" +
-      "</a>" +
-      "</div>" +
-      "</div>"
-    );
-    M.toast({ html: 'agregar' });
+      `<div class='row opccionLinea'>
+        <div class="col s12 m6">
+          <input placeholder='(a) Escriba el concepto' type='text' class='textoArrastrarCreacion browser-default conceptoDefinicion'>
+        </div>
+        <div class='col s12 m6'>
+          <input placeholder='(b) Escriba la definición' type="text" class='textoOpccionCreacion browser-default conceptoDefinicion'>
+        </div>
+      </div>`);
+    M.toast({ html: 'Elemento agregrado' });
   });
 });
 
-//Opcion para guardar preguntas de Arrastrar
+//Opcion para guardar preguntas de Arrastrar (En la vista previa)
 $(document).ready(function () {
   $("#btnGuardarModalArrastrarCreacion").click(function () {
     var textoElementos = "";
@@ -641,68 +638,63 @@ $(document).ready(function () {
       obj
     ) {
       var texto = $(this).find(".textoArrastrarCreacion").val();
-
       var opccion = $(this).find(".textoOpccionCreacion").val();
 
       textoElementos =
         textoElementos +
-        " <div class='row opccionLinea'>" +
-        " <div class='input-field col s6'>" +
-        "  <input placeholder='Placeholder'   type='text' class='textoArrastrarCreacion'  value='" +
-        texto +
-        "'>" +
-        "</div>" +
-        "<div class='col s6 '>" +
-        "<a class='waves-effect waves-light btn '  style='width: 100 %; height: 100px;'>" +
-        "<textarea placeholder='Opccion' id='opccion' class='materialize-textarea textoOpccionCreacion  '>" +
-        opccion +
-        "</textarea>" +
-        "</a>" +
-        "</div>" +
-        "</div>";
+        `<div class='row opccionLinea'>
+          <div class="col s12 m6">
+            <input value="`+ texto +`" placeholder='(a) Escriba el concepto' type='text' class='textoArrastrarCreacion browser-default conceptoDefinicion'>
+          </div>
+          <div class='col s12 m6'>
+            <input value="`+ opccion +`" placeholder='(b) Escriba la definición' type="text" class='textoOpccionCreacion browser-default conceptoDefinicion'>
+          </div>
+        </div>`;
     });
 
     var contenedor =
-      "<div class='row'>" +
-      " <div class='col s12 ''>" +
-      "  <div class='card '>" +
-      " <div class='card-content '>" +
-      "<h4>Arrastrar</h4>" +
-      " <div class='row'>" +
-      " <div class='row'>" +
-      "<div class='input-field col s12'>" +
-      "<textarea  class='materialize-textarea textoPregunta'>" +
-      pregunta +
-      "</textarea>" +
-      "<label >Pregunta</label>" +
-      "</div>" +
-      "</div>" +
-      "</div>" +
-      "<div class='row'>" +
-      "<div class='col s12' >" +
-      textoElementos +
-      "</div>" +
-      "</div>" +
-      " <div class='row'>" +
-      "<div class='col s6'>" +
-      "<a class='waves-effect waves-light btn '>" +
-      "Eliminar" +
-      "</a>" +
-      "</div>" +
-      "<div class='col s6'>" +
-      "<a class='waves-effect waves-light btn '>" +
-      "Agregar" +
-      "</a>" +
-      "</div>" +
-      "</div>" +
-      "</div>" +
-      "</div>" +
-      "</div>" +
-      "</div>";
+    `<div class='row'>
+      <div class='col s12'>
+        <div class='card colorWhite bordered2'>
+          <div class='card-content'>
+            <h5>Arrastrar y ordenar</h5>
+            <div class='row'>
+              <div class='row col s12'>
+                <div class='input-field col s12'>
+                  <textarea class='materialize-textarea textoPregunta'>`+ pregunta + `</textarea>
+                  <label class="active">Descripción del ejercicio</label>
+                </div>
+              </div>
+            </div>
+            <div class='row'>
+              <div class="col s12 m6">
+                <h6 class="tituloColumnaModal"><b>Conceptos (A)</b></h6>
+              </div>
+              <div class='col s12 m6'>
+                <h6 class="tituloColumnaModal"><b>Definiciones (B)</b></h6>
+              </div>
+              <div class='col s12'>` + textoElementos + `</div>
+            </div>
+            <div class='containerButtonsView'>
+                <div>
+                  <a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnAgregarConceptoArrastrable'><i class='material-icons left'>add</i>Agregar</a>
+                </div>
+                <div>
+                  <a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnEliminarConceptoArrastrable'><i class='material-icons left'>remove</i>Eliminar</a>
+                </div>
+                <div>
+                  <a class='waves-effect waves-light btn bordered5 color1 shadow-2e btnEliminarPreguntaConceptoArrastrable'><i class='material-icons left'>delete_sweep</i>Eliminar pregunta</a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
     $("#contenedorCuestionarioPreguntas").append(contenedor);
   });
 });
 
+//Para los elementos drag and drop
 function crearListasDragAndDrop(){
   const sortableConceptos = new Sortable(
 		document.querySelector('#conceptos'), {
