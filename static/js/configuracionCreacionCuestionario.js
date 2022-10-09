@@ -441,6 +441,7 @@ function agregarEjercicio() {
   codigoResultado.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
       mostrarCódigoMuestra();
+      M.toast({ html: 'Código agregado' });
     }
   });
 
@@ -458,7 +459,6 @@ function agregarEjercicio() {
     M.toast({ html: 'Casillas limpias' });
   }
 }
-
 agregarEjercicio();
 
 //Se carga el texto de los archivos de texto
@@ -473,11 +473,13 @@ function agregarEjercicioArchivo() {
       }
 
       fr.readAsText(this.files[0]);
+      M.toast({ html: 'Archivo leído.' });
     })
 }
 agregarEjercicioArchivo();
 
 //Guardar nuevo ejercicio
+var contadorEjerciciosEnContenedor = 0;
 function agregarEjercicioContenedor() {
   //Descripcion
   const descripcionProblema = document.getElementById('descripcionProblema');
@@ -496,17 +498,20 @@ function agregarEjercicioContenedor() {
 
   crearEjercicioButton.addEventListener('click', agregarNuevaPregunta);
   function agregarNuevaPregunta() {
+    contadorEjerciciosEnContenedor++;
+    var codigoMuestraContenido = codigoMuestra.innerHTML;
     let ejercicio =
-      `<div class='row preguntaOpccionMultiple'>
+      `<div class='row preguntasEjercicios'>
           <div class='col s12'>
             <div class='card colorWhite bordered2'>
             <div class='card-content '>
               <h5>Pregunta de ejercicio.</h5>
+              <br>
               <div class='row'>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">description</i>
-                    <textarea id="descripcionProblema" class="materialize-textarea">` + descripcionProblema.value + `</textarea>
-                    <label class="active" for="descripcionProblema">Descripción del problema</label>
+                    <textarea id="descripcionProblema` + contadorEjerciciosEnContenedor + `" class="materialize-textarea">` + descripcionProblema.value + `</textarea>
+                    <label class="active" for="descripcionProblema` + contadorEjerciciosEnContenedor + `">Descripción del problema</label>
                 </div>
               </div>
               <div class="row colorGreyWhiter bordered2 contenedorOpcionesCodigo">
@@ -514,39 +519,40 @@ function agregarEjercicioContenedor() {
                     <h6><b>Código de archivo</b></h6>
                 </div>
                 <div class="input-field col s12">
-                    <input type="file" id="inputfile" class="hidden"/>
+                    <input type="file" id="inputfile` + contadorEjerciciosEnContenedor + `" class="hidden"/>
                     <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
-                    id="leerArchivoEjercicio" style="width: 100%;"><i
+                    id="leerArchivoEjercicio` + contadorEjerciciosEnContenedor + `" style="width: 100%;"><i
                     class="material-icons left">upload_file</i>
-                    <label for="inputfile" class="colorText">Elegir archivo</label></a>
+                    <label for="inputfile` + contadorEjerciciosEnContenedor + `" class="colorText">Elegir archivo</label></a>
                 </div>  
                 <div class="col s12">
                     <h6><b>Adjuntar enlace a carpeta online (múltiples archivos)</b></h6>
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">cloud_circle</i>
-                    <input type="text" id="carpetaOnline" value="`+ carpetaOnline.value +`"></input>
-                    <label class="active" for="carpetaOnline">Enlace de carpeta</label>
+                    <input type="text" id="carpetaOnline` + contadorEjerciciosEnContenedor + `" value="`+ carpetaOnline.value +`"></input>
+                    <label class="active" for="carpetaOnline` + contadorEjerciciosEnContenedor + `">Enlace de carpeta</label>
                 </div>                        
                 <div class="col s12">
                     <h6><b>Código escrito manualmente</b></h6>
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">history_edu</i>
-                    <textarea id="codigoResultado" class="materialize-textarea">`+ codigoResultado.value +`</textarea>
-                    <label class="active" for="codigoResultado">Código a mano</label>
+                    <textarea id="codigoResultado` + contadorEjerciciosEnContenedor + `" class="materialize-textarea">`+ codigoResultado.value +`</textarea>
+                    <label class="active" for="codigoResultado` + contadorEjerciciosEnContenedor + `">Código a mano</label>
                 </div>
             </div>
             <h5><b>Vista previa del código</b></h5>
             <div class="previewCodeContainer bordered2">
                 <code class="colorText">
-                    <pre id="codigoMuestra">
-                    </pre>
+                    <pre id="codigoMuestra` + contadorEjerciciosEnContenedor + `">`
+                      + codigoMuestraContenido +
+                    `</pre>
                 </code>
             </div>
               <div class='containerButtonsView'>
                 <div>
-                  <a class='waves-effect waves-light btn bordered5 color1 shadow-2e btnEliminarEjercicio'><i class='material-icons left'>delete_sweep</i>Eliminar pregunta</a>
+                  <a class='waves-effect waves-light btn bordered5 color1 shadow-2e btnEliminarEjercicios'><i class='material-icons left'>delete_sweep</i>Eliminar pregunta</a>
                 </div>
               </div>
             </div>
@@ -554,11 +560,23 @@ function agregarEjercicioContenedor() {
         </div>
       </div>`;
     $("#contenedorCuestionarioPreguntas").append(ejercicio);
+    M.toast({ html: 'Ejercicio agregado' });
   }
-
 }
 
 agregarEjercicioContenedor();
+
+// Eliminar pregunta de ejercicio (En la vista previa)
+$(document).ready(function () {
+  $("#contenedorCuestionarioPreguntas").on(
+    "click",
+    ".btnEliminarEjercicios",
+    function () {
+      $(this).closest(".preguntasEjercicios").remove();
+      M.toast({ html: 'Pregunta eliminada' });
+    }
+  );
+});
 
 /*
   ######################################################
