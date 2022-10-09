@@ -484,6 +484,47 @@
     overflow-y: scroll;
 }
 
+.previewCodeContainerNoModal{
+    width: 800px;
+    min-height: 100px;
+    max-height: 300px;
+    margin-bottom: 10px;
+    padding: 20px 30px;
+    background-color: rgb(8, 21, 32);
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
+@media screen and (max-width: 1600px) {
+    .previewCodeContainerNoModal{
+        width: 700px !important;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .previewCodeContainerNoModal{
+        width: 600px !important;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .previewCodeContainerNoModal{
+        width: 430px !important;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .previewCodeContainerNoModal{
+        width: 350px !important;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .previewCodeContainerNoModal{
+        width: 200px !important;
+    }
+}
+
 /*Para las opciones de agregar codigo al preview*/
 .contenedorOpcionesCodigo{
     padding: 20px 10px;

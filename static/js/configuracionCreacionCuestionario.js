@@ -523,7 +523,9 @@ function agregarEjercicioContenedor() {
                     <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
                     id="leerArchivoEjercicio` + contadorEjerciciosEnContenedor + `" style="width: 100%;"><i
                     class="material-icons left">upload_file</i>
-                    <label for="inputfile` + contadorEjerciciosEnContenedor + `" class="colorText">Elegir archivo</label></a>
+                    <label 
+                    onclick="agregarContenidoIndividualArchivo('codigoMuestra` + contadorEjerciciosEnContenedor + `', 'inputfile` + contadorEjerciciosEnContenedor + `')"
+                    for="inputfile` + contadorEjerciciosEnContenedor + `" class="colorText">Elegir archivo</label></a>
                 </div>  
                 <div class="col s12">
                     <h6><b>Adjuntar enlace a carpeta online (múltiples archivos)</b></h6>
@@ -538,12 +540,14 @@ function agregarEjercicioContenedor() {
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">history_edu</i>
-                    <textarea id="codigoResultado` + contadorEjerciciosEnContenedor + `" class="materialize-textarea">`+ codigoResultado.value +`</textarea>
+                    <textarea 
+                    onchange="agregarContenidoIndividual('codigoMuestra` + contadorEjerciciosEnContenedor + `', 'codigoResultado` + contadorEjerciciosEnContenedor + `')" 
+                    id="codigoResultado` + contadorEjerciciosEnContenedor + `" class="materialize-textarea">`+ codigoResultado.value +`</textarea>
                     <label class="active" for="codigoResultado` + contadorEjerciciosEnContenedor + `">Código a mano</label>
                 </div>
             </div>
             <h5><b>Vista previa del código</b></h5>
-            <div class="previewCodeContainer bordered2">
+            <div class="previewCodeContainerNoModal bordered2">
                 <code class="colorText">
                     <pre id="codigoMuestra` + contadorEjerciciosEnContenedor + `">`
                       + codigoMuestraContenido +
@@ -565,6 +569,28 @@ function agregarEjercicioContenedor() {
 }
 
 agregarEjercicioContenedor();
+
+//Para de manera individual (Por ejercicio agregar preview de codigo)
+//La invocacion es un onchange que se encuentra en el HTML
+function agregarContenidoIndividual(idMuestra, idResultado){
+  const muestraContenedor = document.getElementById(idMuestra);
+  const inputResultado = document.getElementById(idResultado);
+  muestraContenedor.innerText = inputResultado.value;
+}
+
+function agregarContenidoIndividualArchivo(idMuestra, idInputFile) {
+  document.getElementById(idInputFile)
+  .addEventListener('change', function () {
+
+    var fr = new FileReader();
+    fr.onload = function () {
+      document.getElementById(idMuestra).innerText = fr.result;
+    }
+
+    fr.readAsText(this.files[0]);
+    M.toast({ html: 'Archivo leído.' });
+  })
+}
 
 // Eliminar pregunta de ejercicio (En la vista previa)
 $(document).ready(function () {
