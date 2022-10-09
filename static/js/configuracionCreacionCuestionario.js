@@ -315,6 +315,7 @@ eliminarEspacioModal();
 /*
 * Agregar pregunta de completar espacio (En el modal)
 */
+var preguntasDeRellenado = 0;
 $(document).ready(function () {
   $("#btnGuardarModalRellenarEspaciosCreacion").click(function () {
     var contadorInicial = 1;
@@ -336,6 +337,7 @@ $(document).ready(function () {
     );
 
     var pregunta = $("#texAreaModalRellenarEspaciosCreacion").val();
+    preguntasDeRellenado++;
 
     var contenedor =
       `<div class='row preguntaRellenarEspacios'>
@@ -345,13 +347,13 @@ $(document).ready(function () {
               <h5>Rellenar espacios</h5>
               <div class='row'>
                 <div class='input-field col s12'>
-                  <textarea  class='materialize-textarea textoPregunta' placeholder='Pregunta'>`
-      + pregunta +
-      `</textarea>
+                  <textarea  class='materialize-textarea textoPregunta textoPreguntaVistaPrevia' placeholder='Pregunta'>`
+                    + pregunta +
+                  `</textarea>
                 </div>
               </div>
               <div class='row containerTextBlank'>
-                <div class='col s12 espaciosBlancos' >` + textoOpcciones + `</div>
+                <div class='col s12 espaciosBlancos containerTextBlankVistaPrevia'>` + textoOpcciones + `</div>
               </div>
               <div class='containerButtonsView'>
                 <div>
@@ -396,7 +398,7 @@ $(document).ready(function () {
 
       var preguntaAgregar =
         preguntaRellenarEspacios.find(".textoPregunta").val() +
-        "[Blank" +
+        "[Blank " +
         numeroEspacios +
         "]";
       preguntaRellenarEspacios.find(".textoPregunta").val(preguntaAgregar);
@@ -405,13 +407,15 @@ $(document).ready(function () {
   );
 });
 
-// Eliminar pregunta de opccion multiple (En la vista previa)
+
+// Eliminar pregunta de espacios en blanco (En la vista previa)
 $(document).ready(function () {
   $("#contenedorCuestionarioPreguntas").on(
     "click",
     ".btnEliminarPreguntaEspacioBlanco",
     function () {
       $(this).closest(".preguntaRellenarEspacios").remove();
+      preguntasDeRellenado--;
       M.toast({ html: 'Pregunta eliminada' });
     }
   );
