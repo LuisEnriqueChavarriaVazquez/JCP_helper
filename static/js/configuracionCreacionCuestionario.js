@@ -653,7 +653,7 @@ $(document).ready(function () {
     });
 
     var contenedor =
-    `<div class='row'>
+    `<div class='row preguntasArrastrado'>
       <div class='col s12'>
         <div class='card colorWhite bordered2'>
           <div class='card-content'>
@@ -692,6 +692,18 @@ $(document).ready(function () {
     </div>`;
     $("#contenedorCuestionarioPreguntas").append(contenedor);
   });
+});
+
+// Eliminar pregunta de ejercicio (En la vista previa)
+$(document).ready(function () {
+  $("#contenedorCuestionarioPreguntas").on(
+    "click",
+    ".btnEliminarPreguntaConceptoArrastrable",
+    function () {
+      $(this).closest(".preguntasArrastrado").remove();
+      M.toast({ html: 'Pregunta eliminada' });
+    }
+  );
 });
 
 //Para los elementos drag and drop
