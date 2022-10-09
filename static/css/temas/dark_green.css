@@ -176,3 +176,15 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     width: 280px;
     margin: 0 auto;
 }
+
+/*Para los type radio*/
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:after {
+  background-color: #fff;
+}
+
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:before,
+[type="radio"].with-gap:checked + span:after {
+  border: 2px solid #fff;
+}

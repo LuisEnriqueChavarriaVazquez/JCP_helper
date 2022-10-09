@@ -145,3 +145,15 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     color: rgb(71, 120, 129);
     padding: 0 1rem;
 }
+
+/*Para los type radio*/
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:after {
+  background-color: rgb(71, 120, 129);
+}
+
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:before,
+[type="radio"].with-gap:checked + span:after {
+  border: 2px solid rgb(71, 120, 129);
+}
