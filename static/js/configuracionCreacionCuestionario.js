@@ -784,8 +784,6 @@ function crearListasDragAndDrop(){
 
 //crearListasDragAndDrop();
 
-
-
 /*
   ######################################################
   EXTRA: INTERACCIÓN EN GENERAL
@@ -834,7 +832,83 @@ function ingresarTitulo() {
   }
 }
 
-
-
 //Funciones para el titulo
 ingresarTitulo();
+
+/*
+  ######################################################
+  EXTRA: Guardado del JSON
+  ***
+  En esta sección se debe hacer una lectura de los elementos que estan en pantalla de modo
+  que se pueda extraer su contenido y guardarlo en un JSON para su futura lectura.
+  ***
+  La estrcutura del JSON debe estar jerarquizada de modo que todo pueda se ingresado 
+  con funciones que detecten el tipo de pregunta y actuen en consecuencia.
+  ***
+  Se recomiendo el uso de 5 funciones básicas.
+  4 para los tipos de pregunta y 1 para datos adicionales.
+  ######################################################
+*/
+
+/*
+*   Funcion para la extracción de los datos y conversión a JSON
+*/
+
+function convertToJSON() {
+  //Se extrae la data.
+  var firstname = document.getElementById('firstname').value;
+  var lastname = document.getElementById('lastname').value;
+  var email = document.getElementById('email').value;
+
+  //Se guarda en un JSON
+  var jsonObject = {
+      "FirstName": firstname,
+      "LastName": lastname,
+      "email": email
+  }
+
+  //Se imprime en la vista previa
+  document.getElementById('output').innerText = JSON.stringify(jsonObject, null, 1);
+}
+
+function downloadJson(){
+  convertToJSON();
+  //Obtenemos el valor del preview del JSON
+  var jsonObjectAsString = document.getElementById('output').innerText;
+
+  //Hacemos la conversión
+  var blob = new Blob([jsonObjectAsString], {
+      //type: 'application/json'
+      //octet es de tipo binario y es más eficiente
+      type: 'octet/stream'
+  });
+  console.log(blob);
+
+  //Accedemos al boton de descarga
+  let botonDescarga = document.getElementById('descargarJSON');
+
+  //Accedemos al titulo del cuestionario
+  const nombreCuestionario = document.getElementById('nombreCuestionario');
+  let nombreCuestionarioArchivo;
+
+  //Validamos si el nombre del archivo esta vacio
+  if(nombreCuestionario.value == ''){
+    nombreCuestionarioArchivo = 'cuestionario_default.json';
+  }else{
+    nombreCuestionarioArchivo = nombreCuestionario.value + '.json';
+  }
+
+  //Modificamos el boton de descarga
+  botonDescarga.download = nombreCuestionarioArchivo;
+  botonDescarga.href = window.URL.createObjectURL(blob);
+
+  // var anchor = document.createElement('a')
+  // anchor.download = "user.json";
+  // anchor.href = window.URL.createObjectURL(blob);
+  // anchor.innerHTML = "download"
+  // anchor.click();
+
+  // console.log(anchor);
+
+  //document.getElementById('output').append(anchor)
+}

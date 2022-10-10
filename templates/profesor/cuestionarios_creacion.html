@@ -31,7 +31,6 @@
         </div>
     </nav>
 
-
     <section class="containerCreacionCuestionarios">
         <!--Opciones para crear el cuestionario en pantalla grande-->
         <section class="containerCreacionCuestionariosSon1">
@@ -92,9 +91,36 @@
                         </div>
                     </div>
                 </div>
-                <!--Boton ir a la siguiente sección-->
+                <!--Modal 0: Guardado del JSON -->
+                <section class="row">
+                    <div id="modalJSON" class="modal colorGrey bordered2 modalAltura">
+                        <div class="modal-content">
+                            <h4>Generando archivo JSON</h4>
+                            <hr>
+                            <p>El cuestionario será almacenado como archivo JSON, usted puede guardar una copia del
+                                cuestionario si asi lo desea.</p>
+                            <hr>
+                            <br>First Name: <input id="firstname" value="John">
+                            <br>Last Name:<input id="lastname" value="Pavek">
+                            <br>Email:<input id="email" value="Example@example.com">
+                            <br>
+
+                            <!--Preview del cuestionario-->
+                            <h5><b>Preview de cuestionario JSON</b></h5>
+                            <pre class="previewCodeContainer colorText bordered2" id="output"></pre>
+                            <!--Descarga del archivo-->
+                            <a onclick="downloadJson()" class="waves-effect waves-light btn bordered5 color2 shadow-2e" id="descargarJSON" style="width: 100%; margin-bottom: 10px;">
+                                <i class="material-icons left">data_object</i>Descargar</a>
+                            <!--Almacenado del archivo-->
+                            <button onclick="saveToFile()" class="waves-effect waves-light btn bordered5 color1 shadow-2e" id="guardarJSON" style="width: 100%;">
+                                <i class="material-icons left">save</i>Guardar</button>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+                <!--Boton para abrir el modal del json-->
                 <div class="fixed-action-btn buttonSaveJSON">
-                    <button type="submit" class="btn-floating btn-large color1">
+                    <button href="#modalJSON" onclick="convertToJSON()" class="modal-trigger btn-floating btn-large color1">
                         <i class="large material-icons">save</i>
                     </button>
                 </div>
@@ -149,7 +175,6 @@
                             <label for="textAreaPreguntaOpccionMultipleCreacion">Pregunta</label>
                         </div>
                     </div>
-
 
                     <h5><b>Defina las opciones</b></h5>
                     <p>Escriba las posibles opciones para la pregunta que se planteó y determine la respuesta correcta.
@@ -475,55 +500,11 @@
         </div>
     </section>
 
-    <!-- <br>First Name: <input id="firstname" value="John">
-    <br>Last Name:<input id="lastname" value="Pavek">
-    <br>Email:<input id="email" value="Example@example.com">
-    <br>
-    <button onclick="convertToJSON()">Convert</button>
-    <button onclick="saveToFile()">Save</button>
-    <hr> output: <br>
-    <textarea id="output"></textarea> -->
-
 </body>
 
 <script src="../../static/js/configuracionCreacionCuestionario.js"></script>
-<!-- <script>
-    function convertToJSON() {
-        var firstname = document.getElementById('firstname').value;
-        var lastname = document.getElementById('lastname').value;
-        var email = document.getElementById('email').value;
+<script>
 
-        var jsonObject = {
-            "FirstName": firstname,
-            "LastName": lastname,
-            "email": email
-        }
-
-        document.getElementById('output').value = JSON.stringify(jsonObject)
-    }
-
-    function saveToFile() {
-        convertToJSON();
-        var jsonObjectAsString = document.getElementById('output').value;
-
-        var blob = new Blob([jsonObjectAsString], {
-            //type: 'application/json'
-            type: 'octet/stream'
-        });
-        console.log(blob);
-
-        var anchor = document.createElement('a')
-        anchor.download = "user.json";
-        anchor.href = window.URL.createObjectURL(blob);
-        anchor.innerHTML = "download"
-        anchor.click();
-
-        console.log(anchor);
-
-        document.getElementById('output').append(anchor)
-
-
-    }
-</script> -->
+</script>
 
 </html>
