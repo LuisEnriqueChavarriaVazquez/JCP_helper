@@ -1,5 +1,16 @@
-{
- "FirstName": "John",
- "LastName": "Pavek",
- "email": "Example@example.com"
+{
+ "preguntasModal3": [
+  {
+   "0": "",
+   "1": "",
+   "2": "",
+   "3": "                                "
+  },
+  {
+   "0": "",
+   "1": "",
+   "2": "",
+   "3": "                                "
+  }
+ ]
 }

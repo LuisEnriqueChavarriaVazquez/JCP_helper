@@ -513,6 +513,11 @@ function agregarEjercicioContenedor() {
                     <textarea id="descripcionProblema` + contadorEjerciciosEnContenedor + `" class="materialize-textarea">` + descripcionProblema.value + `</textarea>
                     <label class="active" for="descripcionProblema` + contadorEjerciciosEnContenedor + `">Descripción del problema</label>
                 </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">play_arrow</i>
+                    <textarea id="mediaProblema` + contadorEjerciciosEnContenedor + `" class="materialize-textarea"></textarea>
+                    <label for="mediaProblema` + contadorEjerciciosEnContenedor + `">Imagen o video para el problema (url)</label>
+                </div>
               </div>
               <div class="row colorGreyWhiter bordered2 contenedorOpcionesCodigo">
                 <div class="col s12">
@@ -790,20 +795,6 @@ function crearListasDragAndDrop() {
   ######################################################
 */
 
-function generadorCodigosGrupo() {
-  //Accedemos a los botones para entrar a los formularios de nuevo grupo
-  const buttonNuevoGrupo = document.getElementById('buttonNuevoGrupo');
-  const buttonNuevoGrupoMobile = document.getElementById('buttonNuevoGrupoMobile');
-  //Accedemos al input de código de grupo
-  const codigoGrupo = document.getElementById('codigoGrupo');
-  //Caja para mostrar en el formulario la clave
-  const muestraCodigoGrupo = document.getElementById('muestraCodigoGrupo');
-
-  //Cada que abrimos el formulario se asigna nuevo codigo
-  buttonNuevoGrupo.addEventListener('click', asignarCodigo);
-  buttonNuevoGrupoMobile.addEventListener('click', asignarCodigo);
-}
-
 /*
 *   Función para el ingreso del titulo
 */
@@ -827,7 +818,7 @@ function ingresarTitulo() {
   //Generador de clave única
   function asignarCodigo() {
     //Guardamos la clave de grupo
-    let claveDeGrupo = makeid(12);
+    let claveDeGrupo = makeid(8);
 
     //Generar el código
     function makeid(length) {
@@ -840,7 +831,6 @@ function ingresarTitulo() {
       }
       return result;
     }
-    
     return claveDeGrupo;
   }
   let clave = asignarCodigo();
@@ -856,12 +846,12 @@ function ingresarTitulo() {
     if (nombreCuestionario.value == "") {
       nombreCuestionario.value = "Error";
     } else {
-      if(codigoAgregado == false){
-        tituloCuestionario.innerText = nombreCuestionario.value + " ("+ clave +")";
+      if (codigoAgregado == false) {
+        tituloCuestionario.innerText = nombreCuestionario.value + " (" + clave + ")";
         inputNombreCuestionario[0].classList.add('hiddenElement');
         contenedorTitulo[0].classList.remove('hiddenElement');
         codigoAgregado = true;
-      }else{
+      } else {
         tituloCuestionario.innerText = nombreCuestionario.value;
         inputNombreCuestionario[0].classList.add('hiddenElement');
         contenedorTitulo[0].classList.remove('hiddenElement');
@@ -871,12 +861,12 @@ function ingresarTitulo() {
 
   editTitulo.addEventListener('click', editarTitulo);
   function editarTitulo() {
-    if(codigoAgregado == false){
-      nombreCuestionario.value = tituloCuestionario.innerText + " ("+ clave +")";
+    if (codigoAgregado == false) {
+      nombreCuestionario.value = tituloCuestionario.innerText + " (" + clave + ")";
       inputNombreCuestionario[0].classList.remove('hiddenElement');
       contenedorTitulo[0].classList.add('hiddenElement');
       codigoAgregado = true;
-    }else{
+    } else {
       nombreCuestionario.value = tituloCuestionario.innerText;
       inputNombreCuestionario[0].classList.remove('hiddenElement');
       contenedorTitulo[0].classList.add('hiddenElement');
@@ -903,20 +893,123 @@ ingresarTitulo();
 */
 
 /*
-*   Funcion para la extracción de los datos y conversión a JSON
+* Obtener todos los IDS de la página 
 */
 
+function getAllIds() {
+  //Con esto podemos buscar IDS de elementos en concreto
+  let IDS_supreme_container = document.querySelectorAll('*[id]');
+
+  //Lista para solo el atributo de ID
+  let atributoId = []
+  //Obtenemos solo el atributo de ID
+  for (var j = 0; j < IDS_supreme_container.length; j++) {
+    atributoId[j] = IDS_supreme_container[j].getAttribute('id');
+  }
+  return atributoId;
+}
+
+/*
+* Obtener IDS y valores; preguntas de ejercicios. 
+*/
+function getEjerciciosValues_three() {
+  //Todas las IDS
+  let ids_all = getAllIds();
+
+  //Contador de asignacion
+  let contadorAsignacion1 = 0;
+  let contadorAsignacion2 = 0;
+  let contadorAsignacion3 = 0;
+  let contadorAsignacion4 = 0;
+
+  //Contenedores con valores importantes
+  let descripcionProblema = [];
+  let mediaProblema = [];
+  let carpetaOnline = [];
+  let codigoMuestra = [];
+
+  //Buscamos entre las IDS
+  for (var i = 0; i < ids_all.length; i++) {
+    //Buscamos coincidencias en lista 1
+    if (ids_all[i].indexOf('descripcionProblema') != -1) {
+      descripcionProblema[contadorAsignacion1++] = ids_all[i];
+    }
+
+    //Buscamos coincidencias en lista 2
+    if (ids_all[i].indexOf('mediaProblema') != -1) {
+      mediaProblema[contadorAsignacion2++] = ids_all[i];
+    }
+
+    //Buscamos coincidencias en lista 3
+    if (ids_all[i].indexOf('carpetaOnline') != -1) {
+      carpetaOnline[contadorAsignacion3++] = ids_all[i];
+    }
+
+    //Buscamos coincidencias en lista 4
+    if (ids_all[i].indexOf('codigoMuestra') != -1) {
+      codigoMuestra[contadorAsignacion4++] = ids_all[i];
+    }
+  }
+
+  //Contenedores con los valores de las listas
+  let descripcionProblemaValues = [];
+  let mediaProblemaValues = [];
+  let carpetaOnlineValues = [];
+  let codigoMuestraValues = [];
+
+  //Guardamos solo los valores
+  for (var k = 0; k < descripcionProblema.length - 1; k++) {
+    descripcionProblemaValues[k] = document.getElementById(descripcionProblema[k]).value;
+    mediaProblemaValues[k] = document.getElementById(mediaProblema[k]).value;
+    carpetaOnlineValues[k] = document.getElementById(carpetaOnline[k]).value;
+    codigoMuestraValues[k] = document.getElementById(codigoMuestra[k]).innerText;
+  }
+
+  //Tenemos que mezclar los arrays y separalos por pregunta
+  let valoresOrganizadosTotal = []
+  for (var h = 0; h < descripcionProblemaValues.length; h++) {
+      let valoresOrganizados = []
+      valoresOrganizados.push(descripcionProblemaValues[h]);
+      valoresOrganizados.push(mediaProblemaValues[h]);
+      valoresOrganizados.push(carpetaOnlineValues[h]);
+      valoresOrganizados.push(codigoMuestraValues[h]);
+      valoresOrganizadosTotal.push(valoresOrganizados);
+  }
+
+  console.log(valoresOrganizadosTotal);
+
+  let arrayObjetosFinal = []
+  for (var h = 0; h < valoresOrganizadosTotal.length; h++) {
+    arrayObjetosFinal.push($.extend({}, valoresOrganizadosTotal[h]));
+  }
+
+  console.log(arrayObjetosFinal);
+
+  return arrayObjetosFinal;
+
+  //Prueba
+  // console.log(descripcionProblema);
+  // console.log(mediaProblema);
+  // console.log(carpetaOnline);
+  // console.log(codigoMuestra);
+
+  // console.log(descripcionProblemaValues);
+  // console.log(mediaProblemaValues);
+  // console.log(carpetaOnlineValues);
+  // console.log(codigoMuestraValues);
+
+}
+
+
+/*
+*   Funcion para la extracción de los datos y conversión a JSON
+*/
 function convertToJSON() {
-  //Se extrae la data.
-  var firstname = document.getElementById('firstname').value;
-  var lastname = document.getElementById('lastname').value;
-  var email = document.getElementById('email').value;
+  let valoresEjercicios = getEjerciciosValues_three();
 
   //Se guarda en un JSON
   var jsonObject = {
-    "FirstName": firstname,
-    "LastName": lastname,
-    "email": email
+    "preguntasModal3": valoresEjercicios 
   }
 
   //Se imprime en la vista previa

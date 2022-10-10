@@ -123,6 +123,13 @@
         font-weight: 600;
         text-align: center;
     }
+
+    .containerCreacionCuestionariosSon2{
+        grid-area: area2;
+        padding: 20px 15px;
+        margin-bottom: 100px;
+    }
+    
 }
 
 /*Dentro de son 1*/
