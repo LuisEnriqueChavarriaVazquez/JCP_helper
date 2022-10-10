@@ -82,7 +82,6 @@ $(document).ready(function () {
     }
 
     function agregarContenidoVistaPrevia() {
-      contadorPreguntaOptMultiple = contadorPreguntaOptMultiple + 1;
       //Guardamos lo que vamos a imprimir
       var opcionA =
         `<div class='row colorGreyWhiter bordered1 opcionContainer'> 
@@ -94,7 +93,7 @@ $(document).ready(function () {
         </div> 
         <div class='col s12 m9'> 
           <h6><b>Opción A</b></h6> 
-          <textarea id='opcionACreacion' class='materialize-textarea'>`
+          <textarea id='opcionACreacion' class='materialize-textarea' name='textArea` + contadorPreguntaOptMultiple + `'>`
         + $("#opcionACreacion").val() +
         `</textarea> 
         </div> 
@@ -127,7 +126,7 @@ $(document).ready(function () {
         </div>
         <div class='col s12 m9'>
             <h6><b>Opción B</b></h6>
-            <textarea class='materialize-textarea'>`
+            <textarea class='materialize-textarea' name='textArea` + contadorPreguntaOptMultiple + `'>`
         + $("#opcionBCreacion").val() +
         `</textarea>
         </div>
@@ -137,13 +136,13 @@ $(document).ready(function () {
         `<div class='row colorGreyWhiter bordered1 opcionContainer ` + opcionCOculto + `'>` +
         `<div class='col s12 m3 labelContainer'>
           <label>
-            <input  type='radio' name='group` + contadorPreguntaOptMultiple + `' ` + checkC + ` />
+            <input type='radio' name='group` + contadorPreguntaOptMultiple + `' ` + checkC + ` />
             <span>Correcta</span>
           </label>
         </div>
         <div class='col s12 m9'>
           <h6><b>Opción C</b></h6>
-          <textarea class='materialize-textarea'>`
+          <textarea class='materialize-textarea' name='textArea` + contadorPreguntaOptMultiple + `'>`
         + $("#opcionCCreacion").val() +
         `</textarea>
         </div>
@@ -153,13 +152,13 @@ $(document).ready(function () {
         `<div class='row colorGreyWhiter bordered1 opcionContainer ` + opcionDOculto + `'>` +
         `<div class='col s12 m3 labelContainer'>
           <label>
-            <input  type='radio' name='group` + contadorPreguntaOptMultiple + `' ` + checkD + ` />
+            <input type='radio' name='group` + contadorPreguntaOptMultiple + `' ` + checkD + ` />
             <span>Correcta</span>
           </label>
         </div>
         <div class='col s12 m9'>
           <h6><b>Opción D</b></h6>
-          <textarea class='materialize-textarea'>`
+          <textarea class='materialize-textarea' name='textArea` + contadorPreguntaOptMultiple + `'>`
         + $("#opcionDCreacion").val() +
         `</textarea>
         </div>
@@ -173,7 +172,7 @@ $(document).ready(function () {
               <h5>Pregunta de opción múltiple.</h5>
             <div class='row'>
               <div class='input-field col s12'>
-                <textarea class='materialize-textarea textoPregunta' placeholder='Escriba la pregunta'>`
+                <textarea id="tituloOpcionMultiple` + contadorPreguntaOptMultiple + `"  class='materialize-textarea textoPregunta' placeholder='Escriba la pregunta'>`
         + pregunta +
         `</textarea>
               </div>
@@ -199,6 +198,7 @@ $(document).ready(function () {
         </div>`;
       $("#contenedorCuestionarioPreguntas").append(contenedor);
       M.toast({ html: 'Pregunta agregada a la vista previa' });
+      contadorPreguntaOptMultiple++;
     }
 
     agregarContenidoVistaPrevia();
@@ -914,6 +914,62 @@ function getAllIds() {
   return atributoId;
 }
 
+function getAllNames() {
+  //Con esto podemos buscar IDS de elementos en concreto
+  let NAMES_supreme_container = document.querySelectorAll('*[name]');
+
+  //Lista para solo el atributo de ID
+  let atributoName = []
+  //Obtenemos solo el atributo de ID
+  for (var j = 0; j < NAMES_supreme_container.length; j++) {
+    atributoName[j] = NAMES_supreme_container[j].getAttribute('name');
+  }
+  return atributoName;
+}
+
+/*
+* Obtener IDS/names y valores; preguntas de opcion multiples
+*/
+function getOpcionMultipleValues_one() {
+  //Todas las IDS
+  let ids_all = getAllIds();
+
+  //Todos los names
+  let names_all = getAllNames();
+
+  //Contador de asignacion
+  let contadorAsignacion1 = 0;
+  let contadorAsignacion2 = 0;
+  let contadorAsignacion3 = 0;
+
+  //Contenedores con valores importantes
+  let inputTitulos = []; //Por ID
+  let inputOpciones = []; //Por name
+  let inputRadios = []; //Por name
+
+  //Buscamos entre las IDS
+  // for (var i = 0; i < ids_all.length; i++) {
+  //   //Buscamos coincidencias en lista 1
+  //   if (ids_all[i].indexOf('rellenarInputTitulo') != -1) {
+  //     rellenarInputTitulo[contadorAsignacion1++] = ids_all[i];
+  //   }
+
+  //   //Buscamos coincidencias en lista 2
+  //   if (ids_all[i].indexOf('rellenarInputC') != -1) {
+  //     rellenarInputCContainer[contadorAsignacion2++] = ids_all[i];
+  //   }
+
+  //   //Valores de ID de los inputs de value
+  //   if (ids_all[i].indexOf('rellenarInputCValue') != -1) {
+  //     rellenarInputCValue[contadorAsignacion3++] = ids_all[i];
+  //   }
+  // }
+
+  //Prueba
+  console.log('IDs');
+  console.log(ids_all);
+}
+
 /*
 * Obtener IDS y valores; preguntas acompletar
 */
@@ -1280,6 +1336,7 @@ function getArrastrarValues_four() {
 *   Funcion para la extracción de los datos y conversión a JSON
 */
 function convertToJSON() {
+  getOpcionMultipleValues_one();
   let valoresRellenar = getRellenarValues_two();
   let valoresEjercicios = getEjerciciosValues_three();
   let valoresArrastrar = getArrastrarValues_four();
