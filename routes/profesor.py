@@ -79,6 +79,8 @@ def gestionar_cuestionarios():
 #@login_required
 def gestionar_estadisticas(id_docente):
 
+    
+
     #Grafica de ejemplo 1
     df = pd.DataFrame({
         "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
@@ -86,8 +88,9 @@ def gestionar_estadisticas(id_docente):
         "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
     })
 
-    fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="relative")
 
+
+    fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="relative", color_discrete_sequence=px.colors.qualitative.Alphabet,color_discrete_map={"Montreal": '#256D85',"SF":"#5F9DF7"})
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     header="Fruit in North America"
     description = """
@@ -102,7 +105,7 @@ def gestionar_estadisticas(id_docente):
         "City": ["London", "London", "London", "Madrid", "Madrid", "Madrid"]
     })
 
-    fig2 = px.bar(df2, x="Vegetables", y="Amount", color="City", barmode="stack")
+    fig2 = px.bar(df2, x="Vegetables", y="Amount", color="City", barmode="stack",color_discrete_sequence=px.colors.qualitative.Alphabet,color_discrete_map={"London": '#1F4690',"Madrid":"#6E85B7"})
 
     graphJSON2 = json.dumps(fig2, cls=plotly.utils.PlotlyJSONEncoder)
     header2="Vegetables in Europe"
