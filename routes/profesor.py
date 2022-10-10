@@ -653,17 +653,34 @@ def python_runner():
 def guardarCuestionarioJSON(id_profesor):
     #Obtenemos el nombre del cuestionario
     nombreCuestionario = request.form["nombreCuestionario"]
-    nombreCuestionario = nombreCuestionario.replace(" ","_")
-    gruposNombres = Op_profesor.obtener_grupos_datos_importantes(id_profesor); 
+    #Obtenemos el contenido del JSON en un string
+    jsonContentInput = request.form["jsonContentInput"]
 
-    #Buscamos los datos del profesor
-    datosProfesor = Op_profesor.datos_completos_docente_by_id(id_profesor)
+    #Eliminamos espacios del nombre del cuestionario
+    nombreCuestionario = nombreCuestionario.replace(" ","_")
+
 
     #Creamos el documento JSON y lo guardamos
-    with open('static/cuestionarios/'+ nombreCuestionario + '.json', 'w') as f:
+    rutaArchivo = 'static/cuestionarios/' + nombreCuestionario + '.json'
+    with open(rutaArchivo , 'w') as f:
         print("Archivo JSON creado")
 
-    #Leemos el archivo
+    ##Escribimos el contenido del JSON el en archivo creado
+        #Abrimos archivo
+    jsonFile = open(rutaArchivo, "w")
+        #Guardamos string en objeto usable
+    jsonObject = json.loads(jsonContentInput)
+        #Formateamos nuevo objeto como string con identado
+    jsonString = json.dumps(jsonObject, indent=1)
+        #Guardamos string con formato
+    jsonFile.write(jsonString)
+    jsonFile.close()
+
+    #Buscamos los datos del profesor y de grupos
+    gruposNombres = Op_profesor.obtener_grupos_datos_importantes(id_profesor); 
+    datosProfesor = Op_profesor.datos_completos_docente_by_id(id_profesor)
+
+    #Hacemos el render
     return render_template('profesor/b_cuestionarios_creacion.html', id_profesor = id_profesor,datosProfesor = datosProfesor, nombreCuestionario = nombreCuestionario, gruposNombres = gruposNombres)
 
 ###Segundo guardamos la data del cuestionario

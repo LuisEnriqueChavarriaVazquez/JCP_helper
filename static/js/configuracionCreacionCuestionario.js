@@ -532,7 +532,7 @@ function agregarEjercicioContenedor() {
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">cloud_circle</i>
-                    <input type="text" id="carpetaOnline` + contadorEjerciciosEnContenedor + `" value="`+ carpetaOnline.value +`"></input>
+                    <input type="text" id="carpetaOnline` + contadorEjerciciosEnContenedor + `" value="` + carpetaOnline.value + `"></input>
                     <label class="active" for="carpetaOnline` + contadorEjerciciosEnContenedor + `">Enlace de carpeta</label>
                 </div>                        
                 <div class="col s12">
@@ -542,7 +542,7 @@ function agregarEjercicioContenedor() {
                     <i class="material-icons prefix">history_edu</i>
                     <textarea 
                     onchange="agregarContenidoIndividual('codigoMuestra` + contadorEjerciciosEnContenedor + `', 'codigoResultado` + contadorEjerciciosEnContenedor + `')" 
-                    id="codigoResultado` + contadorEjerciciosEnContenedor + `" class="materialize-textarea">`+ codigoResultado.value +`</textarea>
+                    id="codigoResultado` + contadorEjerciciosEnContenedor + `" class="materialize-textarea">` + codigoResultado.value + `</textarea>
                     <label class="active" for="codigoResultado` + contadorEjerciciosEnContenedor + `">Código a mano</label>
                 </div>
             </div>
@@ -550,8 +550,8 @@ function agregarEjercicioContenedor() {
             <div class="previewCodeContainerNoModal bordered2">
                 <code class="colorText">
                     <pre id="codigoMuestra` + contadorEjerciciosEnContenedor + `">`
-                      + codigoMuestraContenido +
-                    `</pre>
+      + codigoMuestraContenido +
+      `</pre>
                 </code>
             </div>
               <div class='containerButtonsView'>
@@ -572,7 +572,7 @@ agregarEjercicioContenedor();
 
 //Para de manera individual (Por ejercicio agregar preview de codigo)
 //La invocacion es un onchange que se encuentra en el HTML
-function agregarContenidoIndividual(idMuestra, idResultado){
+function agregarContenidoIndividual(idMuestra, idResultado) {
   const muestraContenedor = document.getElementById(idMuestra);
   const inputResultado = document.getElementById(idResultado);
   muestraContenedor.innerText = inputResultado.value;
@@ -580,16 +580,16 @@ function agregarContenidoIndividual(idMuestra, idResultado){
 
 function agregarContenidoIndividualArchivo(idMuestra, idInputFile) {
   document.getElementById(idInputFile)
-  .addEventListener('change', function () {
+    .addEventListener('change', function () {
 
-    var fr = new FileReader();
-    fr.onload = function () {
-      document.getElementById(idMuestra).innerText = fr.result;
-    }
+      var fr = new FileReader();
+      fr.onload = function () {
+        document.getElementById(idMuestra).innerText = fr.result;
+      }
 
-    fr.readAsText(this.files[0]);
-    M.toast({ html: 'Archivo leído.' });
-  })
+      fr.readAsText(this.files[0]);
+      M.toast({ html: 'Archivo leído.' });
+    })
 }
 
 // Eliminar pregunta de ejercicio (En la vista previa)
@@ -649,16 +649,16 @@ $(document).ready(function () {
         textoElementos +
         `<div class='row opccionLinea' id="conceptoArrastrarContainer` + contadorContenedorArrastraPreguntas + `">
           <div class="col s12 m6">
-            <input id="conceptoArrastrarView` + contadorArrastrarPreguntas + `" value="`+ texto +`" placeholder='(a) Escriba el concepto' type='text' class='textoArrastrarCreacion browser-default conceptoDefinicion'>
+            <input id="conceptoArrastrarView` + contadorArrastrarPreguntas + `" value="` + texto + `" placeholder='(a) Escriba el concepto' type='text' class='textoArrastrarCreacion browser-default conceptoDefinicion'>
           </div>
           <div class='col s12 m6'>
-            <input id="definicionArrastrarView` + contadorArrastrarPreguntas + `" value="`+ opccion +`" placeholder='(b) Escriba la definición' type="text" class='textoOpccionCreacion browser-default conceptoDefinicion'>
+            <input id="definicionArrastrarView` + contadorArrastrarPreguntas + `" value="` + opccion + `" placeholder='(b) Escriba la definición' type="text" class='textoOpccionCreacion browser-default conceptoDefinicion'>
           </div>
         </div>`;
     });
 
     var contenedor =
-    `<div class='row preguntasArrastrado'>
+      `<div class='row preguntasArrastrado'>
       <div class='col s12'>
         <div class='card colorWhite bordered2'>
           <div class='card-content'>
@@ -667,7 +667,7 @@ $(document).ready(function () {
               <div class='row col s12'>
                 <div class='input-field col s12'>
                   <i class="material-icons prefix">description</i>
-                  <textarea id="tituloArrastrar` + contadorContenedorArrastraPreguntas + `" class='materialize-textarea textoPregunta'>`+ pregunta + `</textarea>
+                  <textarea id="tituloArrastrar` + contadorContenedorArrastraPreguntas + `" class='materialize-textarea textoPregunta'>` + pregunta + `</textarea>
                   <label for="tituloArrastrar` + contadorContenedorArrastraPreguntas + `" class="active">Descripción del ejercicio</label>
                 </div>
               </div>
@@ -708,12 +708,12 @@ $(document).ready(function () {
 
 //Agregar espacios arrastrar (en la vista previa)
 //Se ejecuta con onclick
-function agregarContenidoArrastrarPreview(conceptoArrastrarContainerParent){
+function agregarContenidoArrastrarPreview(conceptoArrastrarContainerParent) {
   contadorArrastrarPreguntas++;
   //Es en donde estan contenido los conceptos y definiciones
   var IDContendorPadre = conceptoArrastrarContainerParent;
-  $('#'+IDContendorPadre).append(
-  `<div class='row opccionLinea' id="conceptoArrastrarContainer` + contadorArrastrarPreguntas + `">
+  $('#' + IDContendorPadre).append(
+    `<div class='row opccionLinea' id="conceptoArrastrarContainer` + contadorArrastrarPreguntas + `">
     <div class="col s12 m6">
       <input id="conceptoArrastrarView` + contadorArrastrarPreguntas + `" value="" placeholder='(a) Escriba el concepto' type='text' class='textoArrastrarCreacion browser-default conceptoDefinicion'>
     </div>
@@ -725,7 +725,7 @@ function agregarContenidoArrastrarPreview(conceptoArrastrarContainerParent){
 }
 
 //Eliminar concepto y elemento (en la vista previa)
-function eliminarContenidoArrastrarPreview(conceptoArrastrarContainerParent){
+function eliminarContenidoArrastrarPreview(conceptoArrastrarContainerParent) {
   //Es en donde estan contenidos los conceptos y las definiciones
   var IDContendorPadre = conceptoArrastrarContainerParent;
   //Accedemos al elemento
@@ -736,7 +736,7 @@ function eliminarContenidoArrastrarPreview(conceptoArrastrarContainerParent){
 }
 
 //Eliminar concepto y definición (en el modal)
-function eliminarConceptoModal(){
+function eliminarConceptoModal() {
   //Obtenemos los elementos del modal
   const opcionLineaModal = document.getElementsByClassName('opcionLineaModal');
 
@@ -745,10 +745,10 @@ function eliminarConceptoModal(){
 
   //Activamos el evento
   btnEliminarModalArrastrarCreacion.addEventListener('click', eliminarUltimo);
-  function eliminarUltimo(){
+  function eliminarUltimo() {
     opcionLineaModal[opcionLineaModal.length - 1].remove();
   }
-} 
+}
 eliminarConceptoModal();
 
 // Eliminar pregunta de arrastrado (En la vista previa)
@@ -764,22 +764,22 @@ $(document).ready(function () {
 });
 
 //Para los elementos drag and drop
-function crearListasDragAndDrop(){
+function crearListasDragAndDrop() {
   const sortableConceptos = new Sortable(
-		document.querySelector('#conceptos'), {
-			draggable: 'div',
-      animation: 150,
-      ghostClass: 'colorGreyWhiter'
-		}
-	)
+    document.querySelector('#conceptos'), {
+    draggable: 'div',
+    animation: 150,
+    ghostClass: 'colorGreyWhiter'
+  }
+  )
 
   const sortableDefiniciones = new Sortable(
-		document.querySelector('#definiciones'), {
-			draggable: 'div',
-      animation: 150,
-      ghostClass: 'colorGreyWhiter'
-		}
-	)
+    document.querySelector('#definiciones'), {
+    draggable: 'div',
+    animation: 150,
+    ghostClass: 'colorGreyWhiter'
+  }
+  )
 }
 
 //crearListasDragAndDrop();
@@ -790,9 +790,25 @@ function crearListasDragAndDrop(){
   ######################################################
 */
 
+function generadorCodigosGrupo() {
+  //Accedemos a los botones para entrar a los formularios de nuevo grupo
+  const buttonNuevoGrupo = document.getElementById('buttonNuevoGrupo');
+  const buttonNuevoGrupoMobile = document.getElementById('buttonNuevoGrupoMobile');
+  //Accedemos al input de código de grupo
+  const codigoGrupo = document.getElementById('codigoGrupo');
+  //Caja para mostrar en el formulario la clave
+  const muestraCodigoGrupo = document.getElementById('muestraCodigoGrupo');
+
+  //Cada que abrimos el formulario se asigna nuevo codigo
+  buttonNuevoGrupo.addEventListener('click', asignarCodigo);
+  buttonNuevoGrupoMobile.addEventListener('click', asignarCodigo);
+}
+
 /*
 *   Función para el ingreso del titulo
 */
+//bandera edición
+let codigoAgregado = false;
 function ingresarTitulo() {
   //Texto del titulo
   const tituloCuestionario = document.getElementById('tituloCuestionario');
@@ -807,6 +823,28 @@ function ingresarTitulo() {
   //Contenedor principal del titulo texto
   const contenedorTitulo = document.getElementsByClassName('contenedorTitulo');
 
+
+  //Generador de clave única
+  function asignarCodigo() {
+    //Guardamos la clave de grupo
+    let claveDeGrupo = makeid(12);
+
+    //Generar el código
+    function makeid(length) {
+      var result = '';
+      var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      var charactersLength = characters.length;
+      for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() *
+          charactersLength));
+      }
+      return result;
+    }
+    
+    return claveDeGrupo;
+  }
+  let clave = asignarCodigo();
+
   guardarTitulo.addEventListener('click', agregarTitulo);
   inputNombreCuestionario[0].addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
@@ -818,17 +856,31 @@ function ingresarTitulo() {
     if (nombreCuestionario.value == "") {
       nombreCuestionario.value = "Error";
     } else {
-      tituloCuestionario.innerText = nombreCuestionario.value;
-      inputNombreCuestionario[0].classList.add('hiddenElement');
-      contenedorTitulo[0].classList.remove('hiddenElement');
+      if(codigoAgregado == false){
+        tituloCuestionario.innerText = nombreCuestionario.value + " ("+ clave +")";
+        inputNombreCuestionario[0].classList.add('hiddenElement');
+        contenedorTitulo[0].classList.remove('hiddenElement');
+        codigoAgregado = true;
+      }else{
+        tituloCuestionario.innerText = nombreCuestionario.value;
+        inputNombreCuestionario[0].classList.add('hiddenElement');
+        contenedorTitulo[0].classList.remove('hiddenElement');
+      }
     }
   }
 
   editTitulo.addEventListener('click', editarTitulo);
   function editarTitulo() {
-    nombreCuestionario.value = tituloCuestionario.innerText;
-    inputNombreCuestionario[0].classList.remove('hiddenElement');
-    contenedorTitulo[0].classList.add('hiddenElement');
+    if(codigoAgregado == false){
+      nombreCuestionario.value = tituloCuestionario.innerText + " ("+ clave +")";
+      inputNombreCuestionario[0].classList.remove('hiddenElement');
+      contenedorTitulo[0].classList.add('hiddenElement');
+      codigoAgregado = true;
+    }else{
+      nombreCuestionario.value = tituloCuestionario.innerText;
+      inputNombreCuestionario[0].classList.remove('hiddenElement');
+      contenedorTitulo[0].classList.add('hiddenElement');
+    }
   }
 }
 
@@ -862,27 +914,27 @@ function convertToJSON() {
 
   //Se guarda en un JSON
   var jsonObject = {
-      "FirstName": firstname,
-      "LastName": lastname,
-      "email": email
+    "FirstName": firstname,
+    "LastName": lastname,
+    "email": email
   }
 
   //Se imprime en la vista previa
   document.getElementById('output').innerText = JSON.stringify(jsonObject, null, 1);
+  //Almacenamos el contenido del JSON en el input
+  document.getElementById('jsonContentInput').value = JSON.stringify(jsonObject);
 }
 
-function downloadJson(){
-  convertToJSON();
+function downloadJson() {
   //Obtenemos el valor del preview del JSON
   var jsonObjectAsString = document.getElementById('output').innerText;
 
   //Hacemos la conversión
   var blob = new Blob([jsonObjectAsString], {
-      //type: 'application/json'
-      //octet es de tipo binario y es más eficiente
-      type: 'octet/stream'
+    //type: 'application/json'
+    //octet es de tipo binario y es más eficiente
+    type: 'octet/stream'
   });
-  console.log(blob);
 
   //Accedemos al boton de descarga
   let botonDescarga = document.getElementById('descargarJSON');
@@ -892,23 +944,13 @@ function downloadJson(){
   let nombreCuestionarioArchivo;
 
   //Validamos si el nombre del archivo esta vacio
-  if(nombreCuestionario.value == ''){
+  if (nombreCuestionario.value == '') {
     nombreCuestionarioArchivo = 'cuestionario_default.json';
-  }else{
+  } else {
     nombreCuestionarioArchivo = nombreCuestionario.value + '.json';
   }
 
   //Modificamos el boton de descarga
   botonDescarga.download = nombreCuestionarioArchivo;
   botonDescarga.href = window.URL.createObjectURL(blob);
-
-  // var anchor = document.createElement('a')
-  // anchor.download = "user.json";
-  // anchor.href = window.URL.createObjectURL(blob);
-  // anchor.innerHTML = "download"
-  // anchor.click();
-
-  // console.log(anchor);
-
-  //document.getElementById('output').append(anchor)
 }

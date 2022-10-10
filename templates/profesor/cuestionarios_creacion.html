@@ -108,11 +108,13 @@
                             <!--Preview del cuestionario-->
                             <h5><b>Preview de cuestionario JSON</b></h5>
                             <pre class="previewCodeContainer colorText bordered2" id="output"></pre>
+                            <!--Input discreto para enviar contenido JSON a flask-->
+                            <input type="hidden" name="jsonContentInput" id="jsonContentInput">
                             <!--Descarga del archivo-->
                             <a onclick="downloadJson()" class="waves-effect waves-light btn bordered5 color2 shadow-2e" id="descargarJSON" style="width: 100%; margin-bottom: 10px;">
                                 <i class="material-icons left">data_object</i>Descargar</a>
-                            <!--Almacenado del archivo-->
-                            <button onclick="saveToFile()" class="waves-effect waves-light btn bordered5 color1 shadow-2e" id="guardarJSON" style="width: 100%;">
+                            <!--Almacenado del archivo (en BD y servidor)-->
+                            <button type="submit" class="waves-effect waves-light btn bordered5 color1 shadow-2e" id="guardarJSON" style="width: 100%;">
                                 <i class="material-icons left">save</i>Guardar</button>
                         </div>
                     </div>
