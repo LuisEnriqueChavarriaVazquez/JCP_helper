@@ -629,6 +629,7 @@ $(document).ready(function () {
 //Opcion para guardar preguntas de Arrastrar (En la vista previa)
 //Guardar nuevo ejercicio
 var contadorArrastrarPreguntas = 0;
+var contadorContenedorArrastraPreguntas = 0;
 $(document).ready(function () {
   $("#btnGuardarModalArrastrarCreacion").click(function () {
     var textoElementos = "";
@@ -643,14 +644,15 @@ $(document).ready(function () {
       var opccion = $(this).find(".textoOpccionCreacion").val();
 
       contadorArrastrarPreguntas++;
+
       textoElementos =
         textoElementos +
-        `<div class='row opccionLinea'>
+        `<div class='row opccionLinea' id="conceptoArrastrarContainer` + contadorContenedorArrastraPreguntas + `">
           <div class="col s12 m6">
-            <input id="conceptoArrastrarView` + contadorEjerciciosEnContenedor + `" value="`+ texto +`" placeholder='(a) Escriba el concepto' type='text' class='textoArrastrarCreacion browser-default conceptoDefinicion'>
+            <input id="conceptoArrastrarView` + contadorArrastrarPreguntas + `" value="`+ texto +`" placeholder='(a) Escriba el concepto' type='text' class='textoArrastrarCreacion browser-default conceptoDefinicion'>
           </div>
           <div class='col s12 m6'>
-            <input id="definicionArrastrarView` + contadorEjerciciosEnContenedor + `" value="`+ opccion +`" placeholder='(b) Escriba la definición' type="text" class='textoOpccionCreacion browser-default conceptoDefinicion'>
+            <input id="definicionArrastrarView` + contadorArrastrarPreguntas + `" value="`+ opccion +`" placeholder='(b) Escriba la definición' type="text" class='textoOpccionCreacion browser-default conceptoDefinicion'>
           </div>
         </div>`;
     });
@@ -665,8 +667,8 @@ $(document).ready(function () {
               <div class='row col s12'>
                 <div class='input-field col s12'>
                   <i class="material-icons prefix">description</i>
-                  <textarea id="tituloArrastrar` + contadorEjerciciosEnContenedor + `" class='materialize-textarea textoPregunta'>`+ pregunta + `</textarea>
-                  <label for="tituloArrastrar` + contadorEjerciciosEnContenedor + `" class="active">Descripción del ejercicio</label>
+                  <textarea id="tituloArrastrar` + contadorContenedorArrastraPreguntas + `" class='materialize-textarea textoPregunta'>`+ pregunta + `</textarea>
+                  <label for="tituloArrastrar` + contadorContenedorArrastraPreguntas + `" class="active">Descripción del ejercicio</label>
                 </div>
               </div>
             </div>
@@ -677,14 +679,18 @@ $(document).ready(function () {
               <div class='col s12 m6'>
                 <h6 class="tituloColumnaModal"><b>Definiciones (B)</b></h6>
               </div>
-              <div class='col s12'>` + textoElementos + `</div>
+              <div id="conceptoArrastrarContainerParent` + contadorContenedorArrastraPreguntas + `" class='col s12'>` + textoElementos + `</div>
             </div>
             <div class='containerButtonsView'>
                 <div>
-                  <a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnAgregarConceptoArrastrable'><i class='material-icons left'>add</i>Agregar</a>
+                  <a 
+                  onclick="agregarContenidoArrastrarPreview('conceptoArrastrarContainerParent` + contadorContenedorArrastraPreguntas + `')"
+                  class='waves-effect waves-light btn bordered5 color2 shadow-2e btnAgregarConceptoArrastrable'><i class='material-icons left'>add</i>Agregar</a>
                 </div>
                 <div>
-                  <a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnEliminarConceptoArrastrable'><i class='material-icons left'>remove</i>Eliminar</a>
+                  <a 
+                  onclick="eliminarContenidoArrastrarPreview('conceptoArrastrarContainerParent` + contadorContenedorArrastraPreguntas + `')"
+                  class='waves-effect waves-light btn bordered5 color2 shadow-2e btnEliminarConceptoArrastrable'><i class='material-icons left'>remove</i>Eliminar</a>
                 </div>
                 <div>
                   <a class='waves-effect waves-light btn bordered5 color1 shadow-2e btnEliminarPreguntaConceptoArrastrable'><i class='material-icons left'>delete_sweep</i>Eliminar pregunta</a>
@@ -695,8 +701,39 @@ $(document).ready(function () {
       </div>
     </div>`;
     $("#contenedorCuestionarioPreguntas").append(contenedor);
+    contadorContenedorArrastraPreguntas++;
+    M.toast({ html: 'Pregunta guardada' });
   });
 });
+
+//Agregar espacios arrastrar (en la vista previa)
+//Se ejecuta con onclick
+function agregarContenidoArrastrarPreview(conceptoArrastrarContainerParent){
+  contadorArrastrarPreguntas++;
+  //Es en donde estan contenido los conceptos y definiciones
+  var IDContendorPadre = conceptoArrastrarContainerParent;
+  $('#'+IDContendorPadre).append(
+  `<div class='row opccionLinea' id="conceptoArrastrarContainer` + contadorArrastrarPreguntas + `">
+    <div class="col s12 m6">
+      <input id="conceptoArrastrarView` + contadorArrastrarPreguntas + `" value="" placeholder='(a) Escriba el concepto' type='text' class='textoArrastrarCreacion browser-default conceptoDefinicion'>
+    </div>
+    <div class='col s12 m6'>
+      <input id="definicionArrastrarView` + contadorArrastrarPreguntas + `" value="" placeholder='(b) Escriba la definición' type="text" class='textoOpccionCreacion browser-default conceptoDefinicion'>
+    </div>
+  </div>`);
+  M.toast({ html: 'Elemento agregado' });
+}
+
+//Eliminar concepto y elemento (en la vista previa)
+function eliminarContenidoArrastrarPreview(conceptoArrastrarContainerParent){
+  //Es en donde estan contenidos los conceptos y las definiciones
+  var IDContendorPadre = conceptoArrastrarContainerParent;
+  //Accedemos al elemento
+  var contendorPadre = document.getElementById(IDContendorPadre);
+  //Eliminamos el último elemento
+  contendorPadre.removeChild(contendorPadre.lastChild);
+  M.toast({ html: 'Elemento eliminado' });
+}
 
 //Eliminar concepto y definición (en el modal)
 function eliminarConceptoModal(){
@@ -745,7 +782,7 @@ function crearListasDragAndDrop(){
 	)
 }
 
-crearListasDragAndDrop();
+//crearListasDragAndDrop();
 
 
 
