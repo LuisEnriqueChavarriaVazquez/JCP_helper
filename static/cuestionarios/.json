@@ -1,22 +1,42 @@
 {
+ "preguntasModal2": [
+  {
+   "0": "[Blank 1][Blank 2]",
+   "1": "",
+   "2": ""
+  },
+  {
+   "0": "[Blank 1][Blank 2][Blank 3]",
+   "1": "",
+   "2": "",
+   "3": ""
+  }
+ ],
  "preguntasModal3": [
   {
-   "0": "dds",
-   "1": "dsdssd",
-   "2": "sddssd",
-   "3": "Distribuidos\n6.76+9.67+9.67 ==> 8.7\n\nGelacio\nprimero ==> \n\t3.36(examen 40%)\n\t2 (Tareas 20%)\n\t2.5 (Practicas 30%)\n\t1 (Asistencia)\n\tR = 8.86\nsegundo ==>\n\t2.25 (examen 40%)\n\t2 Tareas\n\t3 practicas\n\t0 asistencia\n\tR = 7.25\n\nTotal == 8.86 + 7.25 => 16.11\n\t"
+   "0": "",
+   "1": "",
+   "2": "",
+   "3": "                                "
+  },
+  {
+   "0": "",
+   "1": "",
+   "2": "",
+   "3": "                                "
   }
  ],
  "preguntasModal4": [
   {
-   "0": "titulo",
-   "1": "uno**unod",
-   "2": "dos**dos"
+   "0": "",
+   "1": "**",
+   "2": "**"
   },
   {
-   "0": "sddssd",
-   "1": "sdss**ddd",
-   "2": "ddd**ddd"
+   "0": "",
+   "1": "**",
+   "2": "**",
+   "3": "**"
   }
  ]
 }

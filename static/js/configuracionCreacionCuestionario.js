@@ -258,7 +258,7 @@ $(document).ready(function () {
     var textoInput = $("#texAreaModalRellenarEspaciosCreacion").val();
     contadorModalRellenarEspaciosCreacion++;
     $("#texAreaModalRellenarEspaciosCreacion").val(
-      textoInput + " [Blank " + contadorModalRellenarEspaciosCreacion + "]"
+      textoInput + "[Blank " + contadorModalRellenarEspaciosCreacion + "]"
     );
     $("#contenedorOpccionEspaciosCreacion").append(
       `<div class='row containerTextBlank containerTextBlankModal'>
@@ -290,13 +290,13 @@ function eliminarEspacioModal() {
   function eliminarEspacio() {
     //Trabajamos con los textos del input
     let textoInput = texAreaModalRellenarEspaciosCreacion.value;
-    console.log("1 " + textoInput);
+    //console.log("1 " + textoInput);
     let textoReemplazado = '[Blank ' + contadorModalRellenarEspaciosCreacion + ']';
-    console.log("2 " + textoReemplazado);
+    //console.log("2 " + textoReemplazado);
     let nuevoTextoInput = textoInput.replace(textoReemplazado, '');
-    console.log("3 " + nuevoTextoInput);
+    //console.log("3 " + nuevoTextoInput);
     texAreaModalRellenarEspaciosCreacion.value = nuevoTextoInput;
-    console.log(texAreaModalRellenarEspaciosCreacion);
+    //console.log(texAreaModalRellenarEspaciosCreacion);
 
     //Elimina el último elemento de los espacio
     containerTextBlankModal[containerTextBlankModal.length - 1].remove();
@@ -315,6 +315,8 @@ eliminarEspacioModal();
 /*
 * Agregar pregunta de completar espacio (En el modal)
 */
+var contadorPreguntaRellenar = 0;
+var contadorInputRellenar = 0;
 $(document).ready(function () {
   $("#btnGuardarModalRellenarEspaciosCreacion").click(function () {
     var contadorInicial = 1;
@@ -328,9 +330,10 @@ $(document).ready(function () {
           + contadorInicial +
           `</div>
             <div class='col s12 m6 containerTextBlankSon2 '>
-              <input type='text' value='` + $(this).val() + `' class='browser-default blankContadorEspaciosCreacion'>
+              <input id="rellenarInputCValue` + contadorInputRellenar + `" type='text' value='` + $(this).val() + `' class='browser-default blankContadorEspaciosCreacion'>
             </div>
           </div>`;
+        contadorInputRellenar++;
         contadorInicial++;
       }
     );
@@ -345,13 +348,13 @@ $(document).ready(function () {
               <h5>Rellenar espacios</h5>
               <div class='row'>
                 <div class='input-field col s12'>
-                  <textarea  class='materialize-textarea textoPregunta textoPreguntaVistaPrevia' placeholder='Pregunta'>`
+                  <textarea id="rellenarInputTitulo` + contadorPreguntaRellenar + `" class='materialize-textarea textoPregunta textoPreguntaVistaPrevia' placeholder='Pregunta'>`
       + pregunta +
       `</textarea>
                 </div>
               </div>
               <div class='row containerTextBlank'>
-                <div class='col s12 espaciosBlancos containerTextBlankVistaPrevia'>` + textoOpcciones + `</div>
+                <div id="rellenarInputCContainer` + contadorPreguntaRellenar + `" class='col s12 espaciosBlancos containerTextBlankVistaPrevia'>` + textoOpcciones + `</div>
               </div>
               <div class='containerButtonsView'>
                 <div>
@@ -370,6 +373,7 @@ $(document).ready(function () {
       </div>`;
     $("#contenedorCuestionarioPreguntas").append(contenedor);
     M.toast({ html: 'Pregunta agregada' });
+    contadorPreguntaRellenar++;
   });
 });
 
@@ -382,7 +386,8 @@ $(document).ready(function () {
       var preguntaRellenarEspacios = $(this).closest(
         ".preguntaRellenarEspacios"
       );
-
+      
+      contadorInputRellenar++;
       var lugarDeEspacios = preguntaRellenarEspacios.find(".espaciosBlancos");
       var numeroEspacios =
         lugarDeEspacios.find(".blankContadorEspaciosCreacion").length + 1;
@@ -390,7 +395,7 @@ $(document).ready(function () {
         `<div class='row containerTextBlank'>
           <div class='col s12 m6 containerTextBlankSon1'> Blank ` + numeroEspacios + `</div>
           <div class='col s12 m6 containerTextBlankSon2'>
-            <input type='text' class='browser-default blankContadorEspaciosCreacion '>
+            <input id="rellenarInputCValue` + contadorInputRellenar + `" type='text' class='browser-default blankContadorEspaciosCreacion '>
           </div>
         </div>`);
 
@@ -910,6 +915,128 @@ function getAllIds() {
 }
 
 /*
+* Obtener IDS y valores; preguntas acompletar
+*/
+function getRellenarValues_two() {
+  //Todas las IDS
+  let ids_all = getAllIds();
+
+  //Contador de asignacion
+  let contadorAsignacion1 = 0;
+  let contadorAsignacion2 = 0;
+  let contadorAsignacion3 = 0;
+
+  //Contenedores con valores importantes
+  let rellenarInputTitulo = [];
+  //Padre e hijo (caja y palabras) 
+  let rellenarInputCContainer = [];
+  //IDS inputs 
+  let rellenarInputCValue = [];
+
+  //Buscamos entre las IDS
+  for (var i = 0; i < ids_all.length; i++) {
+    //Buscamos coincidencias en lista 1
+    if (ids_all[i].indexOf('rellenarInputTitulo') != -1) {
+      rellenarInputTitulo[contadorAsignacion1++] = ids_all[i];
+    }
+
+    //Buscamos coincidencias en lista 2
+    if (ids_all[i].indexOf('rellenarInputC') != -1) {
+      rellenarInputCContainer[contadorAsignacion2++] = ids_all[i];
+    }
+
+    //Valores de ID de los inputs de value
+    if (ids_all[i].indexOf('rellenarInputCValue') != -1) {
+      rellenarInputCValue[contadorAsignacion3++] = ids_all[i];
+    }
+  }
+
+  let rellenarInputTituloValue = [];
+
+  //Guardamos solo los valores de los titulos
+  for (var k = 0; k < rellenarInputTitulo.length; k++) {
+    //Obtenemos valores del titulo
+    rellenarInputTituloValue[k] = document.getElementById(rellenarInputTitulo[k]).value;
+  }
+
+  //Contamos los hijos de cada padre
+  var contadorHijos = 0;
+  var cuentaDeHijos = [];
+  for (var k = 0; k < rellenarInputCContainer.length; k++) {
+    if (rellenarInputCContainer[k].indexOf('rellenarInputCContainer') == -1) {
+      //console.log('Soy un hijo');
+      contadorHijos++;
+      //Para contar el ultimo
+      if (rellenarInputCContainer.length - k == 1) {
+        //console.log('Se agrego el último');
+        cuentaDeHijos.push(contadorHijos);
+      }
+    } else {
+      //Terminamos de contar lo hijos que tiene cada padre
+      //console.log('No soy un hijo');
+      cuentaDeHijos.push(contadorHijos);
+      contadorHijos = 0;
+    }
+  }
+  cuentaDeHijos.shift();
+
+  //Accedemos a los values de los inputs mapeados
+  let contadorRecorrido = 0;
+  let rellenarInputCValuesTotal = [];
+  for (var t = 0; t < cuentaDeHijos.length; t++) {
+    for (var k = 0; k < cuentaDeHijos[t]; k++) {
+      let valor = document.getElementById(rellenarInputCValue[contadorRecorrido]).value;
+      rellenarInputCValuesTotal.push(valor);
+      contadorRecorrido++;
+    }
+  }
+
+  //Separamos los valores por grupo (por pregunta)
+  let valoresAgrupados = [];
+  let contadorRecorridoDos = 0;
+  for (var t = 0; t < cuentaDeHijos.length; t++) {
+    let grupoDeValores = [];
+    for (var k = 0; k < cuentaDeHijos[t]; k++) {
+      grupoDeValores.push(rellenarInputCValuesTotal[contadorRecorridoDos]);
+      contadorRecorridoDos++;
+    }
+    valoresAgrupados.push(grupoDeValores);
+  }
+
+  //Juntamos los titulos con los valores agrupados
+  for (var h = 0; h < rellenarInputTituloValue.length; h++) {
+    valoresAgrupados[h].unshift(rellenarInputTituloValue[h]);
+  }
+
+  //Creamos el objeto final
+  let arrayObjetosFinal = []
+  for (var h = 0; h < valoresAgrupados.length; h++) {
+    arrayObjetosFinal.push($.extend({}, valoresAgrupados[h]));
+  }
+
+  return arrayObjetosFinal;
+
+  //Prueba
+  // console.log('IDs titulos');
+  // console.log(rellenarInputTitulo);
+  // console.log('IDs padre e hijos');
+  // console.log(rellenarInputCContainer);
+  // console.log('IDs de hijos');
+  // console.log(rellenarInputCValue);
+  // console.log('Valores titulo');
+  // console.log(rellenarInputTituloValue);
+  // console.log('Contador de hijos en el contenedor');
+  // console.log(cuentaDeHijos);
+  // console.log('Valores de inputs');
+  // console.log(rellenarInputCValuesTotal);
+  // console.log('Valores de hijos agrupados');
+  // console.log(valoresAgrupados);
+  // console.log('Objeto final');
+  // console.log(arrayObjetosFinal);
+
+}
+
+/*
 * Obtener IDS y valores; preguntas de ejercicios. 
 */
 function getEjerciciosValues_three() {
@@ -1153,11 +1280,13 @@ function getArrastrarValues_four() {
 *   Funcion para la extracción de los datos y conversión a JSON
 */
 function convertToJSON() {
+  let valoresRellenar = getRellenarValues_two();
   let valoresEjercicios = getEjerciciosValues_three();
   let valoresArrastrar = getArrastrarValues_four();
 
   //Se guarda en un JSON
   var jsonObject = {
+    "preguntasModal2": valoresRellenar,
     "preguntasModal3": valoresEjercicios,
     "preguntasModal4": valoresArrastrar
   }
