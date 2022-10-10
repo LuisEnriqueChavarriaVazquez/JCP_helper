@@ -968,22 +968,22 @@ function getEjerciciosValues_three() {
   //Tenemos que mezclar los arrays y separalos por pregunta
   let valoresOrganizadosTotal = []
   for (var h = 0; h < descripcionProblemaValues.length; h++) {
-      let valoresOrganizados = []
-      valoresOrganizados.push(descripcionProblemaValues[h]);
-      valoresOrganizados.push(mediaProblemaValues[h]);
-      valoresOrganizados.push(carpetaOnlineValues[h]);
-      valoresOrganizados.push(codigoMuestraValues[h]);
-      valoresOrganizadosTotal.push(valoresOrganizados);
+    let valoresOrganizados = []
+    valoresOrganizados.push(descripcionProblemaValues[h]);
+    valoresOrganizados.push(mediaProblemaValues[h]);
+    valoresOrganizados.push(carpetaOnlineValues[h]);
+    valoresOrganizados.push(codigoMuestraValues[h]);
+    valoresOrganizadosTotal.push(valoresOrganizados);
   }
 
-  console.log(valoresOrganizadosTotal);
+  //console.log(valoresOrganizadosTotal);
 
   let arrayObjetosFinal = []
   for (var h = 0; h < valoresOrganizadosTotal.length; h++) {
     arrayObjetosFinal.push($.extend({}, valoresOrganizadosTotal[h]));
   }
 
-  console.log(arrayObjetosFinal);
+  //console.log(arrayObjetosFinal);
 
   return arrayObjetosFinal;
 
@@ -1000,16 +1000,166 @@ function getEjerciciosValues_three() {
 
 }
 
+/*
+* Obtener IDS y valores; preguntas arrastrar
+*/
+function getArrastrarValues_four() {
+  //Todas las IDS
+  let ids_all = getAllIds();
+
+  //Contador de asignacion
+  let contadorAsignacion1 = 0;
+  let contadorAsignacion2 = 0;
+  let contadorAsignacion3 = 0;
+  let contadorAsignacion4 = 0;
+
+  //Contenedores con valores importantes
+  let tituloArrastrar = [];
+  //Padre e hijo almacenados en uno solo
+  let conceptoArrastrarContainer = [];
+  //Hijos del hijo
+  let conceptoArrastrarView = [];
+  let definicionArrastrarView = [];
+
+  //Buscamos entre las IDS
+  for (var i = 0; i < ids_all.length; i++) {
+    //Buscamos coincidencias en lista 1
+    if (ids_all[i].indexOf('tituloArrastrar') != -1) {
+      tituloArrastrar[contadorAsignacion1++] = ids_all[i];
+    }
+
+    //Buscamos coincidencias en lista 2
+    if (ids_all[i].indexOf('conceptoArrastrarView') != -1) {
+      conceptoArrastrarView[contadorAsignacion2++] = ids_all[i];
+    }
+
+    //Buscamos coincidencias en lista 3
+    if (ids_all[i].indexOf('definicionArrastrarView') != -1) {
+      definicionArrastrarView[contadorAsignacion3++] = ids_all[i];
+    }
+
+    //Buscamos coincidencias en lista 4
+    if (ids_all[i].indexOf('conceptoArrastrarContainer') != -1) {
+      conceptoArrastrarContainer[contadorAsignacion4++] = ids_all[i];
+    }
+  }
+
+  //Contenedores con los valores de las listas
+  let tituloArrastrarValues = [];
+  var conceptoArrastrarViewValues = [];
+  var definicionArrastrarViewValues = [];
+
+  //Guardamos solo los valores
+  for (var k = 0; k < tituloArrastrar.length; k++) {
+    //Obtenemos valores del titulo
+    tituloArrastrarValues[k] = document.getElementById(tituloArrastrar[k]).value;
+  }
+
+  //Contamos los hijos de cada padre
+  var contadorHijos = 0;
+  var cuentaDeHijos = [];
+  for (var k = 0; k < conceptoArrastrarContainer.length; k++) {
+    if (conceptoArrastrarContainer[k].indexOf('conceptoArrastrarContainerParent') == -1) {
+      //console.log('Soy un hijo');
+      contadorHijos++;
+      //Para contar el ultimo
+      if (conceptoArrastrarContainer.length - k == 1) {
+        //console.log('Se agrego el último');
+        cuentaDeHijos.push(contadorHijos);
+      }
+    } else {
+      //Terminamos de contar lo hijos que tiene cada padre
+      //console.log('No soy un hijo');
+      cuentaDeHijos.push(contadorHijos);
+      contadorHijos = 0;
+    }
+  }
+  cuentaDeHijos.shift();
+
+  //Accedemos a los values de los inputs mapeados
+  let contadorRecorrido = 0;
+  for (var t = 0; t < cuentaDeHijos.length; t++) {
+    for (var k = 0; k < cuentaDeHijos[t]; k++) {
+      let concepto = document.getElementById(conceptoArrastrarView[contadorRecorrido]).value;
+      let definicion = document.getElementById(definicionArrastrarView[contadorRecorrido]).value;
+      conceptoArrastrarViewValues.push(concepto);
+      definicionArrastrarViewValues.push(definicion);
+      contadorRecorrido++;
+    }
+  }
+  
+  //Juntamos los conceptos con las definiciones
+  let valuesPadre = [];
+  for (var k = 0; k < definicionArrastrarViewValues.length; k++) {
+    let individualValue = conceptoArrastrarViewValues[k] + "**" + definicionArrastrarViewValues[k];
+    valuesPadre.push(individualValue);
+  }
+
+  //Separamos los valores por grupo (por pregunta)
+  let valoresAgrupados = [];
+  let contadorRecorridoDos = 0;
+  for (var t = 0; t < cuentaDeHijos.length; t++) {
+    let grupoDeValores = [];
+    for (var k = 0; k < cuentaDeHijos[t]; k++) {
+      grupoDeValores.push(valuesPadre[contadorRecorridoDos]);
+      contadorRecorridoDos++;
+    }
+    valoresAgrupados.push(grupoDeValores);
+  }
+
+  //Juntamos los titulos con los valores agrupados
+  for (var h = 0; h < tituloArrastrarValues.length; h++) {
+    valoresAgrupados[h].unshift(tituloArrastrarValues[h]);
+  }
+
+  //Creamos el objeto final
+  let arrayObjetosFinal = []
+  for (var h = 0; h < valoresAgrupados.length; h++) {
+    arrayObjetosFinal.push($.extend({}, valoresAgrupados[h]));
+  }
+
+
+  return arrayObjetosFinal;
+
+  //Prueba
+  // console.log('Titulos');
+  // console.log(tituloArrastrar);
+  // console.log(tituloArrastrarValues);
+
+  // console.log('Padre y sus hijos');
+  // console.log(conceptoArrastrarContainer);
+
+  // console.log('Cuenta de hijos por cada padre');
+  // console.log(cuentaDeHijos);
+
+  // console.log('IDS de los inputs');
+  // console.log(conceptoArrastrarView);
+  // console.log(definicionArrastrarView);
+
+  // console.log('Valores de inputs concepto y definicion');
+  // console.log(conceptoArrastrarViewValues);
+  // console.log(definicionArrastrarViewValues);
+
+  // console.log('Cadenas de valores de inputs juntas por parejas');
+  // console.log(valuesPadre);
+
+  // console.log('Valores agrupados');
+  // console.log(valoresAgrupados);
+
+}
+
 
 /*
 *   Funcion para la extracción de los datos y conversión a JSON
 */
 function convertToJSON() {
   let valoresEjercicios = getEjerciciosValues_three();
+  let valoresArrastrar = getArrastrarValues_four();
 
   //Se guarda en un JSON
   var jsonObject = {
-    "preguntasModal3": valoresEjercicios 
+    "preguntasModal3": valoresEjercicios,
+    "preguntasModal4": valoresArrastrar
   }
 
   //Se imprime en la vista previa
