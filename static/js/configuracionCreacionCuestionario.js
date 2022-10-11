@@ -60,25 +60,22 @@ $(document).ready(function () {
       "input:radio[name ='grupoOpcionesModalOpcionMuliple']:checked"
     ).val();
 
+    //console.log(opccionSel);
+
     //Evaluamos la que esta como checked
     var checkA = "";
     var checkB = "";
     var checkC = "";
     var checkD = "";
 
-    switch (opccionSel) {
-      case "A":
-        checkA = "checked";
-        break;
-      case "B":
-        checkB = "checked";
-        break;
-      case "C":
-        checkC = "checked";
-        break;
-      case "D":
-        checkD = "checked";
-        break;
+    if (opccionSel == "A") {
+      checkA = "checked";
+    } else if (opccionSel == "B") {
+      checkB = "checked";
+    } else if (opccionSel == "C") {
+      checkC = "checked";
+    } else if (opccionSel == "D") {
+      checkD = "checked";
     }
 
     function agregarContenidoVistaPrevia() {
@@ -87,7 +84,7 @@ $(document).ready(function () {
         `<div class='row colorGreyWhiter bordered1 opcionContainer'> 
         <div class='col s12 m3 labelContainer'> 
           <label> 
-            <input  type='radio' name='group` + contadorPreguntaOptMultiple + `' ` + checkA + `/> 
+            <input  type='radio' value='A' name='group` + contadorPreguntaOptMultiple + `' ` + checkA + `/> 
             <span>Correcta</span> 
           </label> 
         </div> 
@@ -120,7 +117,7 @@ $(document).ready(function () {
         `<div class='row colorGreyWhiter bordered1 opcionContainer ` + opcionBOculto + `'>` +
         `<div class='col s12 m3 labelContainer'>
             <label>
-              <input  type='radio' name='group` + contadorPreguntaOptMultiple + `' ` + checkB + `/>
+              <input  type='radio' value='B' name='group` + contadorPreguntaOptMultiple + `' ` + checkB + `/>
               <span>Correcta</span>
             </label>
         </div>
@@ -136,7 +133,7 @@ $(document).ready(function () {
         `<div class='row colorGreyWhiter bordered1 opcionContainer ` + opcionCOculto + `'>` +
         `<div class='col s12 m3 labelContainer'>
           <label>
-            <input type='radio' name='group` + contadorPreguntaOptMultiple + `' ` + checkC + ` />
+            <input type='radio' value='C' name='group` + contadorPreguntaOptMultiple + `' ` + checkC + ` />
             <span>Correcta</span>
           </label>
         </div>
@@ -152,7 +149,7 @@ $(document).ready(function () {
         `<div class='row colorGreyWhiter bordered1 opcionContainer ` + opcionDOculto + `'>` +
         `<div class='col s12 m3 labelContainer'>
           <label>
-            <input type='radio' name='group` + contadorPreguntaOptMultiple + `' ` + checkD + ` />
+            <input type='radio' value='D' name='group` + contadorPreguntaOptMultiple + `' ` + checkD + ` />
             <span>Correcta</span>
           </label>
         </div>
@@ -386,7 +383,7 @@ $(document).ready(function () {
       var preguntaRellenarEspacios = $(this).closest(
         ".preguntaRellenarEspacios"
       );
-      
+
       contadorInputRellenar++;
       var lugarDeEspacios = preguntaRellenarEspacios.find(".espaciosBlancos");
       var numeroEspacios =
@@ -944,30 +941,117 @@ function getOpcionMultipleValues_one() {
 
   //Contenedores con valores importantes
   let inputTitulos = []; //Por ID
-  let inputOpciones = []; //Por name
   let inputRadios = []; //Por name
+  let inputOpciones = []; //Por name
 
   //Buscamos entre las IDS
-  // for (var i = 0; i < ids_all.length; i++) {
-  //   //Buscamos coincidencias en lista 1
-  //   if (ids_all[i].indexOf('rellenarInputTitulo') != -1) {
-  //     rellenarInputTitulo[contadorAsignacion1++] = ids_all[i];
-  //   }
+  for (var i = 0; i < ids_all.length; i++) {
+    //Buscamos coincidencias en lista 1
+    if (ids_all[i].indexOf('tituloOpcionMultiple') != -1) {
+      inputTitulos[contadorAsignacion1++] = ids_all[i];
+    }
+  }
 
-  //   //Buscamos coincidencias en lista 2
-  //   if (ids_all[i].indexOf('rellenarInputC') != -1) {
-  //     rellenarInputCContainer[contadorAsignacion2++] = ids_all[i];
-  //   }
+  //Buscamos entre los names
+  for (var i = 0; i < names_all.length; i++) {
+    //Buscamos coincidencias en lista 2
+    if (names_all[i].indexOf('group') != -1) {
+      inputRadios[contadorAsignacion2++] = names_all[i];
+    }
 
-  //   //Valores de ID de los inputs de value
-  //   if (ids_all[i].indexOf('rellenarInputCValue') != -1) {
-  //     rellenarInputCValue[contadorAsignacion3++] = ids_all[i];
-  //   }
-  // }
+    //Buscamos coincidencias en lista 3
+    if (names_all[i].indexOf('textArea') != -1) {
+      inputOpciones[contadorAsignacion3++] = names_all[i];
+    }
+  }
 
+  /*
+  * Valores de los inputs de pregunta
+  */
+  //Guardamos solo los valores de los titulos
+  var inputTitulosValue = [];
+  for (var k = 0; k < inputTitulos.length; k++) {
+    //Obtenemos valores del titulo
+    inputTitulosValue[k] = document.getElementById(inputTitulos[k]).value;
+  }
+
+  /*
+  * Valores de los textarea 
+  */
+  var elementOpcion = []; //Todos los elementos textarea (nodos)
+  for (var i = 0; i < inputOpciones.length/4; i++) {
+    //Se guardan todos los inputs (nodos) de cada pregunta
+    elementOpcion.push(document.querySelectorAll('[name="' + inputOpciones[i*4] + '"]'));
+    
+  }
+  
+  //Buscamos valores de los elementos de opcion
+  var elementOpcionValues = [];
+  var elementOpcionValuesTotal = []; 
+  for (var j = 0; j < elementOpcion.length; j++) {
+    elementOpcionValues = [];
+    for(var h = 0; h < 4; h++){
+      //console.log(elementOpcion[j][h].value);
+      elementOpcionValues.push(elementOpcion[j][h].value);
+      if(h == 3){
+        elementOpcionValuesTotal.push(elementOpcionValues);
+      }
+    }
+  }
+
+  /*
+  * Valores de los radio 
+  */
+  //Buscamos el parametro checked entre los radios
+  var elementRadio = []; //Todos los elementos radio (nodos)
+  var elementRadioCheckedValue = []; //Solo valores con checked (1 por pregunta)
+  for (var i = 0; i < inputRadios.length / 4; i++) {
+    //Se guardan todos los inputs radio (nodos) de cada pregunta
+    elementRadio.push(document.querySelectorAll('[name="' + inputRadios[i * 4] + '"]'));
+    //Buscamos coincidencias con el atributo checked
+    for (var j = 0; j < 4; j++) {
+      if (elementRadio[i][j].checked) {
+        elementRadioCheckedValue.push(elementRadio[i][j].value);
+      } else if (j == 3 && elementRadioCheckedValue[i] === undefined) {
+        elementRadioCheckedValue.push("Empty");
+      }
+    }
+  }
+
+  //Mezclemos todo en un solo array (Titulo, respuesta correcta y opciones)
+  for(var t = 0; t < elementOpcionValuesTotal.length; t++){
+    elementOpcionValuesTotal[t].unshift(elementRadioCheckedValue[t]);
+    elementOpcionValuesTotal[t].unshift(inputTitulosValue[t]);
+  }
+
+  //Creamos el objeto final
+  let arrayObjetosFinal = []
+  for (var h = 0; h < elementOpcionValuesTotal.length; h++) {
+    arrayObjetosFinal.push($.extend({}, elementOpcionValuesTotal[h]));
+  }
+
+  return arrayObjetosFinal;
+
+  //Importante
+  // console.log('Valores de titulos');
+  // console.log(inputTitulosValue);
+  // console.log('Valores de checked');
+  // console.log(elementRadioCheckedValue);
+  // console.log('Valores de opciones');
+  // console.log(elementOpcionValuesTotal);
+  
   //Prueba
-  console.log('IDs');
-  console.log(ids_all);
+  // console.log('IDs');
+  // console.log(ids_all);
+  // console.log('Titulos IDS');
+  // console.log(inputTitulos);
+  // //Importante
+  // console.log(inputTitulosValue);
+  // console.log('Inputs Names');
+  // console.log(inputRadios);
+  // console.log(inputOpciones);
+  // console.log('Elementos de radio');
+  // console.log(elementRadio);
 }
 
 /*
@@ -1270,7 +1354,7 @@ function getArrastrarValues_four() {
       contadorRecorrido++;
     }
   }
-  
+
   //Juntamos los conceptos con las definiciones
   let valuesPadre = [];
   for (var k = 0; k < definicionArrastrarViewValues.length; k++) {
@@ -1336,13 +1420,14 @@ function getArrastrarValues_four() {
 *   Funcion para la extracción de los datos y conversión a JSON
 */
 function convertToJSON() {
-  getOpcionMultipleValues_one();
+  let valoresOpcionesMultiple = getOpcionMultipleValues_one();
   let valoresRellenar = getRellenarValues_two();
   let valoresEjercicios = getEjerciciosValues_three();
   let valoresArrastrar = getArrastrarValues_four();
 
   //Se guarda en un JSON
   var jsonObject = {
+    "preguntasModal1": valoresOpcionesMultiple,
     "preguntasModal2": valoresRellenar,
     "preguntasModal3": valoresEjercicios,
     "preguntasModal4": valoresArrastrar

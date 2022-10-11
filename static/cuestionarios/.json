@@ -1,42 +1,91 @@
 {
- "preguntasModal2": [
+ "preguntasModal1": [
   {
-   "0": "[Blank 1][Blank 2]",
-   "1": "",
-   "2": ""
+   "0": "Pregunta 1",
+   "1": "A",
+   "2": "uno",
+   "3": "dos",
+   "4": "tres",
+   "5": "cuatro"
   },
   {
-   "0": "[Blank 1][Blank 2][Blank 3]",
-   "1": "",
-   "2": "",
-   "3": ""
+   "0": "Pregunta 2",
+   "1": "A",
+   "2": "uno",
+   "3": "dos",
+   "4": "tres",
+   "5": "cuatro"
+  },
+  {
+   "0": "Pregunta 3",
+   "1": "A",
+   "2": "uno",
+   "3": "dos",
+   "4": "tres",
+   "5": "cuatro"
+  },
+  {
+   "0": "Pregunta 4",
+   "1": "C",
+   "2": "uno",
+   "3": "dos",
+   "4": "tres",
+   "5": "cuatro"
+  },
+  {
+   "0": "Pregunta 5",
+   "1": "D",
+   "2": "uno",
+   "3": "dos",
+   "4": "tres",
+   "5": "cuatro"
+  }
+ ],
+ "preguntasModal2": [
+  {
+   "0": "Pregunta 1 [Blank 1][Blank 2]",
+   "1": "Palabra blank",
+   "2": "Palabra blank 2"
+  },
+  {
+   "0": "Pregunta 1 [Blank 1][Blank 2][Blank 3]",
+   "1": "Palabra blank",
+   "2": "Palabra blank 2",
+   "3": "Palabra blank 3"
   }
  ],
  "preguntasModal3": [
   {
-   "0": "",
+   "0": "Ejercicio 1",
    "1": "",
-   "2": "",
-   "3": "                                "
+   "2": "Carpeta online",
+   "3": "Distribuidos\n6.76+9.67+9.67 ==> 8.7\n\nGelacio\nprimero ==> \n\t3.36(examen 40%)\n\t2 (Tareas 20%)\n\t2.5 (Practicas 30%)\n\t1 (Asistencia)\n\tR = 8.86\nsegundo ==>\n\t2.25 (examen 40%)\n\t2 Tareas\n\t3 practicas\n\t0 asistencia\n\tR = 7.25\n\nTotal == 8.86 + 7.25 => 16.11\n\t"
   },
   {
-   "0": "",
-   "1": "",
-   "2": "",
-   "3": "                                "
+   "0": "Ejercicio 2",
+   "1": "imagen",
+   "2": "Carpeta online",
+   "3": "Distribuidos\n6.76+9.67+9.67 ==> 8.7\n\nGelacio\nprimero ==> \n\t3.36(examen 40%)\n\t2 (Tareas 20%)\n\t2.5 (Practicas 30%)\n\t1 (Asistencia)\n\tR = 8.86\nsegundo ==>\n\t2.25 (examen 40%)\n\t2 Tareas\n\t3 practicas\n\t0 asistencia\n\tR = 7.25\n\nTotal == 8.86 + 7.25 => 16.11\n\t"
   }
  ],
  "preguntasModal4": [
   {
-   "0": "",
-   "1": "**",
-   "2": "**"
+   "0": "Arrastrar 1",
+   "1": "Primero**segundo",
+   "2": "tercero**cuatro",
+   "3": "cinco**sesis",
+   "4": "siete**ocho"
   },
   {
-   "0": "",
-   "1": "**",
-   "2": "**",
-   "3": "**"
+   "0": "Arrastrar 2",
+   "1": "Primero**segundo",
+   "2": "tercero**cuatro"
+  },
+  {
+   "0": "Arrastrar 3",
+   "1": "Primero**segundo",
+   "2": "tercero**cuatro",
+   "3": "inicial**final"
   }
  ]
 }
