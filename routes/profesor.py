@@ -580,7 +580,9 @@ def ver_perfil_alumno(id):
 #Creación cuestionarios
 @routes.route('/creacion_cuestionarios/<string:id_profesor>')
 def creacion_cuestionarios(id_profesor):
-    return render_template('profesor/cuestionarios_creacion.html', id_profesor = id_profesor)
+    cuestionario_rutas = Op_profesor.obtener_cuestionarios_rutas(id_profesor)
+    resultCuestionarios = Op_profesor.obtener_cuestionarios_datos_importantes(id_profesor)
+    return render_template('profesor/cuestionarios_creacion.html', id_profesor = id_profesor, cuestionario_rutas = cuestionario_rutas, datosCuestionario = resultCuestionarios)
 
 
 #creacion del cuestionario del banco de pruebas

@@ -10,12 +10,12 @@
 
 .containerCreacionCuestionariosSon1{
     grid-area: area1;
-    padding: 20px 40px;
+    padding: 0px 0px 0px 40px;
 }
 
 .containerCreacionCuestionariosSon2{
     grid-area: area2;
-    padding: 20px 40px;
+    padding: 55px 40px 0 0;
 }
 
 .containerCreacionCuestionariosSon3{
@@ -33,6 +33,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    align-content: center;
     flex-direction: column;
 }
 
@@ -138,13 +139,13 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 40px 20px;
+    padding: 20px;
     border-radius: 20px;
 }
 
 .containerOpciones a{
     width: 90%;
-    margin-bottom: 10px;
+    margin: 5px 0px;
 }
 
 /*Contenedor de los botones del modal*/

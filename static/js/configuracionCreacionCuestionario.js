@@ -982,21 +982,21 @@ function getOpcionMultipleValues_one() {
   * Valores de los textarea 
   */
   var elementOpcion = []; //Todos los elementos textarea (nodos)
-  for (var i = 0; i < inputOpciones.length/4; i++) {
+  for (var i = 0; i < inputOpciones.length / 4; i++) {
     //Se guardan todos los inputs (nodos) de cada pregunta
-    elementOpcion.push(document.querySelectorAll('[name="' + inputOpciones[i*4] + '"]'));
-    
+    elementOpcion.push(document.querySelectorAll('[name="' + inputOpciones[i * 4] + '"]'));
+
   }
-  
+
   //Buscamos valores de los elementos de opcion
   var elementOpcionValues = [];
-  var elementOpcionValuesTotal = []; 
+  var elementOpcionValuesTotal = [];
   for (var j = 0; j < elementOpcion.length; j++) {
     elementOpcionValues = [];
-    for(var h = 0; h < 4; h++){
+    for (var h = 0; h < 4; h++) {
       //console.log(elementOpcion[j][h].value);
       elementOpcionValues.push(elementOpcion[j][h].value);
-      if(h == 3){
+      if (h == 3) {
         elementOpcionValuesTotal.push(elementOpcionValues);
       }
     }
@@ -1022,7 +1022,7 @@ function getOpcionMultipleValues_one() {
   }
 
   //Mezclemos todo en un solo array (Titulo, respuesta correcta y opciones)
-  for(var t = 0; t < elementOpcionValuesTotal.length; t++){
+  for (var t = 0; t < elementOpcionValuesTotal.length; t++) {
     elementOpcionValuesTotal[t].unshift(elementRadioCheckedValue[t]);
     elementOpcionValuesTotal[t].unshift(inputTitulosValue[t]);
   }
@@ -1042,7 +1042,7 @@ function getOpcionMultipleValues_one() {
   // console.log(elementRadioCheckedValue);
   // console.log('Valores de opciones');
   // console.log(elementOpcionValuesTotal);
-  
+
   //Prueba
   // console.log('IDs');
   // console.log(ids_all);
@@ -1471,3 +1471,32 @@ function downloadJson() {
   botonDescarga.download = nombreCuestionarioArchivo;
   botonDescarga.href = window.URL.createObjectURL(blob);
 }
+
+/*
+  ######################################################
+  EXTRA: Agregar archivos JSON viejos
+  ######################################################
+*/
+
+/*
+*   Función para eobtener la ruta del archivo y leerlo
+*/
+
+function leerArchivosCuestionariosAnteriores() {
+  //Boton de cargar ruta
+  const linkOculto = document.getElementById('linkOculto');
+  const archivoExistenteButton = document.getElementById('archivoExistenteButton');
+  //Menu de selección de ruta
+  const archivoCuestionarioExistente = document.getElementById('archivoCuestionarioExistente');
+
+  archivoExistenteButton.addEventListener('click', obtenerRuta);
+  function obtenerRuta() {
+    let IDcuestionario = archivoCuestionarioExistente.value;
+    let rutaFinal = '/duplicarCuestionarios/' + IDcuestionario;
+    //linkOculto.setAttribute('href', rutaFinal);
+    window.location.href = rutaFinal;
+    console.log('click');
+  }
+}
+
+leerArchivosCuestionariosAnteriores();

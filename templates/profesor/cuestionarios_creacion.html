@@ -38,18 +38,21 @@
                 <h5>Tipos de pregunta</h5>
                 <br>
                 <div class="containerOpciones colorGreyWhiter shadow-2e">
-                    <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
+                    <a class="waves-effect waves-light btn-large bordered1 color2 shadow-2e modal-trigger"
                         href="#modalOpccionMultipleCreacion"><i class="material-icons left md-32">abc</i>Opción
                         múltiple</a>
-                    <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
+                    <a class="waves-effect waves-light btn-large bordered1 color2 shadow-2e modal-trigger"
                         href="#modalRellenarEspaciosCreacion"><i class="material-icons left md-32">draw</i>Rellenar
                         espacios</a>
-                    <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
+                    <a class="waves-effect waves-light btn-large bordered1 color2 shadow-2e modal-trigger"
                         href="#modalEjerciciosCreacion"><i class="material-icons left md-32">code</i>Ejercicios</a>
-                    <a class="waves-effect waves-light btn-large bordered5 color2 shadow-2e modal-trigger"
+                    <a class="waves-effect waves-light btn-large bordered1 color2 shadow-2e modal-trigger"
                         href="#modalArrastrarCreacion"><i
                             class="material-icons left md-32">swipe_vertical</i>Arrastrar</a>
-                    <a class="waves-effect waves-light btn-large bordered5 color1 shadow-2e"
+                    <a class="waves-effect waves-light btn-large bordered1 color1 shadow-2e modal-trigger"
+                        href="#agregar_JSON_existente"><i class="material-icons left md-32">upload_file</i>Mis
+                        cuestionarios</a>
+                    <a class="waves-effect waves-light btn-large bordered1 color1 shadow-2e"
                         href="/crear_cuestionario_del_banco"><i class="material-icons left md-32">cloud</i>Banco de
                         preguntas</a>
                 </div>
@@ -92,33 +95,63 @@
                         </div>
                     </div>
                 </div>
-                <!--Modal 0: Guardado del JSON -->
                 <section class="row">
+                    <!--Modal 0: Guardado del JSON -->
                     <div id="modalJSON" class="modal colorGrey bordered2 modalAltura">
                         <div class="modal-content">
                             <h4>Generando archivo JSON</h4>
                             <hr>
                             <p>El cuestionario será almacenado como archivo JSON, usted puede guardar una copia del
                                 cuestionario si asi lo desea.</p>
-                                
+
                             <!--Preview del cuestionario-->
                             <h5><b>Preview de cuestionario JSON</b></h5>
                             <pre class="previewCodeContainer colorText bordered2" id="output"></pre>
                             <!--Input discreto para enviar contenido JSON a flask-->
                             <input type="hidden" name="jsonContentInput" id="jsonContentInput">
                             <!--Descarga del archivo-->
-                            <a onclick="downloadJson()" class="waves-effect waves-light btn bordered5 color2 shadow-2e" id="descargarJSON" style="width: 100%; margin-bottom: 10px;">
-                                <i class="material-icons left">data_object</i>Descargar</a>
+                            <a onclick="downloadJson()"
+                                class="waves-effect waves-light btn-large bordered2Up color3 shadow-2e"
+                                id="descargarJSON" style="width: 100%;">
+                                <i class="material-icons left">download</i>Descargar</a>
                             <!--Almacenado del archivo (en BD y servidor)-->
-                            <button type="submit" class="waves-effect waves-light btn bordered5 color1 shadow-2e" id="guardarJSON" style="width: 100%;">
+                            <button type="submit"
+                                class="waves-effect waves-light btn-large bordered2Down color1 shadow-2e"
+                                id="guardarJSON" style="width: 100%;">
                                 <i class="material-icons left">save</i>Guardar</button>
                         </div>
                     </div>
+                    <!--MODAL -1: Para agregar un JSON existente-->
+                    <div id="agregar_JSON_existente" class="modal colorGrey bordered2" style="height: 60vh;">
+                        <div class="modal-content">
+                            <h4>Duplica cuestionario guardado antes</h4>
+                            <hr>
+                            <p>Seleccione algún JSON que ya estuviera en existencia de cuestionarios anteriores. <b>Se
+                                    creará una copia del documento y usted podra editar la data.</b></p>
+                            <h5><b>Cuestionarios anteriores.</b></h5>
+                            <div id="archivoCuestionario" class="input-field col s12 m12">
+                                <select id="archivoCuestionarioExistente" name="archivoCuestionario">
+                                    {% if cuestionario_rutas %}
+                                    {%for i in range(0, cuestionario_rutas|length)%}
+                                    <option value="{{cuestionario_rutas[i][1]}}">{{cuestionario_rutas[i][0]}}
+                                    </option>
+                                    {% endfor %}
+                                    {% endif%}
+                                </select>
+                                <label>Archivo de cuestionario</label>
+                            </div>
+                            <!--Descarga del archivo-->
+                            <a href="#" class="waves-effect waves-light btn-large bordered1 color1 shadow-2e"
+                                id="archivoExistenteButton" style="width: 100%;">
+                                <i class="material-icons left">file_open</i>Cargar/Duplicar</a>
+                            <a class="hiddenElement" id="linkOculto"></a>
+                        </div>
                     </div>
                 </section>
                 <!--Boton para abrir el modal del json-->
                 <div class="fixed-action-btn buttonSaveJSON">
-                    <button href="#modalJSON" onclick="convertToJSON()" class="modal-trigger btn-floating btn-large color1">
+                    <button href="#modalJSON" onclick="convertToJSON()"
+                        class="modal-trigger btn-floating btn-large color1" id="buttonModalSaveFloat">
                         <i class="large material-icons">save</i>
                     </button>
                 </div>
