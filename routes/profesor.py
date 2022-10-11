@@ -1,5 +1,6 @@
 #from crypt import methods
 from functools import wraps
+from xml.etree.ElementTree import tostring
 from flask import render_template,flash,request, url_for, redirect, session
 from . import routes
 from operacionesBD import Op_profesor
@@ -12,6 +13,7 @@ import plotly.express as px
 from flask_uploads import IMAGES, UploadSet
 import requests
 import ast
+import shutil
 
 photos = UploadSet("photos", IMAGES)
 
@@ -652,16 +654,18 @@ def python_runner():
 @routes.route('/guardarCuestionarioJSON/<string:id_profesor>', methods=["POST"])
 def guardarCuestionarioJSON(id_profesor):
     #Obtenemos el nombre del cuestionario
+    nombreCuestionarioConClave = request.form["nombreCuestionarioConClave"]
     nombreCuestionario = request.form["nombreCuestionario"]
     #Obtenemos el contenido del JSON en un string
     jsonContentInput = request.form["jsonContentInput"]
 
     #Eliminamos espacios del nombre del cuestionario
+    nombreCuestionarioConClave = nombreCuestionarioConClave.replace(" ","_")
     nombreCuestionario = nombreCuestionario.replace(" ","_")
 
 
     #Creamos el documento JSON y lo guardamos
-    rutaArchivo = 'static/cuestionarios/' + nombreCuestionario + '.json'
+    rutaArchivo = 'static/cuestionarios/' + nombreCuestionarioConClave + '.json'
     with open(rutaArchivo , 'w') as f:
         print("Archivo JSON creado")
 
@@ -681,13 +685,14 @@ def guardarCuestionarioJSON(id_profesor):
     datosProfesor = Op_profesor.datos_completos_docente_by_id(id_profesor)
 
     #Hacemos el render
-    return render_template('profesor/b_cuestionarios_creacion.html', id_profesor = id_profesor,datosProfesor = datosProfesor, nombreCuestionario = nombreCuestionario, gruposNombres = gruposNombres)
+    return render_template('profesor/b_cuestionarios_creacion.html', id_profesor = id_profesor,datosProfesor = datosProfesor,nombreCuestionario = nombreCuestionario, nombreCuestionarioConClave = nombreCuestionarioConClave, gruposNombres = gruposNombres)
 
 ###Segundo guardamos la data del cuestionario
 @routes.route('/saveCuestionario/<string:id_profesor>', methods=["POST"])
 def saveCuestionario(id_profesor):
     #Guardamos datos del formualario
     tituloCuestionario = request.form["tituloCuestionario"]
+    tituloCuestionarioConClave = request.form["tituloCuestionarioConClave"]
     fechaCuestionario = request.form["fechaCuestionario"]
     autorCuestionario = request.form["autorCuestionario"]
     temasCuestionario = request.form["temasCuestionario"]
@@ -705,7 +710,7 @@ def saveCuestionario(id_profesor):
     #with open('static/cuestionarios/'+ tituloCuestionario + '.json', 'r') as file:
         #archivoCuestionario = file.read().replace('\n', '')
     
-    rutaCuestionario = 'static/cuestionarios/'+ tituloCuestionario + '.json'
+    rutaCuestionario = 'static/cuestionarios/'+ tituloCuestionarioConClave + '.json'
 
     result = Op_profesor.insertar_cuestionario_JSON(id_profesor, id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, rutaCuestionario)
     return redirect(url_for('routes.gestionar_cuestionarios'))
@@ -758,6 +763,28 @@ def update_cuestionario(id_cuestionarios):
         Op_profesor.update_cuestionarios(id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, id_cuestionario)
         
         return redirect(url_for('routes.gestionar_cuestionarios')) 
+
+@routes.route('/duplicarCuestionarios/<string:id_cuestionario>')
+def duplicar_cuestionario(id_cuestionario):
+    #Obtenemos los datos del cuestionario
+    pickedCuestionarioData = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
+
+    #Generamos la nueva ruta
+    rutaVieja = str(pickedCuestionarioData[0][9])
+    rutaCopia = ""
+    nuevaRuta = rutaVieja.replace(".json","")
+    rutaCopia = nuevaRuta + "(copia).json";
+
+    #Agregamos (copia) al nuevo titulo
+    tituloCuestionario = str(pickedCuestionarioData[0][3]) + "_(copia)"
+
+    #Copiamos el JSON existente y escribimos uno nuevo
+    shutil.copy(rutaVieja, rutaCopia)
+    
+    #Insertamos el nuevo cuestionario
+    Op_profesor.insertar_cuestionario_JSON(pickedCuestionarioData[0][1], pickedCuestionarioData[0][2], tituloCuestionario, pickedCuestionarioData[0][4], pickedCuestionarioData[0][5], pickedCuestionarioData[0][6], pickedCuestionarioData[0][7], pickedCuestionarioData[0][8], rutaCopia)
+    
+    return redirect(url_for('routes.gestionar_cuestionarios')) 
 
 ##
 ##Bloque para eliminar los cuestionarios

@@ -70,7 +70,10 @@
                         <input id="tituloCuestionario" name="tituloCuestionario" type="text" class="validate"
                             value="{{nombreCuestionario}}">
                         <label for="tituloCuestionario">Nombre de cuestionario</label>
+                        <input id="tituloCuestionarioConClave" name="tituloCuestionarioConClave" type="hidden"
+                            value="{{nombreCuestionarioConClave}}">
                     </div>
+                    
                     <div class="input-field col s12 m6">
                         <select id="temasCuestionario" name="temasCuestionario">
                             {% if gruposNombres %}

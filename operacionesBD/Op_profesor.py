@@ -352,7 +352,6 @@ def delete_cuestionarios(id_cuestionario):
     conexion.close()
     return confirmacionDeDelete
 
-
 ##
 ## Obtiene los datos de los cuestionarios vinculados a un grupo
 ##

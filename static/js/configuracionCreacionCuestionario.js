@@ -811,6 +811,7 @@ function ingresarTitulo() {
   const editTitulo = document.getElementById('editarTitulo');
   //Input del titulo
   const nombreCuestionario = document.getElementById('nombreCuestionario');
+  const nombreCuestionarioConClave = document.getElementById('nombreCuestionarioConClave');
   //Contenedor principal del titulo del cuestionario
   const inputNombreCuestionario = document.getElementsByClassName('inputNombreCuestionario');
   //Contenedor principal del titulo texto
@@ -849,14 +850,16 @@ function ingresarTitulo() {
       nombreCuestionario.value = "Error";
     } else {
       if (codigoAgregado == false) {
-        tituloCuestionario.innerText = nombreCuestionario.value + " (" + clave + ")";
+        tituloCuestionario.innerText = nombreCuestionario.value;
         inputNombreCuestionario[0].classList.add('hiddenElement');
         contenedorTitulo[0].classList.remove('hiddenElement');
+        nombreCuestionarioConClave.value = nombreCuestionario.value + " (" + clave + ")";
         codigoAgregado = true;
       } else {
         tituloCuestionario.innerText = nombreCuestionario.value;
         inputNombreCuestionario[0].classList.add('hiddenElement');
         contenedorTitulo[0].classList.remove('hiddenElement');
+        nombreCuestionarioConClave.value = nombreCuestionario.value + " (" + clave + ")";
       }
     }
   }
@@ -1454,14 +1457,14 @@ function downloadJson() {
   let botonDescarga = document.getElementById('descargarJSON');
 
   //Accedemos al titulo del cuestionario
-  const nombreCuestionario = document.getElementById('nombreCuestionario');
+  const nombreCuestionarioConClave = document.getElementById('nombreCuestionarioConClave');
   let nombreCuestionarioArchivo;
 
   //Validamos si el nombre del archivo esta vacio
-  if (nombreCuestionario.value == '') {
+  if (nombreCuestionarioConClave.value == '') {
     nombreCuestionarioArchivo = 'cuestionario_default.json';
   } else {
-    nombreCuestionarioArchivo = nombreCuestionario.value + '.json';
+    nombreCuestionarioArchivo = nombreCuestionarioConClave.value + '.json';
   }
 
   //Modificamos el boton de descarga
