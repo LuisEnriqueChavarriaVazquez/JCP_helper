@@ -766,6 +766,23 @@ def update_cuestionario(id_cuestionarios):
         
         return redirect(url_for('routes.gestionar_cuestionarios')) 
 
+@routes.route('/viewCuestionario/<string:id_cuestionario>')
+def view_cuestionario(id_cuestionario):
+    #Obtenemos todos los datos del cuestionario
+    datosCuestionario = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
+
+    ##Accedemos al contenido del JSON
+    rutaArchivo = datosCuestionario[0][9]
+    # Abrimos el archivo
+    f = open(rutaArchivo)
+    #Guardamos la data
+    dataJSON = json.load(f)
+    f.close()
+
+    #Enviamos al usuario al formulario para ver datos del cuestionario.
+    return render_template('profesor/b_verCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON)
+
+
 @routes.route('/duplicarCuestionarios/<string:id_cuestionario>')
 def duplicar_cuestionario(id_cuestionario):
     #Obtenemos los datos del cuestionario
