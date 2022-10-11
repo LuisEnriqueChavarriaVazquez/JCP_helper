@@ -777,6 +777,8 @@ def view_cuestionario(id_cuestionario):
     f = open(rutaArchivo)
     #Guardamos la data
     dataJSON = json.load(f)
+    #Guardamos la data como string
+    #dataJSONstr = json.dumps(dataJSON, indent=2)
     f.close()
 
     #Enviamos al usuario al formulario para ver datos del cuestionario.

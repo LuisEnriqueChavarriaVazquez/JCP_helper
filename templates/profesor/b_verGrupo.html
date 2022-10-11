@@ -69,7 +69,7 @@
                                 {%for i in range(0, datosCuestionarios|length)%}
                                 <!--Solo muestra los ids que coinciden-->
                                 {% if datosCuestionarios[i][1] == groupInfo.0%}
-                                <a href="verCuestionario/{{datosCuestionarios[i][1]}}">
+                                <a href="/viewCuestionario/{{datosCuestionarios[i][0]}}">
                                     <div class="colorTextReverse cardCuestionarioGrupoVer">
                                         <div class="colorGrey titleCardCuestionarioGrupoVer">
                                             <h6>{{datosCuestionarios[i][3]}}</h6>
