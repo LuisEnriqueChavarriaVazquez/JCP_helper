@@ -28,12 +28,79 @@
         </div>
     </nav>
 
-    {%for i in range(0, datosCuestionario|length)%}
-        <h5>Metadatos</h5>
-        {{datosCuestionario[i]}}
-        <h5>Contenido JSON</h5>
-        {{dataJSON}}
-    {%endfor%}
+    <section class="contenedorPreviewCuestionario">
+        <!--Datos importantes del cuestionario-->
+        <section class="contenedorPreviewUno">
+            <h5>Preview cuestionario</h5>
+            <ul class="collapsible bordered5 colorWhite">
+                <li>
+                    <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
+                        style="margin-bottom: 5px;"><i class="material-icons">article</i>Datos generales.
+                    </div>
+                    <div class="bordered5 collapsible-body">
+                        {% if datosCuestionario %}
+                        <div class="contenedorDataGrupo">
+                            <h5><b>{{datosCuestionario[0][3]}}</b></h5>
+                            <hr>
+                            <section class="row">
+                                <div class="col s12 m6 l12">
+                                    <h6><b>Fecha:</b></h6>
+                                    <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1">
+                                        {{datosCuestionario[0][4]}}</p>
+                                </div>
+                                <div class="col s12 m6 l12">
+                                    <h6><b>Autor:</b></h6>
+                                    <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1">
+                                        {{datosCuestionario[0][5]}}</p>
+                                </div>
+                                <div class="col s12 m6 l12">
+                                    <h6><b>Temas:</b></h6>
+                                    <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1">
+                                        {{datosCuestionario[0][6]}}</p>
+                                </div>
+                                <div class="col s12 m6 l12">
+                                    <h6><b>Tipo de cuestionario:</b></h6>
+                                    <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1">
+                                        {{datosCuestionario[0][7]}}</p>
+                                </div>
+                                <div class="col s12 m12 l12">
+                                    <h6><b>Lenguaje:</b></h6>
+                                    <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1">
+                                        {{datosCuestionario[0][8]}}</p>
+                                </div>
+                            </section>
+                        </div>
+                        {%endif%}
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <!--Vista previa del cuestionario-->
+        <section class="contenedorPreviewDos">
+            <h5>Preguntas cuestionario</h5>
+            <div class="contenedorPreguntasPreview">
+                <div class="bordered2 colorWhite shadow-1e preguntaContainerIndividualPreview">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe harum modi dolorem in dolor? Hic
+                    deleniti, iure dignissimos accusamus laboriosam, quibusdam ipsum quam debitis vitae praesentium
+                    repudiandae expedita corporis animi!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. A, laborum? Ab vel maiores hic provident
+                    dicta voluptate natus quasi modi eveniet, minima sed facere harum voluptatem laboriosam id minus
+                    blanditiis.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, voluptas, et ipsam cum
+                    distinctio, incidunt saepe eius earum sunt sequi excepturi nam velit assumenda. Necessitatibus
+                    quisquam nulla natus dolore dignissimos!
+                </div>
+                <div class="bordered2 colorWhite shadow-1e preguntaContainerIndividualPreview">
+                    {{dataJSON}}
+                </div>
+                <div class="bordered2 colorWhite shadow-1e preguntaContainerIndividualPreview">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe harum modi dolorem in dolor? Hic
+                    deleniti, iure dignissimos accusamus laboriosam, quibusdam ipsum quam debitis vitae praesentium
+                    repudiandae expedita corporis animi!
+                </div>
+            </div>
+        </section>
+    </section>
 
 </body>
 
