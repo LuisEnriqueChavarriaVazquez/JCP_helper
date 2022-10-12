@@ -714,7 +714,7 @@ def saveCuestionario(id_profesor):
     
     rutaCuestionario = 'static/cuestionarios/'+ tituloCuestionarioConClave + '.json'
 
-    result = Op_profesor.insertar_cuestionario_JSON(id_profesor, id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, rutaCuestionario, ordenCuestionario)
+    result = Op_profesor.insertar_cuestionario_JSON(id_grupo, id_profesor, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, rutaCuestionario, ordenCuestionario)
     return redirect(url_for('routes.gestionar_cuestionarios'))
 
 ##
@@ -804,7 +804,7 @@ def duplicar_cuestionario(id_cuestionario):
     shutil.copy(rutaVieja, rutaCopia)
     
     #Insertamos el nuevo cuestionario
-    Op_profesor.insertar_cuestionario_JSON(pickedCuestionarioData[0][1], pickedCuestionarioData[0][2], tituloCuestionario, pickedCuestionarioData[0][4], pickedCuestionarioData[0][5], pickedCuestionarioData[0][6], pickedCuestionarioData[0][7], pickedCuestionarioData[0][8], rutaCopia)
+    Op_profesor.insertar_cuestionario_JSON(pickedCuestionarioData[0][1], pickedCuestionarioData[0][2], tituloCuestionario, pickedCuestionarioData[0][4], pickedCuestionarioData[0][5], pickedCuestionarioData[0][6], pickedCuestionarioData[0][7], pickedCuestionarioData[0][8], rutaCopia, pickedCuestionarioData[0][10])
     
     return redirect(url_for('routes.gestionar_cuestionarios')) 
 

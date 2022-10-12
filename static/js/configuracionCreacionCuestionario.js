@@ -1497,6 +1497,10 @@ function anexarJsonViejo(idMuestra, idInputFile) {
       var fr = new FileReader();
       fr.onload = function () {
         document.getElementById(idMuestra).innerText = fr.result;
+        //Convertimos el texto del documento en un objeto JSON
+        let objetoJson = JSON.parse(fr.result);
+        //Almacenamos el contenido del JSON en el input
+        document.getElementById('jsonContentInput').value = JSON.stringify(objetoJson);
       }
 
       fr.readAsText(this.files[0]);
