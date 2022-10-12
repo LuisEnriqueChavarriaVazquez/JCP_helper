@@ -71,7 +71,7 @@
                 <a class="button4 waves-effect waves-light shadow-1 modal-trigger" href="#modalArrastrarCreacion"><i
                         class="material-icons md-28 colorTextReverse">swipe_vertical</i></a>
                 <a class="button4 waves-effect waves-light shadow-1 modal-trigger" href="#agregar_JSON_existente"><i
-                            class="material-icons md-28 colorTextReverse">file_copy</i></a>
+                        class="material-icons md-28 colorTextReverse">file_copy</i></a>
                 <a class="button5 waves-effect waves-light shadow-1" href="/crear_cuestionario_del_banco"><i
                         class="material-icons md-28 colorTextReverse">cloud</i></a>
             </section>
@@ -105,6 +105,16 @@
                             <hr>
                             <p>El cuestionario será almacenado como archivo JSON, usted puede guardar una copia del
                                 cuestionario si asi lo desea.</p>
+                            <p><b>Puede anexar algún JSON que haya descargado previamente.</b></p>
+                            <input type="file" id="inputfileAnterior" class="hidden" />
+                            <a id="leerArchivoEjercicioAnterior" style="width: 100%; right: 0; position: relative;">
+                                <label for="inputfileAnterior"
+                                    class="waves-effect waves-light btn bordered5 colorGreyDarker colorTextReverse"
+                                    style="width: 100%;"
+                                    onclick="anexarJsonViejo('output', 'inputfileAnterior')">
+                                    <i class="material-icons">upload_file</i>
+                                </label>
+                            </a>
 
                             <!--Preview del cuestionario-->
                             <h5><b>Preview de cuestionario JSON</b></h5>
@@ -206,6 +216,11 @@
                             <textarea id="textAreaPreguntaOpccionMultipleCreacion"
                                 class="materialize-textarea"></textarea>
                             <label for="textAreaPreguntaOpccionMultipleCreacion">Pregunta</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">play_arrow</i>
+                            <textarea id="mediaProblemaOpcionMultiple" class="materialize-textarea"></textarea>
+                            <label for="mediaProblemaOpcionMultiple">Imagen o video para el problema (url)</label>
                         </div>
                     </div>
 
@@ -407,6 +422,11 @@
                                 <textarea id="mediaProblema" class="materialize-textarea"></textarea>
                                 <label for="mediaProblema">Imagen o video para el problema (url)</label>
                             </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">task</i>
+                                <textarea id="salidaProblema" class="materialize-textarea"></textarea>
+                                <label for="salidaProblema">Salida esperada (opcional)</label>
+                            </div>
                         </div>
                         <h5><b>Código de retroalimentación</b></h5>
                         <p>Escriba el código con la propuesta de solución para que el alumno pueda recibir
@@ -419,13 +439,14 @@
                             <div class="col s12">
                                 <h6><b>Código de archivo</b></h6>
                             </div>
-                            <div class="input-field col s12">
                                 <input type="file" id="inputfile" class="hidden" />
-                                <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
-                                    id="leerArchivoEjercicio" style="width: 100%;"><i
-                                        class="material-icons left">upload_file</i>
-                                    <label for="inputfile" class="colorText">Elegir archivo</label></a>
-                            </div>
+                                <a id="leerArchivoEjercicio" style="width: 100%;">
+                                    <label for="inputfile"
+                                        class="waves-effect waves-light btn bordered5 color2 shadow-2e colorText"
+                                        style="width: 100%;">
+                                        <i class="material-icons">upload_file</i>
+                                    </label>
+                                </a>
                             <div class="col s12">
                                 <h6><b>Adjuntar enlace a carpeta online (múltiples archivos)</b></h6>
                             </div>

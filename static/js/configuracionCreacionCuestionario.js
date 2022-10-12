@@ -112,6 +112,8 @@ $(document).ready(function () {
         opcionDOculto = "hide";
       }
 
+      var mediaProblemaOpcionMultiple = document.getElementById('mediaProblemaOpcionMultiple').value;
+
       //En caso de que tengan contenido imprimimos
       var opcionB =
         `<div class='row colorGreyWhiter bordered1 opcionContainer ` + opcionBOculto + `'>` +
@@ -169,9 +171,16 @@ $(document).ready(function () {
               <h5>Pregunta de opción múltiple.</h5>
             <div class='row'>
               <div class='input-field col s12'>
-                <textarea id="tituloOpcionMultiple` + contadorPreguntaOptMultiple + `"  class='materialize-textarea textoPregunta' placeholder='Escriba la pregunta'>`
+                <textarea id="tituloOpcionMultiple` + contadorPreguntaOptMultiple + `" class='materialize-textarea textoPregunta' placeholder='Escriba la pregunta'>`
         + pregunta +
         `</textarea>
+              </div>
+              <div class="input-field col s12">
+                  <i class="material-icons prefix">play_arrow</i>
+                  <textarea id="mediaProblemaOpcionMultiple` + contadorPreguntaOptMultiple + `" class="materialize-textarea">`
+        + mediaProblemaOpcionMultiple +
+        `</textarea>
+                  <label class="active" for="mediaProblemaOpcionMultiple` + contadorPreguntaOptMultiple + `">Imagen o video para el problema (url)</label>
               </div>
             </div>` +
         opcionA +
@@ -489,6 +498,10 @@ function agregarEjercicioContenedor() {
   const codigoResultado = document.getElementById('codigoResultado');
   //Codigo de muestra
   const codigoMuestra = document.getElementById('codigoMuestra');
+  //Imagen o video del problema
+  const mediaProblema = document.getElementById('mediaProblema');
+  //Output esperado
+  const salidaProblema = document.getElementById('salidaProblema');
   //Carpeta online
   const carpetaOnline = document.getElementById('carpetaOnline');
 
@@ -517,8 +530,13 @@ function agregarEjercicioContenedor() {
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">play_arrow</i>
-                    <textarea id="mediaProblema` + contadorEjerciciosEnContenedor + `" class="materialize-textarea"></textarea>
-                    <label for="mediaProblema` + contadorEjerciciosEnContenedor + `">Imagen o video para el problema (url)</label>
+                    <textarea id="mediaProblema` + contadorEjerciciosEnContenedor + `" class="materialize-textarea">` + mediaProblema.value + `</textarea>
+                    <label class="active" for="mediaProblema` + contadorEjerciciosEnContenedor + `">Imagen o video para el problema (url)</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">task</i>
+                    <textarea id="salidaProblema` + contadorEjerciciosEnContenedor + `" class="materialize-textarea">` + salidaProblema.value + `</textarea>
+                    <label class="active" for="salidaProblema` + contadorEjerciciosEnContenedor + `">Salida esperada (opcional)</label>
                 </div>
               </div>
               <div class="row colorGreyWhiter bordered2 contenedorOpcionesCodigo">
@@ -533,7 +551,7 @@ function agregarEjercicioContenedor() {
                     <label 
                     onclick="agregarContenidoIndividualArchivo('codigoMuestra` + contadorEjerciciosEnContenedor + `', 'inputfile` + contadorEjerciciosEnContenedor + `')"
                     for="inputfile` + contadorEjerciciosEnContenedor + `" class="colorText">Elegir archivo</label></a>
-                </div>  
+                </div>
                 <div class="col s12">
                     <h6><b>Adjuntar enlace a carpeta online (múltiples archivos)</b></h6>
                 </div>
@@ -941,9 +959,11 @@ function getOpcionMultipleValues_one() {
   let contadorAsignacion1 = 0;
   let contadorAsignacion2 = 0;
   let contadorAsignacion3 = 0;
+  let contadorAsignacion4 = 0;
 
   //Contenedores con valores importantes
   let inputTitulos = []; //Por ID
+  let mediaProblemaOpcionMultiple = []; //Por ID
   let inputRadios = []; //Por name
   let inputOpciones = []; //Por name
 
@@ -952,6 +972,11 @@ function getOpcionMultipleValues_one() {
     //Buscamos coincidencias en lista 1
     if (ids_all[i].indexOf('tituloOpcionMultiple') != -1) {
       inputTitulos[contadorAsignacion1++] = ids_all[i];
+    }
+
+    //Buscamos coincidencias en lista 1
+    if (ids_all[i].indexOf('mediaProblemaOpcionMultiple') != -1) {
+      mediaProblemaOpcionMultiple[contadorAsignacion4++] = ids_all[i];
     }
   }
 
@@ -973,9 +998,12 @@ function getOpcionMultipleValues_one() {
   */
   //Guardamos solo los valores de los titulos
   var inputTitulosValue = [];
+  var mediaProblemaOpcionMultipleValue = [];
   for (var k = 0; k < inputTitulos.length; k++) {
     //Obtenemos valores del titulo
     inputTitulosValue[k] = document.getElementById(inputTitulos[k]).value;
+    //Obtenemos valores del archivo de media
+    mediaProblemaOpcionMultipleValue[k] = document.getElementById(mediaProblemaOpcionMultiple[k]).value;
   }
 
   /*
@@ -1021,9 +1049,10 @@ function getOpcionMultipleValues_one() {
     }
   }
 
-  //Mezclemos todo en un solo array (Titulo, respuesta correcta y opciones)
+  //Mezclemos todo en un solo array (Titulo, media, respuesta correcta y opciones)
   for (var t = 0; t < elementOpcionValuesTotal.length; t++) {
     elementOpcionValuesTotal[t].unshift(elementRadioCheckedValue[t]);
+    elementOpcionValuesTotal[t].unshift(mediaProblemaOpcionMultipleValue[t]);
     elementOpcionValuesTotal[t].unshift(inputTitulosValue[t]);
   }
 
@@ -1191,12 +1220,14 @@ function getEjerciciosValues_three() {
   let contadorAsignacion2 = 0;
   let contadorAsignacion3 = 0;
   let contadorAsignacion4 = 0;
+  let contadorAsignacion5 = 0;
 
   //Contenedores con valores importantes
   let descripcionProblema = [];
   let mediaProblema = [];
   let carpetaOnline = [];
   let codigoMuestra = [];
+  let outputProblema = [];
 
   //Buscamos entre las IDS
   for (var i = 0; i < ids_all.length; i++) {
@@ -1219,6 +1250,11 @@ function getEjerciciosValues_three() {
     if (ids_all[i].indexOf('codigoMuestra') != -1) {
       codigoMuestra[contadorAsignacion4++] = ids_all[i];
     }
+
+    //Buscamos coincidencias en lista 5
+    if (ids_all[i].indexOf('salidaProblema') != -1) {
+      outputProblema[contadorAsignacion5++] = ids_all[i];
+    }
   }
 
   //Contenedores con los valores de las listas
@@ -1226,12 +1262,14 @@ function getEjerciciosValues_three() {
   let mediaProblemaValues = [];
   let carpetaOnlineValues = [];
   let codigoMuestraValues = [];
+  let outputProblemaValues = [];
 
   //Guardamos solo los valores
   for (var k = 0; k < descripcionProblema.length - 1; k++) {
     descripcionProblemaValues[k] = document.getElementById(descripcionProblema[k]).value;
     mediaProblemaValues[k] = document.getElementById(mediaProblema[k]).value;
     carpetaOnlineValues[k] = document.getElementById(carpetaOnline[k]).value;
+    outputProblemaValues[k] = document.getElementById(outputProblema[k]).value;
     codigoMuestraValues[k] = document.getElementById(codigoMuestra[k]).innerText;
   }
 
@@ -1243,6 +1281,7 @@ function getEjerciciosValues_three() {
     valoresOrganizados.push(mediaProblemaValues[h]);
     valoresOrganizados.push(carpetaOnlineValues[h]);
     valoresOrganizados.push(codigoMuestraValues[h]);
+    valoresOrganizados.push(outputProblemaValues[h]);
     valoresOrganizadosTotal.push(valoresOrganizados);
   }
 
@@ -1422,6 +1461,22 @@ function getArrastrarValues_four() {
 /*
 *   Funcion para la extracción de los datos y conversión a JSON
 */
+
+
+function anexarJsonViejo(idMuestra, idInputFile) {
+  document.getElementById(idInputFile)
+    .addEventListener('change', function () {
+
+      var fr = new FileReader();
+      fr.onload = function () {
+        document.getElementById(idMuestra).innerText = fr.result;
+      }
+
+      fr.readAsText(this.files[0]);
+      M.toast({ html: 'Archivo leído.' });
+    })
+}
+
 function convertToJSON() {
   let valoresOpcionesMultiple = getOpcionMultipleValues_one();
   let valoresRellenar = getRellenarValues_two();
