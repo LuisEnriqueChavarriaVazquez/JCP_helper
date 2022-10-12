@@ -55,11 +55,11 @@ function obtenerDataCuestionario() {
             //Contenido de la pregunta
             let contenido =
                 `  
-                <h5><b>Ejercicio opcion multiple ` + (m + 1) + `</b></h5>
+                <h5><b>Ejercicio opción múltiple ` + (m + 1) + `</b></h5>
                 <hr>
                 <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray1[m][0] + `</b></div>
                 <div class="imagenBox bordered1 shadow-1e">
-                    <img class="bordered1" src="` + preguntasModalArray1[m][1] + `"></img>
+                    <img class="imagenBoxContent bordered1" src="` + preguntasModalArray1[m][1] + `"></img>
                 </div>
                 <h6><b>Opciones de la pregunta.</b></h6>
                 <div class="opcionesContainerStyleViewCuestionario">
@@ -137,23 +137,69 @@ function obtenerDataCuestionario() {
             <hr>
             <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray3[k][0] + `</b></div>
             <div class="imagenBox bordered1 shadow-1e">
-            <img class="bordered1" src="` + preguntasModalArray3[k][1] + `"></img>
-            </div>
-            <div class="contendorRecursoOnlineBox"> 
-            <a href="` + preguntasModalArray3[k][2] + `" class="waves-effect waves-light btn color2 bordered5 btnPreguntaStyleFormat"><i class="material-icons left">cloud</i>Acceder a recurso online</a>
+            <img class="imagenBoxContent bordered1" src="` + preguntasModalArray3[k][1] + `"></img>
             </div>
             <h6><b>Preview de propuesta de código.</b></h6>
             <div class="codeContainerBox"><pre class="previewCodeContainer colorText bordered1">` + preguntasModalArray3[k][3] + `</pre></div>
-            <div class="preguntaBox color4 bordered1"><b>Output esperado: ` + preguntasModalArray3[k][4] + `</b></div>
+            <div class="preguntaBox outputEsperado color4 bordered1"><b>Output: ` + preguntasModalArray3[k][4] + `</b></div>
+            <div class="contendorRecursoOnlineBox"> 
+            <a href="` + preguntasModalArray3[k][2] + `" class="waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">cloud</i>Acceder a recurso online</a>
+            </div>
             `;
 
             contenedoresPregunta[k].innerHTML = contenido;
         }
     }
 
+    function ingresarPreguntasArrastrar(){
+        //Ingresamos los elementos
+        insertarCajasPreguntas(preguntasModalArray4.length, 'opt4');
+        //Accedemos a las cajas
+        let contenedoresPregunta = document.getElementsByClassName('opt4');
+        //Hacemos variables de pregunta
+        let dato1_pregunta;
+
+        for (var m = 0; m < preguntasModalArray4.length; m++) { 
+            //Contenido de la pregunta
+            let contenido =
+                `  
+                <h5><b>Ejercicio arrastrar ` + (m + 1) + `</b></h5>
+                <hr>
+                <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray4[m][0] + `</b></div>
+                <h6><b>Relación de palabras.</b></h6>
+                <div class="opcionesContainerStyleViewCuestionarioArrastrar">
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][1]+ `</div>
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][2]+ `</div>
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][3]+ `</div>
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][4]+ `</div>
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][5]+ `</div>
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][6]+ `</div>
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][7]+ `</div>
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][8]+ `</div>
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][9]+ `</div>
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][10]+ `</div>
+                </div>
+            `;
+            contenedoresPregunta[m].innerHTML = contenido;
+        }
+    }
+
     ingresarPreguntasOpcionMultiple();
     ingresarPreguntasAcompletar();
     ingresarPreguntasEjercicios();
+    ingresarPreguntasArrastrar();
+
+
+    //Tramiento de texto arrastrar
+    function eliminarAsteriscos(){
+        let arrastrarContenedorOpcionView = document.getElementsByClassName('arrastrarContenedorOpcionView');
+        for(var i = 0; i < arrastrarContenedorOpcionView.length; i++){
+            let textosContendor = arrastrarContenedorOpcionView[i].innerText;
+            textosContendor = textosContendor.replace("**", " ➡️ ");
+            arrastrarContenedorOpcionView[i].innerText = textosContendor;
+        }
+    }
+    eliminarAsteriscos();
 
 
     /*Validaciones en caso de que el valor este vacio*/
@@ -167,8 +213,41 @@ function obtenerDataCuestionario() {
                 adicionTexto[i].classList.add('hiddenElement');
             }
         }
+
+        let arrastrarContenedorOpcionView = document.getElementsByClassName('arrastrarContenedorOpcionView');
+        for(var i = 0; i < arrastrarContenedorOpcionView.length; i++){
+            if(arrastrarContenedorOpcionView[i].innerText == "undefined" || arrastrarContenedorOpcionView[i].innerText == ""){
+                arrastrarContenedorOpcionView[i].classList.add('hiddenElement');
+            }
+        }
+        console.log(arrastrarContenedorOpcionView);
     }
     validarTextosIndefinidos();
+
+    //Validamos que la imagen tenga contenido
+    function validarImagen(){
+        let imagenBoxContent = document.getElementsByClassName('imagenBoxContent');
+        let imagenBox = document.getElementsByClassName('imagenBox');
+        
+        for(var i = 0; i < imagenBoxContent.length; i++){
+            if(imagenBoxContent[i].getAttribute('src') == ""){
+                imagenBox[i].classList.add('hiddenElement');
+            }
+        }
+    }
+
+    validarImagen();
+
+    //Validamos en caso de que el output este vacio
+    function validarOutput(){
+        let outputEsperado = document.getElementsByClassName('outputEsperado');
+        for(var i = 0; i < outputEsperado.length; i++){
+            if(outputEsperado[i].innerText == "Output:"){
+                outputEsperado[i].innerHTML = "<b>Output: -----</b>";
+            }
+        }
+    }
+    validarOutput();
 
     //Imprimimos la data obtenida
     //console.log(typeof dataCuestionarioJSON);

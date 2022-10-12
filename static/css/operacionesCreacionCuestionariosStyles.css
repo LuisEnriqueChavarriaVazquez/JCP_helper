@@ -642,3 +642,23 @@
     font-weight: 600;
 }
 
+/*ARRASTRAS*/
+.opcionesContainerStyleViewCuestionarioArrastrar{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    margin: 20px 0;
+
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.arrastrarContenedorOpcionView{
+    width: 100%;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+}
