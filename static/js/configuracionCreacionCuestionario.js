@@ -164,7 +164,7 @@ $(document).ready(function () {
       </div>`;
 
       var contenedor =
-        `<div class='row preguntaOpccionMultiple'>
+        `<div class='row preguntaOpccionMultiple preguntaGlobal opt1'>
         <div class='col s12'>
           <div class='card colorWhite bordered2'>
             <div class='card-content '>
@@ -206,7 +206,6 @@ $(document).ready(function () {
       M.toast({ html: 'Pregunta agregada a la vista previa' });
       contadorPreguntaOptMultiple++;
     }
-
     agregarContenidoVistaPrevia();
 
   });
@@ -347,7 +346,7 @@ $(document).ready(function () {
     var pregunta = $("#texAreaModalRellenarEspaciosCreacion").val();
 
     var contenedor =
-      `<div class='row preguntaRellenarEspacios'>
+      `<div class='row preguntaRellenarEspacios preguntaGlobal opt2'>
         <div class='col s12 ''>
           <div class='card colorWhite bordered2'>
             <div class='card-content '>
@@ -516,7 +515,7 @@ function agregarEjercicioContenedor() {
     contadorEjerciciosEnContenedor++;
     var codigoMuestraContenido = codigoMuestra.innerHTML;
     let ejercicio =
-      `<div class='row preguntasEjercicios'>
+      `<div class='row preguntasEjercicios preguntaGlobal opt3'>
           <div class='col s12'>
             <div class='card colorWhite bordered2'>
             <div class='card-content '>
@@ -683,7 +682,7 @@ $(document).ready(function () {
     });
 
     var contenedor =
-      `<div class='row preguntasArrastrado'>
+      `<div class='row preguntasArrastrado preguntaGlobal opt4'>
       <div class='col s12'>
         <div class='card colorWhite bordered2'>
           <div class='card-content'>
@@ -1457,6 +1456,34 @@ function getArrastrarValues_four() {
 
 }
 
+/*
+*   Funcion para identificar el orden de las preguntas
+*/
+
+function identificarOrden(){
+  //Obtenemos todas las preguntas
+  let preguntasEnOrden = document.getElementsByClassName('preguntaGlobal');
+  //Lista con el orden
+  let listaDeOrden = [];
+  //Validamos de que tipo de pregunta se trata
+  for(var j = 0; j < preguntasEnOrden.length; j++){
+    if(preguntasEnOrden[j].getAttribute('class').indexOf('opt1') != -1){
+      listaDeOrden.push('optMultiple');
+    }else if(preguntasEnOrden[j].getAttribute('class').indexOf('opt2') != -1){
+      listaDeOrden.push('optAcompletar');
+    }else if(preguntasEnOrden[j].getAttribute('class').indexOf('opt3') != -1){
+      listaDeOrden.push('optEjercicios');
+    }else if(preguntasEnOrden[j].getAttribute('class').indexOf('opt4') != -1){
+      listaDeOrden.push('optArrastrar');
+    }
+  }
+
+  //Metiendo todo en un objeto
+  listaOrdenFinal = [];
+  listaOrdenFinal.push($.extend({}, listaDeOrden));
+
+  return listaOrdenFinal;
+}
 
 /*
 *   Funcion para la extracción de los datos y conversión a JSON
@@ -1482,9 +1509,11 @@ function convertToJSON() {
   let valoresRellenar = getRellenarValues_two();
   let valoresEjercicios = getEjerciciosValues_three();
   let valoresArrastrar = getArrastrarValues_four();
+  let ordenPreguntas = identificarOrden();
 
   //Se guarda en un JSON
   var jsonObject = {
+    "ordenPreguntas": ordenPreguntas, 
     "preguntasModal1": valoresOpcionesMultiple,
     "preguntasModal2": valoresRellenar,
     "preguntasModal3": valoresEjercicios,

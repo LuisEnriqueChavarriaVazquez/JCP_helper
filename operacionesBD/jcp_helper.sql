@@ -53,6 +53,7 @@ Temas varchar (60),
 Tipo varchar(60),
 Lenguaje varchar(60),
 Preguntas varchar(200),
+Orden varchar(60),
 primary key (IDCuestionario,IDGrupo,IDDocente),
 foreign key (IDGrupo) references Grupos(IDGrupo) ON DELETE CASCADE,
 foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE

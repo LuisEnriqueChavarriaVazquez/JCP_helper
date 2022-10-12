@@ -338,12 +338,12 @@ def obtener_cuestionario_datos_importantes_unitario(id_cuestionario):
 ## Nos ayuda a editar un cuestionario
 ##
 
-def update_cuestionarios(id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, id_cuestionario):
+def update_cuestionarios(id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, ordenCuestionario, id_cuestionario):
     conexion=obtener_conexion()
     confirmacionUpdate = True
 
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE cuestionarios SET IDGrupo = %s, titulo = %s, fecha = %s, autor = %s, temas = %s, tipo = %s, lenguaje = %s WHERE IDCuestionario = %s", (id_grupo,tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, id_cuestionario))
+        cursor.execute("UPDATE cuestionarios SET IDGrupo = %s, titulo = %s, fecha = %s, autor = %s, temas = %s, tipo = %s, lenguaje = %s, Orden = %s WHERE IDCuestionario = %s", (id_grupo,tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, ordenCuestionario, id_cuestionario))
 
     conexion.commit()
     conexion.close()
@@ -391,11 +391,11 @@ def obtener_cuestionarios_IDS(id_profesor):
 
 
 # va a servir para meter un JSON en un nuevo cuestionario
-def insertar_cuestionario_JSON(id_profesor, id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, archivoCuestionario):
+def insertar_cuestionario_JSON(id_profesor, id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, archivoCuestionario, ordenCuestionario):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO cuestionarios(IDGrupo, IDDocente, Titulo, Fecha, Autor, Temas, Tipo, Lenguaje, Preguntas) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)",
-        (id_grupo, id_profesor, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, archivoCuestionario))
+        cursor.execute("INSERT INTO cuestionarios(IDGrupo, IDDocente, Titulo, Fecha, Autor, Temas, Tipo, Lenguaje, Preguntas, Orden) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+        (id_grupo, id_profesor, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, archivoCuestionario, ordenCuestionario))
     conexion.commit()
     conexion.close()
 

@@ -701,7 +701,7 @@ def saveCuestionario(id_profesor):
     tipoCuestionario = request.form["tipoCuestionario"]
     lenguajeCuestionario = request.form["lenguajeCuestionario"]
     grupoCuestionario = request.form["grupoCuestionario"]
-
+    ordenCuestionario = request.form["oneInputOrdenOne"];
     print(grupoCuestionario)
 
     #Buscamos el grupo por su nombre
@@ -714,7 +714,7 @@ def saveCuestionario(id_profesor):
     
     rutaCuestionario = 'static/cuestionarios/'+ tituloCuestionarioConClave + '.json'
 
-    result = Op_profesor.insertar_cuestionario_JSON(id_profesor, id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, rutaCuestionario)
+    result = Op_profesor.insertar_cuestionario_JSON(id_profesor, id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, rutaCuestionario, ordenCuestionario)
     return redirect(url_for('routes.gestionar_cuestionarios'))
 
 ##
@@ -758,11 +758,12 @@ def update_cuestionario(id_cuestionarios):
         tipoCuestionario = request.form["tipoCuestionario"]
         lenguajeCuestionario = request.form["lenguajeCuestionario"]
         grupoCuestionario = request.form["grupoCuestionario"]
+        ordenCuestionario = request.form["twoInputOrdenTwo"]
 
         #Obtenemos el grupo por su nombre
         id_grupo = Op_profesor.obtener_id_grupo_con_nombre_grupo(grupoCuestionario)
 
-        Op_profesor.update_cuestionarios(id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, id_cuestionario)
+        Op_profesor.update_cuestionarios(id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, ordenCuestionario, id_cuestionario)
         
         return redirect(url_for('routes.gestionar_cuestionarios')) 
 
