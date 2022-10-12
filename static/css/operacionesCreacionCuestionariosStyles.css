@@ -491,6 +491,8 @@
     background-color: rgb(8, 21, 32);
     overflow-x: scroll;
     overflow-y: scroll;
+    white-space: pre-wrap;
+    word-break: break-all;
 }
 
 .previewCodeContainerNoModal{
@@ -502,6 +504,8 @@
     background-color: rgb(8, 21, 32);
     overflow-x: scroll;
     overflow-y: scroll;
+    white-space: pre-wrap;
+    word-break: break-all;
 }
 
 @media screen and (max-width: 1600px) {
@@ -563,5 +567,48 @@
     .buttonSaveJSON{
         top: 10px;
     }
+}
+
+/*VER CUESTIONARIO*/
+/*Texto de la pregunta*/
+.preguntaBox{
+    text-align: justify;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.imagenBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+.imagenBox img{
+    width: 100%;
+    height: 150px;
+    box-sizing: border-box;
+}
+
+.contendorRecursoOnlineBox{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnPreguntaStyleFormat{
+    margin: 10px 0;
+    width: 100%;
+}
+
+.codeContainerBox{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 

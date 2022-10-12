@@ -1524,6 +1524,8 @@ function convertToJSON() {
     "preguntasModal4": valoresArrastrar
   }
 
+  console.log(typeof jsonObject);
+
   //Se imprime en la vista previa
   document.getElementById('output').innerText = JSON.stringify(jsonObject, null, 1);
   //Almacenamos el contenido del JSON en el input

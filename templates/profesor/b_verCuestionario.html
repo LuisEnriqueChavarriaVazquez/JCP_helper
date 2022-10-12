@@ -28,6 +28,8 @@
         </div>
     </nav>
 
+    <input type="hidden" value="{{dataJSON}}" id="dataCuestionario">
+    <!--Aqui se recibe el texto del JSON-->
     <section class="contenedorPreviewCuestionario">
         <!--Datos importantes del cuestionario-->
         <section class="contenedorPreviewUno">
@@ -78,26 +80,8 @@
         <!--Vista previa del cuestionario-->
         <section class="contenedorPreviewDos">
             <h5>Preguntas cuestionario</h5>
-            <div class="contenedorPreguntasPreview">
-                <div class="bordered2 colorWhite shadow-1e preguntaContainerIndividualPreview">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe harum modi dolorem in dolor? Hic
-                    deleniti, iure dignissimos accusamus laboriosam, quibusdam ipsum quam debitis vitae praesentium
-                    repudiandae expedita corporis animi!
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. A, laborum? Ab vel maiores hic provident
-                    dicta voluptate natus quasi modi eveniet, minima sed facere harum voluptatem laboriosam id minus
-                    blanditiis.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, voluptas, et ipsam cum
-                    distinctio, incidunt saepe eius earum sunt sequi excepturi nam velit assumenda. Necessitatibus
-                    quisquam nulla natus dolore dignissimos!
-                </div>
-                <div class="bordered2 colorWhite shadow-1e preguntaContainerIndividualPreview">
-                    {{dataJSON}}
-                </div>
-                <div class="bordered2 colorWhite shadow-1e preguntaContainerIndividualPreview">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe harum modi dolorem in dolor? Hic
-                    deleniti, iure dignissimos accusamus laboriosam, quibusdam ipsum quam debitis vitae praesentium
-                    repudiandae expedita corporis animi!
-                </div>
+            <div class="contenedorPreguntasPreview" id="contenedorPreguntasPreview">
+                
             </div>
         </section>
     </section>
@@ -108,6 +92,11 @@
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
 
+<!--En esta parte todo los demás del script se hará en un archivo externo-->
+<script>
+    //Accedemos a los datos guardados en el JSON
+    const dataCuestionarioJSON = {{ dataJSON| tojson}}; 
+</script>
 <script src="../../static/js/operacionesVerCuestionario.js"></script>
 
 </html>
