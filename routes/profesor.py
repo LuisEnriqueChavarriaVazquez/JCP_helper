@@ -1,6 +1,6 @@
 #from crypt import methods
 from functools import wraps
-from xml.etree.ElementTree import tostring
+from turtle import width
 from flask import render_template,flash,request, url_for, redirect, session
 from . import routes
 from operacionesBD import Op_profesor
@@ -92,7 +92,7 @@ def gestionar_estadisticas(id_docente):
 
 
 
-    fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="relative", color_discrete_sequence=px.colors.qualitative.Alphabet,color_discrete_map={"Montreal": '#256D85',"SF":"#5F9DF7"})
+    fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="relative", color_discrete_sequence=px.colors.qualitative.Alphabet,color_discrete_map={"Montreal": '#256D85',"SF":"#5F9DF7"},width=500,height=400)
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     header="Fruit in North America"
     description = """
@@ -107,7 +107,7 @@ def gestionar_estadisticas(id_docente):
         "City": ["London", "London", "London", "Madrid", "Madrid", "Madrid"]
     })
 
-    fig2 = px.bar(df2, x="Vegetables", y="Amount", color="City", barmode="stack",color_discrete_sequence=px.colors.qualitative.Alphabet,color_discrete_map={"London": '#1F4690',"Madrid":"#6E85B7"})
+    fig2 = px.bar(df2, x="Vegetables", y="Amount", color="City", barmode="stack",color_discrete_sequence=px.colors.qualitative.Alphabet,color_discrete_map={"London": '#1F4690',"Madrid":"#6E85B7"},width=500,height=400)
 
     graphJSON2 = json.dumps(fig2, cls=plotly.utils.PlotlyJSONEncoder)
     header2="Vegetables in Europe"
