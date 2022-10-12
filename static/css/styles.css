@@ -458,3 +458,31 @@ input[type="file"] {
 		width: 60%;
 	}
 }
+
+/*Mensjaes de error*/
+.notFoundMsg{
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 0 20px 20px 20px;
+}
+
+.notFoundMsg div{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.notFoundMsg div img{
+	width: 40%;
+}
+
+@media screen and (min-width: 1200px) {
+	.notFoundMsg div img{
+		width: 25%;
+	}
+}

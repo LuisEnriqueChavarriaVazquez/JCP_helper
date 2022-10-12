@@ -5,7 +5,7 @@
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
 
-    <title>Perfil de usuario</title>
+    <title>Perfil de docente</title>
 </head>
 
 <body class="ocultoc colorGreyWhiter">
@@ -96,9 +96,10 @@
                     <h5 class="hide-on-large-only">Publicaciones</h5>
                     <h4 class="hide-on-med-and-down">Publicaciones</h4>
                 </div>
-                {% if post %}
                 <div class="gridPostUser">
                     {%for i in range(0, post|length)%}
+                    {% block content %}
+                    {% if post %}
                     <div class="postGeneral fotoValuePost borderDecoration">
                         <div class="color2 colorText tituloPost">{{post[i][2]}}</div>
                         <div class="imagePost" style="background-image:url('{{post[i][4]}}');"></div>
@@ -116,18 +117,14 @@
                                 style="width: 100%;">Eliminar</a>
                         </div>
                     </div>
+                    {% else %}
+                    <h5>No hay post</h5>
+                    {% endif %}
+                    {% endblock content %}
                     {% endfor %}
                 </div>
-                {% else %}
             </div>
         </section>
-        <section class="colorGrey">
-            <div class="notFoundMsg">
-                <div><h5><b>No hay ningún post.</b></h5></div>
-                <div><img src="../../static/images/icons/icon_no_results.svg"></div>
-            </div>
-        </section>
-        {% endif %}
     </section>
 
     <!-- Modal para elegir el tema del perfil -->

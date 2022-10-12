@@ -434,12 +434,12 @@
 /*Caja contenedor para los post de los profesores*/
 .postContainerParent{
     margin-top: 650px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
 }
 
 .postContainerParentStudent{
     margin-top: 785px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
 }
 
 .gridPostUser{

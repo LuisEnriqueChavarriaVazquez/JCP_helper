@@ -221,6 +221,17 @@ def perfil_alumno():
     except:
         return render_template('estudiante/perfil_alumno.html')
 
+@routes.route('/perfil_general_view_docente/<string:id>')
+#@login_required
+def ver_perfil_docente(id):
+    try:
+        datos = Op_profesor.datos_completos_docente_by_id(id)
+        post = Op_profesor.obtenerPost(id)
+        return render_template('general/perfil_general_docente.html',datos=datos, post = post)
+    except:
+        #En caso de error
+        return redirect(url_for('routes.gestionar_grupos'))
+
 ##
 ##Bloque para editar el perfil del profesor
 ##
