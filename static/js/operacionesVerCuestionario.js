@@ -1,4 +1,9 @@
 function obtenerDataCuestionario() {
+    //////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////    
+    //////////////////////////////////////////////////////
+    ////////////ACCESO A DATOS
+
     //Convetimos el objeto en un string con formato
     stringJSON = JSON.stringify(dataCuestionarioJSON, null, 1);
 
@@ -8,12 +13,16 @@ function obtenerDataCuestionario() {
     const preguntasModal2 = dataCuestionarioJSON.preguntasModal2;
     const preguntasModal3 = dataCuestionarioJSON.preguntasModal3;
     const preguntasModal4 = dataCuestionarioJSON.preguntasModal4;
+    const preguntasModal5 = dataCuestionarioJSON.preguntasModal5;
+    const preguntasModal6 = dataCuestionarioJSON.preguntasModal6;
+
     //Convertirmos los objetos en listas
     const preguntasModalArray1 = Object.values(preguntasModal1);
     const preguntasModalArray2 = Object.values(preguntasModal2);
     const preguntasModalArray3 = Object.values(preguntasModal3);
     const preguntasModalArray4 = Object.values(preguntasModal4);
-
+    const preguntasModalArray5 = Object.values(preguntasModal5);
+    const preguntasModalArray6 = Object.values(preguntasModal6);
 
     //Forma de acceder a las preguntas y elemento
     //Primer indice indica el numero de pregunta
@@ -24,12 +33,19 @@ function obtenerDataCuestionario() {
     // console.log(preguntasModal2[0]);
     // console.log(preguntasModal3[0]);
     // console.log(preguntasModal4[0]);
+    // console.log(preguntasModal5[0]);
+    // console.log(preguntasModal6[0]);
 
     //Contamos la preguntas
     function contarPreguntas() {
         listadoPreguntas = Object.values(ordenPreguntas[0]);
         return listadoPreguntas.length;
     }
+
+    //////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////    
+    //////////////////////////////////////////////////////
+    ////////////INSERCION DE ELEMENTOS
 
     //Insertamos cajas de acuerdo a la cantidad de preguntas
     function insertarCajasPreguntas(numeroPregunta, tipo) {
@@ -151,7 +167,7 @@ function obtenerDataCuestionario() {
         }
     }
 
-    function ingresarPreguntasArrastrar(){
+    function ingresarPreguntasArrastrar() {
         //Ingresamos los elementos
         insertarCajasPreguntas(preguntasModalArray4.length, 'opt4');
         //Accedemos a las cajas
@@ -159,7 +175,7 @@ function obtenerDataCuestionario() {
         //Hacemos variables de pregunta
         let dato1_pregunta;
 
-        for (var m = 0; m < preguntasModalArray4.length; m++) { 
+        for (var m = 0; m < preguntasModalArray4.length; m++) {
             //Contenido de la pregunta
             let contenido =
                 `  
@@ -168,55 +184,74 @@ function obtenerDataCuestionario() {
                 <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray4[m][0] + `</b></div>
                 <h6><b>Relación de palabras.</b></h6>
                 <div class="opcionesContainerStyleViewCuestionarioArrastrar">
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][1]+ `</div>
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][2]+ `</div>
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][3]+ `</div>
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][4]+ `</div>
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][5]+ `</div>
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][6]+ `</div>
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][7]+ `</div>
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][8]+ `</div>
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][9]+ `</div>
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][10]+ `</div>
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][1] + `</div>
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][2] + `</div>
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][3] + `</div>
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][4] + `</div>
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][5] + `</div>
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][6] + `</div>
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][7] + `</div>
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][8] + `</div>
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][9] + `</div>
+                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][10] + `</div>
                 </div>
             `;
             contenedoresPregunta[m].innerHTML = contenido;
         }
     }
 
+    function ingresarPreguntasTrueFalse() {
+        //Ingresamos los elementos
+        insertarCajasPreguntas(preguntasModalArray5.length, 'opt5');
+        //Accedemos a las cajas
+        let contenedoresPregunta = document.getElementsByClassName('opt5');
+    }
+
+    function ingresarPreguntasAbiertas() {
+        //Ingresamos los elementos
+        insertarCajasPreguntas(preguntasModalArray6.length, 'opt6');
+        //Accedemos a las cajas
+        let contenedoresPregunta = document.getElementsByClassName('opt6');
+    }
+
     ingresarPreguntasOpcionMultiple();
     ingresarPreguntasAcompletar();
     ingresarPreguntasEjercicios();
     ingresarPreguntasArrastrar();
+    ingresarPreguntasTrueFalse();
+    ingresarPreguntasAbiertas();
 
-
+    //////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////    
+    //////////////////////////////////////////////////////
+    ////////////VALIDACIONES DE ELEMENTOS EN PANTALLA
+    
+    /*Validacion de eliminar los astericos en los textos de arrastrar*/
     //Tramiento de texto arrastrar
-    function eliminarAsteriscos(){
+    function eliminarAsteriscos() {
         let arrastrarContenedorOpcionView = document.getElementsByClassName('arrastrarContenedorOpcionView');
-        for(var i = 0; i < arrastrarContenedorOpcionView.length; i++){
+        for (var i = 0; i < arrastrarContenedorOpcionView.length; i++) {
             let textosContendor = arrastrarContenedorOpcionView[i].innerText;
             textosContendor = textosContendor.replace("**", " ➡️ ");
             arrastrarContenedorOpcionView[i].innerText = textosContendor;
         }
     }
     eliminarAsteriscos();
-
-
     /*Validaciones en caso de que el valor este vacio*/
     //Valida las de opcion multiple y las blank
-    function validarTextosIndefinidos(){
+    function validarTextosIndefinidos() {
         let textosBasicos = document.getElementsByClassName('opcionStyleViewCuestionario');
         let adicionTexto = document.getElementsByClassName('letterStyleViewCuestionario');
-        for(var i = 0; i < textosBasicos.length; i++){
-            if(textosBasicos[i].innerText == "undefined" || textosBasicos[i].innerText == ""){
+        for (var i = 0; i < textosBasicos.length; i++) {
+            if (textosBasicos[i].innerText == "undefined" || textosBasicos[i].innerText == "") {
                 textosBasicos[i].classList.add('hiddenElement');
                 adicionTexto[i].classList.add('hiddenElement');
             }
         }
 
         let arrastrarContenedorOpcionView = document.getElementsByClassName('arrastrarContenedorOpcionView');
-        for(var i = 0; i < arrastrarContenedorOpcionView.length; i++){
-            if(arrastrarContenedorOpcionView[i].innerText == "undefined" || arrastrarContenedorOpcionView[i].innerText == ""){
+        for (var i = 0; i < arrastrarContenedorOpcionView.length; i++) {
+            if (arrastrarContenedorOpcionView[i].innerText == "undefined" || arrastrarContenedorOpcionView[i].innerText == "") {
                 arrastrarContenedorOpcionView[i].classList.add('hiddenElement');
             }
         }
@@ -225,30 +260,74 @@ function obtenerDataCuestionario() {
     validarTextosIndefinidos();
 
     //Validamos que la imagen tenga contenido
-    function validarImagen(){
+    function validarImagen() {
         let imagenBoxContent = document.getElementsByClassName('imagenBoxContent');
         let imagenBox = document.getElementsByClassName('imagenBox');
         
-        for(var i = 0; i < imagenBoxContent.length; i++){
-            if(imagenBoxContent[i].getAttribute('src') == ""){
+        for (var i = 0; i < imagenBoxContent.length; i++) {
+            if (imagenBoxContent[i].getAttribute('src') == "") {
                 imagenBox[i].classList.add('hiddenElement');
             }
         }
     }
-
+    
     validarImagen();
-
+    
     //Validamos en caso de que el output este vacio
-    function validarOutput(){
+    function validarOutput() {
         let outputEsperado = document.getElementsByClassName('outputEsperado');
-        for(var i = 0; i < outputEsperado.length; i++){
-            if(outputEsperado[i].innerText == "Output:"){
+        for (var i = 0; i < outputEsperado.length; i++) {
+            if (outputEsperado[i].innerText == "Output:") {
                 outputEsperado[i].innerHTML = "<b>Output: -----</b>";
             }
         }
     }
     validarOutput();
-
+    
+    //////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////    
+    //////////////////////////////////////////////////////
+    ////////////CONTAR ELEMENTOS (PANEL LATERAL)
+    
+    function imprimirConteoTotalPreguntas(){
+        let numeroPreguntas = contarPreguntas();
+        let contadorTotalTexto = document.getElementById('contadorTotal');
+    
+        contadorTotalTexto.innerText = numeroPreguntas;
+    }
+    imprimirConteoTotalPreguntas();
+    
+    function imprimirConteoPreguntasSecundarias(){
+        //Almacenes para los contenedores de preguntas
+        let opt1, opt2, opt3, opt4, opt5, opt6;
+        
+        //Cantidad de elementos en pantalla
+        opt1 = document.getElementsByClassName('opt1').length;
+        opt2 = document.getElementsByClassName('opt2').length;
+        opt3 = document.getElementsByClassName('opt3').length;
+        opt4 = document.getElementsByClassName('opt4').length;
+        opt5 = document.getElementsByClassName('opt5').length;
+        opt6 = document.getElementsByClassName('opt6').length;
+    
+        //TEXTOS DONDE DESPLEGAR ESOS ELEMENTOS
+        let contadorOpt1 = document.getElementById('contadorOpt1');
+        let contadorOpt2 = document.getElementById('contadorOpt2');
+        let contadorOpt3 = document.getElementById('contadorOpt3');
+        let contadorOpt4 = document.getElementById('contadorOpt4');
+        let contadorOpt5 = document.getElementById('contadorOpt5');
+        let contadorOpt6 = document.getElementById('contadorOpt6');
+    
+        //Ingresamos los textos.
+        contadorOpt1.innerText = opt1;
+        contadorOpt2.innerText = opt2;
+        contadorOpt3.innerText = opt3;
+        contadorOpt4.innerText = opt4;
+        contadorOpt5.innerText = opt5;
+        contadorOpt6.innerText = opt6;
+    }
+    
+    imprimirConteoPreguntasSecundarias();
+    
     //Imprimimos la data obtenida
     //console.log(typeof dataCuestionarioJSON);
     //console.log(dataCuestionarioJSON);

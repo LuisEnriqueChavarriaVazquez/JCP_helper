@@ -126,6 +126,12 @@
     padding: 0 20px;
 }
 
+.datosCuestionarioLive div span{
+    margin-left: 10px;
+    font-weight: 800;
+    font-size: 18px;
+}
+
 .accessCuestionarioLive{
     width: 100%;
     margin-top: 20px;
