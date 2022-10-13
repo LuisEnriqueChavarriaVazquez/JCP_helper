@@ -1,6 +1,6 @@
 #from crypt import methods
 from functools import wraps
-from turtle import width
+##from turtle import width
 from flask import render_template,flash,request, url_for, redirect, session
 from . import routes
 from operacionesBD import Op_profesor
