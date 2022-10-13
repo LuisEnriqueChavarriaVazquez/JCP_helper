@@ -1683,6 +1683,79 @@ function getOpcionFalseTrue_five() {
   return arrayObjetosFinal;
 }
 
+/*
+* Obtener IDS de preguntas de TRUE Y FALSE
+*/
+function getAbierta_six() {
+  //Todas las IDS
+  let ids_all = getAllIds();
+
+  //Contador de asignacion
+  let contadorAsignacion1 = 0;
+  let contadorAsignacion2 = 0;
+  let contadorAsignacion3 = 0;
+
+  //Contenedores con valores importantes
+  let preguntaAbiertaDescripcion = [];
+  let videoPreguntaAbierta = [];
+  let imagePreguntaAbierta = [];
+
+  //Buscamos entre las IDS
+  for (var i = 0; i < ids_all.length; i++) {
+    //Buscamos coincidencias en lista 1
+    if (ids_all[i].indexOf('preguntaAbiertaDescripcion') != -1) {
+      preguntaAbiertaDescripcion[contadorAsignacion1++] = ids_all[i];
+    }
+
+    //Buscamos coincidencias en lista 1
+    if (ids_all[i].indexOf('videoPreguntaAbierta') != -1) {
+      videoPreguntaAbierta[contadorAsignacion2++] = ids_all[i];
+    }
+
+    //Buscamos coincidencias en lista 1
+    if (ids_all[i].indexOf('imagePreguntaAbierta') != -1) {
+      imagePreguntaAbierta[contadorAsignacion3++] = ids_all[i];
+    }
+  }
+
+  /*
+  * Valores de los inputs de pregunta
+  */
+  //Guardamos solo los valores de los titulos
+  let preguntaAbiertaDescripcionValue = [];
+  let videoPreguntaAbiertaValue = [];
+  let imagePreguntaAbiertaValue = [];
+  for (var k = 0; k < preguntaAbiertaDescripcion.length; k++) {
+    //Obtenemos valores del titulo
+    preguntaAbiertaDescripcionValue[k] = document.getElementById(preguntaAbiertaDescripcion[k]).value;
+    //Obtenemos valores del archivo de media
+    videoPreguntaAbiertaValue[k] = document.getElementById(videoPreguntaAbierta[k]).value;
+    //Obtenemos valores del archivo de media
+    imagePreguntaAbiertaValue[k] = document.getElementById(imagePreguntaAbierta[k]).value;
+  }
+
+  //Tenemos que mezclar los arrays y separalos por pregunta
+  let valoresOrganizadosTotal = []
+  for (var h = 0; h < preguntaAbiertaDescripcionValue.length; h++) {
+    let valoresOrganizados = []
+    valoresOrganizados.push(preguntaAbiertaDescripcionValue[h]);
+    valoresOrganizados.push(videoPreguntaAbiertaValue[h]);
+    valoresOrganizados.push(imagePreguntaAbiertaValue[h]);
+    valoresOrganizadosTotal.push(valoresOrganizados);
+  }
+
+  valoresOrganizadosTotal.pop();
+  console.log(valoresOrganizadosTotal);
+
+  //Creamos el objeto final
+  let arrayObjetosFinal = []
+  for (var h = 0; h < valoresOrganizadosTotal.length; h++) {
+    arrayObjetosFinal.push($.extend({}, valoresOrganizadosTotal[h]));
+  }
+
+  return arrayObjetosFinal;
+}
+
 
 /*
 *   Funcion para identificar el orden de las preguntas
@@ -1770,7 +1843,8 @@ function convertToJSON() {
   let valoresRellenar = getRellenarValues_two();
   let valoresEjercicios = getEjerciciosValues_three();
   let valoresArrastrar = getArrastrarValues_four();
-  let valoresFalseTrue = getOpcionFalseTrue_five();  
+  let valoresFalseTrue = getOpcionFalseTrue_five();
+  let valoresAbierto = getAbierta_six();
   let ordenPreguntas = identificarOrden();
   let ponderacionGlobal = ponderacionGlobalObtener();
   //console.log(ponderacionGlobal);
@@ -1783,7 +1857,8 @@ function convertToJSON() {
     "preguntasModal2": valoresRellenar,
     "preguntasModal3": valoresEjercicios,
     "preguntasModal4": valoresArrastrar,
-    "preguntasModal5": valoresFalseTrue
+    "preguntasModal5": valoresFalseTrue,
+    "preguntasModal6": valoresAbierto
   }
 
   console.log(typeof jsonObject);
