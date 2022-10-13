@@ -1,0 +1,132 @@
+/*VER CUESTIONARIO
+* Aqui esta todo lo que tiene que ver con la preview de los cuestionarios
+* SOLAMENTE LA PREVIEW EN DONDE NO SE CONTESTAN.
+*/
+
+/*Texto de la pregunta*/
+.preguntaBox{
+    text-align: justify;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.imagenBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+.imagenBox img{
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
+}
+
+.contendorRecursoOnlineBox{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnPreguntaStyleFormat{
+    margin: 10px 0;
+    width: 100%;
+}
+
+.codeContainerBox{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Opcion multiple OPT1*/
+
+.opcionesContainerStyleViewCuestionario{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    margin: 20px 0;
+
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.letterStyleViewCuestionario{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.opcionStyleViewCuestionario{
+    width: 100%;
+    padding: 10px 20px;
+    font-weight: 600;
+}
+
+/*ARRASTRAS OPT2*/
+.opcionesContainerStyleViewCuestionarioArrastrar{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    margin: 20px 0;
+
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.arrastrarContenedorOpcionView{
+    width: 100%;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+}
+
+/*
+* MENU LATERAL IZQUIERDO CON DATOS ADICIONALES DEL CUESTIONARIO.
+*/
+
+.contenedorOperacionesLive{
+    position: fixed;
+    width: 350px;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.datosCuestionarioLive{
+    width: 100%;
+    height: auto;
+}
+
+.datosCuestionarioLive div{
+    height: 50px;
+    font-weight: 700;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 5px;
+    padding: 0 20px;
+}
+
+.accessCuestionarioLive{
+    width: 100%;
+    margin-top: 20px;
+}
