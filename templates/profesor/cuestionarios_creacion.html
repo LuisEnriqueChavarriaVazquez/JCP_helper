@@ -49,6 +49,12 @@
                     <a class="waves-effect waves-light btn-large bordered1 color2 shadow-2e modal-trigger"
                         href="#modalArrastrarCreacion"><i
                             class="material-icons left md-32">swipe_vertical</i>Arrastrar</a>
+                    <a class="waves-effect waves-light btn-large bordered1 color2 shadow-2e modal-trigger"
+                        href="#modalTrueFalse"><i
+                            class="material-icons left md-32">compare</i>Falso/Verdadero</a>
+                    <a class="waves-effect waves-light btn-large bordered1 color2 shadow-2e modal-trigger"
+                        href="#modalAbierta"><i
+                            class="material-icons left md-32">emoji_objects</i>Pregunta abierta</a>
                     <a class="waves-effect waves-light btn-large bordered1 color1 shadow-2e modal-trigger"
                         href="#agregar_JSON_existente"><i class="material-icons left md-32">file_copy</i>Mis
                         cuestionarios</a>
@@ -70,6 +76,10 @@
                         class="material-icons md-28 colorTextReverse">code</i></a>
                 <a class="button4 waves-effect waves-light shadow-1 modal-trigger" href="#modalArrastrarCreacion"><i
                         class="material-icons md-28 colorTextReverse">swipe_vertical</i></a>
+                <a class="button4 waves-effect waves-light shadow-1 modal-trigger" href="#modalTrueFalse"><i
+                        class="material-icons md-28 colorTextReverse">compare</i></a>
+                <a class="button4 waves-effect waves-light shadow-1 modal-trigger" href="#modalAbierta"><i
+                        class="material-icons md-28 colorTextReverse">emoji_objects</i></a>
                 <a class="button4 waves-effect waves-light shadow-1 modal-trigger" href="#agregar_JSON_existente"><i
                         class="material-icons md-28 colorTextReverse">file_copy</i></a>
                 <a class="button5 waves-effect waves-light shadow-1" href="/crear_cuestionario_del_banco"><i
@@ -110,8 +120,7 @@
                             <a id="leerArchivoEjercicioAnterior" style="width: 100%; right: 0; position: relative;">
                                 <label for="inputfileAnterior"
                                     class="waves-effect waves-light btn bordered5 colorGreyDarker colorTextReverse"
-                                    style="width: 100%;"
-                                    onclick="anexarJsonViejo('output', 'inputfileAnterior')">
+                                    style="width: 100%;" onclick="anexarJsonViejo('output', 'inputfileAnterior')">
                                     <i class="material-icons">upload_file</i>
                                 </label>
                             </a>
@@ -218,9 +227,9 @@
                             <label for="textAreaPreguntaOpccionMultipleCreacion">Pregunta</label>
                         </div>
                         <div class="input-field col s12">
-                            <i class="material-icons prefix">play_arrow</i>
+                            <i class="material-icons prefix">image</i>
                             <textarea id="mediaProblemaOpcionMultiple" class="materialize-textarea"></textarea>
-                            <label for="mediaProblemaOpcionMultiple">Imagen o video para el problema (url)</label>
+                            <label for="mediaProblemaOpcionMultiple">Imagen del problema(url)</label>
                         </div>
                     </div>
 
@@ -418,9 +427,9 @@
                                 <label for="descripcionProblema">Descripción del problema</label>
                             </div>
                             <div class="input-field col s12">
-                                <i class="material-icons prefix">play_arrow</i>
+                                <i class="material-icons prefix">image</i>
                                 <textarea id="mediaProblema" class="materialize-textarea"></textarea>
-                                <label for="mediaProblema">Imagen o video para el problema (url)</label>
+                                <label for="mediaProblema">Imagen (url)</label>
                             </div>
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">task</i>
@@ -439,14 +448,14 @@
                             <div class="col s12">
                                 <h6><b>Código de archivo</b></h6>
                             </div>
-                                <input type="file" id="inputfile" class="hidden" />
-                                <a id="leerArchivoEjercicio" style="width: 100%;">
-                                    <label for="inputfile"
-                                        class="waves-effect waves-light btn bordered5 color2 shadow-2e colorText"
-                                        style="width: 100%;">
-                                        <i class="material-icons">upload_file</i>
-                                    </label>
-                                </a>
+                            <input type="file" id="inputfile" class="hidden" />
+                            <a id="leerArchivoEjercicio" style="width: 100%;">
+                                <label for="inputfile"
+                                    class="waves-effect waves-light btn bordered5 color2 shadow-2e colorText"
+                                    style="width: 100%;">
+                                    <i class="material-icons">upload_file</i>
+                                </label>
+                            </a>
                             <div class="col s12">
                                 <h6><b>Adjuntar enlace a carpeta online (múltiples archivos)</b></h6>
                             </div>
@@ -555,6 +564,83 @@
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+        <!--
+            ######################################################
+            MODAL 5: EJERCICIOS de falso y verdadero
+            ######################################################
+        -->
+        <div id="modalTrueFalse" class="modal colorGrey bordered2 modalAltura">
+            <div class="modal-content">
+                <h4>Falso y verdadero</h4>
+                <hr>
+                <p>Ingrese una pregunta y determine la opción correcta</p>
+                <div class="row">
+                    <form class="col s12">
+                        <h5><b>Pregunta</b></h5>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">description</i>
+                                <textarea id="preguntaFalseVerdadero" class="materialize-textarea"></textarea>
+                                <label for="preguntaFalseVerdadero">Pregunta</label>
+                            </div>
+                            <h6><b>Respuesta</b></h6>
+                            <p>Escribe F en caso de que sea falso o T en caso de que sea verdad.</p>
+                            <div class="input-field col s12">
+                                <input maxlength="1" placeholder="T/F" id="textFalseVerdadero" type="text" class="validate shadow-1e colorWhite falsoVerdaderoInput browser-default">
+                            </div>
+                        </div>
+                        <br><br><br>
+                        <!--Almacenado del archivo (en BD y servidor)-->
+                        <button
+                        class="waves-effect waves-light btn bordered5 color1 shadow-2e"
+                        id="saveFalseVerdadero" style="width: 100%;">
+                        <i class="material-icons left">save</i>Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--
+            ######################################################
+            MODAL 6: EJERCICIOS preguntas abiertas
+            ######################################################
+        -->
+        <div id="modalAbierta" class="modal colorGrey bordered2 modalAltura">
+            <div class="modal-content">
+                <h4>Pregunta abierta</h4>
+                <hr>
+                <p>Ingrese una pregunta (esta pregunta requiere revisión manual por parte del docente)</p>
+                <div class="row">
+                    <form class="col s12">
+                        <h5><b>Pregunta</b></h5>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">description</i>
+                                <textarea id="preguntaAbiertaDescripcion" class="materialize-textarea"></textarea>
+                                <label for="preguntaAbiertaDescripcion">Pregunta</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">play_arrow</i>
+                                <textarea id="videoPreguntaAbierta" class="materialize-textarea"></textarea>
+                                <label for="videoPreguntaAbierta">Video (opcional)</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">image</i>
+                                <textarea id="imagePreguntaAbierta" class="materialize-textarea"></textarea>
+                                <label for="imagePreguntaAbierta">Imagen (opcional)</label>
+                            </div>
+                        </div>
+                        <br><br><br>
+                        <!--Almacenado del archivo (en BD y servidor)-->
+                        <button type="submit"
+                        class="waves-effect waves-light btn bordered5 color1 shadow-2e"
+                        id="saveAbierta" style="width: 100%;">
+                        <i class="material-icons left">save</i>Guardar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>

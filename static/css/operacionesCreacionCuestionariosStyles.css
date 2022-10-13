@@ -1,6 +1,6 @@
 .containerCreacionCuestionarios{
     display: grid;
-    grid-template-columns: 1.5fr 2fr;
+    grid-template-columns: 1.4fr 2fr;
     grid-template-rows: repeat(2, auto);
     grid-template-areas: 
     "area3 area3"
@@ -39,7 +39,7 @@
 
 .containerOpcionesFather{
     position: fixed;
-    width: 38%;
+    width: 35%;
 }
 
 .containerProcesoImagen{
@@ -145,7 +145,7 @@
 
 .containerOpciones a{
     width: 90%;
-    margin: 5px 0px;
+    margin: 3px 0px;
 }
 
 /*Contenedor de los botones del modal*/
@@ -364,7 +364,7 @@
 
 @media screen and (max-width: 600px) {
     .containerOpcionesMobileFather{
-        padding: 0 25px;
+        padding: 0 8px;
     }
 }
 
@@ -376,10 +376,10 @@
 
 .containerOpcionesMobile{
     width: 100%;
-    height: 56px;
+    height: auto;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     grid-template-rows: auto;
 
     position: relative;
@@ -569,6 +569,20 @@
     }
 }
 
+/*Input de falso o verdadero*/
+.falsoVerdaderoInput{
+    width: 100%;
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: #fff solid 0px;
+    color: #000;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform:uppercase;
+
+    text-align: center;
+}
+
 /*VER CUESTIONARIO*/
 /*Texto de la pregunta*/
 .preguntaBox{
@@ -662,3 +676,4 @@
     font-size: 20px;
     text-align: center;
 }
+

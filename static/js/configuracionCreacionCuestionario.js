@@ -176,11 +176,11 @@ $(document).ready(function () {
         `</textarea>
               </div>
               <div class="input-field col s12">
-                  <i class="material-icons prefix">play_arrow</i>
+                  <i class="material-icons prefix">image</i>
                   <textarea id="mediaProblemaOpcionMultiple` + contadorPreguntaOptMultiple + `" class="materialize-textarea">`
         + mediaProblemaOpcionMultiple +
         `</textarea>
-                  <label class="active" for="mediaProblemaOpcionMultiple` + contadorPreguntaOptMultiple + `">Imagen o video para el problema (url)</label>
+                  <label class="active" for="mediaProblemaOpcionMultiple` + contadorPreguntaOptMultiple + `">Imagen (url)</label>
               </div>
             </div>` +
         opcionA +
@@ -528,9 +528,9 @@ function agregarEjercicioContenedor() {
                     <label class="active" for="descripcionProblema` + contadorEjerciciosEnContenedor + `">Descripción del problema</label>
                 </div>
                 <div class="input-field col s12">
-                    <i class="material-icons prefix">play_arrow</i>
+                    <i class="material-icons prefix">image</i>
                     <textarea id="mediaProblema` + contadorEjerciciosEnContenedor + `" class="materialize-textarea">` + mediaProblema.value + `</textarea>
-                    <label class="active" for="mediaProblema` + contadorEjerciciosEnContenedor + `">Imagen o video para el problema (url)</label>
+                    <label class="active" for="mediaProblema` + contadorEjerciciosEnContenedor + `">Imagen (url)</label>
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">task</i>
@@ -808,8 +808,153 @@ function crearListasDragAndDrop() {
 
 //crearListasDragAndDrop();
 
+
 /*
   ######################################################
+  MODAL 5: PARA False True
+  ######################################################
+*/
+
+//Guardar nuevo ejercicio
+var contadorFalseTrue = 0;
+function agregarFalseTrue() {
+  //Descripcion
+  const preguntaFalseVerdadero = document.getElementById('preguntaFalseVerdadero');
+  //Respuesta
+  const textFalseVerdadero = document.getElementById('textFalseVerdadero');
+  //Button
+  const saveFalseVerdadero = document.getElementById('saveFalseVerdadero');
+
+  saveFalseVerdadero.addEventListener('click', agregarNuevaPregunta);
+  function agregarNuevaPregunta() {
+    contadorFalseTrue++;
+    let ejercicio =
+      `<div class='row preguntasTrueFalse preguntaGlobal opt5'>
+          <div class='col s12'>
+            <div class='card colorWhite bordered2'>
+            <div class='card-content '>
+            <h5>Falso y verdadero</h5>
+            <hr>
+            <p>Ingrese una pregunta y determine la opción correcta</p>
+            <div class="row">
+                <form class="col s12">
+                    <h5><b>Pregunta</b></h5>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">description</i>
+                            <textarea id="preguntaFalseVerdadero` + contadorFalseTrue + `"  class="materialize-textarea">` + preguntaFalseVerdadero.value + `</textarea>
+                            <label class="active" for="preguntaFalseVerdadero` + contadorFalseTrue + `">Pregunta</label>
+                        </div>
+                        <div class="input-field col s12">
+                        <h6><b>Respuesta</b></h6>
+                        <p>Escribe F en caso de que sea falso o T en caso de que sea verdad.</p>
+                        <br>
+                            <input maxlength="1" value="` + textFalseVerdadero.value + `" placeholder="T/F" id="textFalseVerdadero` + contadorFalseTrue + `" type="text" class="validate shadow-1e colorGreyWhiter falsoVerdaderoInput browser-default">
+                        </div>
+                    </div>
+                    <button
+                    class="waves-effect deleteFalseVerdadero waves-light btn bordered5 color1 shadow-2e"
+                    id="deleteFalseVerdadero` + contadorFalseTrue + `" style="width: 100%;">
+                    <i class="material-icons left">delete_sweep</i>Borrar pregunta</button>
+                    </div>
+                </form>
+            </div>`;
+    $("#contenedorCuestionarioPreguntas").append(ejercicio);
+    M.toast({ html: 'Ejercicio agregado' });
+  }
+}
+agregarFalseTrue();
+
+// Eliminar pregunta de arrastrado (En la vista previa)
+$(document).ready(function () {
+  $("#contenedorCuestionarioPreguntas").on(
+    "click",
+    ".deleteFalseVerdadero",
+    function () {
+      $(this).closest(".preguntasTrueFalse").remove();
+      M.toast({ html: 'Pregunta eliminada' });
+    }
+  );
+});
+
+/*
+  ######################################################
+  MODAL 6: PARA Preguntas abiertas
+  ######################################################
+*/
+
+//Guardar nuevo ejercicio
+var contadorAbiertaPregunta = 0;
+function agregarAbierta() {
+  //Descripcion
+  const preguntaAbiertaDescripcion = document.getElementById('preguntaAbiertaDescripcion');
+  //Video de la pregunta abierta
+  const videoPreguntaAbierta = document.getElementById('videoPreguntaAbierta');
+  //Imagen de la pregunta abierta
+  const imagePreguntaAbierta = document.getElementById('imagePreguntaAbierta');
+  //Button para guardar la pregunta abierta
+  const saveAbierta = document.getElementById('saveAbierta');
+
+  saveAbierta.addEventListener('click', agregarNuevaPregunta);
+  function agregarNuevaPregunta() {
+    contadorAbiertaPregunta++;
+    let ejercicio =
+      `<div class='row preguntasAbiertas preguntaGlobal opt6'>
+          <div class='col s12'>
+            <div class='card colorWhite bordered2'>
+            <div class='card-content '>
+            <h4>Pregunta abierta</h4>
+                <hr>
+                <p>Ingrese una pregunta (esta pregunta requiere revisión manual por parte del docente)</p>
+                <div class="row">
+                    <form class="col s12">
+                        <h5><b>Pregunta</b></h5>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">description</i>
+                                <textarea id="preguntaAbiertaDescripcion` + contadorAbiertaPregunta + `"  class="materialize-textarea">` + preguntaAbiertaDescripcion.value + `</textarea>
+                                <label class="active" for="preguntaAbiertaDescripcion` + contadorAbiertaPregunta + `">Pregunta</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">play_arrow</i>
+                                <textarea id="videoPreguntaAbierta` + contadorAbiertaPregunta + `" class="materialize-textarea">` + videoPreguntaAbierta.value + `</textarea>
+                                <label class="active" for="videoPreguntaAbierta` + contadorAbiertaPregunta + `">Video (opcional)</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">image</i>
+                                <textarea id="imagePreguntaAbierta` + contadorAbiertaPregunta + `"  class="materialize-textarea">` + imagePreguntaAbierta.value + `</textarea>
+                                <label class="active" for="imagePreguntaAbierta` + contadorAbiertaPregunta + `">Imagen (opcional)</label>
+                            </div>
+                        </div>
+                        <button
+                          class="waves-effect deleteAbierta deleteFalseVerdadero waves-light btn bordered5 color1 shadow-2e"
+                          id="deleteAbierta` + contadorAbiertaPregunta + `" style="width: 100%;">
+                          <i class="material-icons left">delete_sweep</i>Borrar pregunta</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>`;
+    $("#contenedorCuestionarioPreguntas").append(ejercicio);
+    M.toast({ html: 'Ejercicio agregado' });
+  }
+}
+agregarAbierta();
+
+// Eliminar pregunta de arrastrado (En la vista previa)
+$(document).ready(function () {
+  $("#contenedorCuestionarioPreguntas").on(
+    "click",
+    ".deleteAbierta",
+    function () {
+      $(this).closest(".preguntasAbiertas").remove();
+      M.toast({ html: 'Pregunta eliminada' });
+    }
+  );
+});
+
+/*
+######################################################
   EXTRA: INTERACCIÓN EN GENERAL
   ######################################################
 */
@@ -898,6 +1043,7 @@ function ingresarTitulo() {
 
 //Funciones para el titulo
 ingresarTitulo();
+
 
 /*
   ######################################################
@@ -1460,20 +1606,20 @@ function getArrastrarValues_four() {
 *   Funcion para identificar el orden de las preguntas
 */
 
-function identificarOrden(){
+function identificarOrden() {
   //Obtenemos todas las preguntas
   let preguntasEnOrden = document.getElementsByClassName('preguntaGlobal');
   //Lista con el orden
   let listaDeOrden = [];
   //Validamos de que tipo de pregunta se trata
-  for(var j = 0; j < preguntasEnOrden.length; j++){
-    if(preguntasEnOrden[j].getAttribute('class').indexOf('opt1') != -1){
+  for (var j = 0; j < preguntasEnOrden.length; j++) {
+    if (preguntasEnOrden[j].getAttribute('class').indexOf('opt1') != -1) {
       listaDeOrden.push('optMultiple');
-    }else if(preguntasEnOrden[j].getAttribute('class').indexOf('opt2') != -1){
+    } else if (preguntasEnOrden[j].getAttribute('class').indexOf('opt2') != -1) {
       listaDeOrden.push('optAcompletar');
-    }else if(preguntasEnOrden[j].getAttribute('class').indexOf('opt3') != -1){
+    } else if (preguntasEnOrden[j].getAttribute('class').indexOf('opt3') != -1) {
       listaDeOrden.push('optEjercicios');
-    }else if(preguntasEnOrden[j].getAttribute('class').indexOf('opt4') != -1){
+    } else if (preguntasEnOrden[j].getAttribute('class').indexOf('opt4') != -1) {
       listaDeOrden.push('optArrastrar');
     }
   }
@@ -1517,7 +1663,7 @@ function convertToJSON() {
 
   //Se guarda en un JSON
   var jsonObject = {
-    "ordenPreguntas": ordenPreguntas, 
+    "ordenPreguntas": ordenPreguntas,
     "preguntasModal1": valoresOpcionesMultiple,
     "preguntasModal2": valoresRellenar,
     "preguntasModal3": valoresEjercicios,
