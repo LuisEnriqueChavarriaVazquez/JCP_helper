@@ -582,7 +582,7 @@ function agregarEjercicioContenedor() {
                 </div>
             </div>
             <h5><b>Vista previa del código</b></h5>
-            <div class="previewCodeContainerNoModal bordered2">
+            <div class="previewCodeContainerNoModal bordered2" style="width: 100%;">
                 <code class="colorText">
                     <pre id="codigoMuestra` + contadorEjerciciosEnContenedor + `">`
       + codigoMuestraContenido +
@@ -1623,6 +1623,68 @@ function getArrastrarValues_four() {
 }
 
 /*
+* Obtener IDS de preguntas de TRUE Y FALSE
+*/
+function getOpcionFalseTrue_five() {
+  //Todas las IDS
+  let ids_all = getAllIds();
+
+  //Contador de asignacion
+  let contadorAsignacion1 = 0;
+  let contadorAsignacion2 = 0;
+
+  //Contenedores con valores importantes
+  let inputPregunta = []; //Por ID
+  let inputFalseTrue = []; //Por ID
+
+  //Buscamos entre las IDS
+  for (var i = 0; i < ids_all.length; i++) {
+    //Buscamos coincidencias en lista 1
+    if (ids_all[i].indexOf('preguntaFalseVerdadero') != -1) {
+      inputPregunta[contadorAsignacion1++] = ids_all[i];
+    }
+
+    //Buscamos coincidencias en lista 1
+    if (ids_all[i].indexOf('textFalseVerdadero') != -1) {
+      inputFalseTrue[contadorAsignacion2++] = ids_all[i];
+    }
+  }
+
+  /*
+  * Valores de los inputs de pregunta
+  */
+  //Guardamos solo los valores de los titulos
+  var inputPreguntaValue = [];
+  var inputFalseTrueValue = [];
+  for (var k = 0; k < inputPregunta.length; k++) {
+    //Obtenemos valores del titulo
+    inputPreguntaValue[k] = document.getElementById(inputPregunta[k]).value;
+    //Obtenemos valores del archivo de media
+    inputFalseTrueValue[k] = document.getElementById(inputFalseTrue[k]).value;
+  }
+
+  //Tenemos que mezclar los arrays y separalos por pregunta
+  let valoresOrganizadosTotal = []
+  for (var h = 0; h < inputPreguntaValue.length; h++) {
+    let valoresOrganizados = []
+    valoresOrganizados.push(inputPreguntaValue[h]);
+    valoresOrganizados.push(inputFalseTrueValue[h]);
+    valoresOrganizadosTotal.push(valoresOrganizados);
+  }
+
+  valoresOrganizadosTotal.pop();
+
+  //Creamos el objeto final
+  let arrayObjetosFinal = []
+  for (var h = 0; h < valoresOrganizadosTotal.length; h++) {
+    arrayObjetosFinal.push($.extend({}, valoresOrganizadosTotal[h]));
+  }
+
+  return arrayObjetosFinal;
+}
+
+
+/*
 *   Funcion para identificar el orden de las preguntas
 */
 
@@ -1641,6 +1703,10 @@ function identificarOrden() {
       listaDeOrden.push('optEjercicios');
     } else if (preguntasEnOrden[j].getAttribute('class').indexOf('opt4') != -1) {
       listaDeOrden.push('optArrastrar');
+    } else if (preguntasEnOrden[j].getAttribute('class').indexOf('opt5') != -1) {
+      listaDeOrden.push('optFalsoVerdadero');
+    } else if (preguntasEnOrden[j].getAttribute('class').indexOf('opt6') != -1) {
+      listaDeOrden.push('optAbierta');
     }
   }
 
@@ -1704,6 +1770,7 @@ function convertToJSON() {
   let valoresRellenar = getRellenarValues_two();
   let valoresEjercicios = getEjerciciosValues_three();
   let valoresArrastrar = getArrastrarValues_four();
+  let valoresFalseTrue = getOpcionFalseTrue_five();  
   let ordenPreguntas = identificarOrden();
   let ponderacionGlobal = ponderacionGlobalObtener();
   //console.log(ponderacionGlobal);
@@ -1715,7 +1782,8 @@ function convertToJSON() {
     "preguntasModal1": valoresOpcionesMultiple,
     "preguntasModal2": valoresRellenar,
     "preguntasModal3": valoresEjercicios,
-    "preguntasModal4": valoresArrastrar
+    "preguntasModal4": valoresArrastrar,
+    "preguntasModal5": valoresFalseTrue
   }
 
   console.log(typeof jsonObject);
