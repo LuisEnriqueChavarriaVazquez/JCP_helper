@@ -3,6 +3,105 @@
 * SOLAMENTE LA PREVIEW EN DONDE NO SE CONTESTAN.
 */
 
+
+/*Contenedor para la preview de los cuestionarios*/
+.contenedorPreviewCuestionario{
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "area1 area2"
+    ;
+    gap: 30px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.contenedorPreviewUno{
+    grid-area: area1;
+}
+
+.contenedorPreviewDos{
+    grid-area: area2;
+}
+
+@media screen and (max-width: 1000px) {
+    .contenedorPreviewCuestionario{
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "area1"
+            "area2"
+        ;
+        gap: 30px;
+        padding: 30px;
+        box-sizing: border-box;
+    }
+    
+    .contenedorPreviewUno{
+        grid-area: area1;
+    }
+    
+    .contenedorPreviewDos{
+        grid-area: area2;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .contenedorPreviewCuestionario{
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+.contenedorPreguntasPreview{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+    margin: 30px;
+}
+
+
+@media screen and (max-width: 1550px) {
+    .contenedorPreguntasPreview{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 10px;
+        margin: 30px 120px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .contenedorPreguntasPreview{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 10px;
+        margin: 30px 70px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .contenedorPreguntasPreview{
+        margin: 20px 40px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .contenedorPreguntasPreview{
+        margin: 10px 0;
+    }
+}
+
+.preguntaContainerIndividualPreview{
+    padding: 20px;
+}
+
 /*Texto de la pregunta*/
 .preguntaBox{
     text-align: justify;
@@ -12,10 +111,12 @@
 
 .imagenBox{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
+    padding: 2px 20px 15px 20px;
+    flex-direction: column;
     width: 100%;
-    height: 200px;
+    height: auto;
     margin: 10px 0;
     box-sizing: border-box;
 }
@@ -29,8 +130,9 @@
 .contendorRecursoOnlineBox{
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
 }
 
 .btnPreguntaStyleFormat{
@@ -92,8 +194,18 @@
     width: 100%;
     padding: 10px 20px;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 16px;
+    text-align: justify;
+}
+
+/*OPT 5 FALSO Y VERDADERO*/
+.preguntaBoxFalseTrue{
     text-align: center;
+    width: 100%;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    font-size: 25px;
+    box-sizing: border-box;
 }
 
 /*
@@ -111,12 +223,29 @@
     flex-direction: column;
 }
 
+.contenedorOperacionesLiveMobile{
+    width: 100%;
+    padding: 0px 25px 15px 25px;
+    box-sizing: border-box;
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+
 .datosCuestionarioLive{
     width: 100%;
     height: auto;
 }
 
-.datosCuestionarioLive div{
+
+.datosCuestionarioLive .contenedorContadoresGrid{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+
+.datosCuestionarioLive div div{
     height: 50px;
     font-weight: 700;
     display: flex;
@@ -132,7 +261,43 @@
     font-size: 18px;
 }
 
+@media screen and (max-width: 1000px) {
+    .datosCuestionarioLive .contenedorContadoresGrid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .datosCuestionarioLive .contenedorContadoresGrid{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .datosCuestionarioLive div div{
+        height: 30px;
+        font-size: 14;
+        font-weight: 700;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin: 2.5px;
+        padding: 0 20px;
+    }
+
+    .datosCuestionarioLive div span{
+        margin-left: 10px;
+        font-weight: 800;
+        font-size: 15px;
+    }
+}
+
+
 .accessCuestionarioLive{
     width: 100%;
     margin-top: 20px;
 }
+
+
