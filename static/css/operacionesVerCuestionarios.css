@@ -3,6 +3,25 @@
 * SOLAMENTE LA PREVIEW EN DONDE NO SE CONTESTAN.
 */
 
+/*Titulo de las preguntas sticky*/
+@media screen and (max-width: 600px) {
+    .tituloPregunta{
+        position: sticky;
+        border-radius: 10px;
+        z-index: 10000;
+        width: 100%;
+        top: 10px;
+        font-weight: 300;
+
+        transition: all .2s ease-in-out;
+    }
+}
+
+.paddingTituloAdicional{
+    padding-top: 25px;
+    padding: 20px;
+}
+
 
 /*Contenedor para la preview de los cuestionarios*/
 .contenedorPreviewCuestionario{
@@ -214,13 +233,31 @@
 
 .contenedorOperacionesLive{
     position: fixed;
-    width: 350px;
+    width: 500px;
     padding: 25px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+@media screen and (max-width: 1300px) {
+    .contenedorOperacionesLive{
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .contenedorOperacionesLive{
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .contenedorOperacionesLive{
+        width: 350px;
+    }
 }
 
 .contenedorOperacionesLiveMobile{

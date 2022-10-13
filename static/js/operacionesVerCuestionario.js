@@ -150,7 +150,7 @@ function obtenerDataCuestionario() {
             //Contenido de la pregunta
             let contenido =
                 `  
-            <h5 clss="tituloPregunta"><b>Ejercicio ` + (k + 1) + `</b></h5>
+            <h5 class="tituloPregunta"><b>Ejercicio ` + (k + 1) + `</b></h5>
             <hr>
             <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray3[k][0] + `</b></div>
             <div class="imagenBox bordered1 shadow-1e colorGrey">
@@ -414,11 +414,28 @@ function obtenerDataCuestionario() {
     validarWidthContador();
 
     //Debe hacer que los titulos de las preguntas sean sticky
-    function hacerTituloPreguntaSticky(){
+    $(document).ready(function () {
+        //Se modifca el buscador cuando se hace scroll down
         let tituloPregunta = document.getElementsByClassName('tituloPregunta');
-    }
-    hacerTituloPreguntaSticky();
 
+        $(window).scroll(function () {
+            for(var j = 0; j < tituloPregunta.length; j++){
+                if ($(window).scrollTop() > (50)) {
+                    tituloPregunta[j].classList.add('color1');
+                    tituloPregunta[j].classList.add('colorText');
+                    tituloPregunta[j].classList.add('paddingTituloAdicional');
+                    tituloPregunta[j].classList.add('shadow-1e');
+                    tituloPregunta[j].classList.add('bordered1');
+                } else {
+                    tituloPregunta[j].classList.remove('color1');
+                    tituloPregunta[j].classList.remove('colorText');
+                    tituloPregunta[j].classList.remove('paddingTituloAdicional');
+                    tituloPregunta[j].classList.remove('shadow-1e');
+                    tituloPregunta[j].classList.remove('bordered1');
+                }
+            }
+        });
+    });
 
     //Imprimimos la data obtenida
     //console.log(typeof dataCuestionarioJSON);
