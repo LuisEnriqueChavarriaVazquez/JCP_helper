@@ -167,6 +167,11 @@ $(document).ready(function () {
         `<div class='row preguntaOpccionMultiple preguntaGlobal opt1'>
         <div class='col s12'>
           <div class='card colorWhite bordered2'>
+            
+            <div class="input-field col s12">
+              <input maxlength="1" min="0" max="5" placeholder="Defina ponderación 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+            </div>
+            
             <div class='card-content '>
               <h5>Pregunta de opción múltiple.</h5>
             <div class='row'>
@@ -349,6 +354,9 @@ $(document).ready(function () {
       `<div class='row preguntaRellenarEspacios preguntaGlobal opt2'>
         <div class='col s12 ''>
           <div class='card colorWhite bordered2'>
+          <div class="input-field col s12">
+              <input maxlength="1" min="0" max="5" placeholder="Defina ponderación 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+            </div>
             <div class='card-content '>
               <h5>Rellenar espacios</h5>
               <div class='row'>
@@ -518,6 +526,9 @@ function agregarEjercicioContenedor() {
       `<div class='row preguntasEjercicios preguntaGlobal opt3'>
           <div class='col s12'>
             <div class='card colorWhite bordered2'>
+            <div class="input-field col s12">
+              <input maxlength="1" min="0" max="5" placeholder="Defina ponderación 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+            </div>
             <div class='card-content '>
               <h5>Pregunta de ejercicio.</h5>
               <br>
@@ -685,6 +696,9 @@ $(document).ready(function () {
       `<div class='row preguntasArrastrado preguntaGlobal opt4'>
       <div class='col s12'>
         <div class='card colorWhite bordered2'>
+        <div class="input-field col s12">
+              <input maxlength="1" min="0" max="5" placeholder="Defina ponderación 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+            </div>
           <div class='card-content'>
             <h5>Arrastrar y ordenar</h5>
             <div class='row'>
@@ -832,6 +846,9 @@ function agregarFalseTrue() {
       `<div class='row preguntasTrueFalse preguntaGlobal opt5'>
           <div class='col s12'>
             <div class='card colorWhite bordered2'>
+            <div class="input-field col s12">
+              <input maxlength="1" min="0" max="5" placeholder="Defina ponderación 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+            </div>
             <div class='card-content '>
             <h5>Falso y verdadero</h5>
             <hr>
@@ -902,8 +919,11 @@ function agregarAbierta() {
       `<div class='row preguntasAbiertas preguntaGlobal opt6'>
           <div class='col s12'>
             <div class='card colorWhite bordered2'>
+            <div class="input-field col s12">
+              <input maxlength="1" min="0" max="5" placeholder="Defina ponderación 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+            </div>
             <div class='card-content '>
-            <h4>Pregunta abierta</h4>
+            <h5>Pregunta abierta</h5>
                 <hr>
                 <p>Ingrese una pregunta (esta pregunta requiere revisión manual por parte del docente)</p>
                 <div class="row">
@@ -1632,6 +1652,31 @@ function identificarOrden() {
 }
 
 /*
+* Obtener ponderaciones del cuestionario 
+*/
+
+function ponderacionGlobalObtener(){
+  //obtencion de las ponderaciones
+  let ponderacionGlobal = document.getElementsByClassName('ponderacionGlobal');
+  //Lista en orden de las ponderaciones
+  let listaDePonderaciones = [];
+  
+  //Validamos de que tipo de pregunta se trata
+  for (var j = 0; j < ponderacionGlobal.length; j++) {
+    listaDePonderaciones.push(ponderacionGlobal[j].value);
+  }
+
+  //Metiendo todo en un objeto
+  let listaDePonderacionesFinal = [];
+  listaDePonderacionesFinal.push($.extend({}, listaDePonderaciones));
+
+  //console.log(listaDePonderacionesFinal);
+
+  return listaDePonderacionesFinal;
+}
+
+
+/*
 *   Funcion para la extracción de los datos y conversión a JSON
 */
 
@@ -1660,10 +1705,13 @@ function convertToJSON() {
   let valoresEjercicios = getEjerciciosValues_three();
   let valoresArrastrar = getArrastrarValues_four();
   let ordenPreguntas = identificarOrden();
+  let ponderacionGlobal = ponderacionGlobalObtener();
+  //console.log(ponderacionGlobal);
 
   //Se guarda en un JSON
   var jsonObject = {
     "ordenPreguntas": ordenPreguntas,
+    "ponderacionGlobal": ponderacionGlobal,
     "preguntasModal1": valoresOpcionesMultiple,
     "preguntasModal2": valoresRellenar,
     "preguntasModal3": valoresEjercicios,
