@@ -192,7 +192,7 @@ $(document).ready(function () {
                 concepto_y_definiciones[y].shift();
                 //Reiniciamos nuestras lista cada que se recorre una pregunta entera
                 var concepto = [`<div class="maxconceptos" id="conceptosContainer` + y + `"><h6>Conceptos</h6>`];
-                var definicion = [`<div class="maxdefiniciones" id="definicionesContainer` + y + `"><h6>Definiciones</h6>`];
+                var definicion = [`<div class="maxdefiniciones colorGrey bordered2" id="definicionesContainer` + y + `"><h6>Definiciones</h6>`];
                 for (var x = 0; x < concepto_y_definiciones[y].length; x++) {
                     //Guardamos solo el concepto en una lista
                     concepto.push("<div class='arrastrarElemento arrastrarElementoC shadow-1e color3 colorText'>" + concepto_y_definiciones[y][x].substr(0, concepto_y_definiciones[y][x].indexOf('*')) + "</div>");
@@ -229,18 +229,29 @@ $(document).ready(function () {
             //Aqui hacemos la impresion de los elementos (conceptos y definiciones dentro del contenido)
             for (var t = 0; t < preguntasModalArray4.length; t++) {
                 var final;
+                //Encabezado
                 final = crearInicio(t);
+                //Primer <div> para caja de conceptos
                 final += conceptoTotal[t][0];
-                for (var u = 1; u < conceptoTotal[t].length; u++) {
+                //Los Conceptos
+                for (var u = 1; u < conceptoTotal[t].length - 1; u++) {
                     final += conceptoTotal[t][u];
                 }
-
+                //Div de cierre de la caja de conceptos
+                final += conceptoTotal[t][conceptoTotal[t].length - 1];
+                //Primer div para abrir las definciiones
                 final += definicionTotal[t][0];
-                for (var u = 1; u < definicionTotal[t].length; u++) {
+                //Las definiciones
+                for (var u = 1; u < definicionTotal[t].length - 1; u++) {
                     final += definicionTotal[t][u];
                 }
+                //Cerramos la caja de definiciones
+                final += definicionTotal[t][definicionTotal[t].length - 1];
+                //Cerramos todo el contenedor padre
                 final += finalContenido;
+                //Metemos los elementos en la pregunta
                 contenedoresPregunta[t].innerHTML = final;
+                //Los hacemos ordenables
                 sortableElements(t);
             }
         }
@@ -261,10 +272,17 @@ $(document).ready(function () {
                 <h5 class="tituloPregunta"><b>Pregunta True/False ` + (m + 1) + `</b></h5>
                 <hr>
                 <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray5[m][0] + `</b></div>
-                <h6><b>Resultado.</b></h6>
-                <div class="opcionesContainerStyleViewCuestionarioTrueFalse">
-                    <div class="preguntaBoxFalseTrue color5 coloredText bordered1"><b>` + preguntasModalArray5[m][1] + `</b></div>
+                <div class="contendorBotonesTrueFalse"> 
+                    <button 
+                    onclick="agregarRespuestaOpt4('opt3outputResult_`+m+`','true')" 
+                    class="waves-effect waves-light btn-large colorGrey colorTextReverse trueFalsebtn1">T</button>
+                    
+                    <button
+                    onclick="agregarRespuestaOpt4('opt3outputResult_`+m+`','false')" 
+                    class="waves-effect waves-light btn-large colorGrey colorTextReverse trueFalsebtn2">F</button>
                 </div>
+                <h6><b>Resultado.</b></h6>
+                <div id="opt3outputResult_`+m+`" class="preguntaBox outputEsperado colorGreyDarker bordered1" style="margin-bottom: 10px;"><b>Output:</b></div>
             `;
                 contenedoresPregunta[m].innerHTML = contenido;
             }
@@ -303,8 +321,8 @@ $(document).ready(function () {
         //ingresarPreguntasOpcionMultiple();
         //ingresarPreguntasAcompletar();
         //ingresarPreguntasEjercicios();
-        ingresarPreguntasArrastrar();
-        //ingresarPreguntasTrueFalse();
+        //ingresarPreguntasArrastrar();
+        ingresarPreguntasTrueFalse();
         //ingresarPreguntasAbiertas();
 
         //////////////////////////////////////////////////////

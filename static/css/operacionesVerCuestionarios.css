@@ -370,7 +370,7 @@
 }
 
 .generalInfoPreviewAlumno p{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     text-align: justify;
 }
@@ -396,4 +396,37 @@
 .maxconceptos div, .maxdefiniciones div{
     margin: 5px 0px;
 }
+
+.maxdefiniciones{
+    padding: 25px 25px;
+}
+
+@media screen and (max-width: 600px) {
+    .maxdefiniciones{
+        padding: 15px 10px;
+    }
+}
+
+/*Preview para los botones de true y false*/
+.contendorBotonesTrueFalse{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    margin: 10px 0;
+}
+
+.contendorBotonesTrueFalse button{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.trueFalsebtn1{
+    border-radius: 10px 0 0 10px !important;
+}
+
+.trueFalsebtn2{
+    border-radius: 0 10px 10px 0 !important;
+}
+
 
