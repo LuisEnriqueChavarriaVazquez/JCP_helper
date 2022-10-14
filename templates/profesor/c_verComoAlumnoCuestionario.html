@@ -156,7 +156,27 @@
         //Se accede al input de respuesta
         let textoInput = document.getElementById(idInput);
         //Se imprime la respuesta
-        textoInput.innerHTML = "<b>R: " + buttonElement.innerText + "</b>";
+        textoInput.innerHTML = "<b>" + buttonElement.innerText + "</b>";
+        textoInput.classList.remove("colorGreyDarker");
+        textoInput.classList.add("color5");
+        textoInput.classList.add("coloredText");
+    }
+
+    //Rellenar textos
+    function agregarRespuestaOpt2(classBlank,idButton, idRespuesta){
+        let buttonElement = document.getElementById(idButton);
+        let textInput = document.getElementById(idRespuesta);
+        let classBlankElements = document.getElementsByClassName(classBlank);
+        let valoresInputs;
+        //Accedemos a los values de los inputs con esa clase
+        textInput.innerText = "";
+        for(var i = 0; i < classBlankElements.length; i++){
+            textInput.innerText += classBlankElements[i].value + "/";
+        }
+        
+        textInput.classList.remove("colorGreyDarker");
+        textInput.classList.add("color5");
+        textInput.classList.add("coloredText");
     }
 </script>
 
