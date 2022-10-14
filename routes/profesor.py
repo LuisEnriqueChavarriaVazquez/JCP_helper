@@ -838,7 +838,7 @@ def duplicar_cuestionario(id_cuestionario):
     shutil.copy(rutaVieja, rutaCopia)
     
     #Insertamos el nuevo cuestionario
-    Op_profesor.insertar_cuestionario_JSON(pickedCuestionarioData[0][1], pickedCuestionarioData[0][2], tituloCuestionario, pickedCuestionarioData[0][4], pickedCuestionarioData[0][5], pickedCuestionarioData[0][6], pickedCuestionarioData[0][7], pickedCuestionarioData[0][8], rutaCopia, pickedCuestionarioData[0][10])
+    Op_profesor.insertar_cuestionario_JSON(pickedCuestionarioData[0][1], pickedCuestionarioData[0][2], tituloCuestionario, pickedCuestionarioData[0][4], pickedCuestionarioData[0][5], pickedCuestionarioData[0][6], pickedCuestionarioData[0][7], pickedCuestionarioData[0][8], rutaCopia, pickedCuestionarioData[0][10], pickedCuestionarioData[0][11], pickedCuestionarioData[0][12], pickedCuestionarioData[0][13])
     
     return redirect(url_for('routes.gestionar_cuestionarios')) 
 

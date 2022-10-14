@@ -9024,7 +9024,7 @@ input[type=range]::-ms-thumb {
 }
 
 .timepicker-canvas line {
-  stroke: #000;
+  stroke: #26a69a;
   stroke-width: 4;
   stroke-linecap: round;
 }
