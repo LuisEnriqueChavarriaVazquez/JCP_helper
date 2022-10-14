@@ -24,6 +24,13 @@ $(document).ready(function () {
     $('.scrollspy').scrollSpy();
     $('input#input_text, textarea#descGrupo, textarea#codigoGrupo').characterCounter();
     $('.datepicker').datepicker();
+    $('.timepicker').timepicker({
+        twelvehour: false,
+        donetext: 'OK',
+        autoclose: false,
+        vibrate: true
+    });
+    ;
 
     /*
     //  Código para la parte de elegir la foto de perfil

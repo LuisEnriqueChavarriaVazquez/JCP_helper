@@ -701,7 +701,12 @@ def saveCuestionario(id_profesor):
     tipoCuestionario = request.form["tipoCuestionario"]
     lenguajeCuestionario = request.form["lenguajeCuestionario"]
     grupoCuestionario = request.form["grupoCuestionario"]
-    ordenCuestionario = request.form["oneInputOrdenOne"];
+    ordenCuestionario = request.form["oneInputOrdenOne"]
+    
+    horaLimiteParaResolver = request.form["horaLimiteParaResolver"]
+    fechaLimiteRespuesta = request.form["fechaLimiteRespuesta"]
+    tiempoCuentaAtras = request.form["tiempoCuentaAtras"]
+
     print(grupoCuestionario)
 
     #Buscamos el grupo por su nombre
@@ -714,7 +719,7 @@ def saveCuestionario(id_profesor):
     
     rutaCuestionario = 'static/cuestionarios/'+ tituloCuestionarioConClave + '.json'
 
-    result = Op_profesor.insertar_cuestionario_JSON(id_grupo, id_profesor, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, rutaCuestionario, ordenCuestionario)
+    result = Op_profesor.insertar_cuestionario_JSON(id_grupo, id_profesor, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, rutaCuestionario, ordenCuestionario, tiempoCuentaAtras, fechaLimiteRespuesta, horaLimiteParaResolver)
     return redirect(url_for('routes.gestionar_cuestionarios'))
 
 ##
@@ -760,10 +765,15 @@ def update_cuestionario(id_cuestionarios):
         grupoCuestionario = request.form["grupoCuestionario"]
         ordenCuestionario = request.form["twoInputOrdenTwo"]
 
+        horaLimiteParaResolver = request.form["horaLimiteParaResolver"]
+        fechaLimiteRespuesta = request.form["fechaLimiteRespuesta"]
+        tiempoCuentaAtras = request.form["tiempoCuentaAtras"]
+        
+
         #Obtenemos el grupo por su nombre
         id_grupo = Op_profesor.obtener_id_grupo_con_nombre_grupo(grupoCuestionario)
 
-        Op_profesor.update_cuestionarios(id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, ordenCuestionario, id_cuestionario)
+        Op_profesor.update_cuestionarios(id_grupo, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, ordenCuestionario,tiempoCuentaAtras,fechaLimiteRespuesta, horaLimiteParaResolver,id_cuestionario)
         
         return redirect(url_for('routes.gestionar_cuestionarios')) 
 

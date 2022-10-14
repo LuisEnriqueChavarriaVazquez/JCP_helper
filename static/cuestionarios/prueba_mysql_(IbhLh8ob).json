@@ -1,0 +1,24 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optAcompletar"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "2"
+  }
+ ],
+ "preguntasModal1": [],
+ "preguntasModal2": [
+  {
+   "0": "[Blank 1][Blank 2]",
+   "1": "ddd",
+   "2": ""
+  }
+ ],
+ "preguntasModal3": [],
+ "preguntasModal4": [],
+ "preguntasModal5": [],
+ "preguntasModal6": []
+}
