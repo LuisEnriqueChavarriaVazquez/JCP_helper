@@ -85,7 +85,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="hide-on-small-only">
+            <div class="hide-on-med-and-down">
                 <div>
                     <ul class="collapsible bordered5 colorWhite">
                         <li>
@@ -93,7 +93,9 @@
                                 style="margin-bottom: 5px;"><i class="material-icons">check</i>Estado de preguntas.
                             </div>
                             <div class="bordered5 collapsible-body">
+                                <div class="containerPreguntasCuadricula colorGreyWhiter">
 
+                                </div>
                             </div>
                         </li>
                     </ul>
@@ -104,11 +106,14 @@
                     <h5>Tablero de información.</h5>
                     <div class="contenedorContadoresGrid">
                         <div class="colorGreyDarker bordered5">Total preguntas: <span class="coloredText"
-                                id="contadorTotal"></span>
-                            </span> </div>
+                            id="contadorTotal"></span>
+                        </span> </div>
                         <div class="colorGreyDarker bordered5">Respondidas: <span class="coloredText"
-                                id="contadorRespondidas"></span>
-                            </span> </div>
+                            id="contadorRespondidas"></span>
+                        </span> </div>
+                        <div class="contenedorBarra colorGrey bordered5">
+                            <div class="cargaBarra color1 bordered5"></div>
+                        </div>
                         <div class="color5 bordered5">Tiempo restante: <span class="coloredText" id="contadorTiempo">
                             </span> </div>
                     </div>
@@ -154,6 +159,8 @@
 
 <!--Esta parte necesita ser agregada aqui porque son cambios en tiempo real-->
 <script>
+    //Lista global para saber cual ha sido respondida
+
     //Opcion multiple
     function agregarRespuesta(idButton, idInput) {
         //Se accede al contenido del button
@@ -167,6 +174,7 @@
         textoInput.classList.add("coloredText");
         textoInput.classList.add("answerReady");
         imprimirConteoRespondidas();
+        imprimirBarraProgreso();
     }
 
     //Rellenar textos
@@ -186,6 +194,7 @@
         textInput.classList.add("coloredText");
         textInput.classList.add("answerReady");
         imprimirConteoRespondidas();
+        imprimirBarraProgreso();
     }
 
     //Agregar los resultados de los ejercicios
@@ -215,6 +224,7 @@
         outputLink.classList.add("coloredText");
         outputLink.classList.add("answerReady");
         imprimirConteoRespondidas();
+        imprimirBarraProgreso();
     }
 
     function agregarRespuestaArrastrar(respuesta){
@@ -225,6 +235,7 @@
         respuestaInput.classList.add("coloredText");
         respuestaInput.classList.add("answerReady");
         imprimirConteoRespondidas();
+        imprimirBarraProgreso();
 
     }
 
@@ -237,6 +248,7 @@
         output.classList.add("coloredText");
         output.classList.add("answerReady");
         imprimirConteoRespondidas();
+        imprimirBarraProgreso();
     }
 
     function agregarRespuestaOptAbiertas(respuesta, resultado, button){
@@ -252,6 +264,7 @@
         resultadoInput.classList.add("coloredText");
         resultadoInput.classList.add("answerReady");
         imprimirConteoRespondidas();
+        imprimirBarraProgreso();
     }
 
     //////EXTRAS
@@ -264,6 +277,19 @@
         let answerReadySize = document.getElementsByClassName('answerReady').length;
 
         contadorRespondidas.innerText = answerReadySize + "/" + numeroPreguntas;
+    }
+
+    //Se imprime la barra de progreso
+    function imprimirBarraProgreso(){
+        //Accedemos a la barra de carga
+        let cargaBarra = document.getElementsByClassName('cargaBarra');
+        //Accedemos al numero total
+        let numeroPreguntas = document.getElementById('contadorTotal').innerText;
+        //Accedemos a las preguntas que se van agregando
+        let answerReadySize = document.getElementsByClassName('answerReady').length;
+
+        cargaBarra[0].setAttribute('style', 'width:' + ((100/numeroPreguntas)*answerReadySize) + '%;')
+
     }
 </script>
 

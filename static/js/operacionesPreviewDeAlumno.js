@@ -62,6 +62,18 @@ $(document).ready(function () {
 
     //La otra de conteo de contestadas esta en el html
 
+    //Se imprime la cuadricula de preguntas
+    function imprimirCuadricula(){
+        let numeroPreguntas = contarPreguntas();
+        let containerPreguntasCuadricula = document.getElementsByClassName('containerPreguntasCuadricula');
+
+        for(var t = 0; t < numeroPreguntas; t++){
+            containerPreguntasCuadricula[0].innerHTML += "<div class='colorGreyDarker preguntaCuadricula'>"+ (t+1)+"</div>"
+        }
+    }
+    imprimirCuadricula();
+
+
     //Aqui hay inserciones y validaciones.
     function obtenerDataCuestionario() {
         //////////////////////////////////////////////////////
