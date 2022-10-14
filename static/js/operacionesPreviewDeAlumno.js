@@ -153,12 +153,22 @@ $(document).ready(function () {
                 <h6><b>Imagen adjunta.</b></h6>
                 <img alt='not available image' class="materialboxed imagenBoxContent bordered1" src="` + preguntasModalArray3[k][1] + `"></img>
             </div>
-            <h6><b>Preview de propuesta de código.</b></h6>
-            <div class="codeContainerBox"><pre class="previewCodeContainer colorText bordered1">` + preguntasModalArray3[k][3] + `</pre></div>
-            <div class="preguntaBox outputEsperado color4 bordered1"><b>Output: ` + preguntasModalArray3[k][4] + `</b></div>
             <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
             <a href="` + preguntasModalArray3[k][2] + `" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">cloud</i>Acceder a recurso online</a>
             </div>
+            <h6><b>Resultado.</b></h6>
+            <p>Escriba su output de salida o anexe algún repositorio con su código.</p>
+            <div class="opcionesContainerStyleViewCuestionario">
+                <div class="colorGrey bordered1 colorTextReverse letterStyleViewCuestionario">Output: </div>
+                <input type="text" placeholder="output" class="opcionStyleViewCuestionario" id="opt3_resultado`+k+`"></input>
+                <div class="colorGrey bordered1 colorTextReverse letterStyleViewCuestionario">Link: </div>
+                <input type="text" placeholder="link" class="opcionStyleViewCuestionario" id="opt3_link`+k+`"></input>
+            </div>
+            <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
+                <button id="opt3Button_`+k+`" onclick="agregarRespuestaOpt3('opt3_resultado`+k+`','opt3_link`+k+`','opt3Button_`+k+`','opt3outputResult_`+k+`','opt3linkResult`+k+`')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Agregar respuestas</button>
+            </div>
+            <div id="opt3outputResult_`+k+`" class="preguntaBox outputEsperado colorGreyDarker bordered1" style="margin-bottom: 10px;"><b>Output:</b></div>
+            <div id="opt3linkResult`+k+`" class="preguntaBox outputEsperado colorGreyDarker bordered1"><b>Link:</b></div>
             `;
 
                 contenedoresPregunta[k].innerHTML = contenido;
@@ -181,14 +191,16 @@ $(document).ready(function () {
                 //Eliminamos el primer elemento (descripcion del problema)
                 concepto_y_definiciones[y].shift();
                 //Reiniciamos nuestras lista cada que se recorre una pregunta entera
-                var concepto = [];
-                var definicion = [];
+                var concepto = [`<div class="maxconceptos" id="conceptosContainer` + y + `"><h6>Conceptos</h6>`];
+                var definicion = [`<div class="maxdefiniciones" id="definicionesContainer` + y + `"><h6>Definiciones</h6>`];
                 for (var x = 0; x < concepto_y_definiciones[y].length; x++) {
                     //Guardamos solo el concepto en una lista
-                    concepto.push("<div class='arrastrarElemento arrastrarElementoC shadow-1e colorGrey'>" + concepto_y_definiciones[y][x].substr(0, concepto_y_definiciones[y][x].indexOf('*')) + "</div>");
+                    concepto.push("<div class='arrastrarElemento arrastrarElementoC shadow-1e color3 colorText'>" + concepto_y_definiciones[y][x].substr(0, concepto_y_definiciones[y][x].indexOf('*')) + "</div>");
                     //Guardamos solo las definiciones en una lista
                     definicion.push("<div class='arrastrarElemento arrastrarElementoD shadow-1e colorGreyDarker'>" + concepto_y_definiciones[y][x].substr(concepto_y_definiciones[y][x].indexOf('*') + 1) + "</div>");
                 }
+                concepto.push("</div>");
+                definicion.push("</div>");
                 conceptoTotal.push(concepto);
                 definicionTotal.push(definicion);
             }
@@ -206,6 +218,7 @@ $(document).ready(function () {
             <hr>
             <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray4[numero][0] + `</b></div>
             <h6><b>Relación de palabras.</b></h6>
+            <p>Coloca el concepto arriba de su definición en el lado derecho</p>
             <div class="opcionesContainerStyleViewCuestionarioArrastrar">`;
                 return inicioContenido;
             }
@@ -217,13 +230,19 @@ $(document).ready(function () {
             for (var t = 0; t < preguntasModalArray4.length; t++) {
                 var final;
                 final = crearInicio(t);
-                for (var u = 0; u < conceptoTotal[t].length; u++) {
-                    final += conceptoTotal[t][u] + definicionTotal[t][u];
+                final += conceptoTotal[t][0];
+                for (var u = 1; u < conceptoTotal[t].length; u++) {
+                    final += conceptoTotal[t][u];
+                }
+
+                final += definicionTotal[t][0];
+                for (var u = 1; u < definicionTotal[t].length; u++) {
+                    final += definicionTotal[t][u];
                 }
                 final += finalContenido;
                 contenedoresPregunta[t].innerHTML = final;
+                sortableElements(t);
             }
-
         }
 
         function ingresarPreguntasTrueFalse() {
@@ -282,9 +301,9 @@ $(document).ready(function () {
         }
 
         //ingresarPreguntasOpcionMultiple();
-        ingresarPreguntasAcompletar();
+        //ingresarPreguntasAcompletar();
         //ingresarPreguntasEjercicios();
-        //ingresarPreguntasArrastrar();
+        ingresarPreguntasArrastrar();
         //ingresarPreguntasTrueFalse();
         //ingresarPreguntasAbiertas();
 
@@ -358,6 +377,38 @@ $(document).ready(function () {
             }
         }
         validarOutput();
+
+
+        //////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////    
+        //////////////////////////////////////////////////////
+        ////////////Efecto sortable implementado
+
+        function sortableElements(numero) {
+            var idConcepto = 'conceptosContainer' + numero;
+            var idDefinicion = 'definicionesContainer'+ numero;
+            
+            var concepto = document.getElementById(idConcepto);
+            var definicion = document.getElementById(idDefinicion);
+    
+            console.log(concepto);
+            console.log(definicion);
+            var sortableConceptos = new Sortable(concepto, {
+                group: 'shared',
+                draggable: 'div',
+                animation: 300,
+                ghostClass: 'colorWhite'
+            }
+            )
+    
+            var sortableDefiniciones = new Sortable(definicion, {
+                group: 'shared',
+                draggable: 'div',
+                animation: 300,
+                ghostClass: 'colorWhite'
+            }
+            )
+        }
 
         //////////////////////////////////////////////////////
         //////////////////////////////////////////////////////    

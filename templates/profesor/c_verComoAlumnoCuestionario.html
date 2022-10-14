@@ -34,7 +34,9 @@
         <!--Datos importantes del cuestionario-->
         <section class="contenedorPreviewUno">
             <section class="infoColor bordered1 shadow-1e generalInfoPreviewAlumno">
-                <p class="infoColor"><i class="material-icons">info</i> Aqui usted puede ver el cuestionario como lo vería un estudiante al momento de estarlo contestando. Esto le ayudará a ver como es funcionamiento general del cuestionario en tiempo real y poder verificar fallos.</p>
+                <p class="infoColor"><i class="material-icons">info</i> Aqui usted puede ver el cuestionario como lo
+                    vería un estudiante al momento de estarlo contestando. Esto le ayudará a ver como es funcionamiento
+                    general del cuestionario en tiempo real y poder verificar fallos.</p>
             </section>
             <div class="hide-on-small-only">
                 <h5>Acciones disponibles</h5>
@@ -91,7 +93,7 @@
                                 style="margin-bottom: 5px;"><i class="material-icons">check</i>Estado de preguntas.
                             </div>
                             <div class="bordered5 collapsible-body">
-                                
+
                             </div>
                         </li>
                     </ul>
@@ -101,9 +103,11 @@
                 <div class="datosCuestionarioLive">
                     <h5>Tablero de información.</h5>
                     <div class="contenedorContadoresGrid">
-                        <div class="colorGreyDarker bordered5">Total preguntas: <span class="coloredText" id="contadorTotal"></span>
+                        <div class="colorGreyDarker bordered5">Total preguntas: <span class="coloredText"
+                                id="contadorTotal"></span>
                             </span> </div>
-                        <div class="colorGreyDarker bordered5">Respondidas: <span class="coloredText" id="contadorRespondidas"></span>
+                        <div class="colorGreyDarker bordered5">Respondidas: <span class="coloredText"
+                                id="contadorRespondidas"></span>
                             </span> </div>
                         <div class="color5 bordered5">Tiempo restante: <span class="coloredText" id="contadorTiempo">
                             </span> </div>
@@ -144,13 +148,14 @@
     //Accedemos a los datos guardados en el JSON
     const dataCuestionarioJSON = {{ dataJSON| tojson}}; 
 </script>
+<script src="../../static/js/Sortable.min.js"></script>
 <script src="../../static/js/operacionesTerminos.js"></script>
 <script src="../../static/js/operacionesPreviewDeAlumno.js"></script>
 
 <!--Esta parte necesita ser agregada aqui porque son cambios en tiempo real-->
 <script>
     //Opcion multiple
-    function agregarRespuesta(idButton, idInput){
+    function agregarRespuesta(idButton, idInput) {
         //Se accede al contenido del button
         let buttonElement = document.getElementById(idButton);
         //Se accede al input de respuesta
@@ -163,20 +168,47 @@
     }
 
     //Rellenar textos
-    function agregarRespuestaOpt2(classBlank,idButton, idRespuesta){
+    function agregarRespuestaOpt2(classBlank, idButton, idRespuesta) {
         let buttonElement = document.getElementById(idButton);
         let textInput = document.getElementById(idRespuesta);
         let classBlankElements = document.getElementsByClassName(classBlank);
         let valoresInputs;
         //Accedemos a los values de los inputs con esa clase
         textInput.innerText = "";
-        for(var i = 0; i < classBlankElements.length; i++){
+        for (var i = 0; i < classBlankElements.length; i++) {
             textInput.innerText += classBlankElements[i].value + "/";
         }
-        
+
         textInput.classList.remove("colorGreyDarker");
         textInput.classList.add("color5");
         textInput.classList.add("coloredText");
+    }
+
+    //Agregar los resultados de los ejercicios
+    function agregarRespuestaOpt3(opt_resultado, opt_link, opt_Button, opt_outputResult, opt_linkResult) {
+        //Accedemos a los valores
+        let resultadoInput = document.getElementById(opt_resultado);
+        let resultadoLink = document.getElementById(opt_link);
+        let buttonEnviar = document.getElementById(opt_Button);
+        let outputResultado = document.getElementById(opt_outputResult);
+        let outputLink = document.getElementById(opt_linkResult);
+
+        //Ingresamos los valores
+        if (resultadoInput.value != "" || resultadoLink.value != "") {
+            outputResultado.innerText = resultadoInput.value;
+            outputLink.innerText = resultadoLink.value;
+        } else {
+            outputResultado.innerText = "EMPTY";
+            outputLink.innerText = "EMPTY";
+        }
+
+        //Modificamos los estilos
+        outputResultado.classList.remove("colorGreyDarker");
+        outputResultado.classList.add("color5");
+        outputResultado.classList.add("coloredText");
+        outputLink.classList.remove("colorGreyDarker");
+        outputLink.classList.add("color5");
+        outputLink.classList.add("coloredText");
     }
 </script>
 
