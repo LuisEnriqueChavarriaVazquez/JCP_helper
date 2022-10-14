@@ -13,7 +13,7 @@
     .tituloPregunta{
         position: sticky;
         border-radius: 10px;
-        z-index: 10000;
+        z-index: 100;
         width: 100%;
         top: 10px;
         font-weight: 300;
@@ -362,4 +362,34 @@
     margin-top: 20px;
 }
 
+
+/*Preview del cuestionario como alumno*/
+
+.generalInfoPreviewAlumno{
+    padding: 10px 25px;
+}
+
+.generalInfoPreviewAlumno p{
+    font-size: 18px;
+    font-weight: 500;
+    text-align: justify;
+}
+
+@media screen and (max-width: 1400px) {
+    .generalInfoPreviewAlumno{
+        padding: 10px 25px;
+        margin-bottom: 20px;
+    }
+
+    .generalInfoPreviewAlumno p{
+        font-size: 14px;
+        font-weight: 500;
+        text-align: justify;
+    }
+}
+
+.generalInfoPreviewAlumno p i{
+    top: 5px;
+    position: relative;
+}
 

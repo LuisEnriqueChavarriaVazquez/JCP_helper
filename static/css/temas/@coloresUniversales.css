@@ -45,6 +45,11 @@
     color: rgb(22, 41, 70) !important;
 }
 
+.infoColorDarker{
+    background-color: rgb(150, 183, 255) !important;
+    color: rgb(22, 41, 70) !important;
+}
+
 .infoColorButton{
     width: 20%;
     font-weight: 700;

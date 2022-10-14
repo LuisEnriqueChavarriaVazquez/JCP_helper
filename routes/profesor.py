@@ -785,6 +785,30 @@ def view_cuestionario(id_cuestionario):
     #Enviamos al usuario al formulario para ver datos del cuestionario.
     return render_template('profesor/b_verCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON)
 
+##
+##  En esta funcion el docente puede hacer un preview de los 
+##  cuestionarios como si el fuera el estudiante, de modo que comprueba 
+## como se veria al momento de resolverlo.
+##
+
+@routes.route('/previewVerComoALumnoCuestionario/<string:id_cuestionario>')
+def view_cuestionario_como_alumno(id_cuestionario):
+    #Obtenemos todos los datos del cuestionario
+    datosCuestionario = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
+
+    ##Accedemos al contenido del JSON
+    rutaArchivo = datosCuestionario[0][9]
+    # Abrimos el archivo
+    f = open(rutaArchivo)
+    #Guardamos la data
+    dataJSON = json.load(f)
+    #Guardamos la data como string
+    #dataJSONstr = json.dumps(dataJSON, indent=2)
+    f.close()
+
+    #Enviamos al usuario al formulario para ver datos del cuestionario.
+    return render_template('profesor/c_verComoAlumnoCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON)
+
 
 @routes.route('/duplicarCuestionarios/<string:id_cuestionario>')
 def duplicar_cuestionario(id_cuestionario):
