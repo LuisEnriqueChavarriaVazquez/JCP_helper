@@ -165,6 +165,8 @@
         textoInput.classList.remove("colorGreyDarker");
         textoInput.classList.add("color5");
         textoInput.classList.add("coloredText");
+        textoInput.classList.add("answerReady");
+        imprimirConteoRespondidas();
     }
 
     //Rellenar textos
@@ -182,6 +184,8 @@
         textInput.classList.remove("colorGreyDarker");
         textInput.classList.add("color5");
         textInput.classList.add("coloredText");
+        textInput.classList.add("answerReady");
+        imprimirConteoRespondidas();
     }
 
     //Agregar los resultados de los ejercicios
@@ -209,6 +213,19 @@
         outputLink.classList.remove("colorGreyDarker");
         outputLink.classList.add("color5");
         outputLink.classList.add("coloredText");
+        outputLink.classList.add("answerReady");
+        imprimirConteoRespondidas();
+    }
+
+    function agregarRespuestaArrastrar(respuesta){
+        let respuestaInput = document.getElementById(respuesta);
+        respuestaInput.innerText = "Listo"
+        respuestaInput.classList.remove("colorGreyDarker");
+        respuestaInput.classList.add("color5");
+        respuestaInput.classList.add("coloredText");
+        respuestaInput.classList.add("answerReady");
+        imprimirConteoRespondidas();
+
     }
 
     function agregarRespuestaOpt4(resultadoOutput, value){
@@ -218,6 +235,8 @@
         output.classList.remove("colorGreyDarker");
         output.classList.add("color5");
         output.classList.add("coloredText");
+        output.classList.add("answerReady");
+        imprimirConteoRespondidas();
     }
 
     function agregarRespuestaOptAbiertas(respuesta, resultado, button){
@@ -231,6 +250,20 @@
         resultadoInput.classList.remove("colorGreyDarker");
         resultadoInput.classList.add("color5");
         resultadoInput.classList.add("coloredText");
+        resultadoInput.classList.add("answerReady");
+        imprimirConteoRespondidas();
+    }
+
+    //////EXTRAS
+    //Cuenta de los elementos que han sido contestados
+    //Esta función debe estar aqui para simplificar el tema de que
+    //funcione cuando se de click en responder
+    function imprimirConteoRespondidas() {
+        let numeroPreguntas = document.getElementById('contadorTotal').innerText;
+        let contadorRespondidas = document.getElementById('contadorRespondidas');
+        let answerReadySize = document.getElementsByClassName('answerReady').length;
+
+        contadorRespondidas.innerText = answerReadySize + "/" + numeroPreguntas;
     }
 </script>
 

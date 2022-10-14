@@ -1,48 +1,69 @@
 $(document).ready(function () {
+    //////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////    
+    //////////////////////////////////////////////////////
+    ////////////ACCESO A DATOS
+
+    //Convetimos el objeto en un string con formato
+    stringJSON = JSON.stringify(dataCuestionarioJSON, null, 1);
+
+    //Obtenemos cada una de las listas dentro del objeto
+    const ordenPreguntas = dataCuestionarioJSON.ordenPreguntas;
+    const ponderacionPreguntas = dataCuestionarioJSON.ponderacionGlobal;
+    const preguntasModal1 = dataCuestionarioJSON.preguntasModal1;
+    const preguntasModal2 = dataCuestionarioJSON.preguntasModal2;
+    const preguntasModal3 = dataCuestionarioJSON.preguntasModal3;
+    const preguntasModal4 = dataCuestionarioJSON.preguntasModal4;
+    const preguntasModal5 = dataCuestionarioJSON.preguntasModal5;
+    const preguntasModal6 = dataCuestionarioJSON.preguntasModal6;
+
+    //Convertirmos los objetos en listas
+    const preguntasModalArray1 = Object.values(preguntasModal1);
+    const preguntasModalArray2 = Object.values(preguntasModal2);
+    const preguntasModalArray3 = Object.values(preguntasModal3);
+    const preguntasModalArray4 = Object.values(preguntasModal4);
+    const preguntasModalArray5 = Object.values(preguntasModal5);
+    const preguntasModalArray6 = Object.values(preguntasModal6);
+
+    //Para la ponderación de las preguntas
+    const ponderacionPreguntasArray = Object.values(ponderacionPreguntas);
+
+    //Forma de acceder a las preguntas y elemento
+    //Primer indice indica el numero de pregunta
+    //Segundo indice indica el dato de la pregunta
+
+    //console.log(ordenPreguntas[0]);
+    // console.log(preguntasModal1[0]);
+    // console.log(preguntasModal2[0]);
+    // console.log(preguntasModal3[0]);
+    // console.log(preguntasModal4[0]);
+    // console.log(preguntasModal5[0]);
+    // console.log(preguntasModal6[0]);
+
+    //Contamos la preguntas
+    function contarPreguntas() {
+        listadoPreguntas = Object.values(ordenPreguntas[0]);
+        return listadoPreguntas.length;
+    }
+
+    //////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////    
+    //////////////////////////////////////////////////////
+    ////////////CONTAR ELEMENTOS (PANEL LATERAL)
+
+    //Cuenta el total de las preguntas
+    function imprimirConteoTotalPreguntas() {
+        let numeroPreguntas = contarPreguntas();
+        let contadorTotalTexto = document.getElementById('contadorTotal');
+
+        contadorTotalTexto.innerText = numeroPreguntas;
+    }
+    imprimirConteoTotalPreguntas();
+
+    //La otra de conteo de contestadas esta en el html
+
+    //Aqui hay inserciones y validaciones.
     function obtenerDataCuestionario() {
-        //////////////////////////////////////////////////////
-        //////////////////////////////////////////////////////    
-        //////////////////////////////////////////////////////
-        ////////////ACCESO A DATOS
-
-        //Convetimos el objeto en un string con formato
-        stringJSON = JSON.stringify(dataCuestionarioJSON, null, 1);
-
-        //Obtenemos cada una de las listas dentro del objeto
-        const ordenPreguntas = dataCuestionarioJSON.ordenPreguntas;
-        const preguntasModal1 = dataCuestionarioJSON.preguntasModal1;
-        const preguntasModal2 = dataCuestionarioJSON.preguntasModal2;
-        const preguntasModal3 = dataCuestionarioJSON.preguntasModal3;
-        const preguntasModal4 = dataCuestionarioJSON.preguntasModal4;
-        const preguntasModal5 = dataCuestionarioJSON.preguntasModal5;
-        const preguntasModal6 = dataCuestionarioJSON.preguntasModal6;
-
-        //Convertirmos los objetos en listas
-        const preguntasModalArray1 = Object.values(preguntasModal1);
-        const preguntasModalArray2 = Object.values(preguntasModal2);
-        const preguntasModalArray3 = Object.values(preguntasModal3);
-        const preguntasModalArray4 = Object.values(preguntasModal4);
-        const preguntasModalArray5 = Object.values(preguntasModal5);
-        const preguntasModalArray6 = Object.values(preguntasModal6);
-
-        //Forma de acceder a las preguntas y elemento
-        //Primer indice indica el numero de pregunta
-        //Segundo indice indica el dato de la pregunta
-
-        //console.log(ordenPreguntas[0]);
-        // console.log(preguntasModal1[0]);
-        // console.log(preguntasModal2[0]);
-        // console.log(preguntasModal3[0]);
-        // console.log(preguntasModal4[0]);
-        // console.log(preguntasModal5[0]);
-        // console.log(preguntasModal6[0]);
-
-        //Contamos la preguntas
-        function contarPreguntas() {
-            listadoPreguntas = Object.values(ordenPreguntas[0]);
-            return listadoPreguntas.length;
-        }
-
         //////////////////////////////////////////////////////
         //////////////////////////////////////////////////////    
         //////////////////////////////////////////////////////
@@ -101,7 +122,7 @@ $(document).ready(function () {
             //Accedemos a las cajas
             let contenedoresPregunta = document.getElementsByClassName('opt2');
             //Hacemos variables de pregunta
-            let contenidoIntermedio; 
+            let contenidoIntermedio;
 
             for (var m = 0; m < preguntasModalArray2.length; m++) {
                 var longitudPregunta = Object.values(preguntasModalArray2[m]).length;
@@ -109,7 +130,7 @@ $(document).ready(function () {
                 contenidoIntermedio = "";
 
                 //Contenido de la pregunta
-                let contenidoInicial =`  
+                let contenidoInicial = `  
                 <h5 class="tituloPregunta"><b>Ejercicio rellenar espacio ` + (m + 1) + `</b></h5>
                 <hr>
                 <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray2[m][0] + `</b></div>
@@ -120,16 +141,16 @@ $(document).ready(function () {
                 for (var t = 0; t < longitudPregunta; t++) {
                     contenidoIntermedio += `
                     <div class="colorGreyDarker bordered1 colorTextReverse letterStyleViewCuestionario">Blank `+ t + `</div>
-                    <input type="text" placeholder="text" class="opcionStyleViewCuestionario opt2_`+m+`"></input>
+                    <input type="text" placeholder="text" class="opcionStyleViewCuestionario opt2_`+ m + `"></input>
                     `;
                 }
-                
+
                 let contenidoFinal = `
                 </div>
                 <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
-                    <button id="opt2Button_`+m+`" onclick="agregarRespuestaOpt2('opt2_`+m+`','opt2Button_`+m+`','opt2InputRespuesta_`+m+`')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Agregar respuestas</button>
+                    <button id="opt2Button_`+ m + `" onclick="agregarRespuestaOpt2('opt2_` + m + `','opt2Button_` + m + `','opt2InputRespuesta_` + m + `')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Agregar respuestas</button>
                 </div>
-                <div id="opt2InputRespuesta_`+m+`" class="preguntaBox colorGreyDarker bordered1"><b>R:</b></div>`;
+                <div id="opt2InputRespuesta_`+ m + `" class="preguntaBox colorGreyDarker bordered1"><b>R:</b></div>`;
                 contenedoresPregunta[m].innerHTML = contenidoInicial + contenidoIntermedio + contenidoFinal;
             }
         }
@@ -160,15 +181,15 @@ $(document).ready(function () {
             <p>Escriba su output de salida o anexe algún repositorio con su código.</p>
             <div class="opcionesContainerStyleViewCuestionario">
                 <div class="colorGrey bordered1 colorTextReverse letterStyleViewCuestionario">Output: </div>
-                <input type="text" placeholder="output" class="opcionStyleViewCuestionario" id="opt3_resultado`+k+`"></input>
+                <input type="text" placeholder="output" class="opcionStyleViewCuestionario" id="opt3_resultado`+ k + `"></input>
                 <div class="colorGrey bordered1 colorTextReverse letterStyleViewCuestionario">Link: </div>
-                <input type="text" placeholder="link" class="opcionStyleViewCuestionario" id="opt3_link`+k+`"></input>
+                <input type="text" placeholder="link" class="opcionStyleViewCuestionario" id="opt3_link`+ k + `"></input>
             </div>
             <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
-                <button id="opt3Button_`+k+`" onclick="agregarRespuestaOpt3('opt3_resultado`+k+`','opt3_link`+k+`','opt3Button_`+k+`','opt3outputResult_`+k+`','opt3linkResult`+k+`')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Agregar respuestas</button>
+                <button id="opt3Button_`+ k + `" onclick="agregarRespuestaOpt3('opt3_resultado` + k + `','opt3_link` + k + `','opt3Button_` + k + `','opt3outputResult_` + k + `','opt3linkResult` + k + `')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Agregar respuestas</button>
             </div>
-            <div id="opt3outputResult_`+k+`" class="preguntaBox outputEsperado colorGreyDarker bordered1" style="margin-bottom: 10px;"><b>Output:</b></div>
-            <div id="opt3linkResult`+k+`" class="preguntaBox outputEsperado colorGreyDarker bordered1"><b>Link:</b></div>
+            <div id="opt3outputResult_`+ k + `" class="preguntaBox outputEsperado colorGreyDarker bordered1" style="margin-bottom: 10px;"><b>Output:</b></div>
+            <div id="opt3linkResult`+ k + `" class="preguntaBox outputEsperado colorGreyDarker bordered1"><b>Link:</b></div>
             `;
 
                 contenedoresPregunta[k].innerHTML = contenido;
@@ -206,8 +227,8 @@ $(document).ready(function () {
             }
 
             //Aqui tenemos los conceptos y las definiciones TODAS SEPARADAS Y POR PREGUNTA
-            console.log(conceptoTotal);
-            console.log(definicionTotal);
+            //console.log(conceptoTotal);
+            //console.log(definicionTotal);
 
             //Aqui lo que se alamcena es el encabezado del contenido
             let inicioContenido;
@@ -223,11 +244,17 @@ $(document).ready(function () {
                 return inicioContenido;
             }
 
-            //Este es el div que cierra el contenido
-            let finalContenido = `</div>`;
-
+            
             //Aqui hacemos la impresion de los elementos (conceptos y definiciones dentro del contenido)
             for (var t = 0; t < preguntasModalArray4.length; t++) {
+                //Este es el div que cierra el contenido
+                let finalContenido = `</div>
+                    <div style="width: 100%;"> 
+                        <button id="optArrastrarButton`+ t + `" onclick="agregarRespuestaArrastrar('resultadoArrastrar` + t + `')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Confirmar orden</button>
+                        <div id="resultadoArrastrar`+ t + `" class="preguntaBox outputEsperado colorGreyDarker bordered1" style="margin-bottom: 10px; width: 100%;"><b>Output:</b></div>
+                    </div>
+                `;
+                //En final se guarda el contenido FINAL para la pregunta
                 var final;
                 //Encabezado
                 final = crearInicio(t);
@@ -274,15 +301,15 @@ $(document).ready(function () {
                 <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray5[m][0] + `</b></div>
                 <div class="contendorBotonesTrueFalse"> 
                     <button 
-                    onclick="agregarRespuestaOpt4('opt4outputResult_`+m+`','true')" 
+                    onclick="agregarRespuestaOpt4('opt4outputResult_`+ m + `','true')" 
                     class="waves-effect waves-light btn-large colorGrey colorTextReverse trueFalsebtn1">T</button>
                     
                     <button
-                    onclick="agregarRespuestaOpt4('opt4outputResult_`+m+`','false')" 
+                    onclick="agregarRespuestaOpt4('opt4outputResult_`+ m + `','false')" 
                     class="waves-effect waves-light btn-large colorGrey colorTextReverse trueFalsebtn2">F</button>
                 </div>
                 <h6><b>Resultado.</b></h6>
-                <div id="opt4outputResult_`+m+`" class="preguntaBox outputEsperado colorGreyDarker bordered1" style="margin-bottom: 10px;"><b>Output:</b></div>
+                <div id="opt4outputResult_`+ m + `" class="preguntaBox outputEsperado colorGreyDarker bordered1" style="margin-bottom: 10px;"><b>Output:</b></div>
             `;
                 contenedoresPregunta[m].innerHTML = contenido;
             }
@@ -313,15 +340,15 @@ $(document).ready(function () {
                 <h6><b>Respuesta.</b></h6>
                 <div class="opcionesContainerStyleViewCuestionario">
                     <div class="colorGrey bordered1 colorTextReverse letterStyleViewCuestionario">R:</div>
-                    <textarea placeholder="text" class="materialize-textarea" id="opt6_respuesta`+m+`"></textarea>
+                    <textarea placeholder="text" class="materialize-textarea" id="opt6_respuesta`+ m + `"></textarea>
                 </div>
                 <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
-                    <button id="opt6_agregarRespuesta`+m+`" 
-                    onclick="agregarRespuestaOptAbiertas('opt6_respuesta`+m+`','opt6outputResult_`+m+`','opt6_agregarRespuesta`+m+`')" 
+                    <button id="opt6_agregarRespuesta`+ m + `" 
+                    onclick="agregarRespuestaOptAbiertas('opt6_respuesta`+ m + `','opt6outputResult_` + m + `','opt6_agregarRespuesta` + m + `')" 
                     class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat">
                     <i class="material-icons left">check</i>Agregar respuestas</button>
                 </div>
-                <div id="opt6outputResult_`+m+`" class="preguntaBox outputEsperado colorGreyDarker bordered1" 
+                <div id="opt6outputResult_`+ m + `" class="preguntaBox outputEsperado colorGreyDarker bordered1" 
                 style="margin-bottom: 10px;"><b>Output:</b></div>
             `;
                 contenedoresPregunta[m].innerHTML = contenido;
@@ -414,11 +441,11 @@ $(document).ready(function () {
 
         function sortableElements(numero) {
             var idConcepto = 'conceptosContainer' + numero;
-            var idDefinicion = 'definicionesContainer'+ numero;
-            
+            var idDefinicion = 'definicionesContainer' + numero;
+
             var concepto = document.getElementById(idConcepto);
             var definicion = document.getElementById(idDefinicion);
-    
+
             //console.log(concepto);
             //console.log(definicion);
             var sortableConceptos = new Sortable(concepto, {
@@ -428,7 +455,7 @@ $(document).ready(function () {
                 ghostClass: 'colorWhite'
             }
             )
-    
+
             var sortableDefiniciones = new Sortable(definicion, {
                 group: 'shared',
                 draggable: 'div',
@@ -437,20 +464,6 @@ $(document).ready(function () {
             }
             )
         }
-
-        //////////////////////////////////////////////////////
-        //////////////////////////////////////////////////////    
-        //////////////////////////////////////////////////////
-        ////////////CONTAR ELEMENTOS (PANEL LATERAL)
-
-        //Cuenta el total de las preguntas
-        function imprimirConteoTotalPreguntas() {
-            let numeroPreguntas = contarPreguntas();
-            let contadorTotalTexto = document.getElementById('contadorTotal');
-
-            contadorTotalTexto.innerText = numeroPreguntas;
-        }
-        imprimirConteoTotalPreguntas();
 
         //Validamos el ancho del contenedor para aplicar estilos.
         function validarWidthContador() {
