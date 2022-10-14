@@ -87,7 +87,7 @@
   },
   {
    "0": "Pregunta 1 con un texto largo",
-   "1": "",
+   "1": "http://www.nasa.gov/sites/default/files/thumbnails/image/web_first_images_release_0.png",
    "2": "B",
    "3": "opt 1",
    "4": "opt 2",
@@ -105,7 +105,7 @@
   },
   {
    "0": "Pregunta 1 con un texto largo",
-   "1": "",
+   "1": "http://www.nasa.gov/sites/default/files/thumbnails/image/web_first_images_release_0.png",
    "2": "C",
    "3": "opt 1",
    "4": "opt 2",
@@ -188,14 +188,14 @@
   },
   {
    "0": "problema 2 con texto cortocon texto cortocon texto cortocon texto cortocon texto cortocon texto cortocon texto cortocon texto cortocon texto cortocon texto cortocon texto cortocon texto cortocon texto cortocon texto cortocon texto corto",
-   "1": "",
+   "1": "http://www.nasa.gov/sites/default/files/thumbnails/image/web_first_images_release_0.png",
    "2": "",
    "3": "#include <stdio.h> /* Necesario para la funci\u00f3n printf() */\n\nint main(void) /* Funci\u00f3n principal del programa */\n{\n\tchar resultado; /* Variable de tipo car\u00e1cter donde se almacenar\u00e1 el resultado de las operaciones. */\n\n\tresultado=5+2; /*Realizamos una suma.*/\n\tprintf(\"Resultado de la suma: %i\\n\",resultado);\n\tresultado=5-2; /*Realizamos una resta.*/\n\tprintf(\"Resultado de la resta:%i\\n\",resultado);\n\tresultado=5*2; /*Realizamos una multiplicaci\u00f3n.*/\n\tprintf(\"Resultado de la multiplicaci\u00f3n: %i\\n\",resultado);\n\tresultado=5/2; /*Realizamos una divisi\u00f3n entera.*/\n\tprintf(\"Resultado de la divisi\u00f3n:%i\\n\",resultado);\n\t\n\treturn(0); /* Salimos del programa con el c\u00f3digo 0 porque no ha habido errores.\t*/\n\n}",
    "4": ""
   },
   {
    "0": "problema 2 con texto ",
-   "1": "http://www.nasa.gov/sites/default/files/thumbnails/image/web_fi",
+   "1": "http://www.nasa.gov/sites/default/files/thumbnails/image/web_first_images_release_0.png",
    "2": "https://github.com/LuisEnriqueChavarriaVazquez/JCP_helper",
    "3": "#include <stdio.h> /* Necesario para la funci\u00f3n printf() */\n\nint main(void) /* Funci\u00f3n principal del programa */\n{\n\tchar resultado; /* Variable de tipo car\u00e1cter donde se almacenar\u00e1 el resultado de las operaciones. */\n\n\tresultado=5+2; /*Realizamos una suma.*/\n\tprintf(\"Resultado de la suma: %i\\n\",resultado);\n\tresultado=5-2; /*Realizamos una resta.*/\n\tprintf(\"Resultado de la resta:%i\\n\",resultado);\n\tresultado=5*2; /*Realizamos una multiplicaci\u00f3n.*/\n\tprintf(\"Resultado de la multiplicaci\u00f3n: %i\\n\",resultado);\n\tresultado=5/2; /*Realizamos una divisi\u00f3n entera.*/\n\tprintf(\"Resultado de la divisi\u00f3n:%i\\n\",resultado);\n\t\n\treturn(0); /* Salimos del programa con el c\u00f3digo 0 porque no ha habido errores.\t*/\n\n}",
    "4": ""
@@ -204,57 +204,57 @@
  "preguntasModal4": [
   {
    "0": "Relaciona los conceptos",
-   "1": "**"
+   "1": "*"
   },
   {
    "0": "Relaciona los conceptos",
-   "1": "concepto 1**definicion 1",
-   "2": "concepto 1 con texto mas largo que permite ver que es lo que ocurre**definicion 1 con texto mas largo que permite ver que es lo que ocurre",
-   "3": "concepto 3**defincion 3",
-   "4": "concepto 2**definicion 2",
-   "5": "**"
+   "1": "concepto 1*definicion 1",
+   "2": "concepto 1 con texto mas largo que permite ver que es lo que ocurre*definicion 1 con texto mas largo que permite ver que es lo que ocurre",
+   "3": "concepto 3*defincion 3",
+   "4": "concepto 2*definicion 2",
+   "5": "*"
   },
   {
    "0": "Relaciona los conceptos",
-   "1": "concepto 1**definicion 1",
-   "2": "concepto 1 con texto mas largo que permite ver que es lo que ocurre**definicion 1 con texto mas largo que permite ver que es lo que ocurre",
-   "3": "concepto 3**defincion 3",
-   "4": "concepto 2**definicion 2",
-   "5": "concepto 2**"
+   "1": "concepto 1*definicion 1",
+   "2": "concepto 1 con texto mas largo que permite ver que es lo que ocurre*definicion 1 con texto mas largo que permite ver que es lo que ocurre",
+   "3": "concepto 3*defincion 3",
+   "4": "concepto 2*definicion 2",
+   "5": "concepto 2*"
   },
   {
    "0": "Relaciona los conceptos",
-   "1": "concepto 1**definicion 1",
-   "2": "concepto 1 con texto mas largo que permite ver que es lo que ocurre**definicion 1 con texto mas largo que permite ver que es lo que ocurre",
-   "3": "concepto 3**defincion 3",
-   "4": "concepto 2**definicion 2",
-   "5": "concepto 2**",
-   "6": "**definicion 2"
+   "1": "concepto 1*definicion 1",
+   "2": "concepto 1 con texto mas largo que permite ver que es lo que ocurre*definicion 1 con texto mas largo que permite ver que es lo que ocurre",
+   "3": "concepto 3*defincion 3",
+   "4": "concepto 2*definicion 2",
+   "5": "concepto 2*",
+   "6": "*definicion 2"
   },
   {
    "0": "Relaciona los conceptos",
-   "1": "concepto 1**definicion 1",
-   "2": "concepto 1 con texto mas largo que permite ver que es lo que ocurre**definicion 1 con texto mas largo que permite ver que es lo que ocurre",
-   "3": "concepto 3**defincion 3",
-   "4": "concepto 2**definicion 2",
-   "5": "concepto 2**",
-   "6": "**definicion 2",
-   "7": "**",
-   "8": "concepto 6**definicion 6"
+   "1": "concepto 1*definicion 1",
+   "2": "concepto 1 con texto mas largo que permite ver que es lo que ocurre*definicion 1 con texto mas largo que permite ver que es lo que ocurre",
+   "3": "concepto 3*defincion 3",
+   "4": "concepto 2*definicion 2",
+   "5": "concepto 2*",
+   "6": "*definicion 2",
+   "7": "*",
+   "8": "concepto 6*definicion 6"
   },
   {
    "0": "Relaciona los conceptos",
-   "1": "concepto 1**definicion 1",
-   "2": "concepto 1 con texto mas largo que permite ver que es lo que ocurre**definicion 1 con texto mas largo que permite ver que es lo que ocurre",
-   "3": "concepto 3**defincion 3",
-   "4": "concepto 2**definicion 2",
-   "5": "concepto 2**",
-   "6": "**definicion 2",
-   "7": "**",
-   "8": "concepto 6**definicion 6",
-   "9": "**",
-   "10": "**",
-   "11": "final 1**final 2 con un texto m\u00e1s largo en esta parte"
+   "1": "concepto 1*definicion 1",
+   "2": "concepto 1 con texto mas largo que permite ver que es lo que ocurre*definicion 1 con texto mas largo que permite ver que es lo que ocurre",
+   "3": "concepto 3*defincion 3",
+   "4": "concepto 2*definicion 2",
+   "5": "concepto 2*",
+   "6": "*definicion 2",
+   "7": "*",
+   "8": "concepto 6*definicion 6",
+   "9": "*",
+   "10": "*",
+   "11": "final 1*final 2 con un texto m\u00e1s largo en esta parte"
   }
  ],
  "preguntasModal5": [

@@ -602,3 +602,16 @@
 }
 
 
+/*Estilos del banco de datos*/
+.contenedorBancoDatos{
+    margin: 20px 40px;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.buttonSendBanco{
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+

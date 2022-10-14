@@ -1,44 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear cuestionario del banco</title>
+    <title>Editar grupos</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
 </head>
 
-<body>
-    <form action="/crear_cuestionario_del_banco" method="post">
-        <select name="lenguaje">
-            <option value="Python">Python</option>
-            <option value="Java">Java</option>
-            <option value="C">Lenguaje C</option>
-        </select>
-        <input type="submit" value="Aceptar">
-    </form>
-    {% if lenguaje %}
-    <h2>Configura tu cuestionario en {{lenguaje}} conforme a lo siguiente</h2>
-    {% endif %}
+<body class="oculto colorGrey">
 
-    <form action="/genera_preguntas_por_lenguaje?lenguaje={{lenguaje}}" method="post">
-        <p>Selecciona los temas que tendra el cuestionario</p>
-        {% if temas %}
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+
+    <!--Menu de página de inicio-->
+    <nav class="color2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only">Banco de datos.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Banco de datos.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--Titulos de la página-->
+    <div class="title-general">
+        <h5 class="colorTextReverse hide-on-large-only hide-on-med-only">Creación con banco de datos</h5>
+        <h4 class="colorTextReverse hide-on-small-only">Creación con banco de datos</h4>
+    </div>
+
+    <section class="contenedorBancoDatos colorGreyWhiter shadow-2e">
+        <form action="/crear_cuestionario_del_banco" method="post">
+            <select name="lenguaje">
+                <option value="Python">Python</option>
+                <option value="Java">Java</option>
+                <option value="C">Lenguaje C</option>
+            </select>
+            <input type="submit" class="btn color2 bordered5 buttonSendBanco" value="Aceptar">
+        </form>
+        {% if lenguaje %}
+        <h5>Configura tu cuestionario en {{lenguaje}} conforme a lo siguiente</h5>
+        {% endif %}
+
+        <form action="/genera_preguntas_por_lenguaje?lenguaje={{lenguaje}}" method="post">
+            <p>Selecciona los temas que tendra el cuestionario</p>
+            {% if temas %}
             {% for tema in temas %}
-                <input type="checkbox"  name="temas" value="{{tema}}">{{tema}}<br>
+            <label>
+                <input type="checkbox" class="filled-in" name="temas" value="{{tema}}" />
+                <span>{{tema}}</span>
+            </label>
+            <br>
             {% endfor %}
-        {% endif %}
-        <p>Selecciona los tipos de preguntas que tendra el cuestionario</p>
-        {% if preguntas %}
+            {% endif %}
+            <p>Selecciona los tipos de preguntas que tendra el cuestionario</p>
+            {% if preguntas %}
             {% for pregunta in preguntas %}
-                <input type="checkbox" name="tipos" value="{{pregunta}}">{{pregunta}}<br>
+            <label>
+                <input type="checkbox" class="filled-in" name="tipos" value="{{pregunta}}" />
+                <span>{{pregunta}}</span>
+            </label>
+            <br>
             {% endfor %}
-        {% endif %}
-        <br>
-        {% if temas %}
-            <input type="submit" value="Generar cuestionario">
-        {% endif %}
-    </form>
+            {% endif %}
+            <br>
+            {% if temas %}
+            <input type="submit" class="btn color2 bordered5 buttonSendBanco" value="Generar cuestionario">
+            {% endif %}
+        </form>
+    </section>
 </body>
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
 
 </html>
