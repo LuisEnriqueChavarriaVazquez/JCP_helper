@@ -8877,6 +8877,7 @@ input[type=range]::-ms-thumb {
 .timepicker-modal {
   max-width: 325px;
   max-height: none;
+  border-radius: 20px;
 }
 
 .timepicker-container.modal-content {
@@ -9023,7 +9024,7 @@ input[type=range]::-ms-thumb {
 }
 
 .timepicker-canvas line {
-  stroke: #26a69a;
+  stroke: #000;
   stroke-width: 4;
   stroke-linecap: round;
 }
@@ -9073,6 +9074,7 @@ input[type=range]::-ms-thumb {
 @media only screen and (min-width: 601px) {
   .timepicker-modal {
     max-width: 600px;
+    border-radius: 20px;
   }
   .timepicker-container.modal-content {
     -webkit-box-orient: horizontal;

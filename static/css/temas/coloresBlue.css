@@ -1,66 +1,100 @@
-::selection { 
+::selection {
     background: #3e5b65;
-    color:#fff; 
+    color: #fff;
 }
 
-.color1 {background-color:  #131c25;}
-.color2 {background-color:  #1c2936;}
-.color3 {background-color:  #3e5b65;}
-.color4 {background-color:  #5f91a4;}
-.color5 {background-color:  #85d0e5;}
+.color1 {
+    background-color: #131c25;
+}
 
-.colorGrey {background-color: #dddddd;}
-.colorGreyDarker {background-color: #cacaca;}
-.colorGreyWhiter {background-color: #ececec;}
-.colorWhite {background-color: #fff;}
+.color2 {
+    background-color: #1c2936;
+}
 
-.coloredText {color: #3e5b65 !important;}
-.colorText {color: #fff !important;}
-.colorTextReverse {color: #000 !important;}
+.color3 {
+    background-color: #3e5b65;
+}
 
-.borderDecoration{
+.color4 {
+    background-color: #5f91a4;
+}
+
+.color5 {
+    background-color: #85d0e5;
+}
+
+.colorGrey {
+    background-color: #dddddd;
+}
+
+.colorGreyDarker {
+    background-color: #cacaca;
+}
+
+.colorGreyWhiter {
+    background-color: #ececec;
+}
+
+.colorWhite {
+    background-color: #fff;
+}
+
+.coloredText {
+    color: #3e5b65 !important;
+}
+
+.colorText {
+    color: #fff !important;
+}
+
+.colorTextReverse {
+    color: #000 !important;
+}
+
+.borderDecoration {
     border-bottom: 5px #3e5b65 solid;
 }
 
-.borderDecorationStrong{
+.borderDecorationStrong {
     border-bottom: 5px #1c2936 solid;
 }
 
 
 /*Fondos dinámicos*/
-.cardCarouselMainHead{
+.cardCarouselMainHead {
     background-image: url('../../images/fondos/azul/azul_4.png');
 }
 
-.cardMain{
+.cardMain {
     background-image: url('../../images/fondos/azul/azul_3.png');
 }
 
-.cardMainDesktopPanelHead{
+.cardMainDesktopPanelHead {
     background-image: url('../../images/fondos/azul/azul_2.png');
 }
 
-.informeCard{
+.informeCard {
     background-image: url('../../images/fondos/azul/azul_3.png');
 }
 
-.iconSecondary{
-    background-image: url('../../images/fondos/azul/azul_2.png') ;
+.iconSecondary {
+    background-image: url('../../images/fondos/azul/azul_2.png');
 }
 
-.card-bienvenida,.card-bienvenida-text{
+.card-bienvenida,
+.card-bienvenida-text {
     background-image: url('../../images/fondos/azul/azul_1.png');
 }
 
-.fondoDinamico{
+.fondoDinamico {
     background-image: url('../../images/fondos/azul/azul_3.png');
 }
 
-.icon_app{
+.icon_app {
     background-image: url('../../images/logo_app/blue_icon.png');
 }
 
-.iconBoxInfoDinamico{
+.iconBoxInfoDinamico {
     background-image: url('../../images/brand_app/triple_azul.png');
 }
 
@@ -150,15 +184,15 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 }
 
 /*Para los type radio*/
-[type="radio"]:checked + span:after,
-[type="radio"].with-gap:checked + span:after {
-  background-color: #3e5b65;
+[type="radio"]:checked+span:after,
+[type="radio"].with-gap:checked+span:after {
+    background-color: #3e5b65;
 }
 
-[type="radio"]:checked + span:after,
-[type="radio"].with-gap:checked + span:before,
-[type="radio"].with-gap:checked + span:after {
-  border: 2px solid #3e5b65;
+[type="radio"]:checked+span:after,
+[type="radio"].with-gap:checked+span:before,
+[type="radio"].with-gap:checked+span:after {
+    border: 2px solid #3e5b65;
 }
 
 /*Para el icono de prefijo*/
@@ -167,11 +201,55 @@ textarea.materialize-textarea:focus:not([readonly])+label {
 }
 
 /*Para los textos de los dropdown*/
-.dropdown-content li > a, .dropdown-content li > span {
+.dropdown-content li>a,
+.dropdown-content li>span {
     font-size: 16px;
     font-weight: 650;
     color: #3e5b65;
     display: block;
     line-height: 22px;
     padding: 14px 16px;
+}
+
+/*Para el reloj*/
+/* Clock Digital Display */
+.timepicker-digital-display {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 auto;
+    -ms-flex: 1 auto;
+    flex: 1 auto;
+    background-color: #3e5b65;
+    border-radius: 20px 0 0 20px;
+    padding: 10px;
+    font-weight: 300;
+}
+
+.timepicker-canvas line {
+    stroke: #5f91a4;
+    stroke-width: 4;
+    stroke-linecap: round;
+}
+
+.timepicker-canvas-out {
+    opacity: 0.25;
+}
+
+.timepicker-canvas-bearing {
+    stroke: none;
+    fill: #5f91a4;
+}
+
+.timepicker-canvas-bg {
+    stroke: none;
+    fill: #5f91a4;
+}
+
+.timepicker-close {
+    color: #3e5b65;
+}
+
+@media only screen and (max-width: 601px) {
+    .timepicker-digital-display {
+        border-radius: 20px 20px 0 0;
+    }
 }

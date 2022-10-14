@@ -173,3 +173,46 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     line-height: 22px;
     padding: 14px 16px;
 }
+
+/*Para el reloj*/
+/* Clock Digital Display */
+.timepicker-digital-display {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 auto;
+    -ms-flex: 1 auto;
+    flex: 1 auto;
+    background-color: rgb(71, 120, 129);
+    border-radius: 20px 0 0 20px;
+    padding: 10px;
+    font-weight: 300;
+}
+
+.timepicker-canvas line {
+    stroke: rgb(164, 180, 194);
+    stroke-width: 4;
+    stroke-linecap: round;
+}
+
+.timepicker-canvas-out {
+    opacity: 0.25;
+}
+
+.timepicker-canvas-bearing {
+    stroke: none;
+    fill: rgb(164, 180, 194);
+}
+
+.timepicker-canvas-bg {
+    stroke: none;
+    fill: rgb(164, 180, 194);
+}
+
+.timepicker-close {
+    color: rgb(71, 120, 129);
+}
+
+@media only screen and (max-width: 601px) {
+    .timepicker-digital-display {
+        border-radius: 20px 20px 0 0;
+    }
+}
