@@ -219,6 +219,19 @@
         output.classList.add("color5");
         output.classList.add("coloredText");
     }
+
+    function agregarRespuestaOptAbiertas(respuesta, resultado, button){
+        let respuestaInput = document.getElementById(respuesta);
+        let resultadoInput = document.getElementById(resultado);
+        let buttonInput = document.getElementById(button);
+
+        resultadoInput.innerText = respuestaInput.value;
+
+        //Cambiar estilos del resultado
+        resultadoInput.classList.remove("colorGreyDarker");
+        resultadoInput.classList.add("color5");
+        resultadoInput.classList.add("coloredText");
+    }
 </script>
 
 </html>

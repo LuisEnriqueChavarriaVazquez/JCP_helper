@@ -274,15 +274,15 @@ $(document).ready(function () {
                 <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray5[m][0] + `</b></div>
                 <div class="contendorBotonesTrueFalse"> 
                     <button 
-                    onclick="agregarRespuestaOpt4('opt3outputResult_`+m+`','true')" 
+                    onclick="agregarRespuestaOpt4('opt4outputResult_`+m+`','true')" 
                     class="waves-effect waves-light btn-large colorGrey colorTextReverse trueFalsebtn1">T</button>
                     
                     <button
-                    onclick="agregarRespuestaOpt4('opt3outputResult_`+m+`','false')" 
+                    onclick="agregarRespuestaOpt4('opt4outputResult_`+m+`','false')" 
                     class="waves-effect waves-light btn-large colorGrey colorTextReverse trueFalsebtn2">F</button>
                 </div>
                 <h6><b>Resultado.</b></h6>
-                <div id="opt3outputResult_`+m+`" class="preguntaBox outputEsperado colorGreyDarker bordered1" style="margin-bottom: 10px;"><b>Output:</b></div>
+                <div id="opt4outputResult_`+m+`" class="preguntaBox outputEsperado colorGreyDarker bordered1" style="margin-bottom: 10px;"><b>Output:</b></div>
             `;
                 contenedoresPregunta[m].innerHTML = contenido;
             }
@@ -293,9 +293,6 @@ $(document).ready(function () {
             insertarCajasPreguntas(preguntasModalArray6.length, 'opt6');
             //Accedemos a las cajas
             let contenedoresPregunta = document.getElementsByClassName('opt6');
-
-            //Hacemos variables de pregunta
-            let dato1_pregunta, videoPregunta, imagenPregunta;
 
             for (var m = 0; m < preguntasModalArray6.length; m++) {
                 //Contenido de la pregunta
@@ -313,17 +310,30 @@ $(document).ready(function () {
                     <h6><b>Media.</b></h6>
                     <a href="` + preguntasModalArray6[m][1] + `" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">play_arrow</i>Acceder a video online</a>
                 </div>
+                <h6><b>Respuesta.</b></h6>
+                <div class="opcionesContainerStyleViewCuestionario">
+                    <div class="colorGrey bordered1 colorTextReverse letterStyleViewCuestionario">R:</div>
+                    <textarea placeholder="text" class="materialize-textarea" id="opt6_respuesta`+m+`"></textarea>
+                </div>
+                <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
+                    <button id="opt6_agregarRespuesta`+m+`" 
+                    onclick="agregarRespuestaOptAbiertas('opt6_respuesta`+m+`','opt6outputResult_`+m+`','opt6_agregarRespuesta`+m+`')" 
+                    class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat">
+                    <i class="material-icons left">check</i>Agregar respuestas</button>
+                </div>
+                <div id="opt6outputResult_`+m+`" class="preguntaBox outputEsperado colorGreyDarker bordered1" 
+                style="margin-bottom: 10px;"><b>Output:</b></div>
             `;
                 contenedoresPregunta[m].innerHTML = contenido;
             }
         }
 
-        //ingresarPreguntasOpcionMultiple();
-        //ingresarPreguntasAcompletar();
-        //ingresarPreguntasEjercicios();
-        //ingresarPreguntasArrastrar();
+        ingresarPreguntasOpcionMultiple();
+        ingresarPreguntasAcompletar();
+        ingresarPreguntasEjercicios();
         ingresarPreguntasTrueFalse();
-        //ingresarPreguntasAbiertas();
+        ingresarPreguntasAbiertas();
+        ingresarPreguntasArrastrar();
 
         //////////////////////////////////////////////////////
         //////////////////////////////////////////////////////    
@@ -409,8 +419,8 @@ $(document).ready(function () {
             var concepto = document.getElementById(idConcepto);
             var definicion = document.getElementById(idDefinicion);
     
-            console.log(concepto);
-            console.log(definicion);
+            //console.log(concepto);
+            //console.log(definicion);
             var sortableConceptos = new Sortable(concepto, {
                 group: 'shared',
                 draggable: 'div',

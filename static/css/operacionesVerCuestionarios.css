@@ -365,6 +365,10 @@
 
 /*Preview del cuestionario como alumno*/
 
+.outputEsperado{
+    font-weight: 500;
+}
+
 .generalInfoPreviewAlumno{
     padding: 10px 25px;
 }
