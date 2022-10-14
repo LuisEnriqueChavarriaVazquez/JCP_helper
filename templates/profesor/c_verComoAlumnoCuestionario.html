@@ -85,22 +85,6 @@
                     </ul>
                 </div>
             </div>
-            <div class="hide-on-med-and-down">
-                <div>
-                    <ul class="collapsible bordered5 colorWhite">
-                        <li>
-                            <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
-                                style="margin-bottom: 5px;"><i class="material-icons">check</i>Estado de preguntas.
-                            </div>
-                            <div class="bordered5 collapsible-body">
-                                <div class="containerPreguntasCuadricula colorGreyWhiter">
-
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
             <div class="contenedorOperacionesLive colorGreyWhiter bordered2 shadow-1e" id="contenedorLive">
                 <div class="datosCuestionarioLive">
                     <h5>Tablero de información.</h5>
@@ -172,6 +156,7 @@
         textoInput.classList.remove("colorGreyDarker");
         textoInput.classList.add("color5");
         textoInput.classList.add("coloredText");
+        //Agregamos identificador de pregunta resuelta
         textoInput.classList.add("answerReady");
         imprimirConteoRespondidas();
         imprimirBarraProgreso();
@@ -192,6 +177,7 @@
         textInput.classList.remove("colorGreyDarker");
         textInput.classList.add("color5");
         textInput.classList.add("coloredText");
+        //Agregamos identificador de pregunta resuelta
         textInput.classList.add("answerReady");
         imprimirConteoRespondidas();
         imprimirBarraProgreso();
@@ -222,6 +208,7 @@
         outputLink.classList.remove("colorGreyDarker");
         outputLink.classList.add("color5");
         outputLink.classList.add("coloredText");
+        //Agregamos identificador de pregunta resuelta
         outputLink.classList.add("answerReady");
         imprimirConteoRespondidas();
         imprimirBarraProgreso();
@@ -233,6 +220,7 @@
         respuestaInput.classList.remove("colorGreyDarker");
         respuestaInput.classList.add("color5");
         respuestaInput.classList.add("coloredText");
+        //Agregamos identificador de pregunta resuelta
         respuestaInput.classList.add("answerReady");
         imprimirConteoRespondidas();
         imprimirBarraProgreso();
@@ -246,6 +234,7 @@
         output.classList.remove("colorGreyDarker");
         output.classList.add("color5");
         output.classList.add("coloredText");
+        //Agregamos identificador de pregunta resuelta
         output.classList.add("answerReady");
         imprimirConteoRespondidas();
         imprimirBarraProgreso();
@@ -262,6 +251,7 @@
         resultadoInput.classList.remove("colorGreyDarker");
         resultadoInput.classList.add("color5");
         resultadoInput.classList.add("coloredText");
+        //Agregamos identificador de pregunta resuelta
         resultadoInput.classList.add("answerReady");
         imprimirConteoRespondidas();
         imprimirBarraProgreso();
@@ -287,9 +277,7 @@
         let numeroPreguntas = document.getElementById('contadorTotal').innerText;
         //Accedemos a las preguntas que se van agregando
         let answerReadySize = document.getElementsByClassName('answerReady').length;
-
         cargaBarra[0].setAttribute('style', 'width:' + ((100/numeroPreguntas)*answerReadySize) + '%;')
-
     }
 </script>
 
