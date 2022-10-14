@@ -4,7 +4,12 @@
 */
 
 /*Titulo de las preguntas sticky*/
-@media screen and (max-width: 600px) {
+
+.tituloPregunta{
+    transition: all .3s ease-out;
+}
+
+@media screen and (max-width: 1400px) {
     .tituloPregunta{
         position: sticky;
         border-radius: 10px;
@@ -13,7 +18,7 @@
         top: 10px;
         font-weight: 300;
 
-        transition: all .2s ease-in-out;
+        transition: all .3s ease-out;
     }
 }
 
@@ -199,7 +204,7 @@
 /*ARRASTRAS OPT2*/
 .opcionesContainerStyleViewCuestionarioArrastrar{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     gap: 10px;
     margin: 20px 0;
@@ -207,6 +212,13 @@
     justify-content: center;
     align-items: center;
     justify-items: center;
+}
+
+.arrastrarElemento{
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 10px;
+    font-weight: 600;
 }
 
 .arrastrarContenedorOpcionView{
@@ -218,6 +230,19 @@
 }
 
 /*OPT 5 FALSO Y VERDADERO*/
+
+.opcionesContainerStyleViewCuestionarioTrueFalse{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    margin: 20px 0;
+
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
 .preguntaBoxFalseTrue{
     text-align: center;
     width: 100%;

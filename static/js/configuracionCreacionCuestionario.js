@@ -1565,7 +1565,7 @@ function getArrastrarValues_four() {
   //Juntamos los conceptos con las definiciones
   let valuesPadre = [];
   for (var k = 0; k < definicionArrastrarViewValues.length; k++) {
-    let individualValue = conceptoArrastrarViewValues[k] + "**" + definicionArrastrarViewValues[k];
+    let individualValue = conceptoArrastrarViewValues[k] + "*" + definicionArrastrarViewValues[k];
     valuesPadre.push(individualValue);
   }
 

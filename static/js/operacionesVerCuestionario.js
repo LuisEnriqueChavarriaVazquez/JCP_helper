@@ -174,32 +174,60 @@ function obtenerDataCuestionario() {
         insertarCajasPreguntas(preguntasModalArray4.length, 'opt4');
         //Accedemos a las cajas
         let contenedoresPregunta = document.getElementsByClassName('opt4');
-        //Hacemos variables de pregunta
-        let dato1_pregunta;
+        let opcionesContainerStyleViewCuestionarioArrastrar = document.getElementsByClassName('opcionesContainerStyleViewCuestionarioArrastrar');
+        var concepto_y_definiciones = [];
+        let conceptoTotal = [];
+        let definicionTotal = [];
 
-        for (var m = 0; m < preguntasModalArray4.length; m++) {
-            //Contenido de la pregunta
-            let contenido =
-                `  
-                <h5 class="tituloPregunta"><b>Ejercicio arrastrar ` + (m + 1) + `</b></h5>
-                <hr>
-                <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray4[m][0] + `</b></div>
-                <h6><b>Relación de palabras.</b></h6>
-                <div class="opcionesContainerStyleViewCuestionarioArrastrar">
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][1] + `</div>
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][2] + `</div>
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][3] + `</div>
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][4] + `</div>
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][5] + `</div>
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][6] + `</div>
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][7] + `</div>
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][8] + `</div>
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][9] + `</div>
-                    <div class="colorGreyDarker bordered1 arrastrarContenedorOpcionView">`+ preguntasModalArray4[m][10] + `</div>
-                </div>
-            `;
-            contenedoresPregunta[m].innerHTML = contenido;
+        for (var y = 0; y < preguntasModalArray4.length; y++) {
+            //Guardamos todos los conceptos y definicioness
+            concepto_y_definiciones.push(Object.values(preguntasModalArray4[y]));
+            //Eliminamos el primer elemento (descripcion del problema)
+            concepto_y_definiciones[y].shift();
+            //Reiniciamos nuestras lista cada que se recorre una pregunta entera
+            var concepto = [];
+            var definicion = [];
+            for (var x = 0; x < concepto_y_definiciones[y].length; x++) {
+                //Guardamos solo el concepto en una lista
+                concepto.push("<div class='arrastrarElemento arrastrarElementoC shadow-1e colorGrey'>" + concepto_y_definiciones[y][x].substr(0, concepto_y_definiciones[y][x].indexOf('*')) + "</div>");
+                //Guardamos solo las definiciones en una lista
+                definicion.push("<div class='arrastrarElemento arrastrarElementoD shadow-1e colorGreyDarker'>" + concepto_y_definiciones[y][x].substr(concepto_y_definiciones[y][x].indexOf('*') + 1) + "</div>");
+            }
+            conceptoTotal.push(concepto);
+            definicionTotal.push(definicion);
         }
+
+        //Aqui tenemos los conceptos y las definiciones TODAS SEPARADAS Y POR PREGUNTA
+        console.log(conceptoTotal);
+        console.log(definicionTotal);
+
+        //Aqui lo que se alamcena es el encabezado del contenido
+        let inicioContenido;
+        function crearInicio(numero){
+            inicioContenido =
+            `  
+            <h5 class="tituloPregunta"><b>Ejercicio arrastrar ` + (numero + 1) + `</b></h5>
+            <hr>
+            <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray4[numero][0] + `</b></div>
+            <h6><b>Relación de palabras.</b></h6>
+            <div class="opcionesContainerStyleViewCuestionarioArrastrar">`;
+            return inicioContenido;
+        }
+
+        //Este es el div que cierra el contenido
+        let finalContenido = `</div>`;
+        
+        //Aqui hacemos la impresion de los elementos (conceptos y definiciones dentro del contenido)
+        for (var t = 0; t < preguntasModalArray4.length; t++) {   
+            var final;
+            final = crearInicio(t);
+            for(var u = 0; u < conceptoTotal[t].length; u++){
+                final += conceptoTotal[t][u] + definicionTotal[t][u];
+            }
+            final += finalContenido;
+            contenedoresPregunta[t].innerHTML = final;
+        }
+
     }
 
     function ingresarPreguntasTrueFalse() {
@@ -219,7 +247,7 @@ function obtenerDataCuestionario() {
                 <hr>
                 <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray5[m][0] + `</b></div>
                 <h6><b>Resultado.</b></h6>
-                <div class="opcionesContainerStyleViewCuestionarioArrastrar">
+                <div class="opcionesContainerStyleViewCuestionarioTrueFalse">
                     <div class="preguntaBoxFalseTrue color5 coloredText bordered1"><b>` + preguntasModalArray5[m][1] + `</b></div>
                 </div>
             `;
@@ -271,16 +299,6 @@ function obtenerDataCuestionario() {
 
     /*Validacion de eliminar los astericos en los textos de arrastrar*/
     //Tramiento de texto arrastrar
-    function eliminarAsteriscos() {
-        let arrastrarContenedorOpcionView = document.getElementsByClassName('arrastrarContenedorOpcionView');
-        for (var i = 0; i < arrastrarContenedorOpcionView.length; i++) {
-            let textosContendor = arrastrarContenedorOpcionView[i].innerText;
-            textosContendor = textosContendor.replace("**", " ➡️ ");
-            arrastrarContenedorOpcionView[i].innerText = textosContendor;
-        }
-    }
-    eliminarAsteriscos();
-
     function validarRecursosAdicionales() {
         let recursoOnlineEjercicios = document.getElementsByClassName('recursoOnlineEjercicios');
         let recursoOnlineEjerciciosLink = document.getElementsByClassName('recursoOnlineEjerciciosLink');
@@ -311,6 +329,13 @@ function obtenerDataCuestionario() {
             }
         }
         //console.log(arrastrarContenedorOpcionView);
+
+        let arrastrarElemento = document.getElementsByClassName('arrastrarElemento');
+        for (var i = 0; i < arrastrarElemento.length; i++) {
+            if (arrastrarElemento[i].innerText == "undefined" || arrastrarElemento[i].innerText == "") {
+                arrastrarElemento[i].innerText = "--------";
+            }
+        }
     }
     validarTextosIndefinidos();
 
@@ -384,26 +409,26 @@ function obtenerDataCuestionario() {
     imprimirConteoPreguntasSecundarias();
 
     //Validamos el ancho del contenedor para aplicar estilos.
-    function validarWidthContador(){
+    function validarWidthContador() {
         let contenedorOperacionesLive = document.getElementById('contenedorLive');
         let previewJsonResponderButton = document.getElementById('previewJsonResponder');
-        
+
         //En caso de que sea la primera vez que el usuario entre debe detectar el with y hace los cambios
         validar();
 
         //Hace la validacion en tiempo real
-        window.addEventListener("resize", function() {
+        window.addEventListener("resize", function () {
             validar();
         });
 
         //La funcion con la validacion
-        function validar(){
-            if(window.innerWidth < 1000){
+        function validar() {
+            if (window.innerWidth < 1000) {
                 contenedorOperacionesLive.classList.remove('contenedorOperacionesLive');
                 contenedorOperacionesLive.classList.add('contenedorOperacionesLiveMobile');
                 previewJsonResponderButton.classList.remove('btn-large');
                 previewJsonResponderButton.classList.add('btn');
-            }else if(window.innerWidth > 1000){
+            } else if (window.innerWidth > 1000) {
                 contenedorOperacionesLive.classList.add('contenedorOperacionesLive');
                 contenedorOperacionesLive.classList.remove('contenedorOperacionesLiveMobile');
                 previewJsonResponderButton.classList.add('btn-large');
@@ -419,7 +444,7 @@ function obtenerDataCuestionario() {
         let tituloPregunta = document.getElementsByClassName('tituloPregunta');
 
         $(window).scroll(function () {
-            for(var j = 0; j < tituloPregunta.length; j++){
+            for (var j = 0; j < tituloPregunta.length; j++) {
                 if ($(window).scrollTop() > (50)) {
                     tituloPregunta[j].classList.add('color1');
                     tituloPregunta[j].classList.add('colorText');
