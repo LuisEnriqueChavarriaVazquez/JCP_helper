@@ -83,6 +83,11 @@
 .graficoCardGrafica{
     padding: 20px 10px 20px 10px;
 }
+.graficoCardGrafica div{
+    width: 100%;
+    height: auto;
+
+}
 
 
 /*Para celular y tablet*/

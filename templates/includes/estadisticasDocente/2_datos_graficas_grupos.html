@@ -1,3 +1,5 @@
+<script src='https://cdn.plot.ly/plotly-2.14.0.min.js'></script>
+
 <!--Seccion de datos relevantes en las estadisticas
             para los dispositivos moviles.-->
 <div class="title-general colorGrey titleGraficas" style="margin: 20px 0px 0px 0px;">
@@ -29,7 +31,7 @@
                 </div>
             </div>
             <div class="graficoCardGrafica centerAligner">
-                <!-- <div id='chart5' class='chart' ”></div> -->
+                <div id="graph1"></div>
             </div>
             <div class="bordered2Down centerAligner colorGrey viewsGraps">
                 <div>
@@ -63,7 +65,7 @@
                 </div>
             </div>
             <div class="graficoCardGrafica centerAligner">
-                <!-- <div id='chart6' class='chart' ”></div> -->
+                <div id="graph2"></div>
             </div>
             <div class="bordered2Down centerAligner colorGrey viewsGraps">
                 <div>
@@ -176,5 +178,29 @@
         </li>
     </ul>
 </section>
+<script>
+    var trace1 = {
+        type: 'bar',
+        x: [1, 2, 3, 4],
+        y: [5, 10, 2, 8],
+        marker: {
+            color: '#5F9DF7',
+            line: {
+                width: 2.5
+            }
+        }
+    };
 
-<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    var data = [trace1];
+
+    var layout = {
+        title: 'Responsive graphs examples',
+        font: { size: 10 }
+    };
+
+    var config = { responsive: true }
+
+    Plotly.newPlot('graph1', data, layout, config);
+    Plotly.newPlot('graph2', data, layout, config);
+
+</script>
