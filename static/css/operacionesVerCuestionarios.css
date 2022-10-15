@@ -91,7 +91,11 @@
     }
 }
 
-.contenedorPreguntasPreview{
+.contenedorPreguntasPreview, 
+.contenedorPreguntasPreviewArrastrar, 
+.contenedorPreguntasPreviewArrastrar2, 
+.contenedorPreguntasPreview2,
+.contenedorPreguntasPreview3{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
@@ -101,7 +105,11 @@
 
 
 @media screen and (max-width: 1550px) {
-    .contenedorPreguntasPreview{
+    .contenedorPreguntasPreview, 
+    .contenedorPreguntasPreviewArrastrar, 
+    .contenedorPreguntasPreviewArrastrar2, 
+    .contenedorPreguntasPreview2,
+    .contenedorPreguntasPreview3{
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         gap: 10px;
@@ -110,7 +118,11 @@
 }
 
 @media screen and (max-width: 1100px) {
-    .contenedorPreguntasPreview{
+    .contenedorPreguntasPreview, 
+    .contenedorPreguntasPreviewArrastrar, 
+    .contenedorPreguntasPreviewArrastrar2, 
+    .contenedorPreguntasPreview2,
+    .contenedorPreguntasPreview3{
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         gap: 10px;
@@ -119,13 +131,21 @@
 }
 
 @media screen and (max-width: 900px) {
-    .contenedorPreguntasPreview{
+    .contenedorPreguntasPreview, 
+    .contenedorPreguntasPreviewArrastrar, 
+    .contenedorPreguntasPreviewArrastrar2, 
+    .contenedorPreguntasPreview2,
+    .contenedorPreguntasPreview3{
         margin: 20px 40px;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .contenedorPreguntasPreview{
+    .contenedorPreguntasPreview, 
+    .contenedorPreguntasPreviewArrastrar, 
+    .contenedorPreguntasPreviewArrastrar2, 
+    .contenedorPreguntasPreview2,
+    .contenedorPreguntasPreview3{
         margin: 10px 0;
     }
 }

@@ -32,6 +32,11 @@ $(document).ready(function () {
     console.log('ponderacionPreguntasArray', ponderacionPreguntasArray)
     console.log('ordenPreguntasArray', ordenPreguntasArray)
 
+    //Para saber si el cuestionario es aleatorio
+    let ordenCuestionarioValue = document.getElementById('ordenCuestionarioValue').value;
+    console.log('ordenCuestionarioValue', ordenCuestionarioValue)
+
+
     //Forma de acceder a las preguntas y elemento
     //Primer indice indica el numero de pregunta
     //Segundo indice indica el dato de la pregunta
@@ -73,9 +78,77 @@ $(document).ready(function () {
         //////////////////////////////////////////////////////
         ////////////INSERCION DE ELEMENTOS
 
+        //Para revolver grupos de tipos de preguntas
+        function randomizerPorTipoPregunta(){
+            //Generador alatorio
+            //Modifica el orden de las cajas principales, mas no de la pregunta
+            function getRandomInt(max) {
+                return Math.floor(Math.random() * max);
+            }
+            let contenedorAleatorio = getRandomInt(3);
+            let contenedorElegido;
+
+            if(contenedorAleatorio == 0){
+                contenedorElegido = document.getElementById('contenedorPreguntasPreview');
+            }else if(contenedorAleatorio == 1){
+                contenedorElegido = document.getElementById('contenedorPreguntasPreview2');
+            }else if(contenedorAleatorio == 2){
+                contenedorElegido = document.getElementById('contenedorPreguntasPreview3');
+            }
+
+            return contenedorElegido;
+        }
+
+        //Revolver en dos posibles divs a las preguntas de arrastrar (estas deben estar en un solo div para no generar error)
+        function randomizerPorTipoPreguntaArrastrar(){
+            //Generador alatorio
+            //Modifica el orden de las cajas principales, mas no de la pregunta
+            function getRandomInt(max) {
+                return Math.floor(Math.random() * max);
+            }
+            let contenedorAleatorio = getRandomInt(2);
+            let contenedorElegido;
+
+            if(contenedorAleatorio == 0){
+                contenedorElegido = document.getElementById('contenedorPreguntasPreviewArrastrar');
+            }else if(contenedorAleatorio == 1){
+                contenedorElegido = document.getElementById('contenedorPreguntasPreviewArrastrar2');
+            }
+            return contenedorElegido;
+        }
+
         //Insertamos cajas de acuerdo a la cantidad de preguntas
         function insertarCajasPreguntas(numeroPregunta, tipo) {
-            const contenedorPadre = document.getElementById('contenedorPreguntasPreview');
+            var contenedorPadre;
+            if(ordenCuestionarioValue == "random"){
+                contenedorPadre = randomizerPorTipoPregunta();
+            }else if(ordenCuestionarioValue == "order_by_type"){
+                contenedorPadre = document.getElementById('contenedorPreguntasPreview');
+            }else if(ordenCuestionarioValue == "order_by_creation"){
+                contenedorPadre = document.getElementById('contenedorPreguntasPreview');
+            }
+
+            //Comienza la inserción
+            let contenedor;
+
+            for (var t = 0; t < numeroPregunta; t++) {
+                contenedor = `<div class="` + tipo + ` bordered2 colorGreyWhiter shadow-1e preguntaContainerIndividualPreview"></div>`;
+                contenedorPadre.innerHTML += contenedor;
+            }
+        }
+
+        //Insertamos cajas de acuerdo a la cantidad de preguntas
+        function insertarCajasPreguntasArrastrar(numeroPregunta, tipo) {
+            var contenedorPadre;
+            if(ordenCuestionarioValue == "random"){
+                contenedorPadre = randomizerPorTipoPreguntaArrastrar();
+            }else if(ordenCuestionarioValue == "order_by_type"){
+                contenedorPadre = document.getElementById('contenedorPreguntasPreviewArrastrar');
+            }else if(ordenCuestionarioValue == "order_by_creation"){
+                contenedorPadre = document.getElementById('contenedorPreguntasPreviewArrastrar');
+            }
+
+            //Comienza la inserción
             let contenedor;
 
             for (var t = 0; t < numeroPregunta; t++) {
@@ -204,8 +277,8 @@ $(document).ready(function () {
         }
 
         function ingresarPreguntasArrastrar() {
-            //Ingresamos los elementos
-            insertarCajasPreguntas(preguntasModalArray4.length, 'opt4');
+            //Ingresamos los elementos (en un contenedor especial)
+            insertarCajasPreguntasArrastrar(preguntasModalArray4.length, 'opt4');
             //Accedemos a las cajas
             let contenedoresPregunta = document.getElementsByClassName('opt4');
             let opcionesContainerStyleViewCuestionarioArrastrar = document.getElementsByClassName('opcionesContainerStyleViewCuestionarioArrastrar');
@@ -529,7 +602,6 @@ $(document).ready(function () {
         function sortableElements(numero) {
             var idConcepto = 'conceptosContainer' + numero;
             var idDefinicion = 'definicionesContainer' + numero;
-
             var concepto = document.getElementById(idConcepto);
             var definicion = document.getElementById(idDefinicion);
 

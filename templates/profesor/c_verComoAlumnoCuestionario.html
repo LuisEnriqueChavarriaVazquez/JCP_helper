@@ -49,9 +49,7 @@
                         <div class="colorGreyDarker bordered5">Respondidas: 
                             <span class="coloredText"id="contadorRespondidas"></span>
                         </div>
-                        <div class="colorGreyDarker bordered5">Orden del cuestionario: 
-                            <span class="coloredText" id="ordenCuestionarios">{{datosCuestionario[0][10]}}</span> 
-                        </div>
+                        <input type="hidden" value="{{datosCuestionario[0][10]}}" id="ordenCuestionarioValue">
                         <div class="color5 bordered5">Días restantes:
                             <span class="coloredText" id="contadorFecha">{{datosCuestionario[0][12]}}</span>
                             <span  class="coloredText" id="contadorTiempo">{{datosCuestionario[0][13]}}</span>
@@ -81,9 +79,16 @@
         <!--Vista previa del cuestionario-->
         <section class="contenedorPreviewDos">
             <h5>Preguntas cuestionario</h5>
-            <div class="contenedorPreguntasPreview" id="contenedorPreguntasPreview">
+            <!--Se crean varios contendores para poder dar variedad a la posicion de las preguntas
+            EN EL CASO DE ARRASTRAR SOLO PODRAN IR EN ESOS CONTENEDORES DESTINADOS PARA ELLOS-->
 
-            </div>
+            <!--Las preguntas de arrastrar deben ir en un contenedor separado
+            porque sortable JS tiene un fallo cuando las pagina deben ajustar su altura-->
+            <div class="contenedorPreguntasPreview" id="contenedorPreguntasPreview"></div>
+            <div class="contenedorPreguntasPreviewArrastrar" id="contenedorPreguntasPreviewArrastrar"></div>
+            <div class="contenedorPreguntasPreview2" id="contenedorPreguntasPreview2"></div> 
+            <div class="contenedorPreguntasPreviewArrastrar2" id="contenedorPreguntasPreviewArrastrar2"></div>
+            <div class="contenedorPreguntasPreview3" id="contenedorPreguntasPreview3"></div>
         </section>
     </section>
 
@@ -105,7 +110,6 @@
     //Accedemos a los datos guardados en el JSON
     const dataCuestionarioJSON = {{ dataJSON| tojson}}; 
 </script>
-<script src="../../static/js/Sortable.min.js"></script>
 <script src="../../static/js/operacionesTerminos.js"></script>
 <script src="../../static/js/operacionesPreviewDeAlumno.js"></script>
 <script src="../../static/js/operacionesCuestionariosCuentaAtras.js"></script>
