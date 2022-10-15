@@ -102,10 +102,10 @@ $(document).ready(function () {
                 </div>
                 <h6><b>Opciones de la pregunta.</b></h6>
                 <div class="opcionesContainerStyleViewCuestionario">
-                    <button onclick="agregarRespuesta('opt1_` + m + "a" + `','opt1Button_` + m + `')" id="opt1_` + m + "a" + `" class="btn color5 bordered5 coloredText letterStyleViewCuestionario">A</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][3] + `</div>
-                    <button onclick="agregarRespuesta('opt1_` + m + "b" + `','opt1Button_` + m + `')" id="opt1_` + m + "b" + `" class="btn color5 bordered5 coloredText letterStyleViewCuestionario">B</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][4] + `</div>
-                    <button onclick="agregarRespuesta('opt1_` + m + "c" + `','opt1Button_` + m + `')" id="opt1_` + m + "c" + `" class="btn color5 bordered5 coloredText letterStyleViewCuestionario">C</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][5] + `</div>
-                    <button onclick="agregarRespuesta('opt1_` + m + "d" + `','opt1Button_` + m + `')" id="opt1_` + m + "d" + `" class="btn color5 bordered5 coloredText letterStyleViewCuestionario">D</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][6] + `</div>
+                    <button onclick="agregarRespuesta('opt1_` + m + "a" + `','opt1Button_` + m + `')" id="opt1_` + m + "a" + `" class="btn waves-effect color5 bordered5 coloredText letterStyleViewCuestionario">A</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][3] + `</div>
+                    <button onclick="agregarRespuesta('opt1_` + m + "b" + `','opt1Button_` + m + `')" id="opt1_` + m + "b" + `" class="btn waves-effect color5 bordered5 coloredText letterStyleViewCuestionario">B</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][4] + `</div>
+                    <button onclick="agregarRespuesta('opt1_` + m + "c" + `','opt1Button_` + m + `')" id="opt1_` + m + "c" + `" class="btn waves-effect color5 bordered5 coloredText letterStyleViewCuestionario">C</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][5] + `</div>
+                    <button onclick="agregarRespuesta('opt1_` + m + "d" + `','opt1Button_` + m + `')" id="opt1_` + m + "d" + `" class="btn waves-effect color5 bordered5 coloredText letterStyleViewCuestionario">D</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][6] + `</div>
                 </div>
                 
                 <div class="preguntaBox colorGreyDarker bordered1" id="opt1Button_` + m + `"><b>R:</b></div>
@@ -216,9 +216,9 @@ $(document).ready(function () {
                 var definicion = [`<div class="maxdefiniciones colorGrey bordered2" id="definicionesContainer` + y + `"><h6>Definiciones</h6>`];
                 for (var x = 0; x < concepto_y_definiciones[y].length; x++) {
                     //Guardamos solo el concepto en una lista
-                    concepto.push("<div class='arrastrarElemento arrastrarElementoC shadow-1e color3 colorText'>" + concepto_y_definiciones[y][x].substr(0, concepto_y_definiciones[y][x].indexOf('*')) + "</div>");
+                    concepto.push("<div class='arrastrarElemento arrastrarElementoC shadow-1e color3 colorText'>" + concepto_y_definiciones[y][x].substring(0, concepto_y_definiciones[y][x].indexOf('*')) + "</div>");
                     //Guardamos solo las definiciones en una lista
-                    definicion.push("<div class='arrastrarElemento arrastrarElementoD shadow-1e colorGreyDarker'>" + concepto_y_definiciones[y][x].substr(concepto_y_definiciones[y][x].indexOf('*') + 1) + "</div>");
+                    definicion.push("<div class='arrastrarElemento arrastrarElementoD shadow-1e colorGreyDarker'>" + concepto_y_definiciones[y][x].substring(concepto_y_definiciones[y][x].indexOf('*') + 1) + "</div>");
                 }
                 concepto.push("</div>");
                 definicion.push("</div>");

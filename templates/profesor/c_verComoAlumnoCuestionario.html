@@ -34,56 +34,10 @@
         <!--Datos importantes del cuestionario-->
         <section class="contenedorPreviewUno">
             <section class="infoColor bordered1 shadow-1e generalInfoPreviewAlumno">
-                <p class="infoColor"><i class="material-icons">info</i> Aqui usted puede ver el cuestionario como lo
-                    vería un estudiante al momento de estarlo contestando. Esto le ayudará a ver como es funcionamiento
-                    general del cuestionario en tiempo real y poder verificar fallos.</p>
+                <p class="infoColor"><i class="material-icons">info</i> Usted puede ver el cuestionario como lo vería el estudiante al momento de contestar.</p>
             </section>
             <div class="hide-on-small-only">
                 <h5>Acciones disponibles</h5>
-                <div>
-                    <ul class="collapsible bordered5 colorWhite">
-                        <li>
-                            <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
-                                style="margin-bottom: 5px;"><i class="material-icons">article</i>Información importante.
-                            </div>
-                            <div class="bordered5 collapsible-body">
-                                {% if datosCuestionario %}
-                                <div class="">
-                                    <h5><b>{{datosCuestionario[0][3]}}</b></h5>
-                                    <hr>
-                                    <section class="row">
-                                        <div class="col s12 m6 l12">
-                                            <h6><b>Fecha creación:</b></h6>
-                                            <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1">
-                                                {{datosCuestionario[0][4]}}</p>
-                                        </div>
-                                        <div class="col s12 m6 l12">
-                                            <h6><b>Autor:</b></h6>
-                                            <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1">
-                                                {{datosCuestionario[0][5]}}</p>
-                                        </div>
-                                        <div class="col s12 m6 l12">
-                                            <h6><b>Temas:</b></h6>
-                                            <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1">
-                                                {{datosCuestionario[0][6]}}</p>
-                                        </div>
-                                        <div class="col s12 m6 l12">
-                                            <h6><b>Tipo de cuestionario:</b></h6>
-                                            <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1">
-                                                {{datosCuestionario[0][7]}}</p>
-                                        </div>
-                                        <div class="col s12 m12 l12">
-                                            <h6><b>Lenguaje:</b></h6>
-                                            <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1">
-                                                {{datosCuestionario[0][8]}}</p>
-                                        </div>
-                                    </section>
-                                </div>
-                                {%endif%}
-                            </div>
-                        </li>
-                    </ul>
-                </div>
             </div>
             <div class="contenedorOperacionesLive colorGreyWhiter bordered2 shadow-1e" id="contenedorLive">
                 <div class="datosCuestionarioLive">
@@ -95,11 +49,13 @@
                         <div class="colorGreyDarker bordered5">Respondidas: <span class="coloredText"
                             id="contadorRespondidas"></span>
                         </span> </div>
+                        <div class="color5 bordered5">Días restantes:
+                            <span class="coloredText" id="contadorFecha">{{datosCuestionario[0][12]}}</span>
+                            <span  class="coloredText" id="contadorTiempo">{{datosCuestionario[0][13]}}</span></div>
+                        <div class="color5 bordered5">Orden del cuestionario: <span class="coloredText" id="ordenCuestionarios">{{datosCuestionario[0][10]}}</span> </div>
                         <div class="contenedorBarra colorGrey bordered5">
                             <div class="cargaBarra color1 bordered5"></div>
                         </div>
-                        <div class="color5 bordered5">Tiempo restante: <span class="coloredText" id="contadorTiempo">
-                            </span> </div>
                     </div>
                 </div>
                 <div class="accessCuestionarioLive">
@@ -146,6 +102,7 @@
 <script src="../../static/js/Sortable.min.js"></script>
 <script src="../../static/js/operacionesTerminos.js"></script>
 <script src="../../static/js/operacionesPreviewDeAlumno.js"></script>
+<script src="../../static/js/operacionesCuestionariosCuentaAtras.js"></script>
 
 <!--Esta parte necesita ser agregada aqui porque son cambios en tiempo real-->
 <script>

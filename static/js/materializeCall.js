@@ -23,7 +23,10 @@ $(document).ready(function () {
     $('select').formSelect();
     $('.scrollspy').scrollSpy();
     $('input#input_text, textarea#descGrupo, textarea#codigoGrupo').characterCounter();
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker({
+        format: 'mm/dd/yyyy',
+        yearRange: 1
+    });
     $('.timepicker').timepicker({
         twelvehour: false,
         donetext: 'OK',
