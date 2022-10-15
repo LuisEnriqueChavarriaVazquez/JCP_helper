@@ -135,23 +135,30 @@ $(document).ready(function () {
 
             //Ingresa la propiedad de grid template area con areas dinámicas
             function generarGridTemplateArea(longitud, contenedor){
-                //Textos para definir los estilos
-                var areaText, gridAreaTexto;
-                var areasList = [];
-                gridAreaTexto = `
-                        grid-template-areas: 
-                            `;
-                for(var t = 0; t < longitud; t++){
-                    areaText = `"area`+t+`"`;
-                    areasList.push(parseInt(t));
-                    gridAreaTexto += areaText;
+                //Si el contenedor no tienen hijos eliminamos el margin
+                //Si tiene hijos introducimos propiedad de grid
+                if(longitud == 0){
+                    contenedor.setAttribute('style', 'margin: 0px !important;');
+                }else{
+                    //Textos para definir los estilos
+                    var areaText, gridAreaTexto;
+                    var areasList = [];
+                    gridAreaTexto = `
+                            grid-template-areas: 
+                                `;
+                    for(var t = 0; t < longitud; t++){
+                        areaText = `"area`+t+`"`;
+                        areasList.push(parseInt(t));
+                        gridAreaTexto += areaText;
+                    }
+                    gridAreaTexto +=
+                    `
+                        ;
+                    `; 
+                    //Asignamos la propiedad style
+                    contenedor.setAttribute('style', gridAreaTexto);
                 }
-                gridAreaTexto +=
-                `
-                    ;
-                `; 
-                //Asignamos la propiedad style
-                contenedor.setAttribute('style', gridAreaTexto);
+                
                 //Regresamos la lista de areas
                 return areasList;
             }
