@@ -14,7 +14,7 @@ $(document).ready(function () {
     const preguntasModal4 = dataCuestionarioJSON.preguntasModal4;
     const preguntasModal5 = dataCuestionarioJSON.preguntasModal5;
     const preguntasModal6 = dataCuestionarioJSON.preguntasModal6;
-    
+
     //Convertirmos los objetos en listas
     const preguntasModalArray1 = Object.values(preguntasModal1);
     const preguntasModalArray2 = Object.values(preguntasModal2);
@@ -22,13 +22,13 @@ $(document).ready(function () {
     const preguntasModalArray4 = Object.values(preguntasModal4);
     const preguntasModalArray5 = Object.values(preguntasModal5);
     const preguntasModalArray6 = Object.values(preguntasModal6);
-    
-    //Para la ponderación de las preguntas
+
+    //Data para el trabajo con las ponderaciones
     const ordenPreguntas = dataCuestionarioJSON.ordenPreguntas;
     const ponderacionPreguntas = dataCuestionarioJSON.ponderacionGlobal;
     const ponderacionPreguntasArray = Object.values(ponderacionPreguntas[0]);
     const ordenPreguntasArray = Object.values(ordenPreguntas[0]);
-    
+
     console.log('ponderacionPreguntasArray', ponderacionPreguntasArray)
     console.log('ordenPreguntasArray', ordenPreguntasArray)
 
@@ -113,6 +113,7 @@ $(document).ready(function () {
                 </div>
                 
                 <div class="preguntaBox colorGreyDarker bordered1" id="opt1Button_` + m + `"><b>R:</b></div>
+                <div class="ponderacionBox ponderacion_opt1 colorWhite bordered1"></div>
             `;
 
                 contenedoresPregunta[m].innerHTML = contenido;
@@ -154,7 +155,8 @@ $(document).ready(function () {
                 <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
                     <button id="opt2Button_`+ m + `" onclick="agregarRespuestaOpt2('opt2_` + m + `','opt2Button_` + m + `','opt2InputRespuesta_` + m + `')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Agregar respuestas</button>
                 </div>
-                <div id="opt2InputRespuesta_`+ m + `" class="preguntaBox colorGreyDarker bordered1"><b>R:</b></div>`;
+                <div id="opt2InputRespuesta_`+ m + `" class="preguntaBox colorGreyDarker bordered1"><b>R:</b></div>
+                <div class="ponderacionBox ponderacion_opt2 colorWhite bordered1"></div>`;
                 contenedoresPregunta[m].innerHTML = contenidoInicial + contenidoIntermedio + contenidoFinal;
             }
         }
@@ -194,6 +196,7 @@ $(document).ready(function () {
             </div>
             <div id="opt3outputResult_`+ k + `" class="preguntaBox outputEsperado colorGreyDarker bordered1" style="margin-bottom: 10px;"><b>Output:</b></div>
             <div id="opt3linkResult`+ k + `" class="preguntaBox outputEsperado colorGreyDarker bordered1"><b>Link:</b></div>
+            <div class="ponderacionBox ponderacion_opt3 colorWhite bordered1"></div>
             `;
 
                 contenedoresPregunta[k].innerHTML = contenido;
@@ -248,7 +251,7 @@ $(document).ready(function () {
                 return inicioContenido;
             }
 
-            
+
             //Aqui hacemos la impresion de los elementos (conceptos y definiciones dentro del contenido)
             for (var t = 0; t < preguntasModalArray4.length; t++) {
                 //Este es el div que cierra el contenido
@@ -257,6 +260,7 @@ $(document).ready(function () {
                         <button id="optArrastrarButton`+ t + `" onclick="agregarRespuestaArrastrar('resultadoArrastrar` + t + `')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Confirmar orden</button>
                         <div id="resultadoArrastrar`+ t + `" class="preguntaBox outputEsperado colorGreyDarker bordered1" style="margin-bottom: 10px; width: 100%;"><b>Output:</b></div>
                     </div>
+                    <div class="ponderacionBox ponderacion_opt4 colorWhite bordered1"></div>
                 `;
                 //En final se guarda el contenido FINAL para la pregunta
                 var final;
@@ -314,6 +318,7 @@ $(document).ready(function () {
                 </div>
                 <h6><b>Resultado.</b></h6>
                 <div id="opt4outputResult_`+ m + `" class="preguntaBox outputEsperado colorGreyDarker bordered1" style="margin-bottom: 10px;"><b>Output:</b></div>
+                <div class="ponderacionBox ponderacion_opt5 colorWhite bordered1"></div>
             `;
                 contenedoresPregunta[m].innerHTML = contenido;
             }
@@ -354,6 +359,7 @@ $(document).ready(function () {
                 </div>
                 <div id="opt6outputResult_`+ m + `" class="preguntaBox outputEsperado colorGreyDarker bordered1" 
                 style="margin-bottom: 10px;"><b>Output:</b></div>
+                <div class="ponderacionBox ponderacion_opt6 colorWhite bordered1"></div>
             `;
                 contenedoresPregunta[m].innerHTML = contenido;
             }
@@ -365,6 +371,83 @@ $(document).ready(function () {
         ingresarPreguntasTrueFalse();
         ingresarPreguntasAbiertas();
         ingresarPreguntasArrastrar();
+
+        //////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////    
+        //////////////////////////////////////////////////////
+        ////////////TRABAJO CON PONDERACIONES Y ORDEN
+        //Para la ponderación de las preguntas
+        function asignarPonderaciones() {
+            //Validamos aquellos numeros de la ponderación que estan vacios
+            listaOrdenPreguntasConPonderaciones = [];
+            for (var g = 0; g < ponderacionPreguntasArray.length; g++) {
+                if (
+                    ponderacionPreguntasArray[g] == "" ||
+                    ponderacionPreguntasArray[g] == "00" ||
+                    ponderacionPreguntasArray[g].length > 2 ||
+                    parseInt(ponderacionPreguntasArray[g]) > 6 ||
+                    parseInt(ponderacionPreguntasArray[g]) < 1) {
+                    //Valor por default es 1
+                    ponderacionPreguntasArray[g] = '1';
+                }
+                listaOrdenPreguntasConPonderaciones.push(ordenPreguntasArray[g] + "_" + ponderacionPreguntasArray[g]);
+            }
+
+            //Debemos buscar los elementos que ya estan desplegados en pantalla por su clase
+            //Su clase nos indica que tipo de preguntas son
+            let opt1_container = document.getElementsByClassName('ponderacion_opt1');
+            let opt2_container = document.getElementsByClassName('ponderacion_opt2');
+            let opt3_container = document.getElementsByClassName('ponderacion_opt3');
+            let opt4_container = document.getElementsByClassName('ponderacion_opt4');
+            let opt5_container = document.getElementsByClassName('ponderacion_opt5');
+            let opt6_container = document.getElementsByClassName('ponderacion_opt6');
+
+            //Declaramos los chunks de preguntas que estan en el array de ponderacion
+            let opt1_container_order = [];
+            let opt2_container_order = [];
+            let opt3_container_order = [];
+            let opt4_container_order = [];
+            let opt5_container_order = [];
+            let opt6_container_order = [];
+
+            //Encontramos preguntas y ponderación / después ingresamos ponderaciones en las cajas de ponderación
+            for (var s = 0; s < listaOrdenPreguntasConPonderaciones.length; s++) {
+                if (listaOrdenPreguntasConPonderaciones[s].indexOf('optMultiple') != -1) {
+                    opt1_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
+                } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optAcompletar') != -1) {
+                    opt2_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
+                } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optEjercicios') != -1) {
+                    opt3_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
+                } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optArrastrar') != -1) {
+                    opt4_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
+                } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optFalsoVerdadero') != -1) {
+                    opt5_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
+                } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optAbierta') != -1) {
+                    opt6_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
+                }
+            }
+
+            //Metemos los extratos en las cajas de ponderacion 
+            function meterPonderaciones(cajasGrupo, ponderacionesGrupo) {
+                for (var y = 0; y < cajasGrupo.length; y++) {
+                    cajasGrupo[y].innerHTML = "<b>" + ponderacionesGrupo[y] + "pts.</b>";
+                }
+                return "Longitudes = " + cajasGrupo.length + "///" + ponderacionesGrupo.length;
+            }
+
+            console.log(meterPonderaciones(opt1_container, opt1_container_order));
+            console.log(meterPonderaciones(opt2_container, opt2_container_order));
+            console.log(meterPonderaciones(opt3_container, opt3_container_order));
+            console.log(meterPonderaciones(opt4_container, opt4_container_order));
+            console.log(meterPonderaciones(opt5_container, opt5_container_order));
+            console.log(meterPonderaciones(opt6_container, opt6_container_order));
+
+
+            // console.log('ponderacionPreguntasArray', ponderacionPreguntasArray)
+            // console.log('ordenPreguntasArray', ordenPreguntasArray)
+            //console.log('listaOrdenPreguntasConPonderaciones', listaOrdenPreguntasConPonderaciones)
+        }
+        asignarPonderaciones();
 
         //////////////////////////////////////////////////////
         //////////////////////////////////////////////////////    

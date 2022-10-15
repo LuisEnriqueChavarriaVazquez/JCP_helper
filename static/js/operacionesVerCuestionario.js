@@ -92,7 +92,7 @@ function obtenerDataCuestionario() {
                     <div class="color5 bordered5 coloredText letterStyleViewCuestionario">D</div><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][6] + `</div>
                 </div>
                 <div class="preguntaBox color4 bordered1"><b>Respuesta correcta: ` + preguntasModalArray1[m][2] + `</b></div>
-                <div class="ponderacionBox ponderacion_opt1 colorWhite bordered1"><b>` + 2 + `pts.</b></div>
+                <div class="ponderacionBox ponderacion_opt1 colorWhite bordered1"></div>
             `;
 
             contenedoresPregunta[m].innerHTML = contenido;
@@ -133,7 +133,7 @@ function obtenerDataCuestionario() {
 
             let contenidoFinal = `
             </div>
-            <div class="ponderacionBox ponderacion_opt2 colorWhite bordered1"><b>` + 2 + `pts.</b></div>`;
+            <div class="ponderacionBox ponderacion_opt2 colorWhite bordered1"></div>`;
             contenedoresPregunta[m].innerHTML = contenidoInicial + contenidoIntermedio + contenidoFinal;
         }
     }
@@ -163,7 +163,7 @@ function obtenerDataCuestionario() {
             <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
             <a href="` + preguntasModalArray3[k][2] + `" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">cloud</i>Acceder a recurso online</a>
             </div>
-            <div class="ponderacionBox ponderacion_opt3 colorWhite bordered1"><b>` + 2 + `pts.</b></div>
+            <div class="ponderacionBox ponderacion_opt3 colorWhite bordered1"></div>
             `;
 
             contenedoresPregunta[k].innerHTML = contenido;
@@ -216,7 +216,7 @@ function obtenerDataCuestionario() {
         }
 
         //Este es el div que cierra el contenido
-        let finalContenido = `</div> <div class="ponderacionBox ponderacion_opt4 colorWhite bordered1"><b>` + 2 + `pts.</b></div>`;
+        let finalContenido = `</div> <div class="ponderacionBox ponderacion_opt4 colorWhite bordered1"></div>`;
 
         //Aqui hacemos la impresion de los elementos (conceptos y definiciones dentro del contenido)
         for (var t = 0; t < preguntasModalArray4.length; t++) {
@@ -251,7 +251,7 @@ function obtenerDataCuestionario() {
                 <div class="opcionesContainerStyleViewCuestionarioTrueFalse">
                     <div class="preguntaBoxFalseTrue color5 coloredText bordered1"><b>` + preguntasModalArray5[m][1] + `</b></div>
                 </div>
-                <div class="ponderacionBox ponderacion_opt5 colorWhite bordered1"><b>` + 2 + `pts.</b></div>
+                <div class="ponderacionBox ponderacion_opt5 colorWhite bordered1"></div>
             `;
             contenedoresPregunta[m].innerHTML = contenido;
         }
@@ -282,7 +282,7 @@ function obtenerDataCuestionario() {
                     <h6><b>Media.</b></h6>
                     <a href="` + preguntasModalArray6[m][1] + `" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">play_arrow</i>Acceder a video online</a>
                 </div>
-                <div class="ponderacionBox ponderacion_opt6 colorWhite bordered1"><b>` + 2 + `pts.</b></div>
+                <div class="ponderacionBox ponderacion_opt6 colorWhite bordered1"></div>
             `;
             contenedoresPregunta[m].innerHTML = contenido;
         }
@@ -334,26 +334,26 @@ function obtenerDataCuestionario() {
         let opt6_container_order = [];
 
         //Encontramos preguntas y ponderación / después ingresamos ponderaciones en las cajas de ponderación
-        for(var s = 0; s < listaOrdenPreguntasConPonderaciones.length; s++){
-            if(listaOrdenPreguntasConPonderaciones[s].indexOf('optMultiple') != -1){
+        for (var s = 0; s < listaOrdenPreguntasConPonderaciones.length; s++) {
+            if (listaOrdenPreguntasConPonderaciones[s].indexOf('optMultiple') != -1) {
                 opt1_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
-            }else if(listaOrdenPreguntasConPonderaciones[s].indexOf('optAcompletar') != -1){
+            } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optAcompletar') != -1) {
                 opt2_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
-            }else if(listaOrdenPreguntasConPonderaciones[s].indexOf('optEjercicios') != -1){
+            } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optEjercicios') != -1) {
                 opt3_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
-            }else if(listaOrdenPreguntasConPonderaciones[s].indexOf('optArrastrar') != -1){
+            } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optArrastrar') != -1) {
                 opt4_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
-            }else if(listaOrdenPreguntasConPonderaciones[s].indexOf('optFalsoVerdadero') != -1){
+            } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optFalsoVerdadero') != -1) {
                 opt5_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
-            }else if(listaOrdenPreguntasConPonderaciones[s].indexOf('optAbierta') != -1){
+            } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optAbierta') != -1) {
                 opt6_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
             }
         }
-        
+
         //Metemos los extratos en las cajas de ponderacion 
-        function meterPonderaciones(cajasGrupo, ponderacionesGrupo){
-            for(var y = 0; y < cajasGrupo.length; y++){
-                cajasGrupo[y].innerText = ponderacionesGrupo[y];
+        function meterPonderaciones(cajasGrupo, ponderacionesGrupo) {
+            for (var y = 0; y < cajasGrupo.length; y++) {
+                cajasGrupo[y].innerHTML = "<b>" + ponderacionesGrupo[y] + "pts.</b>";
             }
             return "Longitudes = " + cajasGrupo.length + "///" + ponderacionesGrupo.length;
         }
@@ -364,11 +364,11 @@ function obtenerDataCuestionario() {
         console.log(meterPonderaciones(opt4_container, opt4_container_order));
         console.log(meterPonderaciones(opt5_container, opt5_container_order));
         console.log(meterPonderaciones(opt6_container, opt6_container_order));
-        
+
 
         // console.log('ponderacionPreguntasArray', ponderacionPreguntasArray)
         // console.log('ordenPreguntasArray', ordenPreguntasArray)
-        console.log('listaOrdenPreguntasConPonderaciones', listaOrdenPreguntasConPonderaciones)
+        //console.log('listaOrdenPreguntasConPonderaciones', listaOrdenPreguntasConPonderaciones)
     }
     asignarPonderaciones();
 
