@@ -134,31 +134,31 @@ $(document).ready(function () {
             let contenedorPreguntasPreviewArrastrar2Hijos = document.getElementById('contenedorPreguntasPreviewArrastrar2').querySelectorAll(".preguntaContainerIndividualPreview");
 
             //Ingresa la propiedad de grid template area con areas dinámicas
-            function generarGridTemplateArea(longitud, contenedor){
+            function generarGridTemplateArea(longitud, contenedor) {
                 //Si el contenedor no tienen hijos eliminamos el margin
                 //Si tiene hijos introducimos propiedad de grid
-                if(longitud == 0){
+                if (longitud == 0) {
                     contenedor.setAttribute('style', 'margin: 0px !important;');
-                }else{
+                } else {
                     //Textos para definir los estilos
                     var areaText, gridAreaTexto;
                     var areasList = [];
                     gridAreaTexto = `
                             grid-template-areas: 
                                 `;
-                    for(var t = 0; t < longitud; t++){
-                        areaText = `"area`+t+`"`;
+                    for (var t = 0; t < longitud; t++) {
+                        areaText = `"area` + t + `"`;
                         areasList.push(parseInt(t));
                         gridAreaTexto += areaText;
                     }
                     gridAreaTexto +=
-                    `
+                        `
                         ;
-                    `; 
+                    `;
                     //Asignamos la propiedad style
                     contenedor.setAttribute('style', gridAreaTexto);
                 }
-                
+
                 //Regresamos la lista de areas
                 return areasList;
             }
@@ -170,24 +170,24 @@ $(document).ready(function () {
             let listaAreas5 = generarGridTemplateArea(contenedorPreguntasPreviewArrastrar2Hijos.length, document.getElementById('contenedorPreguntasPreviewArrastrar2'));
 
             //Hay que asignar la propiedad css de grid-area para que se distribuyan aleatoriamente las preguntas
-            function asignarAreasParaElGridTemplate(hijos, areasDisponibles){
+            function asignarAreasParaElGridTemplate(hijos, areasDisponibles) {
                 //Los hijos tienen la misma longitud que las areas disponibles
-                if(hijos.length == 0){
+                if (hijos.length == 0) {
                     console.log("No hay hijos");
-                }else{
-                    for(var t = 0; t < hijos.length; t++){
-                        if(t%2 == 0){
-                            hijos[t].setAttribute('style', 'grid-area:area'+areasDisponibles[areasDisponibles.length - 1]+';');
+                } else {
+                    for (var t = 0; t < hijos.length; t++) {
+                        if (t % 2 == 0) {
+                            hijos[t].setAttribute('style', 'grid-area:area' + areasDisponibles[areasDisponibles.length - 1] + ';');
                             areasDisponibles.pop();
-                            if(areasDisponibles.length == 1){
-                                hijos[t].setAttribute('style', 'grid-area:area'+areasDisponibles[0]+';');
+                            if (areasDisponibles.length == 1) {
+                                hijos[t].setAttribute('style', 'grid-area:area' + areasDisponibles[0] + ';');
                                 break;
                             }
-                        }else{
-                            hijos[t].setAttribute('style', 'grid-area:area'+areasDisponibles[0]+';');
+                        } else {
+                            hijos[t].setAttribute('style', 'grid-area:area' + areasDisponibles[0] + ';');
                             areasDisponibles.shift();
-                            if(areasDisponibles.length == 1){
-                                hijos[t].setAttribute('style', 'grid-area:area'+areasDisponibles[0]+';');
+                            if (areasDisponibles.length == 1) {
+                                hijos[t].setAttribute('style', 'grid-area:area' + areasDisponibles[0] + ';');
                                 break;
                             }
                         }
@@ -200,6 +200,106 @@ $(document).ready(function () {
             asignarAreasParaElGridTemplate(contenedorPreguntasPreview3Hijos, listaAreas3);
             asignarAreasParaElGridTemplate(contenedorPreguntasPreviewArrastrarHijos, listaAreas4);
             asignarAreasParaElGridTemplate(contenedorPreguntasPreviewArrastrar2Hijos, listaAreas5);
+        }
+
+        ///
+        /// Orden por creación.
+        ///
+        function ordenarPorCreacion() {
+            //Obtenemos los elementos del padre (excepto los de tipo arrastrar)
+            //Orden por tipo
+            let contenedorPreguntasPreviewHijos = document.getElementById('contenedorPreguntasPreview').querySelectorAll(".preguntaContainerIndividualPreview");
+
+            //Ingresa la propiedad de grid template area con areas dinámicas
+            function generarGridTemplateArea(longitud, contenedor) {
+                //Si el contenedor no tienen hijos eliminamos el margin
+                //Si tiene hijos introducimos propiedad de grid
+                if (longitud == 0) {
+                    contenedor.setAttribute('style', 'margin: 0px !important;');
+                } else {
+                    //Textos para definir los estilos
+                    var areaText, gridAreaTexto;
+                    var areasList = [];
+                    gridAreaTexto = `
+                            grid-template-areas: 
+                                `;
+                    for (var t = 0; t < longitud; t++) {
+                        areaText = `"area` + t + `"`;
+                        areasList.push(parseInt(t));
+                        gridAreaTexto += areaText;
+                    }
+                    gridAreaTexto +=
+                        `
+                        ;
+                    `;
+                    //Asignamos la propiedad style
+                    contenedor.setAttribute('style', gridAreaTexto);
+                }
+
+                //Regresamos la lista de areas
+                return areasList;
+            }
+
+            //Obtenemos el listado con todos los texto de area.
+            let listaAreas1 = generarGridTemplateArea(contenedorPreguntasPreviewHijos.length, document.getElementById('contenedorPreguntasPreview'));
+            
+            //Eliminamos del orden de preguntas aquellas que son de ARRASTRAR.
+            //Tambien damos el formato estandar de las clases
+            let listaOrdenPreguntasPurificada = []; //Orden dado
+            for (var g = 0; g < ordenPreguntasArray.length; g++) {
+                if (ordenPreguntasArray[g].indexOf('optArrastrar') != -1) {
+                    //Quitamos todos los valores que sean oprArrastrar
+                    //listaOrdenPreguntasPurificada.push(ordenPreguntasArray[g]);
+                }else if(ordenPreguntasArray[g].indexOf('optFalsoVerdadero') != -1){
+                    listaOrdenPreguntasPurificada.push('opt5');
+                }else if(ordenPreguntasArray[g].indexOf('optAbierta') != -1){
+                    listaOrdenPreguntasPurificada.push('opt6');
+                }else if(ordenPreguntasArray[g].indexOf('optAcompletar') != -1){
+                    listaOrdenPreguntasPurificada.push('opt2');
+                }else if(ordenPreguntasArray[g].indexOf('optMultiple') != -1){
+                    listaOrdenPreguntasPurificada.push('opt1');
+                }else if(ordenPreguntasArray[g].indexOf('optEjercicios') != -1){
+                    listaOrdenPreguntasPurificada.push('opt3');
+                }
+            }
+            console.log('listaAreas1', listaAreas1)
+            console.log('listaOrdenPreguntasPurificada', listaOrdenPreguntasPurificada)
+            
+            //Buscamos el primer elemento del orden dado en las preguntas ordenadas por tipo
+            //Y basicamente asignamos el grid area de acuerdo a su orden
+            function busquedaElementosPorOrden(longitud, array){
+                for(var y = 0; y < longitud; y++){
+                    //Clase de algún hijo
+                    var elementoHijo = array[y];
+                    var claseHijo = elementoHijo.getAttribute('class');
+                    
+                    //Si encontramos en la clase de los hijos el valor optn deseado
+                    if(claseHijo.indexOf(listaOrdenPreguntasPurificada[0]) != -1){
+                        elementoHijo.setAttribute('style', 'grid-area:area' + listaAreas1[0] + ';');
+                        //Eliminamos el primer elemento de las areas y del orden dado
+                        listaAreas1.shift();
+                        listaOrdenPreguntasPurificada.shift();
+                        //console.log('listaAreas1', listaAreas1)
+                        //console.log('listaOrdenPreguntasPurificada', listaOrdenPreguntasPurificada)
+                    }
+                }
+            }
+
+            //Obtenemos la longitud de elementos total
+            var longitudElementos = listaOrdenPreguntasPurificada.length;
+            busquedaElementosPorOrden(longitudElementos, contenedorPreguntasPreviewHijos);
+
+            //Obtenemos los elementos que no tienen grid area (porque no pudieron ser ordenados en la primera busqueda)
+            var contenedorPreguntasPreviewHijosSinStyle = []; //Elementos sin ordenar
+            for(var g = 0; g < contenedorPreguntasPreviewHijos.length; g++){
+                if(contenedorPreguntasPreviewHijos[g].hasAttribute('style') == false){
+                    contenedorPreguntasPreviewHijosSinStyle.push(contenedorPreguntasPreviewHijos[g]);
+                }
+            }
+
+            //Damos una segunda pasada a los elementos faltantes
+            var longitudElementos = listaOrdenPreguntasPurificada.length;
+            busquedaElementosPorOrden(longitudElementos, contenedorPreguntasPreviewHijosSinStyle);            
         }
 
         //Insertamos cajas de acuerdo a la cantidad de preguntas
@@ -248,8 +348,6 @@ $(document).ready(function () {
             insertarCajasPreguntas(preguntasModalArray1.length, 'opt1');
             //Accedemos a las cajas
             let contenedoresPregunta = document.getElementsByClassName('opt1');
-            //Hacemos variables de pregunta
-            let dato1_pregunta, dato2_media, dato3_respuestaCorrecta, dato4_opt1, dato5_opt2, dato6_opt3, dato7_opt4;
 
             for (var m = 0; m < preguntasModalArray1.length; m++) {
                 //Contenido de la pregunta
@@ -523,6 +621,7 @@ $(document).ready(function () {
             }
         }
 
+
         ingresarPreguntasOpcionMultiple();
         ingresarPreguntasAcompletar();
         ingresarPreguntasEjercicios();
@@ -530,10 +629,18 @@ $(document).ready(function () {
         ingresarPreguntasAbiertas();
         ingresarPreguntasArrastrar();
 
-        //El randomizer se llama aqui porque las cajas deben tener contenido
+        //Validamos dependiendo del tipo de orden dado.
         if (ordenCuestionarioValue == "random") {
+            //El randomizer se llama aqui porque las cajas deben tener contenido
             randomizerPorCajaDePreguntas();
-        } 
+            console.log("Orden random");
+        } else if (ordenCuestionarioValue == "order_by_type") {
+            //Se ordenan por defecto asi.
+            console.log("Orden por tipo");
+        } else if (ordenCuestionarioValue == "order_by_creation") {
+            ordenarPorCreacion();
+            console.log("Orden por creacion");
+        }
 
         //////////////////////////////////////////////////////
         //////////////////////////////////////////////////////    
@@ -615,7 +722,8 @@ $(document).ready(function () {
 
             // console.log('ponderacionPreguntasArray', ponderacionPreguntasArray)
             // console.log('ordenPreguntasArray', ordenPreguntasArray)
-            //console.log('listaOrdenPreguntasConPonderaciones', listaOrdenPreguntasConPonderaciones)
+            //Ayuda a comprobar que el orden coincida con sus ponderaciones
+            console.log('listaOrdenPreguntasConPonderaciones', listaOrdenPreguntasConPonderaciones)
         }
         asignarPonderaciones();
 
