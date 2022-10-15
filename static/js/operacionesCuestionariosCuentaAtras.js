@@ -16,7 +16,7 @@ function hacerCuentaAtras() {
     //Definimos equivalencia de tiempo
     //El formato debe ser asi '04/13/2020 0:01 AM'
     fechaFinal = contadorFecha + " " +  contadorTiempo;
-    console.log('fechaFinal', fechaFinal)
+    //console.log('fechaFinal', fechaFinal)
     
     const DATE_TARGET = new Date(fechaFinal);
     const MILLISECONDS_OF_A_SECOND = 1000;

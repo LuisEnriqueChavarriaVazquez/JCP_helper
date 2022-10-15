@@ -8,15 +8,13 @@ $(document).ready(function () {
     stringJSON = JSON.stringify(dataCuestionarioJSON, null, 1);
 
     //Obtenemos cada una de las listas dentro del objeto
-    const ordenPreguntas = dataCuestionarioJSON.ordenPreguntas;
-    const ponderacionPreguntas = dataCuestionarioJSON.ponderacionGlobal;
     const preguntasModal1 = dataCuestionarioJSON.preguntasModal1;
     const preguntasModal2 = dataCuestionarioJSON.preguntasModal2;
     const preguntasModal3 = dataCuestionarioJSON.preguntasModal3;
     const preguntasModal4 = dataCuestionarioJSON.preguntasModal4;
     const preguntasModal5 = dataCuestionarioJSON.preguntasModal5;
     const preguntasModal6 = dataCuestionarioJSON.preguntasModal6;
-
+    
     //Convertirmos los objetos en listas
     const preguntasModalArray1 = Object.values(preguntasModal1);
     const preguntasModalArray2 = Object.values(preguntasModal2);
@@ -24,9 +22,15 @@ $(document).ready(function () {
     const preguntasModalArray4 = Object.values(preguntasModal4);
     const preguntasModalArray5 = Object.values(preguntasModal5);
     const preguntasModalArray6 = Object.values(preguntasModal6);
-
+    
     //Para la ponderación de las preguntas
-    const ponderacionPreguntasArray = Object.values(ponderacionPreguntas);
+    const ordenPreguntas = dataCuestionarioJSON.ordenPreguntas;
+    const ponderacionPreguntas = dataCuestionarioJSON.ponderacionGlobal;
+    const ponderacionPreguntasArray = Object.values(ponderacionPreguntas[0]);
+    const ordenPreguntasArray = Object.values(ordenPreguntas[0]);
+    
+    console.log('ponderacionPreguntasArray', ponderacionPreguntasArray)
+    console.log('ordenPreguntasArray', ordenPreguntasArray)
 
     //Forma de acceder a las preguntas y elemento
     //Primer indice indica el numero de pregunta

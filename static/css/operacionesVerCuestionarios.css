@@ -138,6 +138,14 @@
 .preguntaBox{
     text-align: justify;
     padding: 10px 20px;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.ponderacionBox{
+    text-align: justify;
+    padding: 10px 20px;
+    margin-top: 5px;
     box-sizing: border-box;
 }
 
