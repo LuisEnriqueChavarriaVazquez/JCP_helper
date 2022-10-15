@@ -29,12 +29,12 @@ $(document).ready(function () {
     const ponderacionPreguntasArray = Object.values(ponderacionPreguntas[0]);
     const ordenPreguntasArray = Object.values(ordenPreguntas[0]);
 
-    console.log('ponderacionPreguntasArray', ponderacionPreguntasArray)
-    console.log('ordenPreguntasArray', ordenPreguntasArray)
+    //console.log('ponderacionPreguntasArray', ponderacionPreguntasArray)
+    //console.log('ordenPreguntasArray', ordenPreguntasArray)
 
     //Para saber si el cuestionario es aleatorio
     let ordenCuestionarioValue = document.getElementById('ordenCuestionarioValue').value;
-    console.log('ordenCuestionarioValue', ordenCuestionarioValue)
+    //console.log('ordenCuestionarioValue', ordenCuestionarioValue)
 
 
     //Forma de acceder a las preguntas y elemento
@@ -78,8 +78,11 @@ $(document).ready(function () {
         //////////////////////////////////////////////////////
         ////////////INSERCION DE ELEMENTOS
 
+        ///
+        /// FASES DE RANDOM (FASE 1 == REVOLVER EN CONTENEDORES GRANDES (POR TIPO))
+        ///
         //Para revolver grupos de tipos de preguntas
-        function randomizerPorTipoPregunta(){
+        function randomizerPorTipoPregunta() {
             //Generador alatorio
             //Modifica el orden de las cajas principales, mas no de la pregunta
             function getRandomInt(max) {
@@ -88,11 +91,11 @@ $(document).ready(function () {
             let contenedorAleatorio = getRandomInt(3);
             let contenedorElegido;
 
-            if(contenedorAleatorio == 0){
+            if (contenedorAleatorio == 0) {
                 contenedorElegido = document.getElementById('contenedorPreguntasPreview');
-            }else if(contenedorAleatorio == 1){
+            } else if (contenedorAleatorio == 1) {
                 contenedorElegido = document.getElementById('contenedorPreguntasPreview2');
-            }else if(contenedorAleatorio == 2){
+            } else if (contenedorAleatorio == 2) {
                 contenedorElegido = document.getElementById('contenedorPreguntasPreview3');
             }
 
@@ -100,7 +103,7 @@ $(document).ready(function () {
         }
 
         //Revolver en dos posibles divs a las preguntas de arrastrar (estas deben estar en un solo div para no generar error)
-        function randomizerPorTipoPreguntaArrastrar(){
+        function randomizerPorTipoPreguntaArrastrar() {
             //Generador alatorio
             //Modifica el orden de las cajas principales, mas no de la pregunta
             function getRandomInt(max) {
@@ -109,23 +112,98 @@ $(document).ready(function () {
             let contenedorAleatorio = getRandomInt(2);
             let contenedorElegido;
 
-            if(contenedorAleatorio == 0){
+            if (contenedorAleatorio == 0) {
                 contenedorElegido = document.getElementById('contenedorPreguntasPreviewArrastrar');
-            }else if(contenedorAleatorio == 1){
+            } else if (contenedorAleatorio == 1) {
                 contenedorElegido = document.getElementById('contenedorPreguntasPreviewArrastrar2');
             }
             return contenedorElegido;
         }
 
+
+        ///
+        /// FASES DE RANDOM (FASE 2 == REVOLVER EL CONTENIDO DE LOS CONTENEDORES GRANDES (TODOS LOS HIJOS))
+        ///
+        //Revolver preguntas dentro de contenedores (una por una sin importar el tipo)
+        function randomizerPorCajaDePreguntas() {
+            //Debemos obtener los elementos dentro de cada una de las cajas padre
+            let contenedorPreguntasPreviewHijos = document.getElementById('contenedorPreguntasPreview').querySelectorAll(".preguntaContainerIndividualPreview");
+            let contenedorPreguntasPreview2Hijos = document.getElementById('contenedorPreguntasPreview2').querySelectorAll(".preguntaContainerIndividualPreview");
+            let contenedorPreguntasPreview3Hijos = document.getElementById('contenedorPreguntasPreview3').querySelectorAll(".preguntaContainerIndividualPreview");
+            let contenedorPreguntasPreviewArrastrarHijos = document.getElementById('contenedorPreguntasPreviewArrastrar').querySelectorAll(".preguntaContainerIndividualPreview");
+            let contenedorPreguntasPreviewArrastrar2Hijos = document.getElementById('contenedorPreguntasPreviewArrastrar2').querySelectorAll(".preguntaContainerIndividualPreview");
+
+            //Ingresa la propiedad de grid template area con areas dinámicas
+            function generarGridTemplateArea(longitud, contenedor){
+                //Textos para definir los estilos
+                var areaText, gridAreaTexto;
+                var areasList = [];
+                gridAreaTexto = `
+                        grid-template-areas: 
+                            `;
+                for(var t = 0; t < longitud; t++){
+                    areaText = `"area`+t+`"`;
+                    areasList.push(parseInt(t));
+                    gridAreaTexto += areaText;
+                }
+                gridAreaTexto +=
+                `
+                    ;
+                `; 
+                //Asignamos la propiedad style
+                contenedor.setAttribute('style', gridAreaTexto);
+                //Regresamos la lista de areas
+                return areasList;
+            }
+            //Asignamos estilos
+            let listaAreas1 = generarGridTemplateArea(contenedorPreguntasPreviewHijos.length, document.getElementById('contenedorPreguntasPreview'));
+            let listaAreas2 = generarGridTemplateArea(contenedorPreguntasPreview2Hijos.length, document.getElementById('contenedorPreguntasPreview2'));
+            let listaAreas3 = generarGridTemplateArea(contenedorPreguntasPreview3Hijos.length, document.getElementById('contenedorPreguntasPreview3'));
+            let listaAreas4 = generarGridTemplateArea(contenedorPreguntasPreviewArrastrarHijos.length, document.getElementById('contenedorPreguntasPreviewArrastrar'));
+            let listaAreas5 = generarGridTemplateArea(contenedorPreguntasPreviewArrastrar2Hijos.length, document.getElementById('contenedorPreguntasPreviewArrastrar2'));
+
+            //Hay que asignar la propiedad css de grid-area para que se distribuyan aleatoriamente las preguntas
+            function asignarAreasParaElGridTemplate(hijos, areasDisponibles){
+                //Los hijos tienen la misma longitud que las areas disponibles
+                if(hijos.length == 0){
+                    console.log("No hay hijos");
+                }else{
+                    for(var t = 0; t < hijos.length; t++){
+                        if(t%2 == 0){
+                            hijos[t].setAttribute('style', 'grid-area:area'+areasDisponibles[areasDisponibles.length - 1]+';');
+                            areasDisponibles.pop();
+                            if(areasDisponibles.length == 1){
+                                hijos[t].setAttribute('style', 'grid-area:area'+areasDisponibles[0]+';');
+                                break;
+                            }
+                        }else{
+                            hijos[t].setAttribute('style', 'grid-area:area'+areasDisponibles[0]+';');
+                            areasDisponibles.shift();
+                            if(areasDisponibles.length == 1){
+                                hijos[t].setAttribute('style', 'grid-area:area'+areasDisponibles[0]+';');
+                                break;
+                            }
+                        }
+                    }
+                }
+                //console.log(hijos);
+            }
+            asignarAreasParaElGridTemplate(contenedorPreguntasPreviewHijos, listaAreas1);
+            asignarAreasParaElGridTemplate(contenedorPreguntasPreview2Hijos, listaAreas2);
+            asignarAreasParaElGridTemplate(contenedorPreguntasPreview3Hijos, listaAreas3);
+            asignarAreasParaElGridTemplate(contenedorPreguntasPreviewArrastrarHijos, listaAreas4);
+            asignarAreasParaElGridTemplate(contenedorPreguntasPreviewArrastrar2Hijos, listaAreas5);
+        }
+
         //Insertamos cajas de acuerdo a la cantidad de preguntas
         function insertarCajasPreguntas(numeroPregunta, tipo) {
             var contenedorPadre;
-            if(ordenCuestionarioValue == "random"){
+            if (ordenCuestionarioValue == "random") {
                 contenedorPadre = randomizerPorTipoPregunta();
-            }else if(ordenCuestionarioValue == "order_by_type"){
+            } else if (ordenCuestionarioValue == "order_by_type") {
                 contenedorPadre = document.getElementById('contenedorPreguntasPreview');
-            }else if(ordenCuestionarioValue == "order_by_creation"){
-                contenedorPadre = document.getElementById('contenedorPreguntasPreview');
+            } else if (ordenCuestionarioValue == "order_by_creation") {
+                contenedorPadre = document.getElementById('contenedorPreguntasPreview'); //Pendiente
             }
 
             //Comienza la inserción
@@ -140,11 +218,11 @@ $(document).ready(function () {
         //Insertamos cajas de acuerdo a la cantidad de preguntas
         function insertarCajasPreguntasArrastrar(numeroPregunta, tipo) {
             var contenedorPadre;
-            if(ordenCuestionarioValue == "random"){
+            if (ordenCuestionarioValue == "random") {
                 contenedorPadre = randomizerPorTipoPreguntaArrastrar();
-            }else if(ordenCuestionarioValue == "order_by_type"){
+            } else if (ordenCuestionarioValue == "order_by_type") {
                 contenedorPadre = document.getElementById('contenedorPreguntasPreviewArrastrar');
-            }else if(ordenCuestionarioValue == "order_by_creation"){
+            } else if (ordenCuestionarioValue == "order_by_creation") {
                 contenedorPadre = document.getElementById('contenedorPreguntasPreviewArrastrar');
             }
 
@@ -445,6 +523,11 @@ $(document).ready(function () {
         ingresarPreguntasAbiertas();
         ingresarPreguntasArrastrar();
 
+        //El randomizer se llama aqui porque las cajas deben tener contenido
+        if (ordenCuestionarioValue == "random") {
+            randomizerPorCajaDePreguntas();
+        } 
+
         //////////////////////////////////////////////////////
         //////////////////////////////////////////////////////    
         //////////////////////////////////////////////////////
@@ -508,12 +591,19 @@ $(document).ready(function () {
                 return "Longitudes = " + cajasGrupo.length + "///" + ponderacionesGrupo.length;
             }
 
-            console.log(meterPonderaciones(opt1_container, opt1_container_order));
-            console.log(meterPonderaciones(opt2_container, opt2_container_order));
-            console.log(meterPonderaciones(opt3_container, opt3_container_order));
-            console.log(meterPonderaciones(opt4_container, opt4_container_order));
-            console.log(meterPonderaciones(opt5_container, opt5_container_order));
-            console.log(meterPonderaciones(opt6_container, opt6_container_order));
+            meterPonderaciones(opt1_container, opt1_container_order);
+            meterPonderaciones(opt2_container, opt2_container_order);
+            meterPonderaciones(opt3_container, opt3_container_order);
+            meterPonderaciones(opt4_container, opt4_container_order);
+            meterPonderaciones(opt5_container, opt5_container_order);
+            meterPonderaciones(opt6_container, opt6_container_order);
+
+            // console.log(meterPonderaciones(opt1_container, opt1_container_order));
+            // console.log(meterPonderaciones(opt2_container, opt2_container_order));
+            // console.log(meterPonderaciones(opt3_container, opt3_container_order));
+            // console.log(meterPonderaciones(opt4_container, opt4_container_order));
+            // console.log(meterPonderaciones(opt5_container, opt5_container_order));
+            // console.log(meterPonderaciones(opt6_container, opt6_container_order));
 
 
             // console.log('ponderacionPreguntasArray', ponderacionPreguntasArray)
