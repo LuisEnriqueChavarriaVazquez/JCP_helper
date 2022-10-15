@@ -43,16 +43,22 @@
                 <div class="datosCuestionarioLive">
                     <h5>Tablero de información.</h5>
                     <div class="contenedorContadoresGrid">
-                        <div class="colorGreyDarker bordered5">Total preguntas: <span class="coloredText"
-                            id="contadorTotal"></span>
-                        </span> </div>
-                        <div class="colorGreyDarker bordered5">Respondidas: <span class="coloredText"
-                            id="contadorRespondidas"></span>
-                        </span> </div>
+                        <div class="colorGreyDarker bordered5">Total preguntas: 
+                            <span class="coloredText" id="contadorTotal"></span>
+                        </div>
+                        <div class="colorGreyDarker bordered5">Respondidas: 
+                            <span class="coloredText"id="contadorRespondidas"></span>
+                        </div>
+                        <div class="colorGreyDarker bordered5">Orden del cuestionario: 
+                            <span class="coloredText" id="ordenCuestionarios">{{datosCuestionario[0][10]}}</span> 
+                        </div>
                         <div class="color5 bordered5">Días restantes:
                             <span class="coloredText" id="contadorFecha">{{datosCuestionario[0][12]}}</span>
-                            <span  class="coloredText" id="contadorTiempo">{{datosCuestionario[0][13]}}</span></div>
-                        <div class="color5 bordered5">Orden del cuestionario: <span class="coloredText" id="ordenCuestionarios">{{datosCuestionario[0][10]}}</span> </div>
+                            <span  class="coloredText" id="contadorTiempo">{{datosCuestionario[0][13]}}</span>
+                        </div>
+                        <div class="color5 bordered5">Minutos restantes:
+                            <span class="coloredText" id="tiempoRestante">{{datosCuestionario[0][11]}}</span>
+                        </div>
                         <div class="contenedorBarra colorGrey bordered5">
                             <div class="cargaBarra color1 bordered5"></div>
                         </div>
