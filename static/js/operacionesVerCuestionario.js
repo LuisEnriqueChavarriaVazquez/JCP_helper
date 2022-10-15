@@ -71,7 +71,7 @@ function obtenerDataCuestionario() {
             //Contenido de la pregunta
             let contenido =
                 `  
-                <h5 class="tituloPregunta"><b>Ejercicio opción múltiple ` + (m + 1) + `</b></h5>
+                <h5 class="tituloPregunta"><b>Opción múltiple ` + (m + 1) + `</b></h5>
                 <hr>
                 <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray1[m][0] + `</b></div>
                 <div class="imagenBox bordered1 shadow-1e colorGrey">
@@ -101,40 +101,32 @@ function obtenerDataCuestionario() {
         //Accedemos a las cajas
         let contenedoresPregunta = document.getElementsByClassName('opt2');
         //Hacemos variables de pregunta
-        let dato1_pregunta;
+        let contenidoIntermedio;
 
         for (var m = 0; m < preguntasModalArray2.length; m++) {
+            var longitudPregunta = Object.values(preguntasModalArray2[m]).length;
+            contenedoresPregunta[m].innerHTML = "";
+            contenidoIntermedio = "";
+
             //Contenido de la pregunta
-            let contenido =
-                `  
-                <h5 class="tituloPregunta"><b>Ejercicio rellenar espacio ` + (m + 1) + `</b></h5>
-                <hr>
-                <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray2[m][0] + `</b></div>
-                <h6><b>Respuestas de espacios.</b></h6>
-                <div class="opcionesContainerStyleViewCuestionario">
-                    <div class="colorGreyDarker bordered1 colorTextReverse letterStyleViewCuestionario">Blank `+ 1 + `</div>
-                    <div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray2[m][1] + `</div>
-                    <div class="colorGreyDarker bordered1 colorTextReverse letterStyleViewCuestionario">Blank `+ 2 + `</div>
-                    <div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray2[m][2] + `</div>
-                    <div class="colorGreyDarker bordered1 colorTextReverse letterStyleViewCuestionario">Blank `+ 3 + `</div>
-                    <div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray2[m][3] + `</div>
-                    <div class="colorGreyDarker bordered1 colorTextReverse letterStyleViewCuestionario">Blank `+ 4 + `</div>
-                    <div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray2[m][4] + `</div>
-                    <div class="colorGreyDarker bordered1 colorTextReverse letterStyleViewCuestionario">Blank `+ 5 + `</div>
-                    <div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray2[m][5] + `</div>
-                    <div class="colorGreyDarker bordered1 colorTextReverse letterStyleViewCuestionario">Blank `+ 6 + `</div>
-                    <div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray2[m][6] + `</div>
-                    <div class="colorGreyDarker bordered1 colorTextReverse letterStyleViewCuestionario">Blank `+ 7 + `</div>
-                    <div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray2[m][7] + `</div>
-                    <div class="colorGreyDarker bordered1 colorTextReverse letterStyleViewCuestionario">Blank `+ 8 + `</div>
-                    <div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray2[m][8] + `</div>
-                    <div class="colorGreyDarker bordered1 colorTextReverse letterStyleViewCuestionario">Blank `+ 9 + `</div>
-                    <div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray2[m][9] + `</div>
-                    <div class="colorGreyDarker bordered1 colorTextReverse letterStyleViewCuestionario">Blank `+ 10 + `</div>
-                    <div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray2[m][10] + `</div>
-                </div>
+            let contenidoInicial = `  
+            <h5 class="tituloPregunta"><b>Rellenar espacio ` + (m + 1) + `</b></h5>
+            <hr>
+            <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray2[m][0] + `</b></div>
+            <h6><b>Respuestas de espacios.</b></h6>
+            <div class="opcionesContainerStyleViewCuestionario">
             `;
-            contenedoresPregunta[m].innerHTML = contenido;
+
+            for (var t = 1; t < longitudPregunta; t++) {
+                contenidoIntermedio += `
+                    <div class="colorGreyDarker bordered1 colorTextReverse letterStyleViewCuestionario">Blank `+ (t) + `</div>
+                    <div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray2[m][t] + `</div>
+                `;
+            }
+
+            let contenidoFinal = `
+            </div>`;
+            contenedoresPregunta[m].innerHTML = contenidoInicial + contenidoIntermedio + contenidoFinal;
         }
     }
 

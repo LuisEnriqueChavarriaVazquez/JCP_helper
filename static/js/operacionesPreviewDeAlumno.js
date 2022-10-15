@@ -93,7 +93,7 @@ $(document).ready(function () {
                 //Contenido de la pregunta
                 let contenido =
                     `  
-                <h5 class="tituloPregunta"><b>Ejercicio opción múltiple ` + (m + 1) + `</b></h5>
+                <h5 class="tituloPregunta"><b>Opción múltiple ` + (m + 1) + `</b></h5>
                 <hr>
                 <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray1[m][0] + `</b></div>
                 <div class="imagenBox bordered1 shadow-1e colorGrey">
@@ -131,14 +131,14 @@ $(document).ready(function () {
 
                 //Contenido de la pregunta
                 let contenidoInicial = `  
-                <h5 class="tituloPregunta"><b>Ejercicio rellenar espacio ` + (m + 1) + `</b></h5>
+                <h5 class="tituloPregunta"><b>Rellenar espacio ` + (m + 1) + `</b></h5>
                 <hr>
                 <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray2[m][0] + `</b></div>
                 <h6><b>Respuestas de espacios.</b></h6>
                 <div class="opcionesContainerStyleViewCuestionario">
                 `;
 
-                for (var t = 0; t < longitudPregunta; t++) {
+                for (var t = 1; t < longitudPregunta; t++) {
                     contenidoIntermedio += `
                     <div class="colorGreyDarker bordered1 colorTextReverse letterStyleViewCuestionario">Blank `+ t + `</div>
                     <input type="text" placeholder="text" class="opcionStyleViewCuestionario opt2_`+ m + `"></input>
@@ -469,6 +469,7 @@ $(document).ready(function () {
         function validarWidthContador() {
             let contenedorOperacionesLive = document.getElementById('contenedorLive');
             let previewJsonResponderButton = document.getElementById('previewJsonResponder');
+            let previewJsonResponderButton2 = document.getElementById('previewJsonResponder2');
 
             //En caso de que sea la primera vez que el usuario entre debe detectar el with y hace los cambios
             validar();
@@ -485,11 +486,15 @@ $(document).ready(function () {
                     contenedorOperacionesLive.classList.add('contenedorOperacionesLiveMobile');
                     previewJsonResponderButton.classList.remove('btn-large');
                     previewJsonResponderButton.classList.add('btn');
+                    previewJsonResponderButton2.classList.remove('btn-large');
+                    previewJsonResponderButton2.classList.add('btn');
                 } else if (window.innerWidth > 1000) {
                     contenedorOperacionesLive.classList.add('contenedorOperacionesLive');
                     contenedorOperacionesLive.classList.remove('contenedorOperacionesLiveMobile');
                     previewJsonResponderButton.classList.add('btn-large');
                     previewJsonResponderButton.classList.remove('btn');
+                    previewJsonResponderButton2.classList.add('btn-large');
+                    previewJsonResponderButton2.classList.remove('btn');
                 }
             }
         }
