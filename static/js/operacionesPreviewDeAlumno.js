@@ -302,6 +302,12 @@ $(document).ready(function () {
             busquedaElementosPorOrden(longitudElementos, contenedorPreguntasPreviewHijosSinStyle);            
         }
 
+        //
+        //  LAS SIGUIENTES DOS FUNCIONES SON PARA INSERTAR LAS CAJAS PRINCIPALES DE LAS PREGUNTAS
+        //  SE SEGMENTAN EN DOS PORQUE LAS PREGUNTAS DE ARRASTRAR NO SE DAPTAN BIEN MEZCLANDOLAS
+        //  CON OTRAS CAJAS (PRINCIPALMENTE POR LA LIBRERIA DE SORTABLE.JS)
+        //
+
         //Insertamos cajas de acuerdo a la cantidad de preguntas
         function insertarCajasPreguntas(numeroPregunta, tipo) {
             var contenedorPadre;
@@ -342,6 +348,7 @@ $(document).ready(function () {
             }
         }
 
+        //SE INSERTAN LAS PREGUNTAS CON LA CLASE OPT1
         //Preguntas de opcion multiple
         function ingresarPreguntasOpcionMultiple() {
             //Ingresamos los elementos
@@ -362,20 +369,22 @@ $(document).ready(function () {
                 </div>
                 <h6><b>Opciones de la pregunta.</b></h6>
                 <div class="opcionesContainerStyleViewCuestionario">
-                    <button onclick="agregarRespuesta('opt1_` + m + "a" + `','opt1Button_` + m + `')" id="opt1_` + m + "a" + `" class="btn waves-effect color5 bordered5 coloredText letterStyleViewCuestionario">A</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][3] + `</div>
-                    <button onclick="agregarRespuesta('opt1_` + m + "b" + `','opt1Button_` + m + `')" id="opt1_` + m + "b" + `" class="btn waves-effect color5 bordered5 coloredText letterStyleViewCuestionario">B</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][4] + `</div>
-                    <button onclick="agregarRespuesta('opt1_` + m + "c" + `','opt1Button_` + m + `')" id="opt1_` + m + "c" + `" class="btn waves-effect color5 bordered5 coloredText letterStyleViewCuestionario">C</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][5] + `</div>
-                    <button onclick="agregarRespuesta('opt1_` + m + "d" + `','opt1Button_` + m + `')" id="opt1_` + m + "d" + `" class="btn waves-effect color5 bordered5 coloredText letterStyleViewCuestionario">D</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][6] + `</div>
+                    <button onclick="agregarRespuesta('opt1_` + m + "a" + `','opt1Button_` + m + `','opt1InputGet_` + m + `')" id="opt1_` + m + "a" + `" class="btn waves-effect color5 bordered5 coloredText letterStyleViewCuestionario">A</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][3] + `</div>
+                    <button onclick="agregarRespuesta('opt1_` + m + "b" + `','opt1Button_` + m + `','opt1InputGet_` + m + `')" id="opt1_` + m + "b" + `" class="btn waves-effect color5 bordered5 coloredText letterStyleViewCuestionario">B</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][4] + `</div>
+                    <button onclick="agregarRespuesta('opt1_` + m + "c" + `','opt1Button_` + m + `','opt1InputGet_` + m + `')" id="opt1_` + m + "c" + `" class="btn waves-effect color5 bordered5 coloredText letterStyleViewCuestionario">C</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][5] + `</div>
+                    <button onclick="agregarRespuesta('opt1_` + m + "d" + `','opt1Button_` + m + `','opt1InputGet_` + m + `')" id="opt1_` + m + "d" + `" class="btn waves-effect color5 bordered5 coloredText letterStyleViewCuestionario">D</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][6] + `</div>
                 </div>
                 
                 <div class="preguntaBox colorGreyDarker bordered1" id="opt1Button_` + m + `"><b>R:</b></div>
                 <div class="ponderacionBox ponderacion_opt1 colorWhite bordered1"></div>
+                <input type="hidden" value="" class="answerCollector" id="opt1InputGet_` + m + `"></input>
             `;
 
                 contenedoresPregunta[m].innerHTML = contenido;
             }
         }
 
+        //SE INSERTAN LAS PREGUNTAS CON LA CLASE OPT2
         //Preguntas acompletar
         function ingresarPreguntasAcompletar() {
             //Ingresamos los elementos
@@ -409,14 +418,17 @@ $(document).ready(function () {
                 let contenidoFinal = `
                 </div>
                 <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
-                    <button id="opt2Button_`+ m + `" onclick="agregarRespuestaOpt2('opt2_` + m + `','opt2Button_` + m + `','opt2InputRespuesta_` + m + `')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Agregar respuestas</button>
+                    <button id="opt2Button_`+ m + `" onclick="agregarRespuestaOpt2('opt2_` + m + `','opt2Button_` + m + `','opt2InputRespuesta_` + m + `','opt2InputGet_` + m + `')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Agregar respuestas</button>
                 </div>
                 <div id="opt2InputRespuesta_`+ m + `" class="preguntaBox colorGreyDarker bordered1"><b>R:</b></div>
-                <div class="ponderacionBox ponderacion_opt2 colorWhite bordered1"></div>`;
+                <div class="ponderacionBox ponderacion_opt2 colorWhite bordered1"></div>
+                <input type="hidden" value="" class="answerCollector" id="opt2InputGet_` + m + `"></input>`;
                 contenedoresPregunta[m].innerHTML = contenidoInicial + contenidoIntermedio + contenidoFinal;
             }
         }
 
+        //SE INSERTAN LAS PREGUNTAS CON LA CLASE OPT3
+        //Son las preguntas de ejercicios con código
         function ingresarPreguntasEjercicios() {
             //Ingresamos los elementos
             insertarCajasPreguntas(preguntasModalArray3.length, 'opt3');
@@ -448,17 +460,21 @@ $(document).ready(function () {
                 <input type="text" placeholder="link" class="opcionStyleViewCuestionario" id="opt3_link`+ k + `"></input>
             </div>
             <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
-                <button id="opt3Button_`+ k + `" onclick="agregarRespuestaOpt3('opt3_resultado` + k + `','opt3_link` + k + `','opt3Button_` + k + `','opt3outputResult_` + k + `','opt3linkResult` + k + `')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Agregar respuestas</button>
+                <button id="opt3Button_`+ k + `" onclick="agregarRespuestaOpt3('opt3_resultado` + k + `','opt3_link` + k + `','opt3Button_` + k + `','opt3outputResult_` + k + `','opt3linkResult` + k + `','opt3InputGet_` + k + `')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Agregar respuestas</button>
             </div>
-            <div id="opt3outputResult_`+ k + `" class="preguntaBox outputEsperado colorGreyDarker bordered1" style="margin-bottom: 10px;"><b>Output:</b></div>
-            <div id="opt3linkResult`+ k + `" class="preguntaBox outputEsperado colorGreyDarker bordered1"><b>Link:</b></div>
+            <div id="opt3outputResult_`+ k + `" class="preguntaBox colorGreyDarker bordered1" style="margin-bottom: 10px;"><b>Output:</b></div>
+            <div id="opt3linkResult`+ k + `" class="preguntaBox colorGreyDarker bordered1"><b>Link:</b></div>
             <div class="ponderacionBox ponderacion_opt3 colorWhite bordered1"></div>
+            <input type="hidden" value="" class="answerCollector" id="opt3InputGet_` + k + `"></input>
             `;
 
                 contenedoresPregunta[k].innerHTML = contenido;
             }
         }
 
+        //SE INSERTAN LAS PREGUNTAS CON LA CLASE OPT4
+        //Estas preguntas son de un orden especial por la libreria sortable
+        //por eso estan incrustadas en una caja diferente
         function ingresarPreguntasArrastrar() {
             //Ingresamos los elementos (en un contenedor especial)
             insertarCajasPreguntasArrastrar(preguntasModalArray4.length, 'opt4');
@@ -513,10 +529,11 @@ $(document).ready(function () {
                 //Este es el div que cierra el contenido
                 let finalContenido = `</div>
                     <div style="width: 100%;"> 
-                        <button id="optArrastrarButton`+ t + `" onclick="agregarRespuestaArrastrar('resultadoArrastrar` + t + `')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Confirmar orden</button>
+                        <button id="optArrastrarButton`+ t + `" onclick="agregarRespuestaArrastrar('resultadoArrastrar` + t + `','opt4InputGet_` + t + `','definicionesContainer` + t + `')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Confirmar orden</button>
                         <div id="resultadoArrastrar`+ t + `" class="preguntaBox outputEsperado colorGreyDarker bordered1" style="margin-bottom: 10px; width: 100%;"><b>Output:</b></div>
                     </div>
                     <div class="ponderacionBox ponderacion_opt4 colorWhite bordered1"></div>
+                    <input type="hidden" value="" class="answerCollector" id="opt4InputGet_` + t + `"></input>
                 `;
                 //En final se guarda el contenido FINAL para la pregunta
                 var final;
@@ -547,6 +564,8 @@ $(document).ready(function () {
             }
         }
 
+        //SE INSERTAN LAS PREGUNTAS CON LA CLASE OPT5
+        //Estas preguntas son aquellas de true y false
         function ingresarPreguntasTrueFalse() {
             //Ingresamos los elementos
             insertarCajasPreguntas(preguntasModalArray5.length, 'opt5');
@@ -565,21 +584,24 @@ $(document).ready(function () {
                 <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray5[m][0] + `</b></div>
                 <div class="contendorBotonesTrueFalse"> 
                     <button 
-                    onclick="agregarRespuestaOpt4('opt4outputResult_`+ m + `','true')" 
+                    onclick="agregarRespuestaOpt4('opt4outputResult_`+ m + `','true','opt5InputGet_`+ m + `')" 
                     class="waves-effect waves-light btn-large colorGrey colorTextReverse trueFalsebtn1">T</button>
                     
                     <button
-                    onclick="agregarRespuestaOpt4('opt4outputResult_`+ m + `','false')" 
+                    onclick="agregarRespuestaOpt4('opt4outputResult_`+ m + `','false','opt5InputGet_`+ m + `')" 
                     class="waves-effect waves-light btn-large colorGrey colorTextReverse trueFalsebtn2">F</button>
                 </div>
                 <h6><b>Resultado.</b></h6>
                 <div id="opt4outputResult_`+ m + `" class="preguntaBox outputEsperado colorGreyDarker bordered1" style="margin-bottom: 10px;"><b>Output:</b></div>
                 <div class="ponderacionBox ponderacion_opt5 colorWhite bordered1"></div>
+                <input type="hidden" value="" class="answerCollector" id="opt5InputGet_` + m + `"></input>
             `;
                 contenedoresPregunta[m].innerHTML = contenido;
             }
         }
 
+        //SE INSERTAN LAS PREGUNTAS CON LA CLASE OPT6
+        //Estas preguntas son de tipo abiertas
         function ingresarPreguntasAbiertas() {
             //Ingresamos los elementos
             insertarCajasPreguntas(preguntasModalArray6.length, 'opt6');
@@ -609,25 +631,38 @@ $(document).ready(function () {
                 </div>
                 <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
                     <button id="opt6_agregarRespuesta`+ m + `" 
-                    onclick="agregarRespuestaOptAbiertas('opt6_respuesta`+ m + `','opt6outputResult_` + m + `','opt6_agregarRespuesta` + m + `')" 
+                    onclick="agregarRespuestaOptAbiertas('opt6_respuesta`+ m + `','opt6outputResult_` + m + `','opt6_agregarRespuesta` + m + `','opt6InputGet_` + m + `')" 
                     class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat">
                     <i class="material-icons left">check</i>Agregar respuestas</button>
                 </div>
                 <div id="opt6outputResult_`+ m + `" class="preguntaBox outputEsperado colorGreyDarker bordered1" 
                 style="margin-bottom: 10px;"><b>Output:</b></div>
                 <div class="ponderacionBox ponderacion_opt6 colorWhite bordered1"></div>
+                <input type="hidden" value="" class="answerCollector" id="opt6InputGet_` + m + `"></input>
             `;
                 contenedoresPregunta[m].innerHTML = contenido;
             }
         }
 
+        //////
+        ///AQUI SE HACE LA LLAMADA A LAS FUNCIONES
+        ///PARA PODER INGRESAR TODAS PREGUNTAS DISPONIBLES EN SUS CAJAS
+        //////
 
+        //OPT1
         ingresarPreguntasOpcionMultiple();
+        //OPT2
         ingresarPreguntasAcompletar();
+        //OPT3
         ingresarPreguntasEjercicios();
+        //OPT5
         ingresarPreguntasTrueFalse();
+        //OPT6
         ingresarPreguntasAbiertas();
-        ingresarPreguntasArrastrar();
+        //OPT4
+        //EL FALLO DE LA LIBRERIA SORTABLE SE DEBE A QUE AL ARRASTRAR LOS ELEMENTOS
+        //LAS CAJAS PADRE CAMBIAN SU HEIGHT
+        ingresarPreguntasArrastrar(); //DEBE IR AL FINAL POR LA LIBRERIA SORTABLE.JS
 
         //Validamos dependiendo del tipo de orden dado.
         if (ordenCuestionarioValue == "random") {
@@ -646,6 +681,9 @@ $(document).ready(function () {
         //////////////////////////////////////////////////////    
         //////////////////////////////////////////////////////
         ////////////TRABAJO CON PONDERACIONES Y ORDEN
+        ///
+        /// Se ponen las ponderaciones según el tipo de pregunta
+        ///
         //Para la ponderación de las preguntas
         function asignarPonderaciones() {
             //Validamos aquellos numeros de la ponderación que estan vacios

@@ -67,10 +67,10 @@
                     </div>
                 </div>
                 <div class="accessCuestionarioLive">
-                    <a href="/viewCuestionario/{{datosCuestionario[0][0]}}"
+                    <button onclick="procesamientoDeResultados()"
                         class="waves-effect waves-light btn-large bordered5 color2 shadow-2e" id="previewJsonResponder"
                         style="width: 100%;">
-                        <i class="material-icons left">check</i>Simular entrega</a>
+                        <i class="material-icons left">check</i>Simular entrega</button>
                 </div>
                 <div class="accessCuestionarioLive">
                     <a href="/viewCuestionario/{{datosCuestionario[0][0]}}"
@@ -117,17 +117,23 @@
 <script src="../../static/js/operacionesTerminos.js"></script>
 <script src="../../static/js/operacionesPreviewDeAlumno.js"></script>
 <script src="../../static/js/operacionesCuestionariosCuentaAtras.js"></script>
+<script src="../../static/js/operacionesCuestionariosRespuestas.js"></script>
 
 <!--Esta parte necesita ser agregada aqui porque son cambios en tiempo real-->
 <script>
     //Lista global para saber cual ha sido respondida
 
     //Opcion multiple
-    function agregarRespuesta(idButton, idInput) {
+    function agregarRespuesta(idButton, idInput, idInputGet) {
         //Se accede al contenido del button
         let buttonElement = document.getElementById(idButton);
         //Se accede al input de respuesta
         let textoInput = document.getElementById(idInput);
+
+        //Accedemos al elemento input hidden y le metemeo la respuesta
+        let idInputGetElement = document.getElementById(idInputGet);
+        idInputGetElement.value = buttonElement.innerText;
+
         //Se imprime la respuesta
         textoInput.innerHTML = "<b>" + buttonElement.innerText + "</b>";
         textoInput.classList.remove("colorGreyDarker");
@@ -140,15 +146,21 @@
     }
 
     //Rellenar textos
-    function agregarRespuestaOpt2(classBlank, idButton, idRespuesta) {
+    function agregarRespuestaOpt2(classBlank, idButton, idRespuesta,idInputGet) {
         let buttonElement = document.getElementById(idButton);
         let textInput = document.getElementById(idRespuesta);
         let classBlankElements = document.getElementsByClassName(classBlank);
+
+        //Accedemos al elemento input hidden y le metemeo la respuesta
+        let idInputGetElement = document.getElementById(idInputGet);
+        
         let valoresInputs;
         //Accedemos a los values de los inputs con esa clase
         textInput.innerText = "";
+        idInputGetElement.value = "";
         for (var i = 0; i < classBlankElements.length; i++) {
             textInput.innerText += classBlankElements[i].value + "/";
+            idInputGetElement.value += classBlankElements[i].value + "/";
         }
 
         textInput.classList.remove("colorGreyDarker");
@@ -161,7 +173,7 @@
     }
 
     //Agregar los resultados de los ejercicios
-    function agregarRespuestaOpt3(opt_resultado, opt_link, opt_Button, opt_outputResult, opt_linkResult) {
+    function agregarRespuestaOpt3(opt_resultado, opt_link, opt_Button, opt_outputResult, opt_linkResult, idInputGet) {
         //Accedemos a los valores
         let resultadoInput = document.getElementById(opt_resultado);
         let resultadoLink = document.getElementById(opt_link);
@@ -169,13 +181,24 @@
         let outputResultado = document.getElementById(opt_outputResult);
         let outputLink = document.getElementById(opt_linkResult);
 
+        //Accedemos al elemento input hidden y le metemeo la respuesta
+        let idInputGetElement = document.getElementById(idInputGet);
+        
         //Ingresamos los valores
         if (resultadoInput.value != "" || resultadoLink.value != "") {
             outputResultado.innerText = resultadoInput.value;
             outputLink.innerText = resultadoLink.value;
+            if(resultadoInput.value == "" && resultadoLink.value != ""){
+                idInputGetElement.value = "EMPTY" + "/" + resultadoLink.value;
+            }else if( resultadoLink.value == "" && resultadoInput.value != ""){
+                idInputGetElement.value = resultadoInput.value + "/" + "EMPTY";
+            }else{
+                idInputGetElement.value = resultadoInput.value + "/" + resultadoLink.value;
+            }
         } else {
             outputResultado.innerText = "EMPTY";
             outputLink.innerText = "EMPTY";
+            idInputGetElement.value = "EMPTY" + "/" + "EMPTY";
         }
 
         //Modificamos los estilos
@@ -191,9 +214,21 @@
         imprimirBarraProgreso();
     }
 
-    function agregarRespuestaArrastrar(respuesta){
+    //Para las preguntas de arrastrar
+    function agregarRespuestaArrastrar(respuesta, idInputGet, contenedorDefiniciones){
         let respuestaInput = document.getElementById(respuesta);
-        respuestaInput.innerText = "Listo"
+        
+        //Accedemos al elemento input hidden y al contenedor de definiciones
+        let idInputGetElement = document.getElementById(idInputGet);
+        let contenedorDefinicionesElement = document.getElementById(contenedorDefiniciones);
+        let hijosContenedorDefiniciones = contenedorDefinicionesElement.querySelectorAll(".arrastrarElemento");
+        idInputGetElement.value = "";
+        //Juntamos todo el contenido de los elementos hijos en un array
+        for(y = 0; y < hijosContenedorDefiniciones.length; y++){
+            idInputGetElement.value += hijosContenedorDefiniciones[y].innerText + "/";
+        }
+
+        respuestaInput.innerText = "READY"
         respuestaInput.classList.remove("colorGreyDarker");
         respuestaInput.classList.add("color5");
         respuestaInput.classList.add("coloredText");
@@ -204,9 +239,14 @@
 
     }
 
-    function agregarRespuestaOpt4(resultadoOutput, value){
+    //Preguntas true false
+    function agregarRespuestaOpt4(resultadoOutput, value, idInputGet){
         let output = document.getElementById(resultadoOutput);
         output.innerHTML = value;
+
+        //Accedemos al elemento input hidden y le metemeo la respuesta
+        let idInputGetElement = document.getElementById(idInputGet);
+        idInputGetElement.value = value;
 
         output.classList.remove("colorGreyDarker");
         output.classList.add("color5");
@@ -217,12 +257,17 @@
         imprimirBarraProgreso();
     }
 
-    function agregarRespuestaOptAbiertas(respuesta, resultado, button){
+    function agregarRespuestaOptAbiertas(respuesta, resultado, button, idInputGet){
         let respuestaInput = document.getElementById(respuesta);
         let resultadoInput = document.getElementById(resultado);
         let buttonInput = document.getElementById(button);
 
+        //Caja del output visible para el usuario
         resultadoInput.innerText = respuestaInput.value;
+
+        //Accedemos al elemento input hidden y le metemeo la respuesta
+        let idInputGetElement = document.getElementById(idInputGet);
+        idInputGetElement.value = respuestaInput.value;
 
         //Cambiar estilos del resultado
         resultadoInput.classList.remove("colorGreyDarker");
