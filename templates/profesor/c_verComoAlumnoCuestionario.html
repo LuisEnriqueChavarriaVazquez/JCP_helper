@@ -67,8 +67,9 @@
                     </div>
                 </div>
                 <div class="accessCuestionarioLive">
-                    <button onclick="procesamientoDeResultados()"
-                        class="waves-effect waves-light btn-large bordered5 color2 shadow-2e" id="previewJsonResponder"
+                    <button
+                        href="#revisarModal"
+                        class="modal-trigger waves-effect waves-light btn-large bordered5 color2 shadow-2e" id="previewJsonResponder"
                         style="width: 100%;">
                         <i class="material-icons left">check</i>Simular entrega</button>
                 </div>
@@ -95,6 +96,20 @@
             <div class="contenedorPreguntasPreview3" id="contenedorPreguntasPreview3"></div>
         </section>
     </section>
+
+    <!--Pop up de preguntar si revisar-->
+    <div id="revisarModal" class="modal bordered2 colorGrey">
+        <div class="modal-content">
+            <h4>¿Desea enviar el cuestionario?</h4>
+            <p>Este procedimiento no se puede revertir.</p>
+            <hr>
+            <a onclick="procesamientoDeResultados()" 
+                id="botonRevisarMensaje"
+                href="/simularRevision/{{datosCuestionario[0][0]}}"
+                class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded"
+                style="width: 100%;">Enviar</a>
+        </div>
+    </div>
 
     <!--Boton para ir hacia arriba-->
     <div class="fixed-action-btn hiddenElement animate__animated" id="buttonGoUpTerminos">

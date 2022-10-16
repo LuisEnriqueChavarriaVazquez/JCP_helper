@@ -117,11 +117,29 @@ function procesamientoDeResultados(){
         }
         meterListasEnElObjeto();
 
-    }
-    lecturaDePonderacionResultadoPreguntas();
-    
-    //Se hace la lectura de inputs hidden que contienen los resultado de las preguntas
-    function lecturaDeOutputs(){
+        function crearElJson(){
+            //Se debe guardar un JSON de manera parcial.
+        }
+        crearElJson();
 
     }
-}   
+    lecturaDePonderacionResultadoPreguntas();
+}
+
+//En caso de que el tiempo haya terminado el mensaje de envio cambia
+function mensajeDeRevisionRetraso(){
+    setInterval(function () {
+        //Mensajes del tiempo
+        let contadorFecha = document.getElementById('contadorFecha').textContent;
+        let tiempoRestante = document.getElementById('tiempoRestante').textContent;
+        //Mensaje del boton
+        let botonRevisarMensaje = document.getElementById('botonRevisarMensaje');
+        
+        if(contadorFecha == "No time" || tiempoRestante == "No time"){
+            botonRevisarMensaje.textContent = "Enviar con retraso.";
+            botonRevisarMensaje.classList.remove('infoColorButton');
+            botonRevisarMensaje.classList.add('badColorButton');
+        }
+    }, 1000);
+}
+mensajeDeRevisionRetraso();
