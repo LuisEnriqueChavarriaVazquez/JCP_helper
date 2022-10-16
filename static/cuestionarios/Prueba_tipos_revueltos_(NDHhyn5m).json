@@ -1,0 +1,72 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optMultiple",
+   "1": "optFalsoVerdadero",
+   "2": "optMultiple",
+   "3": "optArrastrar",
+   "4": "optFalsoVerdadero",
+   "5": "optMultiple"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "3",
+   "1": "2",
+   "2": "",
+   "3": "",
+   "4": "",
+   "5": ""
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "0": "opcion multiple",
+   "1": "",
+   "2": "B",
+   "3": "fddsds",
+   "4": "dssddssd",
+   "5": "",
+   "6": ""
+  },
+  {
+   "0": "opcion multiple",
+   "1": "",
+   "2": "C",
+   "3": "fddsds",
+   "4": "dssddssd",
+   "5": "dsdsds",
+   "6": ""
+  },
+  {
+   "0": "opcion multiple ULTIMA",
+   "1": "",
+   "2": "C",
+   "3": "fddsds",
+   "4": "dssddssd",
+   "5": "dsdsds",
+   "6": "FFF"
+  }
+ ],
+ "preguntasModal2": [],
+ "preguntasModal3": [],
+ "preguntasModal4": [
+  {
+   "0": "sddsdsdsds",
+   "1": "ddd*dddddeeee",
+   "2": "dd*ssss",
+   "3": "www*qqqq"
+  }
+ ],
+ "preguntasModal5": [
+  {
+   "0": "sddssdsd",
+   "1": "T"
+  },
+  {
+   "0": "DOS TRUE FALSE",
+   "1": "F"
+  }
+ ],
+ "preguntasModal6": []
+}
