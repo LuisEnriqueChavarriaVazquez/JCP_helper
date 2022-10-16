@@ -262,8 +262,8 @@ $(document).ready(function () {
                     listaOrdenPreguntasPurificada.push('opt3');
                 }
             }
-            console.log('listaAreas1', listaAreas1)
-            console.log('listaOrdenPreguntasPurificada', listaOrdenPreguntasPurificada)
+            //console.log('listaAreas1', listaAreas1)
+            //console.log('listaOrdenPreguntasPurificada', listaOrdenPreguntasPurificada)
             
             //Buscamos el primer elemento del orden dado en las preguntas ordenadas por tipo
             //Y basicamente asignamos el grid area de acuerdo a su orden
