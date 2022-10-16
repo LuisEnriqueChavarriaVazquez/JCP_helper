@@ -399,6 +399,14 @@ def insertar_cuestionario_JSON(id_grupo, id_profesor, tituloCuestionario, fechaC
     conexion.commit()
     conexion.close()
 
+# Agregar la ruta del preview del cuestionario
+def insertar_ruta_preview_cuestionario(id_cuestionario, rutaPreview):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE cuestionarios SET PreviewCuestionarioRuta = %s WHERE IDCuestionario = %s", (rutaPreview, id_cuestionario))
+    conexion.commit()
+    conexion.close()
+
 ####################################Operaciones para los post
 #Operacion para la creación de un post
 def crearPost(id_docente, tituloPost, descripcionPost, fondoPost):
