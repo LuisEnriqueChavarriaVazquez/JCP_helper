@@ -292,6 +292,7 @@ function imprimirPreguntas() {
                     <h6><b>Solución de la pregunta.</b></h6>
                     <div class="opcionesContainerStyleViewCuestionarioTrueFalse">
                     <div class="preguntaBoxFalseTrue color5 coloredText bordered1"><b>` + preguntasModalArray5[m][1] + `</b></div>
+                    <input type="hidden" value="` + preguntasModalArray5[m][1] + `" class="rightAnswerOpt5" id="rightAnswerOpt5`+ m +`" name="rightAnswerOpt5`+ m +`"></input>
                     </div>
                     <h6><b>Su respuesta.</b></h6>
                     <div class="respuestaBox respuestaBoxOpt5 goodColor bordered1"></div>
@@ -628,40 +629,70 @@ function imprimirPreguntas() {
     imprimirRespuestasAlumno(Object.values(listaRespuestasLimpiaOpt5), 'respuestaBoxOpt5');
     imprimirRespuestasAlumno(Object.values(listaRespuestasLimpiaOpt6), 'respuestaBoxOpt6');
 
-    function evaluarCuestionario() {
-        function evaluarOpt1(){
-            //Input con la respuesta
-            let rightAnswerOpt1 = document.getElementsByClassName("rightAnswerOpt1");
-            //Div con la respuesta del usuario
-            let respuestaBox = document.getElementsByClassName('respuestaBoxOpt1');
-            //Div de ponderaciones
-            let ponderacion_opt1 = document.getElementsByClassName('ponderacion_opt1');
+    function evaluarOpt1(){
+        //Input con la respuesta
+        let rightAnswerOpt1 = document.getElementsByClassName("rightAnswerOpt1");
+        //Div con la respuesta del usuario
+        let respuestaBox = document.getElementsByClassName('respuestaBoxOpt1');
+        //Div de ponderaciones
+        let ponderacion_opt1 = document.getElementsByClassName('ponderacion_opt1');
 
-            //Evaluamos y verificamos si es correcta
-            for(var i = 0; i < rightAnswerOpt1.length; i++){
-                if(rightAnswerOpt1[i].value == respuestaBox[i].textContent){
-                    //Guardamos en el input el valor de bien
-                    rightAnswerOpt1[i].value = "bien";
-                    //Sumamos la ponderacion
-                    var valorPonderacionOpt1 = ponderacion_opt1[i].innerText;
-                    valorPonderacionOpt1 = valorPonderacionOpt1.substring(0,valorPonderacionOpt1.indexOf('pts.'));
-                    ponderacionGlobal = ponderacionGlobal + parseInt(valorPonderacionOpt1);
-                }else{
-                    //Guardamos en el input el valor de mal
-                    rightAnswerOpt1[i].value = "mal";
-                    //Aplicamos los estilos
-                    respuestaBox[i].classList.remove('goodColor');
-                    respuestaBox[i].classList.add('badColor');
-                }
+        //Evaluamos y verificamos si es correcta
+        for(var i = 0; i < rightAnswerOpt1.length; i++){
+            if(rightAnswerOpt1[i].value == respuestaBox[i].textContent){
+                //Guardamos en el input el valor de bien
+                rightAnswerOpt1[i].value = "bien";
+                //Sumamos la ponderacion
+                var valorPonderacionOpt1 = ponderacion_opt1[i].innerText;
+                valorPonderacionOpt1 = valorPonderacionOpt1.substring(0,valorPonderacionOpt1.indexOf('pts.'));
+                ponderacionGlobal = ponderacionGlobal + parseInt(valorPonderacionOpt1);
+            }else{
+                //Guardamos en el input el valor de mal
+                rightAnswerOpt1[i].value = "mal";
+                //Aplicamos los estilos
+                respuestaBox[i].classList.remove('goodColor');
+                respuestaBox[i].classList.add('badColor');
             }
         }
-        evaluarOpt1();
     }
-    evaluarCuestionario();
+    evaluarOpt1();
 
+    function evaluarOpt5(){
+        //Input con la respuesta
+        let rightAnswerOpt5 = document.getElementsByClassName("rightAnswerOpt5");
+        //Div con la respuesta del usuario
+        let respuestaBox = document.getElementsByClassName('respuestaBoxOpt5');
+        //Div de ponderaciones
+        let ponderacion_opt5 = document.getElementsByClassName('ponderacion_opt5');
 
+         //Evaluamos y verificamos si es correcta
+         for(var i = 0; i < rightAnswerOpt5.length; i++){
+            var formatoRespuesta;
+            //Damos formato a el value de la respuesta correcta
+            if(rightAnswerOpt5[i].value == "T"){
+                formatoRespuesta = "true";
+            }else if(rightAnswerOpt5[i].value == "F"){
+                formatoRespuesta = "false";
+            }
 
-
+            // //Evaluamos la pregunta
+            if(formatoRespuesta == respuestaBox[i].textContent){
+                //Guardamos en el input el valor de bien
+                rightAnswerOpt5[i].value = "bien";
+                //Sumamos la ponderacion
+                var valorPonderacionOpt5 = ponderacion_opt5[i].innerText;
+                valorPonderacionOpt5 = valorPonderacionOpt5.substring(0,valorPonderacionOpt5.indexOf('pts.'));
+                ponderacionGlobal = ponderacionGlobal + parseInt(valorPonderacionOpt5);
+            }else{
+                //Guardamos en el input el valor de mal
+                rightAnswerOpt5[i].value = "mal";
+                //Aplicamos los estilos
+                respuestaBox[i].classList.remove('goodColor');
+                respuestaBox[i].classList.add('badColor');
+            }
+        }
+    }
+    evaluarOpt5();
 
 
     function calcularPromedio() {
