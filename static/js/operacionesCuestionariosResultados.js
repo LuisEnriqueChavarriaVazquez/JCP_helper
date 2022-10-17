@@ -105,7 +105,7 @@ function imprimirPreguntas() {
                     <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
                         <h6><b>Respuesta correcta.</b></h6>
                         <div class="preguntaBox color5 bordered1"><b>` + preguntasModalArray1[m][2] + `</b></div>
-                        <input type="hidden" value="` + preguntasModalArray1[m][2] + `" class="rightAnswerOpt1" id="rightAnswerOpt1`+ m +`" name="rightAnswerOpt1`+ m +`"></input>
+                        <input type="hidden" value="` + preguntasModalArray1[m][2] + `" class="rightAnswerOpt1" id="rightAnswerOpt1` + m + `" name="rightAnswerOpt1` + m + `"></input>
                         <h6><b>Su respuesta.</b></h6>
                         <div class="respuestaBox respuestaBoxOpt1 goodColor bordered1"></div>
                         <div class="ponderacionBox ponderacion_opt1 colorWhite bordered1"></div>
@@ -155,7 +155,7 @@ function imprimirPreguntas() {
                 </div>
             </section>
             <h6><b>Su respuesta.</b></h6>
-            <input type="hidden" class="rightAnswerOpt2" id="rightAnswerOpt2`+ m +`" name="rightAnswerOpt2`+ m +`"></input>
+            <input type="hidden" class="rightAnswerOpt2" id="rightAnswerOpt2`+ m + `" name="rightAnswerOpt2` + m + `"></input>
             <div class="respuestaBox respuestaBoxOpt2 goodColor bordered1"></div>
             <div class="ponderacionBox ponderacion_opt2 colorWhite bordered1"></div>`;
                 contenedoresPregunta[m].innerHTML = contenidoInicial + contenidoIntermedio + contenidoFinal;
@@ -190,7 +190,7 @@ function imprimirPreguntas() {
                 <div class="codeContainerBox"><pre class="previewCodeContainer colorText bordered1">` + preguntasModalArray3[k][3] + `</pre></div>
                 <div class="preguntaBox outputEsperado outputGetValue color5 bordered1"><b>Output: ` + preguntasModalArray3[k][4] + `</b></div>
                 <h6 class="tituloEjercicioPendiente"><b>Su respuesta.</b></h6>
-                <input type="hidden" class="rightAnswerOpt3" id="rightAnswerOpt3`+ k +`" name="rightAnswerOpt3`+ k +`"></input>
+                <input type="hidden" class="rightAnswerOpt3" id="rightAnswerOpt3`+ k + `" name="rightAnswerOpt3` + k + `"></input>
                 <div class="respuestaBox respuestaBoxOpt3 goodColor bordered1"></div>
                 <div class="ponderacionBox ponderacion_opt3 colorWhite bordered1"></div>
             </section>`;
@@ -246,9 +246,11 @@ function imprimirPreguntas() {
             <hr>
             <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray4[numero][0] + `</b></div>
             <h6><b>Relación correcta.</b></h6>
+            <input type="hidden" value="" class="rightAnswerOpt4" id="rightAnswerOpt4`+ numero + `" name="rightAnswerOpt4` + numero + `"></input>
             <div class="opcionesContainerStyleViewCuestionarioArrastrar">`;
                 return inicioContenido;
             }
+
 
             //Este es el div que cierra el contenido
             let finalContenido = `
@@ -296,7 +298,7 @@ function imprimirPreguntas() {
                     <div class="preguntaBoxFalseTrue color5 coloredText bordered1"><b>` + preguntasModalArray5[m][1] + `</b></div>
                     </div>
                     <h6><b>Su respuesta.</b></h6>
-                    <input type="hidden" value="` + preguntasModalArray5[m][1] + `" class="rightAnswerOpt5" id="rightAnswerOpt5`+ m +`" name="rightAnswerOpt5`+ m +`"></input>
+                    <input type="hidden" value="` + preguntasModalArray5[m][1] + `" class="rightAnswerOpt5" id="rightAnswerOpt5` + m + `" name="rightAnswerOpt5` + m + `"></input>
                     <div class="respuestaBox respuestaBoxOpt5 goodColor bordered1"></div>
                     <div class="ponderacionBox ponderacion_opt5 colorWhite bordered1"></div>
                 </section>
@@ -333,7 +335,7 @@ function imprimirPreguntas() {
                     <h6><b>Solución de la pregunta.</b></h6>
                     <div class="preguntaBox outputEsperado colorGreyDarker bordered1"><b>Estas preguntas se revisan de manera manual, espera a que tu profesor lea tu respuesta.</b></div>
                     <h6><b>Su respuesta.</b></h6>
-                    <input type="hidden" value="pendiente" class="rightAnswerOpt6" id="rightAnswerOpt6`+ m +`" name="rightAnswerOpt6`+ m +`"></input>
+                    <input type="hidden" value="pendiente" class="rightAnswerOpt6" id="rightAnswerOpt6`+ m + `" name="rightAnswerOpt6` + m + `"></input>
                     <div class="respuestaBox respuestaBoxOpt6 goodColor bordered1"></div>
                     <div class="ponderacionBox ponderacion_opt6 colorWhite bordered1"></div>
                 </section>
@@ -480,7 +482,7 @@ function imprimirPreguntas() {
         for (var i = 0; i < outputGetValue.length; i++) {
             if (outputGetValue[i].innerText == "Output:") {
                 outputGetValue[i].innerText = "No output";
-            }else if(previewCodeContainer[i].innerText == ""){
+            } else if (previewCodeContainer[i].innerText == "") {
                 previewCodeContainer[i].innerText = "No code";
             }
         }
@@ -547,57 +549,57 @@ function imprimirPreguntas() {
     let respuestasModal4 = Object.values(preguntasModal4[preguntasModal4.length - 1]);
     let respuestasModal5 = Object.values(preguntasModal5[preguntasModal5.length - 1]);
     let respuestasModal6 = Object.values(preguntasModal6[preguntasModal6.length - 1]);
-    
+
     //Procesamos los textos de la sección de respuestas
-    function procesarRespuestasAlumnos(respuestasLongitud, respuestas){
+    function procesarRespuestasAlumnos(respuestasLongitud, respuestas) {
         let listaRespuestas = [];
         //Obtenemos las respuestas (Quitamos ponderación)
-        for(var x = 0; x < respuestasLongitud; x++){
+        for (var x = 0; x < respuestasLongitud; x++) {
             listaRespuestas.push(respuestas[x].substr(0, respuestas[x].indexOf('&')))
         }
 
         let listaRespuestasFinal = [];
         //Obtenemos las respuestas (Quitamos el identificador)
-        for(var x = 0; x < respuestasLongitud; x++){
+        for (var x = 0; x < respuestasLongitud; x++) {
             listaRespuestasFinal.push(listaRespuestas[x].substr(listaRespuestas[x].indexOf('/') + 1))
         }
-        
+
         console.log(listaRespuestasFinal)
         return listaRespuestasFinal;
     }
 
     //Almacenamos las respuestas limpias
-    let listaRespuestasLimpiaOpt1 = procesarRespuestasAlumnos(respuestasModal1[0].length,respuestasModal1[0]);
-    let listaRespuestasLimpiaOpt2 = procesarRespuestasAlumnos(respuestasModal2[0].length,respuestasModal2[0]);
-    let listaRespuestasLimpiaOpt3 = procesarRespuestasAlumnos(respuestasModal3[0].length,respuestasModal3[0]);
-    let listaRespuestasLimpiaOpt4 = procesarRespuestasAlumnos(respuestasModal4[0].length,respuestasModal4[0]);
-    let listaRespuestasLimpiaOpt5 = procesarRespuestasAlumnos(respuestasModal5[0].length,respuestasModal5[0]);
-    let listaRespuestasLimpiaOpt6 = procesarRespuestasAlumnos(respuestasModal6[0].length,respuestasModal6[0]);
-    
-    function imprimirRespuestasAlumno(listaRespuestas, tipo){
+    let listaRespuestasLimpiaOpt1 = procesarRespuestasAlumnos(respuestasModal1[0].length, respuestasModal1[0]);
+    let listaRespuestasLimpiaOpt2 = procesarRespuestasAlumnos(respuestasModal2[0].length, respuestasModal2[0]);
+    let listaRespuestasLimpiaOpt3 = procesarRespuestasAlumnos(respuestasModal3[0].length, respuestasModal3[0]);
+    let listaRespuestasLimpiaOpt4 = procesarRespuestasAlumnos(respuestasModal4[0].length, respuestasModal4[0]);
+    let listaRespuestasLimpiaOpt5 = procesarRespuestasAlumnos(respuestasModal5[0].length, respuestasModal5[0]);
+    let listaRespuestasLimpiaOpt6 = procesarRespuestasAlumnos(respuestasModal6[0].length, respuestasModal6[0]);
+
+    function imprimirRespuestasAlumno(listaRespuestas, tipo) {
         let respuestaBox = document.getElementsByClassName(tipo);
-    
+
         //Imprimimos las respuestas
-        if(tipo == "respuestaBoxOpt1" || tipo == "respuestaBoxOpt5" || tipo == "respuestaBoxOpt6"){
-            for(var i = 0; i < respuestaBox.length; i++){
-                if(listaRespuestas[i] == undefined){
+        if (tipo == "respuestaBoxOpt1" || tipo == "respuestaBoxOpt5" || tipo == "respuestaBoxOpt6") {
+            for (var i = 0; i < respuestaBox.length; i++) {
+                if (listaRespuestas[i] == undefined) {
                     respuestaBox[i].innerText = "vacio";
-                }else if(listaRespuestas[i] == ""){
+                } else if (listaRespuestas[i] == "") {
                     respuestaBox[i].innerText = "vacio";
-                }else{
+                } else {
                     respuestaBox[i].innerText = listaRespuestas[i];
                 }
             }
         }
 
         //Validamos impresión dependiendo del tipo
-        if(tipo == "respuestaBoxOpt2"){
-            for(var i = 0; i < respuestaBox.length; i++){
-                if(listaRespuestas[i] == undefined){
+        if (tipo == "respuestaBoxOpt2") {
+            for (var i = 0; i < respuestaBox.length; i++) {
+                if (listaRespuestas[i] == undefined) {
                     respuestaBox[i].innerText = "vacio";
-                }else if(listaRespuestas[i] == ""){
+                } else if (listaRespuestas[i] == "") {
                     respuestaBox[i].innerText = "vacio";
-                }else{
+                } else {
                     var textoConFormato = listaRespuestas[i].replace('/', '⚫ ');
                     textoConFormato = textoConFormato.replaceAll('/', '<br>⚫ ');
                     respuestaBox[i].innerHTML = textoConFormato;
@@ -606,13 +608,13 @@ function imprimirPreguntas() {
         }
 
         //Validamos impresión dependiendo del tipo
-        if(tipo == "respuestaBoxOpt3"){
-            for(var i = 0; i < respuestaBox.length; i++){
-                if(listaRespuestas[i] == undefined){
+        if (tipo == "respuestaBoxOpt3") {
+            for (var i = 0; i < respuestaBox.length; i++) {
+                if (listaRespuestas[i] == undefined) {
                     respuestaBox[i].innerText = "vacio";
-                }else if(listaRespuestas[i] == ""){
+                } else if (listaRespuestas[i] == "") {
                     respuestaBox[i].innerText = "vacio";
-                }else{
+                } else {
                     var textoConFormato = listaRespuestas[i].replace('/', '<br>');
                     respuestaBox[i].innerHTML = textoConFormato;
                 }
@@ -620,13 +622,13 @@ function imprimirPreguntas() {
         }
 
         //Validamos impresión dependiendo del tipo
-        if(tipo == "respuestaBoxOpt4"){
-            for(var i = 0; i < respuestaBox.length; i++){
-                if(listaRespuestas[i] == undefined){
+        if (tipo == "respuestaBoxOpt4") {
+            for (var i = 0; i < respuestaBox.length; i++) {
+                if (listaRespuestas[i] == undefined) {
                     respuestaBox[i].innerText = "vacio";
-                }else if(listaRespuestas[i] == ""){
+                } else if (listaRespuestas[i] == "") {
                     respuestaBox[i].innerText = "vacio";
-                }else{
+                } else {
                     var textoConFormato = listaRespuestas[i].replaceAll('/', '<br>');
                     respuestaBox[i].innerHTML = textoConFormato;
                 }
@@ -645,7 +647,7 @@ function imprimirPreguntas() {
     //////////////////////////////////////////////////////
     ////////////EVALUACION
     //Se evaluan de forma atomica
-    function evaluarOpt1(){
+    function evaluarOpt1() {
         //Input con la respuesta
         let rightAnswerOpt1 = document.getElementsByClassName("rightAnswerOpt1");
         //Div con la respuesta del usuario
@@ -654,15 +656,15 @@ function imprimirPreguntas() {
         let ponderacion_opt1 = document.getElementsByClassName('ponderacion_opt1');
 
         //Evaluamos y verificamos si es correcta
-        for(var i = 0; i < rightAnswerOpt1.length; i++){
-            if(rightAnswerOpt1[i].value == respuestaBox[i].textContent){
+        for (var i = 0; i < rightAnswerOpt1.length; i++) {
+            if (rightAnswerOpt1[i].value == respuestaBox[i].textContent) {
                 //Guardamos en el input el valor de bien
                 rightAnswerOpt1[i].value = "bien";
                 //Sumamos la ponderacion
                 var valorPonderacionOpt1 = ponderacion_opt1[i].innerText;
-                valorPonderacionOpt1 = valorPonderacionOpt1.substring(0,valorPonderacionOpt1.indexOf('pts.'));
+                valorPonderacionOpt1 = valorPonderacionOpt1.substring(0, valorPonderacionOpt1.indexOf('pts.'));
                 ponderacionGlobal = ponderacionGlobal + parseInt(valorPonderacionOpt1);
-            }else{
+            } else {
                 //Guardamos en el input el valor de mal
                 rightAnswerOpt1[i].value = "mal";
                 //Aplicamos los estilos
@@ -674,12 +676,12 @@ function imprimirPreguntas() {
     evaluarOpt1();
 
     //Se valuan de forma atómica
-    function evaluarOpt2(){
+    function evaluarOpt2() {
         var respuestasCorrectas = [];
         var respuestaParcial = "";
 
-        for(var i = 0; i < Object.values(preguntasModalArray2).length - 1; i++){
-            for(var j = 1; j < Object.values(preguntasModalArray2[i]).length; j++){
+        for (var i = 0; i < Object.values(preguntasModalArray2).length - 1; i++) {
+            for (var j = 1; j < Object.values(preguntasModalArray2[i]).length; j++) {
                 respuestaParcial += "/" + preguntasModalArray2[i][j];
             }
             respuestasCorrectas.push(respuestaParcial);
@@ -697,14 +699,14 @@ function imprimirPreguntas() {
         //Div de ponderaciones
         let ponderacion_opt2 = document.getElementsByClassName('ponderacion_opt2');
 
-        for(var t = 0; t < respuestasCorrectas.length; t++){
-            if(respuestasCorrectas[t] == listaRespuestasLimpiaOpt2[t]){
+        for (var t = 0; t < respuestasCorrectas.length; t++) {
+            if (respuestasCorrectas[t] == listaRespuestasLimpiaOpt2[t]) {
                 rightAnswerOpt2[t].value = "bien";
                 //Sumamos la ponderacion
                 var valorPonderacionOpt2 = ponderacion_opt2[t].innerText;
-                valorPonderacionOpt2 = valorPonderacionOpt2.substring(0,valorPonderacionOpt2.indexOf('pts.'));
+                valorPonderacionOpt2 = valorPonderacionOpt2.substring(0, valorPonderacionOpt2.indexOf('pts.'));
                 ponderacionGlobal = ponderacionGlobal + parseInt(valorPonderacionOpt2);
-            }else{
+            } else {
                 //Guardamos en el input el valor de mal
                 rightAnswerOpt2[t].value = "mal";
                 //Aplicamos los estilos
@@ -716,7 +718,7 @@ function imprimirPreguntas() {
     evaluarOpt2();
 
     //Se toma en consideración los casos en los que se tienen o no outputs
-    function evaluarOpt3(){
+    function evaluarOpt3() {
         //Valor del output propuesto por el maestro
         let outputGetValue = document.getElementsByClassName('outputGetValue');
         //Input de respuestas
@@ -727,23 +729,23 @@ function imprimirPreguntas() {
         //Div de ponderaciones
         let ponderacion_opt3 = document.getElementsByClassName('ponderacion_opt3');
 
-        for(var i = 0; i < outputGetValue.length; i++){
+        for (var i = 0; i < outputGetValue.length; i++) {
             //Si no hay output la pone como pendiente
-            if(outputGetValue[i].innerText == ""  || outputGetValue[i].innerText == "No output"){
+            if (outputGetValue[i].innerText == "" || outputGetValue[i].innerText == "No output") {
                 rightAnswerOpt3[i].value = "pendiente";
                 respuestaBoxOpt3[i].classList.remove('goodColor');
                 respuestaBoxOpt3[i].classList.add('sosoColor');
                 tituloEjercicioPendiente[i].innerHTML = "<b>Pendiente de revisión.</b>"
-            }else{ //Si si tenemos output revisa que coincida
+            } else { //Si si tenemos output revisa que coincida
                 //Limpiamos respuesta del estudiante
-                var respuestaOutput = listaRespuestasLimpiaOpt3[i].substring(0,listaRespuestasLimpiaOpt3[i].indexOf('/'))
-                if(respuestaOutput == outputGetValue[i].innerText){ //Si el output coincide
+                var respuestaOutput = listaRespuestasLimpiaOpt3[i].substring(0, listaRespuestasLimpiaOpt3[i].indexOf('/'))
+                if (respuestaOutput == outputGetValue[i].innerText) { //Si el output coincide
                     rightAnswerOpt3[i].value = "bien";
                     //Sumamos la ponderacion
                     var valorPonderacionOpt3 = ponderacion_opt3[i].innerText;
-                    valorPonderacionOpt3 = valorPonderacionOpt3.substring(0,valorPonderacionOpt3.indexOf('pts.'));
+                    valorPonderacionOpt3 = valorPonderacionOpt3.substring(0, valorPonderacionOpt3.indexOf('pts.'));
                     ponderacionGlobal = ponderacionGlobal + parseInt(valorPonderacionOpt3);
-                }else{
+                } else {
                     //Guardamos en el input el valor de mal
                     rightAnswerOpt3[i].value = "mal";
                     //Aplicamos los estilos
@@ -760,8 +762,70 @@ function imprimirPreguntas() {
     }
     evaluarOpt3();
 
+    //Se deben evaluar las que esten bien
+    let respuestasUsuarioTotal = [];
+    let resultadosProfeTotal = [];
+    function evaluarOpt4() {
+        let respuestaUsuarioUnitario = [];
+
+        //Contamos caracteres
+        function cuantasVecesAparece(cadena, caracter) {
+            var indices = [];
+            for (var i = 0; i < cadena.length; i++) {
+                if (cadena[i].toLowerCase() === caracter) indices.push(i);
+            }
+            return indices.length;
+        }
+
+        //Obtenemos posicion de caracteres
+        function getPosition(string, subString, index) {
+            return string.split(subString, index).join(subString).length;
+        }
+
+        //Recorre cada respuestas de cada paregunta
+        for (var i = 0; i < listaRespuestasLimpiaOpt4.length; i++) {
+            var numeroOcurrencias = cuantasVecesAparece(listaRespuestasLimpiaOpt4[i], "/");
+            //Ejecutamos de acuerdo a la cantidad de "/" que encuentre
+            //Se divide entre dos porque solo nos interesa ir de dos en dos palabra
+            for(var j = 0; j < numeroOcurrencias/2; j++){
+                //Obtenemos la posicion del segundo "/"
+                var posicion = getPosition(listaRespuestasLimpiaOpt4[i], '/', 2);
+                //Recortamos el caracter hasta el segundo "/"
+                var pedazoRespuesta = listaRespuestasLimpiaOpt4[i].substring(0, posicion);
+                //Eliminamos el pedazo que ya obtuvimos
+                listaRespuestasLimpiaOpt4[i] = listaRespuestasLimpiaOpt4[i].slice(posicion+1, -1)
+                //console.log('pedazoRespuesta', pedazoRespuesta);
+                respuestaUsuarioUnitario.push(pedazoRespuesta);
+            }
+            //console.log('respuestaUsuarioUnitario', respuestaUsuarioUnitario)
+            respuestasUsuarioTotal.push(respuestaUsuarioUnitario);
+            respuestaUsuarioUnitario = [];
+        }
+        //Respuestas sepradas en la forma [[],[]]
+        //console.log('respuestasUsuarioTotal', respuestasUsuarioTotal)
+
+        let resultadosProfeUnitario = [];
+        //Se debe hacer lo mismo con las respuestas que establecio el profesor
+        //Recorremos la preguntas
+        for(var t = 0; t < Object.values(preguntasModalArray4).length - 1; t++){
+            console.log("hola")
+            //Accedemos a cada respuesta y las guardamos de la misma manera [[],[]]
+            for(var y = 1; y < Object.values(preguntasModalArray4[t]).length; y++){
+                var resultadoProfe = preguntasModalArray4[t][y];
+                resultadosProfeUnitario.push(resultadoProfe);
+            }
+            resultadosProfeTotal.push(resultadosProfeUnitario);
+            resultadosProfeUnitario = [];
+        }
+
+        //Respuestas correctas del cuestionario
+        //console.log('resultadosProfeTotal', resultadosProfeTotal)
+    }
+    //console.log('respuestasUsuarioTotal', respuestasUsuarioTotal)
+    evaluarOpt4();
+
     //Se evaluan de forma atomica
-    function evaluarOpt5(){
+    function evaluarOpt5() {
         //Input con la respuesta
         let rightAnswerOpt5 = document.getElementsByClassName("rightAnswerOpt5");
         //Div con la respuesta del usuario
@@ -769,25 +833,25 @@ function imprimirPreguntas() {
         //Div de ponderaciones
         let ponderacion_opt5 = document.getElementsByClassName('ponderacion_opt5');
 
-         //Evaluamos y verificamos si es correcta
-         for(var i = 0; i < rightAnswerOpt5.length; i++){
+        //Evaluamos y verificamos si es correcta
+        for (var i = 0; i < rightAnswerOpt5.length; i++) {
             var formatoRespuesta;
             //Damos formato a el value de la respuesta correcta
-            if(rightAnswerOpt5[i].value == "T"){
+            if (rightAnswerOpt5[i].value == "T") {
                 formatoRespuesta = "true";
-            }else if(rightAnswerOpt5[i].value == "F"){
+            } else if (rightAnswerOpt5[i].value == "F") {
                 formatoRespuesta = "false";
             }
 
             // //Evaluamos la pregunta
-            if(formatoRespuesta == respuestaBox[i].textContent){
+            if (formatoRespuesta == respuestaBox[i].textContent) {
                 //Guardamos en el input el valor de bien
                 rightAnswerOpt5[i].value = "bien";
                 //Sumamos la ponderacion
                 var valorPonderacionOpt5 = ponderacion_opt5[i].innerText;
-                valorPonderacionOpt5 = valorPonderacionOpt5.substring(0,valorPonderacionOpt5.indexOf('pts.'));
+                valorPonderacionOpt5 = valorPonderacionOpt5.substring(0, valorPonderacionOpt5.indexOf('pts.'));
                 ponderacionGlobal = ponderacionGlobal + parseInt(valorPonderacionOpt5);
-            }else{
+            } else {
                 //Guardamos en el input el valor de mal
                 rightAnswerOpt5[i].value = "mal";
                 //Aplicamos los estilos
@@ -798,20 +862,21 @@ function imprimirPreguntas() {
     }
     evaluarOpt5();
 
-    function evaluarOpt6(){
+    //Se dejan por default pendientes para revision//Cuando estan vacia entonces se pone como mala
+    function evaluarOpt6() {
         //Input con la respuesta
         let rightAnswerOpt6 = document.getElementsByClassName("rightAnswerOpt6");
         //Div con la respuesta del usuario
         let respuestaBox = document.getElementsByClassName('respuestaBoxOpt6');
 
         //Como son preguntas abiertas lo que se evalua es si hay o no contenido dentro
-        for(var i = 0; i < respuestaBox.length; i++){
-            if(respuestaBox[i].innerText == ""){
+        for (var i = 0; i < respuestaBox.length; i++) {
+            if (respuestaBox[i].innerText == "") {
                 rightAnswerOpt6[i].value = "mal";
                 //Aplicamos los estilos
                 respuestaBox[i].classList.remove('goodColor');
                 respuestaBox[i].classList.add('badColor');
-            }else{
+            } else {
                 rightAnswerOpt6[i].value = "pendiente";
                 //Aplicamos los estilos
                 respuestaBox[i].classList.remove('goodColor');
