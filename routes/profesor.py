@@ -797,7 +797,7 @@ def simular_revision(id_cuestionario):
     jsonContentInput = request.form["jsonContentInput"]
 
     #Creamos el documento JSON y lo guardamos
-    rutaArchivo = 'static/cuestionariosPreview/'+ datosCuestionario[0][3] + str(datosCuestionario[0][0]) + str(datosCuestionario[0][1]) + str(datosCuestionario[0][2]) +'Preview.json'
+    rutaArchivo = 'static/cuestionariosPreview/'+ str(datosCuestionario[0][3]) + str(datosCuestionario[0][0]) + str(datosCuestionario[0][1]) + str(datosCuestionario[0][2]) +'Preview.json'
     with open(rutaArchivo , 'w') as f:
         print("Archivo JSON creado")
 
@@ -815,10 +815,8 @@ def simular_revision(id_cuestionario):
     ##Ingresamos la ruta a la base de datos
     Op_profesor.insertar_ruta_preview_cuestionario(datosCuestionario[0][0], rutaCuestionarioPreview)
 
-    ##Accedemos al contenido del JSON (de la preview)
-    rutaArchivo = datosCuestionario[0][14]
     # Abrimos el archivo
-    f = open(rutaArchivo)
+    f = open(rutaCuestionarioPreview)
     #Guardamos la data de la preview
     dataJSON = json.load(f)
     #Guardamos la data como string
