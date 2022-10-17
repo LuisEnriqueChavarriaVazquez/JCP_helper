@@ -4,6 +4,10 @@
     color: rgb(20, 66, 34) !important;
 }
 
+.goodColorText{
+    color: rgb(27, 87, 45) !important;
+}
+
 .goodColorButton{
     width: 20%;
     font-weight: 700;
@@ -16,6 +20,10 @@
 .badColor{
     background-color: rgb(255, 187, 187) !important;
     color: rgb(71, 20, 20) !important;
+}
+
+.badColorText{
+    color: rgb(92, 26, 26) !important;
 }
 
 .badColorButton{

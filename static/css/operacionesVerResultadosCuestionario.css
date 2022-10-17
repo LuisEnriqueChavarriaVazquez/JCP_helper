@@ -1,0 +1,80 @@
+.previewResultadosCuestionario{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
+    gap: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+    .previewResultadosCuestionario{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 20px;
+    }
+}
+
+.previewResultadosCuestionario .previewResultadosCuestionarioSon1,
+.previewResultadosCuestionario .previewResultadosCuestionarioSon2{
+    padding: 0 20px;
+}
+
+.previewResultadosCuestionarioSon1Grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.calificacionContainer, .puntosContainer{
+    width: 100%;
+    height: auto;
+    padding: 10px 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.calificacionContainer p, .puntosContainer p{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 1000px) {
+    .previewResultadosCuestionarioSon1Grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    .calificacionContainer, .puntosContainer{
+        padding: 5px 15px;
+    }
+
+    .calificacionContainer p, .puntosContainer p{
+        font-size: 25px;
+        font-weight: 600;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .previewResultadosCuestionarioSon1Grid{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .calificacionContainer, .puntosContainer{
+        padding: 0;
+    }
+
+    .calificacionContainer p, .puntosContainer p{
+        font-size: 20px;
+        font-weight: 700;
+    }
+}
