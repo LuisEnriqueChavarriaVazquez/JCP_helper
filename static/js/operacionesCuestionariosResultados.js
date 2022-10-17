@@ -294,9 +294,9 @@ function imprimirPreguntas() {
                     <h6><b>Solución de la pregunta.</b></h6>
                     <div class="opcionesContainerStyleViewCuestionarioTrueFalse">
                     <div class="preguntaBoxFalseTrue color5 coloredText bordered1"><b>` + preguntasModalArray5[m][1] + `</b></div>
-                    <input type="hidden" value="` + preguntasModalArray5[m][1] + `" class="rightAnswerOpt5" id="rightAnswerOpt5`+ m +`" name="rightAnswerOpt5`+ m +`"></input>
                     </div>
                     <h6><b>Su respuesta.</b></h6>
+                    <input type="hidden" value="` + preguntasModalArray5[m][1] + `" class="rightAnswerOpt5" id="rightAnswerOpt5`+ m +`" name="rightAnswerOpt5`+ m +`"></input>
                     <div class="respuestaBox respuestaBoxOpt5 goodColor bordered1"></div>
                     <div class="ponderacionBox ponderacion_opt5 colorWhite bordered1"></div>
                 </section>
@@ -331,8 +331,9 @@ function imprimirPreguntas() {
                 <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
                 <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
                     <h6><b>Solución de la pregunta.</b></h6>
-                    <div class="preguntaBox outputEsperado sosoColor bordered1"><b>Estas preguntas se revisan de manera manual, espera a que tu profesor lea tu respuesta.</b></div>
+                    <div class="preguntaBox outputEsperado colorGreyDarker bordered1"><b>Estas preguntas se revisan de manera manual, espera a que tu profesor lea tu respuesta.</b></div>
                     <h6><b>Su respuesta.</b></h6>
+                    <input type="hidden" value="pendiente" class="rightAnswerOpt6" id="rightAnswerOpt6`+ m +`" name="rightAnswerOpt6`+ m +`"></input>
                     <div class="respuestaBox respuestaBoxOpt6 goodColor bordered1"></div>
                     <div class="ponderacionBox ponderacion_opt6 colorWhite bordered1"></div>
                 </section>
@@ -534,6 +535,11 @@ function imprimirPreguntas() {
         });
     });
 
+    //////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////    
+    //////////////////////////////////////////////////////
+    ////////////Acceso a datos de evaluacion
+
     ///Accedemos a las respuestas del cuestionario (las del alumno)
     let respuestasModal1 = Object.values(preguntasModal1[preguntasModal1.length - 1]);
     let respuestasModal2 = Object.values(preguntasModal2[preguntasModal2.length - 1]);
@@ -634,6 +640,10 @@ function imprimirPreguntas() {
     imprimirRespuestasAlumno(Object.values(listaRespuestasLimpiaOpt5), 'respuestaBoxOpt5');
     imprimirRespuestasAlumno(Object.values(listaRespuestasLimpiaOpt6), 'respuestaBoxOpt6');
 
+    //////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////    
+    //////////////////////////////////////////////////////
+    ////////////EVALUACION
     //Se evaluan de forma atomica
     function evaluarOpt1(){
         //Input con la respuesta
@@ -705,6 +715,7 @@ function imprimirPreguntas() {
     }
     evaluarOpt2();
 
+    //Se toma en consideración los casos en los que se tienen o no outputs
     function evaluarOpt3(){
         //Valor del output propuesto por el maestro
         let outputGetValue = document.getElementsByClassName('outputGetValue');
@@ -786,7 +797,30 @@ function imprimirPreguntas() {
         }
     }
     evaluarOpt5();
-    
+
+    function evaluarOpt6(){
+        //Input con la respuesta
+        let rightAnswerOpt6 = document.getElementsByClassName("rightAnswerOpt6");
+        //Div con la respuesta del usuario
+        let respuestaBox = document.getElementsByClassName('respuestaBoxOpt6');
+
+        //Como son preguntas abiertas lo que se evalua es si hay o no contenido dentro
+        for(var i = 0; i < respuestaBox.length; i++){
+            if(respuestaBox[i].innerText == ""){
+                rightAnswerOpt6[i].value = "mal";
+                //Aplicamos los estilos
+                respuestaBox[i].classList.remove('goodColor');
+                respuestaBox[i].classList.add('badColor');
+            }else{
+                rightAnswerOpt6[i].value = "pendiente";
+                //Aplicamos los estilos
+                respuestaBox[i].classList.remove('goodColor');
+                respuestaBox[i].classList.add('sosoColor');
+            }
+        }
+    }
+    evaluarOpt6();
+
 
     function calcularPromedio() {
 
