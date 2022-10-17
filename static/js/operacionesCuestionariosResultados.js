@@ -189,7 +189,8 @@ function imprimirPreguntas() {
                 <h6><b>Propuesta de solución del docente.</b></h6>
                 <div class="codeContainerBox"><pre class="previewCodeContainer colorText bordered1">` + preguntasModalArray3[k][3] + `</pre></div>
                 <div class="preguntaBox outputEsperado outputGetValue color5 bordered1"><b>Output: ` + preguntasModalArray3[k][4] + `</b></div>
-                <h6><b>Su respuesta.</b></h6>
+                <h6 class="tituloEjercicioPendiente"><b>Su respuesta.</b></h6>
+                <input type="hidden" class="rightAnswerOpt3" id="rightAnswerOpt3`+ k +`" name="rightAnswerOpt3`+ k +`"></input>
                 <div class="respuestaBox respuestaBoxOpt3 goodColor bordered1"></div>
                 <div class="ponderacionBox ponderacion_opt3 colorWhite bordered1"></div>
             </section>`;
@@ -474,9 +475,12 @@ function imprimirPreguntas() {
         }
 
         let outputGetValue = document.getElementsByClassName('outputGetValue');
+        let previewCodeContainer = document.getElementsByClassName('previewCodeContainer');
         for (var i = 0; i < outputGetValue.length; i++) {
             if (outputGetValue[i].innerText == "Output:") {
-                outputGetValue[i].innerText = "--------";
+                outputGetValue[i].innerText = "No output";
+            }else if(previewCodeContainer[i].innerText == ""){
+                previewCodeContainer[i].innerText = "No code";
             }
         }
     }
@@ -672,9 +676,9 @@ function imprimirPreguntas() {
             respuestaParcial = "";
         }
         //Respuestas correctas
-        console.log(respuestasCorrectas);
+        //console.log(respuestasCorrectas);
         //Respuestas del alumno
-        console.log(listaRespuestasLimpiaOpt2);
+        //console.log(listaRespuestasLimpiaOpt2);
 
         //Input de respuestas
         let rightAnswerOpt2 = document.getElementsByClassName('rightAnswerOpt2');
@@ -700,6 +704,50 @@ function imprimirPreguntas() {
         }
     }
     evaluarOpt2();
+
+    function evaluarOpt3(){
+        //Valor del output propuesto por el maestro
+        let outputGetValue = document.getElementsByClassName('outputGetValue');
+        //Input de respuestas
+        let rightAnswerOpt3 = document.getElementsByClassName('rightAnswerOpt3');
+        //DIV de respuestas
+        let respuestaBoxOpt3 = document.getElementsByClassName('respuestaBoxOpt3');
+        let tituloEjercicioPendiente = document.getElementsByClassName("tituloEjercicioPendiente");
+        //Div de ponderaciones
+        let ponderacion_opt3 = document.getElementsByClassName('ponderacion_opt3');
+
+        for(var i = 0; i < outputGetValue.length; i++){
+            //Si no hay output la pone como pendiente
+            if(outputGetValue[i].innerText == ""  || outputGetValue[i].innerText == "No output"){
+                rightAnswerOpt3[i].value = "pendiente";
+                respuestaBoxOpt3[i].classList.remove('goodColor');
+                respuestaBoxOpt3[i].classList.add('sosoColor');
+                tituloEjercicioPendiente[i].innerHTML = "<b>Pendiente de revisión.</b>"
+            }else{ //Si si tenemos output revisa que coincida
+                //Limpiamos respuesta del estudiante
+                var respuestaOutput = listaRespuestasLimpiaOpt3[i].substring(0,listaRespuestasLimpiaOpt3[i].indexOf('/'))
+                if(respuestaOutput == outputGetValue[i].innerText){ //Si el output coincide
+                    rightAnswerOpt3[i].value = "bien";
+                    //Sumamos la ponderacion
+                    var valorPonderacionOpt3 = ponderacion_opt3[i].innerText;
+                    valorPonderacionOpt3 = valorPonderacionOpt3.substring(0,valorPonderacionOpt3.indexOf('pts.'));
+                    ponderacionGlobal = ponderacionGlobal + parseInt(valorPonderacionOpt3);
+                }else{
+                    //Guardamos en el input el valor de mal
+                    rightAnswerOpt3[i].value = "mal";
+                    //Aplicamos los estilos
+                    respuestaBoxOpt3[i].classList.remove('goodColor');
+                    respuestaBoxOpt3[i].classList.add('badColor');
+                }
+            }
+        }
+
+        //Respuestas correctas
+        //console.log(respuestasCorrectas);
+        //Respuestas del alumno
+        //console.log(listaRespuestasLimpiaOpt3);
+    }
+    evaluarOpt3();
 
     //Se evaluan de forma atomica
     function evaluarOpt5(){
@@ -739,7 +787,6 @@ function imprimirPreguntas() {
     }
     evaluarOpt5();
     
-    console.log('ponderacionGlobal', ponderacionGlobal)
 
     function calcularPromedio() {
 
