@@ -99,9 +99,11 @@ function imprimirPreguntas() {
                     <div class="color5 bordered5 coloredText letterStyleViewCuestionario">C</div><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][5] + `</div>
                     <div class="color5 bordered5 coloredText letterStyleViewCuestionario">D</div><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][6] + `</div>
                     </div>
-                    <div class="preguntaBox color4 bordered1"><b>Respuesta correcta: ` + preguntasModalArray1[m][2] + `</b></div>
-                    <div class="ponderacionBox ponderacion_opt1 colorWhite bordered1"></div>
-                    `;
+                    <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
+                        <h6><b>Solución de la pregunta.</b></h6>
+                        <div class="preguntaBox color5 bordered1"><b>Respuesta correcta: ` + preguntasModalArray1[m][2] + `</b></div>
+                        <div class="ponderacionBox ponderacion_opt1 colorWhite bordered1"></div>
+                    </section>`;
                 contenedoresPregunta[m].innerHTML = contenido;
             }
         } else {
@@ -131,19 +133,21 @@ function imprimirPreguntas() {
             <h5 class="tituloPregunta"><b>Rellenar espacio ` + (m + 1) + `</b></h5>
             <hr>
             <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray2[m][0] + `</b></div>
-            <h6><b>Respuestas de espacios.</b></h6>
-            <div class="opcionesContainerStyleViewCuestionario">
+            <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
+                <h6><b>Soluciones de los espacios.</b></h6>
+                <div class="opcionesContainerStyleViewCuestionario">
             `;
 
                 for (var t = 1; t < longitudPregunta; t++) {
                     contenidoIntermedio += `
-                <div class="colorGreyDarker bordered1 colorTextReverse letterStyleViewCuestionario">Blank `+ (t) + `</div>
-                <div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray2[m][t] + `</div>
+                    <div class="colorGreyDarker bordered1 colorTextReverse letterStyleViewCuestionario">Blank `+ (t) + `</div>
+                    <div class="colorGreyWhiter bordered1 opcionStyleViewCuestionario">` + preguntasModalArray2[m][t] + `</div>
                 `;
                 }
 
                 let contenidoFinal = `
-            </div>
+                </div>
+            </section>
             <div class="ponderacionBox ponderacion_opt2 colorWhite bordered1"></div>`;
                 contenedoresPregunta[m].innerHTML = contenidoInicial + contenidoIntermedio + contenidoFinal;
             }
@@ -160,8 +164,6 @@ function imprimirPreguntas() {
 
             //Accedemos a las cajas
             let contenedoresPregunta = document.getElementsByClassName('opt3');
-            //Hacemos variables de pregunta
-            let dato1_ejercicio, dato2_media, dato3_carpetaOnline, dato4_codigo, dato5_output;
 
             for (var k = 0; k < preguntasModalArray3.length - 1; k++) {
                 //Contenido de la pregunta
@@ -174,14 +176,12 @@ function imprimirPreguntas() {
             <h6><b>Imagen adjunta.</b></h6>
             <img alt='not available image' class="materialboxed imagenBoxContent bordered1" src="` + preguntasModalArray3[k][1] + `"></img>
             </div>
-            <h6><b>Preview de propuesta de código.</b></h6>
-            <div class="codeContainerBox"><pre class="previewCodeContainer colorText bordered1">` + preguntasModalArray3[k][3] + `</pre></div>
-            <div class="preguntaBox outputEsperado color4 bordered1"><b>Output: ` + preguntasModalArray3[k][4] + `</b></div>
-            <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
-            <a href="` + preguntasModalArray3[k][2] + `" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">cloud</i>Acceder a recurso online</a>
-            </div>
-            <div class="ponderacionBox ponderacion_opt3 colorWhite bordered1"></div>
-            `;
+            <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
+                <h6><b>Propuesta de solución del docente.</b></h6>
+                <div class="codeContainerBox"><pre class="previewCodeContainer colorText bordered1">` + preguntasModalArray3[k][3] + `</pre></div>
+                <div class="preguntaBox outputEsperado color5 bordered1"><b>Respuesta correcta: ` + preguntasModalArray3[k][4] + `</b></div>
+                <div class="ponderacionBox ponderacion_opt3 colorWhite bordered1"></div>
+            </section>`;
 
                 contenedoresPregunta[k].innerHTML = contenido;
             }
@@ -233,13 +233,18 @@ function imprimirPreguntas() {
             <h5 class="tituloPregunta"><b>Ejercicio arrastrar ` + (numero + 1) + `</b></h5>
             <hr>
             <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray4[numero][0] + `</b></div>
-            <h6><b>Relación de palabras.</b></h6>
+            <h6><b>Relación de correcta.</b></h6>
             <div class="opcionesContainerStyleViewCuestionarioArrastrar">`;
                 return inicioContenido;
             }
 
             //Este es el div que cierra el contenido
-            let finalContenido = `</div> <div class="ponderacionBox ponderacion_opt4 colorWhite bordered1"></div>`;
+            let finalContenido = `
+            </div>
+            <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
+                <h6><b>Resultado.</b></h6>
+                <div class="ponderacionBox ponderacion_opt4 colorWhite bordered1"></div>
+            </section>`;
 
             //Aqui hacemos la impresion de los elementos (conceptos y definiciones dentro del contenido)
             for (var t = 0; t < preguntasModalArray4.length - 1; t++) {
@@ -272,11 +277,13 @@ function imprimirPreguntas() {
                 <h5 class="tituloPregunta"><b>Pregunta True/False ` + (m + 1) + `</b></h5>
                 <hr>
                 <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray5[m][0] + `</b></div>
-                <h6><b>Resultado.</b></h6>
-                <div class="opcionesContainerStyleViewCuestionarioTrueFalse">
-                <div class="preguntaBoxFalseTrue color5 coloredText bordered1"><b>` + preguntasModalArray5[m][1] + `</b></div>
-                </div>
-                <div class="ponderacionBox ponderacion_opt5 colorWhite bordered1"></div>
+                <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
+                    <h6><b>Solución de la pregunta.</b></h6>
+                    <div class="opcionesContainerStyleViewCuestionarioTrueFalse">
+                    <div class="preguntaBoxFalseTrue color5 coloredText bordered1"><b>` + preguntasModalArray5[m][1] + `</b></div>
+                    </div>
+                    <div class="ponderacionBox ponderacion_opt5 colorWhite bordered1"></div>
+                </section>
                 `;
                 contenedoresPregunta[m].innerHTML = contenido;
             }
@@ -302,14 +309,15 @@ function imprimirPreguntas() {
                 <h6><b>Descripción.</b></h6>
                 <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray6[m][0] + `</b></div>
                 <div class="imagenBox bordered1 shadow-1e colorGrey">
-                <h6><b>Imagen adjunta.</b></h6>
-                <img alt='not available image' class="materialboxed imagenBoxContent bordered1" src="` + preguntasModalArray6[m][2] + `"></img>
+                    <h6><b>Imagen adjunta.</b></h6>
+                    <img alt='not available image' class="materialboxed imagenBoxContent bordered1" src="` + preguntasModalArray6[m][2] + `"></img>
                 </div>
                 <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
-                <h6><b>Media.</b></h6>
-                <a href="` + preguntasModalArray6[m][1] + `" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">play_arrow</i>Acceder a video online</a>
-                </div>
-                <div class="ponderacionBox ponderacion_opt6 colorWhite bordered1"></div>
+                <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
+                    <h6><b>Solución de la pregunta.</b></h6>
+                    <div class="preguntaBox outputEsperado sosoColor bordered1"><b>Estas preguntas se revisan de manera manual, espera a que tu profesor lea tu respuesta.</b></div>
+                    <div class="ponderacionBox ponderacion_opt6 colorWhite bordered1"></div>
+                </section>
                 `;
                 contenedoresPregunta[m].innerHTML = contenido;
             }
