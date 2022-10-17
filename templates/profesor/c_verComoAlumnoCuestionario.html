@@ -177,7 +177,7 @@
         idInputGetElement.value = "";
         for (var i = 0; i < classBlankElements.length; i++) {
             textInput.innerText += classBlankElements[i].value + "/";
-            idInputGetElement.value += classBlankElements[i].value + "/";
+            idInputGetElement.value +=  "/" + classBlankElements[i].value;
         }
 
         textInput.classList.remove("colorGreyDarker");
@@ -206,16 +206,16 @@
             outputResultado.innerText = resultadoInput.value;
             outputLink.innerText = resultadoLink.value;
             if(resultadoInput.value == "" && resultadoLink.value != ""){
-                idInputGetElement.value = "EMPTY" + "/" + resultadoLink.value;
+                idInputGetElement.value = "Output: EMPTY" + "/Link: " + resultadoLink.value;
             }else if( resultadoLink.value == "" && resultadoInput.value != ""){
-                idInputGetElement.value = resultadoInput.value + "/" + "EMPTY";
+                idInputGetElement.value = "Output: " + resultadoInput.value + "/Link: " + "EMPTY";
             }else{
-                idInputGetElement.value = resultadoInput.value + "/" + resultadoLink.value;
+                idInputGetElement.value = "Output: " + resultadoInput.value + "/Link: " + resultadoLink.value;
             }
         } else {
             outputResultado.innerText = "EMPTY";
             outputLink.innerText = "EMPTY";
-            idInputGetElement.value = "EMPTY" + "/" + "EMPTY";
+            idInputGetElement.value = "Output: EMPTY" + "/Link: " + "EMPTY";
         }
 
         //Modificamos los estilos

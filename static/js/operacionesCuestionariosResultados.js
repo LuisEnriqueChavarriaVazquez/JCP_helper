@@ -102,6 +102,7 @@ function imprimirPreguntas() {
                     <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
                         <h6><b>Solución de la pregunta.</b></h6>
                         <div class="preguntaBox color5 bordered1"><b>Respuesta correcta: ` + preguntasModalArray1[m][2] + `</b></div>
+                        <div class="respuestaBox respuestaBoxOpt1 goodColor bordered1"></div>
                         <div class="ponderacionBox ponderacion_opt1 colorWhite bordered1"></div>
                     </section>`;
                 contenedoresPregunta[m].innerHTML = contenido;
@@ -148,6 +149,7 @@ function imprimirPreguntas() {
                 let contenidoFinal = `
                 </div>
             </section>
+            <div class="respuestaBox respuestaBoxOpt2 goodColor bordered1"></div>
             <div class="ponderacionBox ponderacion_opt2 colorWhite bordered1"></div>`;
                 contenedoresPregunta[m].innerHTML = contenidoInicial + contenidoIntermedio + contenidoFinal;
             }
@@ -180,6 +182,7 @@ function imprimirPreguntas() {
                 <h6><b>Propuesta de solución del docente.</b></h6>
                 <div class="codeContainerBox"><pre class="previewCodeContainer colorText bordered1">` + preguntasModalArray3[k][3] + `</pre></div>
                 <div class="preguntaBox outputEsperado color5 bordered1"><b>Respuesta correcta: ` + preguntasModalArray3[k][4] + `</b></div>
+                <div class="respuestaBox respuestaBoxOpt3 goodColor bordered1"></div>
                 <div class="ponderacionBox ponderacion_opt3 colorWhite bordered1"></div>
             </section>`;
 
@@ -233,7 +236,7 @@ function imprimirPreguntas() {
             <h5 class="tituloPregunta"><b>Ejercicio arrastrar ` + (numero + 1) + `</b></h5>
             <hr>
             <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray4[numero][0] + `</b></div>
-            <h6><b>Relación de correcta.</b></h6>
+            <h6><b>Relación correcta.</b></h6>
             <div class="opcionesContainerStyleViewCuestionarioArrastrar">`;
                 return inicioContenido;
             }
@@ -243,6 +246,7 @@ function imprimirPreguntas() {
             </div>
             <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
                 <h6><b>Resultado.</b></h6>
+                <div class="respuestaBox respuestaBoxOpt4 goodColor bordered1"></div>
                 <div class="ponderacionBox ponderacion_opt4 colorWhite bordered1"></div>
             </section>`;
 
@@ -282,6 +286,7 @@ function imprimirPreguntas() {
                     <div class="opcionesContainerStyleViewCuestionarioTrueFalse">
                     <div class="preguntaBoxFalseTrue color5 coloredText bordered1"><b>` + preguntasModalArray5[m][1] + `</b></div>
                     </div>
+                    <div class="respuestaBox respuestaBoxOpt5 goodColor bordered1"></div>
                     <div class="ponderacionBox ponderacion_opt5 colorWhite bordered1"></div>
                 </section>
                 `;
@@ -316,6 +321,7 @@ function imprimirPreguntas() {
                 <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
                     <h6><b>Solución de la pregunta.</b></h6>
                     <div class="preguntaBox outputEsperado sosoColor bordered1"><b>Estas preguntas se revisan de manera manual, espera a que tu profesor lea tu respuesta.</b></div>
+                    <div class="respuestaBox respuestaBoxOpt6 goodColor bordered1"></div>
                     <div class="ponderacionBox ponderacion_opt6 colorWhite bordered1"></div>
                 </section>
                 `;
@@ -411,10 +417,204 @@ function imprimirPreguntas() {
     }
     asignarPonderaciones();
 
+    //////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////    
+    //////////////////////////////////////////////////////
+    ////////////VALIDACIONES DE ELEMENTOS EN PANTALLA
+
+    /*Validacion de eliminar los astericos en los textos de arrastrar*/
+    //Tramiento de texto arrastrar
+    function validarRecursosAdicionales() {
+        let recursoOnlineEjercicios = document.getElementsByClassName('recursoOnlineEjercicios');
+        let recursoOnlineEjerciciosLink = document.getElementsByClassName('recursoOnlineEjerciciosLink');
+
+        for (var i = 0; i < recursoOnlineEjerciciosLink.length; i++) {
+            if (recursoOnlineEjerciciosLink[i].getAttribute('href').length == 0) {
+                recursoOnlineEjercicios[i].classList.add('hiddenElement');
+            }
+        }
+    }
+    validarRecursosAdicionales();
+
+    /*Validaciones en caso de que el valor este vacio*/
+    //Valida las de opcion multiple y las blank
+    function validarTextosIndefinidos() {
+        let textosBasicos = document.getElementsByClassName('opcionStyleViewCuestionario');
+        let adicionTexto = document.getElementsByClassName('letterStyleViewCuestionario');
+        for (var i = 0; i < textosBasicos.length; i++) {
+            if (textosBasicos[i].innerText == "undefined" || textosBasicos[i].innerText == "") {
+                textosBasicos[i].innerText = "--------";
+            }
+        }
+
+        let arrastrarContenedorOpcionView = document.getElementsByClassName('arrastrarContenedorOpcionView');
+        for (var i = 0; i < arrastrarContenedorOpcionView.length; i++) {
+            if (arrastrarContenedorOpcionView[i].innerText == "undefined" || arrastrarContenedorOpcionView[i].innerText == "") {
+                arrastrarContenedorOpcionView[i].classList.add('hiddenElement');
+            }
+        }
+        //console.log(arrastrarContenedorOpcionView);
+
+        let arrastrarElemento = document.getElementsByClassName('arrastrarElemento');
+        for (var i = 0; i < arrastrarElemento.length; i++) {
+            if (arrastrarElemento[i].innerText == "undefined" || arrastrarElemento[i].innerText == "") {
+                arrastrarElemento[i].innerText = "--------";
+            }
+        }
+    }
+    validarTextosIndefinidos();
+
+    //Validamos que la imagen tenga contenido
+    function validarImagenFuente() {
+        let imagenBoxContent = document.getElementsByClassName('imagenBoxContent');
+        let imagenBox = document.getElementsByClassName('imagenBox');
+
+        for (var i = 0; i < imagenBoxContent.length; i++) {
+            if (imagenBoxContent[i].getAttribute('src') == "") {
+                imagenBox[i].classList.add('hiddenElement');
+            }
+        }
+    }
+    validarImagenFuente();
+
+    //Validamos en caso de que el output este vacio
+    function validarOutput() {
+        let outputEsperado = document.getElementsByClassName('outputEsperado');
+        for (var i = 0; i < outputEsperado.length; i++) {
+            if (outputEsperado[i].innerText == "Output:") {
+                outputEsperado[i].innerHTML = "<b>Output: -----</b>";
+            }
+        }
+    }
+    validarOutput();
+
+    //Debe hacer que los titulos de las preguntas sean sticky
+    $(document).ready(function () {
+        //Se modifca el buscador cuando se hace scroll down
+        let tituloPregunta = document.getElementsByClassName('tituloPregunta');
+
+        $(window).scroll(function () {
+            for (var j = 0; j < tituloPregunta.length; j++) {
+                if ($(window).scrollTop() > (50)) {
+                    tituloPregunta[j].classList.add('color1');
+                    tituloPregunta[j].classList.add('colorText');
+                    tituloPregunta[j].classList.add('paddingTituloAdicional');
+                    tituloPregunta[j].classList.add('shadow-1e');
+                    tituloPregunta[j].classList.add('bordered1');
+                } else {
+                    tituloPregunta[j].classList.remove('color1');
+                    tituloPregunta[j].classList.remove('colorText');
+                    tituloPregunta[j].classList.remove('paddingTituloAdicional');
+                    tituloPregunta[j].classList.remove('shadow-1e');
+                    tituloPregunta[j].classList.remove('bordered1');
+                }
+            }
+        });
+    });
+
+    ///Accedemos a las respuestas del cuestionario (las del alumno)
+    let respuestasModal1 = Object.values(preguntasModal1[preguntasModal1.length - 1]);
+    let respuestasModal2 = Object.values(preguntasModal2[preguntasModal2.length - 1]);
+    let respuestasModal3 = Object.values(preguntasModal3[preguntasModal3.length - 1]);
+    let respuestasModal4 = Object.values(preguntasModal4[preguntasModal4.length - 1]);
+    let respuestasModal5 = Object.values(preguntasModal5[preguntasModal5.length - 1]);
+    let respuestasModal6 = Object.values(preguntasModal6[preguntasModal6.length - 1]);
+    
+    //Procesamos los textos de la sección de respuestas
+    function procesarRespuestasAlumnos(respuestasLongitud, respuestas){
+        let listaRespuestas = [];
+        //Obtenemos las respuestas (Quitamos ponderación)
+        for(var x = 0; x < respuestasLongitud; x++){
+            listaRespuestas.push(respuestas[x].substr(0, respuestas[x].indexOf('&')))
+        }
+
+        let listaRespuestasFinal = [];
+        //Obtenemos las respuestas (Quitamos el identificador)
+        for(var x = 0; x < respuestasLongitud; x++){
+            listaRespuestasFinal.push(listaRespuestas[x].substr(listaRespuestas[x].indexOf('/') + 1))
+        }
+        
+        console.log(listaRespuestasFinal)
+        return listaRespuestasFinal;
+    }
+
+    //Almacenamos las respuestas limpias
+    let listaRespuestasLimpiaOpt1 = procesarRespuestasAlumnos(respuestasModal1[0].length,respuestasModal1[0]);
+    let listaRespuestasLimpiaOpt2 = procesarRespuestasAlumnos(respuestasModal2[0].length,respuestasModal2[0]);
+    let listaRespuestasLimpiaOpt3 = procesarRespuestasAlumnos(respuestasModal3[0].length,respuestasModal3[0]);
+    let listaRespuestasLimpiaOpt4 = procesarRespuestasAlumnos(respuestasModal4[0].length,respuestasModal4[0]);
+    let listaRespuestasLimpiaOpt5 = procesarRespuestasAlumnos(respuestasModal5[0].length,respuestasModal5[0]);
+    let listaRespuestasLimpiaOpt6 = procesarRespuestasAlumnos(respuestasModal6[0].length,respuestasModal6[0]);
+    
+    function imprimirRespuestasAlumno(listaRespuestas, tipo){
+        let respuestaBox = document.getElementsByClassName(tipo);
+    
+        //Imprimimos las respuestas
+        if(tipo == "respuestaBoxOpt1" || tipo == "respuestaBoxOpt5" || tipo == "respuestaBoxOpt6"){
+            for(var i = 0; i < respuestaBox.length; i++){
+                if(listaRespuestas[i] == undefined){
+                    respuestaBox[i].innerText = "vacio";
+                }else if(listaRespuestas[i] == ""){
+                    respuestaBox[i].innerText = "vacio";
+                }else{
+                    respuestaBox[i].innerText = listaRespuestas[i];
+                }
+            }
+        }
+
+        //Validamos impresión dependiendo del tipo
+        if(tipo == "respuestaBoxOpt2"){
+            for(var i = 0; i < respuestaBox.length; i++){
+                if(listaRespuestas[i] == undefined){
+                    respuestaBox[i].innerText = "vacio";
+                }else if(listaRespuestas[i] == ""){
+                    respuestaBox[i].innerText = "vacio";
+                }else{
+                    var textoConFormato = listaRespuestas[i].replace('/', '⚫ ');
+                    textoConFormato = textoConFormato.replaceAll('/', '<br>⚫ ');
+                    respuestaBox[i].innerHTML = textoConFormato;
+                }
+            }
+        }
+
+        //Validamos impresión dependiendo del tipo
+        if(tipo == "respuestaBoxOpt3"){
+            for(var i = 0; i < respuestaBox.length; i++){
+                if(listaRespuestas[i] == undefined){
+                    respuestaBox[i].innerText = "vacio";
+                }else if(listaRespuestas[i] == ""){
+                    respuestaBox[i].innerText = "vacio";
+                }else{
+                    var textoConFormato = listaRespuestas[i].replace('/', '<br>');
+                    respuestaBox[i].innerHTML = textoConFormato;
+                }
+            }
+        }
+
+        //Validamos impresión dependiendo del tipo
+        if(tipo == "respuestaBoxOpt4"){
+            for(var i = 0; i < respuestaBox.length; i++){
+                if(listaRespuestas[i] == undefined){
+                    respuestaBox[i].innerText = "vacio";
+                }else if(listaRespuestas[i] == ""){
+                    respuestaBox[i].innerText = "vacio";
+                }else{
+                    var textoConFormato = listaRespuestas[i].replaceAll('/', '<br>');
+                    respuestaBox[i].innerHTML = textoConFormato;
+                }
+            }
+        }
+    }
+    imprimirRespuestasAlumno(Object.values(listaRespuestasLimpiaOpt1), 'respuestaBoxOpt1');
+    imprimirRespuestasAlumno(Object.values(listaRespuestasLimpiaOpt2), 'respuestaBoxOpt2');
+    imprimirRespuestasAlumno(Object.values(listaRespuestasLimpiaOpt3), 'respuestaBoxOpt3');
+    imprimirRespuestasAlumno(Object.values(listaRespuestasLimpiaOpt4), 'respuestaBoxOpt4');
+    imprimirRespuestasAlumno(Object.values(listaRespuestasLimpiaOpt5), 'respuestaBoxOpt5');
+    imprimirRespuestasAlumno(Object.values(listaRespuestasLimpiaOpt6), 'respuestaBoxOpt6');
 
     function evaluarCuestionario() {
-
     }
+    //evaluarCuestionario();
 
     function calcularPromedio() {
 

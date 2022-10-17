@@ -75,27 +75,27 @@ function procesamientoDeResultados(){
             for(t = 0; t < listaIds.length; t++){
                 //console.log(listaIds[t].indexOf("opt1InputGet"));
                 if(listaIds[t].indexOf("opt1InputGet_") != -1){
-                    listaHelper.push(listaIds[t] + "/" + listaRespuestas[t] + "/" + listaPonderaciones[t]);
+                    listaHelper.push(listaIds[t] + "/" + listaRespuestas[t] + "&" + listaPonderaciones[t]);
                     respuestasOpt1.push(listaHelper[0]);
                     listaHelper.pop();
                 }else if(listaIds[t].indexOf("opt2InputGet_") != -1){
-                    listaHelper.push(listaIds[t] + "/" + listaRespuestas[t] + "/" + listaPonderaciones[t]);
+                    listaHelper.push(listaIds[t] + "/" + listaRespuestas[t] + "&" + listaPonderaciones[t]);
                     respuestasOpt2.push(listaHelper[0]);
                     listaHelper.pop();
                 }else if((listaIds[t].indexOf("opt3InputGet_") != -1)){
-                    listaHelper.push(listaIds[t] + "/" + listaRespuestas[t] + "/" + listaPonderaciones[t]);
+                    listaHelper.push(listaIds[t] + "/" + listaRespuestas[t] + "&" + listaPonderaciones[t]);
                     respuestasOpt3.push(listaHelper[0]);
                     listaHelper.pop();
                 }else if((listaIds[t].indexOf("opt4InputGet_") != -1)){
-                    listaHelper.push(listaIds[t] + "/" + listaRespuestas[t] + "/" + listaPonderaciones[t]);
+                    listaHelper.push(listaIds[t] + "/" + listaRespuestas[t] + "&" + listaPonderaciones[t]);
                     respuestasOpt4.push(listaHelper[0]);
                     listaHelper.pop();
                 }else if((listaIds[t].indexOf("opt5InputGet_") != -1)){
-                    listaHelper.push(listaIds[t] + "/" + listaRespuestas[t] + "/" + listaPonderaciones[t]);
+                    listaHelper.push(listaIds[t] + "/" + listaRespuestas[t] + "&" + listaPonderaciones[t]);
                     respuestasOpt5.push(listaHelper[0]);
                     listaHelper.pop();
                 }else if((listaIds[t].indexOf("opt6InputGet_") != -1)){
-                    listaHelper.push(listaIds[t] + "/" + listaRespuestas[t] + "/" + listaPonderaciones[t]);
+                    listaHelper.push(listaIds[t] + "/" + listaRespuestas[t] + "&" + listaPonderaciones[t]);
                     respuestasOpt6.push(listaHelper[0]);
                     listaHelper.pop();
                 }
