@@ -80,42 +80,8 @@ def gestionar_cuestionarios():
 @routes.route('/gestionar_estadisticas/<string:id_docente>')
 #@login_required
 def gestionar_estadisticas(id_docente):
-
-    
-
-    #Grafica de ejemplo 1
-    df = pd.DataFrame({
-        "Fruit": ["Apples", "Oranges", "Bananas", "Apples", "Oranges", "Bananas"],
-        "Amount": [4, 1, 2, 2, 4, 5],
-        "City": ["SF", "SF", "SF", "Montreal", "Montreal", "Montreal"]
-    })
-
-
-
-    fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="relative", color_discrete_sequence=px.colors.qualitative.Alphabet,color_discrete_map={"Montreal": '#256D85',"SF":"#5F9DF7"},width=500,height=400)
-    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-    header="Fruit in North America"
-    description = """
-    A academic study of the number of apples, oranges and bananas in the cities of
-    San Francisco and Montreal would probably not come up with this chart.
-    """
-    
-    #Grafico de ejemplo 2
-    df2 = pd.DataFrame({
-        "Vegetables": ["Lettuce", "Cauliflower", "Carrots", "Lettuce", "Cauliflower", "Carrots"],
-        "Amount": [10, 15, 8, 5, 14, 25],
-        "City": ["London", "London", "London", "Madrid", "Madrid", "Madrid"]
-    })
-
-    fig2 = px.bar(df2, x="Vegetables", y="Amount", color="City", barmode="stack",color_discrete_sequence=px.colors.qualitative.Alphabet,color_discrete_map={"London": '#1F4690',"Madrid":"#6E85B7"},width=500,height=400)
-
-    graphJSON2 = json.dumps(fig2, cls=plotly.utils.PlotlyJSONEncoder)
-    header2="Vegetables in Europe"
-    description2 = """
-    The rumor that vegetarians are having a hard time in London and Madrid can probably not be
-    explained by this chart.
-    """
-
+    xgrupos=["3cm14","3cm15","2cv12"]
+    ygrupos=[10,9.2,7]
     #Obtenemos los datos del grupo
     datosGrupo = Op_profesor.obtener_grupos_datos_importantes(id_docente)
     print(datosGrupo)
@@ -166,7 +132,7 @@ def gestionar_estadisticas(id_docente):
     ##Contador de alumnos y grupos y cuestionarios
     contadorCuestionarios = len(IDS_Cuestionarios)
 
-    return render_template('profesor/a_gestionar_estadisticas.html', datosGrupo=datosGrupo, datosGlobalesAlumnos = datosGlobalesAlumnos, cantidadesDeAlumnos = cantidadesDeAlumnos,IDS_Cuestionarios = contadorCuestionarios, graphJSON=graphJSON, header=header,description=description, graphJSON2=graphJSON2, header2=header2,description2=description2)
+    return render_template('profesor/a_gestionar_estadisticas.html', datosGrupo=datosGrupo, datosGlobalesAlumnos = datosGlobalesAlumnos, cantidadesDeAlumnos = cantidadesDeAlumnos,IDS_Cuestionarios = contadorCuestionarios,xgrupos=xgrupos,ygrupos=ygrupos)
 
 ##Ruta para la vista de gestion de grupos
 ##
