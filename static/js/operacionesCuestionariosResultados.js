@@ -29,6 +29,9 @@ const ponderacionPreguntas = dataCuestionarioJSON.ponderacionGlobal;
 const ponderacionPreguntasArray = Object.values(ponderacionPreguntas[0]);
 const ordenPreguntasArray = Object.values(ordenPreguntas[0]);
 
+//Se guarda la ponderacion global
+let ponderacionGlobal = 0;
+
 //Forma de acceder a las preguntas y elemento
 //Primer indice indica el numero de pregunta
 //Segundo indice indica el dato de la pregunta
@@ -100,8 +103,10 @@ function imprimirPreguntas() {
                     <div class="color5 bordered5 coloredText letterStyleViewCuestionario">D</div><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][6] + `</div>
                     </div>
                     <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
-                        <h6><b>Solución de la pregunta.</b></h6>
-                        <div class="preguntaBox color5 bordered1"><b>Respuesta correcta: ` + preguntasModalArray1[m][2] + `</b></div>
+                        <h6><b>Respuesta correcta.</b></h6>
+                        <div class="preguntaBox color5 bordered1"><b>` + preguntasModalArray1[m][2] + `</b></div>
+                        <input type="hidden" value="` + preguntasModalArray1[m][2] + `" class="rightAnswerOpt1" id="rightAnswerOpt1`+ m +`" name="rightAnswerOpt1`+ m +`"></input>
+                        <h6><b>Su respuesta.</b></h6>
                         <div class="respuestaBox respuestaBoxOpt1 goodColor bordered1"></div>
                         <div class="ponderacionBox ponderacion_opt1 colorWhite bordered1"></div>
                     </section>`;
@@ -149,6 +154,7 @@ function imprimirPreguntas() {
                 let contenidoFinal = `
                 </div>
             </section>
+            <h6><b>Su respuesta.</b></h6>
             <div class="respuestaBox respuestaBoxOpt2 goodColor bordered1"></div>
             <div class="ponderacionBox ponderacion_opt2 colorWhite bordered1"></div>`;
                 contenedoresPregunta[m].innerHTML = contenidoInicial + contenidoIntermedio + contenidoFinal;
@@ -181,7 +187,8 @@ function imprimirPreguntas() {
             <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
                 <h6><b>Propuesta de solución del docente.</b></h6>
                 <div class="codeContainerBox"><pre class="previewCodeContainer colorText bordered1">` + preguntasModalArray3[k][3] + `</pre></div>
-                <div class="preguntaBox outputEsperado color5 bordered1"><b>Respuesta correcta: ` + preguntasModalArray3[k][4] + `</b></div>
+                <div class="preguntaBox outputEsperado outputGetValue color5 bordered1"><b>Output: ` + preguntasModalArray3[k][4] + `</b></div>
+                <h6><b>Su respuesta.</b></h6>
                 <div class="respuestaBox respuestaBoxOpt3 goodColor bordered1"></div>
                 <div class="ponderacionBox ponderacion_opt3 colorWhite bordered1"></div>
             </section>`;
@@ -245,7 +252,7 @@ function imprimirPreguntas() {
             let finalContenido = `
             </div>
             <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
-                <h6><b>Resultado.</b></h6>
+                <h6><b>Su respuesta.</b></h6>
                 <div class="respuestaBox respuestaBoxOpt4 goodColor bordered1"></div>
                 <div class="ponderacionBox ponderacion_opt4 colorWhite bordered1"></div>
             </section>`;
@@ -286,6 +293,7 @@ function imprimirPreguntas() {
                     <div class="opcionesContainerStyleViewCuestionarioTrueFalse">
                     <div class="preguntaBoxFalseTrue color5 coloredText bordered1"><b>` + preguntasModalArray5[m][1] + `</b></div>
                     </div>
+                    <h6><b>Su respuesta.</b></h6>
                     <div class="respuestaBox respuestaBoxOpt5 goodColor bordered1"></div>
                     <div class="ponderacionBox ponderacion_opt5 colorWhite bordered1"></div>
                 </section>
@@ -321,6 +329,7 @@ function imprimirPreguntas() {
                 <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
                     <h6><b>Solución de la pregunta.</b></h6>
                     <div class="preguntaBox outputEsperado sosoColor bordered1"><b>Estas preguntas se revisan de manera manual, espera a que tu profesor lea tu respuesta.</b></div>
+                    <h6><b>Su respuesta.</b></h6>
                     <div class="respuestaBox respuestaBoxOpt6 goodColor bordered1"></div>
                     <div class="ponderacionBox ponderacion_opt6 colorWhite bordered1"></div>
                 </section>
@@ -459,6 +468,13 @@ function imprimirPreguntas() {
         for (var i = 0; i < arrastrarElemento.length; i++) {
             if (arrastrarElemento[i].innerText == "undefined" || arrastrarElemento[i].innerText == "") {
                 arrastrarElemento[i].innerText = "--------";
+            }
+        }
+
+        let outputGetValue = document.getElementsByClassName('outputGetValue');
+        for (var i = 0; i < outputGetValue.length; i++) {
+            if (outputGetValue[i].innerText == "Output:") {
+                outputGetValue[i].innerText = "--------";
             }
         }
     }
@@ -613,8 +629,40 @@ function imprimirPreguntas() {
     imprimirRespuestasAlumno(Object.values(listaRespuestasLimpiaOpt6), 'respuestaBoxOpt6');
 
     function evaluarCuestionario() {
+        function evaluarOpt1(){
+            //Input con la respuesta
+            let rightAnswerOpt1 = document.getElementsByClassName("rightAnswerOpt1");
+            //Div con la respuesta del usuario
+            let respuestaBox = document.getElementsByClassName('respuestaBoxOpt1');
+            //Div de ponderaciones
+            let ponderacion_opt1 = document.getElementsByClassName('ponderacion_opt1');
+
+            //Evaluamos y verificamos si es correcta
+            for(var i = 0; i < rightAnswerOpt1.length; i++){
+                if(rightAnswerOpt1[i].value == respuestaBox[i].textContent){
+                    //Guardamos en el input el valor de bien
+                    rightAnswerOpt1[i].value = "bien";
+                    //Sumamos la ponderacion
+                    var valorPonderacionOpt1 = ponderacion_opt1[i].innerText;
+                    valorPonderacionOpt1 = valorPonderacionOpt1.substring(0,valorPonderacionOpt1.indexOf('pts.'));
+                    ponderacionGlobal = ponderacionGlobal + parseInt(valorPonderacionOpt1);
+                }else{
+                    //Guardamos en el input el valor de mal
+                    rightAnswerOpt1[i].value = "mal";
+                    //Aplicamos los estilos
+                    respuestaBox[i].classList.remove('goodColor');
+                    respuestaBox[i].classList.add('badColor');
+                }
+            }
+        }
+        evaluarOpt1();
     }
-    //evaluarCuestionario();
+    evaluarCuestionario();
+
+
+
+
+
 
     function calcularPromedio() {
 
