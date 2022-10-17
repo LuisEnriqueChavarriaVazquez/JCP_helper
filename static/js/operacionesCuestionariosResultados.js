@@ -5,7 +5,7 @@
 
 //Convetimos el objeto en un string con formato
 stringJSON = JSON.stringify(dataCuestionarioJSON, null, 1);
-console.log(stringJSON)
+//console.log(stringJSON)
 
 //Obtenemos cada una de las listas dentro del objeto
 const preguntasModal1 = dataCuestionarioJSON.preguntasModal1;
@@ -155,6 +155,7 @@ function imprimirPreguntas() {
                 </div>
             </section>
             <h6><b>Su respuesta.</b></h6>
+            <input type="hidden" class="rightAnswerOpt2" id="rightAnswerOpt2`+ m +`" name="rightAnswerOpt2`+ m +`"></input>
             <div class="respuestaBox respuestaBoxOpt2 goodColor bordered1"></div>
             <div class="ponderacionBox ponderacion_opt2 colorWhite bordered1"></div>`;
                 contenedoresPregunta[m].innerHTML = contenidoInicial + contenidoIntermedio + contenidoFinal;
@@ -423,7 +424,7 @@ function imprimirPreguntas() {
 
         // console.log('ponderacionPreguntasArray', ponderacionPreguntasArray)
         // console.log('ordenPreguntasArray', ordenPreguntasArray)
-        //console.log('listaOrdenPreguntasConPonderaciones', listaOrdenPreguntasConPonderaciones)
+        // console.log('listaOrdenPreguntasConPonderaciones', listaOrdenPreguntasConPonderaciones)
     }
     asignarPonderaciones();
 
@@ -629,6 +630,7 @@ function imprimirPreguntas() {
     imprimirRespuestasAlumno(Object.values(listaRespuestasLimpiaOpt5), 'respuestaBoxOpt5');
     imprimirRespuestasAlumno(Object.values(listaRespuestasLimpiaOpt6), 'respuestaBoxOpt6');
 
+    //Se evaluan de forma atomica
     function evaluarOpt1(){
         //Input con la respuesta
         let rightAnswerOpt1 = document.getElementsByClassName("rightAnswerOpt1");
@@ -657,6 +659,49 @@ function imprimirPreguntas() {
     }
     evaluarOpt1();
 
+    //Se valuan de forma atómica
+    function evaluarOpt2(){
+        var respuestasCorrectas = [];
+        var respuestaParcial = "";
+
+        for(var i = 0; i < Object.values(preguntasModalArray2).length - 1; i++){
+            for(var j = 1; j < Object.values(preguntasModalArray2[i]).length; j++){
+                respuestaParcial += "/" + preguntasModalArray2[i][j];
+            }
+            respuestasCorrectas.push(respuestaParcial);
+            respuestaParcial = "";
+        }
+        //Respuestas correctas
+        console.log(respuestasCorrectas);
+        //Respuestas del alumno
+        console.log(listaRespuestasLimpiaOpt2);
+
+        //Input de respuestas
+        let rightAnswerOpt2 = document.getElementsByClassName('rightAnswerOpt2');
+        //DIV de respuestas
+        let respuestaBoxOpt2 = document.getElementsByClassName('respuestaBoxOpt2');
+        //Div de ponderaciones
+        let ponderacion_opt2 = document.getElementsByClassName('ponderacion_opt2');
+
+        for(var t = 0; t < respuestasCorrectas.length; t++){
+            if(respuestasCorrectas[t] == listaRespuestasLimpiaOpt2[t]){
+                rightAnswerOpt2[t].value = "bien";
+                //Sumamos la ponderacion
+                var valorPonderacionOpt2 = ponderacion_opt2[t].innerText;
+                valorPonderacionOpt2 = valorPonderacionOpt2.substring(0,valorPonderacionOpt2.indexOf('pts.'));
+                ponderacionGlobal = ponderacionGlobal + parseInt(valorPonderacionOpt2);
+            }else{
+                //Guardamos en el input el valor de mal
+                rightAnswerOpt2[t].value = "mal";
+                //Aplicamos los estilos
+                respuestaBoxOpt2[t].classList.remove('goodColor');
+                respuestaBoxOpt2[t].classList.add('badColor');
+            }
+        }
+    }
+    evaluarOpt2();
+
+    //Se evaluan de forma atomica
     function evaluarOpt5(){
         //Input con la respuesta
         let rightAnswerOpt5 = document.getElementsByClassName("rightAnswerOpt5");
@@ -693,7 +738,8 @@ function imprimirPreguntas() {
         }
     }
     evaluarOpt5();
-
+    
+    console.log('ponderacionGlobal', ponderacionGlobal)
 
     function calcularPromedio() {
 
