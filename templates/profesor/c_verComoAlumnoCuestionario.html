@@ -103,11 +103,13 @@
             <h4>¿Desea enviar el cuestionario?</h4>
             <p>Este procedimiento no se puede revertir.</p>
             <hr>
-            <a onclick="procesamientoDeResultados()" 
-                id="botonRevisarMensaje"
-                href="/simularRevision/{{datosCuestionario[0][0]}}"
-                class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded"
-                style="width: 100%;">Enviar</a>
+            <form action="/simularRevision/{{datosCuestionario[0][0]}}" method="post">
+                <button onclick="procesamientoDeResultados()" 
+                    id="botonRevisarMensaje"
+                    class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded"
+                    style="width: 100%;">Enviar</button>
+                <input type="hidden" name="jsonContentInput" id="jsonContentInput" value="">
+            </form>
         </div>
     </div>
 

@@ -57,6 +57,7 @@ Orden varchar(60),
 TiempoCuentaAtras varchar(30),
 FechaLimiteRespuesta varchar(30),
 HoraLimiteParaResolver varchar(30),
+PreviewCuestionarioRuta varchar(150),
 primary key (IDCuestionario,IDGrupo,IDDocente),
 foreign key (IDGrupo) references Grupos(IDGrupo) ON DELETE CASCADE,
 foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
@@ -92,7 +93,7 @@ create table Notificaciones_Alumno(
 
 create table Notificaciones_Docente(
  IDDocente int not null,
- IDNotificacion_Docente int not null ,
+ IDNotificacion_Docente int not null,
  Texto varchar(100),
  primary key (IDDocente,IDNotificacion_Docente),
  foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE

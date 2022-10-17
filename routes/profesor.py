@@ -785,6 +785,47 @@ def view_cuestionario_como_alumno(id_cuestionario):
     #Enviamos al usuario al formulario para ver datos del cuestionario.
     return render_template('profesor/c_verComoAlumnoCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON)
 
+@routes.route('/simularRevision/<string:id_cuestionario>', methods=['POST'])
+def simular_revision(id_cuestionario):
+    #Obtenemos todos los datos del cuestionario
+    datosCuestionario = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
+
+    #Creamos la variable para la ruta de la preview
+    rutaCuestionarioPreview = 'static/cuestionariosPreview/'+ str(datosCuestionario[0][3]) + str(datosCuestionario[0][0]) + str(datosCuestionario[0][1]) + str(datosCuestionario[0][2]) +'Preview.json'
+
+    #Obtenemos el contenido del JSON en un string (Contenido del form)
+    jsonContentInput = request.form["jsonContentInput"]
+
+    #Creamos el documento JSON y lo guardamos
+    rutaArchivo = 'static/cuestionariosPreview/'+ datosCuestionario[0][3] + str(datosCuestionario[0][0]) + str(datosCuestionario[0][1]) + str(datosCuestionario[0][2]) +'Preview.json'
+    with open(rutaArchivo , 'w') as f:
+        print("Archivo JSON creado")
+
+    ##Escribimos el contenido del JSON el en archivo creado
+        #Abrimos archivo
+    jsonFile = open(rutaArchivo, "w")
+        #Guardamos string en objeto usable
+    jsonObject = json.loads(jsonContentInput)
+        #Formateamos nuevo objeto como string con identado
+    jsonString = json.dumps(jsonObject, indent=1)
+        #Guardamos string con formato
+    jsonFile.write(jsonString)
+    jsonFile.close()
+
+    ##Ingresamos la ruta a la base de datos
+    Op_profesor.insertar_ruta_preview_cuestionario(datosCuestionario[0][0], rutaCuestionarioPreview)
+
+    ##Accedemos al contenido del JSON (de la preview)
+    rutaArchivo = datosCuestionario[0][14]
+    # Abrimos el archivo
+    f = open(rutaArchivo)
+    #Guardamos la data de la preview
+    dataJSON = json.load(f)
+    #Guardamos la data como string
+    f.close()
+
+    #Enviamos al usuario al formulario para ver datos del cuestionario.
+    return render_template('profesor/c_verResultadosComoAlumnosCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON)
 
 @routes.route('/duplicarCuestionarios/<string:id_cuestionario>')
 def duplicar_cuestionario(id_cuestionario):

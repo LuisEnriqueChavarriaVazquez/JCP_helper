@@ -113,15 +113,28 @@ function procesamientoDeResultados(){
             dataCuestionarioJSON.preguntasModal4.push({"respuestas":respuestasOpt4});
             dataCuestionarioJSON.preguntasModal5.push({"respuestas":respuestasOpt5});
             dataCuestionarioJSON.preguntasModal6.push({"respuestas":respuestasOpt6});
-            console.log(dataCuestionarioJSON);
+            //console.log(dataCuestionarioJSON);
         }
         meterListasEnElObjeto();
 
+        //Mensajes del tiempo (Si se acabo el tiempo guarda en el JSON un mensaje de retraso)
+        let contadorFecha = document.getElementById('contadorFecha').textContent;
+        let tiempoRestante = document.getElementById('tiempoRestante').textContent;
+        function verificarSiRetrasado(){
+            if(contadorFecha == "No time" || tiempoRestante == "No time"){
+                dataCuestionarioJSON.ordenPreguntas.push({"retrasado":"true"});
+            }else{
+                dataCuestionarioJSON.ordenPreguntas.push({"retrasado":"false"});
+            }
+        }
+        verificarSiRetrasado();
+
+        //Se debe guardar un JSON en la columna "PreviewCuestionarioRuta" de PREVIEW de la tabla "CUESTIONARIOS"
         function crearElJson(){
-            //Se debe guardar un JSON de manera parcial.
+            //Almacenamos el contenido del JSON en el input
+            document.getElementById('jsonContentInput').value = JSON.stringify(dataCuestionarioJSON);
         }
         crearElJson();
-
     }
     lecturaDePonderacionResultadoPreguntas();
 }
