@@ -256,8 +256,15 @@ function imprimirPreguntas() {
             let finalContenido = `
             </div>
             <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
-                <h6><b>Su respuesta.</b></h6>
+                <h6><b>Sus respuestas.</b></h6>
+                <p>El puntaje se divide de acuerdo a las cantidad de respuestas buenas. 
+                En caso de faltar conceptos se considera como mala.</p>
                 <div class="respuestaBox respuestaBoxOpt4 goodColor bordered1"></div>
+                <div class="badAnswerBox badColor bordered1"></div>
+                <section class="contadorBoxAnswerArrastrar">
+                    <div class="countAnswerBoxRight goodColor colorGreyWhiter bordered1"></div>
+                    <div class="countAnswerBox colorGreyWhiter bordered1"></div>
+                </section>
                 <div class="ponderacionBox ponderacion_opt4 colorWhite bordered1"></div>
             </section>`;
 
@@ -622,18 +629,18 @@ function imprimirPreguntas() {
         }
 
         //Validamos impresión dependiendo del tipo
-        if (tipo == "respuestaBoxOpt4") {
-            for (var i = 0; i < respuestaBox.length; i++) {
-                if (listaRespuestas[i] == undefined) {
-                    respuestaBox[i].innerText = "vacio";
-                } else if (listaRespuestas[i] == "") {
-                    respuestaBox[i].innerText = "vacio";
-                } else {
-                    var textoConFormato = listaRespuestas[i].replaceAll('/', '<br>');
-                    respuestaBox[i].innerHTML = textoConFormato;
-                }
-            }
-        }
+        // if (tipo == "respuestaBoxOpt4") {
+        //     for (var i = 0; i < respuestaBox.length; i++) {
+        //         if (listaRespuestas[i] == undefined) {
+        //             respuestaBox[i].innerText = "vacio";
+        //         } else if (listaRespuestas[i] == "") {
+        //             respuestaBox[i].innerText = "vacio";
+        //         } else {
+        //             var textoConFormato = listaRespuestas[i].replaceAll('/', '<br>');
+        //             respuestaBox[i].innerHTML = textoConFormato;
+        //         }
+        //     }
+        // }
     }
     imprimirRespuestasAlumno(Object.values(listaRespuestasLimpiaOpt1), 'respuestaBoxOpt1');
     imprimirRespuestasAlumno(Object.values(listaRespuestasLimpiaOpt2), 'respuestaBoxOpt2');
@@ -802,13 +809,12 @@ function imprimirPreguntas() {
             respuestaUsuarioUnitario = [];
         }
         //Respuestas sepradas en la forma [[],[]]
-        //console.log('respuestasUsuarioTotal', respuestasUsuarioTotal)
+        console.log('respuestasUsuarioTotal', respuestasUsuarioTotal)
 
         let resultadosProfeUnitario = [];
         //Se debe hacer lo mismo con las respuestas que establecio el profesor
         //Recorremos la preguntas
         for(var t = 0; t < Object.values(preguntasModalArray4).length - 1; t++){
-            console.log("hola")
             //Accedemos a cada respuesta y las guardamos de la misma manera [[],[]]
             for(var y = 1; y < Object.values(preguntasModalArray4[t]).length; y++){
                 var resultadoProfe = preguntasModalArray4[t][y];
@@ -819,7 +825,66 @@ function imprimirPreguntas() {
         }
 
         //Respuestas correctas del cuestionario
-        //console.log('resultadosProfeTotal', resultadosProfeTotal)
+        console.log('resultadosProfeTotal', resultadosProfeTotal)
+
+        //Input con la respuesta
+        let rightAnswerOpt4 = document.getElementsByClassName("rightAnswerOpt4");
+        //Div con la respuesta del usuario
+        let respuestaBox = document.getElementsByClassName('respuestaBoxOpt4');
+        let badAnswerBox = document.getElementsByClassName('badAnswerBox');
+        let countAnswerBox = document.getElementsByClassName('countAnswerBox');
+        let countAnswerBoxRight = document.getElementsByClassName('countAnswerBoxRight');
+        //Div de ponderaciones
+        let ponderacion_opt4 = document.getElementsByClassName('ponderacion_opt4');
+        
+
+        //Nota: Debes comparar los dos arrays [[],[]]
+        for(var r = 0; r < resultadosProfeTotal.length; r++){
+            var contadorCorrectas = 0;
+            var contadorIncorrectas = 0;
+
+            for(var f = 0; f < Object.values(respuestasUsuarioTotal[r]).length; f++){
+                //En los resultados del profe eliminamos los asteriscos
+                resultadosProfeTotal[r][f] = resultadosProfeTotal[r][f].replaceAll("*", "/");
+                /*En caso de que las longitud con las respuestas del profe y las del usuario
+                *no sean iguales, significa que al usuario le faltaron casillas por mover
+                *en cuyo caso la pregunta se toma toda como incorrecta. 
+                */
+                if(Object.values(resultadosProfeTotal[r]).length != Object.values(respuestasUsuarioTotal[r]).length){
+                    respuestaBox[r].classList.add('badColor');
+                    respuestaBox[r].innerText = "Faltan respuestas, no relacionaste todos los conceptos";
+                    badAnswerBox[r].classList.add("hiddenElement");
+                    rightAnswerOpt4[r].value = "mal";
+                    countAnswerBox[r].classList.add("hiddenElement");
+                    countAnswerBoxRight[r].classList.add("hiddenElement");
+                //Cuando estan bien se agregan a la casilla de buenas
+                }else{
+                    if(resultadosProfeTotal[r][f] == respuestasUsuarioTotal[r][f]){ 
+                        respuestaBox[r].innerHTML += respuestasUsuarioTotal[r][f] + "<br>";
+                        contadorCorrectas += 1;
+                    //Cuando no coinciden se agregan a la casilla de malas
+                    }else{
+                        badAnswerBox[r].innerHTML += respuestasUsuarioTotal[r][f] + "<br>";
+                        contadorIncorrectas += 1;
+                    }
+
+                    //Sumamos la ponderacion
+                    var valorPonderacionOpt4 = ponderacion_opt4[r].innerText;
+                    valorPonderacionOpt4 = valorPonderacionOpt4.substring(0, valorPonderacionOpt4.indexOf('pts.'));
+                    //Hacemos el calculo según los aciertos
+                    if(contadorCorrectas == 0){
+                        valorPonderacionOpt4 = 0;
+                    }else{
+                        valorPonderacionOpt4 = (((parseInt(valorPonderacionOpt4))/(contadorIncorrectas+contadorCorrectas))*4).toFixed(2);
+                    }
+                                        
+                    countAnswerBox[r].innerText = contadorIncorrectas + " Malas";
+                    countAnswerBoxRight[r].innerText = contadorCorrectas + " Buenas " + valorPonderacionOpt4 + "pts.";
+                }
+
+            }
+            ponderacionGlobal = ponderacionGlobal + parseFloat(valorPonderacionOpt4);
+        }
     }
     //console.log('respuestasUsuarioTotal', respuestasUsuarioTotal)
     evaluarOpt4();
@@ -885,7 +950,7 @@ function imprimirPreguntas() {
         }
     }
     evaluarOpt6();
-
+    //console.log('ponderacionGlobal', ponderacionGlobal);
 
     function calcularPromedio() {
 
