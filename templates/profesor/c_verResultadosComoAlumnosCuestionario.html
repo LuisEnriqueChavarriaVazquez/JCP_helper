@@ -31,15 +31,26 @@
     <!--Aqui se recibe el texto del JSON-->
     <section class="previewResultadosCuestionario">
         <section class="previewResultadosCuestionarioSon1">
+            <section class="infoColor bordered1 shadow-1e generalInfoPreviewAlumno">
+                <p class="infoColor"><i class="material-icons">info</i> Usted esta observando el cuestionario cuando el
+                    alumno ya lo ha enviado y como algunas respuestas han sido evaluadas automaticamente.</p>
+            </section>
             <div class="hide-on-small-only">
                 <h5>Resultados {{datosCuestionario[0][3]}}</h5>
             </div>
+            <div>
+                <h6 class="hide-on-small-only">Preguntas y puntaje</h6>
+                <h5 class="hide-on-med-and-up">Preguntas y puntaje</h5>
+            </div>
             <section class="previewResultadosCuestionarioSon1Grid">
                 <div class="calificacionContainer colorGreyWhiter bordered2 shadow-1e goodColorText">
-                    <p>2/10</p>
+                    
                 </div>
                 <div class="puntosContainer colorGreyWhiter bordered2 shadow-1e goodColorText">
-                    <p>2/104pts.</p>
+                    
+                </div>
+                <div class="estadoRetraso colorGreyWhiter bordered2 shadow-1e goodColorText">
+                    
                 </div>
             </section>
         </section>
@@ -48,11 +59,11 @@
                 <h5>Preguntas/Respuestas cuestionario</h5>
             </div>
             <div class="previewPreguntasResultadosMain" id="previewPreguntasResultadosMain">
-                
+
             </div>
         </section>
     </section>
-    
+
     <!--Boton para ir hacia arriba-->
     <div class="fixed-action-btn hiddenElement animate__animated" id="buttonGoUpTerminos">
         <a class="btn-floating btn-large color4">

@@ -30,7 +30,8 @@ const ponderacionPreguntasArray = Object.values(ponderacionPreguntas[0]);
 const ordenPreguntasArray = Object.values(ordenPreguntas[0]);
 
 //Se guarda la ponderacion global
-let ponderacionGlobal = 0;
+let ponderacionGlobal = 0; //Puntos alumno
+let ponderacionGlobalDada = 0; //Puntos totales
 
 //Forma de acceder a las preguntas y elemento
 //Primer indice indica el numero de pregunta
@@ -421,6 +422,7 @@ function imprimirPreguntas() {
         function meterPonderaciones(cajasGrupo, ponderacionesGrupo) {
             for (var y = 0; y < cajasGrupo.length; y++) {
                 cajasGrupo[y].innerHTML = "<b>" + ponderacionesGrupo[y] + "pts.</b>";
+                ponderacionGlobalDada += parseInt(ponderacionesGrupo[y]);
             }
             return "Longitudes = " + cajasGrupo.length + "///" + ponderacionesGrupo.length;
         }
@@ -950,14 +952,33 @@ function imprimirPreguntas() {
         }
     }
     evaluarOpt6();
-    //console.log('ponderacionGlobal', ponderacionGlobal);
-
+    
+    //Calculamos el promedio
     function calcularPromedio() {
+        let calificacionContainer = document.getElementsByClassName("calificacionContainer");
+        calificacionContainer[0].innerHTML = "<p>Espera revisión para promedio</p>";
+    }
+    calcularPromedio();
+
+    //Validar retraso
+    function estadoRetraso(){
+        let estadoRetrasoBox = document.getElementsByClassName('estadoRetraso');
+        let estadoRetraso = Object.values(ordenPreguntas[1]);
+        if(estadoRetraso == "true"){
+            estadoRetrasoBox[0].innerHTML = "<p>Enviado con retraso</p>";
+        }else{
+            estadoRetrasoBox[0].innerHTML = "<p>Enviado a tiempo</p>";
+        }
 
     }
-
+    estadoRetraso();
+    
+    //Calculamos el puntaje
     function calcularPuntaje() {
+        let puntosContainer = document.getElementsByClassName('puntosContainer');
+        puntosContainer[0].innerHTML = "<p>" + ponderacionGlobal.toFixed(2) + "/" + ponderacionGlobalDada+ "pts.</p>";
 
     }
+    calcularPuntaje()
 }
 imprimirPreguntas();

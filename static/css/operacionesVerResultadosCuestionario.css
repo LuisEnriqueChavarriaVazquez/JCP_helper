@@ -19,6 +19,7 @@
 .previewResultadosCuestionario .previewResultadosCuestionarioSon1,
 .previewResultadosCuestionario .previewResultadosCuestionarioSon2{
     padding: 0 20px;
+    margin-top: 10px;
 }
 
 .previewResultadosCuestionarioSon1Grid{
@@ -29,7 +30,7 @@
     margin-top: 30px;
 }
 
-.calificacionContainer, .puntosContainer{
+.calificacionContainer, .puntosContainer,.estadoRetraso{
     width: 100%;
     height: auto;
     padding: 10px 20px;
@@ -41,8 +42,8 @@
     flex-direction: column;
 }
 
-.calificacionContainer p, .puntosContainer p{
-    font-size: 30px;
+.calificacionContainer p, .puntosContainer p,.estadoRetraso p{
+    font-size: 20px;
     font-weight: 700;
 }
 
@@ -51,14 +52,28 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
+        grid-template-areas: 
+        "area1 area2"
+        "area3 area3";
     }
 
-    .calificacionContainer, .puntosContainer{
-        padding: 5px 15px;
+    .calificacionContainer{
+        padding: 0;
+        grid-area: area3;
     }
 
-    .calificacionContainer p, .puntosContainer p{
-        font-size: 25px;
+    .puntosContainer{
+        padding: 0;
+        grid-area: area1;
+    }
+
+    .estadoRetraso{
+        padding: 0;
+        grid-area: area2;
+    }
+
+    .calificacionContainer p, .puntosContainer p, .estadoRetraso p{
+        font-size: 20px;
         font-weight: 600;
     }
 }
@@ -67,26 +82,41 @@
 @media screen and (max-width: 600px) {
     .previewResultadosCuestionarioSon1Grid{
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
+        grid-template-areas: 
+        "area1 area2"
+        "area3 area3";
     }
 
-    .calificacionContainer, .puntosContainer{
+    .calificacionContainer{
         padding: 0;
+        grid-area: area3;
     }
 
-    .calificacionContainer p, .puntosContainer p{
-        font-size: 20px;
+    .puntosContainer{
+        padding: 0;
+        grid-area: area1;
+    }
+
+    .estadoRetraso{
+        padding: 0;
+        grid-area: area2;
+    }
+
+    .calificacionContainer p, .puntosContainer p, .estadoRetraso p{
+        font-size: 16px;
         font-weight: 700;
     }
 }
 
 .previewPreguntasResultadosMain{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     gap: 20px;
-    margin: 5px 200px 20px 200px;
+    margin: 5px 20px 20px 20px;
+    padding-top: 15px;
 }
 
 @media screen and (max-width: 1600px) {
