@@ -110,6 +110,38 @@
     }
 }
 
+@media screen and (max-width: 420px) {
+    .previewResultadosCuestionarioSon1Grid{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "area1"
+        "area3"
+        "area2";
+    }
+
+    .calificacionContainer{
+        padding: 0;
+        grid-area: area3;
+    }
+
+    .puntosContainer{
+        padding: 0;
+        grid-area: area1;
+    }
+
+    .estadoRetraso{
+        padding: 0;
+        grid-area: area2;
+    }
+
+    .calificacionContainer p, .puntosContainer p, .estadoRetraso p{
+        font-size: 16px;
+        font-weight: 700;
+    }
+}
+
 .previewPreguntasResultadosMain{
     display: grid;
     grid-template-columns: 1fr 1fr;

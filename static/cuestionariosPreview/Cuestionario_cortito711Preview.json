@@ -1,15 +1,17 @@
 {
  "ordenPreguntas": [
   {
-   "0": "optFalsoVerdadero"
+   "0": "optFalsoVerdadero",
+   "1": "optEjercicios"
   },
   {
-   "retrasado": "false"
+   "retrasado": "true"
   }
  ],
  "ponderacionGlobal": [
   {
-   "0": "1"
+   "0": "",
+   "1": ""
   }
  ],
  "preguntasModal1": [
@@ -24,7 +26,16 @@
  ],
  "preguntasModal3": [
   {
-   "respuestas": []
+   "0": "problema",
+   "1": "",
+   "2": "",
+   "3": "                                ",
+   "4": "3"
+  },
+  {
+   "respuestas": [
+    "opt3InputGet_0/&1"
+   ]
   }
  ],
  "preguntasModal4": [
@@ -34,12 +45,12 @@
  ],
  "preguntasModal5": [
   {
-   "0": "Pregunta",
-   "1": "T"
+   "0": "flaso",
+   "1": "F"
   },
   {
    "respuestas": [
-    "opt5InputGet_0/true&1"
+    "opt5InputGet_0/false&1"
    ]
   }
  ],

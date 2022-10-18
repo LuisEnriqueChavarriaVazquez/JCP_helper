@@ -742,6 +742,7 @@ function imprimirPreguntas() {
             //Si no hay output la pone como pendiente
             if (outputGetValue[i].innerText == "" || outputGetValue[i].innerText == "No output") {
                 rightAnswerOpt3[i].value = "pendiente";
+                rightAnswerOpt3[i].classList.add("opt3Pendiente");
                 respuestaBoxOpt3[i].classList.remove('goodColor');
                 respuestaBoxOpt3[i].classList.add('sosoColor');
                 tituloEjercicioPendiente[i].innerHTML = "<b>Pendiente de revisión.</b>"
@@ -955,8 +956,19 @@ function imprimirPreguntas() {
     
     //Calculamos el promedio
     function calcularPromedio() {
+        //Detecta la cantidad de preguntas abiertas que hay
+        let rightAnswerOpt6 = document.getElementsByClassName('rightAnswerOpt6');
+        //Detecta la cantidad de inputs de pendiente que hay en los ejercicios (los que no tenian output)
+        let opt3Pendiente = document.getElementsByClassName('opt3Pendiente');
         let calificacionContainer = document.getElementsByClassName("calificacionContainer");
-        calificacionContainer[0].innerHTML = "<p>Espera revisión para promedio</p>";
+        //Evalua si existen
+        if(rightAnswerOpt6.length > 0 || opt3Pendiente.length > 0){
+            //En caso de que haya preguntas abiertas o ejercicios sin output.
+            calificacionContainer[0].innerHTML = "<p>Revisión manual pendiente</p>";
+        }else{
+            var promedio = (ponderacionGlobal.toFixed(2)*10)/ponderacionGlobalDada;
+            calificacionContainer[0].innerHTML = "<p>Calificación: " + promedio +"</p>";
+        }
     }
     calcularPromedio();
 
