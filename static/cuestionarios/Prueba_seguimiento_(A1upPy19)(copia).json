@@ -1,0 +1,39 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optMultiple",
+   "1": "optMultiple"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "5",
+   "1": "2"
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "0": "Pregunta uno",
+   "1": "",
+   "2": "C",
+   "3": "Opt 1",
+   "4": "opt 2",
+   "5": "opt 3",
+   "6": "opt4"
+  },
+  {
+   "0": "Pregunta uno",
+   "1": "",
+   "2": "C",
+   "3": "Opt 1",
+   "4": "opt 2",
+   "5": "opt 3",
+   "6": "opt4"
+  }
+ ],
+ "preguntasModal2": [],
+ "preguntasModal3": [],
+ "preguntasModal4": [],
+ "preguntasModal5": [],
+ "preguntasModal6": []
+}

@@ -37,7 +37,7 @@
    "33": "optEjercicios"
   },
   {
-   "retrasado": "true"
+   "retrasado": "false"
   }
  ],
  "ponderacionGlobal": [
@@ -144,13 +144,13 @@
   },
   {
    "respuestas": [
-    "opt1InputGet_0/D&2",
-    "opt1InputGet_1/B&5",
-    "opt1InputGet_2/A&4",
-    "opt1InputGet_3/C&3",
-    "opt1InputGet_4/A&2",
-    "opt1InputGet_5/C&2",
-    "opt1InputGet_6/B&3"
+    "opt1InputGet_0/A&2",
+    "opt1InputGet_1/&5",
+    "opt1InputGet_2/&4",
+    "opt1InputGet_3/&3",
+    "opt1InputGet_4/&2",
+    "opt1InputGet_5/&2",
+    "opt1InputGet_6/&3"
    ]
   }
  ],
@@ -186,10 +186,10 @@
   },
   {
    "respuestas": [
-    "opt2InputGet_0///&5",
-    "opt2InputGet_1//palabra 1/palabra 2/palabra 3&1",
-    "opt2InputGet_2//palabra 1/palabra 2////&3",
-    "opt2InputGet_3//palabra 1//palabra 3///palabra 4&5"
+    "opt2InputGet_0/&5",
+    "opt2InputGet_1/&1",
+    "opt2InputGet_2/&3",
+    "opt2InputGet_3/&5"
    ]
   }
  ],
@@ -224,10 +224,10 @@
   },
   {
    "respuestas": [
-    "opt3InputGet_0/Output: EMPTY/Link: EMPTY&5",
-    "opt3InputGet_1/Output: hola mundo/Link: dddd&4",
-    "opt3InputGet_2/Output: 4/Link: EMPTY&4",
-    "opt3InputGet_3/Output: 4/Link: EMPTY&3"
+    "opt3InputGet_0/&5",
+    "opt3InputGet_1/&4",
+    "opt3InputGet_2/&4",
+    "opt3InputGet_3/&3"
    ]
   }
  ],
@@ -288,12 +288,12 @@
   },
   {
    "respuestas": [
-    "opt4InputGet_0/--------/&2",
-    "opt4InputGet_1/concepto 1/definicion 1/concepto 1 con texto mas largo que permite ver que es lo que ocurre/definicion 1 con texto mas largo que permite ver que es lo que ocurre/concepto 3/defincion 3/concepto 2/definicion 2/--------/--------/&3",
-    "opt4InputGet_2/concepto 1/definicion 1/concepto 1 con texto mas largo que permite ver que es lo que ocurre/definicion 1 con texto mas largo que permite ver que es lo que ocurre/concepto 3/defincion 3/concepto 2/definicion 2/concepto 2/--------/&5",
-    "opt4InputGet_3/concepto 1/definicion 1/concepto 1 con texto mas largo que permite ver que es lo que ocurre/definicion 1 con texto mas largo que permite ver que es lo que ocurre/concepto 3/defincion 3/concepto 2/definicion 2/concepto 2/--------/--------/definicion 2/&5",
-    "opt4InputGet_4/definicion 1/definicion 1 con texto mas largo que permite ver que es lo que ocurre/defincion 3/definicion 2/--------/concepto 1 con texto mas largo que permite ver que es lo que ocurre/definicion 2/--------/definicion 6/&3",
-    "opt4InputGet_5/concepto 1/definicion 1/final 1/definicion 1 con texto mas largo que permite ver que es lo que ocurre/--------/defincion 3/--------/definicion 2/concepto 6/--------/--------/definicion 2/--------/--------/concepto 2/definicion 6/concepto 2/--------/concepto 3/--------/concepto 1 con texto mas largo que permite ver que es lo que ocurre/final 2 con un texto m\u00e1s largo en esta parte/&3"
+    "opt4InputGet_0/&2",
+    "opt4InputGet_1/&3",
+    "opt4InputGet_2/&5",
+    "opt4InputGet_3/&5",
+    "opt4InputGet_4/&3",
+    "opt4InputGet_5/&3"
    ]
   }
  ],
@@ -324,12 +324,12 @@
   },
   {
    "respuestas": [
-    "opt5InputGet_0/true&1",
-    "opt5InputGet_1/false&4",
-    "opt5InputGet_2/false&4",
-    "opt5InputGet_3/true&1",
-    "opt5InputGet_4/false&3",
-    "opt5InputGet_5/true&4"
+    "opt5InputGet_0/&1",
+    "opt5InputGet_1/&4",
+    "opt5InputGet_2/&4",
+    "opt5InputGet_3/&1",
+    "opt5InputGet_4/&3",
+    "opt5InputGet_5/&4"
    ]
   }
  ],
@@ -371,13 +371,13 @@
   },
   {
    "respuestas": [
-    "opt6InputGet_0/Pregunta abiertaPregunta abiertaPregunta abiertaPregunta abiertaPregunta abiertaPregunta abiertaPregunta abiertaPregunta abiertaPregunta abierta&5",
-    "opt6InputGet_1/Pregunta abiertaPregunta abiertaPregunta abiertaPregunta abiertaPregunta abiertaPregunta abiertaPregunta abierta&3",
-    "opt6InputGet_2/Pregunta abierta&1",
+    "opt6InputGet_0/&5",
+    "opt6InputGet_1/&3",
+    "opt6InputGet_2/&1",
     "opt6InputGet_3/&4",
     "opt6InputGet_4/&4",
-    "opt6InputGet_5/Pregunta abierta&4",
-    "opt6InputGet_6/Pregunta abiertaPregunta abiertaPregunta abiertaPregunta abierta&3"
+    "opt6InputGet_5/&4",
+    "opt6InputGet_6/&3"
    ]
   }
  ]

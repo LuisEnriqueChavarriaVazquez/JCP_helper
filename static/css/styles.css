@@ -195,6 +195,10 @@ input[type="file"] {
 	border-radius: 30px !important;
 }
 
+.buttonMax{
+	width: 100%;
+}
+
 /*Vinculos auxiliares para recuperar contraseñas, etc*/
 
 .linkAuxiliar{
@@ -484,5 +488,94 @@ input[type="file"] {
 @media screen and (min-width: 1200px) {
 	.notFoundMsg div img{
 		width: 25%;
+	}
+}
+
+
+/*Estilos del log in*/
+
+.loginContainerGrid{
+	display: grid;
+	grid-template-columns: 1fr 1.8fr;
+	grid-template-rows: auto;
+	grid-template-areas: 
+	"area1 area2";
+
+	margin: 50px 280px 80px 280px;
+}
+
+.loginContainerImage{
+	grid-area: area1;
+	border-radius: 20px 0 0 20px;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loginContainerImage div{
+	width: 180px;
+	height: 180px;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	border-radius: 10px;
+}
+
+.loginContainerForm{
+	grid-area: area2;
+	padding: 40px;
+	border-radius: 0 20px 20px 0;
+}
+
+@media screen and (max-width: 1200px) {
+	.loginContainerGrid{
+		display: grid;
+		grid-template-columns: 1fr 1.6fr;
+		grid-template-rows: auto;
+		grid-template-areas: 
+		"area1 area2";
+	
+		margin: 50px 100px 300px 100px;
+	}
+
+	.loginContainerImage div{
+		width: 130px;
+		height: 130px;
+	}
+}
+
+
+
+@media screen and (max-width: 700px) {
+	.loginContainerGrid{
+		display: grid;
+		grid-template-columns: 1fr !important;
+		grid-template-rows: auto;
+		grid-template-areas: none;
+	
+		margin: 20px 40px;
+	}
+
+	.loginContainerImage{
+		border-radius: 20px 20px 0 0;
+		height: 150px;
+		grid-area: unset;
+	}
+	
+	.loginContainerForm{
+		padding: 100px 30px 30px 30px;
+		border-radius: 0 0 20px 20px;
+		grid-area: unset;
+	}
+
+	.loginContainerImage div{
+		width: 150px;
+		height: 150px;
+		position: relative;
+		top: 50px;
 	}
 }

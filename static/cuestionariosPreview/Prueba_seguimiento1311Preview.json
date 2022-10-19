@@ -1,0 +1,68 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optMultiple",
+   "1": "optMultiple"
+  },
+  {
+   "retrasado": "false"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "5",
+   "1": "2"
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "0": "Pregunta uno",
+   "1": "",
+   "2": "C",
+   "3": "Opt 1",
+   "4": "opt 2",
+   "5": "opt 3",
+   "6": "opt4"
+  },
+  {
+   "0": "Pregunta uno",
+   "1": "",
+   "2": "C",
+   "3": "Opt 1",
+   "4": "opt 2",
+   "5": "opt 3",
+   "6": "opt4"
+  },
+  {
+   "respuestas": [
+    "opt1InputGet_0/C&5",
+    "opt1InputGet_1/A&2"
+   ]
+  }
+ ],
+ "preguntasModal2": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal3": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal4": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal5": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal6": [
+  {
+   "respuestas": []
+  }
+ ]
+}

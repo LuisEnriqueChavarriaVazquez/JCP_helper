@@ -1,0 +1,28 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optMultiple"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "2"
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "0": "Pregunta opcion multiples",
+   "1": "",
+   "2": "C",
+   "3": "opt1",
+   "4": "opt2",
+   "5": "opt3",
+   "6": "opt4"
+  }
+ ],
+ "preguntasModal2": [],
+ "preguntasModal3": [],
+ "preguntasModal4": [],
+ "preguntasModal5": [],
+ "preguntasModal6": []
+}

@@ -1,8 +1,7 @@
 {
  "ordenPreguntas": [
   {
-   "0": "optFalsoVerdadero",
-   "1": "optEjercicios"
+   "0": "optMultiple"
   },
   {
    "retrasado": "false"
@@ -10,13 +9,23 @@
  ],
  "ponderacionGlobal": [
   {
-   "0": "2",
-   "1": "1"
+   "0": "2"
   }
  ],
  "preguntasModal1": [
   {
-   "respuestas": []
+   "0": "Pregunta opcion multiples",
+   "1": "",
+   "2": "C",
+   "3": "opt1",
+   "4": "opt2",
+   "5": "opt3",
+   "6": "opt4"
+  },
+  {
+   "respuestas": [
+    "opt1InputGet_0/A&2"
+   ]
   }
  ],
  "preguntasModal2": [
@@ -26,16 +35,7 @@
  ],
  "preguntasModal3": [
   {
-   "0": "problema",
-   "1": "",
-   "2": "",
-   "3": "                                ",
-   "4": ""
-  },
-  {
-   "respuestas": [
-    "opt3InputGet_0/&1"
-   ]
+   "respuestas": []
   }
  ],
  "preguntasModal4": [
@@ -45,13 +45,7 @@
  ],
  "preguntasModal5": [
   {
-   "0": "33",
-   "1": "t"
-  },
-  {
-   "respuestas": [
-    "opt5InputGet_0/&2"
-   ]
+   "respuestas": []
   }
  ],
  "preguntasModal6": [
