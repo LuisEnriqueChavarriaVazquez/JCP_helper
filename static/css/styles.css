@@ -651,12 +651,13 @@ input[type="file"] {
 
 .imageContainerForm{
 	position: relative;
-	top: -80px;
+	top: -120px;
 }
 
-#profileImageProf{
-	width: 220px;
-	height: 220px;
+#profileImageProf, #profileImageEst{
+	width: 280px;
+	height: 280px;
+	margin-bottom: 20px;
 }
 
 .contentFormContainerFoto{
@@ -693,8 +694,19 @@ input[type="file"] {
 		top: -20px;
 	}
 
-	#profileImageProf{
+	.imageContainerForm{
+		position: relative;
+		top: -80px;
+	}
+
+	#profileImageProf, #profileImageEst{
 		width: 110px;
 		height: 110px;
+	}
+
+	.tituloFormContainer p{
+		font-size: 25px;
+		font-weight: 500;
+		position: relative;
 	}
 }

@@ -9,14 +9,14 @@
 
 </head>
 
-<body class="oculto">
+<body class="oculto colorGreyWhiter">
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/cargador.html" %}
 
     <!--Menu de página de inicio-->
     <nav class="color2">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Sign up estudiante.</a>
+            <a href="#" class="brand-logo hide-on-small-only">Sign up estudiante.</a>
             <a href="bienvenida" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
             <p class="titleMobile colorText flow-text hide-on-med-and-up">Sign up estudiante.</p>
@@ -26,43 +26,46 @@
         </div>
     </nav>
 
-    <section class="mainBody">
+    <section class="mainBody colorGreyWhiter">
         <div class="title-general">
-            <h4 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Creación de cuenta</h4>
-            <h3 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Creación de cuenta</h3>
+            <h5 class="hide-on-large-only">Creación de cuenta</h5>
+            <h4 class="hide-on-med-and-down">Creación de cuenta</h4>
         </div>
-
-        <!--Todo el contenido del formulario-->
         <form action="{{ url_for('routes.nuevo_estudiante') }}" method="post" enctype="multipart/form-data">
-            <section class="centerAligner verticalAligner">
-                <!--Datos básicos de la cuenta-->
-                <div class="card-bienvenida-signup card-bienvenida shadow-3" style="padding: 30px;">
-                    <div class="row">
-                        <h5 class="colorText hide-on-large-only">Datos de básicos.</h5>
-                        <h4 class="colorText hide-on-med-and-down">Datos de básicos.</h4>
-                        <br>
+            <!--Contenedor global-->
+            <section class="holeContainerSignUp">
+                <!--Datos básicos del cuestionario-->
+                <section class="holeContainerSignUp1 colorWhite shadow-1 borderDecoration bordered2">
+                    <section class="tituloFormContainer fondoDinamico">
+                        <p class="colorText">Datos básicos</p>
+                    </section>
+                    <section class="row contentFormContainer">
                         <div class="input-field col s12 m6 l6">
-                            <input placeholder="Escriba su nombre completo" class="colorText truncate" id="text"
+                            <i class="material-icons prefix">account_circle</i>
+                            <input placeholder="Escriba su nombre completo" class="colorTextReverse truncate" id="text"
                                 type="text" name="nombre" class="validate" required>
                             <label for="text">Nombre <b class="red-text">*</b> </label>
                         </div>
                         <div class="input-field col s12 m6 l6">
-                            <input placeholder="Escriba su alias" class="colorText truncate" id="text" type="text"
+                            <i class="material-icons prefix">badge</i>
+                            <input placeholder="Escriba su alias" class="colorTextReverse truncate" id="text" type="text"
                                 name="alias" class="validate" required>
                             <label for="text">Alias <b class="red-text">*</b></label>
                         </div>
                         <div class="input-field col s12 m6 l12">
-                            <input placeholder="Escriba su correo electrónico" class="colorText truncate" id="email"
+                            <i class="material-icons prefix">email</i>
+                            <input placeholder="Escriba su correo electrónico" class="colorTextReverse truncate" id="email"
                                 name="correo" type="email" class="validate" required>
                             <label for="email">Correo <b class="red-text">*</b></label>
                         </div>
                         <div class="input-field col s12 m6 l6">
-                            <input placeholder="Escriba su contraseña" class="colorText truncate" id="password"
+                            <i class="material-icons prefix">password</i>
+                            <input placeholder="Escriba su contraseña" class="colorTextReverse truncate" id="password"
                                 type="password" name="contra" class="validate" required>
                             <label for="password">Password <b class="red-text">*</b></label>
                         </div>
                         <div class="input-field col s12 m6 l6">
-                            <input placeholder="Confirme su contraseña" class="colorText truncate" id="password"
+                            <input placeholder="Confirme su contraseña" class="colorTextReverse truncate" id="password"
                                 type="password" name="contra2" class="validate" required>
                             <label for="password">Confirmación <b class="red-text">*</b></label>
                         </div>
@@ -78,93 +81,56 @@
                             {% endwith %}
                         </div>
                         <div class="input-field col s12 m6 l12">
-                            <input placeholder="Escriba su escuela de procedencia" class="colorText truncate"
+                            <i class="material-icons prefix">school</i>
+                            <input placeholder="Escriba su escuela de procedencia" class="colorTextReverse truncate"
                                 id="text" type="text" name="escuela" class="validate">
                             <label for="text">Escuela de procedencia <b class="red-text">*</b></label>
                         </div>
-                        <div class="input-field col s12 m6 l6">
+                        <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix">info</i>
                             <textarea placeholder="Escriba una descripción para su perfil"
-                                class="colorText materialize-textarea" id="text"
+                                class="colorTextReverse materialize-textarea" id="text"
                                 class="validate" name="descripcion" style="min-height: 60px;"></textarea>
                             <label for="text" class="truncate">Descripción general (Opcional)</label>
                         </div>
-                        <div class="input-field col s12 m6 l6">
-                            <input placeholder="Escriba su area de especialización" class="colorText truncate"
+                        <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix">psychology</i>
+                            <input placeholder="Escriba su area de especialización" class="colorTextReverse truncate"
                                 id="text" type="text" name="area" class="validate">
                             <label for="text">Área de especialización (Opcional)</label>
                         </div>
-                    </div>
-                </div>
-                <!--Foto de perfil-->
-                <div class="card-bienvenida-signup card-bienvenida shadow-3" style="padding: 30px;">
-                    <div class="row centerAligner verticalAligner">
-                        <h5 class="colorText hide-on-large-only">Foto de perfil.</h5>
-                        <h4 class="colorText hide-on-med-and-down">Foto de perfil.</h4>
-                        <br>
+                    </section>
+                </section>
+                <!--Foto del perfil de usuario-->
+                <section class="holeContainerSignUp2 colorWhite shadow-1 borderDecoration bordered2">
+                    <section class="tituloFormContainer tituloFormContainerFoto fondoDinamico">
+                        <p class="colorText">Foto de perfil</p>
+                    </section>
+                    <section class="row contentFormContainer contentFormContainerFoto">
                         <div class="col 12 centerAligner verticalAligner">
-                            <div>
+                            <div class="imageContainerForm">
                                 <image id="profileImageEst" src="../../static/images/avatares/avatar_empty.jpg"
-                                    style="width: 80px; height: 80px;" class="shadow-4" />
+                                class="shadow-4" />
                             </div>
                             <br>
-                            <div style="margin: 5px 0px 20px 0px;" class="centerAligner">
+                            <div class="centerAligner botonImagenContainerForm">
                                 <label for="imageUploadEst"
-                                    class="centerAligner custom-file-upload color3 btn waves-effect waves-light button-rounded">
+                                    class="buttonMax centerAligner custom-file-upload color3 btn-large waves-effect waves-light button-rounded">
                                     <i class="fa fa-cloud-upload"></i> Elegir foto
                                 </label>
-                                <input id="imageUploadEst" name="foto" type="file" required/>
+                                <input id="imageUploadEst" name="foto" type="file" required />
                             </div>
                         </div>
-                    </div>
-                </div>
-                <!--Seccion de contacto-->
-                <!-- <div class="card-bienvenida-signup card-bienvenida shadow-3" style="padding: 30px;">
-                    <div>
-                        <div class="row">
-                            <h5 class="colorText hide-on-large-only">Datos de contacto.</h5>
-                            <h4 class="colorText hide-on-med-and-down">Datos de contacto.</h4>
-                            <br>
-                            <div class="input-field col s12 m6 l6">
-                                <input placeholder="Escriba un email alternativo" class="colorText truncate" id="email"
-                                    type="email" name="correoA" class="validate">
-                                <label for="email">Email alternativo (Opcional)</label>
-                            </div>
-                            <div class="input-field col s12 m6 l6">
-                                <input placeholder="Escriba su cuenta de LinkedIn" class="colorText truncate" id="text"
-                                    type="text" name="linkedinA" class="validate">
-                                <label for="text">LinkedIn (Opcional)</label>
-                            </div>
-                            <div class="input-field col s12 m6 l6">
-                                <input placeholder="Escriba su cuenta de Facebook" class="colorText truncate" id="text"
-                                    type="text" name="facebookA" class="validate">
-                                <label for="text">Facebook (Opcional)</label>
-                            </div>
-                            <div class="input-field col s12 m6 l6">
-                                <input placeholder="Escriba su cuenta de instagram" class="colorText truncate" id="text"
-                                    type="text" name="instagramA" class="validate">
-                                <label for="text">Instagram (Opcional)</label>
-                            </div>
-                            <div class="input-field col s12 m6 l6">
-                                <input placeholder="Escriba su cuenta de VK" class="colorText truncate" id="text"
-                                    type="text" name="vkA" class="validate">
-                                <label for="text">VK (Opcional)</label>
-                            </div>
-                            <div class="input-field col s12 m6 l6">
-                                <input placeholder="Escriba su número de teléfono" class="colorText truncate"
-                                    id="number" name="telefonoA" type="number" class="validate">
-                                <label for="number">Número de teléfono (Opcional)</label>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                <div class="card-bienvenida-text shadow-3">
-                    <button type="submit" class="buttons-bienvenida waves-effect waves-light btn-large color3"><i
+                    </section>
+                </section>
+                <!--Boton de registro-->
+                <section class="holeContainerSignUp3">
+                    <button type="submit" class="buttonMax buttons-bienvenida waves-effect waves-light btn-large color3"><i
                             class="material-icons left">done</i>Registrarse &nbsp;&nbsp;&nbsp;</button>
-                </div>
+                </section>
             </section>
         </form>
     </section>
-
     <br>
     <!--Metemos el footer en la app-->
     {% include "includes/footer.html" %}
