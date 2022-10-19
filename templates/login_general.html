@@ -38,7 +38,7 @@
                 <h5 class="hide-on-large-only">Cuenta docente</h5>
                 <h4 class="hide-on-med-and-down">Cuenta docente</h4>
             </div>
-            <section class="loginContainerGrid shadow-1 bordered2">
+            <section class="loginContainerGrid shadow-1 bordered2 borderDecoration">
                 <section class="fondoDinamico loginContainerImage">
                     <div class="icon_app shadow-2e bordered2"></div>
                 </section>
@@ -46,12 +46,14 @@
                     <form action="{{ url_for('routes.login_profesor') }}" method="post">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="Escriba su correo electrónico" class="colorText truncate" id="mail"
+                                <i class="material-icons prefix">email</i>
+                                <input placeholder="Escriba su correo electrónico" class="colorTextReverse truncate" id="mail"
                                     name="correoP" type="email" class="validate" required>
                                 <label for="mail">Correo</label>
                             </div>
                             <div class="input-field col s12">
-                                <input placeholder="Escriba su contraseña completa" class="colorText truncate"
+                                <i class="material-icons prefix">password</i>
+                                <input placeholder="Escriba su contraseña completa" class="colorTextReverse truncate"
                                     id="password" name="passwordP" type="password" class="validate" required>
                                 <label for="password">Contraseña</label>
                             </div>
@@ -89,7 +91,7 @@
                 <h5 class="hide-on-large-only">Cuenta estudiante</h5>
                 <h4 class="hide-on-med-and-down">Cuenta estudiante</h4>
             </div>
-            <section class="loginContainerGrid shadow-1 bordered2">
+            <section class="loginContainerGrid shadow-1 bordered2 borderDecoration">
                 <section class="fondoDinamico loginContainerImage">
                     <div class="icon_app shadow-2e bordered2"></div>
                 </section>
@@ -97,12 +99,14 @@
                     <form action="{{ url_for('routes.login_estudiante') }}" method="post">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="Escriba su correo electrónico" class="colorText truncate" id="mail"
+                                <i class="material-icons prefix">email</i>
+                                <input placeholder="Escriba su correo electrónico" class="colorTextReverse truncate" id="mail"
                                     name="correoE" type="email" class="validate" required>
                                 <label for="mail">Correo</label>
                             </div>
                             <div class="input-field col s12">
-                                <input placeholder="Escriba su contraseña completa" class="colorText truncate"
+                                <i class="material-icons prefix">password</i>
+                                <input placeholder="Escriba su contraseña completa" class="colorTextReverse truncate"
                                     id="password" name="passwordE" type="password" class="validate" required>
                                 <label for="password">Contraseña</label>
                             </div>
