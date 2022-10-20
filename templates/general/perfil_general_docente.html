@@ -15,10 +15,9 @@
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Perfil de usuario.</a>
-            <a href="#" data-target="slide-out" class="sidenav-trigger"><i
-                class="material-icons"></i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Perfil de usuario.</p>
+            <a href="#" class="brand-logo hide-on-small-only">Perfil de docente.</a>
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons"></i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Perfil de docente.</p>
         </div>
     </nav>
     <br><br>
@@ -28,7 +27,7 @@
         <div class="dataContainerUserMain">
             {% if datos %}
             <!-- Fondo con la foto elegida por el usuario -->
-            <div class="fondoDinamico fondoPerfilDiseno shadow-3e" style="background-image: url('{{datos[0][9]}}');">
+            <div class="fondoDinamico fondoPerfilDiseno shadow-3e" style="background-image: url('{{datos[8]}}');">
                 <div class="iconEditContainer">
                 </div>
             </div>
@@ -36,14 +35,14 @@
             <!-- Datos del cliente -->
             <div class="datos_perfil_container" id="datos_perfil_containerSelector">
                 <div>
-                    <img class="materialboxed fotoPerfil shadow-2e" src="../../static/images/alumnos/{{datos[0][3]}}"
+                    <img class="materialboxed fotoPerfil shadow-2e" src="../../static/images/alumnos/{{datos[3]}}"
                         alt="foto del usuario">
                 </div>
                 <div class="allDataUserContainer">
-                    <p class="colorTextReverse nombre_perfil" id="datos_perfil_containerNombrePerfil">{{datos[0][1]}}</p>
-                    <p class="colorTextReverse alias_perfil" id="datos_perfil_containerAliasPerfil">{{datos[0][2]}}</p>
+                    <p class="colorTextReverse nombre_perfil" id="datos_perfil_containerNombrePerfil">{{datos[1]}}</p>
+                    <p class="colorTextReverse alias_perfil" id="datos_perfil_containerAliasPerfil">{{datos[2]}}</p>
                     <p class="colorTextReverse descripcion_perfil flow-text" id="datos_perfil_containerDescPerfil">
-                        {{datos[0][8]}}
+                        {{datos[7]}}
                     </p>
                 </div>
                 {% endif %}
@@ -53,9 +52,9 @@
             <div class="containerScrolled containerScrolledHide color3 shadow-2e" id="containerScrolled">
                 <div class="containerScrolledSon">
                     {% if datos %}
-                    <img class="fotoPerfilScrolled" src="../../static/images/alumnos/{{datos[0][3]}}"
+                    <img class="fotoPerfilScrolled" src="../../static/images/alumnos/{{datos[3]}}"
                         alt="foto del usuario">
-                    <p class="nombreUsuarioScrolled titleMobile flow-text colorText">{{datos[0][1]}}</p>
+                    <p class="nombreUsuarioScrolled titleMobile flow-text colorText">{{datos[1]}}</p>
                     {% endif %}
                 </div>
             </div>
@@ -73,33 +72,27 @@
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-1">
                         <p class="iconDataProfile colorGrey"><i
                                 class="material-icons md-24 colorTextReverse">email</i>Contacto</p>
-                        <p class="textDataProfile colorGreyWhiter">{{datos[0][4]}}</p>
+                        <p class="textDataProfile colorGreyWhiter">{{datos[4]}}</p>
                     </div>
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-2">
                         <p class="iconDataProfile colorGrey"><i
                                 class="material-icons md-24 colorTextReverse">doorbell</i>Unidad</p>
-                        <p class="textDataProfile colorGreyWhiter">{{datos[0][7]}}</p>
-                    </div>
-                    <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-3">
-                        <p class="iconDataProfile colorGrey"><i
-                                class="material-icons md-24 colorTextReverse">adjust</i>Especialización</p>
-                        <p class="textDataProfile colorGreyWhiter">{{datos[0][6]}}</p>
+                        <p class="textDataProfile colorGreyWhiter">{{datos[6]}}</p>
                     </div>
                 </div>
                 {% endif %}
             </div>
         </section>
         <!--Seccion para dispositivos moviles-->
-        <section class="postContainerParentStudent colorGrey">
+        <section class="postContainerParentTeacher colorGrey">
             <div>
                 <div class="title-general">
                     <h5 class="hide-on-large-only">Publicaciones</h5>
                     <h4 class="hide-on-med-and-down">Publicaciones</h4>
                 </div>
+                {% if post %}
                 <div class="gridPostUser">
                     {%for i in range(0, post|length)%}
-                    {% block content %}
-                    {% if post %}
                     <div class="postGeneral fotoValuePost borderDecoration">
                         <div class="color2 colorText tituloPost">{{post[i][2]}}</div>
                         <div class="imagePost" style="background-image:url('{{post[i][4]}}');"></div>
@@ -117,39 +110,21 @@
                                 style="width: 100%;">Eliminar</a>
                         </div>
                     </div>
-                    {% else %}
-                    <h5>No hay post</h5>
-                    {% endif %}
-                    {% endblock content %}
                     {% endfor %}
                 </div>
+                {% else %}
             </div>
         </section>
-    </section>
-
-    <!-- Modal para elegir el tema del perfil -->
-    <div id="modal1" class="modal modal-fixed-footer bordered2" style="height: 80vh !important;">
-        <div class="modal-content">
-            <h5>Ingresar URL</h5>
-            <div class="colorGreyWhiter addThemeOnlineContainer shadow-1">
-                <input id="fotoThemeSelectorUrl" type="text" name="fotoThemeSelectorUrl" value="URL">
-                <a id="fotoThemeSelectorUrlButton" href="#" class="waves-effect btn color3 button-rounded"><i
-                        class="material-icons left">add_photo_alternate</i>Agregar</a>
-            </div>
-            <br>
-            <h5>Temas offline</h5>
-            <div class="fotosSelector">
-                <div class="fotosIndividual">
-                    <div class="row" id="popUpThemes">
-                        <!-- Se insertan los elementos del selector de temas. -->
-                    </div>
+        <section class="colorGrey">
+            <div class="notFoundMsg">
+                <div>
+                    <h5><b>No hay ningún post.</b></h5>
                 </div>
+                <div><img src="../../static/images/icons/icon_no_results.svg"></div>
             </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Listo</a>
-        </div>
-    </div>
+        </section>
+        {% endif %}
+    </section>
 
     <!--Metemos el footer en la app-->
     <!-- {% include "includes/footer.html" %} -->

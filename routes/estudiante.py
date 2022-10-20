@@ -132,7 +132,7 @@ def salir_grupo(id_docente, id_grupo ,id_estudiante):
 ##Bloque para ver datos de grupo
 ##
 
-@routes.route('/viewGroup/<string:id>')
+@routes.route('/viewGroupEstudiante/<string:id>')
 def view_group_alumno(id):
     #Obtenemos los datos del grupo
     pickedGroupData = Op_profesor.obtener_grupo_datos_importantes_unitario(id)
@@ -183,6 +183,18 @@ def mis_grupos(id_estudiante):
         return render_template("estudiante/b_mis_grupos.html", datosIds = "empty", datosGroup = "empty")
     else:
         return render_template("estudiante/b_mis_grupos.html", datosIds = resultIds, datosGroup = resultGroup)
+
+##Para ver el perfil de un docente
+@routes.route('/viewTeacherProfile/<string:id>')
+def ver_perfil_docente_desde_alumno(id):
+    #try:
+        datos = Op_profesor.datos_completos_docente_by_id(id)
+        post = Op_profesor.obtenerPost(id)
+        print(post)
+        return render_template('general/perfil_general_docente.html', datos = datos, post = post)
+    #except:
+        #En caso de error
+        #return redirect(url_for('routes.viewGroupEstudiante'))
 
 @routes.route('/nuevo_estudiante',methods=["POST"])
 def nuevo_estudiante():
@@ -258,17 +270,6 @@ def perfil_alumno():
     except:
         return render_template('estudiante/perfil_alumno.html')
 
-@routes.route('/perfil_general_view_docente/<string:id>')
-#@login_required
-def ver_perfil_docente(id):
-    try:
-        datos = Op_profesor.datos_completos_docente_by_id(id)
-        post = Op_profesor.obtenerPost(id)
-        return render_template('general/perfil_general_docente.html',datos=datos, post = post)
-    except:
-        #En caso de error
-        return redirect(url_for('routes.gestionar_grupos'))
-
 ##
 ##Bloque para editar el perfil del profesor
 ##
@@ -335,8 +336,6 @@ def editarFotoPerfilAlumno(id_alumno):
             return redirect(url_for('routes.perfil_alumno'))
         else:
             return redirect(url_for('routes.perfil_alumno'))
-
-
 
 ##Ruta para que los estudiantes respondan los cuestionarios
 @routes.route('/contestar_cuestionario_estudiante')

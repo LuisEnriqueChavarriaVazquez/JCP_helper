@@ -111,7 +111,9 @@
                                         <i class="fa fa-cloud-upload"></i> Elegir
                                     </label>
                                     <input id="imageUploadProf" name="foto" type="file" required />
-                                    <button type="submit" class="btn-large color1 waves-effect waves-light button-rounded"><i class="material-icons">save</i></button>
+                                    <button type="submit"
+                                        class="btn-large color1 waves-effect waves-light button-rounded"><i
+                                            class="material-icons">save</i></button>
                                 </div>
                             </div>
                         </section>
@@ -169,12 +171,12 @@
                 </div>
                 <div class="postCreatorContainer">
                     <input href="#modalPublicacion" type="text" name="postCreator"
-                        class="modal-trigger browser-default shadow-1" id="postCreatorInput"
-                        placeholder="🖋️ Nuevo post">
+                    class="modal-trigger browser-default shadow-1" id="postCreatorInput"
+                    placeholder="🖋️ Nuevo post">
                 </div>
+                {% if post %}
                 <div class="gridPostUser">
                     {%for i in range(0, post|length)%}
-                    {% if post %}
                     <div class="postGeneral fotoValuePost borderDecoration">
                         <div class="color2 colorText tituloPost">{{post[i][2]}}</div>
                         <div class="imagePost" style="background-image:url('{{post[i][4]}}');"></div>
@@ -187,7 +189,7 @@
                                     class="material-icons colorTextReverse md-24">edit</i></a>
                         </div>
                     </div>
-
+                    
                     <!--Pop up de eliminar el post-->
                     <div id="modalBorrado{{post[i][0]}}" class="modal bordered2 colorGrey">
                         <div class="modal-content">
@@ -195,15 +197,22 @@
                             <p>Este procedimiento no se puede revertir.</p>
                             <hr>
                             <a href="/deletePostAlumno/{{post[i][0]}}"
-                                class="waves-effect waves-light btn badColorButton shadow-2e button-rounded"
-                                style="width: 100%;">Eliminar</a>
+                            class="waves-effect waves-light btn badColorButton shadow-2e button-rounded"
+                            style="width: 100%;">Eliminar</a>
                         </div>
                     </div>
-                    {% endif %}
                     {% endfor %}
                 </div>
+                {% else %}
             </div>
         </section>
+        <section class="colorGrey">
+            <div class="notFoundMsg">
+                <div><h5><b>No hay ningún post.</b></h5></div>
+                <div><img src="../../static/images/icons/icon_no_results.svg"></div>
+            </div>
+        </section>
+        {% endif %}
     </section>
 
 
@@ -243,7 +252,7 @@
             </form>
         </div>
     </div>
-    
+
 
     <!-- Modal para elegir el tema del perfil -->
     <div id="modal1" class="modal modal-fixed-footer bordered2" style="height: 80vh !important;">

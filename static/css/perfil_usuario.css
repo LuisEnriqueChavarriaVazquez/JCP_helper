@@ -442,6 +442,11 @@
     padding-bottom: 20px;
 }
 
+.postContainerParentTeacher {
+    margin-top: 640px;
+    padding-bottom: 20px;
+}
+
 .gridPostUser {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -466,6 +471,11 @@
         margin-top: 760px;
         padding-bottom: 40px;
     }
+
+    .postContainerParentTeacher {
+        margin-top: 630px;
+        padding-bottom: 20px;
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -477,6 +487,10 @@
     }
 
     .postContainerParentStudent {
+        margin-top: 0;
+    }
+
+    .postContainerParentTeacher {
         margin-top: 0;
     }
 

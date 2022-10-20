@@ -184,7 +184,7 @@
                                     class="material-icons colorTextReverse md-24">edit</i></a>
                         </div>
                     </div>
-
+                    
                     <!--Pop up de eliminar el post-->
                     <div id="modalBorrado{{post[i][0]}}" class="modal bordered2 colorGrey">
                         <div class="modal-content">
@@ -192,12 +192,12 @@
                             <p>Este procedimiento no se puede revertir.</p>
                             <hr>
                             <a href="/deletePost/{{post[i][0]}}"
-                                class="waves-effect waves-light btn badColorButton shadow-2e button-rounded"
-                                style="width: 100%;">Eliminar</a>
+                            class="waves-effect waves-light btn badColorButton shadow-2e button-rounded"
+                            style="width: 100%;">Eliminar</a>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
                 {% else %}
             </div>
         </section>
