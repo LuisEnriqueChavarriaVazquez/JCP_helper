@@ -1,0 +1,35 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optEjercicios",
+   "1": "optEjercicios"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "2",
+   "1": "3"
+  }
+ ],
+ "preguntasModal1": [],
+ "preguntasModal2": [],
+ "preguntasModal3": [
+  {
+   "0": "Ejercicio sencillo",
+   "1": "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2021/07/16/16264514660383.jpg",
+   "2": "",
+   "3": "codigo",
+   "4": "1"
+  },
+  {
+   "0": "Ejercicio sencillo dos",
+   "1": "",
+   "2": "",
+   "3": "\n",
+   "4": "2"
+  }
+ ],
+ "preguntasModal4": [],
+ "preguntasModal5": [],
+ "preguntasModal6": []
+}

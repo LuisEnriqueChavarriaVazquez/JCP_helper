@@ -1,0 +1,68 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optAbierta",
+   "1": "optAbierta",
+   "2": "optAbierta"
+  },
+  {
+   "retrasado": "false"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "2",
+   "1": "1",
+   "2": "3"
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal2": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal3": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal4": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal5": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal6": [
+  {
+   "0": "Pregunta 1",
+   "1": "",
+   "2": "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2021/07/16/16264514660383.jpg"
+  },
+  {
+   "0": "Pregunta 2 con textp m\u00e1s largo",
+   "1": "",
+   "2": ""
+  },
+  {
+   "0": "Pregunta 3 con textp m\u00e1s largo",
+   "1": "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2021/07/16/16264514660383.jpg",
+   "2": ""
+  },
+  {
+   "respuestas": [
+    "opt6InputGet_0/sddsds&2",
+    "opt6InputGet_1/&1",
+    "opt6InputGet_2/sddsdsdssd\nsddssd\ndssdds\ndssdds&3"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,86 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optMultiple",
+   "1": "optMultiple",
+   "2": "optAcompletar",
+   "3": "optAcompletar"
+  },
+  {
+   "retrasado": "false"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "1",
+   "1": "2",
+   "2": "3",
+   "3": "4"
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "0": "Pregunta 1",
+   "1": "",
+   "2": "A",
+   "3": "opt1",
+   "4": "opt2",
+   "5": "",
+   "6": ""
+  },
+  {
+   "0": "Pregunta 1",
+   "1": "",
+   "2": "B",
+   "3": "opt1",
+   "4": "opt2",
+   "5": "opt3",
+   "6": ""
+  },
+  {
+   "respuestas": [
+    "opt1InputGet_0/A&1",
+    "opt1InputGet_1/B&2"
+   ]
+  }
+ ],
+ "preguntasModal2": [
+  {
+   "0": "Pregunta opt2[Blank 1][Blank 2]",
+   "1": "palabra 1",
+   "2": "palabra 2"
+  },
+  {
+   "0": "Pregunta opt2[Blank 1][Blank 2][Blank 3]",
+   "1": "palabra 1",
+   "2": "palabra 2",
+   "3": ""
+  },
+  {
+   "respuestas": [
+    "opt2InputGet_0//palabra 1/palabra 2&3",
+    "opt2InputGet_1//palabra 1//&4"
+   ]
+  }
+ ],
+ "preguntasModal3": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal4": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal5": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal6": [
+  {
+   "respuestas": []
+  }
+ ]
+}

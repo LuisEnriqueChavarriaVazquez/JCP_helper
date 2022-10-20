@@ -1,0 +1,38 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optAcompletar",
+   "1": "optAcompletar",
+   "2": "optAcompletar"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "2",
+   "1": "1",
+   "2": "3"
+  }
+ ],
+ "preguntasModal1": [],
+ "preguntasModal2": [
+  {
+   "0": "Pregunta 1 [Blank 1] hace referencia.",
+   "1": "palabra 1 compuestas"
+  },
+  {
+   "0": "Pregunta 1 [Blank 1] hace referencia. [Blank 2]",
+   "1": "palabra 1 compuestas",
+   "2": "palabra 2"
+  },
+  {
+   "0": "Pregunta 1 [Blank 1] hace referencia. [Blank 2][Blank 3]",
+   "1": "palabra 1 compuestas",
+   "2": "palabra 2",
+   "3": ""
+  }
+ ],
+ "preguntasModal3": [],
+ "preguntasModal4": [],
+ "preguntasModal5": [],
+ "preguntasModal6": []
+}

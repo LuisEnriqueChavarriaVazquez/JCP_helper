@@ -1,0 +1,26 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optEjercicios"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "2"
+  }
+ ],
+ "preguntasModal1": [],
+ "preguntasModal2": [],
+ "preguntasModal3": [
+  {
+   "0": "problema sin output",
+   "1": "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2021/07/16/16264514660383.jpg",
+   "2": "",
+   "3": "                                ",
+   "4": ""
+  }
+ ],
+ "preguntasModal4": [],
+ "preguntasModal5": [],
+ "preguntasModal6": []
+}

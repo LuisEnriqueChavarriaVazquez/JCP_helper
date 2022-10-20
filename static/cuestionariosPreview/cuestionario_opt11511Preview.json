@@ -1,0 +1,80 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optMultiple",
+   "1": "optMultiple",
+   "2": "optMultiple"
+  },
+  {
+   "retrasado": "false"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "1",
+   "1": "2",
+   "2": "3"
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "0": "pregunta 1",
+   "1": "",
+   "2": "A",
+   "3": "opt1 ",
+   "4": "opt2",
+   "5": "opt3",
+   "6": "opt4"
+  },
+  {
+   "0": "pregunta 1",
+   "1": "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2021/07/16/16264514660383.jpg",
+   "2": "B",
+   "3": "opt1 ",
+   "4": "opt2",
+   "5": "opt3",
+   "6": "opt4"
+  },
+  {
+   "0": "pregunta 1",
+   "1": "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2021/07/16/16264514660383.jpg",
+   "2": "C",
+   "3": "opt1 ",
+   "4": "opt2",
+   "5": "opt3",
+   "6": "opt4"
+  },
+  {
+   "respuestas": [
+    "opt1InputGet_0/&1",
+    "opt1InputGet_1/B&2",
+    "opt1InputGet_2/A&3"
+   ]
+  }
+ ],
+ "preguntasModal2": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal3": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal4": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal5": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal6": [
+  {
+   "respuestas": []
+  }
+ ]
+}

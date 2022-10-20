@@ -5,6 +5,9 @@
    "1": "optArrastrar",
    "2": "optArrastrar",
    "3": "optArrastrar"
+  },
+  {
+   "retrasado": "false"
   }
  ],
  "ponderacionGlobal": [
@@ -15,9 +18,21 @@
    "3": "5"
   }
  ],
- "preguntasModal1": [],
- "preguntasModal2": [],
- "preguntasModal3": [],
+ "preguntasModal1": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal2": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal3": [
+  {
+   "respuestas": []
+  }
+ ],
  "preguntasModal4": [
   {
    "0": "Pregunta 1",
@@ -44,8 +59,24 @@
    "3": "vacio*",
    "4": "www*ww222",
    "5": "*"
+  },
+  {
+   "respuestas": [
+    "opt4InputGet_0/p1/p2/palabra 1 de la definciondd ds/conceptos deksdksdksdn/&2",
+    "opt4InputGet_1/p1/p2/palabra 1 de la definciondd ds/conceptos deksdksdksdn/vacio/--------/&3",
+    "opt4InputGet_2/p1/p2/conceptos deksdksdksdn/--------/ww222/&4",
+    "opt4InputGet_3/p1/p2/palabra 1 de la definciondd ds/conceptos deksdksdksdn/vacio/--------/www/ww222/--------/--------/&5"
+   ]
   }
  ],
- "preguntasModal5": [],
- "preguntasModal6": []
+ "preguntasModal5": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal6": [
+  {
+   "respuestas": []
+  }
+ ]
 }

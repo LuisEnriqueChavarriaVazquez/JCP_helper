@@ -1,0 +1,55 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optMultiple",
+   "1": "optMultiple",
+   "2": "optAcompletar",
+   "3": "optAcompletar"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "1",
+   "1": "2",
+   "2": "3",
+   "3": "4"
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "0": "Pregunta 1",
+   "1": "",
+   "2": "A",
+   "3": "opt1",
+   "4": "opt2",
+   "5": "",
+   "6": ""
+  },
+  {
+   "0": "Pregunta 1",
+   "1": "",
+   "2": "B",
+   "3": "opt1",
+   "4": "opt2",
+   "5": "opt3",
+   "6": ""
+  }
+ ],
+ "preguntasModal2": [
+  {
+   "0": "Pregunta opt2[Blank 1][Blank 2]",
+   "1": "palabra 1",
+   "2": "palabra 2"
+  },
+  {
+   "0": "Pregunta opt2[Blank 1][Blank 2][Blank 3]",
+   "1": "palabra 1",
+   "2": "palabra 2",
+   "3": ""
+  }
+ ],
+ "preguntasModal3": [],
+ "preguntasModal4": [],
+ "preguntasModal5": [],
+ "preguntasModal6": []
+}

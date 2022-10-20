@@ -1,0 +1,44 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optEjercicios",
+   "1": "optEjercicios",
+   "2": "optEjercicios"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "2",
+   "1": "1",
+   "2": "3"
+  }
+ ],
+ "preguntasModal1": [],
+ "preguntasModal2": [],
+ "preguntasModal3": [
+  {
+   "0": "problema 1",
+   "1": "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2021/07/16/16264514660383.jpg",
+   "2": "",
+   "3": "                                ",
+   "4": "1"
+  },
+  {
+   "0": "problema 2",
+   "1": "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2021/07/16/16264514660383.jpg",
+   "2": "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2021/07/16/16264514660383.jpg",
+   "3": "                                ",
+   "4": ""
+  },
+  {
+   "0": "problema 3",
+   "1": "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2021/07/16/16264514660383.jpg",
+   "2": "",
+   "3": "                                ",
+   "4": "2"
+  }
+ ],
+ "preguntasModal4": [],
+ "preguntasModal5": [],
+ "preguntasModal6": []
+}

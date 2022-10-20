@@ -163,7 +163,7 @@ function imprimirPreguntas() {
             }
         } else {
             console.log("No hay preguntas opt2")
-            return "No hay preguntas opt3";
+            return "No hay preguntas opt2";
         }
     }
 
@@ -314,8 +314,8 @@ function imprimirPreguntas() {
                 contenedoresPregunta[m].innerHTML = contenido;
             }
         } else {
-            console.log("No hay preguntas opt1")
-            return "No hay preguntas opt1";
+            console.log("No hay preguntas opt5")
+            return "No hay preguntas opt5";
         }
     }
 
@@ -351,8 +351,8 @@ function imprimirPreguntas() {
                 contenedoresPregunta[m].innerHTML = contenido;
             }
         } else {
-            console.log("No hay preguntas opt1")
-            return "No hay preguntas opt1";
+            console.log("No hay preguntas opt6")
+            return "No hay preguntas opt6";
         }
     }
 
@@ -778,7 +778,7 @@ function imprimirPreguntas() {
     function evaluarOpt4() {
         let respuestaUsuarioUnitario = [];
 
-        //Contamos caracteres
+        //Contamos caracteres ("/")
         function cuantasVecesAparece(cadena, caracter) {
             var indices = [];
             for (var i = 0; i < cadena.length; i++) {
@@ -797,13 +797,13 @@ function imprimirPreguntas() {
             var numeroOcurrencias = cuantasVecesAparece(listaRespuestasLimpiaOpt4[i], "/");
             //Ejecutamos de acuerdo a la cantidad de "/" que encuentre
             //Se divide entre dos porque solo nos interesa ir de dos en dos palabra
-            for(var j = 0; j < numeroOcurrencias/2; j++){
+            for (var j = 0; j < numeroOcurrencias / 2; j++) {
                 //Obtenemos la posicion del segundo "/"
                 var posicion = getPosition(listaRespuestasLimpiaOpt4[i], '/', 2);
                 //Recortamos el caracter hasta el segundo "/"
                 var pedazoRespuesta = listaRespuestasLimpiaOpt4[i].substring(0, posicion);
                 //Eliminamos el pedazo que ya obtuvimos
-                listaRespuestasLimpiaOpt4[i] = listaRespuestasLimpiaOpt4[i].slice(posicion+1, -1)
+                listaRespuestasLimpiaOpt4[i] = listaRespuestasLimpiaOpt4[i].slice(posicion + 1, -1)
                 //console.log('pedazoRespuesta', pedazoRespuesta);
                 respuestaUsuarioUnitario.push(pedazoRespuesta);
             }
@@ -817,9 +817,9 @@ function imprimirPreguntas() {
         let resultadosProfeUnitario = [];
         //Se debe hacer lo mismo con las respuestas que establecio el profesor
         //Recorremos la preguntas
-        for(var t = 0; t < Object.values(preguntasModalArray4).length - 1; t++){
+        for (var t = 0; t < Object.values(preguntasModalArray4).length - 1; t++) {
             //Accedemos a cada respuesta y las guardamos de la misma manera [[],[]]
-            for(var y = 1; y < Object.values(preguntasModalArray4[t]).length; y++){
+            for (var y = 1; y < Object.values(preguntasModalArray4[t]).length; y++) {
                 var resultadoProfe = preguntasModalArray4[t][y];
                 resultadosProfeUnitario.push(resultadoProfe);
             }
@@ -839,53 +839,78 @@ function imprimirPreguntas() {
         let countAnswerBoxRight = document.getElementsByClassName('countAnswerBoxRight');
         //Div de ponderaciones
         let ponderacion_opt4 = document.getElementsByClassName('ponderacion_opt4');
-        
+
 
         //Nota: Debes comparar los dos arrays [[],[]]
-        for(var r = 0; r < resultadosProfeTotal.length; r++){
+        for (var r = 0; r < resultadosProfeTotal.length; r++) {
             var contadorCorrectas = 0;
             var contadorIncorrectas = 0;
 
-            for(var f = 0; f < Object.values(respuestasUsuarioTotal[r]).length; f++){
+            //Si el valor de la respuesta es 0 (no la contestaron debemos meter un valor para que lo valide)
+            //Esto porque no podemos hacer for sobre un array con longitud cero
+            if(respuestasUsuarioTotal[r].length == 0){
+                respuestasUsuarioTotal[r].push("EMPTY");
+            }
+
+            for (var f = 0; f < Object.values(respuestasUsuarioTotal[r]).length; f++) {
                 //En los resultados del profe eliminamos los asteriscos
                 resultadosProfeTotal[r][f] = resultadosProfeTotal[r][f].replaceAll("*", "/");
                 /*En caso de que las longitud con las respuestas del profe y las del usuario
                 *no sean iguales, significa que al usuario le faltaron casillas por mover
                 *en cuyo caso la pregunta se toma toda como incorrecta. 
                 */
-                if(Object.values(resultadosProfeTotal[r]).length != Object.values(respuestasUsuarioTotal[r]).length){
+                if (Object.values(resultadosProfeTotal[r]).length != Object.values(respuestasUsuarioTotal[r]).length) {
+                    //Ponemos un mensaje en la caja (indicando fallo)
                     respuestaBox[r].classList.add('badColor');
                     respuestaBox[r].innerText = "Faltan respuestas, no relacionaste todos los conceptos";
                     badAnswerBox[r].classList.add("hiddenElement");
                     rightAnswerOpt4[r].value = "mal";
                     countAnswerBox[r].classList.add("hiddenElement");
                     countAnswerBoxRight[r].classList.add("hiddenElement");
-                //Cuando estan bien se agregan a la casilla de buenas
-                }else{
-                    if(resultadosProfeTotal[r][f] == respuestasUsuarioTotal[r][f]){ 
+
+                    respuestasUsuarioTotal[r].pop();
+
+                    //Asignamos un valor por default
+                    valorPonderacionOpt4 = 0;
+                    //Cuando estan bien se agregan a la casilla de buenas
+                } else {
+                    //Cuando las respuestas coinciden
+                    if (resultadosProfeTotal[r][f] == respuestasUsuarioTotal[r][f]) {
                         respuestaBox[r].innerHTML += respuestasUsuarioTotal[r][f] + "<br>";
                         contadorCorrectas += 1;
-                    //Cuando no coinciden se agregan a la casilla de malas
-                    }else{
+                        //Cuando no coinciden se agregan a la casilla de malas
+                    } else {
                         badAnswerBox[r].innerHTML += respuestasUsuarioTotal[r][f] + "<br>";
                         contadorIncorrectas += 1;
                     }
 
+                    
                     //Sumamos la ponderacion
                     var valorPonderacionOpt4 = ponderacion_opt4[r].innerText;
                     valorPonderacionOpt4 = valorPonderacionOpt4.substring(0, valorPonderacionOpt4.indexOf('pts.'));
                     //Hacemos el calculo según los aciertos
-                    if(contadorCorrectas == 0){
+                    if (contadorCorrectas == 0) {
                         valorPonderacionOpt4 = 0;
-                    }else{
-                        valorPonderacionOpt4 = (((parseInt(valorPonderacionOpt4))/(contadorIncorrectas+contadorCorrectas))*4).toFixed(2);
+                    } else {
+                        valorPonderacionOpt4 = ((contadorCorrectas * valorPonderacionOpt4) / (contadorIncorrectas + contadorCorrectas)).toFixed(2);
                     }
-                                        
+                    
                     countAnswerBox[r].innerText = contadorIncorrectas + " Malas";
                     countAnswerBoxRight[r].innerText = contadorCorrectas + " Buenas " + valorPonderacionOpt4 + "pts.";
+                    
                 }
-
+    
             }
+            //Si el contador de incorrectas o correctas esta en cero la casilla se oculta
+            // if(contadorIncorrectas == 0){
+            //     badAnswerBox[r].classList.add('hiddenElement');
+            // }
+
+            // if(contadorCorrectas == 0){
+            //     respuestaBox[r].classList.add('hiddenElement');
+            // }
+            
+            //Sumamos a ala ponderacion global el puntaje
             ponderacionGlobal = ponderacionGlobal + parseFloat(valorPonderacionOpt4);
         }
     }
@@ -953,7 +978,7 @@ function imprimirPreguntas() {
         }
     }
     evaluarOpt6();
-    
+
     //Calculamos el promedio
     function calcularPromedio() {
         //Detecta la cantidad de preguntas abiertas que hay
@@ -962,33 +987,33 @@ function imprimirPreguntas() {
         let opt3Pendiente = document.getElementsByClassName('opt3Pendiente');
         let calificacionContainer = document.getElementsByClassName("calificacionContainer");
         //Evalua si existen
-        if(rightAnswerOpt6.length > 0 || opt3Pendiente.length > 0){
+        if (rightAnswerOpt6.length > 0 || opt3Pendiente.length > 0) {
             //En caso de que haya preguntas abiertas o ejercicios sin output.
             calificacionContainer[0].innerHTML = "<p>Revisión manual pendiente</p>";
-        }else{
-            var promedio = (ponderacionGlobal.toFixed(2)*10)/ponderacionGlobalDada;
-            calificacionContainer[0].innerHTML = "<p>Calificación: " + promedio +"</p>";
+        } else {
+            var promedio = (ponderacionGlobal.toFixed(2) * 10) / ponderacionGlobalDada;
+            calificacionContainer[0].innerHTML = "<p>Calificación: " + promedio.toFixed(2) + "</p>";
         }
     }
     calcularPromedio();
 
     //Validar retraso
-    function estadoRetraso(){
+    function estadoRetraso() {
         let estadoRetrasoBox = document.getElementsByClassName('estadoRetraso');
         let estadoRetraso = Object.values(ordenPreguntas[1]);
-        if(estadoRetraso == "true"){
+        if (estadoRetraso == "true") {
             estadoRetrasoBox[0].innerHTML = "<p>Enviado con retraso</p>";
-        }else{
+        } else {
             estadoRetrasoBox[0].innerHTML = "<p>Enviado a tiempo</p>";
         }
 
     }
     estadoRetraso();
-    
+
     //Calculamos el puntaje
     function calcularPuntaje() {
         let puntosContainer = document.getElementsByClassName('puntosContainer');
-        puntosContainer[0].innerHTML = "<p>" + ponderacionGlobal.toFixed(2) + "/" + ponderacionGlobalDada+ "pts.</p>";
+        puntosContainer[0].innerHTML = "<p>" + ponderacionGlobal.toFixed(2) + "/" + ponderacionGlobalDada + "pts.</p>";
 
     }
     calcularPuntaje()

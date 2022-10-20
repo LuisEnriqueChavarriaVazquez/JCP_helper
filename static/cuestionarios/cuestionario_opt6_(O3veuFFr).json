@@ -1,0 +1,38 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optAbierta",
+   "1": "optAbierta",
+   "2": "optAbierta"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "2",
+   "1": "1",
+   "2": "3"
+  }
+ ],
+ "preguntasModal1": [],
+ "preguntasModal2": [],
+ "preguntasModal3": [],
+ "preguntasModal4": [],
+ "preguntasModal5": [],
+ "preguntasModal6": [
+  {
+   "0": "Pregunta 1",
+   "1": "",
+   "2": "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2021/07/16/16264514660383.jpg"
+  },
+  {
+   "0": "Pregunta 2 con textp m\u00e1s largo",
+   "1": "",
+   "2": ""
+  },
+  {
+   "0": "Pregunta 3 con textp m\u00e1s largo",
+   "1": "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2021/07/16/16264514660383.jpg",
+   "2": ""
+  }
+ ]
+}

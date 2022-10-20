@@ -1,0 +1,35 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optFalsoVerdadero",
+   "1": "optFalsoVerdadero",
+   "2": "optFalsoVerdadero"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "1",
+   "1": "2",
+   "2": "3"
+  }
+ ],
+ "preguntasModal1": [],
+ "preguntasModal2": [],
+ "preguntasModal3": [],
+ "preguntasModal4": [],
+ "preguntasModal5": [
+  {
+   "0": "pregunta 1",
+   "1": "T"
+  },
+  {
+   "0": "pregunta 2",
+   "1": "T"
+  },
+  {
+   "0": "pregunta 3",
+   "1": "f"
+  }
+ ],
+ "preguntasModal6": []
+}
