@@ -589,7 +589,7 @@ function imprimirPreguntas() {
         let respuestaBox = document.getElementsByClassName(tipo);
 
         //Imprimimos las respuestas
-        if (tipo == "respuestaBoxOpt1" || tipo == "respuestaBoxOpt5" || tipo == "respuestaBoxOpt6") {
+        if (tipo == "respuestaBoxOpt1" || tipo == "respuestaBoxOpt5") {
             for (var i = 0; i < respuestaBox.length; i++) {
                 if (listaRespuestas[i] == undefined) {
                     respuestaBox[i].innerText = "vacio";
@@ -617,12 +617,12 @@ function imprimirPreguntas() {
         }
 
         //Validamos impresión dependiendo del tipo
-        if (tipo == "respuestaBoxOpt3") {
+        if (tipo == "respuestaBoxOpt3" || tipo == "respuestaBoxOpt6") {
             for (var i = 0; i < respuestaBox.length; i++) {
                 if (listaRespuestas[i] == undefined) {
-                    respuestaBox[i].innerText = "vacio";
+                    respuestaBox[i].innerText = "";
                 } else if (listaRespuestas[i] == "") {
-                    respuestaBox[i].innerText = "vacio";
+                    respuestaBox[i].innerText = "";
                 } else {
                     var textoConFormato = listaRespuestas[i].replace('/', '<br>');
                     respuestaBox[i].innerHTML = textoConFormato;
@@ -970,6 +970,7 @@ function imprimirPreguntas() {
                 //Aplicamos los estilos
                 respuestaBox[i].classList.remove('goodColor');
                 respuestaBox[i].classList.add('badColor');
+                respuestaBox[i].innerText = "EMPTY";
             } else {
                 rightAnswerOpt6[i].value = "pendiente";
                 //Aplicamos los estilos
