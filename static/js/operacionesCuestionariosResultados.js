@@ -868,6 +868,7 @@ function imprimirPreguntas() {
                     countAnswerBox[r].classList.add("hiddenElement");
                     countAnswerBoxRight[r].classList.add("hiddenElement");
 
+                    //Elimnamos lo que agregamos arriba (ESTO SOLO EN CASO DE QUE FUERA CERO)
                     respuestasUsuarioTotal[r].pop();
 
                     //Asignamos un valor por default
@@ -932,11 +933,11 @@ function imprimirPreguntas() {
             //Damos formato a el value de la respuesta correcta
             if (rightAnswerOpt5[i].value == "T") {
                 formatoRespuesta = "true";
-            } else if (rightAnswerOpt5[i].value == "F") {
+            } else if (rightAnswerOpt5[i].value == "f") {
                 formatoRespuesta = "false";
             }
 
-            // //Evaluamos la pregunta
+            //Evaluamos la pregunta
             if (formatoRespuesta == respuestaBox[i].textContent) {
                 //Guardamos en el input el valor de bien
                 rightAnswerOpt5[i].value = "bien";

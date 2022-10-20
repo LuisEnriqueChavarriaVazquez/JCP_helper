@@ -1,0 +1,31 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optFalsoVerdadero",
+   "1": "optArrastrar"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "2",
+   "1": "3"
+  }
+ ],
+ "preguntasModal1": [],
+ "preguntasModal2": [],
+ "preguntasModal3": [],
+ "preguntasModal4": [
+  {
+   "0": "Arrastrar",
+   "1": "P1*P2",
+   "2": "P3*P4"
+  }
+ ],
+ "preguntasModal5": [
+  {
+   "0": "falso",
+   "1": "T"
+  }
+ ],
+ "preguntasModal6": []
+}
