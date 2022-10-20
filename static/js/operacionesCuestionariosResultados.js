@@ -931,9 +931,9 @@ function imprimirPreguntas() {
         for (var i = 0; i < rightAnswerOpt5.length; i++) {
             var formatoRespuesta;
             //Damos formato a el value de la respuesta correcta
-            if (rightAnswerOpt5[i].value == "T") {
+            if (rightAnswerOpt5[i].value == "t" || rightAnswerOpt5[i].value == "T") {
                 formatoRespuesta = "true";
-            } else if (rightAnswerOpt5[i].value == "f") {
+            } else if (rightAnswerOpt5[i].value == "f" || rightAnswerOpt5[i].value == "F") {
                 formatoRespuesta = "false";
             }
 
