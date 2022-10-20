@@ -41,6 +41,16 @@
             <div class="colorGreyWhiter bordered2 shadow-2e contenedorDataGrupo">
                 <h5>Datos generales</h5>
                 <hr>
+                <a href="/viewTeacherProfile/{{profData.0}}">
+                    <section class="perfilDocenteViewContainerLink colorText">
+                        <div class="perfilDocenteViewContainerLink_name">
+                            <p>{{profData.1}}</p>
+                        </div>
+                        <div class="perfilDocenteViewContainerLink_image">
+                            <img src="../../static/images/avatares/{{profData.3}}">
+                        </div>
+                    </section>
+                </a>
                 <div>
                     <h6>Descripción de grupo:</h6>
                     <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1" style="text-align: left;">
@@ -85,7 +95,8 @@
                                 <div id="modal{{datosCuestionarios[i][0]}}" class="modal bordered2 colorGrey">
                                     <div class="modal-content">
                                         <h4>¿Desea responder el cuestionario?</h4>
-                                        <p>Se recomienda que este preparado, ya que el cuestionario no se puede pausar.</p>
+                                        <p>Se recomienda que este preparado, ya que el cuestionario no se puede pausar.
+                                        </p>
                                         <hr>
                                         <a href="/viewCuestionario/{{datosCuestionarios[i][0]}}"
                                             class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded"

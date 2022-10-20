@@ -137,6 +137,9 @@ def view_group_alumno(id):
     #Obtenemos los datos del grupo
     pickedGroupData = Op_profesor.obtener_grupo_datos_importantes_unitario(id)
 
+    #Obtenemos los datos del profesor
+    pickedProfData = Op_profesor.datos_completos_docente_by_id(id);
+
     ########## INFORMACION ESTUDIANTES EN GRUPOS
     #Obtenemos los ids de los estudiantes dentro de un grupo
     alumnosIdsDentroGrupo = Op_profesor.obtener_IDAlumno_dentro_de_grupo(id)
@@ -159,7 +162,7 @@ def view_group_alumno(id):
     print(datosCuestionarios)
 
     #Enviamos al usuario al formulario para ver datos del grupo.
-    return render_template('estudiante/b_verGrupo.html', groupInfo = pickedGroupData[0], datosAlumnos = datosAlumnos, datosCuestionarios = datosCuestionarios)
+    return render_template('estudiante/b_verGrupo.html', groupInfo = pickedGroupData[0], datosAlumnos = datosAlumnos, datosCuestionarios = datosCuestionarios, profData = pickedProfData)
 
 
 ##

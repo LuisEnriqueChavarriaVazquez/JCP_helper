@@ -338,12 +338,12 @@
         top: 530px;
     }
 
-    .itemDataGridGeneral .iconDataProfile {   
+    .itemDataGridGeneral .iconDataProfile {
         padding: 15px 10px;
         border-radius: 10px 10px 0 0;
         font-weight: 700;
     }
-    
+
     .itemDataGridGeneral .textDataProfile {
         padding: 20px 20px;
         font-size: 21px;
@@ -360,44 +360,44 @@
         top: 570px;
     }
 
-    .itemDataGridGeneral .iconDataProfile {   
+    .itemDataGridGeneral .iconDataProfile {
         padding: 15px 10px;
         border-radius: 10px 10px 0 0;
         font-weight: 700;
     }
-    
+
     .itemDataGridGeneral .textDataProfile {
         padding: 20px 20px;
         font-size: 22.5px;
         font-weight: 600;
         border-radius: 0 0 10px 10px;
     }
-    
+
 }
 
 /*Agregar un tema online*/
 
-.addThemeOnlineContainer{
+.addThemeOnlineContainer {
     padding: 20px;
     border-radius: 20px;
 }
 
 /*Boton para editar la foto*/
 
-.optionsFotoContainer > div{
+.optionsFotoContainer>div {
     margin-bottom: 20px;
 }
 
-.fondoLink{
+.fondoLink {
     z-index: -1;
 }
 
-.fondoLinkOff{
+.fondoLinkOff {
     z-index: 1000;
 }
 
 
-#opcionesFoto{
+#opcionesFoto {
     width: 160px;
     height: 160px;
     border-radius: 500px;
@@ -432,17 +432,17 @@
 }
 
 /*Caja contenedor para los post de los profesores*/
-.postContainerParent{
+.postContainerParent {
     margin-top: 650px;
     padding-bottom: 20px;
 }
 
-.postContainerParentStudent{
+.postContainerParentStudent {
     margin-top: 785px;
     padding-bottom: 20px;
 }
 
-.gridPostUser{
+.gridPostUser {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
@@ -451,56 +451,56 @@
 }
 
 @media only screen and (max-width: 1000px) {
-    .gridPostUser{
+    .gridPostUser {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto;
         padding: 0 30px;
     }
 
-    .postContainerParent{
+    .postContainerParent {
         margin-top: 628px;
     }
 
-    .postContainerParentStudent{
+    .postContainerParentStudent {
         margin-top: 760px;
         padding-bottom: 40px;
     }
 }
 
 @media only screen and (max-width: 600px) {
-    .gridPostUser{
+    .gridPostUser {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         padding: 0 15px;
     }
-    
-    .postContainerParentStudent{
+
+    .postContainerParentStudent {
         margin-top: 0;
     }
 
-    .postContainerParent{
+    .postContainerParent {
         margin-top: 0;
     }
 }
 
-.postCreatorContainer{
+.postCreatorContainer {
     width: 100%;
     padding: 10px 0;
     margin: 10px 0;
 }
 
-.postCreatorContainer{
+.postCreatorContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
 
-#postCreatorInput{
+#postCreatorInput {
     width: 90%;
-	padding: 15px 10px;
+    padding: 15px 10px;
     font-size: 18px;
     border: #fff solid 0px;
     color: #000;
@@ -508,7 +508,7 @@
     border-radius: 500px;
 }
 
-.postGeneral{
+.postGeneral {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 60px 60px 80px auto;
@@ -516,7 +516,7 @@
     border-radius: 15px;
 }
 
-.postGeneralSinFoto{
+.postGeneralSinFoto {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 60px 0 140px auto;
@@ -524,7 +524,7 @@
     border-radius: 15px;
 }
 
-.tituloPost{
+.tituloPost {
     display: flex;
     justify-content: left;
     align-items: center;
@@ -534,26 +534,26 @@
     border-radius: 15px 15px 0 0;
 }
 
-.imagePost{
+.imagePost {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.descriptionPost{
+.descriptionPost {
     padding: 20px;
     font-size: 17px;
     font-weight: 500;
 }
 
-.descriptionPostView{
+.descriptionPostView {
     padding: 20px;
     font-size: 17px;
     font-weight: 500;
     border-radius: 0 0 10px 10px;
 }
 
-.actionPost{
+.actionPost {
     display: flex;
     justify-content: left;
     align-items: center;
@@ -561,7 +561,96 @@
     border-radius: 0 0 10px 10px;
 }
 
-.actionPost a{
+.actionPost a {
     width: 25%;
     margin: 5px;
+}
+
+/*Acceso al perfil del docente*/
+.perfilDocenteViewContainerLink {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    width: 400px;
+    height: 100px;
+    padding-left: 15px;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0, 0, 0, .4);
+    border-radius: 20px 0 0 20px;
+
+    position: absolute;
+    top: 110px;
+    right: 0;
+}
+
+@media only screen and (max-width: 1000px) {
+    .perfilDocenteViewContainerLink {
+        width: 350px;
+        height: 100px;
+    }
+}
+
+.perfilDocenteViewContainerLink_image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+}
+
+.perfilDocenteViewContainerLink_image img {
+    width: 70px;
+    border-radius: 500px;
+    border: 3px #fff solid;
+}
+
+.perfilDocenteViewContainerLink_name p {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.perfilDocenteViewContainerLink_name p {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: right;
+}
+
+@media only screen and (max-width: 700px) {
+    .perfilDocenteViewContainerLink {
+        width: 190px;
+        height: 70px;
+        position: absolute;
+        top: 95px;
+    }
+
+    .perfilDocenteViewContainerLink_image img {
+        width: 50px;
+    }
+
+    .perfilDocenteViewContainerLink_name p {
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .perfilDocenteViewContainerLink {
+        width: 170px;
+        height: 70px;
+        position: absolute;
+        top: 95px;
+    }
+
+    .perfilDocenteViewContainerLink_image img {
+        width:45px;
+    }
+
+    .perfilDocenteViewContainerLink_name p {
+        font-size: 12px;
+        font-weight: 600;
+    }
 }
