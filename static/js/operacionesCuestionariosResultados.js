@@ -745,7 +745,7 @@ function imprimirPreguntas() {
                 rightAnswerOpt3[i].classList.add("opt3Pendiente");
                 respuestaBoxOpt3[i].classList.remove('goodColor');
                 respuestaBoxOpt3[i].classList.add('sosoColor');
-                tituloEjercicioPendiente[i].innerHTML = "<b>Pendiente de revisión.</b>"
+                tituloEjercicioPendiente[i].innerHTML = "<b>Pendiente de revisión.</b>";
             } else { //Si si tenemos output revisa que coincida
                 //Limpiamos respuesta del estudiante
                 var respuestaOutput = listaRespuestasLimpiaOpt3[i].substring(0, listaRespuestasLimpiaOpt3[i].indexOf('/'))
@@ -848,7 +848,7 @@ function imprimirPreguntas() {
 
             //Si el valor de la respuesta es 0 (no la contestaron debemos meter un valor para que lo valide)
             //Esto porque no podemos hacer for sobre un array con longitud cero
-            if(respuestasUsuarioTotal[r].length == 0){
+            if (respuestasUsuarioTotal[r].length == 0) {
                 respuestasUsuarioTotal[r].push("EMPTY");
             }
 
@@ -885,7 +885,7 @@ function imprimirPreguntas() {
                         contadorIncorrectas += 1;
                     }
 
-                    
+
                     //Sumamos la ponderacion
                     var valorPonderacionOpt4 = ponderacion_opt4[r].innerText;
                     valorPonderacionOpt4 = valorPonderacionOpt4.substring(0, valorPonderacionOpt4.indexOf('pts.'));
@@ -895,12 +895,12 @@ function imprimirPreguntas() {
                     } else {
                         valorPonderacionOpt4 = ((contadorCorrectas * valorPonderacionOpt4) / (contadorIncorrectas + contadorCorrectas)).toFixed(2);
                     }
-                    
+
                     countAnswerBox[r].innerText = contadorIncorrectas + " Malas";
                     countAnswerBoxRight[r].innerText = contadorCorrectas + " Buenas " + valorPonderacionOpt4 + "pts.";
-                    
+
                 }
-    
+
             }
             //Si el contador de incorrectas o correctas esta en cero la casilla se oculta
             // if(contadorIncorrectas == 0){
@@ -910,7 +910,7 @@ function imprimirPreguntas() {
             // if(contadorCorrectas == 0){
             //     respuestaBox[r].classList.add('hiddenElement');
             // }
-            
+
             //Sumamos a ala ponderacion global el puntaje
             ponderacionGlobal = ponderacionGlobal + parseFloat(valorPonderacionOpt4);
         }

@@ -50,9 +50,9 @@
   },
   {
    "respuestas": [
-    "opt3InputGet_0/&2",
-    "opt3InputGet_1/&1",
-    "opt3InputGet_2/Output: EMPTY/Link: EMPTY&3"
+    "opt3InputGet_0/Output: 2/Link: EMPTY&2",
+    "opt3InputGet_1/Output: 1/Link: EMPTY&1",
+    "opt3InputGet_2/Output: 2/Link: EMPTY&3"
    ]
   }
  ],
