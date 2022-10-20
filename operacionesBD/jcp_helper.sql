@@ -109,10 +109,11 @@ create table Alumnos_hacen_Cuestionario(
   IDAlumno int not null,
   Caducidad_cuestionario varchar(100),
   Revision_estado varchar(100),
+  Aprobacion_estado varchar(20),
   Promedio_general float,
   Puntaje_general float,
   Puntaje_segmentado varchar(200),
-  Tiempo_respuestas varchar(20)
+  Tiempo_respuestas varchar(20),
   Ruta_resultados varchar (200),
   primary key (IDCuestionario,IDAlumno),
   foreign key (IDAlumno) references Alumnos(IDAlumno) ON DELETE CASCADE,
