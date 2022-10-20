@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Preview de resultados</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
+</head>
+
+<body class="oculto colorGrey">
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+    <!--Menu de página de inicio-->
+    <nav class="color2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only">Sus resultados.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Sus resultados.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!--Aqui se recibe el texto del JSON-->
+    <section class="previewResultadosCuestionario">
+        <section class="previewResultadosCuestionarioSon1">
+            <section class="sosoColor bordered1 shadow-1e generalInfoPreviewAlumno">
+                <p class="sosoColor"><i class="material-icons">info</i> Usted esta observando el cuestionario cuando el
+                    alumno ya lo ha enviado y como algunas respuestas han sido evaluadas automaticamente.</p>
+            </section>
+            
+            <div class="hide-on-small-only">
+                <h5>Resultados {{datosCuestionario[0][3]}}</h5>
+            </div>
+            <div>
+                <h6 class="hide-on-small-only">Preguntas y puntaje</h6>
+                <h5 class="hide-on-med-and-up">Preguntas y puntaje</h5>
+            </div>
+            <section class="previewResultadosCuestionarioSon1Grid">
+                <div class="calificacionContainer colorGreyWhiter bordered2 shadow-1e">
+                    
+                </div>
+                <div class="puntosContainer colorGreyWhiter bordered2 shadow-1e">
+                    
+                </div>
+                <div class="estadoRetraso colorGreyWhiter bordered2 shadow-1e">
+                    
+                </div>
+            </section>
+        </section>
+        <section class="previewResultadosCuestionarioSon2">
+            <div class="">
+                <h5>Preguntas/Respuestas cuestionario</h5>
+            </div>
+            <div class="previewPreguntasResultadosMain" id="previewPreguntasResultadosMain">
+
+            </div>
+        </section>
+    </section>
+
+    <!--Boton para ir hacia arriba-->
+    <div class="fixed-action-btn hiddenElement animate__animated" id="buttonGoUpTerminos">
+        <a class="btn-floating btn-large color4">
+            <i class="large material-icons">arrow_upward</i>
+        </a>
+    </div>
+
+</body>
+
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+<!--En esta parte todo los demás del script se hará en un archivo externo-->
+<script>
+    //Accedemos a los datos guardados en el JSON
+    //Busca en el anterior archivo el acceso al json
+</script>
+<script src="../../static/js/operacionesTerminos.js"></script>
+<script src="../../static/js/operacionesCuestionariosResultados.js"></script>
+
+<!--Esta parte necesita ser agregada aqui porque son cambios en tiempo real-->
+<script>
+</script>
+
+</html>

@@ -3,6 +3,7 @@ from queue import Empty
 from unittest import result
 from flask import flash, render_template,request,redirect,url_for,session
 from . import routes
+import json
 from operacionesBD import Op_estudiante
 from operacionesBD import Op_profesor
 import bcrypt
@@ -182,6 +183,70 @@ def view_cuestionario_info(id):
 
     #Enviamos al usuario al formulario para ver datos del grupo.
     return render_template('estudiante/c_viewCuestionarioInfo.html', datosCuestionarios = datosCuestionarios[0], datosGrupo = pickedGroupData[0], datosDocente = pickedProfData)
+
+##
+##  Aqui damos inicio a que el alumno conteste el cuestionario
+##
+
+@routes.route('/answerCuestionarioAlumno/<string:id_cuestionario>')
+def answer_cuestionario_alumno(id_cuestionario):
+    #Obtenemos todos los datos del cuestionario
+    datosCuestionario = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
+
+    ##Accedemos al contenido del JSON
+    rutaArchivo = datosCuestionario[0][9]
+    # Abrimos el archivo
+    f = open(rutaArchivo)
+    #Guardamos la data
+    dataJSON = json.load(f)
+    #Guardamos la data como string
+    #dataJSONstr = json.dumps(dataJSON, indent=2)
+    f.close()
+
+    #Enviamos al usuario al formulario para ver datos del cuestionario.
+    return render_template('estudiante/d_answerCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON)
+
+@routes.route('/revisarAlumno/<string:id_cuestionario>', methods=['POST'])
+def revisar_alumno(id_cuestionario):
+    #Obtenemos todos los datos del cuestionario
+    datosCuestionario = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
+
+    # #Creamos la variable para la ruta de la preview
+    # rutaCuestionarioPreview = 'static/cuestionariosPreview/'+ str(datosCuestionario[0][3]) + str(datosCuestionario[0][0]) + str(datosCuestionario[0][1]) + str(datosCuestionario[0][2]) +'Preview.json'
+
+    # #Obtenemos el contenido del JSON en un string (Contenido del form)
+    # jsonContentInput = request.form["jsonContentInput"]
+
+    # #Creamos el documento JSON y lo guardamos
+    # rutaArchivo = 'static/cuestionariosPreview/'+ str(datosCuestionario[0][3]) + str(datosCuestionario[0][0]) + str(datosCuestionario[0][1]) + str(datosCuestionario[0][2]) +'Preview.json'
+    # with open(rutaArchivo , 'w') as f:
+    #     print("Archivo JSON creado")
+
+    # ##Escribimos el contenido del JSON el en archivo creado
+    #     #Abrimos archivo
+    # jsonFile = open(rutaArchivo, "w")
+    #     #Guardamos string en objeto usable
+    # jsonObject = json.loads(jsonContentInput)
+    #     #Formateamos nuevo objeto como string con identado
+    # jsonString = json.dumps(jsonObject, indent=1)
+    #     #Guardamos string con formato
+    # jsonFile.write(jsonString)
+    # jsonFile.close()
+
+    # ##Ingresamos la ruta a la base de datos
+    # Op_profesor.insertar_ruta_preview_cuestionario(datosCuestionario[0][0], rutaCuestionarioPreview)
+
+    # # Abrimos el archivo
+    # f = open(rutaCuestionarioPreview)
+    # #Guardamos la data de la preview
+    # dataJSON = json.load(f)
+    # #Guardamos la data como string
+    # f.close()
+
+    #Enviamos al usuario al formulario para ver datos del cuestionario.
+    return render_template('estudiante/d_verResultadosCuestionario.html', datosCuestionario = datosCuestionario)
+    # return render_template('estudiante/d_answerCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON)
+
 
 
 ##

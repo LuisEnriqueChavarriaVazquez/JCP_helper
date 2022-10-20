@@ -59,6 +59,10 @@
     </section>
     <section class="docenteInfoCuestionario">
         <div class="bordered1 shadow-1 docenteInfoCuestionarioSecond">
+            <h6 class="colorGreyWhiter">Grupo</h6>
+            <p>{{datosGrupo[2]}}</p>
+        </div>
+        <div class="bordered1 shadow-1 docenteInfoCuestionarioSecond">
             <h6 class="colorGreyWhiter">Lenguaje</h6>
             <p>{{datosCuestionarios[8]}}</p>
         </div>
@@ -82,13 +86,13 @@
 
     <!--Data cuestionario-->
     <section class="buttonContainerReadyCuestionario">
-        <a class="waves-effect waves-light btn-large color2 bordered5"><i class="material-icons left">done</i>Comenzar</a>
+        <a href="/answerCuestionarioAlumno/{{datosCuestionarios[0]}}" class="waves-effect waves-light btn-large color2 bordered5"><i class="material-icons left">done</i>Comenzar</a>
     </section>
 
     <!--Boton para dar inicio al cuestionario en moviles-->
     <!--Boton para ir hacia arriba-->
     <div class="fixed-action-btn hide-on-med-and-up">
-        <a class="btn-floating btn-large color4">
+        <a href="/answerCuestionarioAlumno/{{datosCuestionarios[0]}}" class="btn-floating btn-large color4">
             <i class="large material-icons">done</i>
         </a>
     </div>

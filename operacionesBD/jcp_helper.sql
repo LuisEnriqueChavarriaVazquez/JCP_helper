@@ -2,6 +2,7 @@ drop database jcp_helper_db;
 create database if not exists jcp_helper_db;
 use jcp_helper_db;
 
+--Para los alumnos
 create table Alumnos(
  IDAlumno int not null auto_increment,
  Nombre varchar(60),
@@ -16,6 +17,7 @@ create table Alumnos(
  primary key (IDAlumno)
 );
 
+--Para los docente
 create table Docentes(
 IDDocente int not null auto_increment,
 Nombre varchar(60),
@@ -29,6 +31,7 @@ Nombre varchar(60),
  primary key (IDDocente)
 );
 
+--Para los grupos
 create table Grupos(
    IDGrupo int auto_increment not null,
    IDDocente int not null,
@@ -42,6 +45,7 @@ create table Grupos(
    foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
 );
 
+--Para la data de los cuestionario
 create table Cuestionarios(
 IDCuestionario int not null auto_increment,
 IDGrupo int not null,
@@ -63,6 +67,7 @@ foreign key (IDGrupo) references Grupos(IDGrupo) ON DELETE CASCADE,
 foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
 );
 
+--Para los post dentro de la app
 create table PublicacionesDocente(
 IDPublicacionDocente int not null auto_increment,
 IDDocente int not null,
@@ -102,10 +107,13 @@ create table Notificaciones_Docente(
 create table Alumnos_hacen_Cuestionario(
   IDCuestionario int not null,
   IDAlumno int not null,
-  Acceso_cuestionario varchar(100),
-  Resultado_general float,
-  Resultado_por_tipo_pregunta varchar (100),
-  Respuestas text,
+  Caducidad_cuestionario varchar(100),
+  Revision_estado varchar(100),
+  Promedio_general float,
+  Puntaje_general float,
+  Puntaje_segmentado varchar(200),
+  Tiempo_respuestas varchar(20)
+  Ruta_resultados varchar (200),
   primary key (IDCuestionario,IDAlumno),
   foreign key (IDAlumno) references Alumnos(IDAlumno) ON DELETE CASCADE,
   foreign key (IDCuestionario) references Cuestionarios(IDCuestionario) ON DELETE CASCADE

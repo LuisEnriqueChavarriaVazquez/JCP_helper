@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Contestar cuestionario</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
+</head>
+
+<body class="oculto colorGrey">
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+
+    <!--Menu de página de inicio-->
+    <nav class="color2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only">Contestar cuestionario.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Contestar cuestionario.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!--Aqui se recibe el texto del JSON-->
+    <section class="contenedorPreviewCuestionario">
+        <!--Datos importantes del cuestionario-->
+        <section class="contenedorPreviewUno">
+            <div class="hide-on-small-only">
+                <h5><b>{{datosCuestionario[0][3]}}</b></h5>
+            </div>
+            <div class="contenedorOperacionesLive colorGreyWhiter bordered2 shadow-1e" id="contenedorLive">
+                <div class="datosCuestionarioLive">
+                    <h5>Tablero de información.</h5>
+                    <div class="contenedorContadoresGrid">
+                        <div class="colorGreyDarker bordered5">Total preguntas: 
+                            <span class="coloredText" id="contadorTotal"></span>
+                        </div>
+                        <div class="colorGreyDarker bordered5">Respondidas: 
+                            <span class="coloredText"id="contadorRespondidas"></span>
+                        </div>
+                        <!--Nota: No borrar este input, porque aqui es donde indicamos si es aleatorio o no-->
+                        <input type="hidden" value="{{datosCuestionario[0][10]}}" id="ordenCuestionarioValue">
+                        <div class="color5 bordered5">Días restantes:
+                            <span class="coloredText" id="contadorFecha">{{datosCuestionario[0][12]}}</span>
+                            <span  class="coloredText" id="contadorTiempo">{{datosCuestionario[0][13]}}</span>
+                        </div>
+                        <div class="color5 bordered5">Minutos restantes:
+                            <span class="coloredText" id="tiempoRestante">{{datosCuestionario[0][11]}}</span>
+                        </div>
+                        <div class="contenedorBarra colorGrey bordered5">
+                            <div class="cargaBarra color1 bordered5"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accessCuestionarioLive">
+                    <button
+                        href="#revisarModal"
+                        class="modal-trigger waves-effect waves-light btn-large bordered5 color2 shadow-2e" id="previewJsonResponder"
+                        style="width: 100%;">
+                        <i class="material-icons left">check</i>Entregar</button>
+                </div>
+                <div class="accessCuestionarioLive">
+                    <a href=""
+                        class="waves-effect waves-light btn-large bordered5 color3 shadow-2e" id="previewJsonResponder2"
+                        style="width: 100%;">
+                        <i class="material-icons left">close</i>Cerra cuestionario</a>
+                </div>
+            </div>
+        </section>
+        <!--Vista previa del cuestionario-->
+        <section class="contenedorPreviewDos">
+            <h5>Preguntas cuestionario</h5>
+            <!--Se crean varios contendores para poder dar variedad a la posicion de las preguntas
+            EN EL CASO DE ARRASTRAR SOLO PODRAN IR EN ESOS CONTENEDORES DESTINADOS PARA ELLOS-->
+
+            <!--Las preguntas de arrastrar deben ir en un contenedor separado
+            porque sortable JS tiene un fallo cuando las pagina deben ajustar su altura-->
+            <div class="contenedorPreguntasPreview" id="contenedorPreguntasPreview"></div>
+            <div class="contenedorPreguntasPreviewArrastrar" id="contenedorPreguntasPreviewArrastrar"></div>
+            <div class="contenedorPreguntasPreview2" id="contenedorPreguntasPreview2"></div> 
+            <div class="contenedorPreguntasPreviewArrastrar2" id="contenedorPreguntasPreviewArrastrar2"></div>
+            <div class="contenedorPreguntasPreview3" id="contenedorPreguntasPreview3"></div>
+        </section>
+    </section>
+
+    <!--Pop up de preguntar si revisar-->
+    <div id="revisarModal" class="modal bordered2 colorGrey">
+        <div class="modal-content">
+            <h4>¿Desea enviar el cuestionario?</h4>
+            <p>Este procedimiento no se puede revertir.</p>
+            <hr>
+            <form action="/revisarAlumno/{{datosCuestionario[0][0]}}" method="post">
+                <button onclick="procesamientoDeResultados()" 
+                    id="botonRevisarMensaje"
+                    class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded"
+                    style="width: 100%;">Enviar</button>
+                <input type="hidden" name="jsonContentInput" id="jsonContentInput" value="">
+            </form>
+        </div>
+    </div>
+
+    <!--Boton para ir hacia arriba-->
+    <div class="fixed-action-btn hiddenElement animate__animated" id="buttonGoUpTerminos">
+        <a class="btn-floating btn-large color4">
+            <i class="large material-icons">arrow_upward</i>
+        </a>
+    </div>
+
+</body>
+
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+<!--En esta parte todo los demás del script se hará en un archivo externo-->
+<script>
+    //Accedemos a los datos guardados en el JSON
+    const dataCuestionarioJSON = {{ dataJSON| tojson}}; 
+</script>
+<script src="../../static/js/operacionesTerminos.js"></script>
+<script src="../../static/js/operacionesPreviewDeAlumno.js"></script>
+<script src="../../static/js/operacionesCuestionariosCuentaAtras.js"></script>
+<script src="../../static/js/operacionesCuestionariosRespuestas.js"></script>
+
+<!--Esta parte necesita ser agregada aqui porque son cambios en tiempo real-->
+<script>
+    //Lista global para saber cual ha sido respondida
+
+    //Opcion multiple
+    function agregarRespuesta(idButton, idInput, idInputGet) {
+        //Se accede al contenido del button
+        let buttonElement = document.getElementById(idButton);
+        //Se accede al input de respuesta
+        let textoInput = document.getElementById(idInput);
+
+        //Accedemos al elemento input hidden y le metemeo la respuesta
+        let idInputGetElement = document.getElementById(idInputGet);
+        idInputGetElement.value = buttonElement.innerText;
+
+        //Se imprime la respuesta
+        textoInput.innerHTML = "<b>" + buttonElement.innerText + "</b>";
+        textoInput.classList.remove("colorGreyDarker");
+        textoInput.classList.add("color5");
+        textoInput.classList.add("coloredText");
+        //Agregamos identificador de pregunta resuelta
+        textoInput.classList.add("answerReady");
+        imprimirConteoRespondidas();
+        imprimirBarraProgreso();
+    }
+
+    //Rellenar textos
+    function agregarRespuestaOpt2(classBlank, idButton, idRespuesta,idInputGet) {
+        let buttonElement = document.getElementById(idButton);
+        let textInput = document.getElementById(idRespuesta);
+        let classBlankElements = document.getElementsByClassName(classBlank);
+
+        //Accedemos al elemento input hidden y le metemeo la respuesta
+        let idInputGetElement = document.getElementById(idInputGet);
+        
+        let valoresInputs;
+        //Accedemos a los values de los inputs con esa clase
+        textInput.innerText = "";
+        idInputGetElement.value = "";
+        for (var i = 0; i < classBlankElements.length; i++) {
+            textInput.innerText += classBlankElements[i].value + "/";
+            idInputGetElement.value +=  "/" + classBlankElements[i].value;
+        }
+
+        textInput.classList.remove("colorGreyDarker");
+        textInput.classList.add("color5");
+        textInput.classList.add("coloredText");
+        //Agregamos identificador de pregunta resuelta
+        textInput.classList.add("answerReady");
+        imprimirConteoRespondidas();
+        imprimirBarraProgreso();
+    }
+
+    //Agregar los resultados de los ejercicios
+    function agregarRespuestaOpt3(opt_resultado, opt_link, opt_Button, opt_outputResult, opt_linkResult, idInputGet) {
+        //Accedemos a los valores
+        let resultadoInput = document.getElementById(opt_resultado);
+        let resultadoLink = document.getElementById(opt_link);
+        let buttonEnviar = document.getElementById(opt_Button);
+        let outputResultado = document.getElementById(opt_outputResult);
+        let outputLink = document.getElementById(opt_linkResult);
+
+        //Accedemos al elemento input hidden y le metemeo la respuesta
+        let idInputGetElement = document.getElementById(idInputGet);
+        
+        //Ingresamos los valores
+        if (resultadoInput.value != "" || resultadoLink.value != "") {
+            outputResultado.innerText = resultadoInput.value;
+            outputLink.innerText = resultadoLink.value;
+            if(resultadoInput.value == "" && resultadoLink.value != ""){
+                idInputGetElement.value = "Output: EMPTY" + "/Link: " + resultadoLink.value;
+            }else if( resultadoLink.value == "" && resultadoInput.value != ""){
+                idInputGetElement.value = "Output: " + resultadoInput.value + "/Link: " + "EMPTY";
+            }else{
+                idInputGetElement.value = "Output: " + resultadoInput.value + "/Link: " + resultadoLink.value;
+            }
+        } else {
+            outputResultado.innerText = "EMPTY";
+            outputLink.innerText = "EMPTY";
+            idInputGetElement.value = "Output: EMPTY" + "/Link: " + "EMPTY";
+        }
+
+        //Modificamos los estilos
+        outputResultado.classList.remove("colorGreyDarker");
+        outputResultado.classList.add("color5");
+        outputResultado.classList.add("coloredText");
+        outputLink.classList.remove("colorGreyDarker");
+        outputLink.classList.add("color5");
+        outputLink.classList.add("coloredText");
+        //Agregamos identificador de pregunta resuelta
+        outputLink.classList.add("answerReady");
+        imprimirConteoRespondidas();
+        imprimirBarraProgreso();
+    }
+
+    //Para las preguntas de arrastrar
+    function agregarRespuestaArrastrar(respuesta, idInputGet, contenedorDefiniciones){
+        let respuestaInput = document.getElementById(respuesta);
+        
+        //Accedemos al elemento input hidden y al contenedor de definiciones
+        let idInputGetElement = document.getElementById(idInputGet);
+        let contenedorDefinicionesElement = document.getElementById(contenedorDefiniciones);
+        let hijosContenedorDefiniciones = contenedorDefinicionesElement.querySelectorAll(".arrastrarElemento");
+        idInputGetElement.value = "";
+        //Juntamos todo el contenido de los elementos hijos en un array
+        for(y = 0; y < hijosContenedorDefiniciones.length; y++){
+            idInputGetElement.value += hijosContenedorDefiniciones[y].innerText + "/";
+        }
+
+        respuestaInput.innerText = "READY"
+        respuestaInput.classList.remove("colorGreyDarker");
+        respuestaInput.classList.add("color5");
+        respuestaInput.classList.add("coloredText");
+        //Agregamos identificador de pregunta resuelta
+        respuestaInput.classList.add("answerReady");
+        imprimirConteoRespondidas();
+        imprimirBarraProgreso();
+
+    }
+
+    //Preguntas true false
+    function agregarRespuestaOpt4(resultadoOutput, value, idInputGet){
+        let output = document.getElementById(resultadoOutput);
+        output.innerHTML = value;
+
+        //Accedemos al elemento input hidden y le metemeo la respuesta
+        let idInputGetElement = document.getElementById(idInputGet);
+        idInputGetElement.value = value;
+
+        output.classList.remove("colorGreyDarker");
+        output.classList.add("color5");
+        output.classList.add("coloredText");
+        //Agregamos identificador de pregunta resuelta
+        output.classList.add("answerReady");
+        imprimirConteoRespondidas();
+        imprimirBarraProgreso();
+    }
+
+    function agregarRespuestaOptAbiertas(respuesta, resultado, button, idInputGet){
+        let respuestaInput = document.getElementById(respuesta);
+        let resultadoInput = document.getElementById(resultado);
+        let buttonInput = document.getElementById(button);
+
+        //Caja del output visible para el usuario
+        resultadoInput.innerText = respuestaInput.value;
+
+        //Accedemos al elemento input hidden y le metemeo la respuesta
+        let idInputGetElement = document.getElementById(idInputGet);
+        idInputGetElement.value = respuestaInput.value;
+
+        //Cambiar estilos del resultado
+        resultadoInput.classList.remove("colorGreyDarker");
+        resultadoInput.classList.add("color5");
+        resultadoInput.classList.add("coloredText");
+        //Agregamos identificador de pregunta resuelta
+        resultadoInput.classList.add("answerReady");
+        imprimirConteoRespondidas();
+        imprimirBarraProgreso();
+    }
+
+    //////EXTRAS
+    //Cuenta de los elementos que han sido contestados
+    //Esta función debe estar aqui para simplificar el tema de que
+    //funcione cuando se de click en responder
+    function imprimirConteoRespondidas() {
+        let numeroPreguntas = document.getElementById('contadorTotal').innerText;
+        let contadorRespondidas = document.getElementById('contadorRespondidas');
+        let answerReadySize = document.getElementsByClassName('answerReady').length;
+
+        contadorRespondidas.innerText = answerReadySize + "/" + numeroPreguntas;
+    }
+
+    //Se imprime la barra de progreso
+    function imprimirBarraProgreso(){
+        //Accedemos a la barra de carga
+        let cargaBarra = document.getElementsByClassName('cargaBarra');
+        //Accedemos al numero total
+        let numeroPreguntas = document.getElementById('contadorTotal').innerText;
+        //Accedemos a las preguntas que se van agregando
+        let answerReadySize = document.getElementsByClassName('answerReady').length;
+        cargaBarra[0].setAttribute('style', 'width:' + ((100/numeroPreguntas)*answerReadySize) + '%;')
+    }
+</script>
+
+</html>
