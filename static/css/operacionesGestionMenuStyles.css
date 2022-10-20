@@ -576,7 +576,7 @@
 /*Estilos de seccion para ver datos de grupo*/
 
 .encabezadoGrupo{
-    height: 170px !important;
+    height: 200px !important;
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
@@ -584,7 +584,7 @@
 
 @media screen and (max-width: 600px) {
     .encabezadoGrupo{
-        height: 130px !important;
+        height: 150px !important;
     }
 }
 
@@ -643,6 +643,10 @@
 
 .cardCuestionarioGrupoVer{
     height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .titleCardCuestionarioGrupoVer{
@@ -659,9 +663,15 @@
     border-radius: 0px 0px 10px 10px;
 }
 
+.cardCuestionarioGrupoVer div{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
 .cardCuestionarioGrupoVer div h6{
     font-weight: 700;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 /*Contendor estudiantes*/

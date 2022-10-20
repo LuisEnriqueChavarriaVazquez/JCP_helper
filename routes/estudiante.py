@@ -129,6 +129,40 @@ def salir_grupo(id_docente, id_grupo ,id_estudiante):
     return redirect(url_for("routes.bienvenidaEstudiante"))
 
 ##
+##Bloque para ver datos de grupo
+##
+
+@routes.route('/viewGroup/<string:id>')
+def view_group_alumno(id):
+    #Obtenemos los datos del grupo
+    pickedGroupData = Op_profesor.obtener_grupo_datos_importantes_unitario(id)
+
+    ########## INFORMACION ESTUDIANTES EN GRUPOS
+    #Obtenemos los ids de los estudiantes dentro de un grupo
+    alumnosIdsDentroGrupo = Op_profesor.obtener_IDAlumno_dentro_de_grupo(id)
+    print(alumnosIdsDentroGrupo) # ((1, ), (2, ))
+
+    idSeparada = []
+    for singleID in alumnosIdsDentroGrupo:
+        idSeparada.append(singleID[0])
+    print(idSeparada) # [1,2]
+
+    datosAlumnos = []
+    for idAlumno in idSeparada:
+        print(str(idAlumno)) # 1,2
+        #Obtenemos los datos de los alumnos con los ids Obtenido
+        datosAlumnos.append(Op_profesor.datos_completos_alumno_by_id(str(idAlumno)))
+    print(datosAlumnos) #[((1,), (2,))]
+
+    ######Obtención de información de los cuestionarios
+    datosCuestionarios = Op_profesor.obtener_cuestionarios_datos_importantes(pickedGroupData[0][1])
+    print(datosCuestionarios)
+
+    #Enviamos al usuario al formulario para ver datos del grupo.
+    return render_template('estudiante/b_verGrupo.html', groupInfo = pickedGroupData[0], datosAlumnos = datosAlumnos, datosCuestionarios = datosCuestionarios)
+
+
+##
 ##Bloque para ver mis grupos
 ##
 @routes.route('/mis_grupos/<string:id_estudiante>')

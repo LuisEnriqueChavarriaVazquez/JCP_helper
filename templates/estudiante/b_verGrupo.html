@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Ver grupos</title>
+    <title>Mis grupos</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -18,10 +18,10 @@
     <!--Menu de página de inicio-->
     <nav class="color2">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Ver grupo.</a>
+            <a href="#" class="brand-logo hide-on-small-only">Mis grupos.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Ver grupo.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Mis grupos.</p>
             <ul class="right hide-on-med-and-down">
                 <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
             </ul>
@@ -70,16 +70,28 @@
                                 {%for i in range(0, datosCuestionarios|length)%}
                                 <!--Solo muestra los ids que coinciden-->
                                 {% if datosCuestionarios[i][1] == groupInfo.0%}
-                                <a href="/viewCuestionario/{{datosCuestionarios[i][0]}}">
+                                <a href="#modal{{datosCuestionarios[i][0]}}" class="modal-trigger">
                                     <div class="colorTextReverse cardCuestionarioGrupoVer">
                                         <div class="colorGrey titleCardCuestionarioGrupoVer truncate">
                                             <h6>{{datosCuestionarios[i][3]}}</h6>
                                         </div>
                                         <div class="colorGreyDarker borderDecoration descCardCuestionarioGrupoVer">
-                                            <p id="muestraCodigoGrupo" style="text-align: left;">Tipo: {{datosCuestionarios[i][7]}}</p>
+                                            <p id="muestraCodigoGrupo" style="text-align: left;">Tipo:
+                                                {{datosCuestionarios[i][7]}}</p>
                                         </div>
                                     </div>
                                 </a>
+                                <!--Pop up para entrar a resolver cuestionario-->
+                                <div id="modal{{datosCuestionarios[i][0]}}" class="modal bordered2 colorGrey">
+                                    <div class="modal-content">
+                                        <h4>¿Desea responder el cuestionario?</h4>
+                                        <p>Se recomienda que este preparado, ya que el cuestionario no se puede pausar.</p>
+                                        <hr>
+                                        <a href="/viewCuestionario/{{datosCuestionarios[i][0]}}"
+                                            class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded"
+                                            style="width: 100%;">Comenzar</a>
+                                    </div>
+                                </div>
                                 {% endif %}
                                 {%endfor%}
                             </section>
