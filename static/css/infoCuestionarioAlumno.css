@@ -1,0 +1,346 @@
+.docenteContainerCuestionario {
+    height: auto;
+    padding: 40px 120px;
+    margin-top: 60px;
+
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "area1 area2";
+}
+
+.fotoTeacherCuestionario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: area1;
+}
+
+.fotoTeacherCuestionario div {
+    width: 180px;
+    height: 180px;
+
+    border-radius: 500px;
+    border: 3px #fff solid;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.nameTeacherCuestionario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-area: area2;
+}
+
+.nameTeacherCuestionario div {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: left;
+}
+
+.nombreTeacherCuestionario {
+    font-size: 28px;
+    padding: 20px 40px;
+    border-radius: 20px 20px 0 0;
+}
+
+.apodoTeacherCuestionario {
+    font-size: 20px;
+    padding: 10px 40px;
+}
+
+.correoTeacherCuestionario {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 40px;
+    border-radius: 0 0 20px 20px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .docenteContainerCuestionario {
+        height: 230px;
+        padding: 20px 40px;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas:
+            "area2"
+            "area1";
+    }
+
+    .fotoTeacherCuestionario {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-area: area1;
+    }
+
+    .fotoTeacherCuestionario div {
+        width: 120px;
+        height: 120px;
+        position: relative;
+        bottom: -30px;
+    }
+
+    .nameTeacherCuestionario {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas:
+        "area1min area1min"
+        "area2min area3min";
+        grid-area: area2;
+    }
+
+    .nameTeacherCuestionario div {
+        height: auto;
+        width: 100%;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        text-align: left;
+    }
+
+    .nombreTeacherCuestionario {
+        font-size: 25px;
+        padding: 20px 40px;
+        grid-area: area1min;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .apodoTeacherCuestionario {
+        font-size: 16px;
+        padding: 10px 40px;
+        grid-area: area2min;
+        border-radius: 0 0 0 20px;
+    }
+
+    .correoTeacherCuestionario {
+        font-size: 16px;
+        font-weight: 500;
+        padding: 10px 40px;
+        grid-area: area3min;
+        border-radius: 0 0 20px 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .docenteContainerCuestionario {
+        height: 230px;
+        padding: 20px 10px;
+        margin-top: 45px;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas:
+            "area2"
+            "area1";
+    }
+
+    .fotoTeacherCuestionario {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-area: area1;
+    }
+
+    .fotoTeacherCuestionario div {
+        width: 120px;
+        height: 120px;
+        position: relative;
+        bottom: -20px;
+    }
+
+    .nameTeacherCuestionario {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+        "area1min"
+        "area2min"
+        "area3min";
+        grid-area: area2;
+    }
+
+    .nameTeacherCuestionario div {
+        height: auto;
+        width: 100%;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        text-align: left;
+    }
+
+    .nombreTeacherCuestionario {
+        font-size: 15px;
+        padding: 15px 20px;
+        grid-area: area1min;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .apodoTeacherCuestionario {
+        font-size: 14px;
+        padding: 10px 20px;
+        grid-area: area2min;
+        border-radius: 0;
+    }
+
+    .correoTeacherCuestionario {
+        font-size: 14px;
+        font-weight: 500;
+        padding: 10px 20px;
+        grid-area: area3min;
+        border-radius: 0 0 20px 20px;
+    }
+}
+
+/*Grid para los titulos*/
+.containerTitleCuestionarioReady{
+    padding: 0 100px;
+}
+
+/*Grid con la información básica*/
+.docenteInfoCuestionario{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+
+    padding: 20px 120px;
+}
+
+.docenteInfoCuestionarioSecond{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.docenteInfoCuestionarioSecond h6{
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.docenteInfoCuestionarioSecond p{
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .containerTitleCuestionarioReady{
+        padding: 55px 20px 0 20px;
+    }
+
+    .docenteInfoCuestionario{
+        padding: 10px 40px 20px 40px;
+    }
+
+    .docenteInfoCuestionarioSecond h6{
+        font-size: 20px;
+        font-weight: 600;
+        margin: 0;
+        padding: 10px;
+        height: 100%;
+        border-radius: 10px 10px 0 0;
+    }
+    
+    .docenteInfoCuestionarioSecond p{
+        font-size: 15px;
+        font-weight: 600;
+        margin: 0;
+        padding: 10px;
+        height: 100%;
+        border-radius: 0 0 10px 10px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .containerTitleCuestionarioReady{
+        padding: 60px 0 0 0;
+    }
+
+    .docenteInfoCuestionario{
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 10px 20px 20px 20px;
+    }
+
+    .docenteInfoCuestionarioSecond h6{
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0;
+        padding: 15px 10px;
+        height: 100%;
+        border-radius: 10px 10px 0 0;
+    }
+    
+    .docenteInfoCuestionarioSecond p{
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0;
+        padding: 6px 10px;
+        height: 100%;
+        border-radius: 0 0 10px 10px;
+    }
+}
+
+.buttonContainerReadyCuestionario{
+    width: 100%;
+    height: auto;
+    padding: 20px 120px;
+}
+
+.buttonContainerReadyCuestionario a{
+    width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+    .buttonContainerReadyCuestionario{
+        width: 100%;
+        height: auto;
+        padding: 20px 40px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .buttonContainerReadyCuestionario{
+        width: 100%;
+        height: auto;
+        padding: 20px 20px;
+    }
+}
+
+/*Para el navbar*/
+.navbarCuestionarioReady{
+    position: relative;
+    top: 0;
+}
+
+.titleCuestionarioReady{
+    position: relative;
+    top: 56px;
+}
