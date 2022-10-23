@@ -6,6 +6,10 @@
 
 <head>
     <title>Cuestionarios del banco</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -30,367 +34,166 @@
             </ul>
         </div>
     </nav>
+    <div class="contenedorTitulo hiddenElement">
+        <h5 id="tituloCuestionario">Titulo del cuestionario</h5>
+        <a class="waves-effect waves-light btn bordered5 color1 shadow-2e" href="#" id="editarTitulo"><i
+                class="material-icons">edit</i></a>
+    </div>
+    <div class="container_preguntas">
+        <form action="/guardarCuestionarioJSON/1" method="post">
+            <div class="" id="contenedorCuestionarioPreguntas">
+                <div class="tituloCuestionario">
+                    <div class="contenedorTitulo hiddenElement">
+                        <h5 id="tituloCuestionario">Titulo del cuestionario</h5>
+                        <a class="waves-effect waves-light btn bordered5 color1 shadow-2e" href="#" id="editarTitulo"><i
+                                class="material-icons">edit</i></a>
+                    </div>
+                    <div class="inputNombreCuestionario">
+                        <input type="text" name="nombreCuestionario" id="nombreCuestionario"
+                            class="browser-default inputNombre shadow-1 flow-text bordered5"
+                            placeholder="Ingrese nombre del cuestionario">
+                        <input type="hidden" name="nombreCuestionarioConClave" id="nombreCuestionarioConClave">
+                        <a class="waves-effect waves-light btn color1 shadow-2e" href="#" id="guardarTitulo"><i
+                                class="material-icons left">done</i>Listo</a>
+                    </div>
+                </div>
+                {% for pregunta in preguntas %}
+                {% if pregunta.tipo_pregunta.lower()=="verdadero o falso" %}
+                <div class="row preguntasTrueFalse preguntaGlobal opt5">
+                    <div class="col s12">
+                        <div class="card colorWhite bordered2">
+                            <div class="input-field col s12">
+                                <input maxlength="1" min="0" max="5" placeholder="Defina ponderación 1-5" type="number"
+                                    class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+                            </div>
+                            <div class="card-content ">
+                                <h5>Falso y verdadero</h5>
+                                <hr>
+                                <p>Ingrese una pregunta y determine la opción correcta</p>
+                                <div class="row">
+                                    <form class="col s12">
+                                        <h5><b>Pregunta</b></h5>
+                                        <div class="row">
+                                            <div class="input-field col s12">
+                                                <i class="material-icons prefix">description</i>
+                                                <textarea id="preguntaFalseVerdadero1"
+                                                    class="materialize-textarea">eres guapo</textarea>
+                                                <label class="active" for="preguntaFalseVerdadero1">Pregunta</label>
+                                            </div>
+                                            <div class="input-field col s12">
+                                                <h6><b>Respuesta</b></h6>
+                                                <p>Escribe F en caso de que sea falso o T en caso de que sea verdad.</p>
+                                                <br>
+                                                <input maxlength="1" value="V" placeholder="T/F"
+                                                    id="textFalseVerdadero1" type="text"
+                                                    class="validate shadow-1e colorGreyWhiter falsoVerdaderoInput browser-default valid">
+                                            </div>
+                                        </div>
+                                        <button
+                                            class="waves-effect deleteFalseVerdadero waves-light btn bordered5 color1 shadow-2e"
+                                            id="deleteFalseVerdadero1" style="width: 100%;">
+                                            <i class="material-icons left">delete_sweep</i>Borrar pregunta</button>
+                                    </form>
+                                </div>
 
-    <section class="containerCreacionCuestionarios">
-        <!--Vista general del cuestionario-->
-        <section class="containerCreacionCuestionariosSon2">
-            <form action="/guardarCuestionarioJSON/{{id_profesor}}" method="post">
-                <div class="" id="contenedorCuestionarioPreguntas">
-                    <div class="tituloCuestionario">
-                        <div class="contenedorTitulo hiddenElement">
-                            <h5 id="tituloCuestionario">Titulo del cuestionario</h5>
-                            <a class="waves-effect waves-light btn bordered5 color1 shadow-2e" href="#"
-                                id="editarTitulo"><i class="material-icons">edit</i></a>
-                        </div>
-                        <div class="inputNombreCuestionario">
-                            <input type="text" name="nombreCuestionario" id="nombreCuestionario"
-                                class="browser-default inputNombre shadow-1 flow-text bordered5"
-                                placeholder="Ingrese nombre del cuestionario">
-                            <input type="hidden" name="nombreCuestionarioConClave" id="nombreCuestionarioConClave">
-                            <a class="waves-effect waves-light btn color1 shadow-2e" href="#" id="guardarTitulo"><i
-                                    class="material-icons left">done</i>Listo</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <section class="row">
-                    <!--Modal 0: Guardado del JSON -->
-                    <div id="modalJSON" class="modal colorGrey bordered2 modalAltura">
-                        <div class="modal-content">
-                            <h4>Generando archivo JSON</h4>
-                            <hr>
-                            <p>El cuestionario será almacenado como archivo JSON, usted puede guardar una copia del
-                                cuestionario si asi lo desea.</p>
-                            <p><b>Puede anexar algún JSON que haya descargado previamente.</b></p>
-                            <input type="file" id="inputfileAnterior" class="hidden" />
-                            <a id="leerArchivoEjercicioAnterior" style="width: 100%; right: 0; position: relative;">
-                                <label for="inputfileAnterior"
-                                    class="waves-effect waves-light btn bordered5 colorGreyDarker colorTextReverse"
-                                    style="width: 100%;" onclick="anexarJsonViejo('output', 'inputfileAnterior')">
-                                    <i class="material-icons">upload_file</i>
-                                </label>
-                            </a>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <section class="row">
+                <!--Modal 0: Guardado del JSON -->
+                <div id="modalJSON" class="modal colorGrey bordered2 modalAltura" tabindex="0">
+                    <div class="modal-content">
+                        <h4>Generando archivo JSON</h4>
+                        <hr>
+                        <p>El cuestionario será almacenado como archivo JSON, usted puede guardar una copia del
+                            cuestionario si asi lo desea.</p>
+                        <p><b>Puede anexar algún JSON que haya descargado previamente.</b></p>
+                        <input type="file" id="inputfileAnterior" class="hidden">
+                        <a id="leerArchivoEjercicioAnterior" style="width: 100%; right: 0; position: relative;">
+                            <label for="inputfileAnterior"
+                                class="waves-effect waves-light btn bordered5 colorGreyDarker colorTextReverse"
+                                style="width: 100%;" onclick="anexarJsonViejo('output', 'inputfileAnterior')">
+                                <i class="material-icons">upload_file</i>
+                            </label>
+                        </a>
 
-                            <!--Preview del cuestionario-->
-                            <h5><b>Preview de cuestionario JSON</b></h5>
-                            <pre class="previewCodeContainer colorText bordered2" id="output"></pre>
-                            <!--Input discreto para enviar contenido JSON a flask-->
-                            <input type="hidden" name="jsonContentInput" id="jsonContentInput">
-                            <!--Descarga del archivo-->
-                            <a onclick="downloadJson()"
-                                class="waves-effect waves-light btn-large bordered2Up color3 shadow-2e"
-                                id="descargarJSON" style="width: 100%;">
-                                <i class="material-icons left">download</i>Descargar</a>
-                            <!--Almacenado del archivo (en BD y servidor)-->
-                            <button type="submit"
-                                class="waves-effect waves-light btn-large bordered2Down color1 shadow-2e"
-                                id="guardarJSON" style="width: 100%;">
-                                <i class="material-icons left">save</i>Guardar</button>
-                        </div>
+                        <!--Preview del cuestionario-->
+                        <h5><b>Preview de cuestionario JSON</b></h5>
+                        <pre class="previewCodeContainer colorText bordered2" id="output"></pre>
+                        <!--Input discreto para enviar contenido JSON a flask-->
+                        <input type="hidden" name="jsonContentInput" id="jsonContentInput">
+                        <!--Descarga del archivo-->
+                        <a onclick="downloadJson()"
+                            class="waves-effect waves-light btn-large bordered2Up color3 shadow-2e" id="descargarJSON"
+                            style="width: 100%;">
+                            <i class="material-icons left">download</i>Descargar</a>
+                        <!--Almacenado del archivo (en BD y servidor)-->
+                        <button type="submit" class="waves-effect waves-light btn-large bordered2Down color1 shadow-2e"
+                            id="guardarJSON" style="width: 100%;">
+                            <i class="material-icons left">save</i>Guardar</button>
                     </div>
-                    <!--MODAL -1: Para agregar un JSON existente-->
-                    <div id="agregar_JSON_existente" class="modal colorGrey bordered2" style="height: 80vh;">
-                        <div class="modal-content">
-                            <h4>Duplica cuestionario guardado</h4>
-                            <hr>
-                            <p>Seleccione algún JSON que ya estuviera en existencia de cuestionarios anteriores. <b>Se
-                                    creará una copia del documento y usted podra editar la data.</b></p>
-                            <h5><b>Cuestionarios anteriores.</b></h5>
-                            <div id="archivoCuestionario" class="input-field col s12 m12">
-                                <select id="archivoCuestionarioExistente" name="archivoCuestionario">
-                                    {% if cuestionario_rutas %}
-                                    {%for i in range(0, cuestionario_rutas|length)%}
-                                    <option value="{{cuestionario_rutas[i][1]}}">{{cuestionario_rutas[i][0]}}
-                                    </option>
-                                    {% endfor %}
-                                    {% endif%}
+                </div>
+                <!--MODAL -1: Para agregar un JSON existente-->
+                <div id="agregar_JSON_existente" class="modal colorGrey bordered2" style="height: 80vh;" tabindex="0">
+                    <div class="modal-content">
+                        <h4>Duplica cuestionario guardado</h4>
+                        <hr>
+                        <p>Seleccione algún JSON que ya estuviera en existencia de cuestionarios anteriores. <b>Se
+                                creará una copia del documento y usted podra editar la data.</b></p>
+                        <h5><b>Cuestionarios anteriores.</b></h5>
+                        <div id="archivoCuestionario" class="input-field col s12 m12">
+                            <div class="select-wrapper"><input class="select-dropdown dropdown-trigger" type="text"
+                                    readonly="true" data-target="select-options-453cd259-c4dd-7ebf-d27a-93660d019b7b">
+                                <ul id="select-options-453cd259-c4dd-7ebf-d27a-93660d019b7b"
+                                    class="dropdown-content select-dropdown" tabindex="0"></ul><svg class="caret"
+                                    height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 10l5 5 5-5z"></path>
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                </svg><select id="archivoCuestionarioExistente" name="archivoCuestionario"
+                                    tabindex="-1">
+
                                 </select>
-                                <label>Archivo de cuestionario</label>
                             </div>
-                            <!--Descarga del archivo-->
-                            <a href="#" class="waves-effect waves-light btn-large bordered1 color1 shadow-2e"
-                                id="archivoExistenteButton" style="width: 100%;">
-                                <i class="material-icons left">file_open</i>Cargar/Duplicar</a>
-                            <a class="hiddenElement" id="linkOculto"></a>
+                            <label>Archivo de cuestionario</label>
                         </div>
-                    </div>
-                </section>
-                <!--Boton para abrir el modal del json-->
-                <div class="fixed-action-btn buttonSaveJSON">
-                    <button href="#modalJSON" onclick="convertToJSON()"
-                        class="modal-trigger btn-floating btn-large color1" id="buttonModalSaveFloat">
-                        <i class="large material-icons">save</i>
-                    </button>
-                </div>
-            </form>
-        </section>
-
-        <!--Vista general del proceso-->
-        <section class="containerCreacionCuestionariosSon3">
-            <div class="containerProcesoImagen">
-                <div id="circleOne" class="shadow-2e color3 colorText">1</div>
-                <div id="lineMiddle" class="shadow-2e colorGreyDarker"></div>
-                <div id="circleTwo" class="shadow-2e colorGreyDarker">2</div>
-            </div>
-            <div class="containerProcesoData">
-                <div>Estructura principal</div>
-                <div>Datos adicionales</div>
-            </div>
-        </section>
-    </section>
-
-    <!--
-        ########################################
-        Esta parte no es visible para el usuario a 
-        menos de que quiera ingresar algún tipo de pregunta
-        por eso son modals.
-        ########################################
-    -->
-    <!--Contenido de la pagina MODALS-->
-    <section class="row" id="contenedorGeneral">
-        <!--
-            ######################################################
-            MODAL 1: OPCION MULTIPLE
-            ######################################################
-        -->
-        <div id="modalOpccionMultipleCreacion" class="modal colorGrey bordered2 modalAltura">
-            <div class="modal-content">
-                <h4>Opción multiple</h4>
-                <hr>
-                <p>Diseñe preguntas de opción múltiples primero definiendo la preguntas, luego las opciones y por último
-                    la opción correcta.</p>
-                <hr>
-                <form class="col s12" id="formModalOpccionMultipleCreacion">
-
-                    <h5><b>Defina la pregunta</b></h5>
-                    <p>Describa la pregunta o interrogante a responder.</p>
-                    <!--Titulo de la pregunta -->
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">question_mark</i>
-                            <textarea id="textAreaPreguntaOpccionMultipleCreacion"
-                                class="materialize-textarea"></textarea>
-                            <label for="textAreaPreguntaOpccionMultipleCreacion">Pregunta</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">image</i>
-                            <textarea id="mediaProblemaOpcionMultiple" class="materialize-textarea"></textarea>
-                            <label for="mediaProblemaOpcionMultiple">Imagen del problema(url)</label>
-                        </div>
-                    </div>
-
-                    <h5><b>Defina las opciones</b></h5>
-                    <p>Escriba las posibles opciones para la pregunta que se planteó y determine la respuesta correcta.
-                    </p>
-                    <!--Opcion A-->
-                    <div class="row">
-                        <div class="col s12" id="contenedorOpccionesOpccionMultipleModalCreacion">
-                            <div class="row colorGreyWhiter bordered1 opcionContainer opcionContainerModal">
-                                <!--Opcion de tomar A como correcta-->
-                                <div class="col s12 m3 labelContainer">
-                                    <label>
-                                        <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker" value="A"
-                                            type="radio" />
-                                        <span>Correcta</span>
-                                    </label>
-                                </div>
-                                <!--Contenido de opcion A-->
-                                <div class="col s12 m9">
-                                    <h6><b>Opción A</b></h6>
-                                    <textarea id="opcionACreacion"
-                                        class="materialize-textarea opcionContainerModalContent"></textarea>
-                                </div>
-                            </div>
-
-                            <!--Opcion B-->
-                            <div class="row hide colorGreyWhiter bordered1 opcionContainer opcionContainerModal">
-                                <!--Opcion de tomar B como correcta-->
-                                <div class="col s12 m3 labelContainer">
-                                    <label>
-                                        <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker" value="B"
-                                            type="radio" />
-                                        <span>Correcta</span>
-                                    </label>
-                                </div>
-                                <!--Contenido de opcion B-->
-                                <div class="col s12 m9">
-                                    <h6><b>Opción B</b></h6>
-                                    <textarea id="opcionBCreacion"
-                                        class="materialize-textarea opcionContainerModalContent"></textarea>
-                                </div>
-                            </div>
-
-                            <!--Opcion C-->
-                            <div class="row hide colorGreyWhiter bordered1 opcionContainer opcionContainerModal">
-                                <!--Opcion de tomar C como correcta-->
-                                <div class="col s12 m3 labelContainer">
-                                    <label>
-                                        <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker" value="C"
-                                            type="radio" />
-                                        <span>Correcta</span>
-                                    </label>
-                                </div>
-                                <!--Contenido de opcion C-->
-                                <div class="col s12 m9">
-                                    <h6><b>Opción C</b></h6>
-                                    <textarea id="opcionCCreacion"
-                                        class="materialize-textarea opcionContainerModalContent"></textarea>
-                                </div>
-                            </div>
-
-                            <!--Opcion D-->
-                            <div class="row hide colorGreyWhiter bordered1 opcionContainer opcionContainerModal">
-                                <!--Opcion de tomar D como correcta-->
-                                <div class="col s12 m3 labelContainer">
-                                    <p>
-                                        <label>
-                                            <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker" value="D"
-                                                type="radio" />
-                                            <span>Correcta</span>
-                                        </label>
-                                    </p>
-                                </div>
-                                <!--Contenido de opcion D-->
-                                <div class="col s12 m9">
-                                    <h6><b>Opción D</b></h6>
-                                    <textarea id="opcionDCreacion"
-                                        class="materialize-textarea opcionContainerModalContent"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="hide-on-small-only">
-                        <br><br><br><br><br>
-                    </div>
-                    <!--Guardar la pregunta en el cuestionario-->
-                    <div class="botonesDelModal colorGrey">
-                        <!--Guardar opciones-->
-                        <div class="botonesDelModalSon1">
-                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
-                                id="btnGuardarModalOpcionMultipleCreacion"><i
-                                    class="material-icons left">save</i>Guardar</a>
-                        </div>
-                        <!--Agregar opciones -->
-                        <div class="botonesDelModalSon2">
-                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
-                                id="btnAgregarModalOpcionMultipleCreacion"><i
-                                    class="material-icons left">add</i>Agregar</a>
-                        </div>
-                        <!--Eliminar opciones -->
-                        <div class="botonesDelModalSon3">
-                            <a class="waves-effect waves-light btn bordered5 color1 shadow-2e" href="#"
-                                id="btnEliminarModalOpcionMultipleCreacion"><i
-                                    class="material-icons left">cleaning_services</i>Limpiar todo</a>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <!--
-            ######################################################
-            MODAL 2: RELLENADO DE ESPACIOS
-            ######################################################
-        -->
-        <div id="modalRellenarEspaciosCreacion" class="modal colorGrey bordered2 modalAltura">
-            <div class="modal-content">
-                <h4>Rellenar espacios</h4>
-                <hr>
-                <p>Ingrese un texto en el formulario, y posteriormente agregue los espacio en el texto de modo que el
-                    estudiante pueda completar con la respuesta correcta.</p>
-                <hr>
-                <form class="col s12">
-                    <h5><b>Defina el texto</b></h5>
-                    <p>Escriba la estructura que tendra el texto.</p>
-                    <!--Titulo de la pregunta -->
-                    <div class="row">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix">description</i>
-                                <textarea id="texAreaModalRellenarEspaciosCreacion" class="materialize-textarea"
-                                    placeholder="text"></textarea>
-                                <label for="texAreaModalRellenarEspaciosCreacion">Escriba el texto a completar</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h5><b>Defina los espacios</b></h5>
-                    <p>Agregue espacio a la estructura del texto de modo que puedan ser acompletados por el estudiante.
-                    </p>
-                    <!--Contenedor de espacios de creacion de elementos del espacio -->
-                    <div class="" id="contenedorOpccionEspaciosCreacion">
-
-                    </div>
-                    <div class="hide-on-small-only">
-                        <br><br><br><br><br><br>
-                    </div>
-                    <br><br><br><br><br>
-                    <!--Guardar la pregunta en el cuestionario-->
-                    <div class="botonesDelModal colorGrey">
-                        <!--Guardar opciones-->
-                        <div class="botonesDelModalSon1">
-                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
-                                id="btnGuardarModalRellenarEspaciosCreacion"><i
-                                    class="material-icons left">save</i>Guardar</a>
-                        </div>
-                        <!--Agregar opciones -->
-                        <div class="botonesDelModalSon2">
-                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
-                                id="btnAgregarModalRellenarEspaciosCreacion"><i class="material-icons left">add</i>1
-                                Espacio</a>
-                        </div>
-                        <!--Eliminar opciones -->
-                        <div class="botonesDelModalSon3">
-                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
-                                id="btnEliminarModalRellenarEspaciosCreacion"><i class="material-icons left">remove</i>1
-                                Espacio</a>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!--
-            ######################################################
-            MODAL 5: EJERCICIOS de falso y verdadero
-            ######################################################
-        -->
-        <div id="modalTrueFalse" class="modal colorGrey bordered2 modalAltura">
-            <div class="modal-content">
-                <h4>Falso y verdadero</h4>
-                <hr>
-                <p>Ingrese una pregunta y determine la opción correcta</p>
-                <div class="row">
-                    <form class="col s12">
-                        <h5><b>Pregunta</b></h5>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix">description</i>
-                                <textarea id="preguntaFalseVerdadero" class="materialize-textarea"></textarea>
-                                <label for="preguntaFalseVerdadero">Pregunta</label>
-                            </div>
-                            <h6><b>Respuesta</b></h6>
-                            <p>Escribe F en caso de que sea falso o T en caso de que sea verdad.</p>
-                            <div class="input-field col s12">
-                                <input maxlength="1" placeholder="T/F" id="textFalseVerdadero" type="text" class="validate shadow-1e colorWhite falsoVerdaderoInput browser-default">
-                            </div>
-                        </div>
-                        <br><br><br>
-                    </form>
-                    <!--Almacenado del archivo (en BD y servidor)-->
-                    <button
-                    class="waves-effect waves-light btn bordered5 color1 shadow-2e"
-                    id="saveFalseVerdadero" style="width: 100%;">
-                    <i class="material-icons left">save</i>Guardar</button>
+                        <!--Descarga del archivo-->
+                        <a href="#" class="waves-effect waves-light btn-large bordered1 color1 shadow-2e"
+                            id="archivoExistenteButton" style="width: 100%;">
+                            <i class="material-icons left">file_open</i>Cargar/Duplicar</a>
+                        <a class="hiddenElement" id="linkOculto"></a>
                     </div>
                 </div>
+            </section>
+            <!--Boton para abrir el modal del json-->
+            <div class="fixed-action-btn buttonSaveJSON">
+                <button href="#modalJSON" onclick="convertToJSON()" class="modal-trigger btn-floating btn-large color1"
+                    id="buttonModalSaveFloat">
+                    <i class="large material-icons">save</i>
+                </button>
             </div>
-        </div>
-    </section>
+        </form>
+
+
+    </div>
+
+
+    <input type="hidden" value="{{ preguntas }}" id="preguntas" />
+
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+    integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+    crossorigin="anonymous"></script>
+<script src="../../static/js/configuracionCuestionariosBanco.js"></script>
 
-<script src="../../static/js/configuracionCreacionCuestionario.js"></script>
-<script>
-
-</script>
-
-</html>     
+</html>

@@ -615,3 +615,7 @@
     box-sizing: border-box;
 }
 
+/*Estilos creacion de cuestionarios del banco de datos*/
+.container_preguntas{
+    padding: 7% 5%;
+}

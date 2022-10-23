@@ -599,6 +599,8 @@ def genera_preguntas_por_lenguaje():
     for i in preguntas:
         if i["tema"] in temas and i["tipo_pregunta"] in tipo_preguntas:
             cuestionario_personalizado.append(i)
+    
+    print(cuestionario_personalizado)
 
     return render_template("profesor/cuestionario_del_banco_personalizado.html",preguntas=cuestionario_personalizado)
 
