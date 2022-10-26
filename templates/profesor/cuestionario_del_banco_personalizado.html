@@ -58,7 +58,102 @@
                     </div>
                 </div>
                 {% for pregunta in preguntas %}
-                {% if pregunta.tipo_pregunta.lower()=="verdadero o falso" %}
+                {% if pregunta.tipo_pregunta.lower()=="opción multiple" %}
+                <div class="row preguntaOpccionMultiple preguntaGlobal opt1">
+                    <div class="col s12">
+                        <div class="card colorWhite bordered2">
+
+                            <div class="input-field col s12">
+                                <input maxlength="1" min="0" max="5" placeholder="Defina ponderación 1-5" type="number"
+                                    class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+                            </div>
+
+                            <div class="card-content ">
+                                <h5>Pregunta de opción múltiple.</h5>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea id="tituloOpcionMultiple0" class="materialize-textarea textoPregunta"
+                                            placeholder="Escriba la pregunta">{{pregunta.enunciado}}</textarea>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix">image</i>
+                                        <textarea id="mediaProblemaOpcionMultiple0"
+                                            class="materialize-textarea"></textarea>
+                                        <label class="active" for="mediaProblemaOpcionMultiple0">Imagen (url)</label>
+                                    </div>
+                                </div>
+                                <div class="row colorGreyWhiter bordered1 opcionContainer">
+                                    <div class="col s12 m3 labelContainer">
+                                        <label>
+                                            <input type="radio" value="A" name="group0">
+                                            <span>Correcta</span>
+                                        </label>
+                                    </div>
+                                    <div class="col s12 m9">
+                                        <h6><b>Opción A</b></h6>
+                                        <textarea id="opcionACreacion" class="materialize-textarea"
+                                            name="textArea0">tal vez</textarea>
+                                    </div>
+                                </div>
+                                <div class="row colorGreyWhiter bordered1 opcionContainer ">
+                                    <div class="col s12 m3 labelContainer">
+                                        <label>
+                                            <input type="radio" value="B" name="group0">
+                                            <span>Correcta</span>
+                                        </label>
+                                    </div>
+                                    <div class="col s12 m9">
+                                        <h6><b>Opción B</b></h6>
+                                        <textarea class="materialize-textarea" name="textArea0">no se</textarea>
+                                    </div>
+                                </div>
+                                <div class="row colorGreyWhiter bordered1 opcionContainer ">
+                                    <div class="col s12 m3 labelContainer">
+                                        <label>
+                                            <input type="radio" value="C" name="group0" checked="">
+                                            <span>Correcta</span>
+                                        </label>
+                                    </div>
+                                    <div class="col s12 m9">
+                                        <h6><b>Opción C</b></h6>
+                                        <textarea class="materialize-textarea" name="textArea0">quizas</textarea>
+                                    </div>
+                                </div>
+                                <div class="row colorGreyWhiter bordered1 opcionContainer ">
+                                    <div class="col s12 m3 labelContainer">
+                                        <label>
+                                            <input type="radio" value="D" name="group0">
+                                            <span>Correcta</span>
+                                        </label>
+                                    </div>
+                                    <div class="col s12 m9">
+                                        <h6><b>Opción D</b></h6>
+                                        <textarea class="materialize-textarea" name="textArea0">no</textarea>
+                                    </div>
+                                </div>
+                                <div class="containerButtonsView">
+                                    <div>
+                                        <a
+                                            class="waves-effect waves-light btn bordered5 color2 shadow-2e btnAgregarOpcionMultiple"><i
+                                                class="material-icons left">add</i>Agregar 1</a>
+                                    </div>
+                                    <div>
+                                        <a
+                                            class="waves-effect waves-light btn bordered5 color2 shadow-2e btnEliminarUltimaPreguntaOpcionMultiple"><i
+                                                class="material-icons left">remove</i>Eliminar 1</a>
+                                    </div>
+                                    <div>
+                                        <a
+                                            class="waves-effect waves-light btn bordered5 color1 shadow-2e btnEliminarPreguntaOpcionMultiple"><i
+                                                class="material-icons left">delete_sweep</i>Eliminar pregunta</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% elif pregunta.tipo_pregunta.lower()=="verdadero o falso" %}
                 <div class="row preguntasTrueFalse preguntaGlobal opt5">
                     <div class="col s12">
                         <div class="card colorWhite bordered2">
@@ -69,7 +164,6 @@
                             <div class="card-content ">
                                 <h5>Falso y verdadero</h5>
                                 <hr>
-                                <p>Ingrese una pregunta y determine la opción correcta</p>
                                 <div class="row">
                                     <form class="col s12">
                                         <h5><b>Pregunta</b></h5>
@@ -77,7 +171,7 @@
                                             <div class="input-field col s12">
                                                 <i class="material-icons prefix">description</i>
                                                 <textarea id="preguntaFalseVerdadero1"
-                                                    class="materialize-textarea">eres guapo</textarea>
+                                                    class="materialize-textarea">{{pregunta.enunciado}}</textarea>
                                                 <label class="active" for="preguntaFalseVerdadero1">Pregunta</label>
                                             </div>
                                             <div class="input-field col s12">
@@ -179,9 +273,6 @@
 
 
     </div>
-
-
-    <input type="hidden" value="{{ preguntas }}" id="preguntas" />
 
 
 </body>
