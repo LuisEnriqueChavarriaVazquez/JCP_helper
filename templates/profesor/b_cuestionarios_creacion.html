@@ -66,7 +66,7 @@
                     <h6>Tiempo de la prueba</h6>
                     <div class="input-field col s6 m6">
                         <input id="horaLimiteParaResolver" name="horaLimiteParaResolver" type="text" class="validate timepicker"
-                            value="">
+                            value="12:00 PM">
                         <label for="horaLimiteParaResolver">Hora límite para resolver</label>
                     </div>
                     <div class="input-field col s6 m6">
@@ -78,6 +78,11 @@
                         <input maxlength="5" id="tiempoCuentaAtras" name="tiempoCuentaAtras" placeholder="format hh:mm" type="text" class="validate"
                             value="01:30">
                         <label for="tiempoCuentaAtras">Tiempo cuenta regresiva (hh:mm)</label>
+                    </div>
+                    <div class="input-field col s12 m12">
+                        <input maxlength="2" id="numeroIntentosDisponibles" name="numeroIntentosDisponibles" placeholder="Número de intentos" type="number" class="validate"
+                            value="1">
+                        <label for="numeroIntentosDisponibles">Número de intentos</label>
                     </div>
                 </div>
                 <h5>Datos del cuestionario</h5>
@@ -170,6 +175,7 @@
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
 
+<script src="../../static/js/obtenerFechaActual.js"></script>
 <script src="../../static/js/operacionesEditarGrupo.js"></script>
 <script src="../../static/js/operacionesEditarCuestionario.js"></script>
 
