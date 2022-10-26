@@ -136,7 +136,6 @@ def salir_grupo(id_docente, id_grupo ,id_estudiante):
 def view_group_alumno(id):
     #Obtenemos los datos del grupo
     pickedGroupData = Op_profesor.obtener_grupo_datos_importantes_unitario(id)
-
     #Obtenemos los datos del profesor
     pickedProfData = Op_profesor.datos_completos_docente_by_id(id);
 
@@ -261,6 +260,12 @@ def mis_grupos(id_estudiante):
     resultGroup = ()
     for idGroup in resultIds:
         resultGroup += Op_profesor.obtener_grupo_datos_importantes_unitario(idGroup[1])
+    
+    #Busca toda la data del estudiante para extraer solo el id
+    resultEstudiante = ()
+    for idGroup in resultIds:
+        resultEstudiante += Op_profesor.datos_completos_alumno_by_id(idGroup[2]);
+    idEstudiante = resultEstudiante[0][0]
 
 
     #Debemos contar el número de cuestionarios que hay dentro de cada grupo
@@ -269,11 +274,12 @@ def mis_grupos(id_estudiante):
         #Contamos los ids de los estudiantes dentro de un grupo para contarlos
         idsCuestionarios += (Op_profesor.contar_IDCuestionario_dentro_de_grupo(idGroup[1]))
 
+
     #En caso de que este vacio retornamos un empty.
     if(result is None):
         return render_template("estudiante/b_mis_grupos.html", datosIds = "empty", datosGroup = "empty")
     else:
-        return render_template("estudiante/b_mis_grupos.html", datosIds = resultIds, datosGroup = resultGroup, idsCuestionarios = idsCuestionarios)
+        return render_template("estudiante/b_mis_grupos.html", datosIds = resultIds, datosGroup = resultGroup, idsCuestionarios = idsCuestionarios, idEstudiante = idEstudiante)
 
 ##Para ver el perfil de un docente
 @routes.route('/viewTeacherProfile/<string:id>')

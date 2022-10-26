@@ -137,6 +137,19 @@ def obtener_IDs_dentro_de_grupo(id_alumno):
     return idsObtenidos
 
 ##
+## Nos ayuda a registrar acceso a cuestionario
+##
+
+def insertar_primera_vez_cuestionario( id_cuestionario, id_estudiante, revision_estado, numero_intentos):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("INSERT INTO Alumnos_hacen_Cuestionario (IDCuestionario, IDAlumno, Revision_estado, Numero_intentos) VALUES(%s, %s, %s, %s)",
+        (id_cuestionario, id_estudiante, revision_estado, numero_intentos))
+    conexion.commit()
+    conexion.close()
+    return "listo"
+
+##
 ## Nos ayuda a modificar el fondo del alumno
 ##
 
