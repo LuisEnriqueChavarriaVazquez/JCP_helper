@@ -80,7 +80,7 @@
                                 {%for i in range(0, datosCuestionarios|length)%}
                                 <!--Solo muestra los ids que coinciden-->
                                 {% if datosCuestionarios[i][1] == groupInfo.0%}
-                                <a href="#modal{{datosCuestionarios[i][0]}}" class="modal-trigger">
+                                <a href="/viewCuestionarioInfo/{{datosCuestionarios[i][0]}}">
                                     <div class="colorTextReverse cardCuestionarioGrupoVer">
                                         <div class="colorGrey titleCardCuestionarioGrupoVer truncate">
                                             <h6>{{datosCuestionarios[i][3]}}</h6>
@@ -91,18 +91,6 @@
                                         </div>
                                     </div>
                                 </a>
-                                <!--Pop up para entrar a resolver cuestionario-->
-                                <div id="modal{{datosCuestionarios[i][0]}}" class="modal bordered2 colorGrey">
-                                    <div class="modal-content">
-                                        <h4>¿Desea responder el cuestionario?</h4>
-                                        <p>Se recomienda que este preparado, ya que el cuestionario no se puede pausar.
-                                        </p>
-                                        <hr>
-                                        <a href="/viewCuestionarioInfo/{{datosCuestionarios[i][0]}}"
-                                            class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded"
-                                            style="width: 100%;">Comenzar</a>
-                                    </div>
-                                </div>
                                 {% endif %}
                                 {%endfor%}
                             </section>

@@ -29,7 +29,8 @@
         </div>
     </nav>
     <!--Titulos de la página-->
-    <div class="title-general color1 fixedTitleOperationMain titleCuestionarioReady shadow-2e" id="cajaTituloBuscadorId">
+    <div class="title-general color1 fixedTitleOperationMain titleCuestionarioReady shadow-2e"
+        id="cajaTituloBuscadorId">
         <h6 class="colorText hide-on-large-only hide-on-med-only" id="cajaTituloBuscadorContenidoId">
             {{datosCuestionarios[3]}}</h6>
         <h5 class="colorText hide-on-small-only" id="cajaTituloBuscadorContenidoLargeId">{{datosCuestionarios[3]}}</h5>
@@ -86,15 +87,30 @@
 
     <!--Data cuestionario-->
     <section class="buttonContainerReadyCuestionario">
-        <a href="/answerCuestionarioAlumno/{{datosCuestionarios[0]}}" class="waves-effect waves-light btn-large color2 bordered5"><i class="material-icons left">done</i>Comenzar</a>
+        <a href="#modal{{datosCuestionarios[0]}}"
+            class="modal-trigger waves-effect waves-light btn-large color2 bordered5"><i
+                class="material-icons left">done</i>Comenzar</a>
     </section>
 
     <!--Boton para dar inicio al cuestionario en moviles-->
     <!--Boton para ir hacia arriba-->
     <div class="fixed-action-btn hide-on-med-and-up">
-        <a href="/answerCuestionarioAlumno/{{datosCuestionarios[0]}}" class="btn-floating btn-large color4">
+        <a href="#modal{{datosCuestionarios[0]}}" class="modal-trigger btn-floating btn-large color4">
             <i class="large material-icons">done</i>
         </a>
+    </div>
+
+    <!--Pop up para entrar a resolver cuestionario-->
+    <div id="modal{{datosCuestionarios[0]}}" class="modal bordered2 colorGrey">
+        <div class="modal-content">
+            <h4>¿Desea responder el cuestionario?</h4>
+            <p>Se recomienda que este preparado, ya que el cuestionario no se puede pausar.
+            </p>
+            <hr>
+            <a href="/answerCuestionarioAlumno/{{datosCuestionarios[0]}}"
+                class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded"
+                style="width: 100%;">Comenzar</a>
+        </div>
     </div>
 
 
