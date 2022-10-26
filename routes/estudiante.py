@@ -206,7 +206,7 @@ def answer_cuestionario_alumno(id_cuestionario):
     revision_estado = "started"
 
     #Obtenemos los datos del cuestionario en caso de que exista
-    datosCuestionarioHecho = Op_estudiante.obtener_hacer_cuestionario(idCuestionarioHecho)
+    datosCuestionarioHecho = Op_estudiante.obtener_hacer_cuestionario(id_cuestionario, idEstudiante, caducidadCuestionario)
     #Agregamos por primera vez un registro del acceso al cuestionario (Si no existe)
     if(datosCuestionarioHecho == "noData"):
         #Metemos la data a la BD

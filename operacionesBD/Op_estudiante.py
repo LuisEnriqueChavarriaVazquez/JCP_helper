@@ -153,12 +153,12 @@ def insertar_primera_vez_cuestionario(idCuestionarioHecho, id_cuestionario, id_e
 ## Nos ayuda a obtener los cuestionarios que han sido contestados
 ##
 #Operacion para obtener los post
-def obtener_hacer_cuestionario(idCuestionarioHecho):
+def obtener_hacer_cuestionario(id_cuestionario, id_alumno, caducidad):
     conexion=obtener_conexion()
     cuestionarioHechoData=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT * FROM Alumnos_hacen_Cuestionario WHERE IDCuestionarioHecho = %s", (idCuestionarioHecho))
+        cursor.execute("SELECT * FROM Alumnos_hacen_Cuestionario WHERE IDCuestionario = %s AND IDAlumno = %s AND Caducidad_cuestionario = %s", (id_cuestionario, id_alumno, caducidad))
         cuestionarioHechoData=cursor.fetchall()
     
     if len(cuestionarioHechoData) != 0:
