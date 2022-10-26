@@ -62,6 +62,7 @@ TiempoCuentaAtras varchar(30),
 FechaLimiteRespuesta varchar(30),
 HoraLimiteParaResolver varchar(30),
 PreviewCuestionarioRuta varchar(150),
+NumeroIntentosDisponibles varchar(10),
 primary key (IDCuestionario,IDGrupo,IDDocente),
 foreign key (IDGrupo) references Grupos(IDGrupo) ON DELETE CASCADE,
 foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
@@ -115,6 +116,7 @@ create table Alumnos_hacen_Cuestionario(
   Puntaje_segmentado varchar(200),
   Tiempo_respuestas varchar(20),
   Ruta_resultados varchar (200),
+  Numero_intentos varchar (10),
   primary key (IDCuestionario,IDAlumno),
   foreign key (IDAlumno) references Alumnos(IDAlumno) ON DELETE CASCADE,
   foreign key (IDCuestionario) references Cuestionarios(IDCuestionario) ON DELETE CASCADE
