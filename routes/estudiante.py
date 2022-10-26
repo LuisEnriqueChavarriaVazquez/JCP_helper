@@ -204,13 +204,14 @@ def answer_cuestionario_alumno(id_cuestionario):
     caducidadCuestionario=request.form["caducidadCuestionario"]
     idCuestionarioHecho=request.form["idCuestionarioHecho"]
     revision_estado = "started"
+    intentos = 1
 
     #Obtenemos los datos del cuestionario en caso de que exista
     datosCuestionarioHecho = Op_estudiante.obtener_hacer_cuestionario(id_cuestionario, idEstudiante, caducidadCuestionario)
     #Agregamos por primera vez un registro del acceso al cuestionario (Si no existe)
     if(datosCuestionarioHecho == "noData"):
         #Metemos la data a la BD
-        Op_estudiante.insertar_primera_vez_cuestionario(idCuestionarioHecho, id_cuestionario, idEstudiante, caducidadCuestionario, revision_estado)
+        Op_estudiante.insertar_primera_vez_cuestionario(idCuestionarioHecho, id_cuestionario, idEstudiante, caducidadCuestionario, revision_estado, intentos)
         #Creamos el JSON de respuestas (Aqui se almacenan las respuestas)
         rutaArchivoRespuestas = 'static/cuestionariosRespuestas/' + idCuestionarioHecho + '.json'
         with open(rutaArchivoRespuestas , 'w') as f:
@@ -218,7 +219,9 @@ def answer_cuestionario_alumno(id_cuestionario):
 
         jsonContentInput = {
             "clave": [{
-                "id_cuestionario": idCuestionarioHecho
+                "id_cuestionario_hecho": idCuestionarioHecho,
+                "id_cuestionario": id_cuestionario,
+                "id_alumno": idEstudiante
             }]
         }
         jsonContentInput = json.dumps(jsonContentInput, indent=1)
@@ -229,8 +232,11 @@ def answer_cuestionario_alumno(id_cuestionario):
             #Guardamos string con formato
         jsonFile.write(jsonContentInput)
         jsonFile.close()
-    else:
-        print(datosCuestionarioHecho)
+    else: #En caso de que ya exista accedemos al cuestionario sin crear uno nuevo
+        iDCuestionarioHacer_value = datosCuestionarioHecho[0][0]
+        intentos_value_actual = datosCuestionarioHecho[0][11]
+        intentos_value_actual = int(intentos_value_actual) + 1
+        Op_estudiante.update_intentos_hacer_cuestionario(intentos_value_actual, iDCuestionarioHacer_value);
 
     ##Accedemos al contenido del JSON
     rutaArchivo = datosCuestionario[0][9]

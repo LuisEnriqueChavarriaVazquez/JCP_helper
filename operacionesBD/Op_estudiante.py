@@ -140,14 +140,29 @@ def obtener_IDs_dentro_de_grupo(id_alumno):
 ## Nos ayuda a registrar acceso a cuestionario
 ##
 
-def insertar_primera_vez_cuestionario(idCuestionarioHecho, id_cuestionario, id_estudiante, caducidad_cuestionario, revision_estado):
+def insertar_primera_vez_cuestionario(idCuestionarioHecho, id_cuestionario, id_estudiante, caducidad_cuestionario, revision_estado, intentos):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO Alumnos_hacen_Cuestionario (IDCuestionarioHecho, IDCuestionario, IDAlumno, Caducidad_cuestionario, Revision_estado) VALUES(%s, %s, %s, %s, %s)",
-        (idCuestionarioHecho, id_cuestionario, id_estudiante,caducidad_cuestionario, revision_estado))
+        cursor.execute("INSERT INTO Alumnos_hacen_Cuestionario (IDCuestionarioHecho, IDCuestionario, IDAlumno, Caducidad_cuestionario, Revision_estado,Numero_intentos) VALUES(%s,%s, %s, %s, %s, %s)",
+        (idCuestionarioHecho, id_cuestionario, id_estudiante,caducidad_cuestionario, revision_estado, intentos))
     conexion.commit()
     conexion.close()
     return "listo"
+
+##
+## Nos ayuda a sumar intentos
+##
+
+def update_intentos_hacer_cuestionario(intentos, idCuestionarioHecho):
+    conexion=obtener_conexion()
+    confirmacion = True
+
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE Alumnos_hacen_Cuestionario SET Numero_intentos = %s WHERE IDCuestionarioHecho = %s", (intentos, idCuestionarioHecho));
+
+    conexion.commit()
+    conexion.close()
+    return confirmacion
 
 ##
 ## Nos ayuda a obtener los cuestionarios que han sido contestados
