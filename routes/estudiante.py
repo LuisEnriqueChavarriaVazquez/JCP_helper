@@ -195,9 +195,19 @@ def view_cuestionario_info(id):
 
 @routes.route('/answerCuestionarioAlumno/<string:id_cuestionario>',methods=['POST'])
 def answer_cuestionario_alumno(id_cuestionario):
+    #Permite leer el JSON con preguntas
+    def accesoDatosPreguntas():
+        ##Accedemos al contenido del JSON
+        rutaArchivo = datosCuestionario[0][9]
+        # Abrimos el archivo
+        f = open(rutaArchivo)
+        #Guardamos la data
+        dataJSON = json.load(f)
+        f.close()
+        return dataJSON
+
     #Obtenemos todos los datos del cuestionario
     datosCuestionario = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
-
 
     #Obtenemos el id del alumno y la caducidad del cuestionario
     idEstudiante=request.form["idEstudiante"]
@@ -232,21 +242,26 @@ def answer_cuestionario_alumno(id_cuestionario):
             #Guardamos string con formato
         jsonFile.write(jsonContentInput)
         jsonFile.close()
+
+        #Carga las preguntas del cuestionario
+        dataJSON = accesoDatosPreguntas()
     else: #En caso de que ya exista accedemos al cuestionario sin crear uno nuevo
+        #Sumamos intentos
         iDCuestionarioHacer_value = datosCuestionarioHecho[0][0]
         intentos_value_actual = datosCuestionarioHecho[0][11]
         intentos_value_actual = int(intentos_value_actual) + 1
-        Op_estudiante.update_intentos_hacer_cuestionario(intentos_value_actual, iDCuestionarioHacer_value);
+        #Accedemos al número máximo de intentos
+        intentosMaximos = datosCuestionario[0][15]
 
-    ##Accedemos al contenido del JSON
-    rutaArchivo = datosCuestionario[0][9]
-    # Abrimos el archivo
-    f = open(rutaArchivo)
-    #Guardamos la data
-    dataJSON = json.load(f)
-    #Guardamos la data como string
-    #dataJSONstr = json.dumps(dataJSON, indent=2)
-    f.close()
+        #Cuando los intentos se agotan nos manda a esta pagina
+        if(int(intentosMaximos) <= int(intentos_value_actual)):
+            return render_template('estudiante/d_noMasIntentos.html', datosCuestionario = datosCuestionario)
+        else:
+            Op_estudiante.update_intentos_hacer_cuestionario(intentos_value_actual, iDCuestionarioHacer_value);
+            #Carga las preguntas del cuestionario
+            dataJSON = accesoDatosPreguntas()
+
+    
 
     #Enviamos al usuario al formulario para ver datos del cuestionario.
     return render_template('estudiante/d_answerCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON)
