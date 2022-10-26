@@ -106,6 +106,7 @@ create table Notificaciones_Docente(
 );
 
 create table Alumnos_hacen_Cuestionario(
+  IDCuestionarioHecho varchar(50) not null,
   IDCuestionario int not null,
   IDAlumno int not null,
   Caducidad_cuestionario varchar(100),
@@ -117,7 +118,7 @@ create table Alumnos_hacen_Cuestionario(
   Tiempo_respuestas varchar(20),
   Ruta_resultados varchar (200),
   Numero_intentos varchar (10),
-  primary key (IDCuestionario,IDAlumno),
+  primary key (IDCuestionarioHecho, IDCuestionario,IDAlumno),
   foreign key (IDAlumno) references Alumnos(IDAlumno) ON DELETE CASCADE,
   foreign key (IDCuestionario) references Cuestionarios(IDCuestionario) ON DELETE CASCADE
 );

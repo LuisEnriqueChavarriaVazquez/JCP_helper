@@ -140,14 +140,33 @@ def obtener_IDs_dentro_de_grupo(id_alumno):
 ## Nos ayuda a registrar acceso a cuestionario
 ##
 
-def insertar_primera_vez_cuestionario( id_cuestionario, id_estudiante, revision_estado, numero_intentos):
+def insertar_primera_vez_cuestionario(idCuestionarioHecho, id_cuestionario, id_estudiante, caducidad_cuestionario, revision_estado):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO Alumnos_hacen_Cuestionario (IDCuestionario, IDAlumno, Revision_estado, Numero_intentos) VALUES(%s, %s, %s, %s)",
-        (id_cuestionario, id_estudiante, revision_estado, numero_intentos))
+        cursor.execute("INSERT INTO Alumnos_hacen_Cuestionario (IDCuestionarioHecho, IDCuestionario, IDAlumno, Caducidad_cuestionario, Revision_estado) VALUES(%s, %s, %s, %s, %s)",
+        (idCuestionarioHecho, id_cuestionario, id_estudiante,caducidad_cuestionario, revision_estado))
     conexion.commit()
     conexion.close()
     return "listo"
+
+##
+## Nos ayuda a obtener los cuestionarios que han sido contestados
+##
+#Operacion para obtener los post
+def obtener_hacer_cuestionario(idCuestionarioHecho):
+    conexion=obtener_conexion()
+    cuestionarioHechoData=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM Alumnos_hacen_Cuestionario WHERE IDCuestionarioHecho = %s", (idCuestionarioHecho))
+        cuestionarioHechoData=cursor.fetchall()
+    
+    if len(cuestionarioHechoData) != 0:
+        conexion.close()
+        return cuestionarioHechoData
+    else:
+        return "noData"
+
 
 ##
 ## Nos ayuda a modificar el fondo del alumno

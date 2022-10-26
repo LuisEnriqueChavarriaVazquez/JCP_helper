@@ -132,12 +132,15 @@ def salir_grupo(id_docente, id_grupo ,id_estudiante):
 ##
 ##Bloque para ver datos de grupo
 ##
-@routes.route('/viewGroupEstudiante/<string:id>')
+@routes.route('/viewGroupEstudiante/<string:id>',methods=['POST'])
 def view_group_alumno(id):
     #Obtenemos los datos del grupo
     pickedGroupData = Op_profesor.obtener_grupo_datos_importantes_unitario(id)
     #Obtenemos los datos del profesor
     pickedProfData = Op_profesor.datos_completos_docente_by_id(id);
+    #Obtenemos el id del alumno 
+    idEstudiante=request.form["idEstudiante"]
+    print(idEstudiante)
 
     ########## INFORMACION ESTUDIANTES EN GRUPOS
     #Obtenemos los ids de los estudiantes dentro de un grupo
@@ -161,15 +164,18 @@ def view_group_alumno(id):
     print(datosCuestionarios)
 
     #Enviamos al usuario al formulario para ver datos del grupo.
-    return render_template('estudiante/b_verGrupo.html', groupInfo = pickedGroupData[0], datosAlumnos = datosAlumnos, datosCuestionarios = datosCuestionarios, profData = pickedProfData)
+    return render_template('estudiante/b_verGrupo.html', groupInfo = pickedGroupData[0], datosAlumnos = datosAlumnos, datosCuestionarios = datosCuestionarios, profData = pickedProfData, idEstudiante = idEstudiante)
 
 ##
 ##Bloque para ver datos de grupo
 ##
-@routes.route('/viewCuestionarioInfo/<string:id>')
+@routes.route('/viewCuestionarioInfo/<string:id>',methods=['POST'])
 def view_cuestionario_info(id):
     ######Obtención de información de los cuestionarios
     datosCuestionarios = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id)
+    #Obtenemos el id del alumno 
+    idEstudiante=request.form["idEstudiante"]
+    print(idEstudiante)
 
     ##Con los datos del cuestionario extraemos
     #IDDocente
@@ -181,16 +187,50 @@ def view_cuestionario_info(id):
     pickedProfData = Op_profesor.datos_completos_docente_by_id(datosCuestionarios[0][2])
 
     #Enviamos al usuario al formulario para ver datos del grupo.
-    return render_template('estudiante/c_viewCuestionarioInfo.html', datosCuestionarios = datosCuestionarios[0], datosGrupo = pickedGroupData[0], datosDocente = pickedProfData)
+    return render_template('estudiante/c_viewCuestionarioInfo.html', datosCuestionarios = datosCuestionarios[0], datosGrupo = pickedGroupData[0], datosDocente = pickedProfData, idEstudiante = idEstudiante)
 
 ##
 ##  Aqui damos inicio a que el alumno conteste el cuestionario
 ##
 
-@routes.route('/answerCuestionarioAlumno/<string:id_cuestionario>')
+@routes.route('/answerCuestionarioAlumno/<string:id_cuestionario>',methods=['POST'])
 def answer_cuestionario_alumno(id_cuestionario):
     #Obtenemos todos los datos del cuestionario
     datosCuestionario = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
+
+
+    #Obtenemos el id del alumno y la caducidad del cuestionario
+    idEstudiante=request.form["idEstudiante"]
+    caducidadCuestionario=request.form["caducidadCuestionario"]
+    idCuestionarioHecho=request.form["idCuestionarioHecho"]
+    revision_estado = "started"
+
+    #Obtenemos los datos del cuestionario en caso de que exista
+    datosCuestionarioHecho = Op_estudiante.obtener_hacer_cuestionario(idCuestionarioHecho)
+    #Agregamos por primera vez un registro del acceso al cuestionario (Si no existe)
+    if(datosCuestionarioHecho == "noData"):
+        #Metemos la data a la BD
+        Op_estudiante.insertar_primera_vez_cuestionario(idCuestionarioHecho, id_cuestionario, idEstudiante, caducidadCuestionario, revision_estado)
+        #Creamos el JSON de respuestas (Aqui se almacenan las respuestas)
+        rutaArchivoRespuestas = 'static/cuestionariosRespuestas/' + idCuestionarioHecho + '.json'
+        with open(rutaArchivoRespuestas , 'w') as f:
+            print("Archivo JSON creado")
+
+        jsonContentInput = {
+            "clave": [{
+                "id_cuestionario": idCuestionarioHecho
+            }]
+        }
+        jsonContentInput = json.dumps(jsonContentInput, indent=1)
+        
+        ##Escribimos el contenido del JSON el en archivo creado
+            #Abrimos archivo
+        jsonFile = open(rutaArchivoRespuestas, "w")
+            #Guardamos string con formato
+        jsonFile.write(jsonContentInput)
+        jsonFile.close()
+    else:
+        print(datosCuestionarioHecho)
 
     ##Accedemos al contenido del JSON
     rutaArchivo = datosCuestionario[0][9]

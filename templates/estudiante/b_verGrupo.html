@@ -80,17 +80,21 @@
                                 {%for i in range(0, datosCuestionarios|length)%}
                                 <!--Solo muestra los ids que coinciden-->
                                 {% if datosCuestionarios[i][1] == groupInfo.0%}
-                                <a href="/viewCuestionarioInfo/{{datosCuestionarios[i][0]}}">
-                                    <div class="colorTextReverse cardCuestionarioGrupoVer">
-                                        <div class="colorGrey titleCardCuestionarioGrupoVer truncate">
-                                            <h6>{{datosCuestionarios[i][3]}}</h6>
-                                        </div>
-                                        <div class="colorGreyDarker borderDecoration descCardCuestionarioGrupoVer">
-                                            <p id="muestraCodigoGrupo" style="text-align: left;">Tipo:
-                                                {{datosCuestionarios[i][7]}}</p>
-                                        </div>
+                                <div class="colorTextReverse cardCuestionarioGrupoVer">
+                                    <div class="colorGrey titleCardCuestionarioGrupoVer truncate">
+                                        <h6>{{datosCuestionarios[i][3]}}</h6>
                                     </div>
-                                </a>
+                                    <div class="colorGreyDarker descCardCuestionarioGrupoVer" style="border-radius: 0;">
+                                        <p id="muestraCodigoGrupo" style="text-align: left;">Tipo:
+                                            {{datosCuestionarios[i][7]}}</p>
+                                    </div>
+                                    <div class="colorGreyDarker borderDecoration bordered2Down" style="padding: 20px 20px; width: 100%; display: flex; justify-content: center; align-items: center;">
+                                        <form action="/viewCuestionarioInfo/{{datosCuestionarios[i][0]}}" method="post">
+                                            <input type="hidden" name="idEstudiante" value="{{idEstudiante}}">
+                                            <button type="submit" class="btn waves-effect color2 bordered5" style="width: 200px;">Acceder</button>
+                                        </form>
+                                    </div>
+                                </div>
                                 {% endif %}
                                 {%endfor%}
                             </section>
@@ -141,5 +145,6 @@
 {% include "includes/footerRecursos.html" %}
 
 <script src="../../static/js/operacionesVerGrupo.js"></script>
+<script src="../../static/js/generadorCodigosCuestionarioHacer.js"></script>
 
 </html>
