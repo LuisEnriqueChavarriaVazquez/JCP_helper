@@ -254,7 +254,7 @@ def answer_cuestionario_alumno(id_cuestionario):
         intentosMaximos = datosCuestionario[0][15]
 
         #Cuando los intentos se agotan nos manda a esta pagina
-        if(int(intentosMaximos) <= int(intentos_value_actual)):
+        if(int(intentosMaximos) == int(intentos_value_actual)):
             return render_template('estudiante/d_noMasIntentos.html', datosCuestionario = datosCuestionario)
         else:
             Op_estudiante.update_intentos_hacer_cuestionario(intentos_value_actual, iDCuestionarioHacer_value);

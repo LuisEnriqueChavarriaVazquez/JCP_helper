@@ -1,12 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Se han terminado los intentos</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
 </head>
-<body>
-    No mas intentos
+
+<body class="oculto color2">
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+
+    <!--Menu de página de inicio-->
+    <nav class="color1">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only">Intentos.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Intentos.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="containerIntentosInfo">
+        <h4 class="colorText hide-on-small-only">Usted ha agotado su número máximo de intentos.</h4>
+        <h5 class="colorText hide-on-med-and-up">Usted ha agotado su número máximo de intentos.</h5>
+        <p class="colorText">Ha usted superado el número máximo de intentos posibles para este cuestionario, comuniquese con su docente para más información.</p>
+        <img src="../../static/images/icons/icon_noIntentos.svg" id="iconIntentos">
+        <a href="/noIntentosDisponibles" id="buttonIntentos" class="btn-large colorWhite waves-effect bordered5 coloredText">Regresar</a>
+    </section>
+    
+    <a href="#modalIntentos" id="modalTriggerAutomatic" class="hiddenElement modal-trigger">Activar modal</a>
+    <!--Pop up para entrar a volver-->
+    <div id="modalIntentos" class="modal bordered2 colorGrey">
+        <div class="modal-content">
+            <h4>No cuenta con más intentos para realizar el cuestionario</h4>
+            <p>Ha usted superado el número máximo de intentos posibles para este cuestionario</p>
+            <hr>
+            <a href="/noIntentosDisponibles" class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded"
+            style="width: 100%;">Aceptar</a>
+        </div>
+    </div>
+
+
 </body>
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+<script>
+    let buttonModal = document.getElementById('modalTriggerAutomatic');
+    setTimeout(() => {
+        buttonModal.click();
+    }, 200);
+</script>
+
 </html>

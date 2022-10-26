@@ -1,0 +1,59 @@
+.containerIntentosInfo{
+    padding: 50px 100px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#iconIntentos{
+    width: 40%;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+#buttonIntentos{
+    width: 40%;
+}
+
+@media screen and (max-width: 1200px) {
+    #iconIntentos{
+        width: 50%;
+    }
+    #buttonIntentos{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #iconIntentos{
+        width: 60%;
+    }
+    #buttonIntentos{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #iconIntentos{
+        width: 80%;
+    }
+    #buttonIntentos{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .containerIntentosInfo{
+        padding: 10px 40px;
+    }
+
+    #iconIntentos{
+        width: 100%;
+    }
+    #buttonIntentos{
+        width: 100%;
+    }
+}
