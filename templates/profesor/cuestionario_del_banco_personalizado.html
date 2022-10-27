@@ -82,55 +82,22 @@
                                         <label class="active" for="mediaProblemaOpcionMultiple0">Imagen (url)</label>
                                     </div>
                                 </div>
+                            
+                                {% for llave,valor in pregunta.opciones.items() %}
                                 <div class="row colorGreyWhiter bordered1 opcionContainer">
                                     <div class="col s12 m3 labelContainer">
                                         <label>
-                                            <input type="radio" value="A" name="group0">
+                                            <input type="radio" value="{{llave}}" name="group0">
                                             <span>Correcta</span>
                                         </label>
                                     </div>
                                     <div class="col s12 m9">
-                                        <h6><b>Opción A</b></h6>
+                                        <h6><b>Opción {{llave}}</b></h6>
                                         <textarea id="opcionACreacion" class="materialize-textarea"
-                                            name="textArea0">tal vez</textarea>
+                                            name="textArea0">{{valor}}</textarea>
                                     </div>
                                 </div>
-                                <div class="row colorGreyWhiter bordered1 opcionContainer ">
-                                    <div class="col s12 m3 labelContainer">
-                                        <label>
-                                            <input type="radio" value="B" name="group0">
-                                            <span>Correcta</span>
-                                        </label>
-                                    </div>
-                                    <div class="col s12 m9">
-                                        <h6><b>Opción B</b></h6>
-                                        <textarea class="materialize-textarea" name="textArea0">no se</textarea>
-                                    </div>
-                                </div>
-                                <div class="row colorGreyWhiter bordered1 opcionContainer ">
-                                    <div class="col s12 m3 labelContainer">
-                                        <label>
-                                            <input type="radio" value="C" name="group0" checked="">
-                                            <span>Correcta</span>
-                                        </label>
-                                    </div>
-                                    <div class="col s12 m9">
-                                        <h6><b>Opción C</b></h6>
-                                        <textarea class="materialize-textarea" name="textArea0">quizas</textarea>
-                                    </div>
-                                </div>
-                                <div class="row colorGreyWhiter bordered1 opcionContainer ">
-                                    <div class="col s12 m3 labelContainer">
-                                        <label>
-                                            <input type="radio" value="D" name="group0">
-                                            <span>Correcta</span>
-                                        </label>
-                                    </div>
-                                    <div class="col s12 m9">
-                                        <h6><b>Opción D</b></h6>
-                                        <textarea class="materialize-textarea" name="textArea0">no</textarea>
-                                    </div>
-                                </div>
+                                {% endfor %}
                                 <div class="containerButtonsView">
                                     <div>
                                         <a
@@ -178,7 +145,7 @@
                                                 <h6><b>Respuesta</b></h6>
                                                 <p>Escribe F en caso de que sea falso o T en caso de que sea verdad.</p>
                                                 <br>
-                                                <input maxlength="1" value="V" placeholder="T/F"
+                                                <input maxlength="1" value="{{pregunta.respuesta}}" placeholder="T/F"
                                                     id="textFalseVerdadero1" type="text"
                                                     class="validate shadow-1e colorGreyWhiter falsoVerdaderoInput browser-default valid">
                                             </div>
