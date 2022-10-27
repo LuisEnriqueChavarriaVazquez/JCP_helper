@@ -35,7 +35,7 @@ function hacerCuentaAtras() {
         const REMAINING_SECONDS = Math.floor((DURATION % MILLISECONDS_OF_A_MINUTE) / MILLISECONDS_OF_A_SECOND);
 
         // Mostrar cambios
-        contadorFechaCaja.textContent = REMAINING_DAYS + "D / ";
+        contadorFechaCaja.textContent = REMAINING_DAYS + "D/";
         contadorTiempoCaja.textContent = REMAINING_HOURS + "h:" + REMAINING_MINUTES + "m:" + REMAINING_SECONDS + "s";
 
         if(REMAINING_DAYS < 0){

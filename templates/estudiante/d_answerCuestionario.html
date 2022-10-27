@@ -48,12 +48,18 @@
                         </div>
                         <!--Nota: No borrar este input, porque aqui es donde indicamos si es aleatorio o no-->
                         <input type="hidden" value="{{datosCuestionario[0][10]}}" id="ordenCuestionarioValue">
-                        <div class="color5 bordered5">Días restantes:
+                        <div class="color5 bordered5">Límite:
                             <span class="coloredText" id="contadorFecha">{{datosCuestionario[0][12]}}</span>
                             <span  class="coloredText" id="contadorTiempo">{{datosCuestionario[0][13]}}</span>
                         </div>
                         <div class="color5 bordered5">Minutos restantes:
                             <span class="coloredText" id="tiempoRestante">{{datosCuestionario[0][11]}}</span>
+                        </div>
+                        <div class="colorGreyDarker bordered5">Caducidad: 
+                            <span class="coloredText" id="caducidadTexto">{{datosCuestionarioHecho[0][3]}}</span>
+                        </div>
+                        <div class="colorGreyDarker bordered5">Intentos: 
+                            <span class="coloredText" id="caducidadTexto">{{datosCuestionarioHecho[0][11]}}</span>
                         </div>
                         <div class="contenedorBarra colorGrey bordered5">
                             <div class="cargaBarra color1 bordered5"></div>
@@ -96,7 +102,16 @@
                     id="botonRevisarMensaje"
                     class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded"
                     style="width: 100%;">Enviar</button>
+                <!--Se guardan los resultados del cuestionario-->
                 <input type="hidden" name="jsonContentInput" id="jsonContentInput" value="">
+                <!--Se guardan los metadatos-->
+                <input type="hidden" name="revisionEstado" id="revisionEstado">
+                <input type="hidden" name="aprovacionEstado" id="aprovacionEstado">
+                <input type="hidden" name="promedioGeneral" id="promedioGeneral">
+                <input type="hidden" name="puntajeGeneral" id="puntajeGeneral">
+                <input type="hidden" name="puntajeSegmentado" id="puntajeSegmentado">
+                <input type="hidden" name="tiempoRespuestas" id="tiempoRespuestas">
+                <input type="hidden" name="rutaResultados" id="rutaResultados">
             </form>
         </div>
     </div>
@@ -117,12 +132,14 @@
 <!--En esta parte todo los demás del script se hará en un archivo externo-->
 <script>
     //Accedemos a los datos guardados en el JSON
-    const dataCuestionarioJSON = {{dataJSON| tojson}}; 
+    const dataCuestionarioJSON = {{dataJSON| tojson }}; 
 </script>
 <script src="../../static/js/operacionesTerminos.js"></script>
-<script src="../../static/js/operacionesPreviewDeAlumno_real.js"></script>
+<script src="../../static/js/operacionesPreviewDeAlumno_real.js"></script> <!--Ayuda a la correcta visualización de las preguntas en pantalla-->
 <script src="../../static/js/operacionesCuestionariosCuentaAtras.js"></script>
-<script src="../../static/js/operacionesCuestionariosRespuestas.js"></script>
+<!--Estas dos son importantes para gestionar las respuestas-->
+<script src="../../static/js/operacionesCuestionariosRespuestas_real.js"></script> <!--Recolecta los resultado-->
+<script src="../../static/js/operacionRecolectarMetadataCuestionario.js"></script>
 
 <!--Esta parte necesita ser agregada aqui porque son cambios en tiempo real-->
 <script>

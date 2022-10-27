@@ -254,7 +254,7 @@ def answer_cuestionario_alumno(id_cuestionario):
         intentosMaximos = datosCuestionario[0][15]
 
         #Cuando los intentos se agotan nos manda a esta pagina
-        if(int(intentosMaximos) == int(intentos_value_actual)):
+        if(int(intentosMaximos) < int(intentos_value_actual)):
             return render_template('estudiante/d_noMasIntentos.html', datosCuestionario = datosCuestionario, idEstudiante = idEstudiante)
         else:
             Op_estudiante.update_intentos_hacer_cuestionario(intentos_value_actual, iDCuestionarioHacer_value);
@@ -262,7 +262,7 @@ def answer_cuestionario_alumno(id_cuestionario):
             dataJSON = accesoDatosPreguntas()
 
     #Enviamos al usuario al formulario para ver datos del cuestionario.
-    return render_template('estudiante/d_answerCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON, idEstudiante = idEstudiante)
+    return render_template('estudiante/d_answerCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON, idEstudiante = idEstudiante, datosCuestionarioHecho = datosCuestionarioHecho)
 
 ##Cuando hay no hay mas intentos esta nos permite regresar a la vista general
 @routes.route('/noIntentosDisponibles/<string:id_cuestionario>', methods=['POST'])
@@ -283,6 +283,15 @@ def redireccionar_a_vista_grupos(id_cuestionario):
 def revisar_alumno(id_cuestionario):
     #Obtenemos todos los datos del cuestionario
     datosCuestionario = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
+
+    #Obtenemos los metadatos del formulario
+    jsonContentInput=request.form["jsonContentInput"] #Contenido del JSON de respuestas
+    aprovacionEstado=request.form["aprovacionEstado"]
+    promedioGeneral=request.form["promedioGeneral"]
+    puntajeGeneral=request.form["puntajeGeneral"]
+    puntajeSegmentado=request.form["puntajeSegmentado"]
+    tiempoRespuestas=request.form["tiempoRespuestas"]
+    rutaResultados=request.form["rutaResultados"]
 
     # #Creamos la variable para la ruta de la preview
     # rutaCuestionarioPreview = 'static/cuestionariosPreview/'+ str(datosCuestionario[0][3]) + str(datosCuestionario[0][0]) + str(datosCuestionario[0][1]) + str(datosCuestionario[0][2]) +'Preview.json'
