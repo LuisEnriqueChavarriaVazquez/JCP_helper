@@ -102,16 +102,18 @@
                     id="botonRevisarMensaje"
                     class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded"
                     style="width: 100%;">Enviar</button>
-                <!--Se guardan los resultados del cuestionario-->
-                <input type="hidden" name="jsonContentInput" id="jsonContentInput" value="">
+                <!--Se guardan los resultados del cuestionario y la ruta-->
+                <input type="hidden" name="jsonContentInput" id="jsonContentInput" value=""> <!--Listo-->
+                <input type="hidden" name="idCuestionarioHecho" id="idCuestionarioHecho" value="{{datosCuestionarioHecho[0][0]}}">
+                <input type="hidden" name="rutaResultados" id="rutaResultados" value="{{datosCuestionarioHecho[0][0]}}"> <!--Listo-->
                 <!--Se guardan los metadatos-->
-                <input type="hidden" name="revisionEstado" id="revisionEstado">
-                <input type="hidden" name="aprovacionEstado" id="aprovacionEstado">
-                <input type="hidden" name="promedioGeneral" id="promedioGeneral">
-                <input type="hidden" name="puntajeGeneral" id="puntajeGeneral">
-                <input type="hidden" name="puntajeSegmentado" id="puntajeSegmentado">
-                <input type="hidden" name="tiempoRespuestas" id="tiempoRespuestas">
-                <input type="hidden" name="rutaResultados" id="rutaResultados">
+                <!--Los que dicen pending deben ser tratados en la siguiente ventana de evaluacion-->
+                <input type="hidden" name="revisionEstado" id="revisionEstado" value="pending">
+                <input type="hidden" name="aprovacionEstado" id="aprovacionEstado" value="pending">
+                <input type="hidden" name="promedioGeneral" id="promedioGeneral" value="pending">
+                <input type="hidden" name="puntajeGeneral" id="puntajeGeneral" value="pending">
+                <input type="hidden" name="puntajeSegmentado" id="puntajeSegmentado" value="pending">
+                <input type="hidden" name="tiempoRespuestas" id="tiempoRespuestas"> <!--Listo-->
             </form>
         </div>
     </div>

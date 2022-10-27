@@ -286,48 +286,41 @@ def revisar_alumno(id_cuestionario):
 
     #Obtenemos los metadatos del formulario
     jsonContentInput=request.form["jsonContentInput"] #Contenido del JSON de respuestas
+    rutaResultados=request.form["rutaResultados"]
+    idCuestionarioHecho=request.form["idCuestionarioHecho"]
+    tiempoRespuestas=request.form["tiempoRespuestas"]
+    tiempoRespuestas = str(tiempoRespuestas)
+
+    #Estos valores quedan en esta parte como pending
     aprovacionEstado=request.form["aprovacionEstado"]
     promedioGeneral=request.form["promedioGeneral"]
     puntajeGeneral=request.form["puntajeGeneral"]
     puntajeSegmentado=request.form["puntajeSegmentado"]
-    tiempoRespuestas=request.form["tiempoRespuestas"]
-    rutaResultados=request.form["rutaResultados"]
 
-    # #Creamos la variable para la ruta de la preview
-    # rutaCuestionarioPreview = 'static/cuestionariosPreview/'+ str(datosCuestionario[0][3]) + str(datosCuestionario[0][0]) + str(datosCuestionario[0][1]) + str(datosCuestionario[0][2]) +'Preview.json'
+    ##Escribimos el contenido del JSON el en archivo creado
+        #Abrimos archivo
+    jsonFile = open(rutaResultados, "w")
+        #Guardamos string en objeto usable
+    jsonObject = json.loads(jsonContentInput)
+        #Formateamos nuevo objeto como string con identado
+    jsonString = json.dumps(jsonObject, indent=1)
+        #Guardamos string con formato
+    jsonFile.write(jsonString)
+    jsonFile.close()
 
-    # #Obtenemos el contenido del JSON en un string (Contenido del form)
-    # jsonContentInput = request.form["jsonContentInput"]
+    ##Ingresamos la ruta y el tiempo que tardo a la base de datos
+    Op_estudiante.insertar_data_cuestinario_respondido(idCuestionarioHecho, tiempoRespuestas, rutaResultados)
 
-    # #Creamos el documento JSON y lo guardamos
-    # rutaArchivo = 'static/cuestionariosPreview/'+ str(datosCuestionario[0][3]) + str(datosCuestionario[0][0]) + str(datosCuestionario[0][1]) + str(datosCuestionario[0][2]) +'Preview.json'
-    # with open(rutaArchivo , 'w') as f:
-    #     print("Archivo JSON creado")
 
-    # ##Escribimos el contenido del JSON el en archivo creado
-    #     #Abrimos archivo
-    # jsonFile = open(rutaArchivo, "w")
-    #     #Guardamos string en objeto usable
-    # jsonObject = json.loads(jsonContentInput)
-    #     #Formateamos nuevo objeto como string con identado
-    # jsonString = json.dumps(jsonObject, indent=1)
-    #     #Guardamos string con formato
-    # jsonFile.write(jsonString)
-    # jsonFile.close()
-
-    # ##Ingresamos la ruta a la base de datos
-    # Op_profesor.insertar_ruta_preview_cuestionario(datosCuestionario[0][0], rutaCuestionarioPreview)
-
-    # # Abrimos el archivo
-    # f = open(rutaCuestionarioPreview)
-    # #Guardamos la data de la preview
-    # dataJSON = json.load(f)
-    # #Guardamos la data como string
-    # f.close()
+    # Abrimos el archivo para que cargue los datos de las respuestas
+    f = open(rutaResultados)
+    #Guardamos la data de la preview
+    dataJSON = json.load(f)
+    #Guardamos la data como string
+    f.close()
 
     #Enviamos al usuario al formulario para ver datos del cuestionario.
-    return render_template('estudiante/d_verResultadosCuestionario.html', datosCuestionario = datosCuestionario)
-    # return render_template('estudiante/d_answerCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON)
+    return render_template('estudiante/d_verResultadosCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON)
 
 
 

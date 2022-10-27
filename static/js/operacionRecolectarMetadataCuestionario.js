@@ -1,3 +1,4 @@
+//////////////////////////////////////////////
 /*
 *   Obtenemos el tiempo de las respuesta
 *   desde que el alumno comenzó hasta que lo mando
@@ -29,8 +30,24 @@ const tiempoRespuestas = () =>{
             //console.log('contadorHoras', contadorHoras)
         }
 
+        //Insertamos el tiempo en el input
         tiempoRespuestas.value = `${contadorHoras}h:${contadorMinutos}m:${contadorSegundos}s`;
 
     }, 1000);
 }
 tiempoRespuestas();
+
+//////////////////////////////////////////////
+//Debe generar la ruta para los resultados
+const rutaResultados = () => {
+    //Accedemos al input con la ruta
+    const rutaResultados = document.getElementById('rutaResultados');
+    //Guardamos el ID del archivo
+    const idCuestionarioHecho = rutaResultados.value;
+    //Generamos la nueva ruta donde se alamcenó el JSON con las respuestas (en python)
+    const rutaArchivoRespuestas = 'static/cuestionariosRespuestas/' + idCuestionarioHecho + '.json';
+    //Definimos la ruta en el value
+    rutaResultados.value = rutaArchivoRespuestas;
+}
+
+rutaResultados();
