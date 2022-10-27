@@ -46,13 +46,13 @@
                 </div>
                 <div class="controlsRevisionCuestionarios">
                     <a href="" class="btn colorGrey colorTextReverse bordered5 shadow-1e"><i class="material-icons md-24">visibility</i></a>
-                    <a href="#modal1{{datosCuestionariosPendingExtendidos[i][0]}}" class="modal-trigger btn colorGrey colorTextReverse bordered5 shadow-1e"><i class="material-icons md-24">person</i></a>
-                    <a href="#modal2{{datosCuestionariosPendingExtendidos[i][0]}}" class="modal-trigger btn colorGrey colorTextReverse bordered5 shadow-1e"><i class="material-icons md-24">info</i></a> 
+                    <a href="#modal1{{datosCuestionariosPending[i][0]}}" class="modal-trigger btn colorGrey colorTextReverse bordered5 shadow-1e"><i class="material-icons md-24">person</i></a>
+                    <a href="#modal2{{datosCuestionariosPending[i][0]}}" class="modal-trigger btn colorGrey colorTextReverse bordered5 shadow-1e"><i class="material-icons md-24">info</i></a> 
                 </div>
             </section>
 
             <!--Modal para ver datos del alumno-->
-            <div id="modal1{{datosCuestionariosPendingExtendidos[i][0]}}" class="modal bordered2 colorGrey" style="height: auto;">
+            <div id="modal1{{datosCuestionariosPending[i][0]}}" class="modal bordered2 colorGrey" style="height: auto;">
                 <div class="modal-content">
                     <h4>Datos alumno</h4>
                     <p>Información relevante del alumno.</p>
@@ -76,7 +76,7 @@
                 </div>
             </div>
             <!--Modal para ver datos del cuestionario-->
-            <div id="modal2{{datosCuestionariosPendingExtendidos[i][0]}}" class="modal bordered2 colorGrey" style="height: auto;">
+            <div id="modal2{{datosCuestionariosPending[i][0]}}" class="modal bordered2 colorGrey" style="height: auto;">
                 <div class="modal-content">
                     <h4>Datos cuestionario</h4>
                     <p>Información relevante de las respuestas del cuestionario.</p>
@@ -93,8 +93,8 @@
                         <p class="revisionDataExtraAlumno colorGreyWhiter bordered1">Fecha límite: <span>{{datosCuestionariosPendingExtendidos[i][12]}} {{datosCuestionariosPendingExtendidos[i][13]}}</span></p>
                         <p class="revisionDataExtraAlumno colorGreyWhiter bordered1">Máxima de intentos: <span>{{datosCuestionariosPendingExtendidos[i][15]}}</span></p>
                         <h5>Relacionado con respuestas</h5>
-                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1">Tiempo de respuesta: <span>{{datosCuestionariosPending[i][9]}}</span></p>
-                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1">Intentos: <span>{{datosCuestionariosPending[i][11]}}</span></p>
+                        <p class="revisionDataExtraAlumno sosoColor bordered1">Tiempo de respuesta: <span>{{datosCuestionariosPending[i][9]}}</span></p>
+                        <p class="revisionDataExtraAlumno sosoColor bordered1">Intentos: <span>{{datosCuestionariosPending[i][11]}}</span></p>
                     </div>
                 </div>
             </div>

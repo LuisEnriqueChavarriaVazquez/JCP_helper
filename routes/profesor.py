@@ -91,6 +91,8 @@ def revisionCuestionarios(id_docente):
         datosCuestionariosPending = []
         for idCuestionario in idCuestionariosLista:
             datosCuestionariosPending += Op_profesor.obtener_cuestionarios_en_estado_pending(idCuestionario)
+        print("Cuestionarios pendientes")
+        print(datosCuestionariosPending)
             
         #Almacenamos las IDS de los cuestionarios pending
         idsPendingCuestionarios = []
@@ -101,9 +103,10 @@ def revisionCuestionarios(id_docente):
         datosCuestionariosPendingExtendidos = []
         for idCuestionario2 in idsPendingCuestionarios:
             datosCuestionariosPendingExtendidos += Op_profesor.obtener_cuestionario_datos_importantes_unitario(idCuestionario2)
+        print("Cuestionarios data")
         print(datosCuestionariosPendingExtendidos)
 
-        #Almacenamos los IDS de los alumno
+        #Almacenamos los IDS de los alumno con pending
         idsAlumnos = []
         for idAlumno in datosCuestionariosPending:
             idsAlumnos += [idAlumno[2]]
@@ -112,6 +115,8 @@ def revisionCuestionarios(id_docente):
         datosAlumnosEnOrden = []
         for idAlumno in idsAlumnos:
             datosAlumnosEnOrden += Op_profesor.datos_completos_alumno_by_id(idAlumno)
+        print("Alumnos con cuestionarios pendientes")
+        print(datosAlumnosEnOrden)
         
         return render_template('profesor/b_cuestionarios_revisiones_pendientes.html', datosCuestionariosPending = datosCuestionariosPending, datosCuestionariosPendingExtendidos = datosCuestionariosPendingExtendidos, datosAlumnosEnOrden = datosAlumnosEnOrden)
     # except:
