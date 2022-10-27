@@ -84,11 +84,11 @@
   },
   {
    "respuestas": [
-    "opt1InputGet_0/&2",
-    "opt1InputGet_1/&3",
-    "opt1InputGet_2/&4",
-    "opt1InputGet_3/&5",
-    "opt1InputGet_4/&3"
+    "opt1InputGet_0/A&2",
+    "opt1InputGet_1/B&3",
+    "opt1InputGet_2/A&4",
+    "opt1InputGet_3/D&5",
+    "opt1InputGet_4/A&3"
    ]
   }
  ],
@@ -104,8 +104,8 @@
   },
   {
    "respuestas": [
-    "opt2InputGet_0/&3",
-    "opt2InputGet_1/&4"
+    "opt2InputGet_0//palabra 1&3",
+    "opt2InputGet_1//concepto 1/concepto 2&4"
    ]
   }
  ],
@@ -119,7 +119,7 @@
   },
   {
    "respuestas": [
-    "opt3InputGet_0/&2"
+    "opt3InputGet_0/Output: 3/Link: EMPTY&2"
    ]
   }
  ],
@@ -137,8 +137,8 @@
   },
   {
    "respuestas": [
-    "opt4InputGet_0/&2",
-    "opt4InputGet_1/&1"
+    "opt4InputGet_0/palabra 1/concepto 2/&2",
+    "opt4InputGet_1/palabra 1/concepto 2/p1/concepto con texto largoconcepto con texto largoconcepto con texto largoconcepto con texto largoconcepto con texto largoconcepto con texto largoconcepto con texto largo/p2/concepto un poco mas corto/p4/p3/&1"
    ]
   }
  ],
@@ -157,9 +157,9 @@
   },
   {
    "respuestas": [
-    "opt5InputGet_0/&1",
-    "opt5InputGet_1/&2",
-    "opt5InputGet_2/&3"
+    "opt5InputGet_0/false&1",
+    "opt5InputGet_1/true&2",
+    "opt5InputGet_2/false&3"
    ]
   }
  ],

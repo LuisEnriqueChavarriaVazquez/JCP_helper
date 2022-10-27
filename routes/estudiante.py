@@ -326,6 +326,50 @@ def revisar_alumno(id_cuestionario):
     #Enviamos al usuario al formulario para ver datos del cuestionario.
     return render_template('estudiante/d_verResultadosCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON)
 
+##Se hace el guardado de las respuestas del alumno
+@routes.route('/resultadoAlumno/<string:id_cuestionario>', methods=['POST'])
+def resultado_alumno(id_cuestionario):
+    #Obtenemos todos los datos del cuestionario
+    datosCuestionario = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
+
+    #Obtenemos los metadatos del formulario
+    jsonContentInput=request.form["jsonContentInput"] #Contenido del JSON de respuestas
+    rutaResultados=request.form["rutaResultados"]
+    idCuestionarioHecho=request.form["idCuestionarioHecho"]
+    tiempoRespuestas=request.form["tiempoRespuestas"]
+    tiempoRespuestas = str(tiempoRespuestas)
+
+    #Estos valores quedan en esta parte como pending
+    aprovacionEstado=request.form["aprovacionEstado"]
+    promedioGeneral=request.form["promedioGeneral"]
+    puntajeGeneral=request.form["puntajeGeneral"]
+    puntajeSegmentado=request.form["puntajeSegmentado"]
+
+    ##Escribimos el contenido del JSON el en archivo creado
+        #Abrimos archivo
+    jsonFile = open(rutaResultados, "w")
+        #Guardamos string en objeto usable
+    jsonObject = json.loads(jsonContentInput)
+        #Formateamos nuevo objeto como string con identado
+    jsonString = json.dumps(jsonObject, indent=1)
+        #Guardamos string con formato
+    jsonFile.write(jsonString)
+    jsonFile.close()
+
+    ##Ingresamos la ruta y el tiempo que tardo a la base de datos
+    Op_estudiante.insertar_data_cuestinario_respondido(idCuestionarioHecho, tiempoRespuestas, rutaResultados)
+
+
+    # Abrimos el archivo para que cargue los datos de las respuestas
+    f = open(rutaResultados)
+    #Guardamos la data de la preview
+    dataJSON = json.load(f)
+    #Guardamos la data como string
+    f.close()
+
+    #Enviamos al usuario al formulario para ver datos del cuestionario.
+    return render_template('estudiante/d_verResultadosCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON)
+
 
 
 ##
