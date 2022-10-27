@@ -602,7 +602,12 @@ def genera_preguntas_por_lenguaje():
             if i["tipo_pregunta"].startswith("Op"):
                 i["opciones"]= i["opciones"].split(",")
                 print(i["opciones"])
-                print("**********************************")     
+                print("**********************************")
+            elif i["tipo_pregunta"].startswith("Ver"):
+                aux= i["respuesta"]
+                i["respuesta"]=aux[0].upper()    
+                print(i["respuesta"])
+                print("*********************************")
             cuestionario_personalizado.append(i)
 
     return render_template("profesor/cuestionario_del_banco_personalizado.html",preguntas=cuestionario_personalizado)
