@@ -17,12 +17,20 @@ validacionContenedorApelacion();
 ///Desarrollamos la funcion de apelar
 function apelar(valorFinal, inputResolucion, textoConfirmacion){
     let textoParaConfirmar = document.getElementById(textoConfirmacion);
-    console.log('textoParaConfirmar', textoParaConfirmar)
+    let inputResolucionGet = document.getElementById(inputResolucion);
+
     if(valorFinal == "bien"){
+        //Insertamos graficamente un indicador de la apelacion
         textoParaConfirmar.innerHTML = `<b><i class="material-icons md-24">thumb_up</b>`;
         textoParaConfirmar.classList.add('resolucionFormato');
+        //Insertamos el valor
+        inputResolucionGet.value = valorFinal;
+        
     }else if(valorFinal == "mal"){
+        //Insertamos graficamente un indicador de la apelacion
         textoParaConfirmar.innerHTML = `<b><i class="material-icons md-24">thumb_down</b>`;
         textoParaConfirmar.classList.add('resolucionFormato');
+        //Insertamos el valor
+        inputResolucionGet.value = valorFinal;
     }
 }
