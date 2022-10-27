@@ -90,6 +90,11 @@ function evaluacionEstado(){
         }
 
         puntajeSegmentado.value = puntajeTotalSegementado;
+    }else if(estadoCuestionario == "pending"){
+        aprovacionEstado.value = "pending";
+        promedioGeneral.value = "pending"; 
+        puntajeGeneral.value = "pending"; 
+        puntajeSegmentado.value = "pending"; 
     }
 }
 evaluacionEstado();

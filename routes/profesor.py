@@ -75,6 +75,14 @@ def gestionar_cuestionarios():
     except:
         return render_template('profesor/a_gestionar_cuestionarios.html')
 
+##Tura para ir a la vista de revision de cuestionarios pendientes
+@routes.route('/revisionCuestionarios')
+def revisionCuestionarios():
+    try:
+        return render_template('profesor/b_cuestionarios_revisiones_pendientes.html')
+    except:
+        return render_template('profesor/b_cuestionarios_revisiones_pendientes.html')
+
 
 ##Ruta para la vista de gestion de estadisticas
 @routes.route('/gestionar_estadisticas/<string:id_docente>')

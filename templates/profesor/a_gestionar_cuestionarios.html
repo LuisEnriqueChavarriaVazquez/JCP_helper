@@ -35,7 +35,8 @@
                 {% if datos %}
                 <div class="imagenOperationContainer">
                     <a href="/perfil_docente">
-                        <img src="../../static/images/docentes/{{datos[3]}}" class="shadow-2e circle" style="border: 3px solid #fff; width: 80px;">
+                        <img src="../../static/images/docentes/{{datos[3]}}" class="shadow-2e circle"
+                            style="border: 3px solid #fff; width: 80px;">
                     </a>
                 </div>
                 <div class="dataUserOperationContainer">
@@ -48,9 +49,13 @@
             <div class="colorGreyWhiter operationsContainerSecondarySideNav">
                 <div class="operationButtonSideNav">
                     <h5>Operaciones.</h5>
-                    <a class="waves-effect waves-light btn color2 shadow-2e modal-trigger" href="/creacion_cuestionarios/{{datos[0]}}"
-                        id="buttonNuevoGrupo"><i class="material-icons left">add</i>Crear
+                    <a class="waves-effect waves-light btn color2 shadow-2e modal-trigger"
+                        href="/creacion_cuestionarios/{{datos[0]}}" id="buttonNuevoGrupo"><i
+                            class="material-icons left">add</i>Crear
                         cuestionario</a>
+                    <a class="waves-effect waves-light btn color2 shadow-2e modal-trigger"
+                        href="/revisionCuestionarios" id="buttonNuevoGrupo"><i
+                            class="material-icons left">check</i>Revisar</a>
                 </div>
                 <div class="operationButtonSideNav">
                     <h5>Buscador.</h5>
@@ -75,13 +80,19 @@
             </div>
         </section>
 
+        <!--Button para ir a la revisión de examenes pendientes-->
+        <a id="buttonRevisarPendientes" href="/revisionCuestionarios"
+            class="hide-on-large-only waves-effect waves-light btn color1 colorText button-rounded centerAlignerNoWidth"><i
+                class="material-icons md-24">check</i></a>
 
         <!--Contenedor principal-->
         <section class="operationMainNav">
             <!--Titulos de la página-->
             <div class="title-general color1 fixedTitleOperationMain shadow-2e" id="cajaTituloBuscadorId">
-                <h6 class="colorText hide-on-large-only hide-on-med-only" id="cajaTituloBuscadorContenidoId">Cuestionarios creados</h6>
-                <h5 class="colorText hide-on-small-only" id="cajaTituloBuscadorContenidoLargeId">Cuestionarios creados</h5>
+                <h6 class="colorText hide-on-large-only hide-on-med-only" id="cajaTituloBuscadorContenidoId">
+                    Cuestionarios creados</h6>
+                <h5 class="colorText hide-on-small-only" id="cajaTituloBuscadorContenidoLargeId">Cuestionarios creados
+                </h5>
             </div>
 
             <!--Buscador para los dispositivos moviles-->
@@ -120,13 +131,13 @@
                 <div>
                     <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
                         <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId"
-                        style="background-image: url('../../static/images/fondos/black/black_7.png'); background-position: center; background-repeat: no-repeat; background-size: cover;">
-                        <div>
-                            <h5 class="titleGroupContentId">{{datosCuestionarios[i][3]}}</h5>
-                        </div>
+                            style="background-image: url('../../static/images/fondos/black/black_7.png'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+                            <div>
+                                <h5 class="titleGroupContentId">{{datosCuestionarios[i][3]}}</h5>
+                            </div>
                             <div class="studentCountCardOperation">
                                 <div>
-                                    <i class="material-icons md-22">preview</i> 
+                                    <i class="material-icons md-22">preview</i>
                                     <span class="contadorAlumnosNumber">0</span>
                                 </div>
                                 <div>
@@ -138,7 +149,8 @@
                         <div
                             class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
                             <p style="margin: 10px 0 0 0 !important;"><b>Grupo: {{datosGrupos[i][0][0]}}</b></p>
-                            <p class="hide-on-small-only colorGrey bordered1" style="padding: 10px; margin: 5px 0 !important;">{{datosCuestionarios[i][7]}}</p>
+                            <p class="hide-on-small-only colorGrey bordered1"
+                                style="padding: 10px; margin: 5px 0 !important;">{{datosCuestionarios[i][7]}}</p>
                         </div>
                         <div class="sectionCardOperationActions colorGreyWhiter sectionCardOperationActionsId">
                             <!--Botones de cada grupo-->
@@ -146,8 +158,8 @@
                                 class="modal-trigger classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
                                     class="material-icons md-24">edit</i></a>
                             <a href="/duplicarCuestionarios/{{datosCuestionarios[i][0]}}"
-                                    class="modal-trigger classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                        class="material-icons md-24">file_copy</i></a>
+                                class="modal-trigger classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                    class="material-icons md-24">file_copy</i></a>
                             <a href="/viewCuestionario/{{datosCuestionarios[i][0]}}"
                                 class="modal-trigger classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
                                     class="material-icons md-24">visibility</i></a>

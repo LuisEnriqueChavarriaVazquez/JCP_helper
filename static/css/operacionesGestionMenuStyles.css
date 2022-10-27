@@ -726,3 +726,22 @@
     justify-content: center;
     align-items: center;
 }
+
+#buttonRevisarPendientes{
+    width: 120px;
+    z-index: 1000;
+    position: fixed;
+    top: 13px;
+    right: 15px;
+}
+
+@media screen and (max-width: 600px) {
+    #buttonRevisarPendientes{
+        width: 70px;
+        z-index: 1000;
+        position: fixed;
+        top: 8px;
+        right: 90px;
+    }
+}
+
