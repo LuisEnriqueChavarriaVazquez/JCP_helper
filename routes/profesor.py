@@ -596,12 +596,14 @@ def genera_preguntas_por_lenguaje():
     tipo_preguntas=request.form.getlist("tipos")
     cuestionario_personalizado=[]
 
-    print(tipo_preguntas)
+    llaves=["A","B","C","D"]
     for i in preguntas:
         if i["tema"] in temas and i["tipo_pregunta"] in tipo_preguntas:
             if i["tipo_pregunta"].startswith("Op"):
-                i["opciones"]= i["opciones"].split(",")
-                print(i["opciones"])
+                valores= i["opciones"].split(",")
+                opciones={llaves[i]:valores[i] for i in range(len(valores))}
+                i["opciones"]=opciones
+                print(opciones)
                 print("**********************************")
             elif i["tipo_pregunta"].startswith("Ver"):
                 aux= i["respuesta"]

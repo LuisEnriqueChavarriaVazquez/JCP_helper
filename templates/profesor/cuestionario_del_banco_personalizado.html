@@ -82,18 +82,19 @@
                                         <label class="active" for="mediaProblemaOpcionMultiple0">Imagen (url)</label>
                                     </div>
                                 </div>
-                                {% for opcion in pregunta.opciones %}
+                            
+                                {% for llave,valor in pregunta.opciones.items() %}
                                 <div class="row colorGreyWhiter bordered1 opcionContainer">
                                     <div class="col s12 m3 labelContainer">
                                         <label>
-                                            <input type="radio" value="A" name="group0">
+                                            <input type="radio" value="{{llave}}" name="group0">
                                             <span>Correcta</span>
                                         </label>
                                     </div>
                                     <div class="col s12 m9">
-                                        <h6><b>Opción A</b></h6>
+                                        <h6><b>Opción {{llave}}</b></h6>
                                         <textarea id="opcionACreacion" class="materialize-textarea"
-                                            name="textArea0">{{opcion}}</textarea>
+                                            name="textArea0">{{valor}}</textarea>
                                     </div>
                                 </div>
                                 {% endfor %}
