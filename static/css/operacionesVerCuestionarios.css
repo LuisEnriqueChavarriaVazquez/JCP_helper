@@ -513,3 +513,131 @@
     margin: 0;
     padding: 0;
 }
+
+/*Se agregan los estilos para las cards de revisar los cuestionarios*/
+.containerRevisionCuestionariosMain{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+@media screen and (max-width: 1000px) {
+    .containerRevisionCuestionariosMain{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+        padding: 0 40px;
+    }  
+}
+
+@media screen and (max-width: 600px) {
+    .containerRevisionCuestionariosMain{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+        padding: 0 30px;
+    }  
+}
+
+@media screen and (max-width: 500px) {
+    .containerRevisionCuestionariosMain{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto;
+        gap: 15px;
+        padding: 0 15px;
+    }  
+}
+
+.cuestionarioRevisionContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+
+.titleRevisionCuestionario{
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.dataRevisionCuestionario{
+    padding: 5px 10px;
+}
+
+.dataRevisionCuestionario p{
+    padding: 5px 10px;
+}
+
+.controlsRevisionCuestionarios{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+
+    padding: 5px 20px;
+}
+
+.controlsRevisionCuestionarios a{
+    margin: 5px;
+}
+
+/*Preview de los datos del alumno*/
+.infoUserContainerMainRevision{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+
+.infoUserContainerSecodnaryRevision{
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr;
+    grid-template-rows: repeat(2, 45px);
+    grid-template-areas: 
+    "area1 area2 area2"
+    "area1 area4 area4";
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.a1Revision{
+    grid-area: area1;
+}
+
+.a1Revision img{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.a2Revision{
+    grid-area: area2;
+    height: 100%;
+    width: 100%;
+}
+
+.a4Revision{
+    grid-area: area4;
+    height: 100%;
+    width: 100%;
+}
+
+.a2Revision p, .a4Revision p{
+    height: 100%;
+    margin: 0;
+    padding: 10px;
+    font-weight: 600;
+    
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.revisionDataExtraAlumno{
+    padding: 10px 10px;
+    margin: 5px 0;
+    font-weight: 600;
+}

@@ -76,12 +76,46 @@ def gestionar_cuestionarios():
         return render_template('profesor/a_gestionar_cuestionarios.html')
 
 ##Tura para ir a la vista de revision de cuestionarios pendientes
-@routes.route('/revisionCuestionarios')
-def revisionCuestionarios():
-    try:
-        return render_template('profesor/b_cuestionarios_revisiones_pendientes.html')
-    except:
-        return render_template('profesor/b_cuestionarios_revisiones_pendientes.html')
+@routes.route('/revisionCuestionarios/<string:id_docente>')
+def revisionCuestionarios(id_docente):
+    # try:
+        #Obtengo los datos de los cuestionarios del docente
+        datosCuestionarios = Op_profesor.obtener_cuestionarios_datos_importantes(id_docente)
+    
+        #Obtengo solamente los IDS de el array
+        idCuestionariosLista = []
+        for element in datosCuestionarios:
+            idCuestionariosLista += [element[0]]
+
+        #Almacenamos solo los cuestionarios con pending
+        datosCuestionariosPending = []
+        for idCuestionario in idCuestionariosLista:
+            datosCuestionariosPending += Op_profesor.obtener_cuestionarios_en_estado_pending(idCuestionario)
+            
+        #Almacenamos las IDS de los cuestionarios pending
+        idsPendingCuestionarios = []
+        for idCuestionarioPending in datosCuestionariosPending:
+            idsPendingCuestionarios += str(idCuestionarioPending[1])
+        
+        #Almacenamos los datos de lso cuestionarios pending
+        datosCuestionariosPendingExtendidos = []
+        for idCuestionario2 in idsPendingCuestionarios:
+            datosCuestionariosPendingExtendidos += Op_profesor.obtener_cuestionario_datos_importantes_unitario(idCuestionario2)
+        print(datosCuestionariosPendingExtendidos)
+
+        #Almacenamos los IDS de los alumno
+        idsAlumnos = []
+        for idAlumno in datosCuestionariosPending:
+            idsAlumnos += [idAlumno[2]]
+        
+        #Almacenamos la data de los alumnos en orden
+        datosAlumnosEnOrden = []
+        for idAlumno in idsAlumnos:
+            datosAlumnosEnOrden += Op_profesor.datos_completos_alumno_by_id(idAlumno)
+        
+        return render_template('profesor/b_cuestionarios_revisiones_pendientes.html', datosCuestionariosPending = datosCuestionariosPending, datosCuestionariosPendingExtendidos = datosCuestionariosPendingExtendidos, datosAlumnosEnOrden = datosAlumnosEnOrden)
+    # except:
+    #     return render_template('profesor/b_cuestionarios_revisiones_pendientes.html')
 
 
 ##Ruta para la vista de gestion de estadisticas

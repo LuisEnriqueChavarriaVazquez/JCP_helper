@@ -1,0 +1,52 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optAbierta"
+  },
+  {
+   "retrasado": "false"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "2"
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal2": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal3": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal4": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal5": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal6": [
+  {
+   "0": "Pregunta abierta",
+   "1": "",
+   "2": ""
+  },
+  {
+   "respuestas": [
+    "opt6InputGet_0/Respuesta 1&2"
+   ]
+  }
+ ]
+}

@@ -311,6 +311,18 @@ def obtener_cuestionarios_datos_importantes(id_profesor):
     conexion.close()
     return grupos
 
+def obtener_cuestionarios_en_estado_pending(id_cuestionario):
+    conexion=obtener_conexion()
+    grupos=[]
+    pendingState = "pending"
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM alumnos_hacen_cuestionario WHERE IDCuestionario = %s AND Revision_estado = %s", (id_cuestionario, pendingState))
+        grupos=cursor.fetchall()
+
+    conexion.close()
+    return grupos
+
 def obtener_cuestionarios_rutas(id_profesor):
     conexion=obtener_conexion()
     grupos=[]

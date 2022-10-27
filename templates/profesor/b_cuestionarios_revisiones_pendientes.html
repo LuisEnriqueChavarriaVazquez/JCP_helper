@@ -1,12 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Revisiones pendientes</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
 </head>
-<body>
-    revision de cuestionarios
+
+<body class="oculto colorGrey">
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+    <!--Menu de página de inicio-->
+    <nav class="color2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only">Revisiones.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Revisiones.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- datosCuestionariosPending[i]
+    datosCuestionariosPendingExtendidos[i]
+    datosAlumnosEnOrden[i] -->
+    <div class="title-general">
+        <h5 class="hide-on-large-only">Revisiones pendientes</h5>
+        <h4 class="hide-on-med-and-down">Revisiones pendientes</h4>
+    </div>
+    <section class="containerRevisionCuestionariosMain">
+        {% if datosCuestionariosPending %}
+        {%for i in range(0, datosCuestionariosPending|length)%}
+            <section class="cuestionarioRevisionContainer bordered2 colorGreyWhiter shadow-1e">
+                <div class="titleRevisionCuestionario colorGreyDarker bordered2Up colorTextReverse">{{datosCuestionariosPendingExtendidos[i][3]}}</div>
+                <div class="dataRevisionCuestionario">
+                    <p class="colorWhite bordered1">
+                        {{datosCuestionariosPendingExtendidos[i][7]}}
+                    </p>
+                </div>
+                <div class="controlsRevisionCuestionarios">
+                    <a href="" class="btn colorGrey colorTextReverse bordered5 shadow-1e"><i class="material-icons md-24">visibility</i></a>
+                    <a href="#modal1{{datosCuestionariosPendingExtendidos[i][0]}}" class="modal-trigger btn colorGrey colorTextReverse bordered5 shadow-1e"><i class="material-icons md-24">person</i></a>
+                    <a href="#modal2{{datosCuestionariosPendingExtendidos[i][0]}}" class="modal-trigger btn colorGrey colorTextReverse bordered5 shadow-1e"><i class="material-icons md-24">info</i></a> 
+                </div>
+            </section>
+
+            <!--Modal para ver datos del alumno-->
+            <div id="modal1{{datosCuestionariosPendingExtendidos[i][0]}}" class="modal bordered2 colorGrey" style="height: auto;">
+                <div class="modal-content">
+                    <h4>Datos alumno</h4>
+                    <p>Información relevante del alumno.</p>
+                    <hr>
+                    <div class="infoUserContainerMainRevision">
+                        <div class="infoUserContainerSecodnaryRevision">
+                            <div class="a1Revision" >
+                                <img src="../../static/images/alumnos/{{datosAlumnosEnOrden[i][3]}}">
+                            </div>
+                            <div class="a2Revision"><p class="colorWhite bordered1">Nombre: <span>{{datosAlumnosEnOrden[i][1]}}</span></p></div>
+                            <div class="a4Revision"><p class="colorWhite bordered1"><span>{{datosAlumnosEnOrden[i][4]}}</span></p></div>
+                        </div>
+                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1">Area: <span>{{datosAlumnosEnOrden[i][6]}}</span></p>
+                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1">Escuela: <span>{{datosAlumnosEnOrden[i][7]}}</span></p>
+                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1">Descripcion: <span>{{datosAlumnosEnOrden[i][8]}}</span></p>
+                        <a href="/perfil_general_view/{{datosAlumnosEnOrden[i][0]}}"
+                        style="margin-top: 10px;"
+                        class="waves-effect waves-light btn color2 shadow-2e bordered5"><i
+                            class="material-icons left">account_circle</i>Ver perfil</a>
+                    </div>
+                </div>
+            </div>
+            <!--Modal para ver datos del cuestionario-->
+            <div id="modal2{{datosCuestionariosPendingExtendidos[i][0]}}" class="modal bordered2 colorGrey" style="height: auto;">
+                <div class="modal-content">
+                    <h4>Datos cuestionario</h4>
+                    <p>Información relevante de las respuestas del cuestionario.</p>
+                    <hr>
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+        {%endfor%}
+        {% endif %}
+    </section>
+
 </body>
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
 </html>
