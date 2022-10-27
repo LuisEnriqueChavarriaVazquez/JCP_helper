@@ -596,11 +596,14 @@ def genera_preguntas_por_lenguaje():
     tipo_preguntas=request.form.getlist("tipos")
     cuestionario_personalizado=[]
 
+    print(tipo_preguntas)
     for i in preguntas:
         if i["tema"] in temas and i["tipo_pregunta"] in tipo_preguntas:
+            if i["tipo_pregunta"].startswith("Op"):
+                i["opciones"]= i["opciones"].split(",")
+                print(i["opciones"])
+                print("**********************************")     
             cuestionario_personalizado.append(i)
-    
-    print(cuestionario_personalizado)
 
     return render_template("profesor/cuestionario_del_banco_personalizado.html",preguntas=cuestionario_personalizado)
 

@@ -82,6 +82,7 @@
                                         <label class="active" for="mediaProblemaOpcionMultiple0">Imagen (url)</label>
                                     </div>
                                 </div>
+                                {% for opcion in pregunta.opciones %}
                                 <div class="row colorGreyWhiter bordered1 opcionContainer">
                                     <div class="col s12 m3 labelContainer">
                                         <label>
@@ -92,45 +93,10 @@
                                     <div class="col s12 m9">
                                         <h6><b>Opción A</b></h6>
                                         <textarea id="opcionACreacion" class="materialize-textarea"
-                                            name="textArea0">tal vez</textarea>
+                                            name="textArea0">{{opcion}}</textarea>
                                     </div>
                                 </div>
-                                <div class="row colorGreyWhiter bordered1 opcionContainer ">
-                                    <div class="col s12 m3 labelContainer">
-                                        <label>
-                                            <input type="radio" value="B" name="group0">
-                                            <span>Correcta</span>
-                                        </label>
-                                    </div>
-                                    <div class="col s12 m9">
-                                        <h6><b>Opción B</b></h6>
-                                        <textarea class="materialize-textarea" name="textArea0">no se</textarea>
-                                    </div>
-                                </div>
-                                <div class="row colorGreyWhiter bordered1 opcionContainer ">
-                                    <div class="col s12 m3 labelContainer">
-                                        <label>
-                                            <input type="radio" value="C" name="group0" checked="">
-                                            <span>Correcta</span>
-                                        </label>
-                                    </div>
-                                    <div class="col s12 m9">
-                                        <h6><b>Opción C</b></h6>
-                                        <textarea class="materialize-textarea" name="textArea0">quizas</textarea>
-                                    </div>
-                                </div>
-                                <div class="row colorGreyWhiter bordered1 opcionContainer ">
-                                    <div class="col s12 m3 labelContainer">
-                                        <label>
-                                            <input type="radio" value="D" name="group0">
-                                            <span>Correcta</span>
-                                        </label>
-                                    </div>
-                                    <div class="col s12 m9">
-                                        <h6><b>Opción D</b></h6>
-                                        <textarea class="materialize-textarea" name="textArea0">no</textarea>
-                                    </div>
-                                </div>
+                                {% endfor %}
                                 <div class="containerButtonsView">
                                     <div>
                                         <a
