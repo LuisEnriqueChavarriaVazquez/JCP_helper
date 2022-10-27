@@ -164,6 +164,15 @@ def insertar_data_cuestinario_respondido(idCuestionarioHecho, tiempo_respuestas,
     conexion.close()
     return "listo"
 
+def insertar_data_cuestinario_revisado(idCuestionarioHecho, revisionEstado,aprovacionEstado,promedioGeneral,puntajeGeneral,puntajeSegmentado):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE Alumnos_hacen_Cuestionario SET Revision_estado = %s, Aprobacion_estado = %s, Promedio_general = %s, Puntaje_general = %s, Puntaje_segmentado = %s WHERE IDCuestionarioHecho = %s",
+        (revisionEstado, aprovacionEstado, promedioGeneral, puntajeGeneral, puntajeSegmentado, idCuestionarioHecho))
+    conexion.commit()
+    conexion.close()
+    return "listo"
+
 ##
 ## Nos ayuda a sumar intentos
 ##
@@ -197,6 +206,16 @@ def obtener_hacer_cuestionario(id_cuestionario, id_alumno, caducidad):
     else:
         return "noData"
 
+#Operacion para obtener los post
+def obtener_hacer_cuestionario_idCuestionarioHecho(id_cuestionario):
+    conexion=obtener_conexion()
+    cuestionarioHechoData=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM Alumnos_hacen_Cuestionario WHERE IDCuestionarioHecho  = %s", (id_cuestionario))
+        cuestionarioHechoData=cursor.fetchall()
+
+    return cuestionarioHechoData
 
 ##
 ## Nos ayuda a modificar el fondo del alumno

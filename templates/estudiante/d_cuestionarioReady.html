@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Se han terminado los intentos</title>
+    <title>Ha terminado el cuestionario</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -18,10 +18,10 @@
     <!--Menu de página de inicio-->
     <nav class="color1">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Intentos.</a>
+            <a href="#" class="brand-logo hide-on-small-only">Terminado.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Intentos.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Terminado.</p>
             <ul class="right hide-on-med-and-down">
                 <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
             </ul>
@@ -29,11 +29,11 @@
     </nav>
 
     <section class="containerIntentosInfo">
-        <h4 class="colorText hide-on-small-only">Usted ha agotado su número máximo de intentos.</h4>
-        <h5 class="colorText hide-on-med-and-up">Usted ha agotado su número máximo de intentos.</h5>
-        <p class="colorText">Ha usted superado el número máximo de intentos posibles para este cuestionario, comuniquese con su docente para más información.</p>
-        <img src="../../static/images/icons/icon_noIntentos.svg" id="iconIntentos">
-        <form action="/noIntentosDisponibles/{{datosCuestionario[0][0]}}" method="post">
+        <h4 class="colorText hide-on-small-only">La revisión ha sido terminada.</h4>
+        <h5 class="colorText hide-on-med-and-up">La revisión ha sido terminada.</h5>
+        <p class="colorText">El resultado ha sido registrado satisfactoriamente.</p>
+        <img src="../../static/images/icons/icon_cuestionario_terminado.svg" id="iconIntentos">
+        <form action="/cuestionarioListo/{{datosCuestionario[0][0]}}" method="post">
             <input type="hidden" name="idEstudiante" value="{{idEstudiante}}">
             <button type="submit" class="waves-effect waves-light btn-large colorWhite coloredText shadow-2e button-rounded">Regresar</button>
         </form>

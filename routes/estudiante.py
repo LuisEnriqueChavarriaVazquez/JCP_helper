@@ -260,9 +260,17 @@ def answer_cuestionario_alumno(id_cuestionario):
         if(int(intentosMaximos) < int(intentos_value_actual)):
             return render_template('estudiante/d_noMasIntentos.html', datosCuestionario = datosCuestionario, idEstudiante = idEstudiante)
         else:
-            Op_estudiante.update_intentos_hacer_cuestionario(intentos_value_actual, iDCuestionarioHacer_value);
-            #Carga las preguntas del cuestionario
-            dataJSON = accesoDatosPreguntas()
+            #Si ya esta hecho el cuestionario nos dice que ya esta terminado
+            if(datosCuestionarioHecho[0][4] == "ready"):
+                 return render_template('estudiante/d_cuestionarioReady.html', datosCuestionario = datosCuestionario, idEstudiante = idEstudiante)
+            ##Si esta pendiente la revisión nos indica eso
+            elif(datosCuestionarioHecho[0][4] == "pending"):
+                 return render_template('estudiante/d_cuestionarioPending.html', datosCuestionario = datosCuestionario, idEstudiante = idEstudiante)
+            ##Si no esta ready ni pendiente entonces nos envia a contestarlo
+            else:
+                Op_estudiante.update_intentos_hacer_cuestionario(intentos_value_actual, iDCuestionarioHacer_value);
+                #Carga las preguntas del cuestionario
+                dataJSON = accesoDatosPreguntas()
 
     #Enviamos al usuario al formulario para ver datos del cuestionario.
     return render_template('estudiante/d_answerCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON, idEstudiante = idEstudiante, datosCuestionarioHecho = datosCuestionarioHecho)
@@ -282,6 +290,36 @@ def redireccionar_a_vista_grupos(id_cuestionario):
     #Enviamos al usuario al formulario para ver datos del grupo.
     return render_template('estudiante/c_viewCuestionarioInfo.html', datosCuestionarios = datosCuestionarios[0], datosGrupo = pickedGroupData[0], datosDocente = pickedProfData, idEstudiante = idEstudiante)
 
+##Cuando el cuestionario ha terminado
+@routes.route('/cuestionarioListo/<string:id_cuestionario>', methods=['POST'])
+def redireccionar_a_vista_grupos_listo(id_cuestionario):
+    ######Obtención de información de los cuestionarios
+    datosCuestionarios = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
+    #Obtenemos el id del alumno 
+    idEstudiante=request.form["idEstudiante"]
+
+    #Obtenemos los datos del grupo
+    pickedGroupData = Op_profesor.obtener_grupo_datos_importantes_unitario(datosCuestionarios[0][1])
+    #Obtenemos los datos del profesor
+    pickedProfData = Op_profesor.datos_completos_docente_by_id(datosCuestionarios[0][2])
+    #Enviamos al usuario al formulario para ver datos del grupo.
+    return render_template('estudiante/c_viewCuestionarioInfo.html', datosCuestionarios = datosCuestionarios[0], datosGrupo = pickedGroupData[0], datosDocente = pickedProfData, idEstudiante = idEstudiante, estado = "Pending")
+
+##Cuando el cuestionario esta pendiente
+@routes.route('/cuestionarioPendiente/<string:id_cuestionario>', methods=['POST'])
+def redireccionar_a_vista_grupos_pending(id_cuestionario):
+    ######Obtención de información de los cuestionarios
+    datosCuestionarios = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
+    #Obtenemos el id del alumno 
+    idEstudiante=request.form["idEstudiante"]
+
+    #Obtenemos los datos del grupo
+    pickedGroupData = Op_profesor.obtener_grupo_datos_importantes_unitario(datosCuestionarios[0][1])
+    #Obtenemos los datos del profesor
+    pickedProfData = Op_profesor.datos_completos_docente_by_id(datosCuestionarios[0][2])
+    #Enviamos al usuario al formulario para ver datos del grupo.
+    return render_template('estudiante/c_viewCuestionarioInfo.html', datosCuestionarios = datosCuestionarios[0], datosGrupo = pickedGroupData[0], datosDocente = pickedProfData, idEstudiante = idEstudiante, estado = "ready")
+
 ##Se hace el guardado de las respuestas del alumno
 @routes.route('/revisarAlumno/<string:id_cuestionario>', methods=['POST'])
 def revisar_alumno(id_cuestionario):
@@ -294,6 +332,10 @@ def revisar_alumno(id_cuestionario):
     idCuestionarioHecho=request.form["idCuestionarioHecho"]
     tiempoRespuestas=request.form["tiempoRespuestas"]
     tiempoRespuestas = str(tiempoRespuestas)
+    
+    #Obtenemos los datos del cuestionario recienCreado
+    datosCuestionarioHecho = Op_estudiante.obtener_hacer_cuestionario_idCuestionarioHecho(idCuestionarioHecho)
+    idEstudiante = str(datosCuestionarioHecho[0][2])
 
     #Estos valores quedan en esta parte como pending
     aprovacionEstado=request.form["aprovacionEstado"]
@@ -324,54 +366,34 @@ def revisar_alumno(id_cuestionario):
     f.close()
 
     #Enviamos al usuario al formulario para ver datos del cuestionario.
-    return render_template('estudiante/d_verResultadosCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON)
+    return render_template('estudiante/d_verResultadosCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON, idCuestionarioHecho = idCuestionarioHecho, idEstudiante = idEstudiante)
 
 ##Se hace el guardado de las respuestas del alumno
 @routes.route('/resultadoAlumno/<string:id_cuestionario>', methods=['POST'])
 def resultado_alumno(id_cuestionario):
-    #Obtenemos todos los datos del cuestionario
-    datosCuestionario = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
-
-    #Obtenemos los metadatos del formulario
-    jsonContentInput=request.form["jsonContentInput"] #Contenido del JSON de respuestas
-    rutaResultados=request.form["rutaResultados"]
-    idCuestionarioHecho=request.form["idCuestionarioHecho"]
-    tiempoRespuestas=request.form["tiempoRespuestas"]
-    tiempoRespuestas = str(tiempoRespuestas)
-
-    #Estos valores quedan en esta parte como pending
+    #Lo que debemos hacer es insertar los datos del cuestionario en la BD
+    idCuestionarioHecho=request.form['idCuestionarioHecho']
+    revisionEstado=request.form["revisionEstado"]
     aprovacionEstado=request.form["aprovacionEstado"]
     promedioGeneral=request.form["promedioGeneral"]
     puntajeGeneral=request.form["puntajeGeneral"]
     puntajeSegmentado=request.form["puntajeSegmentado"]
+    #Obtenemos el id del alumno 
+    idEstudiante=request.form["idEstudiante"]
+    print(idEstudiante)
 
-    ##Escribimos el contenido del JSON el en archivo creado
-        #Abrimos archivo
-    jsonFile = open(rutaResultados, "w")
-        #Guardamos string en objeto usable
-    jsonObject = json.loads(jsonContentInput)
-        #Formateamos nuevo objeto como string con identado
-    jsonString = json.dumps(jsonObject, indent=1)
-        #Guardamos string con formato
-    jsonFile.write(jsonString)
-    jsonFile.close()
+    #Metemos los nuevos datos del cuestionario
+    resultado = Op_estudiante.insertar_data_cuestinario_revisado(idCuestionarioHecho, revisionEstado, aprovacionEstado, promedioGeneral, puntajeGeneral, puntajeSegmentado)
+    ##################################################################
+    ######Obtención de información de los cuestionarios
+    datosCuestionarios = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
 
-    ##Ingresamos la ruta y el tiempo que tardo a la base de datos
-    Op_estudiante.insertar_data_cuestinario_respondido(idCuestionarioHecho, tiempoRespuestas, rutaResultados)
-
-
-    # Abrimos el archivo para que cargue los datos de las respuestas
-    f = open(rutaResultados)
-    #Guardamos la data de la preview
-    dataJSON = json.load(f)
-    #Guardamos la data como string
-    f.close()
-
-    #Enviamos al usuario al formulario para ver datos del cuestionario.
-    return render_template('estudiante/d_verResultadosCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON)
-
-
-
+    #Dependiendo del estado del cuestionario se cargan distintos valores
+    if(revisionEstado == "ready"):
+        return render_template('estudiante/d_cuestionarioReady.html', datosCuestionario = datosCuestionarios, idEstudiante = idEstudiante)
+    elif(revisionEstado == "pending"):
+        return render_template('estudiante/d_cuestionarioPending.html', datosCuestionario = datosCuestionarios, idEstudiante = idEstudiante)
+    
 ##
 ##Bloque para ver mis grupos (es como la gestion de grupos en la que estas)
 ##
