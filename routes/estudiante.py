@@ -222,6 +222,9 @@ def answer_cuestionario_alumno(id_cuestionario):
     if(datosCuestionarioHecho == "noData"):
         #Metemos la data a la BD
         Op_estudiante.insertar_primera_vez_cuestionario(idCuestionarioHecho, id_cuestionario, idEstudiante, caducidadCuestionario, revision_estado, intentos)
+        #Obtenemos los datos del cuestionario recienCreado
+        datosCuestionarioHecho = Op_estudiante.obtener_hacer_cuestionario(id_cuestionario, idEstudiante, caducidadCuestionario)
+        
         #Creamos el JSON de respuestas (Aqui se almacenan las respuestas)
         rutaArchivoRespuestas = 'static/cuestionariosRespuestas/' + idCuestionarioHecho + '.json'
         with open(rutaArchivoRespuestas , 'w') as f:
@@ -279,6 +282,7 @@ def redireccionar_a_vista_grupos(id_cuestionario):
     #Enviamos al usuario al formulario para ver datos del grupo.
     return render_template('estudiante/c_viewCuestionarioInfo.html', datosCuestionarios = datosCuestionarios[0], datosGrupo = pickedGroupData[0], datosDocente = pickedProfData, idEstudiante = idEstudiante)
 
+##Se hace el guardado de las respuestas del alumno
 @routes.route('/revisarAlumno/<string:id_cuestionario>', methods=['POST'])
 def revisar_alumno(id_cuestionario):
     #Obtenemos todos los datos del cuestionario

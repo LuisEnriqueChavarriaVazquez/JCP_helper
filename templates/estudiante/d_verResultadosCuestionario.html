@@ -81,10 +81,13 @@
 <!--En esta parte todo los demás del script se hará en un archivo externo-->
 <script>
     //Accedemos a los datos guardados en el JSON
-    //Busca en el anterior archivo el acceso al json
+    const dataCuestionarioJSON = {{ dataJSON| tojson }}; 
 </script>
 <script src="../../static/js/operacionesTerminos.js"></script>
+<!--Archivo encargado de la revision-->
 <script src="../../static/js/operacionesCuestionariosResultados.js"></script>
+<!--Archivo encargado de la recolección de metadatos-->
+<script src="../../static/js/operacionRecolectarMetadatosPuntajes.js"></script>
 
 <!--Esta parte necesita ser agregada aqui porque son cambios en tiempo real-->
 <script>
