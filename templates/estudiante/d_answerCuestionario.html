@@ -67,12 +67,6 @@
                         style="width: 100%;">
                         <i class="material-icons left">check</i>Entregar</button>
                 </div>
-                <div class="accessCuestionarioLive">
-                    <a href=""
-                        class="waves-effect waves-light btn-large bordered5 color3 shadow-2e" id="previewJsonResponder2"
-                        style="width: 100%;">
-                        <i class="material-icons left">close</i>Cerra cuestionario</a>
-                </div>
             </div>
         </section>
         <!--Vista previa del cuestionario-->
@@ -123,10 +117,10 @@
 <!--En esta parte todo los demás del script se hará en un archivo externo-->
 <script>
     //Accedemos a los datos guardados en el JSON
-    const dataCuestionarioJSON = {{ dataJSON| tojson}}; 
+    const dataCuestionarioJSON = {{dataJSON| tojson}}; 
 </script>
 <script src="../../static/js/operacionesTerminos.js"></script>
-<script src="../../static/js/operacionesPreviewDeAlumno.js"></script>
+<script src="../../static/js/operacionesPreviewDeAlumno_real.js"></script>
 <script src="../../static/js/operacionesCuestionariosCuentaAtras.js"></script>
 <script src="../../static/js/operacionesCuestionariosRespuestas.js"></script>
 
