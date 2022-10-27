@@ -38,7 +38,7 @@
             </section>
 
             <section id="pendingResultaAlert" class="sosoColor bordered1 shadow-1e generalInfoPreviewAlumno">
-                <p class="sosoColor"><i class="material-icons">info</i> Estas son sus respuestas, más sin emcambio,
+                <p class="sosoColor"><i class="material-icons">info</i> Estas son sus respuestas, pero
                     algunas cuantas faltan por ser revisadas por el docente.</p>
             </section>
 
@@ -65,7 +65,7 @@
                     <form action="/resultadoAlumno/{{datosCuestionario[0][0]}}" method="post">
                         <!--Estos datos serán enviados a la BD-->
                         <input type="hidden" name="idCuestionarioHecho" id="idCuestionarioHecho" value="{{idCuestionarioHecho}}">
-                        <input type="hidden" name="revisionEstado" id="revisionEstado">
+                        <input type="hidden" name="revisionEstado" id="revisionEstado"> <!--Listo-->
                         <input type="hidden" name="aprovacionEstado" id="aprovacionEstado">
                         <input type="hidden" name="promedioGeneral" id="promedioGeneral">
                         <input type="hidden" name="puntajeGeneral" id="puntajeGeneral">

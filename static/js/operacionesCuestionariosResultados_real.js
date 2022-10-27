@@ -32,6 +32,8 @@ const ordenPreguntasArray = Object.values(ordenPreguntas[0]);
 //Se guarda la ponderacion global
 let ponderacionGlobal = 0; //Puntos alumno
 let ponderacionGlobalDada = 0; //Puntos totales
+let puntajeSegmentadoPorTipoPregunta = []; //Puntos totales por tipo pregunta
+let puntajeSegmentadoPorTipoPreguntaAlumno = []; //Puntos totales obtenido por el alumno
 
 //Forma de acceder a las preguntas y elemento
 //Primer indice indica el numero de pregunta
@@ -418,12 +420,16 @@ function imprimirPreguntas() {
             }
         }
 
-        //Metemos los extratos en las cajas de ponderacion 
+        //Metemos los extratos en las cajas de ponderacion
         function meterPonderaciones(cajasGrupo, ponderacionesGrupo) {
+            let ponderacionPorTipoPregunta = 0; 
             for (var y = 0; y < cajasGrupo.length; y++) {
                 cajasGrupo[y].innerHTML = "<b>" + ponderacionesGrupo[y] + "pts.</b>";
                 ponderacionGlobalDada += parseInt(ponderacionesGrupo[y]);
+                ponderacionPorTipoPregunta += parseInt(ponderacionesGrupo[y]);
             }
+            puntajeSegmentadoPorTipoPregunta.push(ponderacionPorTipoPregunta);
+            console.log('puntajeSegmentadoPorTipoPregunta', puntajeSegmentadoPorTipoPregunta)
             return "Longitudes = " + cajasGrupo.length + "///" + ponderacionesGrupo.length;
         }
 
@@ -665,6 +671,7 @@ function imprimirPreguntas() {
         let ponderacion_opt1 = document.getElementsByClassName('ponderacion_opt1');
 
         //Evaluamos y verificamos si es correcta
+        let puntajeUnitarioOpt1 = 0;
         for (var i = 0; i < rightAnswerOpt1.length; i++) {
             if (rightAnswerOpt1[i].value == respuestaBox[i].textContent) {
                 //Guardamos en el input el valor de bien
@@ -673,6 +680,7 @@ function imprimirPreguntas() {
                 var valorPonderacionOpt1 = ponderacion_opt1[i].innerText;
                 valorPonderacionOpt1 = valorPonderacionOpt1.substring(0, valorPonderacionOpt1.indexOf('pts.'));
                 ponderacionGlobal = ponderacionGlobal + parseInt(valorPonderacionOpt1);
+                puntajeUnitarioOpt1 = puntajeUnitarioOpt1 + parseInt(valorPonderacionOpt1);
             } else {
                 //Guardamos en el input el valor de mal
                 rightAnswerOpt1[i].value = "mal";
@@ -681,6 +689,7 @@ function imprimirPreguntas() {
                 respuestaBox[i].classList.add('badColor');
             }
         }
+        puntajeSegmentadoPorTipoPreguntaAlumno.push(puntajeUnitarioOpt1)
     }
     evaluarOpt1();
 
@@ -708,6 +717,7 @@ function imprimirPreguntas() {
         //Div de ponderaciones
         let ponderacion_opt2 = document.getElementsByClassName('ponderacion_opt2');
 
+        let puntajeUnitarioOpt2 = 0;
         for (var t = 0; t < respuestasCorrectas.length; t++) {
             if (respuestasCorrectas[t] == listaRespuestasLimpiaOpt2[t]) {
                 rightAnswerOpt2[t].value = "bien";
@@ -715,6 +725,7 @@ function imprimirPreguntas() {
                 var valorPonderacionOpt2 = ponderacion_opt2[t].innerText;
                 valorPonderacionOpt2 = valorPonderacionOpt2.substring(0, valorPonderacionOpt2.indexOf('pts.'));
                 ponderacionGlobal = ponderacionGlobal + parseInt(valorPonderacionOpt2);
+                puntajeUnitarioOpt2 = puntajeUnitarioOpt2 + parseInt(valorPonderacionOpt2);
             } else {
                 //Guardamos en el input el valor de mal
                 rightAnswerOpt2[t].value = "mal";
@@ -723,6 +734,7 @@ function imprimirPreguntas() {
                 respuestaBoxOpt2[t].classList.add('badColor');
             }
         }
+        puntajeSegmentadoPorTipoPreguntaAlumno.push(puntajeUnitarioOpt2);
     }
     evaluarOpt2();
 
@@ -738,6 +750,7 @@ function imprimirPreguntas() {
         //Div de ponderaciones
         let ponderacion_opt3 = document.getElementsByClassName('ponderacion_opt3');
 
+        let puntajeUnitarioOpt3 = 0;
         for (var i = 0; i < outputGetValue.length; i++) {
             //Si no hay output la pone como pendiente
             if (outputGetValue[i].innerText == "" || outputGetValue[i].innerText == "No output") {
@@ -755,6 +768,7 @@ function imprimirPreguntas() {
                     var valorPonderacionOpt3 = ponderacion_opt3[i].innerText;
                     valorPonderacionOpt3 = valorPonderacionOpt3.substring(0, valorPonderacionOpt3.indexOf('pts.'));
                     ponderacionGlobal = ponderacionGlobal + parseInt(valorPonderacionOpt3);
+                    puntajeUnitarioOpt3 = puntajeUnitarioOpt3 + parseInt(valorPonderacionOpt3);
                 } else {
                     //Guardamos en el input el valor de mal
                     rightAnswerOpt3[i].value = "mal";
@@ -764,6 +778,7 @@ function imprimirPreguntas() {
                 }
             }
         }
+        puntajeSegmentadoPorTipoPreguntaAlumno.push(puntajeUnitarioOpt3);
 
         //Respuestas correctas
         //console.log(respuestasCorrectas);
@@ -842,6 +857,7 @@ function imprimirPreguntas() {
 
 
         //Nota: Debes comparar los dos arrays [[],[]]
+        let puntajeUnitarioOpt4 = 0;
         for (var r = 0; r < resultadosProfeTotal.length; r++) {
             var contadorCorrectas = 0;
             var contadorIncorrectas = 0;
@@ -913,7 +929,9 @@ function imprimirPreguntas() {
 
             //Sumamos a ala ponderacion global el puntaje
             ponderacionGlobal = ponderacionGlobal + parseFloat(valorPonderacionOpt4);
+            puntajeUnitarioOpt4 = puntajeUnitarioOpt4 + parseFloat(valorPonderacionOpt4);
         }
+        puntajeSegmentadoPorTipoPreguntaAlumno.push(puntajeUnitarioOpt4)
     }
     //console.log('respuestasUsuarioTotal', respuestasUsuarioTotal)
     evaluarOpt4();
@@ -928,6 +946,7 @@ function imprimirPreguntas() {
         let ponderacion_opt5 = document.getElementsByClassName('ponderacion_opt5');
 
         //Evaluamos y verificamos si es correcta
+        let puntajeUnitarioOpt5 = 0;
         for (var i = 0; i < rightAnswerOpt5.length; i++) {
             var formatoRespuesta;
             //Damos formato a el value de la respuesta correcta
@@ -945,6 +964,7 @@ function imprimirPreguntas() {
                 var valorPonderacionOpt5 = ponderacion_opt5[i].innerText;
                 valorPonderacionOpt5 = valorPonderacionOpt5.substring(0, valorPonderacionOpt5.indexOf('pts.'));
                 ponderacionGlobal = ponderacionGlobal + parseInt(valorPonderacionOpt5);
+                puntajeUnitarioOpt5 = puntajeUnitarioOpt5 + parseInt(valorPonderacionOpt5);
             } else {
                 //Guardamos en el input el valor de mal
                 rightAnswerOpt5[i].value = "mal";
@@ -953,6 +973,7 @@ function imprimirPreguntas() {
                 respuestaBox[i].classList.add('badColor');
             }
         }
+        puntajeSegmentadoPorTipoPreguntaAlumno.push(puntajeUnitarioOpt5)
     }
     evaluarOpt5();
 
@@ -978,6 +999,7 @@ function imprimirPreguntas() {
                 respuestaBox[i].classList.add('sosoColor');
             }
         }
+        puntajeSegmentadoPorTipoPreguntaAlumno.push(0);
     }
     evaluarOpt6();
 
@@ -994,7 +1016,7 @@ function imprimirPreguntas() {
             calificacionContainer[0].innerHTML = "<p>Revisión manual pendiente</p>";
         } else {
             var promedio = (ponderacionGlobal.toFixed(2) * 10) / ponderacionGlobalDada;
-            calificacionContainer[0].innerHTML = "<p>Calificación: " + promedio.toFixed(2) + "</p>";
+            calificacionContainer[0].innerHTML = "<p>Calificación: <span id='calificacionDataGet'>" + promedio.toFixed(2) + "</span></p>";
         }
     }
     calcularPromedio();
@@ -1015,7 +1037,7 @@ function imprimirPreguntas() {
     //Calculamos el puntaje
     function calcularPuntaje() {
         let puntosContainer = document.getElementsByClassName('puntosContainer');
-        puntosContainer[0].innerHTML = "<p>" + ponderacionGlobal.toFixed(2) + "/" + ponderacionGlobalDada + "pts.</p>";
+        puntosContainer[0].innerHTML = "<p id='puntajeGeneralDataGet'>" + ponderacionGlobal.toFixed(2) + "/" + ponderacionGlobalDada + "pts.</p>";
 
     }
     calcularPuntaje()
