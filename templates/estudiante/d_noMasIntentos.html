@@ -33,30 +33,12 @@
         <h5 class="colorText hide-on-med-and-up">Usted ha agotado su número máximo de intentos.</h5>
         <p class="colorText">Ha usted superado el número máximo de intentos posibles para este cuestionario, comuniquese con su docente para más información.</p>
         <img src="../../static/images/icons/icon_noIntentos.svg" id="iconIntentos">
-        <a href="/noIntentosDisponibles" id="buttonIntentos" class="btn-large colorWhite waves-effect bordered5 coloredText">Regresar</a>
+        <form action="/noIntentosDisponibles/{{datosCuestionario[0][0]}}" method="post">
+            <input type="hidden" name="idEstudiante" value="{{idEstudiante}}">
+            <button type="submit" class="waves-effect waves-light btn-large colorWhite coloredText shadow-2e button-rounded">Comenzar</button>
+        </form>
     </section>
-    
-    <a href="#modalIntentos" id="modalTriggerAutomatic" class="hiddenElement modal-trigger">Activar modal</a>
-    <!--Pop up para entrar a volver-->
-    <div id="modalIntentos" class="modal bordered2 colorGrey">
-        <div class="modal-content">
-            <h4>No cuenta con más intentos para realizar el cuestionario</h4>
-            <p>Ha usted superado el número máximo de intentos posibles para este cuestionario</p>
-            <hr>
-            <a href="/noIntentosDisponibles" class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded"
-            style="width: 100%;">Aceptar</a>
-        </div>
-    </div>
-
-
 </body>
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
-<script>
-    let buttonModal = document.getElementById('modalTriggerAutomatic');
-    setTimeout(() => {
-        buttonModal.click();
-    }, 200);
-</script>
-
 </html>

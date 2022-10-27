@@ -255,16 +255,29 @@ def answer_cuestionario_alumno(id_cuestionario):
 
         #Cuando los intentos se agotan nos manda a esta pagina
         if(int(intentosMaximos) == int(intentos_value_actual)):
-            return render_template('estudiante/d_noMasIntentos.html', datosCuestionario = datosCuestionario)
+            return render_template('estudiante/d_noMasIntentos.html', datosCuestionario = datosCuestionario, idEstudiante = idEstudiante)
         else:
             Op_estudiante.update_intentos_hacer_cuestionario(intentos_value_actual, iDCuestionarioHacer_value);
             #Carga las preguntas del cuestionario
             dataJSON = accesoDatosPreguntas()
 
-    
-
     #Enviamos al usuario al formulario para ver datos del cuestionario.
-    return render_template('estudiante/d_answerCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON)
+    return render_template('estudiante/d_answerCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON, idEstudiante = idEstudiante)
+
+##Cuando hay no hay mas intentos esta nos permite regresar a la vista general
+@routes.route('/noIntentosDisponibles/<string:id_cuestionario>', methods=['POST'])
+def redireccionar_a_vista_grupos(id_cuestionario):
+    ######Obtención de información de los cuestionarios
+    datosCuestionarios = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
+    #Obtenemos el id del alumno 
+    idEstudiante=request.form["idEstudiante"]
+
+    #Obtenemos los datos del grupo
+    pickedGroupData = Op_profesor.obtener_grupo_datos_importantes_unitario(datosCuestionarios[0][1])
+    #Obtenemos los datos del profesor
+    pickedProfData = Op_profesor.datos_completos_docente_by_id(datosCuestionarios[0][2])
+    #Enviamos al usuario al formulario para ver datos del grupo.
+    return render_template('estudiante/c_viewCuestionarioInfo.html', datosCuestionarios = datosCuestionarios[0], datosGrupo = pickedGroupData[0], datosDocente = pickedProfData, idEstudiante = idEstudiante)
 
 @routes.route('/revisarAlumno/<string:id_cuestionario>', methods=['POST'])
 def revisar_alumno(id_cuestionario):

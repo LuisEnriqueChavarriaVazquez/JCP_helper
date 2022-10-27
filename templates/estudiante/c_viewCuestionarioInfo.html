@@ -103,7 +103,7 @@
             <i class="large material-icons">done</i>
         </a>
     </div>
-    
+
     <!--Pop up para entrar a resolver cuestionario-->
     <div id="modal{{datosCuestionarios[0]}}" class="modal bordered2 colorGrey">
         <div class="modal-content">
@@ -114,13 +114,13 @@
             <form action="/answerCuestionarioAlumno/{{datosCuestionarios[0]}}" method="post">
                 <input type="hidden" id="idCuestionarioHecho" name="idCuestionarioHecho" value="">
                 <input type="hidden" name="idEstudiante" value="{{idEstudiante}}">
-                <input type="hidden" name="caducidadCuestionario" value="{{datosCuestionarios[12]}} {{datosCuestionarios[13]}}">
-                <button type="submit"
-                    class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded"
+                <input type="hidden" name="caducidadCuestionario"
+                    value="{{datosCuestionarios[12]}} {{datosCuestionarios[13]}}">
+                <button type="submit" class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded"
                     style="width: 100%;">Comenzar</button>
             </form>
-            </div>
         </div>
+    </div>
 
 
 
