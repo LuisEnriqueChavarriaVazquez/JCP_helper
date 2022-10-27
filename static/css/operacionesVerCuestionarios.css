@@ -584,6 +584,13 @@
 .controlsRevisionCuestionarios a{
     margin: 5px;
 }
+.controlsRevisionCuestionarios form{
+    margin: 5px;
+}
+
+.controlsRevisionCuestionarios form button{
+    width: 100%;
+}
 
 /*Preview de los datos del alumno*/
 .infoUserContainerMainRevision{

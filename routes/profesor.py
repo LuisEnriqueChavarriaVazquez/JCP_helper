@@ -122,6 +122,30 @@ def revisionCuestionarios(id_docente):
     # except:
     #     return render_template('profesor/b_cuestionarios_revisiones_pendientes.html')
 
+##Tura para ir a la vista de revision de cuestionarios pendientes
+@routes.route('/retroalimentarCuestionario/<string:id_cuestionario_pending>', methods=["POST"])
+def retroalimentarCuestionario(id_cuestionario_pending):
+    #Accedo a los valores de IDs
+    idCuestionarioHecho = id_cuestionario_pending
+    idCuestionario = request.form["idCuestionario"]
+    idEstudiante = request.form["idEstudiante"]
+    rutaResultados = request.form["rutaResultados"]
+
+    #Obtenemos todos los datos del cuestionario
+    datosCuestionario = Op_profesor.obtener_cuestionario_datos_importantes_unitario(idCuestionario)
+    
+    #Obtenemos los datos del cuestionario recienCreado
+    datosCuestionarioHecho = Op_estudiante.obtener_hacer_cuestionario_idCuestionarioHecho(idCuestionarioHecho)
+
+    # Abrimos el archivo para que cargue los datos de las respuestas
+    f = open(rutaResultados)
+    #Guardamos la data de la preview
+    dataJSON = json.load(f)
+    #Guardamos la data como string
+    f.close()
+
+    #Enviamos al usuario al formulario para ver datos del cuestionario.
+    return render_template('profesor/d_retroalimentar_cuestionarios.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON, idCuestionarioHecho = idCuestionarioHecho, idEstudiante = idEstudiante, datosCuestionarioHecho = datosCuestionarioHecho)
 
 ##Ruta para la vista de gestion de estadisticas
 @routes.route('/gestionar_estadisticas/<string:id_docente>')

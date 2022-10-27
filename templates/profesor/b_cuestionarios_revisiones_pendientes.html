@@ -45,7 +45,12 @@
                     </p>
                 </div>
                 <div class="controlsRevisionCuestionarios">
-                    <a href="" class="btn colorGrey colorTextReverse bordered5 shadow-1e"><i class="material-icons md-24">visibility</i></a>
+                    <form action="/retroalimentarCuestionario/{{datosCuestionariosPending[i][0]}}" method="post">
+                        <input type="hidden" name="idCuestionario" id="idCuestionario" value="{{datosCuestionariosPending[i][1]}}">
+                        <input type="hidden" name="idEstudiante" id="idEstudiante" value="{{datosCuestionariosPending[i][2]}}">
+                        <input type="hidden" name="rutaResultados" id="rutaResultados" value="{{datosCuestionariosPending[i][10]}}">
+                        <button type="submit" class="btn colorGrey colorTextReverse bordered5 shadow-1e"><i class="material-icons md-24">visibility</i></button>
+                    </form>
                     <a href="#modal1{{datosCuestionariosPending[i][0]}}" class="modal-trigger btn colorGrey colorTextReverse bordered5 shadow-1e"><i class="material-icons md-24">person</i></a>
                     <a href="#modal2{{datosCuestionariosPending[i][0]}}" class="modal-trigger btn colorGrey colorTextReverse bordered5 shadow-1e"><i class="material-icons md-24">info</i></a> 
                 </div>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Retroalimentación</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
+</head>
+
+<body class="oculto colorGrey">
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+    <!--Menu de página de inicio-->
+    <nav class="color2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only">Revisión y retroalimentación.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Revisión y retroalimentación.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!--Aqui se recibe el texto del JSON-->
+    <section class="previewResultadosCuestionario">
+        <section class="previewResultadosCuestionarioSon1">
+            <!--Si el examen ya fue completado se muestra una o la otra-->
+            <section id="readyResultaAlert" class="goodColor bordered1 shadow-1e generalInfoPreviewAlumno">
+                <p class="goodColor"><i class="material-icons">info</i> Estas son sus respuestas, el cuestionario fue
+                    evaluado en su totalidad.</p>
+            </section>
+
+            <section id="pendingResultaAlert" class="sosoColor bordered1 shadow-1e generalInfoPreviewAlumno">
+                <p class="sosoColor"><i class="material-icons">info</i> Estas son sus respuestas, pero
+                    algunas cuantas faltan por ser revisadas por el docente.</p>
+            </section>
+
+            <div class="hide-on-small-only">
+                <h5>Resultados {{datosCuestionario[0][3]}}</h5>
+            </div>
+            <div>
+                <h6 class="hide-on-small-only">Preguntas y puntaje</h6>
+                <h5 class="hide-on-med-and-up">Preguntas y puntaje</h5>
+            </div>
+            <section class="previewResultadosCuestionarioSon1Grid">
+                <div class="calificacionContainer colorGreyWhiter bordered2 shadow-1e">
+
+                </div>
+                <div class="puntosContainer colorGreyWhiter bordered2 shadow-1e">
+
+                </div>
+                <div class="estadoRetraso colorGreyWhiter bordered2 shadow-1e">
+
+                </div>
+            </section>
+            <section>
+                <div class="accessCuestionarioLive">
+                    <form action="/resultadoAlumno/{{datosCuestionario[0][0]}}" method="post">
+                        <!--Estos datos serán enviados a la BD-->
+                        <input type="hidden" name="idCuestionarioHecho" id="idCuestionarioHecho" value="{{idCuestionarioHecho}}">
+                        <input type="hidden" name="revisionEstado" id="revisionEstado"> <!--Listo-->
+                        <input type="hidden" name="aprovacionEstado" id="aprovacionEstado">
+                        <input type="hidden" name="promedioGeneral" id="promedioGeneral">
+                        <input type="hidden" name="puntajeGeneral" id="puntajeGeneral">
+                        <input type="hidden" name="puntajeSegmentado" id="puntajeSegmentado">
+                        <input type="hidden" name="idEstudiante" id="idEstudiante" value="{{idEstudiante}}">
+                        <button type="submit"
+                            class="modal-trigger waves-effect waves-light btn-large bordered5 color1 shadow-2e"
+                            id="previewJsonResponder" style="width: 100%;">
+                            <i class="material-icons left">check</i>Aceptar</button>
+                    </form>
+                </div>
+            </section>
+        </section>
+        <section class="previewResultadosCuestionarioSon2">
+            <div class="">
+                <h5>Preguntas/Respuestas cuestionario</h5>
+            </div>
+            <div class="previewPreguntasResultadosMain" id="previewPreguntasResultadosMain">
+                
+            </div>
+        </section>
+    </section>
+
+    <!--Boton para ir hacia arriba-->
+    <div class="fixed-action-btn hiddenElement animate__animated" id="buttonGoUpTerminos">
+        <a class="btn-floating btn-large color4">
+            <i class="large material-icons">arrow_upward</i>
+        </a>
+    </div>
+
+</body>
+
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+<!--En esta parte todo los demás del script se hará en un archivo externo-->
+<script>
+    //Accedemos a los datos guardados en el JSON
+    const dataCuestionarioJSON = {{ dataJSON| tojson }}; 
+</script>
+<script src="../../static/js/operacionesTerminos.js"></script>
+<!--Archivo encargado de la revision-->
+<script src="../../static/js/operacionesCuestionariosResultados_real.js"></script>
+<!--Archivo encargado de la recolección de metadatos-->
+<script src="../../static/js/operacionRecolectarMetadatosPuntajes.js"></script>
+
+<!--Esta parte necesita ser agregada aqui porque son cambios en tiempo real-->
+<script>
