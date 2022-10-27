@@ -38,8 +38,8 @@
             </section>
 
             <section id="pendingResultaAlert" class="sosoColor bordered1 shadow-1e generalInfoPreviewAlumno">
-                <p class="sosoColor"><i class="material-icons">info</i> Estas son sus respuestas, pero
-                    algunas cuantas faltan por ser revisadas por el docente.</p>
+                <p class="sosoColor"><i class="material-icons">info</i> Algunas respuestas no pudieron ser evaluadas de
+                    forma manual o existen apelaciones por parte del estudiante.</p>
             </section>
 
             <div class="hide-on-small-only">
@@ -62,10 +62,12 @@
             </section>
             <section>
                 <div class="accessCuestionarioLive">
-                    <form action="/resultadoAlumno/{{datosCuestionario[0][0]}}" method="post">
+                    <form action="/terminarRetroalimentacion/{{datosCuestionario[0][0]}}" method="post">
                         <!--Estos datos serán enviados a la BD-->
-                        <input type="hidden" name="idCuestionarioHecho" id="idCuestionarioHecho" value="{{idCuestionarioHecho}}">
-                        <input type="hidden" name="revisionEstado" id="revisionEstado"> <!--Listo-->
+                        <input type="hidden" name="idCuestionarioHecho" id="idCuestionarioHecho"
+                            value="{{idCuestionarioHecho}}">
+                        <input type="hidden" name="revisionEstado" id="revisionEstado">
+                        <!--Listo-->
                         <input type="hidden" name="aprovacionEstado" id="aprovacionEstado">
                         <input type="hidden" name="promedioGeneral" id="promedioGeneral">
                         <input type="hidden" name="puntajeGeneral" id="puntajeGeneral">
@@ -74,7 +76,7 @@
                         <button type="submit"
                             class="modal-trigger waves-effect waves-light btn-large bordered5 color1 shadow-2e"
                             id="previewJsonResponder" style="width: 100%;">
-                            <i class="material-icons left">check</i>Aceptar</button>
+                            <i class="material-icons left">check</i>Terminar</button>
                     </form>
                 </div>
             </section>
@@ -84,7 +86,7 @@
                 <h5>Preguntas/Respuestas cuestionario</h5>
             </div>
             <div class="previewPreguntasResultadosMain" id="previewPreguntasResultadosMain">
-                
+
             </div>
         </section>
     </section>
@@ -109,9 +111,11 @@
 </script>
 <script src="../../static/js/operacionesTerminos.js"></script>
 <!--Archivo encargado de la revision-->
-<script src="../../static/js/operacionesCuestionariosResultados_real.js"></script>
+<script src="../../static/js/operacionesCuestionariosResultadosRetroalimentacion_real.js"></script>
 <!--Archivo encargado de la recolección de metadatos-->
 <script src="../../static/js/operacionRecolectarMetadatosPuntajes.js"></script>
+<!--Archivo para validar casilla de apelacion-->
+<script src="../../static/js/validarCasillasDeApelacion.js"></script>
 
 <!--Esta parte necesita ser agregada aqui porque son cambios en tiempo real-->
 <script>

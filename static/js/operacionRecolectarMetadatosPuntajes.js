@@ -4,13 +4,14 @@ function estadoRevisionCuestionario(){
     //Obtenemos el valor de los inputs de las preguntas opt3
     let rightAnswerOpt3 = document.getElementsByClassName('rightAnswerOpt3');
 
+    //Variable indicador
+    let indicador = "";
+
     //Si existen elementos con esta clase se ejecuta
     if (rightAnswerOpt3.length > 0) {
         for (var i = 0; i < rightAnswerOpt3.length; i++) {
             if (rightAnswerOpt3[i].value == "pendiente") {
-                return "pending";
-            } else {
-                return "ready";
+                indicador = "pending";
             }
         }
     }
@@ -21,11 +22,16 @@ function estadoRevisionCuestionario(){
     if (rightAnswerOpt6.length > 0) {
         for (var i = 0; i < rightAnswerOpt6.length; i++) {
             if (rightAnswerOpt6[i].value == "pendiente") {
-                return "pending";
-            } else {
-                return "ready";
+                indicador = "pending";
             }
         }
+    }
+
+    //retorno de indicador
+    if(indicador == ""){
+        return "ready"
+    }else if(indicador == "pending"){
+        return indicador
     }
 }
 

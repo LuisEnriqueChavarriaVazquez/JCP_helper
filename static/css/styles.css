@@ -710,3 +710,30 @@ input[type="file"] {
 		position: relative;
 	}
 }
+
+.containerApelaciones{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: auto;
+	gap: 20px;
+	padding: 10px 20px 0 20px;
+}
+
+.containerApelaciones button{
+	width: 100%;
+}
+
+.containerResolucionDeLaApelacion{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+.resolucionFormato{
+	width: 100%;
+	padding: 5px 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 10px 20px;
+}
