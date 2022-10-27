@@ -142,9 +142,10 @@ def obtener_IDs_dentro_de_grupo(id_alumno):
 
 def insertar_primera_vez_cuestionario(idCuestionarioHecho, id_cuestionario, id_estudiante, caducidad_cuestionario, revision_estado, intentos):
     conexion = obtener_conexion()
+    pendingState = "pending"
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO Alumnos_hacen_Cuestionario (IDCuestionarioHecho, IDCuestionario, IDAlumno, Caducidad_cuestionario, Revision_estado,Numero_intentos) VALUES(%s,%s, %s, %s, %s, %s)",
-        (idCuestionarioHecho, id_cuestionario, id_estudiante,caducidad_cuestionario, revision_estado, intentos))
+        cursor.execute("INSERT INTO Alumnos_hacen_Cuestionario (IDCuestionarioHecho, IDCuestionario, IDAlumno, Caducidad_cuestionario, Revision_estado,Numero_intentos, Aprobacion_estado, Promedio_general, Puntaje_general, Puntaje_segmentado) VALUES(%s,%s, %s, %s, %s, %s, %s, %s, %s, %s)",
+        (idCuestionarioHecho, id_cuestionario, id_estudiante,caducidad_cuestionario, revision_estado, intentos, pendingState, pendingState, pendingState, pendingState))
     conexion.commit()
     conexion.close()
     return "listo"

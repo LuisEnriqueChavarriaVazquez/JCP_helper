@@ -157,9 +157,9 @@
   },
   {
    "respuestas": [
-    "opt5InputGet_0/true&1",
-    "opt5InputGet_1/false&2",
-    "opt5InputGet_2/true&3"
+    "opt5InputGet_0/&1",
+    "opt5InputGet_1/&2",
+    "opt5InputGet_2/&3"
    ]
   }
  ],
