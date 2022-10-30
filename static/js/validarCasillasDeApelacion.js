@@ -62,6 +62,9 @@ function apelar(valorFinal, inputResolucion, textoConfirmacion, ponderacionBoxVa
         console.log('estadoCuestionarioValue', estadoCuestionarioValue)
         validacionMensajes(estadoCuestionarioValue);
 
+        //Cargamos los valores en los inputs para la DB
+        evaluacionEstado(estadoCuestionarioValue);
+
     };
 
 
