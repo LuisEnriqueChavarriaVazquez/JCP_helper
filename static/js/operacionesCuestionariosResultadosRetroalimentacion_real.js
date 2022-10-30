@@ -75,6 +75,123 @@ function insertarCajasPreguntas(numeroPregunta, tipo) {
     }
 }
 
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////    
+//////////////////////////////////////////////////////
+////////////TRABAJO CON PONDERACIONES Y ORDEN
+//Para la ponderación de las preguntas
+function asignarPonderaciones() {
+    //Validamos aquellos numeros de la ponderación que estan vacios
+    listaOrdenPreguntasConPonderaciones = [];
+    for (var g = 0; g < ponderacionPreguntasArray.length; g++) {
+        if (
+            ponderacionPreguntasArray[g] == "" ||
+            ponderacionPreguntasArray[g] == "00" ||
+            ponderacionPreguntasArray[g].length > 2 ||
+            parseInt(ponderacionPreguntasArray[g]) > 6 ||
+            parseInt(ponderacionPreguntasArray[g]) < 1) {
+            //Valor por default es 1
+            ponderacionPreguntasArray[g] = '1';
+        }
+        listaOrdenPreguntasConPonderaciones.push(ordenPreguntasArray[g] + "_" + ponderacionPreguntasArray[g]);
+    }
+
+    //Debemos buscar los elementos que ya estan desplegados en pantalla por su clase
+    //Su clase nos indica que tipo de preguntas son
+    let opt1_container = document.getElementsByClassName('ponderacion_opt1');
+    let opt2_container = document.getElementsByClassName('ponderacion_opt2');
+    let opt3_container = document.getElementsByClassName('ponderacion_opt3');
+    let opt4_container = document.getElementsByClassName('ponderacion_opt4');
+    let opt5_container = document.getElementsByClassName('ponderacion_opt5');
+    let opt6_container = document.getElementsByClassName('ponderacion_opt6');
+
+    //Declaramos los chunks de preguntas que estan en el array de ponderacion
+    let opt1_container_order = [];
+    let opt2_container_order = [];
+    let opt3_container_order = [];
+    let opt4_container_order = [];
+    let opt5_container_order = [];
+    let opt6_container_order = [];
+
+    //Encontramos preguntas y ponderación / después ingresamos ponderaciones en las cajas de ponderación
+    for (var s = 0; s < listaOrdenPreguntasConPonderaciones.length; s++) {
+        if (listaOrdenPreguntasConPonderaciones[s].indexOf('optMultiple') != -1) {
+            opt1_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
+        } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optAcompletar') != -1) {
+            opt2_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
+        } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optEjercicios') != -1) {
+            opt3_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
+        } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optArrastrar') != -1) {
+            opt4_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
+        } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optFalsoVerdadero') != -1) {
+            opt5_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
+        } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optAbierta') != -1) {
+            opt6_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
+        }
+    }
+
+    //Metemos los extratos en las cajas de ponderacion
+    function meterPonderaciones(cajasGrupo, ponderacionesGrupo) {
+        let ponderacionPorTipoPregunta = 0;
+        for (var y = 0; y < cajasGrupo.length; y++) {
+            cajasGrupo[y].innerHTML = "<b>" + ponderacionesGrupo[y] + "pts.</b>";
+            ponderacionGlobalDada += parseInt(ponderacionesGrupo[y]);
+            ponderacionPorTipoPregunta += parseInt(ponderacionesGrupo[y]);
+        }
+        puntajeSegmentadoPorTipoPregunta.push(ponderacionPorTipoPregunta);
+        console.log('puntajeSegmentadoPorTipoPregunta', puntajeSegmentadoPorTipoPregunta)
+        return "Longitudes = " + cajasGrupo.length + "///" + ponderacionesGrupo.length;
+    }
+
+    console.log(meterPonderaciones(opt1_container, opt1_container_order));
+    console.log(meterPonderaciones(opt2_container, opt2_container_order));
+    console.log(meterPonderaciones(opt3_container, opt3_container_order));
+    console.log(meterPonderaciones(opt4_container, opt4_container_order));
+    console.log(meterPonderaciones(opt5_container, opt5_container_order));
+    console.log(meterPonderaciones(opt6_container, opt6_container_order));
+}
+
+//Calculamos el puntaje
+function calcularPuntaje() {
+    let puntosContainer = document.getElementsByClassName('puntosContainer');
+    puntosContainer[0].innerHTML = "<p id='puntajeGeneralDataGet'>" + ponderacionGlobal.toFixed(2) + "/" + ponderacionGlobalDada + "pts.</p>";
+}
+
+//Calculamos el puntaje cuando ponemos la pregunta como buena.
+let contadorRevisionDeLaSuma = 0;
+function calcularPuntajeRevisado() {
+    let puntosContainer = document.getElementsByClassName('puntosContainer');
+    puntosContainer[0].innerHTML = "<p id='puntajeGeneralDataGet'>" + ponderacionGlobal.toFixed(2) + "/" + (ponderacionGlobalDada-(74*contadorRevisionDeLaSuma)) + "pts.</p>";
+    contadorRevisionDeLaSuma++;
+}
+
+//Calculamos el promedio
+function calcularPromedio() {
+    //Detecta la cantidad de preguntas abiertas que hay
+    let rightAnswerOpt6 = document.getElementsByClassName('opt6Pendiente');
+    //Detecta la cantidad de inputs de pendiente que hay en los ejercicios (los que no tenian output)
+    let rightAnswerOpt3 = document.getElementsByClassName('opt3Pendiente');
+    let calificacionContainer = document.getElementsByClassName("calificacionContainer");
+    //console.log('rightAnswerOpt6', rightAnswerOpt6)
+    //console.log('rightAnswerOpt3', rightAnswerOpt3)
+
+    let casillaPendientes = document.getElementsByClassName('pendientesEstado');
+    casillaPendientes[0].innerHTML = `<p>Open questions = ${rightAnswerOpt6.length}</p>`;
+    casillaPendientes[0].innerHTML += `<p>Code questions = ${rightAnswerOpt3.length}</p>`;
+
+    // console.log("Preguntas abiertas pendientes = ", rightAnswerOpt6.length);
+    // console.log("Preguntas ejercicios pendientes = ", rightAnswerOpt3.length);
+
+    //Evalua si existen
+    if (rightAnswerOpt6.length > 0 || rightAnswerOpt3.length > 0) {
+        //En caso de que haya preguntas abiertas o ejercicios sin output.
+        calificacionContainer[0].innerHTML = "<p>Revisión manual pendiente</p>";
+    } else {
+        var promedio = (ponderacionGlobal.toFixed(2) * 10) / (ponderacionGlobalDada/contadorRevisionDeLaSuma);
+        calificacionContainer[0].innerHTML = "<p>Calificación: <span id='calificacionDataGet'>" + promedio.toFixed(2) + "</span></p>";
+    }
+}
+
 
 //Debemos primeros hacer la impresion de las preguntas de acuerdo a su tipo y luego
 //mostrar los resultados
@@ -111,14 +228,14 @@ function imprimirPreguntas() {
                         <input type="hidden" value="` + preguntasModalArray1[m][2] + `" class="rightAnswerGlobal rightAnswerOpt1" id="rightAnswerOpt1` + m + `" name="rightAnswerOpt1` + m + `"></input>
                         <h6><b>Su respuesta.</b></h6>
                         <div class="respuestaBox respuestaBoxOpt1 goodColor bordered1"></div>
-                        <div class="ponderacionBox ponderacion_opt1 colorWhite bordered1"></div>
+                        <div class="ponderacionBox ponderacion_opt1 colorWhite bordered1" id="valorApelacion_opt1_`+ m + `"></div>
                     </section>
                     <section class="colorWhite bordered1 shadow-1e respuestaFinalBoxes contenedorApelaciones" id="contenedorApelacionesOpt1`+ m + `">
                         <h6><b>Revisión/Apelación.</b></h6>
                         <div class="containerApelaciones">
-                            <button onclick="apelar('bien', 'rightAnswerOpt1` + m + `','resolucionOpt1` + m + `')"
+                            <button onclick="apelar('bien', 'rightAnswerOpt1` + m + `','resolucionOpt1` + m + `','valorApelacion_opt1_` + m + `')"
                             class="btn waves-effect button-rounded goodColorButton"><i class="material-icons md-24">thumb_up</button>
-                            <button onclick="apelar('mal', 'rightAnswerOpt1` + m + `','resolucionOpt1` + m + `')"
+                            <button onclick="apelar('mal', 'rightAnswerOpt1` + m + `','resolucionOpt1` + m + `','valorApelacion_opt1_` + m + `')"
                             class="btn waves-effect button-rounded badColorButton"><i class="material-icons md-24">thumb_down</button>
                         </div>
                         <div class="containerResolucionDeLaApelacion">
@@ -172,13 +289,13 @@ function imprimirPreguntas() {
             <h6><b>Su respuesta.</b></h6>
             <input type="hidden" class="rightAnswerGlobal rightAnswerOpt2" id="rightAnswerOpt2`+ m + `" name="rightAnswerOpt2` + m + `"></input>
             <div class="respuestaBox respuestaBoxOpt2 goodColor bordered1"></div>
-            <div class="ponderacionBox ponderacion_opt2 colorWhite bordered1"></div>
+            <div class="ponderacionBox ponderacion_opt2 colorWhite bordered1" id="valorApelacion_opt2_`+ m + `"></div>
             <section class="colorWhite bordered1 shadow-1e respuestaFinalBoxes contenedorApelaciones" id="contenedorApelacionesOpt2`+ m + `">
                 <h6><b>Revisión/Apelación.</b></h6>
                 <div class="containerApelaciones">
-                    <button onclick="apelar('bien', 'rightAnswerOpt2` + m + `','resolucionOpt2` + m + `')"
+                    <button onclick="apelar('bien', 'rightAnswerOpt2` + m + `','resolucionOpt2` + m + `','valorApelacion_opt2_` + m + `')"
                     class="btn waves-effect button-rounded goodColorButton"><i class="material-icons md-24">thumb_up</button>
-                    <button onclick="apelar('mal', 'rightAnswerOpt2` + m + `','resolucionOpt2` + m + `')"
+                    <button onclick="apelar('mal', 'rightAnswerOpt2` + m + `','resolucionOpt2` + m + `','valorApelacion_opt2_` + m + `')"
                     class="btn waves-effect button-rounded badColorButton"><i class="material-icons md-24">thumb_down</button>
                 </div>
                 <div class="containerResolucionDeLaApelacion">
@@ -219,14 +336,14 @@ function imprimirPreguntas() {
                 <h6 class="tituloEjercicioPendiente"><b>Su respuesta.</b></h6>
                 <input type="hidden" class="rightAnswerGlobal rightAnswerOpt3" id="rightAnswerOpt3`+ k + `" name="rightAnswerOpt3` + k + `"></input>
                 <div class="respuestaBox respuestaBoxOpt3 goodColor bordered1"></div>
-                <div class="ponderacionBox ponderacion_opt3 colorWhite bordered1"></div>
+                <div class="ponderacionBox ponderacion_opt3 colorWhite bordered1" id="valorApelacion_opt3_`+ k + `"></div>
             </section>
             <section class="colorWhite bordered1 shadow-1e respuestaFinalBoxes contenedorApelaciones" id="contenedorApelacionesOpt3`+ k + `">
                 <h6><b>Revisión/Apelación.</b></h6>
                 <div class="containerApelaciones">
-                    <button onclick="apelar('bien', 'rightAnswerOpt3` + k + `','resolucionOpt3` + k + `')"
+                    <button onclick="apelar('bien', 'rightAnswerOpt3` + k + `','resolucionOpt3` + k + `','valorApelacion_opt3_` + k + `')"
                     class="btn waves-effect button-rounded goodColorButton"><i class="material-icons md-24">thumb_up</button>
-                    <button onclick="apelar('mal', 'rightAnswerOpt3` + k + `','resolucionOpt3` + k + `')"
+                    <button onclick="apelar('mal', 'rightAnswerOpt3` + k + `','resolucionOpt3` + k + `','valorApelacion_opt3_` + k + `')"
                     class="btn waves-effect button-rounded badColorButton"><i class="material-icons md-24">thumb_down</button>
                 </div>
                 <div class="containerResolucionDeLaApelacion">
@@ -347,14 +464,14 @@ function imprimirPreguntas() {
                     <h6><b>Su respuesta.</b></h6>
                     <input type="hidden" value="` + preguntasModalArray5[m][1] + `" class="rightAnswerGlobal rightAnswerOpt5" id="rightAnswerOpt5` + m + `" name="rightAnswerOpt5` + m + `"></input>
                     <div class="respuestaBox respuestaBoxOpt5 goodColor bordered1"></div>
-                    <div class="ponderacionBox ponderacion_opt5 colorWhite bordered1"></div>
+                    <div class="ponderacionBox ponderacion_opt5 colorWhite bordered1" id="valorApelacion_opt5_`+ m + `"></div>
                 </section>
                 <section class="colorWhite bordered1 shadow-1e respuestaFinalBoxes contenedorApelaciones" id="contenedorApelacionesOpt5`+ m + `">
                 <h6><b>Revisión/Apelación.</b></h6>
                     <div class="containerApelaciones">
-                        <button onclick="apelar('bien', 'rightAnswerOpt5` + m + `','resolucionOpt5` + m + `')"
+                        <button onclick="apelar('bien', 'rightAnswerOpt5` + m + `','resolucionOpt5` + m + `','valorApelacion_opt5_` + m + `')"
                         class="btn waves-effect button-rounded goodColorButton"><i class="material-icons md-24">thumb_up</button>
-                        <button onclick="apelar('mal', 'rightAnswerOpt5` + m + `','resolucionOpt5` + m + `')"
+                        <button onclick="apelar('mal', 'rightAnswerOpt5` + m + `','resolucionOpt5` + m + `','valorApelacion_opt5_` + m + `')"
                         class="btn waves-effect button-rounded badColorButton"><i class="material-icons md-24">thumb_down</button>
                     </div>
                     <div class="containerResolucionDeLaApelacion">
@@ -396,14 +513,14 @@ function imprimirPreguntas() {
                     <h6><b>Su respuesta.</b></h6>
                     <input type="hidden" value="pendiente" class="rightAnswerGlobal rightAnswerOpt6" id="rightAnswerOpt6`+ m + `" name="rightAnswerOpt6` + m + `"></input>
                     <div class="respuestaBox respuestaBoxOpt6 goodColor bordered1"></div>
-                    <div class="ponderacionBox ponderacion_opt6 colorWhite bordered1"></div>
+                    <div class="ponderacionBox ponderacion_opt6 colorWhite bordered1" id="valorApelacion_opt6_`+ m + `"></div>
                 </section>
                 <section class="colorWhite bordered1 shadow-1e respuestaFinalBoxes contenedorApelaciones" id="contenedorApelacionesOpt6`+ m + `">
                 <h6><b>Revisión/Apelación.</b></h6>
                     <div class="containerApelaciones">
-                        <button onclick="apelar('bien', 'rightAnswerOpt6` + m + `','resolucionOpt6` + m + `')"
+                        <button onclick="apelar('bien', 'rightAnswerOpt6` + m + `','resolucionOpt6` + m + `','valorApelacion_opt6_` + m + `')"
                         class="btn waves-effect button-rounded goodColorButton"><i class="material-icons md-24">thumb_up</button>
-                        <button onclick="apelar('mal', 'rightAnswerOpt6` + m + `','resolucionOpt6` + m + `')"
+                        <button onclick="apelar('mal', 'rightAnswerOpt6` + m + `','resolucionOpt6` + m + `','valorApelacion_opt6_` + m + `')"
                         class="btn waves-effect button-rounded badColorButton"><i class="material-icons md-24">thumb_down</button>
                     </div>
                     <div class="containerResolucionDeLaApelacion">
@@ -426,86 +543,7 @@ function imprimirPreguntas() {
     ingresarPreguntasAbiertas();
     ingresarPreguntasArrastrar();
 
-    //////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////    
-    //////////////////////////////////////////////////////
-    ////////////TRABAJO CON PONDERACIONES Y ORDEN
-    //Para la ponderación de las preguntas
-    function asignarPonderaciones() {
-        //Validamos aquellos numeros de la ponderación que estan vacios
-        listaOrdenPreguntasConPonderaciones = [];
-        for (var g = 0; g < ponderacionPreguntasArray.length; g++) {
-            if (
-                ponderacionPreguntasArray[g] == "" ||
-                ponderacionPreguntasArray[g] == "00" ||
-                ponderacionPreguntasArray[g].length > 2 ||
-                parseInt(ponderacionPreguntasArray[g]) > 6 ||
-                parseInt(ponderacionPreguntasArray[g]) < 1) {
-                //Valor por default es 1
-                ponderacionPreguntasArray[g] = '1';
-            }
-            listaOrdenPreguntasConPonderaciones.push(ordenPreguntasArray[g] + "_" + ponderacionPreguntasArray[g]);
-        }
-
-        //Debemos buscar los elementos que ya estan desplegados en pantalla por su clase
-        //Su clase nos indica que tipo de preguntas son
-        let opt1_container = document.getElementsByClassName('ponderacion_opt1');
-        let opt2_container = document.getElementsByClassName('ponderacion_opt2');
-        let opt3_container = document.getElementsByClassName('ponderacion_opt3');
-        let opt4_container = document.getElementsByClassName('ponderacion_opt4');
-        let opt5_container = document.getElementsByClassName('ponderacion_opt5');
-        let opt6_container = document.getElementsByClassName('ponderacion_opt6');
-
-        //Declaramos los chunks de preguntas que estan en el array de ponderacion
-        let opt1_container_order = [];
-        let opt2_container_order = [];
-        let opt3_container_order = [];
-        let opt4_container_order = [];
-        let opt5_container_order = [];
-        let opt6_container_order = [];
-
-        //Encontramos preguntas y ponderación / después ingresamos ponderaciones en las cajas de ponderación
-        for (var s = 0; s < listaOrdenPreguntasConPonderaciones.length; s++) {
-            if (listaOrdenPreguntasConPonderaciones[s].indexOf('optMultiple') != -1) {
-                opt1_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
-            } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optAcompletar') != -1) {
-                opt2_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
-            } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optEjercicios') != -1) {
-                opt3_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
-            } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optArrastrar') != -1) {
-                opt4_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
-            } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optFalsoVerdadero') != -1) {
-                opt5_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
-            } else if (listaOrdenPreguntasConPonderaciones[s].indexOf('optAbierta') != -1) {
-                opt6_container_order.push(listaOrdenPreguntasConPonderaciones[s].substr(listaOrdenPreguntasConPonderaciones[s].indexOf('_') + 1));
-            }
-        }
-
-        //Metemos los extratos en las cajas de ponderacion
-        function meterPonderaciones(cajasGrupo, ponderacionesGrupo) {
-            let ponderacionPorTipoPregunta = 0;
-            for (var y = 0; y < cajasGrupo.length; y++) {
-                cajasGrupo[y].innerHTML = "<b>" + ponderacionesGrupo[y] + "pts.</b>";
-                ponderacionGlobalDada += parseInt(ponderacionesGrupo[y]);
-                ponderacionPorTipoPregunta += parseInt(ponderacionesGrupo[y]);
-            }
-            puntajeSegmentadoPorTipoPregunta.push(ponderacionPorTipoPregunta);
-            console.log('puntajeSegmentadoPorTipoPregunta', puntajeSegmentadoPorTipoPregunta)
-            return "Longitudes = " + cajasGrupo.length + "///" + ponderacionesGrupo.length;
-        }
-
-        console.log(meterPonderaciones(opt1_container, opt1_container_order));
-        console.log(meterPonderaciones(opt2_container, opt2_container_order));
-        console.log(meterPonderaciones(opt3_container, opt3_container_order));
-        console.log(meterPonderaciones(opt4_container, opt4_container_order));
-        console.log(meterPonderaciones(opt5_container, opt5_container_order));
-        console.log(meterPonderaciones(opt6_container, opt6_container_order));
-
-
-        // console.log('ponderacionPreguntasArray', ponderacionPreguntasArray)
-        // console.log('ordenPreguntasArray', ordenPreguntasArray)
-        // console.log('listaOrdenPreguntasConPonderaciones', listaOrdenPreguntasConPonderaciones)
-    }
+    ///Se asignan los valores de la ponderaciones en cuanto carga la página.
     asignarPonderaciones();
 
     //////////////////////////////////////////////////////
@@ -696,20 +734,6 @@ function imprimirPreguntas() {
                 }
             }
         }
-
-        //Validamos impresión dependiendo del tipo
-        // if (tipo == "respuestaBoxOpt4") {
-        //     for (var i = 0; i < respuestaBox.length; i++) {
-        //         if (listaRespuestas[i] == undefined) {
-        //             respuestaBox[i].innerText = "vacio";
-        //         } else if (listaRespuestas[i] == "") {
-        //             respuestaBox[i].innerText = "vacio";
-        //         } else {
-        //             var textoConFormato = listaRespuestas[i].replaceAll('/', '<br>');
-        //             respuestaBox[i].innerHTML = textoConFormato;
-        //         }
-        //     }
-        // }
     }
     imprimirRespuestasAlumno(Object.values(listaRespuestasLimpiaOpt1), 'respuestaBoxOpt1');
     imprimirRespuestasAlumno(Object.values(listaRespuestasLimpiaOpt2), 'respuestaBoxOpt2');
@@ -979,14 +1003,6 @@ function imprimirPreguntas() {
                 }
 
             }
-            //Si el contador de incorrectas o correctas esta en cero la casilla se oculta
-            // if(contadorIncorrectas == 0){
-            //     badAnswerBox[r].classList.add('hiddenElement');
-            // }
-
-            // if(contadorCorrectas == 0){
-            //     respuestaBox[r].classList.add('hiddenElement');
-            // }
 
             //Sumamos a ala ponderacion global el puntaje
             ponderacionGlobal = ponderacionGlobal + parseFloat(valorPonderacionOpt4);
@@ -1055,6 +1071,7 @@ function imprimirPreguntas() {
                 respuestaBox[i].innerText = "EMPTY";
             } else {
                 rightAnswerOpt6[i].value = "pendiente";
+                rightAnswerOpt6[i].classList.add("opt6Pendiente");
                 //Aplicamos los estilos
                 respuestaBox[i].classList.remove('goodColor');
                 respuestaBox[i].classList.add('sosoColor');
@@ -1064,22 +1081,7 @@ function imprimirPreguntas() {
     }
     evaluarOpt6();
 
-    //Calculamos el promedio
-    function calcularPromedio() {
-        //Detecta la cantidad de preguntas abiertas que hay
-        let rightAnswerOpt6 = document.getElementsByClassName('rightAnswerOpt6');
-        //Detecta la cantidad de inputs de pendiente que hay en los ejercicios (los que no tenian output)
-        let opt3Pendiente = document.getElementsByClassName('opt3Pendiente');
-        let calificacionContainer = document.getElementsByClassName("calificacionContainer");
-        //Evalua si existen
-        if (rightAnswerOpt6.length > 0 || opt3Pendiente.length > 0) {
-            //En caso de que haya preguntas abiertas o ejercicios sin output.
-            calificacionContainer[0].innerHTML = "<p>Revisión manual pendiente</p>";
-        } else {
-            var promedio = (ponderacionGlobal.toFixed(2) * 10) / ponderacionGlobalDada;
-            calificacionContainer[0].innerHTML = "<p>Calificación: <span id='calificacionDataGet'>" + promedio.toFixed(2) + "</span></p>";
-        }
-    }
+    //Calcula el promedio
     calcularPromedio();
 
     //Validar retraso
@@ -1092,15 +1094,10 @@ function imprimirPreguntas() {
             estadoRetrasoBox[0].innerHTML = "<p>Enviado a tiempo</p>";
         }
 
-    }
+    };
     estadoRetraso();
 
-    //Calculamos el puntaje
-    function calcularPuntaje() {
-        let puntosContainer = document.getElementsByClassName('puntosContainer');
-        puntosContainer[0].innerHTML = "<p id='puntajeGeneralDataGet'>" + ponderacionGlobal.toFixed(2) + "/" + ponderacionGlobalDada + "pts.</p>";
-
-    }
-    calcularPuntaje()
+    //Calculamos el puntaje de los usuarios
+    calcularPuntaje();
 }
 imprimirPreguntas();

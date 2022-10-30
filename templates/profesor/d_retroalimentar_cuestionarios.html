@@ -33,8 +33,8 @@
         <section class="previewResultadosCuestionarioSon1">
             <!--Si el examen ya fue completado se muestra una o la otra-->
             <section id="readyResultaAlert" class="goodColor bordered1 shadow-1e generalInfoPreviewAlumno">
-                <p class="goodColor"><i class="material-icons">info</i> Estas son sus respuestas, el cuestionario fue
-                    evaluado en su totalidad.</p>
+                <p class="goodColor"><i class="material-icons">info</i> El cuestionario ha sido revisado en su
+                    totalidad, presione el boton de finalizar para dar resolución a la apelación.</p>
             </section>
 
             <section id="pendingResultaAlert" class="sosoColor bordered1 shadow-1e generalInfoPreviewAlumno">
@@ -42,43 +42,48 @@
                     forma manual o existen apelaciones por parte del estudiante.</p>
             </section>
 
-            <div class="hide-on-small-only">
-                <h5>Resultados {{datosCuestionario[0][3]}}</h5>
-            </div>
-            <div>
-                <h6 class="hide-on-small-only">Preguntas y puntaje</h6>
-                <h5 class="hide-on-med-and-up">Preguntas y puntaje</h5>
-            </div>
-            <section class="previewResultadosCuestionarioSon1Grid">
-                <div class="calificacionContainer colorGreyWhiter bordered2 shadow-1e">
+            <section class="temporalFixedContainer">
+                <div class="hide-on-small-only">
+                    <h5>Resultados {{datosCuestionario[0][3]}}</h5>
+                </div>
+                <div>
+                    <h6 class="hide-on-small-only">Preguntas y puntaje</h6>
+                    <h5 class="hide-on-med-and-up">Preguntas y puntaje</h5>
+                </div>
+                <section class="previewResultadosCuestionarioSon1Grid">
+                    <div class="calificacionContainer colorGreyWhiter bordered2 shadow-1e">
 
-                </div>
-                <div class="puntosContainer colorGreyWhiter bordered2 shadow-1e">
+                    </div>
+                    <div class="puntosContainer colorGreyWhiter bordered2 shadow-1e">
 
-                </div>
-                <div class="estadoRetraso colorGreyWhiter bordered2 shadow-1e">
+                    </div>
+                    <div class="estadoRetraso colorGreyWhiter bordered2 shadow-1e">
 
-                </div>
-            </section>
-            <section>
-                <div class="accessCuestionarioLive">
-                    <form action="/terminarRetroalimentacion/{{datosCuestionario[0][0]}}" method="post">
-                        <!--Estos datos serán enviados a la BD-->
-                        <input type="hidden" name="idCuestionarioHecho" id="idCuestionarioHecho"
-                            value="{{idCuestionarioHecho}}">
-                        <input type="hidden" name="revisionEstado" id="revisionEstado">
-                        <!--Listo-->
-                        <input type="hidden" name="aprovacionEstado" id="aprovacionEstado">
-                        <input type="hidden" name="promedioGeneral" id="promedioGeneral">
-                        <input type="hidden" name="puntajeGeneral" id="puntajeGeneral">
-                        <input type="hidden" name="puntajeSegmentado" id="puntajeSegmentado">
-                        <input type="hidden" name="idEstudiante" id="idEstudiante" value="{{idEstudiante}}">
-                        <button type="submit"
-                            class="modal-trigger waves-effect waves-light btn-large bordered5 color1 shadow-2e"
-                            id="previewJsonResponder" style="width: 100%;">
-                            <i class="material-icons left">check</i>Terminar</button>
-                    </form>
-                </div>
+                    </div>
+                    <div class="pendientesEstado colorGreyWhiter bordered2 shadow-1e">
+                        
+                    </div>
+                </section>
+                <section>
+                    <div class="accessCuestionarioLive">
+                        <form action="/terminarRetroalimentacion/{{datosCuestionario[0][0]}}" method="post">
+                            <!--Estos datos serán enviados a la BD-->
+                            <input type="hidden" name="idCuestionarioHecho" id="idCuestionarioHecho"
+                                value="{{idCuestionarioHecho}}">
+                            <input type="hidden" name="revisionEstado" id="revisionEstado">
+                            <!--Listo-->
+                            <input type="hidden" name="aprovacionEstado" id="aprovacionEstado">
+                            <input type="hidden" name="promedioGeneral" id="promedioGeneral">
+                            <input type="hidden" name="puntajeGeneral" id="puntajeGeneral">
+                            <input type="hidden" name="puntajeSegmentado" id="puntajeSegmentado">
+                            <input type="hidden" name="idEstudiante" id="idEstudiante" value="{{idEstudiante}}">
+                            <button type="submit"
+                                class="modal-trigger waves-effect waves-light btn-large bordered5 color1 shadow-2e"
+                                id="previewJsonResponder" style="width: 100%;">
+                                <i class="material-icons left">check</i>Terminar</button>
+                        </form>
+                    </div>
+                </section>
             </section>
         </section>
         <section class="previewResultadosCuestionarioSon2">

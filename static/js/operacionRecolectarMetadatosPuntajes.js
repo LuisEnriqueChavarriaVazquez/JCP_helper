@@ -2,7 +2,7 @@
 //Evalaumos si el cuestionario tiene preguntas abiertas o ejercicios sin output
 function estadoRevisionCuestionario(){
     //Obtenemos el valor de los inputs de las preguntas opt3
-    let rightAnswerOpt3 = document.getElementsByClassName('rightAnswerOpt3');
+    let rightAnswerOpt3 = document.getElementsByClassName('opt3Pendiente');
 
     //Variable indicador
     let indicador = "";
@@ -17,7 +17,7 @@ function estadoRevisionCuestionario(){
     }
 
     //Si existen elemento de preguntas abiertas
-    let rightAnswerOpt6 = document.getElementsByClassName('rightAnswerOpt6');
+    let rightAnswerOpt6 = document.getElementsByClassName('opt6Pendiente');
     //Si existen elementos con esta clase se ejecuta
     if (rightAnswerOpt6.length > 0) {
         for (var i = 0; i < rightAnswerOpt6.length; i++) {
@@ -30,6 +30,8 @@ function estadoRevisionCuestionario(){
     //retorno de indicador
     if(indicador == ""){
         return "ready"
+    }else if(rightAnswerOpt6.length == 0 && rightAnswerOpt3.length == 0){
+        return "ready"
     }else if(indicador == "pending"){
         return indicador
     }
@@ -38,14 +40,16 @@ function estadoRevisionCuestionario(){
 ////////////////////////////////////////
 //Ocultamos o mostramos mensaje de acuerdo al estado del cuestinario
 const estadoCuestionario = estadoRevisionCuestionario();
-const validacionMensajes = (estadoCuestionario) => {
-    if(estadoCuestionario == "pending"){
+const validacionMensajes = (estadoCuestionarioParam) => {
+    if(estadoCuestionarioParam == "pending"){
+        document.getElementById('pendingResultaAlert').classList.remove('hiddenElement');
         document.getElementById('readyResultaAlert').classList.add('hiddenElement');
-    }else if(estadoCuestionario == "ready"){
+    }else if(estadoCuestionarioParam == "ready"){
         document.getElementById('pendingResultaAlert').classList.add('hiddenElement');
+        document.getElementById('readyResultaAlert').classList.remove('hiddenElement');
     }
 
-    console.log(estadoCuestionario)
+    console.log(estadoCuestionarioParam)
 }
 validacionMensajes(estadoCuestionario);
 
@@ -62,13 +66,13 @@ agregarInputEstadoRevisión(estadoCuestionario);
 //Debemos retornar un puntaje y promedio en
 //caso de que el cuestionario este "ready"
 //en caso contrario se regresa un valor pending
-function evaluacionEstado(){
+function evaluacionEstado(estadoCuestionarioParam){
     let aprovacionEstado = document.getElementById('aprovacionEstado');
     let promedioGeneral = document.getElementById('promedioGeneral');
     let puntajeGeneral = document.getElementById('puntajeGeneral');
     let puntajeSegmentado = document.getElementById('puntajeSegmentado');
         
-    if(estadoCuestionario == "ready"){
+    if(estadoCuestionarioParam == "ready"){
         //Accedemos a la calificacion
         let calificacion = document.getElementById('calificacionDataGet').innerText;
         promedioGeneral.value = calificacion;
@@ -96,11 +100,11 @@ function evaluacionEstado(){
         }
 
         puntajeSegmentado.value = puntajeTotalSegementado;
-    }else if(estadoCuestionario == "pending"){
+    }else if(estadoCuestionarioParam == "pending"){
         aprovacionEstado.value = "pending";
         promedioGeneral.value = "pending"; 
         puntajeGeneral.value = "pending"; 
         puntajeSegmentado.value = "pending"; 
     }
 }
-evaluacionEstado();
+evaluacionEstado(estadoCuestionario);
