@@ -172,6 +172,8 @@ function calcularPromedio() {
     //Detecta la cantidad de inputs de pendiente que hay en los ejercicios (los que no tenian output)
     let rightAnswerOpt3 = document.getElementsByClassName('opt3Pendiente');
     let calificacionContainer = document.getElementsByClassName("calificacionContainer");
+    //console.log('rightAnswerOpt6', rightAnswerOpt6)
+    //console.log('rightAnswerOpt3', rightAnswerOpt3)
 
     // console.log(rightAnswerOpt6.length);
     // console.log(rightAnswerOpt3.length);
