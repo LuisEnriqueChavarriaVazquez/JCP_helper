@@ -175,8 +175,12 @@ function calcularPromedio() {
     //console.log('rightAnswerOpt6', rightAnswerOpt6)
     //console.log('rightAnswerOpt3', rightAnswerOpt3)
 
-    console.log("Preguntas abiertas pendientes = ", rightAnswerOpt6.length);
-    console.log("Preguntas ejercicios pendientes = ", rightAnswerOpt3.length);
+    let casillaPendientes = document.getElementsByClassName('pendientesEstado');
+    casillaPendientes[0].innerHTML = `<p>Open questions = ${rightAnswerOpt6.length}</p>`;
+    casillaPendientes[0].innerHTML += `<p>Code questions = ${rightAnswerOpt3.length}</p>`;
+
+    // console.log("Preguntas abiertas pendientes = ", rightAnswerOpt6.length);
+    // console.log("Preguntas ejercicios pendientes = ", rightAnswerOpt3.length);
 
     //Evalua si existen
     if (rightAnswerOpt6.length > 0 || rightAnswerOpt3.length > 0) {
