@@ -33,7 +33,11 @@ function apelar(valorFinal, inputResolucion, textoConfirmacion, ponderacionBoxVa
         ponderacionGlobal = ponderacionGlobal + parseInt(ponderacionValue);
 
         //Removemos la clase de opt6 para que el software calcule el promedio una vez que no haya pendientes.
-        inputResolucionGet.classList.remove('rightAnswerOpt6');
+        if(inputResolucionGet.getAttribute('class').indexOf('rightAnswerOpt6') != -1){
+            inputResolucionGet.classList.remove('opt6Pendiente');
+        }else if(inputResolucionGet.getAttribute('class').indexOf('rightAnswerOpt3') != -1){
+            inputResolucionGet.classList.remove('opt3Pendiente');
+        }
 
         //Calculamos el promedio de nuevo
         calcularPromedio();

@@ -154,12 +154,16 @@ function asignarPonderaciones() {
 //Calculamos el promedio
 function calcularPromedio() {
     //Detecta la cantidad de preguntas abiertas que hay
-    let rightAnswerOpt6 = document.getElementsByClassName('rightAnswerOpt6');
+    let rightAnswerOpt6 = document.getElementsByClassName('opt6Pendiente');
     //Detecta la cantidad de inputs de pendiente que hay en los ejercicios (los que no tenian output)
-    let opt3Pendiente = document.getElementsByClassName('opt3Pendiente');
+    let rightAnswerOpt3 = document.getElementsByClassName('opt3Pendiente');
     let calificacionContainer = document.getElementsByClassName("calificacionContainer");
+
+    console.log(rightAnswerOpt6.length);
+    console.log(rightAnswerOpt3.length);
+
     //Evalua si existen
-    if (rightAnswerOpt6.length > 0 || opt3Pendiente.length > 0) {
+    if (rightAnswerOpt6.length > 0 || rightAnswerOpt3.length > 0) {
         //En caso de que haya preguntas abiertas o ejercicios sin output.
         calificacionContainer[0].innerHTML = "<p>Revisión manual pendiente</p>";
     } else {
@@ -1060,6 +1064,7 @@ function imprimirPreguntas() {
                 respuestaBox[i].innerText = "EMPTY";
             } else {
                 rightAnswerOpt6[i].value = "pendiente";
+                rightAnswerOpt6[i].classList.add("opt6Pendiente");
                 //Aplicamos los estilos
                 respuestaBox[i].classList.remove('goodColor');
                 respuestaBox[i].classList.add('sosoColor');
