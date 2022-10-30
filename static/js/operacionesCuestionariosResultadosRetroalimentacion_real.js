@@ -151,27 +151,6 @@ function asignarPonderaciones() {
     console.log(meterPonderaciones(opt6_container, opt6_container_order));
 }
 
-//Calculamos el promedio
-function calcularPromedio() {
-    //Detecta la cantidad de preguntas abiertas que hay
-    let rightAnswerOpt6 = document.getElementsByClassName('opt6Pendiente');
-    //Detecta la cantidad de inputs de pendiente que hay en los ejercicios (los que no tenian output)
-    let rightAnswerOpt3 = document.getElementsByClassName('opt3Pendiente');
-    let calificacionContainer = document.getElementsByClassName("calificacionContainer");
-
-    console.log(rightAnswerOpt6.length);
-    console.log(rightAnswerOpt3.length);
-
-    //Evalua si existen
-    if (rightAnswerOpt6.length > 0 || rightAnswerOpt3.length > 0) {
-        //En caso de que haya preguntas abiertas o ejercicios sin output.
-        calificacionContainer[0].innerHTML = "<p>Revisión manual pendiente</p>";
-    } else {
-        var promedio = (ponderacionGlobal.toFixed(2) * 10) / ponderacionGlobalDada;
-        calificacionContainer[0].innerHTML = "<p>Calificación: <span id='calificacionDataGet'>" + promedio.toFixed(2) + "</span></p>";
-    }
-}
-
 //Calculamos el puntaje
 function calcularPuntaje() {
     let puntosContainer = document.getElementsByClassName('puntosContainer');
@@ -185,6 +164,28 @@ function calcularPuntajeRevisado() {
     puntosContainer[0].innerHTML = "<p id='puntajeGeneralDataGet'>" + ponderacionGlobal.toFixed(2) + "/" + (ponderacionGlobalDada-(74*contadorRevisionDeLaSuma)) + "pts.</p>";
     contadorRevisionDeLaSuma++;
 }
+
+//Calculamos el promedio
+function calcularPromedio() {
+    //Detecta la cantidad de preguntas abiertas que hay
+    let rightAnswerOpt6 = document.getElementsByClassName('opt6Pendiente');
+    //Detecta la cantidad de inputs de pendiente que hay en los ejercicios (los que no tenian output)
+    let rightAnswerOpt3 = document.getElementsByClassName('opt3Pendiente');
+    let calificacionContainer = document.getElementsByClassName("calificacionContainer");
+
+    // console.log(rightAnswerOpt6.length);
+    // console.log(rightAnswerOpt3.length);
+
+    //Evalua si existen
+    if (rightAnswerOpt6.length > 0 || rightAnswerOpt3.length > 0) {
+        //En caso de que haya preguntas abiertas o ejercicios sin output.
+        calificacionContainer[0].innerHTML = "<p>Revisión manual pendiente</p>";
+    } else {
+        var promedio = (ponderacionGlobal.toFixed(2) * 10) / (ponderacionGlobalDada/contadorRevisionDeLaSuma);
+        calificacionContainer[0].innerHTML = "<p>Calificación: <span id='calificacionDataGet'>" + promedio.toFixed(2) + "</span></p>";
+    }
+}
+
 
 //Debemos primeros hacer la impresion de las preguntas de acuerdo a su tipo y luego
 //mostrar los resultados

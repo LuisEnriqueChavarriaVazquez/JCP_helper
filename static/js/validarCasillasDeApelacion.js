@@ -39,11 +39,12 @@ function apelar(valorFinal, inputResolucion, textoConfirmacion, ponderacionBoxVa
             inputResolucionGet.classList.remove('opt3Pendiente');
         }
 
-        //Calculamos el promedio de nuevo
-        calcularPromedio();
-
+        
         //Se calcula el puntaje total
         calcularPuntajeRevisado();
+        
+        //Calculamos el promedio de nuevo
+        calcularPromedio();
 
         //Volvemos a calcular los puntajes por preguntas.
         puntajeSegmentadoPorTipoPregunta = [];
