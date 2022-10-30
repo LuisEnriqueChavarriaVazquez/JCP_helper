@@ -175,8 +175,8 @@ function calcularPromedio() {
     //console.log('rightAnswerOpt6', rightAnswerOpt6)
     //console.log('rightAnswerOpt3', rightAnswerOpt3)
 
-    // console.log(rightAnswerOpt6.length);
-    // console.log(rightAnswerOpt3.length);
+    console.log("Preguntas abiertas pendientes = ", rightAnswerOpt6.length);
+    console.log("Preguntas ejercicios pendientes = ", rightAnswerOpt3.length);
 
     //Evalua si existen
     if (rightAnswerOpt6.length > 0 || rightAnswerOpt3.length > 0) {

@@ -2,7 +2,7 @@
 //Evalaumos si el cuestionario tiene preguntas abiertas o ejercicios sin output
 function estadoRevisionCuestionario(){
     //Obtenemos el valor de los inputs de las preguntas opt3
-    let rightAnswerOpt3 = document.getElementsByClassName('rightAnswerOpt3');
+    let rightAnswerOpt3 = document.getElementsByClassName('opt3Pendiente');
 
     //Variable indicador
     let indicador = "";
@@ -17,7 +17,7 @@ function estadoRevisionCuestionario(){
     }
 
     //Si existen elemento de preguntas abiertas
-    let rightAnswerOpt6 = document.getElementsByClassName('rightAnswerOpt6');
+    let rightAnswerOpt6 = document.getElementsByClassName('opt6Pendiente');
     //Si existen elementos con esta clase se ejecuta
     if (rightAnswerOpt6.length > 0) {
         for (var i = 0; i < rightAnswerOpt6.length; i++) {
@@ -30,6 +30,8 @@ function estadoRevisionCuestionario(){
     //retorno de indicador
     if(indicador == ""){
         return "ready"
+    }else if(rightAnswerOpt6.length == 0 && rightAnswerOpt3.length == 0){
+        return "ready"
     }else if(indicador == "pending"){
         return indicador
     }
@@ -40,9 +42,11 @@ function estadoRevisionCuestionario(){
 const estadoCuestionario = estadoRevisionCuestionario();
 const validacionMensajes = (estadoCuestionario) => {
     if(estadoCuestionario == "pending"){
+        document.getElementById('pendingResultaAlert').classList.remove('hiddenElement');
         document.getElementById('readyResultaAlert').classList.add('hiddenElement');
     }else if(estadoCuestionario == "ready"){
         document.getElementById('pendingResultaAlert').classList.add('hiddenElement');
+        document.getElementById('readyResultaAlert').classList.remove('hiddenElement');
     }
 
     console.log(estadoCuestionario)

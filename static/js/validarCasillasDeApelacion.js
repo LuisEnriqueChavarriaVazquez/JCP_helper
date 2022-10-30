@@ -55,7 +55,13 @@ function apelar(valorFinal, inputResolucion, textoConfirmacion, ponderacionBoxVa
         //Reiniciamos a default los puntajes globales dados.
         puntajeSegmentadoPorTipoPregunta = [];
         asignarPonderaciones();
-        console.log('puntajeSegmentadoPorTipoPreguntaAlumno', puntajeSegmentadoPorTipoPreguntaAlumno)
+        console.log('puntajeSegmentadoPorTipoPreguntaAlumno', puntajeSegmentadoPorTipoPreguntaAlumno);
+
+        //Validamos la parte del estado del cuestionario y los mensajes de alerta
+        let estadoCuestionarioValue = estadoRevisionCuestionario();
+        console.log('estadoCuestionarioValue', estadoCuestionarioValue)
+        validacionMensajes(estadoCuestionarioValue);
+
     };
 
 
