@@ -1,257 +1,979 @@
-<!doctype html>
 <html lang="en">
-
 <!--Jalamos todo el contenido del encabezado-->
-{% include "includes/footerRecursos.html" %}
 
 <head>
-    <title>Cuestionarios del banco</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/materialize.min.js"></script>
+    <script src="../static/js/materializeCall.js"></script>
+    <script src="../static/js/selectorTema.js"></script>
+    <script src="../static/js/Sortable.min.js"></script>
+
+    <!--Para el carousel-->
+    <script src="../static/js/owl.carousel.min.js"></script>
+    <script src="../static/js/carouselCodeMine.js"></script>
+
+    <!--Para la parte de los idiomas-->
+    <script src="../../static/js/idiomas/gestorIdiomas.js"></script>
+
+    <!--Este link es temporal puesto que hay que registrar la app en linea para tener un dominio-->
+    <!--<script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v13.0&appId=210544583044581&autoLogAppEvents=1"
+        nonce="f56MTTwx"></script>-->
+
+
+    <title>Creación de cuestionarios</title>
 
     <!--Jalamos todo el contenido del encabezado-->
-    {% include "includes/encabezadoRecursos.html" %}
+    <!-- Meta datos -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="../../static/images/favicon/ico.ico">
+
+    <!--Animaciones-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <!--Fuentes-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&amp;display=swap"
+        rel="stylesheet">
+    <!-- Encabezado link-->
+    <link rel="stylesheet" href="../static/css/temas/@coloresUniversales.css">
+    <link rel="stylesheet" href="../static/css/sombras.css">
+    <link rel="stylesheet" href="../static/css/border.css">
+    <link rel="stylesheet" href="../static/css/personalizadorColor.css">
+    <link rel="stylesheet" href="../static/css/cargador.css">
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/paginaIntentos.css">
+    <link rel="stylesheet" href="/static/css/comunidadEstilos.css">
+    <link rel="stylesheet" href="/static/css/myGroupContainer.css">
+    <link rel="stylesheet" href="/static/css/ownBadges.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/cardsConfiguraciones.css">
+    <link rel="stylesheet" href="/static/css/cardsSeleccionTema.css">
+    <link rel="stylesheet" href="/static/css/politicas.css">
+    <link rel="stylesheet" href="/static/css/operacionesGestionMenuStyles.css">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <!--Mantener las card abajo de styles, para que tengan prioridad-->
+    <link rel="stylesheet" href="../static/css/cardsMain.css">
+    <link rel="stylesheet" href="/static/css/cardEstadisticas.css">
+    <link rel="stylesheet" href="/static/css/cardInformes.css">
+    <link rel="stylesheet" href="/static/css/cardSummary.css">
+    <link rel="stylesheet" href="../static/css/cardsSecondary.css">
+    <link rel="stylesheet" href="../static/css/operacionesCreacionCuestionariosStyles.css">
+    <link rel="stylesheet" href="../static/css/operacionesVerCuestionarios.css">
+    <link rel="stylesheet" href="../static/css/operacionesVerResultadosCuestionario.css">
+    <link rel="stylesheet" href="../static/css/graficasPlotly.css">
+    <!--
+        Nota == Si haces cambios a las rutas asegurate de dejar 
+        materialize hasta abajo, para que el navegador le de prioridad
+        a los estilos del framework, porque si no podria romperse 
+        el CSS del framework.
+    -->
+    <link rel="stylesheet" href="../static/css/materialize.css">
+
+
+
+    <!------ESTILOS CON PRIORIDAD SUPERIOR----------------------------------------->
+    <!--Para los estilos del perfil de usuario
+        se requiere pasar por encima de materialize porque
+        el editor de fondo para el perfil requiere acceso al DOM-->
+    <link rel="stylesheet" href="/static/css/perfil_usuario.css">
+    <!--Para los mensajes en caso de que algo ocurra en la busqueda en la bd-->
+    <link rel="stylesheet" href="/static/css/mensajesCasos.css">
+    <!--Elementos para el carousel-->
+    <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+    <!--No borrar esta puesto para que el selector de temas funcione-->
+    <link rel="stylesheet" href="../static/css/temas/coloresDefault.css" id="theme">
+
+    <!--Para materialize-->
+    <link href="http://fonts.cdnfonts.com/css/roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 
-<body class="oculto colorGrey">
+<body class="colorGrey" style="">
 
     <!--Cargador de la página -->
 
-    {% include "includes/cargador.html" %}
+
+    <section class="centrado colorGrey" id="onload" style="display: none;">
+        <div class="loadingio-spinner-wedges-kr1h3zpnf0l colorGrey">
+            <div class="ldio-m7o9j4k1mye">
+                <div>
+                    <div>
+                        <div class="color4"></div>
+                    </div>
+                    <div>
+                        <div class="color3"></div>
+                    </div>
+                    <div>
+                        <div class="color2"></div>
+                    </div>
+                    <div>
+                        <div class="color1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Cuestionario del banco.</a>
+            <a href="#" class="brand-logo hide-on-small-only">Crear cuestionario.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Cuestionario del banco.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Crear cuestionario.</p>
             <ul class="right hide-on-med-and-down">
                 <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
             </ul>
         </div>
     </nav>
-    <div class="contenedorTitulo hiddenElement">
-        <h5 id="tituloCuestionario">Titulo del cuestionario</h5>
-        <a class="waves-effect waves-light btn bordered5 color1 shadow-2e" href="#" id="editarTitulo"><i
-                class="material-icons">edit</i></a>
-    </div>
-    <div class="container_preguntas">
-        <form action="/guardarCuestionarioJSON/1" method="post">
-            <div class="" id="contenedorCuestionarioPreguntas">
-                <div class="tituloCuestionario">
-                    <div class="contenedorTitulo hiddenElement">
-                        <h5 id="tituloCuestionario">Titulo del cuestionario</h5>
-                        <a class="waves-effect waves-light btn bordered5 color1 shadow-2e" href="#" id="editarTitulo"><i
-                                class="material-icons">edit</i></a>
-                    </div>
-                    <div class="inputNombreCuestionario">
-                        <input type="text" name="nombreCuestionario" id="nombreCuestionario"
-                            class="browser-default inputNombre shadow-1 flow-text bordered5"
-                            placeholder="Ingrese nombre del cuestionario">
-                        <input type="hidden" name="nombreCuestionarioConClave" id="nombreCuestionarioConClave">
-                        <a class="waves-effect waves-light btn color1 shadow-2e" href="#" id="guardarTitulo"><i
-                                class="material-icons left">done</i>Listo</a>
-                    </div>
-                </div>
-                {% for pregunta in preguntas %}
-                {% if pregunta.tipo_pregunta.lower()=="opción multiple" %}
-                <div class="row preguntaOpccionMultiple preguntaGlobal opt1">
-                    <div class="col s12">
-                        <div class="card colorWhite bordered2">
 
-                            <div class="input-field col s12">
-                                <input maxlength="1" min="0" max="5" placeholder="Defina ponderación 1-5" type="number"
-                                    class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
-                            </div>
-
-                            <div class="card-content ">
-                                <h5>Pregunta de opción múltiple.</h5>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <textarea id="tituloOpcionMultiple0" class="materialize-textarea textoPregunta"
-                                            placeholder="Escriba la pregunta">{{pregunta.enunciado}}</textarea>
-                                    </div>
-                                    <div class="input-field col s12">
-                                        <i class="material-icons prefix">image</i>
-                                        <textarea id="mediaProblemaOpcionMultiple0"
-                                            class="materialize-textarea"></textarea>
-                                        <label class="active" for="mediaProblemaOpcionMultiple0">Imagen (url)</label>
-                                    </div>
-                                </div>
-                            
-                                {% for llave,valor in pregunta.opciones.items() %}
-                                <div class="row colorGreyWhiter bordered1 opcionContainer">
-                                    <div class="col s12 m3 labelContainer">
-                                        <label>
-                                            <input type="radio" value="{{llave}}" name="group0">
-                                            <span>Correcta</span>
-                                        </label>
-                                    </div>
-                                    <div class="col s12 m9">
-                                        <h6><b>Opción {{llave}}</b></h6>
-                                        <textarea id="opcionACreacion" class="materialize-textarea"
-                                            name="textArea0">{{valor}}</textarea>
-                                    </div>
-                                </div>
-                                {% endfor %}
-                                <div class="containerButtonsView">
-                                    <div>
-                                        <a
-                                            class="waves-effect waves-light btn bordered5 color2 shadow-2e btnAgregarOpcionMultiple"><i
-                                                class="material-icons left">add</i>Agregar 1</a>
-                                    </div>
-                                    <div>
-                                        <a
-                                            class="waves-effect waves-light btn bordered5 color2 shadow-2e btnEliminarUltimaPreguntaOpcionMultiple"><i
-                                                class="material-icons left">remove</i>Eliminar 1</a>
-                                    </div>
-                                    <div>
-                                        <a
-                                            class="waves-effect waves-light btn bordered5 color1 shadow-2e btnEliminarPreguntaOpcionMultiple"><i
-                                                class="material-icons left">delete_sweep</i>Eliminar pregunta</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {% elif pregunta.tipo_pregunta.lower()=="verdadero o falso" %}
-                <div class="row preguntasTrueFalse preguntaGlobal opt5">
-                    <div class="col s12">
-                        <div class="card colorWhite bordered2">
-                            <div class="input-field col s12">
-                                <input maxlength="1" min="0" max="5" placeholder="Defina ponderación 1-5" type="number"
-                                    class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
-                            </div>
-                            <div class="card-content ">
-                                <h5>Falso y verdadero</h5>
-                                <hr>
-                                <div class="row">
-                                    <form class="col s12">
-                                        <h5><b>Pregunta</b></h5>
-                                        <div class="row">
-                                            <div class="input-field col s12">
-                                                <i class="material-icons prefix">description</i>
-                                                <textarea id="preguntaFalseVerdadero1"
-                                                    class="materialize-textarea">{{pregunta.enunciado}}</textarea>
-                                                <label class="active" for="preguntaFalseVerdadero1">Pregunta</label>
-                                            </div>
-                                            <div class="input-field col s12">
-                                                <h6><b>Respuesta</b></h6>
-                                                <p>Escribe F en caso de que sea falso o T en caso de que sea verdad.</p>
-                                                <br>
-                                                <input maxlength="1" value="{{pregunta.respuesta}}" placeholder="T/F"
-                                                    id="textFalseVerdadero1" type="text"
-                                                    class="validate shadow-1e colorGreyWhiter falsoVerdaderoInput browser-default valid">
-                                            </div>
-                                        </div>
-                                        <button
-                                            class="waves-effect deleteFalseVerdadero waves-light btn bordered5 color1 shadow-2e"
-                                            id="deleteFalseVerdadero1" style="width: 100%;">
-                                            <i class="material-icons left">delete_sweep</i>Borrar pregunta</button>
-                                    </form>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
-                {% endfor %}
-            </div>
-            <section class="row">
-                <!--Modal 0: Guardado del JSON -->
-                <div id="modalJSON" class="modal colorGrey bordered2 modalAltura" tabindex="0">
-                    <div class="modal-content">
-                        <h4>Generando archivo JSON</h4>
-                        <hr>
-                        <p>El cuestionario será almacenado como archivo JSON, usted puede guardar una copia del
-                            cuestionario si asi lo desea.</p>
-                        <p><b>Puede anexar algún JSON que haya descargado previamente.</b></p>
-                        <input type="file" id="inputfileAnterior" class="hidden">
-                        <a id="leerArchivoEjercicioAnterior" style="width: 100%; right: 0; position: relative;">
-                            <label for="inputfileAnterior"
-                                class="waves-effect waves-light btn bordered5 colorGreyDarker colorTextReverse"
-                                style="width: 100%;" onclick="anexarJsonViejo('output', 'inputfileAnterior')">
-                                <i class="material-icons">upload_file</i>
-                            </label>
-                        </a>
-
-                        <!--Preview del cuestionario-->
-                        <h5><b>Preview de cuestionario JSON</b></h5>
-                        <pre class="previewCodeContainer colorText bordered2" id="output"></pre>
-                        <!--Input discreto para enviar contenido JSON a flask-->
-                        <input type="hidden" name="jsonContentInput" id="jsonContentInput">
-                        <!--Descarga del archivo-->
-                        <a onclick="downloadJson()"
-                            class="waves-effect waves-light btn-large bordered2Up color3 shadow-2e" id="descargarJSON"
-                            style="width: 100%;">
-                            <i class="material-icons left">download</i>Descargar</a>
-                        <!--Almacenado del archivo (en BD y servidor)-->
-                        <button type="submit" class="waves-effect waves-light btn-large bordered2Down color1 shadow-2e"
-                            id="guardarJSON" style="width: 100%;">
-                            <i class="material-icons left">save</i>Guardar</button>
-                    </div>
-                </div>
-                <!--MODAL -1: Para agregar un JSON existente-->
-                <div id="agregar_JSON_existente" class="modal colorGrey bordered2" style="height: 80vh;" tabindex="0">
-                    <div class="modal-content">
-                        <h4>Duplica cuestionario guardado</h4>
-                        <hr>
-                        <p>Seleccione algún JSON que ya estuviera en existencia de cuestionarios anteriores. <b>Se
-                                creará una copia del documento y usted podra editar la data.</b></p>
-                        <h5><b>Cuestionarios anteriores.</b></h5>
-                        <div id="archivoCuestionario" class="input-field col s12 m12">
-                            <div class="select-wrapper"><input class="select-dropdown dropdown-trigger" type="text"
-                                    readonly="true" data-target="select-options-453cd259-c4dd-7ebf-d27a-93660d019b7b">
-                                <ul id="select-options-453cd259-c4dd-7ebf-d27a-93660d019b7b"
-                                    class="dropdown-content select-dropdown" tabindex="0"></ul><svg class="caret"
-                                    height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7 10l5 5 5-5z"></path>
-                                    <path d="M0 0h24v24H0z" fill="none"></path>
-                                </svg><select id="archivoCuestionarioExistente" name="archivoCuestionario"
-                                    tabindex="-1">
-
-                                </select>
-                            </div>
-                            <label>Archivo de cuestionario</label>
-                        </div>
-                        <!--Descarga del archivo-->
-                        <a href="#" class="waves-effect waves-light btn-large bordered1 color1 shadow-2e"
-                            id="archivoExistenteButton" style="width: 100%;">
-                            <i class="material-icons left">file_open</i>Cargar/Duplicar</a>
-                        <a class="hiddenElement" id="linkOculto"></a>
-                    </div>
+    <section class="containerCreacionCuestionarios">
+        <!--Opciones para crear el cuestionario en pantalla grande-->
+        <section class="containerCreacionCuestionariosSon1">
+            <section class="containerOpcionesFather">
+                <h5>Tipos de pregunta</h5>
+                <br>
+                <div class="containerOpciones colorGreyWhiter shadow-2e">
+                    <a class="waves-effect waves-light btn-large bordered1 color2 shadow-2e modal-trigger"
+                        href="#modalOpccionMultipleCreacion"><i class="material-icons left md-32">abc</i>Opción
+                        múltiple</a>
+                    <a class="waves-effect waves-light btn-large bordered1 color2 shadow-2e modal-trigger"
+                        href="#modalRellenarEspaciosCreacion"><i class="material-icons left md-32">draw</i>Rellenar
+                        espacios</a>
+                    <a class="waves-effect waves-light btn-large bordered1 color2 shadow-2e modal-trigger"
+                        href="#modalEjerciciosCreacion"><i class="material-icons left md-32">code</i>Ejercicios</a>
+                    <a class="waves-effect waves-light btn-large bordered1 color2 shadow-2e modal-trigger"
+                        href="#modalArrastrarCreacion"><i
+                            class="material-icons left md-32">swipe_vertical</i>Arrastrar</a>
+                    <a class="waves-effect waves-light btn-large bordered1 color2 shadow-2e modal-trigger"
+                        href="#modalTrueFalse"><i class="material-icons left md-32">compare</i>Falso/Verdadero</a>
+                    <a class="waves-effect waves-light btn-large bordered1 color2 shadow-2e modal-trigger"
+                        href="#modalAbierta"><i class="material-icons left md-32">emoji_objects</i>Pregunta abierta</a>
+                    <a class="waves-effect waves-light btn-large bordered1 color1 shadow-2e modal-trigger"
+                        href="#agregar_JSON_existente"><i class="material-icons left md-32">file_copy</i>Mis
+                        cuestionarios</a>
+                    <a class="waves-effect waves-light btn-large bordered1 color1 shadow-2e"
+                        href="/crear_cuestionario_del_banco"><i class="material-icons left md-32">cloud</i>Banco de
+                        preguntas</a>
                 </div>
             </section>
-            <!--Boton para abrir el modal del json-->
-            <div class="fixed-action-btn buttonSaveJSON">
-                <button href="#modalJSON" onclick="convertToJSON()" class="modal-trigger btn-floating btn-large color1"
-                    id="buttonModalSaveFloat">
-                    <i class="large material-icons">save</i>
-                </button>
+        </section>
+
+        <!--Opciones para cuestionario en pantalla pequeña-->
+        <section class="containerOpcionesMobileFather">
+            <section class="containerOpcionesMobile bordered1 colorGreyDarker">
+                <a class="button1 waves-effect waves-light shadow-1 modal-trigger"
+                    href="#modalOpccionMultipleCreacion"><i class="material-icons md-36 colorTextReverse">abc</i></a>
+                <a class="button2 waves-effect waves-light shadow-1 modal-trigger"
+                    href="#modalRellenarEspaciosCreacion"><i class="material-icons md-28 colorTextReverse">draw</i></a>
+                <a class="button3 waves-effect waves-light shadow-1 modal-trigger" href="#modalEjerciciosCreacion"><i
+                        class="material-icons md-28 colorTextReverse">code</i></a>
+                <a class="button4 waves-effect waves-light shadow-1 modal-trigger" href="#modalArrastrarCreacion"><i
+                        class="material-icons md-28 colorTextReverse">swipe_vertical</i></a>
+                <a class="button4 waves-effect waves-light shadow-1 modal-trigger" href="#modalTrueFalse"><i
+                        class="material-icons md-28 colorTextReverse">compare</i></a>
+                <a class="button4 waves-effect waves-light shadow-1 modal-trigger" href="#modalAbierta"><i
+                        class="material-icons md-28 colorTextReverse">emoji_objects</i></a>
+                <a class="button4 waves-effect waves-light shadow-1 modal-trigger" href="#agregar_JSON_existente"><i
+                        class="material-icons md-28 colorTextReverse">file_copy</i></a>
+                <a class="button5 waves-effect waves-light shadow-1" href="/crear_cuestionario_del_banco"><i
+                        class="material-icons md-28 colorTextReverse">cloud</i></a>
+            </section>
+        </section>
+
+        <!--Vista general del cuestionario-->
+        <section class="containerCreacionCuestionariosSon2">
+            <form action="/guardarCuestionarioJSON/1" method="post">
+                <div class="" id="contenedorCuestionarioPreguntas">
+                    <div class="tituloCuestionario">
+                        <div class="contenedorTitulo hiddenElement">
+                            <h5 id="tituloCuestionario">Titulo del cuestionario</h5>
+                            <a class="waves-effect waves-light btn bordered5 color1 shadow-2e" href="#"
+                                id="editarTitulo"><i class="material-icons">edit</i></a>
+                        </div>
+                        <div class="inputNombreCuestionario">
+                            <input type="text" name="nombreCuestionario" id="nombreCuestionario"
+                                class="browser-default inputNombre shadow-1 flow-text bordered5"
+                                placeholder="Ingrese nombre del cuestionario">
+                            <input type="hidden" name="nombreCuestionarioConClave" id="nombreCuestionarioConClave">
+                            <a class="waves-effect waves-light btn color1 shadow-2e" href="#" id="guardarTitulo"><i
+                                    class="material-icons left">done</i>Listo</a>
+                        </div>
+                    </div>
+                    {% for pregunta in preguntas %}
+                    {% if pregunta.tipo_pregunta.lower()=="opción multiple" %}
+                    <div class="row preguntaOpccionMultiple preguntaGlobal opt1">
+                        <div class="col s12">
+                            <div class="card colorWhite bordered2">
+
+                                <div class="input-field col s12">
+                                    <input maxlength="1" min="0" max="5" placeholder="Defina ponderación 1-5"
+                                        type="number"
+                                        class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+                                </div>
+
+                                <div class="card-content ">
+                                    <h5>Pregunta de opción múltiple.</h5>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <textarea id="tituloOpcionMultiple0"
+                                                class="materialize-textarea textoPregunta"
+                                                placeholder="Escriba la pregunta">{{pregunta.enunciado}}</textarea>
+                                        </div>
+                                        <div class="input-field col s12">
+                                            <i class="material-icons prefix">image</i>
+                                            <textarea id="mediaProblemaOpcionMultiple0"
+                                                class="materialize-textarea"></textarea>
+                                            <label class="active" for="mediaProblemaOpcionMultiple0">Imagen
+                                                (url)</label>
+                                        </div>
+                                    </div>
+                                    <div class="row colorGreyWhiter bordered1 opcionContainer">
+                                        <div class="col s12 m3 labelContainer">
+                                            <label>
+                                                <input type="radio" value="A" name="group0" checked="">
+                                                <span>Correcta</span>
+                                            </label>
+                                        </div>
+                                        <div class="col s12 m9">
+                                            <h6><b>Opción A</b></h6>
+                                            <textarea id="opcionACreacion" class="materialize-textarea"
+                                                name="textArea0">{{pregunta.opciones[0]}}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row colorGreyWhiter bordered1 opcionContainer ">
+                                        <div class="col s12 m3 labelContainer">
+                                            <label>
+                                                <input type="radio" value="B" name="group0">
+                                                <span>Correcta</span>
+                                            </label>
+                                        </div>
+                                        <div class="col s12 m9">
+                                            <h6><b>Opción B</b></h6>
+                                            <textarea class="materialize-textarea" name="textArea0">{{pregunta.opciones[1]}}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row colorGreyWhiter bordered1 opcionContainer ">
+                                        <div class="col s12 m3 labelContainer">
+                                            <label>
+                                                <input type="radio" value="C" name="group0">
+                                                <span>Correcta</span>
+                                            </label>
+                                        </div>
+                                        <div class="col s12 m9">
+                                            <h6><b>Opción C</b></h6>
+                                            <textarea class="materialize-textarea" name="textArea0">{{pregunta.opciones[2]}}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row colorGreyWhiter bordered1 opcionContainer ">
+                                        <div class="col s12 m3 labelContainer">
+                                            <label>
+                                                <input type="radio" value="D" name="group0">
+                                                <span>Correcta</span>
+                                            </label>
+                                        </div>
+                                        <div class="col s12 m9">
+                                            <h6><b>Opción D</b></h6>
+                                            <textarea class="materialize-textarea" name="textArea0">{{pregunta.opciones[3]}}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="containerButtonsView">
+                                        <div>
+                                            <a
+                                                class="waves-effect waves-light btn bordered5 color2 shadow-2e btnAgregarOpcionMultiple"><i
+                                                    class="material-icons left">add</i>Agregar 1</a>
+                                        </div>
+                                        <div>
+                                            <a
+                                                class="waves-effect waves-light btn bordered5 color2 shadow-2e btnEliminarUltimaPreguntaOpcionMultiple"><i
+                                                    class="material-icons left">remove</i>Eliminar 1</a>
+                                        </div>
+                                        <div>
+                                            <a
+                                                class="waves-effect waves-light btn bordered5 color1 shadow-2e btnEliminarPreguntaOpcionMultiple"><i
+                                                    class="material-icons left">delete_sweep</i>Eliminar pregunta</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% elif pregunta.tipo_pregunta.lower()=="verdadero o falso" %}
+                    <div class="row preguntasTrueFalse preguntaGlobal opt5">
+                        <div class="col s12">
+                            <div class="card colorWhite bordered2">
+                                <div class="input-field col s12">
+                                    <input maxlength="1" min="0" max="5" placeholder="Defina ponderación 1-5"
+                                        type="number"
+                                        class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+                                </div>
+                                <div class="card-content ">
+                                    <h5>Falso y verdadero</h5>
+                                    <hr>
+                                    <p>Ingrese una pregunta y determine la opción correcta</p>
+                                    <div class="row">
+                                        <form class="col s12">
+                                            <h5><b>Pregunta</b></h5>
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <i class="material-icons prefix">description</i>
+                                                    <textarea id="preguntaFalseVerdadero1"
+                                                        class="materialize-textarea">{{pregunta.enunciado}}</textarea>
+                                                    <label class="active" for="preguntaFalseVerdadero1">Pregunta</label>
+                                                </div>
+                                                <div class="input-field col s12">
+                                                    <h6><b>Respuesta</b></h6>
+                                                    <p>Escribe F en caso de que sea falso o T en caso de que sea verdad.
+                                                    </p>
+                                                    <br>
+                                                    <input maxlength="1" value="{{pregunta.respuesta}}" placeholder="T/F"
+                                                        id="textFalseVerdadero1" type="text"
+                                                        class="validate shadow-1e colorGreyWhiter falsoVerdaderoInput browser-default">
+                                                </div>
+                                            </div>
+                                            <button
+                                                class="waves-effect deleteFalseVerdadero waves-light btn bordered5 color1 shadow-2e"
+                                                id="deleteFalseVerdadero1" style="width: 100%;">
+                                                <i class="material-icons left">delete_sweep</i>Borrar pregunta</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% elif pregunta.tipo_pregunta.lower()=="rellenar espacios" %}
+                    <div class="row preguntaRellenarEspacios preguntaGlobal opt2">
+                        <div class="col s12 " '="">
+              <div class="card colorWhite bordered2">
+              <div class="input-field col s12">
+                  <input maxlength="1" min="0" max="5" placeholder="Defina ponderación 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+                </div>
+                <div class="card-content ">
+                  <h5>Rellenar espacios</h5>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <textarea id="rellenarInputTitulo0" class="materialize-textarea textoPregunta textoPreguntaVistaPrevia" placeholder="Pregunta">Yo [Blank 1] naci en [Blank 2]</textarea>
+                    </div>
+                  </div>
+                  <div class="row containerTextBlank">
+                    <div id="rellenarInputCContainer0" class="col s12 espaciosBlancos containerTextBlankVistaPrevia"><div class="row containerTextBlank">
+                <div class="col s12 m6 containerTextBlankSon1 ">Blank1</div>
+                <div class="col s12 m6 containerTextBlankSon2 ">
+                  <input id="rellenarInputCValue0" type="text" value="ulises" class="browser-default blankContadorEspaciosCreacion">
+                </div>
+              </div><div class="row containerTextBlank">
+                <div class="col s12 m6 containerTextBlankSon1 ">Blank2</div>
+                <div class="col s12 m6 containerTextBlankSon2 ">
+                  <input id="rellenarInputCValue1" type="text" value="1998" class="browser-default blankContadorEspaciosCreacion">
+                </div>
+              </div></div>
+                  </div>
+                  <div class="containerButtonsView">
+                    <div>
+                      <a class="waves-effect waves-light btn bordered5 color2 shadow-2e btnAgregarEspacioBlanco"><i class="material-icons left">add</i>1 espacio</a>
+                    </div>
+                    <div>
+                      <a class="waves-effect waves-light btn bordered5 color2 shadow-2e btnEliminarEspacioBlanco"><i class="material-icons left">remove</i>1 espacio</a>
+                    </div>
+                    <div>
+                      <a class="waves-effect waves-light btn bordered5 color1 shadow-2e btnEliminarPreguntaEspacioBlanco"><i class="material-icons left">delete_sweep</i>Eliminar pregunta</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+                    <section class="row">
+                        <!--Modal 0: Guardado del JSON -->
+                        <div id="modalJSON" class="modal colorGrey bordered2 modalAltura" tabindex="0">
+                            <div class="modal-content">
+                                <h4>Generando archivo JSON</h4>
+                                <hr>
+                                <p>El cuestionario será almacenado como archivo JSON, usted puede guardar una copia del
+                                    cuestionario si asi lo desea.</p>
+                                <p><b>Puede anexar algún JSON que haya descargado previamente.</b></p>
+                                <input type="file" id="inputfileAnterior" class="hidden">
+                                <a id="leerArchivoEjercicioAnterior" style="width: 100%; right: 0; position: relative;">
+                                    <label for="inputfileAnterior" class="waves-effect waves-light btn bordered5 colorGreyDarker colorTextReverse" style="width: 100%;" onclick="anexarJsonViejo('
+                            output', 'inputfileAnterior' )">
+                            <i class="material-icons">upload_file</i>
+                            </label>
+                            </a>
+
+                            <!--Preview del cuestionario-->
+                            <h5><b>Preview de cuestionario JSON</b></h5>
+                            <pre class="previewCodeContainer colorText bordered2" id="output"></pre>
+                            <!--Input discreto para enviar contenido JSON a flask-->
+                            <input type="hidden" name="jsonContentInput" id="jsonContentInput">
+                            <!--Descarga del archivo-->
+                            <a onclick="downloadJson()"
+                                class="waves-effect waves-light btn-large bordered2Up color3 shadow-2e"
+                                id="descargarJSON" style="width: 100%;">
+                                <i class="material-icons left">download</i>Descargar</a>
+                            <!--Almacenado del archivo (en BD y servidor)-->
+                            <button type="submit"
+                                class="waves-effect waves-light btn-large bordered2Down color1 shadow-2e"
+                                id="guardarJSON" style="width: 100%;">
+                                <i class="material-icons left">save</i>Guardar</button>
+                        </div>
+                    </div>
+                    <!--MODAL -1: Para agregar un JSON existente-->
+                    <div id="agregar_JSON_existente" class="modal colorGrey bordered2" style="height: 80vh;"
+                        tabindex="0">
+                        <div class="modal-content">
+                            <h4>Duplica cuestionario guardado</h4>
+                            <hr>
+                            <p>Seleccione algún JSON que ya estuviera en existencia de cuestionarios anteriores. <b>Se
+                                    creará una copia del documento y usted podra editar la data.</b></p>
+                            <h5><b>Cuestionarios anteriores.</b></h5>
+                            <div id="archivoCuestionario" class="input-field col s12 m12">
+                                <div class="select-wrapper"><input class="select-dropdown dropdown-trigger" type="text"
+                                        readonly="true"
+                                        data-target="select-options-202fb972-ac55-c38d-95b6-f23c3af641b0">
+                                    <ul id="select-options-202fb972-ac55-c38d-95b6-f23c3af641b0"
+                                        class="dropdown-content select-dropdown" tabindex="0"></ul><svg class="caret"
+                                        height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7 10l5 5 5-5z"></path>
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                    </svg><select id="archivoCuestionarioExistente" name="archivoCuestionario"
+                                        tabindex="-1">
+
+                                    </select>
+                                </div>
+                                <label>Archivo de cuestionario</label>
+                            </div>
+                            <!--Descarga del archivo-->
+                            <a href="#" class="waves-effect waves-light btn-large bordered1 color1 shadow-2e"
+                                id="archivoExistenteButton" style="width: 100%;">
+                                <i class="material-icons left">file_open</i>Cargar/Duplicar</a>
+                            <a class="hiddenElement" id="linkOculto"></a>
+                        </div>
+                    </div>
+        </section>
+        <!--Boton para abrir el modal del json-->
+        <div class="fixed-action-btn buttonSaveJSON">
+            <button href="#modalJSON" onclick="convertToJSON()" class="modal-trigger btn-floating btn-large color1"
+                id="buttonModalSaveFloat">
+                <i class="large material-icons">save</i>
+            </button>
+        </div>
         </form>
+    </section>
+
+    <!--Vista general del proceso-->
+    <section class="containerCreacionCuestionariosSon3">
+        <div class="containerProcesoImagen">
+            <div id="circleOne" class="shadow-2e color3 colorText">1</div>
+            <div id="lineMiddle" class="shadow-2e colorGreyDarker"></div>
+            <div id="circleTwo" class="shadow-2e colorGreyDarker">2</div>
+        </div>
+        <div class="containerProcesoData">
+            <div>Estructura principal</div>
+            <div>Datos adicionales</div>
+        </div>
+    </section>
+    </section>
+
+    <!--
+            ########################################
+            Esta parte no es visible para el usuario a 
+            menos de que quiera ingresar algún tipo de pregunta
+            por eso son modals.
+            ########################################
+        -->
+    <!--Contenido de la pagina MODALS-->
+    <section class="row" id="contenedorGeneral">
+        <!--
+                ######################################################
+                MODAL 1: OPCION MULTIPLE
+                ######################################################
+            -->
+        <div id="modalOpccionMultipleCreacion" class="modal colorGrey bordered2 modalAltura" tabindex="0"
+            style="z-index: 1003; display: none; opacity: 0; top: 4%; transform: scaleX(0.8) scaleY(0.8);">
+            <div class="modal-content">
+                <h4>Opción multiple</h4>
+                <hr>
+                <p>Diseñe preguntas de opción múltiples primero definiendo la preguntas, luego las opciones y por último
+                    la opción correcta.</p>
+                <hr>
+                <form class="col s12" id="formModalOpccionMultipleCreacion">
+
+                    <h5><b>Defina la pregunta</b></h5>
+                    <p>Describa la pregunta o interrogante a responder.</p>
+                    <!--Titulo de la pregunta -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">question_mark</i>
+                            <textarea id="textAreaPreguntaOpccionMultipleCreacion" class="materialize-textarea"
+                                style="height: 44px;"></textarea>
+                            <label for="textAreaPreguntaOpccionMultipleCreacion" class="active">Pregunta</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">image</i>
+                            <textarea id="mediaProblemaOpcionMultiple" class="materialize-textarea"
+                                style="height: 44px;"></textarea>
+                            <label for="mediaProblemaOpcionMultiple">Imagen del problema(url)</label>
+                        </div>
+                    </div>
+
+                    <h5><b>Defina las opciones</b></h5>
+                    <p>Escriba las posibles opciones para la pregunta que se planteó y determine la respuesta correcta.
+                    </p>
+                    <!--Opcion A-->
+                    <div class="row">
+                        <div class="col s12" id="contenedorOpccionesOpccionMultipleModalCreacion">
+                            <div class="row colorGreyWhiter bordered1 opcionContainer opcionContainerModal">
+                                <!--Opcion de tomar A como correcta-->
+                                <div class="col s12 m3 labelContainer">
+                                    <label>
+                                        <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker" value="A"
+                                            type="radio">
+                                        <span>Correcta</span>
+                                    </label>
+                                </div>
+                                <!--Contenido de opcion A-->
+                                <div class="col s12 m9">
+                                    <h6><b>Opción A</b></h6>
+                                    <textarea id="opcionACreacion"
+                                        class="materialize-textarea opcionContainerModalContent"
+                                        style="height: 44px;"></textarea>
+                                </div>
+                            </div>
+
+                            <!--Opcion B-->
+                            <div class="row colorGreyWhiter bordered1 opcionContainer opcionContainerModal">
+                                <!--Opcion de tomar B como correcta-->
+                                <div class="col s12 m3 labelContainer">
+                                    <label>
+                                        <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker" value="B"
+                                            type="radio">
+                                        <span>Correcta</span>
+                                    </label>
+                                </div>
+                                <!--Contenido de opcion B-->
+                                <div class="col s12 m9">
+                                    <h6><b>Opción B</b></h6>
+                                    <textarea id="opcionBCreacion"
+                                        class="materialize-textarea opcionContainerModalContent"
+                                        style="height: 44px;"></textarea>
+                                </div>
+                            </div>
+
+                            <!--Opcion C-->
+                            <div class="row colorGreyWhiter bordered1 opcionContainer opcionContainerModal">
+                                <!--Opcion de tomar C como correcta-->
+                                <div class="col s12 m3 labelContainer">
+                                    <label>
+                                        <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker" value="C"
+                                            type="radio">
+                                        <span>Correcta</span>
+                                    </label>
+                                </div>
+                                <!--Contenido de opcion C-->
+                                <div class="col s12 m9">
+                                    <h6><b>Opción C</b></h6>
+                                    <textarea id="opcionCCreacion"
+                                        class="materialize-textarea opcionContainerModalContent"
+                                        style="height: 44px;"></textarea>
+                                </div>
+                            </div>
+
+                            <!--Opcion D-->
+                            <div class="row colorGreyWhiter bordered1 opcionContainer opcionContainerModal">
+                                <!--Opcion de tomar D como correcta-->
+                                <div class="col s12 m3 labelContainer">
+                                    <p>
+                                        <label>
+                                            <input name="grupoOpcionesModalOpcionMuliple" class="modalChecker" value="D"
+                                                type="radio">
+                                            <span>Correcta</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <!--Contenido de opcion D-->
+                                <div class="col s12 m9">
+                                    <h6><b>Opción D</b></h6>
+                                    <textarea id="opcionDCreacion"
+                                        class="materialize-textarea opcionContainerModalContent"
+                                        style="height: 44px;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hide-on-small-only">
+                        <br><br><br><br><br>
+                    </div>
+                    <!--Guardar la pregunta en el cuestionario-->
+                    <div class="botonesDelModal colorGrey">
+                        <!--Guardar opciones-->
+                        <div class="botonesDelModalSon1">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnGuardarModalOpcionMultipleCreacion"><i
+                                    class="material-icons left">save</i>Guardar</a>
+                        </div>
+                        <!--Agregar opciones -->
+                        <div class="botonesDelModalSon2">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnAgregarModalOpcionMultipleCreacion"><i
+                                    class="material-icons left">add</i>Agregar</a>
+                        </div>
+                        <!--Eliminar opciones -->
+                        <div class="botonesDelModalSon3">
+                            <a class="waves-effect waves-light btn bordered5 color1 shadow-2e" href="#"
+                                id="btnEliminarModalOpcionMultipleCreacion"><i
+                                    class="material-icons left">cleaning_services</i>Limpiar todo</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!--
+                ######################################################
+                MODAL 2: RELLENADO DE ESPACIOS
+                ######################################################
+            -->
+        <div id="modalRellenarEspaciosCreacion" class="modal colorGrey bordered2 modalAltura" tabindex="0"
+            style="z-index: 1003; display: none; opacity: 0; top: 4%; transform: scaleX(0.8) scaleY(0.8);">
+            <div class="modal-content">
+                <h4>Rellenar espacios</h4>
+                <hr>
+                <p>Ingrese un texto en el formulario, y posteriormente agregue los espacio en el texto de modo que el
+                    estudiante pueda completar con la respuesta correcta.</p>
+                <hr>
+                <form class="col s12">
+                    <h5><b>Defina el texto</b></h5>
+                    <p>Escriba la estructura que tendra el texto.</p>
+                    <!--Titulo de la pregunta -->
+                    <div class="row">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">description</i>
+                                <textarea id="texAreaModalRellenarEspaciosCreacion" class="materialize-textarea"
+                                    placeholder="text" style="height: 45px;"></textarea>
+                                <label for="texAreaModalRellenarEspaciosCreacion" class="active">Escriba el texto a
+                                    completar</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5><b>Defina los espacios</b></h5>
+                    <p>Agregue espacio a la estructura del texto de modo que puedan ser acompletados por el estudiante.
+                    </p>
+                    <!--Contenedor de espacios de creacion de elementos del espacio -->
+                    <div class="" id="contenedorOpccionEspaciosCreacion">
+
+                        <div class="row containerTextBlank containerTextBlankModal">
+                            <div class="col s12 m6 containerTextBlankSon1"> Blank 1</div>
+                            <div class="col s12 m6 containerTextBlankSon2">
+                                <input type="text" class="browser-default blankContadorEspaciosCreacion">
+                            </div>
+                        </div>
+                        <div class="row containerTextBlank containerTextBlankModal">
+                            <div class="col s12 m6 containerTextBlankSon1"> Blank 2</div>
+                            <div class="col s12 m6 containerTextBlankSon2">
+                                <input type="text" class="browser-default blankContadorEspaciosCreacion">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hide-on-small-only">
+                        <br><br><br><br><br><br>
+                    </div>
+                    <br><br><br><br><br>
+                    <!--Guardar la pregunta en el cuestionario-->
+                    <div class="botonesDelModal colorGrey">
+                        <!--Guardar opciones-->
+                        <div class="botonesDelModalSon1">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnGuardarModalRellenarEspaciosCreacion"><i
+                                    class="material-icons left">save</i>Guardar</a>
+                        </div>
+                        <!--Agregar opciones -->
+                        <div class="botonesDelModalSon2">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnAgregarModalRellenarEspaciosCreacion"><i class="material-icons left">add</i>1
+                                Espacio</a>
+                        </div>
+                        <!--Eliminar opciones -->
+                        <div class="botonesDelModalSon3">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnEliminarModalRellenarEspaciosCreacion"><i class="material-icons left">remove</i>1
+                                Espacio</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!--
+                ######################################################
+                MODAL 3: EJERCICIOS PLANTEADOS POR EL PROFESOR
+                ######################################################
+            -->
+        <div id="modalEjerciciosCreacion" class="modal colorGrey bordered2 modalAltura" tabindex="0">
+            <div class="modal-content">
+                <h4>Ejercicios</h4>
+                <hr>
+                <p>Ingrese la descripción de un ejercicio y adjunte un código para retroalimentar el ejercicio una vez
+                    que el estudiante suba su propuesta de solución al problema que usted planteó</p>
+                <div class="row">
+                    <form class="col s12">
+                        <h5><b>Describa el ejercicio</b></h5>
+                        <p>Escriba una descripción del problema/ejercicios a resolver para que sus alumnos conozcan a
+                            que resultado llegar.</p>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">description</i>
+                                <textarea id="descripcionProblema" class="materialize-textarea"
+                                    style="height: 44px;"></textarea>
+                                <label for="descripcionProblema">Descripción del problema</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">image</i>
+                                <textarea id="mediaProblema" class="materialize-textarea"
+                                    style="height: 44px;"></textarea>
+                                <label for="mediaProblema">Imagen (url)</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">task</i>
+                                <textarea id="salidaProblema" class="materialize-textarea"
+                                    style="height: 44px;"></textarea>
+                                <label for="salidaProblema">Salida esperada (opcional)</label>
+                            </div>
+                        </div>
+                        <h5><b>Código de retroalimentación</b></h5>
+                        <p>Escriba el código con la propuesta de solución para que el alumno pueda recibir
+                            retroalimentación, puede anexar un documento para leer el código o inclusive adjuntar algún
+                            enlace para
+                            dar acceso a documentos en linea.
+                        </p>
+                        <br>
+                        <div class="row colorGreyWhiter bordered2 contenedorOpcionesCodigo">
+                            <div class="col s12">
+                                <h6><b>Código de archivo</b></h6>
+                            </div>
+                            <input type="file" id="inputfile" class="hidden">
+                            <a id="leerArchivoEjercicio" style="width: 100%;">
+                                <label for="inputfile"
+                                    class="waves-effect waves-light btn bordered5 color2 shadow-2e colorText"
+                                    style="width: 100%;">
+                                    <i class="material-icons">upload_file</i>
+                                </label>
+                            </a>
+                            <div class="col s12">
+                                <h6><b>Adjuntar enlace a carpeta online (múltiples archivos)</b></h6>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">cloud_circle</i>
+                                <input type="text" id="carpetaOnline">
+                                <label for="carpetaOnline">Enlace de carpeta</label>
+                            </div>
+                            <div class="col s12">
+                                <h6><b>Código escrito manualmente</b></h6>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">history_edu</i>
+                                <textarea id="codigoResultado" class="materialize-textarea"
+                                    style="height: 44px;"></textarea>
+                                <label for="codigoResultado">Código a mano</label>
+                            </div>
+                        </div>
+                        <h5><b>Vista previa del código</b></h5>
+                        <div class="previewCodeContainer bordered2" style="width: 100%;">
+                            <code class="colorText">
+                                    <pre id="codigoMuestra">
+                                    </pre>
+                                </code>
+                        </div>
+
+                        <br><br><br>
+                        <!--Guardar la pregunta en el cuestionario-->
+                        <div class="botonesDelModalDosBotones colorGrey">
+                            <!--Guardar opciones-->
+                            <div class="botonesDelModalSon1">
+                                <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                    id="crearEjercicioButton"><i class="material-icons left">save</i>Guardar</a>
+                            </div>
+                            <!--Limpiar opciones -->
+                            <div class="botonesDelModalSon2">
+                                <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                    id="limpiarCasillasEjercicioButton"><i
+                                        class="material-icons left">cleaning_services</i>
+                                    Limpiar</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--
+                ######################################################
+                MODAL 4: PARA ARRASTRAR LAS RESPUESTAS
+                ######################################################
+            -->
+        <div id="modalArrastrarCreacion" class="modal colorGrey bordered2 modalAltura" tabindex="0">
+            <div class="modal-content">
+                <h4>Arrastrar y ordenar</h4>
+                <hr>
+                <p>Ingrese en la columna A el concepto y en la columna B la definición (el concepto y la definición
+                    deben estar a la misma altura)</p>
+                <form class="col s12">
+                    <h5><b>Descripción del ejercicio</b></h5>
+                    <!--Titulo de la pregunta -->
+                    <div class="row">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">description</i>
+                                <textarea id="texAreaModalArrastrarCreacion" class="materialize-textarea"
+                                    style="height: 44px;"></textarea>
+                                <label for="texAreaModalArrastrarCreacion">Descripción del ejercicio</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Seccion para la creacion  de opcciones -->
+
+                    <div class="row">
+                        <div class="col s12 row" id="opccionesArrastarModalCreacion">
+                            <div class="col s12 m6">
+                                <h6 class="tituloColumnaModal"><b>Conceptos (A)</b></h6>
+                            </div>
+                            <div class="col s12 m6">
+                                <h6 class="tituloColumnaModal"><b>Definiciones (B)</b></h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hide-on-small-only">
+                        <br><br><br>
+                    </div>
+                    <br><br><br><br><br><br>
+                    <!--Guardar la pregunta en el cuestionario-->
+                    <div class="botonesDelModal colorGrey">
+                        <!--Guardar opciones-->
+                        <div class="botonesDelModalSon1">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnGuardarModalArrastrarCreacion"><i class="material-icons left">save</i>Guardar</a>
+                        </div>
+                        <!--Agregar opciones -->
+                        <div class="botonesDelModalSon2">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnAgregarsModalArrastrarCreacion"><i class="material-icons left">add</i>Agregar</a>
+                        </div>
+                        <!--Eliminar opciones -->
+                        <div class="botonesDelModalSon3">
+                            <a class="waves-effect waves-light btn bordered5 color2 shadow-2e" href="#"
+                                id="btnEliminarModalArrastrarCreacion"><i
+                                    class="material-icons left">remove</i>Eliminar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--
+                ######################################################
+                MODAL 5: EJERCICIOS de falso y verdadero
+                ######################################################
+            -->
+        <div id="modalTrueFalse" class="modal colorGrey bordered2 modalAltura" tabindex="0"
+            style="z-index: 1003; display: none; opacity: 0; top: 4%; transform: scaleX(0.8) scaleY(0.8);">
+            <div class="modal-content">
+                <h4>Falso y verdadero</h4>
+                <hr>
+                <p>Ingrese una pregunta y determine la opción correcta</p>
+                <div class="row">
+                    <form class="col s12">
+                        <h5><b>Pregunta</b></h5>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">description</i>
+                                <textarea id="preguntaFalseVerdadero" class="materialize-textarea"
+                                    style="height: 45px;"></textarea>
+                                <label for="preguntaFalseVerdadero" class="active">Pregunta</label>
+                            </div>
+                            <h6><b>Respuesta</b></h6>
+                            <p>Escribe F en caso de que sea falso o T en caso de que sea verdad.</p>
+                            <div class="input-field col s12">
+                                <input maxlength="1" placeholder="T/F" id="textFalseVerdadero" type="text"
+                                    class="validate shadow-1e colorWhite falsoVerdaderoInput browser-default valid">
+                            </div>
+                        </div>
+                        <br><br><br>
+                    </form>
+                    <!--Almacenado del archivo (en BD y servidor)-->
+                    <button class="waves-effect waves-light btn bordered5 color1 shadow-2e" id="saveFalseVerdadero"
+                        style="width: 100%;">
+                        <i class="material-icons left">save</i>Guardar</button>
+                </div>
+            </div>
+        </div>
+
+        <!--
+                ######################################################
+                MODAL 6: EJERCICIOS preguntas abiertas
+                ######################################################
+            -->
+        <div id="modalAbierta" class="modal colorGrey bordered2 modalAltura" tabindex="0">
+            <div class="modal-content">
+                <h4>Pregunta abierta</h4>
+                <hr>
+                <p>Ingrese una pregunta (esta pregunta requiere revisión manual por parte del docente)</p>
+                <div class="row">
+                    <form class="col s12">
+                        <h5><b>Pregunta</b></h5>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">description</i>
+                                <textarea id="preguntaAbiertaDescripcion" class="materialize-textarea"
+                                    style="height: 44px;"></textarea>
+                                <label for="preguntaAbiertaDescripcion">Pregunta</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">play_arrow</i>
+                                <textarea id="videoPreguntaAbierta" class="materialize-textarea"
+                                    style="height: 44px;"></textarea>
+                                <label for="videoPreguntaAbierta">Video (opcional)</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">image</i>
+                                <textarea id="imagePreguntaAbierta" class="materialize-textarea"
+                                    style="height: 44px;"></textarea>
+                                <label for="imagePreguntaAbierta">Imagen (opcional)</label>
+                            </div>
+                        </div>
+                        <br><br><br>
+                    </form>
+                    <!--Almacenado del archivo (en BD y servidor)-->
+                    <button type="submit" class="waves-effect waves-light btn bordered5 color1 shadow-2e"
+                        id="saveAbierta" style="width: 100%;">
+                        <i class="material-icons left">save</i>Guardar</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
 
 
-    </div>
 
+    <script src="../../static/js/configuracionCreacionCuestionario.js"></script>
+    <script>
 
+    </script>
+
+    <div class="hiddendiv common"
+        style="font-size: 16px; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen-Sans, Ubuntu, Cantarell, &quot;Helvetica Neue&quot;, sans-serif; line-height: normal; padding: 12px 0px; width: 570px;">
+        YO [Blank 1] naci en <br></div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
-    integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
-    crossorigin="anonymous"></script>
-<script src="../../static/js/configuracionCuestionariosBanco.js"></script>
 
 </html>

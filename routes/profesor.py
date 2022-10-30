@@ -666,24 +666,19 @@ def genera_preguntas_por_lenguaje():
     temas=request.form.getlist("temas")
     tipo_preguntas=request.form.getlist("tipos")
     cuestionario_personalizado=[]
-
-    llaves=["A","B","C","D"]
     for i in preguntas:
         if i["tema"] in temas and i["tipo_pregunta"] in tipo_preguntas:
             if i["tipo_pregunta"].startswith("Op"):
                 valores= i["opciones"].split(",")
-                opciones={llaves[i]:valores[i] for i in range(len(valores))}
-                i["opciones"]=opciones
-                print(opciones)
-                print("**********************************")
+                i["opciones"]=valores
             elif i["tipo_pregunta"].startswith("Ver"):
                 aux= i["respuesta"]
                 i["respuesta"]=aux[0].upper()    
-                print(i["respuesta"])
-                print("*********************************")
             cuestionario_personalizado.append(i)
-
-    return render_template("profesor/cuestionario_del_banco_personalizado.html",preguntas=cuestionario_personalizado)
+    id_profesor=session['IDDocente']
+    cuestionario_rutas = Op_profesor.obtener_cuestionarios_rutas(id_profesor)
+    resultCuestionarios = Op_profesor.obtener_cuestionarios_datos_importantes(id_profesor)
+    return render_template('profesor/cuestionario_del_banco_personalizado.html', id_profesor = id_profesor, cuestionario_rutas = cuestionario_rutas, datosCuestionario = resultCuestionarios,preguntas=cuestionario_personalizado)
 
 #Java coder runner
 @routes.route("/java_runner")
