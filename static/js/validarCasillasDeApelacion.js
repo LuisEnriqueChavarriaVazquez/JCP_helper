@@ -15,9 +15,12 @@ function validacionContenedorApelacion(){
 validacionContenedorApelacion();
 
 ///Desarrollamos la funcion de apelar
-function apelar(valorFinal, inputResolucion, textoConfirmacion){
+function apelar(valorFinal, inputResolucion, textoConfirmacion, ponderacionBoxValue){
     let textoParaConfirmar = document.getElementById(textoConfirmacion);
     let inputResolucionGet = document.getElementById(inputResolucion);
+    //Obtenemos el valor de la ponderacion
+    let ponderacionValue = document.getElementById(ponderacionBoxValue).innerText;
+    ponderacionValue = ponderacionValue.replace('pts.','');
 
     if(valorFinal == "bien"){
         //Insertamos graficamente un indicador de la apelacion
@@ -25,6 +28,22 @@ function apelar(valorFinal, inputResolucion, textoConfirmacion){
         textoParaConfirmar.classList.add('resolucionFormato');
         //Insertamos el valor
         inputResolucionGet.value = valorFinal;
+
+        //Sumamos la ponderacion
+        ponderacionGlobal = ponderacionGlobal + parseInt(ponderacionValue);
+
+        //Removemos la clase de opt6 para que el software calcule el promedio una vez que no haya pendientes.
+        inputResolucionGet.classList.remove('rightAnswerOpt6');
+
+        //Calculamos el promedio de nuevo
+        calcularPromedio();
+
+        //Se calcula el puntaje total
+        calcularPuntajeRevisado();
+
+        //Volvemos a calcular los puntajes por preguntas.
+        puntajeSegmentadoPorTipoPregunta = [];
+        asignarPonderaciones();
         
     }else if(valorFinal == "mal"){
         //Insertamos graficamente un indicador de la apelacion
@@ -33,4 +52,4 @@ function apelar(valorFinal, inputResolucion, textoConfirmacion){
         //Insertamos el valor
         inputResolucionGet.value = valorFinal;
     }
-}
+};

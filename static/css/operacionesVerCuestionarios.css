@@ -520,7 +520,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     gap: 20px;
-    padding: 0 20px;
+    padding: 20px 40px;
 }
 
 @media screen and (max-width: 1000px) {
