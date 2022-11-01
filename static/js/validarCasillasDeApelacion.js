@@ -15,7 +15,7 @@ function validacionContenedorApelacion() {
 validacionContenedorApelacion();
 
 ///Desarrollamos la funcion de apelar
-function apelar(valorFinal, inputResolucion, textoConfirmacion, ponderacionBoxValue) {
+function apelar(valorFinal, inputResolucion, textoConfirmacion, ponderacionBoxValue, idBotonesApelacion) {
     //////////////////////////////
     let textoParaConfirmar = document.getElementById(textoConfirmacion);
     let inputResolucionGet = document.getElementById(inputResolucion);
@@ -80,6 +80,10 @@ function apelar(valorFinal, inputResolucion, textoConfirmacion, ponderacionBoxVa
 
         ajustesValores();
 
+        //Eliminamos los botones para las apelaciones
+        let contenedorBotones = document.getElementById(idBotonesApelacion);
+        contenedorBotones.classList.add('hiddenElement');
+
     } else if (valorFinal == "mal") {
         //Insertamos graficamente un indicador de la apelacion
         textoParaConfirmar.innerHTML = `<b><i class="material-icons md-24">thumb_down</b>`;
@@ -91,5 +95,9 @@ function apelar(valorFinal, inputResolucion, textoConfirmacion, ponderacionBoxVa
         ponderacionGlobal = ponderacionGlobal + 0;
 
         ajustesValores();
+
+        //Eliminamos los botones para las apelaciones
+        let contenedorBotones = document.getElementById(idBotonesApelacion);
+        contenedorBotones.classList.add('hiddenElement');
     }
 };

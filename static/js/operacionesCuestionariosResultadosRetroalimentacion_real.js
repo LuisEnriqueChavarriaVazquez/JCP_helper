@@ -167,10 +167,10 @@ function calcularPuntaje() {
 }
 
 //Calculamos el puntaje cuando ponemos la pregunta como buena.
-let contadorRevisionDeLaSuma = 0;
+let contadorRevisionDeLaSuma = 1;
 function calcularPuntajeRevisado() {
     let puntosContainer = document.getElementsByClassName('puntosContainer');
-    puntosContainer[0].innerHTML = "<p id='puntajeGeneralDataGet'>" + ponderacionGlobal.toFixed(2) + "/" + ponderacionGlobalDadaFinal + "pts.</p>";
+    puntosContainer[0].innerHTML = "<p id='puntajeGeneralDataGet'>" + ponderacionGlobal.toFixed(2) + "/" + ponderacionGlobalDadaFinal/(contadorRevisionDeLaSuma) + "pts.</p>";
     contadorRevisionDeLaSuma++;
 }
 
@@ -241,10 +241,10 @@ function imprimirPreguntas() {
                     </section>
                     <section class="colorWhite bordered1 shadow-1e respuestaFinalBoxes contenedorApelaciones" id="contenedorApelacionesOpt1`+ m + `">
                         <h6><b>Revisión/Apelación.</b></h6>
-                        <div class="containerApelaciones" id="containerApelaciones`+ m + `">
-                            <button onclick="apelar('bien', 'rightAnswerOpt1` + m + `','resolucionOpt1` + m + `','valorApelacion_opt1_` + m + `','containerApelaciones`+m+`')"
+                        <div class="containerApelaciones" id="containerApelacionesOpt1`+ m + `">
+                            <button onclick="apelar('bien', 'rightAnswerOpt1` + m + `','resolucionOpt1` + m + `','valorApelacion_opt1_` + m + `','containerApelacionesOpt1`+m+`')"
                             class="btn waves-effect button-rounded goodColorButton"><i class="material-icons md-24">thumb_up</button>
-                            <button onclick="apelar('mal', 'rightAnswerOpt1` + m + `','resolucionOpt1` + m + `','valorApelacion_opt1_` + m + `','containerApelaciones`+m+`')"
+                            <button onclick="apelar('mal', 'rightAnswerOpt1` + m + `','resolucionOpt1` + m + `','valorApelacion_opt1_` + m + `','containerApelacionesOpt1`+m+`')"
                             class="btn waves-effect button-rounded badColorButton"><i class="material-icons md-24">thumb_down</button>
                         </div>
                         <div class="containerResolucionDeLaApelacion">
@@ -301,10 +301,10 @@ function imprimirPreguntas() {
             <div class="ponderacionBox ponderacion_opt2 colorWhite bordered1" id="valorApelacion_opt2_`+ m + `"></div>
             <section class="colorWhite bordered1 shadow-1e respuestaFinalBoxes contenedorApelaciones" id="contenedorApelacionesOpt2`+ m + `">
                 <h6><b>Revisión/Apelación.</b></h6>
-                <div class="containerApelaciones" id="containerApelaciones`+m+`">
-                    <button onclick="apelar('bien', 'rightAnswerOpt2` + m + `','resolucionOpt2` + m + `','valorApelacion_opt2_`+m+`','containerApelaciones`+m+`')"
+                <div class="containerApelaciones" id="containerApelacionesOpt2`+m+`">
+                    <button onclick="apelar('bien', 'rightAnswerOpt2` + m + `','resolucionOpt2` + m + `','valorApelacion_opt2_`+m+`','containerApelacionesOpt2`+m+`')"
                     class="btn waves-effect button-rounded goodColorButton"><i class="material-icons md-24">thumb_up</button>
-                    <button onclick="apelar('mal', 'rightAnswerOpt2` + m + `','resolucionOpt2` + m + `','valorApelacion_opt2_`+m+`','containerApelaciones`+m+`')"
+                    <button onclick="apelar('mal', 'rightAnswerOpt2` + m + `','resolucionOpt2` + m + `','valorApelacion_opt2_`+m+`','containerApelacionesOpt2`+m+`')"
                     class="btn waves-effect button-rounded badColorButton"><i class="material-icons md-24">thumb_down</button>
                 </div>
                 <div class="containerResolucionDeLaApelacion">
@@ -349,10 +349,10 @@ function imprimirPreguntas() {
             </section>
             <section class="colorWhite bordered1 shadow-1e respuestaFinalBoxes contenedorApelaciones" id="contenedorApelacionesOpt3`+ k + `">
                 <h6><b>Revisión/Apelación.</b></h6>
-                <div class="containerApelaciones">
-                    <button onclick="apelar('bien', 'rightAnswerOpt3` + k + `','resolucionOpt3` + k + `','valorApelacion_opt3_` + k + `')"
+                <div class="containerApelaciones" id="containerApelacionesOpt3`+k+`">
+                    <button onclick="apelar('bien', 'rightAnswerOpt3` + k + `','resolucionOpt3` + k + `','valorApelacion_opt3_`+k+`','containerApelacionesOpt3`+k+`')"
                     class="btn waves-effect button-rounded goodColorButton"><i class="material-icons md-24">thumb_up</button>
-                    <button onclick="apelar('mal', 'rightAnswerOpt3` + k + `','resolucionOpt3` + k + `','valorApelacion_opt3_` + k + `')"
+                    <button onclick="apelar('mal', 'rightAnswerOpt3` + k + `','resolucionOpt3` + k + `','valorApelacion_opt3_`+k+`','containerApelacionesOpt3`+k+`')"
                     class="btn waves-effect button-rounded badColorButton"><i class="material-icons md-24">thumb_down</button>
                 </div>
                 <div class="containerResolucionDeLaApelacion">
@@ -477,10 +477,10 @@ function imprimirPreguntas() {
                 </section>
                 <section class="colorWhite bordered1 shadow-1e respuestaFinalBoxes contenedorApelaciones" id="contenedorApelacionesOpt5`+ m + `">
                 <h6><b>Revisión/Apelación.</b></h6>
-                    <div class="containerApelaciones">
-                        <button onclick="apelar('bien', 'rightAnswerOpt5` + m + `','resolucionOpt5` + m + `','valorApelacion_opt5_` + m + `')"
+                    <div class="containerApelaciones" id="containerApelacionesOpt5`+m+`">
+                        <button onclick="apelar('bien', 'rightAnswerOpt5` + m + `','resolucionOpt5` + m + `','valorApelacion_opt5_`+m+`','containerApelacionesOpt5`+m+`')"
                         class="btn waves-effect button-rounded goodColorButton"><i class="material-icons md-24">thumb_up</button>
-                        <button onclick="apelar('mal', 'rightAnswerOpt5` + m + `','resolucionOpt5` + m + `','valorApelacion_opt5_` + m + `')"
+                        <button onclick="apelar('mal', 'rightAnswerOpt5` + m + `','resolucionOpt5` + m + `','valorApelacion_opt5_`+m+`','containerApelacionesOpt5`+m+`')"
                         class="btn waves-effect button-rounded badColorButton"><i class="material-icons md-24">thumb_down</button>
                     </div>
                     <div class="containerResolucionDeLaApelacion">
@@ -526,10 +526,10 @@ function imprimirPreguntas() {
                 </section>
                 <section class="colorWhite bordered1 shadow-1e respuestaFinalBoxes contenedorApelaciones" id="contenedorApelacionesOpt6`+ m + `">
                 <h6><b>Revisión/Apelación.</b></h6>
-                    <div class="containerApelaciones">
-                        <button onclick="apelar('bien', 'rightAnswerOpt6` + m + `','resolucionOpt6` + m + `','valorApelacion_opt6_` + m + `')"
+                    <div class="containerApelaciones" id="containerApelacionesOpt6`+m+`">
+                        <button onclick="apelar('bien', 'rightAnswerOpt6` + m + `','resolucionOpt6` + m + `','valorApelacion_opt6_`+m+`','containerApelacionesOpt6`+m+`')"
                         class="btn waves-effect button-rounded goodColorButton"><i class="material-icons md-24">thumb_up</button>
-                        <button onclick="apelar('mal', 'rightAnswerOpt6` + m + `','resolucionOpt6` + m + `','valorApelacion_opt6_` + m + `')"
+                        <button onclick="apelar('mal', 'rightAnswerOpt6` + m + `','resolucionOpt6` + m + `','valorApelacion_opt6_`+m+`','containerApelacionesOpt6`+m+`')"
                         class="btn waves-effect button-rounded badColorButton"><i class="material-icons md-24">thumb_down</button>
                     </div>
                     <div class="containerResolucionDeLaApelacion">
