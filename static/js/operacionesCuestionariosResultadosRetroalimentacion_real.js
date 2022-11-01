@@ -32,6 +32,7 @@ const ordenPreguntasArray = Object.values(ordenPreguntas[0]);
 //Se guarda la ponderacion global
 let ponderacionGlobal = 0; //Puntos alumno
 let ponderacionGlobalDada = 0; //Puntos totales
+let ponderacionGlobalDadaFinal; //Puntos totales
 let puntajeSegmentadoPorTipoPregunta = []; //Puntos totales por tipo pregunta
 let puntajeSegmentadoPorTipoPreguntaAlumno = []; //Puntos totales obtenido por el alumno
 
@@ -131,8 +132,10 @@ function asignarPonderaciones() {
     }
 
     //Metemos los extratos en las cajas de ponderacion
+    let contadorSumaPonderacionTotal = 1;
     function meterPonderaciones(cajasGrupo, ponderacionesGrupo) {
         let ponderacionPorTipoPregunta = 0;
+        contadorSumaPonderacionTotal++;
         for (var y = 0; y < cajasGrupo.length; y++) {
             cajasGrupo[y].innerHTML = "<b>" + ponderacionesGrupo[y] + "pts.</b>";
             ponderacionGlobalDada += parseInt(ponderacionesGrupo[y]);
@@ -140,8 +143,14 @@ function asignarPonderaciones() {
         }
         puntajeSegmentadoPorTipoPregunta.push(ponderacionPorTipoPregunta);
         console.log('puntajeSegmentadoPorTipoPregunta', puntajeSegmentadoPorTipoPregunta)
+        //Nos ayuda a guardar el valor total de las preguntas. (ponderaciones totales)
+        if(contadorSumaPonderacionTotal == 7){
+            ponderacionGlobalDadaFinal = ponderacionGlobalDada;
+            console.log('ponderacionGlobalDadaFinal', ponderacionGlobalDadaFinal)
+        }
         return "Longitudes = " + cajasGrupo.length + "///" + ponderacionesGrupo.length;
     }
+
 
     console.log(meterPonderaciones(opt1_container, opt1_container_order));
     console.log(meterPonderaciones(opt2_container, opt2_container_order));
@@ -154,14 +163,14 @@ function asignarPonderaciones() {
 //Calculamos el puntaje
 function calcularPuntaje() {
     let puntosContainer = document.getElementsByClassName('puntosContainer');
-    puntosContainer[0].innerHTML = "<p id='puntajeGeneralDataGet'>" + ponderacionGlobal.toFixed(2) + "/" + ponderacionGlobalDada + "pts.</p>";
+    puntosContainer[0].innerHTML = "<p id='puntajeGeneralDataGet'>" + ponderacionGlobal.toFixed(2) + "/" + ponderacionGlobalDadaFinal + "pts.</p>";
 }
 
 //Calculamos el puntaje cuando ponemos la pregunta como buena.
 let contadorRevisionDeLaSuma = 0;
 function calcularPuntajeRevisado() {
     let puntosContainer = document.getElementsByClassName('puntosContainer');
-    puntosContainer[0].innerHTML = "<p id='puntajeGeneralDataGet'>" + ponderacionGlobal.toFixed(2) + "/" + (ponderacionGlobalDada-(74*contadorRevisionDeLaSuma)) + "pts.</p>";
+    puntosContainer[0].innerHTML = "<p id='puntajeGeneralDataGet'>" + ponderacionGlobal.toFixed(2) + "/" + ponderacionGlobalDadaFinal + "pts.</p>";
     contadorRevisionDeLaSuma++;
 }
 
@@ -232,10 +241,10 @@ function imprimirPreguntas() {
                     </section>
                     <section class="colorWhite bordered1 shadow-1e respuestaFinalBoxes contenedorApelaciones" id="contenedorApelacionesOpt1`+ m + `">
                         <h6><b>Revisión/Apelación.</b></h6>
-                        <div class="containerApelaciones">
-                            <button onclick="apelar('bien', 'rightAnswerOpt1` + m + `','resolucionOpt1` + m + `','valorApelacion_opt1_` + m + `')"
+                        <div class="containerApelaciones" id="containerApelaciones`+ m + `">
+                            <button onclick="apelar('bien', 'rightAnswerOpt1` + m + `','resolucionOpt1` + m + `','valorApelacion_opt1_` + m + `','containerApelaciones`+m+`')"
                             class="btn waves-effect button-rounded goodColorButton"><i class="material-icons md-24">thumb_up</button>
-                            <button onclick="apelar('mal', 'rightAnswerOpt1` + m + `','resolucionOpt1` + m + `','valorApelacion_opt1_` + m + `')"
+                            <button onclick="apelar('mal', 'rightAnswerOpt1` + m + `','resolucionOpt1` + m + `','valorApelacion_opt1_` + m + `','containerApelaciones`+m+`')"
                             class="btn waves-effect button-rounded badColorButton"><i class="material-icons md-24">thumb_down</button>
                         </div>
                         <div class="containerResolucionDeLaApelacion">
@@ -292,10 +301,10 @@ function imprimirPreguntas() {
             <div class="ponderacionBox ponderacion_opt2 colorWhite bordered1" id="valorApelacion_opt2_`+ m + `"></div>
             <section class="colorWhite bordered1 shadow-1e respuestaFinalBoxes contenedorApelaciones" id="contenedorApelacionesOpt2`+ m + `">
                 <h6><b>Revisión/Apelación.</b></h6>
-                <div class="containerApelaciones">
-                    <button onclick="apelar('bien', 'rightAnswerOpt2` + m + `','resolucionOpt2` + m + `','valorApelacion_opt2_` + m + `')"
+                <div class="containerApelaciones" id="containerApelaciones`+m+`">
+                    <button onclick="apelar('bien', 'rightAnswerOpt2` + m + `','resolucionOpt2` + m + `','valorApelacion_opt2_`+m+`','containerApelaciones`+m+`')"
                     class="btn waves-effect button-rounded goodColorButton"><i class="material-icons md-24">thumb_up</button>
-                    <button onclick="apelar('mal', 'rightAnswerOpt2` + m + `','resolucionOpt2` + m + `','valorApelacion_opt2_` + m + `')"
+                    <button onclick="apelar('mal', 'rightAnswerOpt2` + m + `','resolucionOpt2` + m + `','valorApelacion_opt2_`+m+`','containerApelaciones`+m+`')"
                     class="btn waves-effect button-rounded badColorButton"><i class="material-icons md-24">thumb_down</button>
                 </div>
                 <div class="containerResolucionDeLaApelacion">
