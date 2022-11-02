@@ -1,5 +1,4 @@
 #from crypt import methods
-#from crypt import methods
 from functools import wraps
 ##from turtle import width
 from flask import render_template,flash,request, url_for, redirect, session
@@ -930,7 +929,7 @@ def duplicar_cuestionario(id_cuestionario):
     shutil.copy(rutaVieja, rutaCopia)
     
     #Insertamos el nuevo cuestionario
-    #Op_profesor.insertar_cuestionario_JSON(pickedCuestionarioData[0][1], pickedCuestionarioData[0][2], tituloCuestionario, pickedCuestionarioData[0][4], pickedCuestionarioData[0][5], pickedCuestionarioData[0][6], pickedCuestionarioData[0][7], pickedCuestionarioData[0][8], rutaCopia, pickedCuestionarioData[0][10], pickedCuestionarioData[0][11], pickedCuestionarioData[0][12], pickedCuestionarioData[0][13])
+    Op_profesor.insertar_cuestionario_JSON(pickedCuestionarioData[0][1], pickedCuestionarioData[0][2], tituloCuestionario, pickedCuestionarioData[0][4], pickedCuestionarioData[0][5], pickedCuestionarioData[0][6], pickedCuestionarioData[0][7], pickedCuestionarioData[0][8], rutaCopia, pickedCuestionarioData[0][10], pickedCuestionarioData[0][11], pickedCuestionarioData[0][12], pickedCuestionarioData[0][13],pickedCuestionarioData[0][14])
     
     return redirect(url_for('routes.gestionar_cuestionarios')) 
 

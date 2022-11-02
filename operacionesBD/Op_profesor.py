@@ -404,6 +404,7 @@ def obtener_cuestionarios_IDS(id_profesor):
 
 # va a servir para meter un JSON en un nuevo cuestionario
 def insertar_cuestionario_JSON(id_grupo, id_profesor, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, archivoCuestionario, ordenCuestionario, tiempoCuentaAtras, fechaLimiteRespuesta, horaLimiteParaResolver,numeroIntentosDisponibles):
+    
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
         cursor.execute("INSERT INTO cuestionarios(IDGrupo, IDDocente, Titulo, Fecha, Autor, Temas, Tipo, Lenguaje, Preguntas, Orden, TiempoCuentaAtras, FechaLimiteRespuesta, HoraLimiteParaResolver, NumeroIntentosDisponibles) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
@@ -411,10 +412,6 @@ def insertar_cuestionario_JSON(id_grupo, id_profesor, tituloCuestionario, fechaC
     conexion.commit()
     conexion.close()
 
-def duplicar_cuestionario():
-    conexion = obtener_conexion()
-    conexion.commit()
-    conexion.close()
 
 # Agregar la ruta del preview del cuestionario
 def insertar_ruta_preview_cuestionario(id_cuestionario, rutaPreview):
