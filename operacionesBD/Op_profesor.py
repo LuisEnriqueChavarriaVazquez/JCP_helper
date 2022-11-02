@@ -1,4 +1,5 @@
 from operacionesBD.conexion import obtener_conexion
+from routes.profesor import revisionCuestionarios
 
 def insertar_profesor(nombre,alias,foto,correo,contra,unidad_academica,descripcion,fondo):
     conexion = obtener_conexion()
@@ -332,6 +333,16 @@ def insertar_data_revision_apelacion(revisionEstado, aprovacionEstado, promedioG
     with conexion.cursor() as cursor:
         cursor.execute("UPDATE alumnos_hacen_cuestionario SET Revision_estado = %s,Aprobacion_estado = %s,Promedio_general = %s,Puntaje_general = %s,Puntaje_segmentado = %s WHERE IDCuestionarioHecho = %s",
         (revisionEstado, aprovacionEstado, promedioGeneral, puntajeGeneral, puntajeSegmentado,idCuestionarioHecho))
+    conexion.commit()
+    conexion.close()
+    return "listo"
+
+def insertar_apelacion(idCuestionarioHecho):
+    revisionEstado = "pending"
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE alumnos_hacen_cuestionario SET Revision_estado = %s WHERE IDCuestionarioHecho = %s",
+        (revisionEstado,idCuestionarioHecho))
     conexion.commit()
     conexion.close()
     return "listo"

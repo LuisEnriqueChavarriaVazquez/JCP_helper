@@ -33,12 +33,18 @@
         <h5 class="colorText hide-on-med-and-up">La revisión ha sido terminada.</h5>
         <p class="colorText">El resultado ha sido registrado satisfactoriamente.</p>
         <img src="../../static/images/icons/icon_cuestionario_terminado.svg" id="iconIntentos">
-        <form action="/cuestionarioListo/{{datosCuestionario[0][0]}}" method="post">
-            <input type="hidden" name="idEstudiante" value="{{idEstudiante}}">
-            <button type="submit" class="waves-effect waves-light btn-large colorWhite coloredText shadow-2e button-rounded">Regresar</button>
+        <form action="/cuestionarioListo/{{datosCuestionario[0][0]}}" method="post" style="display: flex; justify-content:center; align-items: center; flex-direction: column;">
+            <input type="hidden" id="idEstudiante" name="idEstudiante" value="{{idEstudiante}}">
+            <input type="hidden" id="pedirApelacion" name="pedirApelacion" value="apelar">
+            <input type="hidden" id="idCuestionarioHecho" name="idCuestionarioHecho" value="{{idCuestionarioHecho}}">
+            <button type="submit" id="aceptarResultado" class="waves-effect waves-light btn-large colorWhite coloredText shadow-2e button-rounded">Regresar</button><br>
+            <button type="submit" id="apelarResultado" class="waves-effect waves-light btn-large color2 colorText shadow-2e button-rounded">Apelar resultado</button>
         </form>
     </section>
 </body>
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
+
+<!--Codigo para validar la apelacion-->
+<script src="../../static/js/operacionDeApelarEstudiante.js"></script>
 </html>

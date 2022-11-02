@@ -262,7 +262,7 @@ def answer_cuestionario_alumno(id_cuestionario):
         else:
             #Si ya esta hecho el cuestionario nos dice que ya esta terminado
             if(datosCuestionarioHecho[0][4] == "ready"):
-                 return render_template('estudiante/d_cuestionarioReady.html', datosCuestionario = datosCuestionario, idEstudiante = idEstudiante)
+                 return render_template('estudiante/d_cuestionarioReady.html', datosCuestionario = datosCuestionario, idEstudiante = idEstudiante, idCuestionarioHecho = iDCuestionarioHacer_value)
             ##Si esta pendiente la revisión nos indica eso
             elif(datosCuestionarioHecho[0][4] == "pending"):
                  return render_template('estudiante/d_cuestionarioPending.html', datosCuestionario = datosCuestionario, idEstudiante = idEstudiante)
@@ -297,6 +297,16 @@ def redireccionar_a_vista_grupos_listo(id_cuestionario):
     datosCuestionarios = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
     #Obtenemos el id del alumno 
     idEstudiante=request.form["idEstudiante"]
+    pedirApelacion = request.form["pedirApelacion"]
+    idCuestionarioHecho = request.form["idCuestionarioHecho"]
+
+    print(idCuestionarioHecho)
+    print(pedirApelacion)
+    #En caso de que el estudiante quiera apelar su resultado
+    if(pedirApelacion == "apelar"):
+        Op_profesor.insertar_apelacion(idCuestionarioHecho)
+    else:
+        print("Sin apelar")
 
     #Obtenemos los datos del grupo
     pickedGroupData = Op_profesor.obtener_grupo_datos_importantes_unitario(datosCuestionarios[0][1])
