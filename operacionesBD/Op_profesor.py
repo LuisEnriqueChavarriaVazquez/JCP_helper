@@ -323,6 +323,19 @@ def obtener_cuestionarios_en_estado_pending(id_cuestionario):
     conexion.close()
     return grupos
 
+##
+## Nos ayuda a actualizar los cuestionarios que estaban en estado de pending
+##
+
+def insertar_data_revision_apelacion(revisionEstado, aprovacionEstado, promedioGeneral, puntajeGeneral, puntajeSegmentado,idCuestionarioHecho):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE alumnos_hacen_cuestionario SET Revision_estado = %s,Aprobacion_estado = %s,Promedio_general = %s,Puntaje_general = %s,Puntaje_segmentado = %s WHERE IDCuestionarioHecho = %s",
+        (revisionEstado, aprovacionEstado, promedioGeneral, puntajeGeneral, puntajeSegmentado,idCuestionarioHecho))
+    conexion.commit()
+    conexion.close()
+    return "listo"
+
 def obtener_cuestionarios_rutas(id_profesor):
     conexion=obtener_conexion()
     grupos=[]

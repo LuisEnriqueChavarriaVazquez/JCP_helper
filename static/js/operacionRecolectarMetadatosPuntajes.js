@@ -100,11 +100,16 @@ function evaluacionEstado(estadoCuestionarioParam){
         }
 
         puntajeSegmentado.value = puntajeTotalSegementado;
+
+        //Estado de la revision
+        let revisionEstado = document.getElementById('revisionEstado');
+        revisionEstado.value = "ready";
+
     }else if(estadoCuestionarioParam == "pending"){
         aprovacionEstado.value = "pending";
         promedioGeneral.value = "pending"; 
         puntajeGeneral.value = "pending"; 
-        puntajeSegmentado.value = "pending"; 
+        puntajeSegmentado.value = "pending";
     }
 }
 evaluacionEstado(estadoCuestionario);
