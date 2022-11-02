@@ -1,5 +1,4 @@
 from operacionesBD.conexion import obtener_conexion
-from routes.profesor import revisionCuestionarios
 
 def insertar_profesor(nombre,alias,foto,correo,contra,unidad_academica,descripcion,fondo):
     conexion = obtener_conexion()
@@ -324,29 +323,6 @@ def obtener_cuestionarios_en_estado_pending(id_cuestionario):
     conexion.close()
     return grupos
 
-##
-## Nos ayuda a actualizar los cuestionarios que estaban en estado de pending
-##
-
-def insertar_data_revision_apelacion(revisionEstado, aprovacionEstado, promedioGeneral, puntajeGeneral, puntajeSegmentado,idCuestionarioHecho):
-    conexion = obtener_conexion()
-    with conexion.cursor() as cursor:
-        cursor.execute("UPDATE alumnos_hacen_cuestionario SET Revision_estado = %s,Aprobacion_estado = %s,Promedio_general = %s,Puntaje_general = %s,Puntaje_segmentado = %s WHERE IDCuestionarioHecho = %s",
-        (revisionEstado, aprovacionEstado, promedioGeneral, puntajeGeneral, puntajeSegmentado,idCuestionarioHecho))
-    conexion.commit()
-    conexion.close()
-    return "listo"
-
-def insertar_apelacion(idCuestionarioHecho):
-    revisionEstado = "pending"
-    conexion = obtener_conexion()
-    with conexion.cursor() as cursor:
-        cursor.execute("UPDATE alumnos_hacen_cuestionario SET Revision_estado = %s WHERE IDCuestionarioHecho = %s",
-        (revisionEstado,idCuestionarioHecho))
-    conexion.commit()
-    conexion.close()
-    return "listo"
-
 def obtener_cuestionarios_rutas(id_profesor):
     conexion=obtener_conexion()
     grupos=[]
@@ -432,6 +408,11 @@ def insertar_cuestionario_JSON(id_grupo, id_profesor, tituloCuestionario, fechaC
     with conexion.cursor() as cursor:
         cursor.execute("INSERT INTO cuestionarios(IDGrupo, IDDocente, Titulo, Fecha, Autor, Temas, Tipo, Lenguaje, Preguntas, Orden, TiempoCuentaAtras, FechaLimiteRespuesta, HoraLimiteParaResolver, NumeroIntentosDisponibles) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
         (id_grupo, id_profesor, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, archivoCuestionario, ordenCuestionario, tiempoCuentaAtras, fechaLimiteRespuesta, horaLimiteParaResolver, numeroIntentosDisponibles))
+    conexion.commit()
+    conexion.close()
+
+def duplicar_cuestionario():
+    conexion = obtener_conexion()
     conexion.commit()
     conexion.close()
 

@@ -1,4 +1,5 @@
 #from crypt import methods
+#from crypt import methods
 from functools import wraps
 ##from turtle import width
 from flask import render_template,flash,request, url_for, redirect, session
@@ -146,29 +147,6 @@ def retroalimentarCuestionario(id_cuestionario_pending):
 
     #Enviamos al usuario al formulario para ver datos del cuestionario.
     return render_template('profesor/d_retroalimentar_cuestionarios.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON, idCuestionarioHecho = idCuestionarioHecho, idEstudiante = idEstudiante, datosCuestionarioHecho = datosCuestionarioHecho)
-
-##Tura para ir a la vista de revision de cuestionarios pendientes
-@routes.route('/terminarRetroalimentacion/<string:id_cuestionario_pending>', methods=["POST"])
-def terminarRetroalimentarCuestionarios(id_cuestionario_pending):
-    #Accedo a los valores de IDs
-    idCuestionarioHecho = request.form["idCuestionarioHecho"];
-    idEstudiante = request.form["idEstudiante"]
-    revisionEstado = request.form["revisionEstado"]
-    aprovacionEstado = request.form["aprovacionEstado"]
-    promedioGeneral = request.form["promedioGeneral"]
-    puntajeGeneral = request.form["puntajeGeneral"]
-    puntajeSegmentado = request.form["puntajeSegmentado"]
-
-    print(id_cuestionario_pending,revisionEstado,aprovacionEstado,promedioGeneral,puntajeGeneral,puntajeSegmentado)
-
-    #Obtenemos todos los datos del cuestionario
-    try:
-        datosCuestionario = Op_profesor.insertar_data_revision_apelacion(revisionEstado,aprovacionEstado,promedioGeneral,puntajeGeneral,puntajeSegmentado,id_cuestionario_pending)
-    except:
-        print("error")
-    #Enviamos al usuario al formulario para ver datos del cuestionario.
-    return redirect(url_for('routes.gestionar_cuestionarios'))
-
 
 ##Ruta para la vista de gestion de estadisticas
 @routes.route('/gestionar_estadisticas/<string:id_docente>')
@@ -943,7 +921,7 @@ def duplicar_cuestionario(id_cuestionario):
     rutaVieja = str(pickedCuestionarioData[0][9])
     rutaCopia = ""
     nuevaRuta = rutaVieja.replace(".json","")
-    rutaCopia = nuevaRuta + "(copia).json";
+    rutaCopia = nuevaRuta + "(copia).json"
 
     #Agregamos (copia) al nuevo titulo
     tituloCuestionario = str(pickedCuestionarioData[0][3]) + "_(copia)"
@@ -952,7 +930,7 @@ def duplicar_cuestionario(id_cuestionario):
     shutil.copy(rutaVieja, rutaCopia)
     
     #Insertamos el nuevo cuestionario
-    Op_profesor.insertar_cuestionario_JSON(pickedCuestionarioData[0][1], pickedCuestionarioData[0][2], tituloCuestionario, pickedCuestionarioData[0][4], pickedCuestionarioData[0][5], pickedCuestionarioData[0][6], pickedCuestionarioData[0][7], pickedCuestionarioData[0][8], rutaCopia, pickedCuestionarioData[0][10], pickedCuestionarioData[0][11], pickedCuestionarioData[0][12], pickedCuestionarioData[0][13])
+    #Op_profesor.insertar_cuestionario_JSON(pickedCuestionarioData[0][1], pickedCuestionarioData[0][2], tituloCuestionario, pickedCuestionarioData[0][4], pickedCuestionarioData[0][5], pickedCuestionarioData[0][6], pickedCuestionarioData[0][7], pickedCuestionarioData[0][8], rutaCopia, pickedCuestionarioData[0][10], pickedCuestionarioData[0][11], pickedCuestionarioData[0][12], pickedCuestionarioData[0][13])
     
     return redirect(url_for('routes.gestionar_cuestionarios')) 
 
