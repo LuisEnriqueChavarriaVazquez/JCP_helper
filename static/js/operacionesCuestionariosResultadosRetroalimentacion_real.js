@@ -185,8 +185,20 @@ function calcularPromedio() {
     //console.log('rightAnswerOpt3', rightAnswerOpt3)
 
     let casillaPendientes = document.getElementsByClassName('pendientesEstado');
-    casillaPendientes[0].innerHTML = `<p>Open questions = ${rightAnswerOpt6.length}</p>`;
+    casillaPendientes[0].innerHTML = `<p>Preguntas pendientes.</p>`;
+    casillaPendientes[0].innerHTML += `<p>Open questions = ${rightAnswerOpt6.length}</p>`;
     casillaPendientes[0].innerHTML += `<p>Code questions = ${rightAnswerOpt3.length}</p>`;
+
+    //Como siempre habra pendientes, podemos acceder sin miedo a las ponderaciones totales.
+    let ponderaciones = document.getElementsByClassName('ponderacionBox');
+    let listaPonderaciones = [];
+    for(var i = 0; i < ponderaciones.length; i++){
+        listaPonderaciones.push(parseInt(ponderaciones[i].innerText.replace('pts.','')));
+    }
+
+    let sumaPonderaciones = listaPonderaciones.reduce((sum, element) => {
+        return sum + element;
+    });
 
     // console.log("Preguntas abiertas pendientes = ", rightAnswerOpt6.length);
     // console.log("Preguntas ejercicios pendientes = ", rightAnswerOpt3.length);
@@ -196,7 +208,8 @@ function calcularPromedio() {
         //En caso de que haya preguntas abiertas o ejercicios sin output.
         calificacionContainer[0].innerHTML = "<p>Revisión manual pendiente</p>";
     } else {
-        var promedio = (ponderacionGlobal.toFixed(2) * 10) / (ponderacionGlobalDada/contadorRevisionDeLaSuma);
+        var promedio = (ponderacionGlobal.toFixed(2) * 10) / (sumaPonderaciones);
+        console.log('contadorRevisionDeLaSuma', contadorRevisionDeLaSuma)
         calificacionContainer[0].innerHTML = "<p>Calificación: <span id='calificacionDataGet'>" + promedio.toFixed(2) + "</span></p>";
     }
 }
