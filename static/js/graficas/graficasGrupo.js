@@ -4,6 +4,8 @@
 <input type="hidden" value="{{datosCuestionariosTerminados}}" id="cuestionariosTerminados"></input> */
 
 ////////////////////////////////////////////////////////
+//CÁLCULOS//////////////////////////////////////////////
+////////////////////////////////////////////////////////
 //Accedemos a la data como string
 let datosCuestionariosTerminados = document.getElementById('cuestionariosTerminados').value;
 datosCuestionariosTerminados = limpiarDatos(datosCuestionariosTerminados);
@@ -34,7 +36,7 @@ datosCuestionariosProfe = limpiarDatos(datosCuestionariosProfe);
 let idGrupos = [];
 idsCuestionariosHechos.map((idGrupo) => {
     datosCuestionariosProfe.forEach(grupoId => {
-        if(idGrupo == grupoId[0]){      
+        if (idGrupo == grupoId[0]) {
             idGrupos.push(grupoId[1]);
         }
     });
@@ -50,11 +52,11 @@ datosGrupo = limpiarDatos(datosGrupo);
 
 ////////////////////////////////////////////////////////
 //Lo definimos como set para eliminar los repetidos
-let gruposNames = new Set ();
-let gruposIDSet = new Set ();
-datosGrupo.filter((grupo) =>{
+let gruposNames = new Set();
+let gruposIDSet = new Set();
+datosGrupo.filter((grupo) => {
     idGrupos.forEach(id => {
-        if(id == grupo[0]){
+        if (id == grupo[0]) {
             gruposNames.add(grupo[2]);
             gruposIDSet.add(id);
         }
@@ -80,7 +82,7 @@ let sumaPromedioGrupos = idGrupos.map(id => {
 
 //Contamos la cantidad de elemento pertenecientes a un grupo
 let contadorPosicionesIds = [];
-for(var i = 0; i < gruposIdsArray.length; i++){
+for (var i = 0; i < gruposIdsArray.length; i++) {
     contadorPosicionesIds.push(idGrupos.filter(x => x === gruposIdsArray[i]).length);
 }
 //console.log('contadorPosicionesIds', contadorPosicionesIds)
@@ -88,14 +90,14 @@ for(var i = 0; i < gruposIdsArray.length; i++){
 //Debemos sumar los puntajes de cada grupo
 let puntajePorGrupo;
 let puntajePorGrupoArray = [];
-for(var j = 0; j < contadorPosicionesIds.length; j++){
+for (var j = 0; j < contadorPosicionesIds.length; j++) {
     puntajePorGrupo = 0;
-    for(var r = 0; r < contadorPosicionesIds[j]; r++){
+    for (var r = 0; r < contadorPosicionesIds[j]; r++) {
         puntajePorGrupo += parseFloat(promediosCuestionariosHechos[r])
     }
     r = 0;
     puntajePorGrupoArray.push(puntajePorGrupo);
-    for(var h = 0; h < contadorPosicionesIds[j]; h++){
+    for (var h = 0; h < contadorPosicionesIds[j]; h++) {
         promediosCuestionariosHechos.shift();
     }
 }
@@ -108,108 +110,104 @@ let promedioFinalPorGrupo = puntajePorGrupoArray.map(sumatoria => {
 });
 //console.log('Promedio por cada grupo', promedioFinalPorGrupo);
 
+//Debemos obtener a cuanto en porcentage equivalen los promedios.
+//Debemos sumar los promedios
+let sumaAritmeticaPromedios = promedioFinalPorGrupo.reduce((suma, element) => suma + element);
+//Obtenemos los porcentages
+let porcentajePromedioEquivalente = promedioFinalPorGrupo.map(promedio =>{
+    let porcentajeCalculo = ((promedio*(100))/sumaAritmeticaPromedios).toFixed(2);
+    return parseFloat(porcentajeCalculo);
+});
+console.log('porcentajePromedioEquivalente', porcentajePromedioEquivalente)
 
 
-let promediosPorGrupo = {}; //Objeto
-idGrupos.forEach(id => {
-    promediosPorGrupo[id] = "2332";
-})
-
-//console.log('promediosPorGrupo', promediosPorGrupo)
 
 
 ////////////////////////////////////////////////////////
-//Impresión de las gráficas.
-var trace1 = {
-    type: 'bar', //Definimos el tipo de gráfico
-    x: gruposNameArray, //Nombre de los grupos
-    y: promedioFinalPorGrupo, //Pasamos la data para y
-    marker: { //Definimos los estilos
-        color: ['#628E90', '#256D85', '#7895B2', '#5F6F94', '#2B4865'],
-        line: {
-            width: 2.5
-        }
-    }
-};
-
-var data = [trace1];
-
-var layout = { //Titulo de la gráfica
-    title: 'Data',
-    font: { size: 10 }
-};
-
-var config = { responsive: true } //Ajuste responsivo
-//Aqui se hace el render de la gráfica. (el primer parametro es el ID de un contenedor)
-Plotly.newPlot('graph1', data, layout, config);
-Plotly.newPlot('graph2', data, layout, config);
+//Plotly.newPlot('graph2', data, layout, config);
 
 //Imprime la gráfica de barras
-function grafica_barras() {
+function grafica_barras_promedio_general() {
     var trace1 = {
         type: 'bar',
-        x: [1, 2, 3, 4],
-        y: [5, 10, 2, 8],
+        x: gruposNameArray,
+        y: promedioFinalPorGrupo,
         marker: {
             color: ['#628E90', '#256D85', '#7895B2', '#5F6F94', '#2B4865'],
             line: {
-                width: 2.5
+                width: 1
             }
         }
     };
-    
+
     var data = [trace1];
-    
-    var config = { responsive: true }
-    
+
+    var layout = { //Titulo de la gráfica
+        title: 'Comparison',
+        font: { size: 10 }
+    };
+
+    var config = { responsive: true } //Ajuste responsivo
+
     Plotly.newPlot('graph1', data, layout, config);
 }
+grafica_barras_promedio_general(); //Esta ejecuta la gráfica por defecto
 
 //Imprime la gráfica pastel
-function grafica_pastel() {
-    
+function grafica_pastel_promedio_general() {
+
     var data2 = [{
-        values: [19, 26, 55],
-        labels: ['Residential', 'Non-Residential', 'Utility'],
+        values: porcentajePromedioEquivalente,
+        labels: gruposNameArray,
         type: 'pie',
         marker: {
             colors: ['#628E90', '#256D85', '#7895B2', '#5F6F94', '#2B4865']
         }
     }];
 
-    var config = { responsive: true }
-    
+    var layout = { //Titulo de la gráfica
+        title: 'Total points',
+        font: { size: 10 }
+    };
+
+    var config = { responsive: true } //Ajuste responsivo
+
     Plotly.newPlot('graph1', data2, layout, config);
 }
 
 //Imprime la gráfica lineal
-function grafica_lineal() {
+function grafica_lineal_promedio_general() {
     var trace1 = {
         x: [1, 2, 3, 4],
         y: [10, 15, 13, 17],
         type: 'scatter'
     };
-    
+
     var trace2 = {
         x: [1, 2, 3, 4],
         y: [16, 5, 11, 9],
         type: 'scatter'
     };
-    
+
     var data = [trace1, trace2];
-    
-    var config = { responsive: true }
-    
+
+    var layout = { //Titulo de la gráfica
+        title: '',
+        font: { size: 10 }
+    };
+
+    var config = { responsive: true } //Ajuste responsivo
+
     Plotly.newPlot('graph1', data, layout, config);
 }
 
 //Funcion para limpiar los datos
-function limpiarDatos(string){
+function limpiarDatos(string) {
     //Como en python eran tuplas, necesitamos convertir todo en array
     string = string.replaceAll('(', '[');
     string = string.replaceAll(')', ']');
     string = string.replace('],]', ']]');
-    string = string.replaceAll("\'","\"");
+    string = string.replaceAll("\'", "\"");
     string = string.replaceAll("None", "0");
     //Son los datos de los cuestionarios evaluados. (en estado ready)
     string = JSON.parse(string);
