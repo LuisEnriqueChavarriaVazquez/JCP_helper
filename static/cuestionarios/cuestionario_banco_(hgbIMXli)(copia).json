@@ -1,0 +1,41 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optFalsoVerdadero",
+   "1": "optFalsoVerdadero",
+   "2": "optFalsoVerdadero",
+   "3": "optFalsoVerdadero"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "",
+   "1": "",
+   "2": "",
+   "3": ""
+  }
+ ],
+ "preguntasModal1": [],
+ "preguntasModal2": [],
+ "preguntasModal3": [],
+ "preguntasModal4": [],
+ "preguntasModal5": [
+  {
+   "0": "\u00bfEL TIPO DE DATO INTEGER SIRVE PARA DECLARAR VALORES ENTEROS EN ANSI C?",
+   "1": "F"
+  },
+  {
+   "0": "\u00bfEL TIPO DE DATO INTEGER SIRVE PARA DECLARAR VALORES ENTEROS EN ANSI C?",
+   "1": "F"
+  },
+  {
+   "0": "\u00bfEL TIPO DE DATO INTEGER SIRVE PARA DECLARAR VALORES ENTEROS EN ANSI C?",
+   "1": "F"
+  },
+  {
+   "0": "\u00bfEL TIPO DE DATO INTEGER SIRVE PARA DECLARAR VALORES ENTEROS EN ANSI C?",
+   "1": "F"
+  }
+ ],
+ "preguntasModal6": []
+}

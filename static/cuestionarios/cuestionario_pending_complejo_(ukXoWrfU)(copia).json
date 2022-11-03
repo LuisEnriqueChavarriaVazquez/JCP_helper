@@ -1,0 +1,267 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optMultiple",
+   "1": "optMultiple",
+   "2": "optMultiple",
+   "3": "optMultiple",
+   "4": "optMultiple",
+   "5": "optAcompletar",
+   "6": "optAcompletar",
+   "7": "optAcompletar",
+   "8": "optMultiple",
+   "9": "optEjercicios",
+   "10": "optEjercicios",
+   "11": "optAcompletar",
+   "12": "optEjercicios",
+   "13": "optMultiple",
+   "14": "optArrastrar",
+   "15": "optArrastrar",
+   "16": "optArrastrar",
+   "17": "optArrastrar",
+   "18": "optFalsoVerdadero",
+   "19": "optArrastrar",
+   "20": "optFalsoVerdadero",
+   "21": "optFalsoVerdadero",
+   "22": "optFalsoVerdadero",
+   "23": "optFalsoVerdadero",
+   "24": "optFalsoVerdadero",
+   "25": "optAbierta",
+   "26": "optAbierta",
+   "27": "optFalsoVerdadero",
+   "28": "optAbierta"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "1",
+   "1": "2",
+   "2": "3",
+   "3": "4",
+   "4": "5",
+   "5": "3",
+   "6": "2",
+   "7": "2",
+   "8": "1",
+   "9": "2",
+   "10": "3",
+   "11": "2",
+   "12": "2",
+   "13": "2",
+   "14": "1",
+   "15": "2",
+   "16": "4",
+   "17": "5",
+   "18": "5",
+   "19": "3",
+   "20": "2",
+   "21": "1",
+   "22": "1",
+   "23": "1",
+   "24": "1",
+   "25": "2",
+   "26": "4",
+   "27": "4",
+   "28": "4"
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "0": "Pregunta 1",
+   "1": "",
+   "2": "A",
+   "3": "opt1",
+   "4": "",
+   "5": "",
+   "6": ""
+  },
+  {
+   "0": "Pregunta 2",
+   "1": "",
+   "2": "A",
+   "3": "opt1",
+   "4": "",
+   "5": "",
+   "6": ""
+  },
+  {
+   "0": "Pregunta 2",
+   "1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "2": "B",
+   "3": "opt1",
+   "4": "",
+   "5": "",
+   "6": ""
+  },
+  {
+   "0": "Pregunta 3",
+   "1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "2": "C",
+   "3": "opt1",
+   "4": "sdsdsdsd",
+   "5": "opxndkndsk",
+   "6": ""
+  },
+  {
+   "0": "Pregunta 3",
+   "1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "2": "D",
+   "3": "opt1",
+   "4": "sdsdsdsd",
+   "5": "opxndkndsk",
+   "6": "dsdewweewweew"
+  },
+  {
+   "0": "Pregunta 6",
+   "1": "",
+   "2": "A",
+   "3": "opt1",
+   "4": "sdsdsdsd",
+   "5": "opxndkndsk",
+   "6": "dsdewweewweew"
+  },
+  {
+   "0": "Pregunta 6",
+   "1": "",
+   "2": "D",
+   "3": "opt1",
+   "4": "sdsdsdsd",
+   "5": "opxndkndsk",
+   "6": "dsdewweewweew"
+  }
+ ],
+ "preguntasModal2": [
+  {
+   "0": "El concepto [Blank 1]",
+   "1": "palabra 1"
+  },
+  {
+   "0": "El concepto [Blank 1][Blank 2]",
+   "1": "palabra 1",
+   "2": "palabra 2"
+  },
+  {
+   "0": "El concepto [Blank 1][Blank 2] se relaciona con [Blank 3]",
+   "1": "palabra 1",
+   "2": "palabra 2",
+   "3": "p3"
+  },
+  {
+   "0": "El concepto [Blank 1][Blank 2] se relaciona con [Blank 3][Blank 4]",
+   "1": "palabra 1",
+   "2": "palabra 2",
+   "3": "p3",
+   "4": "p4"
+  }
+ ],
+ "preguntasModal3": [
+  {
+   "0": "Ejercicio 1",
+   "1": "",
+   "2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "3": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "4": "hola"
+  },
+  {
+   "0": "Ejercicio 2",
+   "1": "",
+   "2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "3": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "4": ""
+  },
+  {
+   "0": "Ejercicio 3",
+   "1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "3": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "4": ""
+  }
+ ],
+ "preguntasModal4": [
+  {
+   "0": "Relaciones las palabras",
+   "1": "p1*p2"
+  },
+  {
+   "0": "Relaciones las palabras",
+   "1": "p1*p2",
+   "2": "j1*j2",
+   "3": "ddssdsd*sdfsfdsdsfd",
+   "4": "sdfdsfsd*sddsfsddfs"
+  },
+  {
+   "0": "Relaciones las palabras",
+   "1": "p1*p2",
+   "2": "j1*j2",
+   "3": "ddssdsd*sdfsfdsdsfd",
+   "4": "sdfdsfsd*sddsfsddfs",
+   "5": "dsdsdsfdsf*sddsffdsdsf"
+  },
+  {
+   "0": "Relaciones las palabras",
+   "1": "p1*p2",
+   "2": "j1*j2",
+   "3": "ddssdsd*sdfsfdsdsfd",
+   "4": "sdfdsfsd*sddsfsddfs",
+   "5": "dsdsdsfdsf*sddsffdsdsf",
+   "6": "ff*fff"
+  },
+  {
+   "0": "Relaciones las palabras",
+   "1": "p1*p2",
+   "2": "j1*j2",
+   "3": "ddssdsd*sdfsfdsdsfd",
+   "4": "sdfdsfsd*sddsfsddfs",
+   "5": "dsdsdsfdsf*sddsffdsdsf",
+   "6": "ff*fff",
+   "7": "ffff*eeee"
+  }
+ ],
+ "preguntasModal5": [
+  {
+   "0": "ffffff",
+   "1": "f"
+  },
+  {
+   "0": "ffffff 2",
+   "1": "f"
+  },
+  {
+   "0": "pregunta 3",
+   "1": "t"
+  },
+  {
+   "0": "pregunta 4",
+   "1": "t"
+  },
+  {
+   "0": "pregunta 5",
+   "1": "f"
+  },
+  {
+   "0": "pregunta 6",
+   "1": "f"
+  },
+  {
+   "0": "pregunta 7",
+   "1": "f"
+  }
+ ],
+ "preguntasModal6": [
+  {
+   "0": "Pregunta abierta 1",
+   "1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU"
+  },
+  {
+   "0": "Pregunta abierta 2",
+   "1": "",
+   "2": ""
+  },
+  {
+   "0": "Pregunta abierta 3",
+   "1": "",
+   "2": ""
+  }
+ ]
+}
