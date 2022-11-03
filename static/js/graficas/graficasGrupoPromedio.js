@@ -1,0 +1,91 @@
+////////////////////////////////////////////////////////
+//Plotly.newPlot('graph2', data, layout, config);
+
+//Imprime la gráfica de barras
+function grafica_barras_promedio_general() {
+    var trace1 = {
+        type: 'bar',
+        x: gruposNameArray,
+        y: promedioFinalPorGrupo,
+        marker: {
+            color: ['#628E90', '#256D85', '#7895B2', '#5F6F94', '#2B4865'],
+            line: {
+                width: 1
+            }
+        }
+    };
+
+    var data = [trace1];
+
+    var layout = { //Titulo de la gráfica
+        title: 'Comparison',
+        font: { size: 10 }
+    };
+
+    var config = { responsive: true } //Ajuste responsivo
+
+    Plotly.newPlot('graph1', data, layout, config);
+}
+grafica_barras_promedio_general(); //Esta ejecuta la gráfica por defecto
+
+//Imprime la gráfica pastel
+function grafica_pastel_promedio_general() {
+
+    var data2 = [{
+        values: porcentajePromedioEquivalente,
+        labels: gruposNameArray,
+        type: 'pie',
+        marker: {
+            colors: ['#628E90', '#256D85', '#7895B2', '#5F6F94', '#2B4865']
+        }
+    }];
+
+    var layout = { //Titulo de la gráfica
+        title: 'Total points',
+        font: { size: 10 }
+    };
+
+    var config = { responsive: true } //Ajuste responsivo
+
+    Plotly.newPlot('graph1', data2, layout, config);
+}
+
+//Imprime la gráfica lineal
+//gruposNameArray
+//promediosMultidimensional
+function grafica_lineal_promedio_general() {
+
+    //Hacemos una fábrica de objetos
+    let objetoTrazos = {};
+    let contador = 0;
+    //Cantidad de dezplazamientos en x
+    let arraysWithASize = generadorArraysWithASize(contadorPosicionesIds);
+    //Fábrica....
+    gruposNameArray.forEach(grupo => {
+        objetoTrazos[contador] = {
+            x: arraysWithASize[contador],
+            y: promediosMultidimensional[contador++],
+            name: grupo,
+            type: 'scatter'
+        }
+    });
+    
+    let arrayTrazos = Object.values(objetoTrazos);
+    console.log('arrayTrazos', arrayTrazos);
+
+    //Creamos nuestros objetos con los nombres del trace
+    contador=0;
+    var data = [];
+    arrayTrazos.forEach(trazo => {
+        data.push(arrayTrazos[contador++]);
+    });
+
+    var layout = { //Titulo de la gráfica
+        title: 'Cuestionarios de grupo',
+        font: { size: 10 }
+    };
+
+    var config = { responsive: true } //Ajuste responsivo
+
+    Plotly.newPlot('graph1', data, layout, config);
+}

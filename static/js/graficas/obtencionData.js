@@ -135,98 +135,53 @@ promediosMultidimensional = promediosMultidimensional.flat(1);
 console.log('Promedio dividido en array por grupo', promediosMultidimensional);
 
 
-////////////////////////////////////////////////////////
-//Plotly.newPlot('graph2', data, layout, config);
+///////////////////////////Datos indice de aprobacion
+////////////////////////////////////////////////////////🔴
+//Accedemos a los estados de aprobación de los cuestionarios.
+let estadoAprobacion = datosCuestionariosTerminados.map((element) => {
+    return element[5];
+});
+console.log('Estados de aprobacion = ', estadoAprobacion)
 
-//Imprime la gráfica de barras
-function grafica_barras_promedio_general() {
-    var trace1 = {
-        type: 'bar',
-        x: gruposNameArray,
-        y: promedioFinalPorGrupo,
-        marker: {
-            color: ['#628E90', '#256D85', '#7895B2', '#5F6F94', '#2B4865'],
-            line: {
-                width: 1
-            }
-        }
-    };
-
-    var data = [trace1];
-
-    var layout = { //Titulo de la gráfica
-        title: 'Comparison',
-        font: { size: 10 }
-    };
-
-    var config = { responsive: true } //Ajuste responsivo
-
-    Plotly.newPlot('graph1', data, layout, config);
+//Se deben separar los estados de aprovado deun array multidimensional
+//contadorPosicionesIds
+//Debemos separar en un array multidimensional los promedios de los cuestionarios por grupo
+let aprobacionMultidimensional = []; //[[],[],[]] un array por grupo
+for(var y = 0; y < contadorPosicionesIds.length; y++){
+    let arrayTemporal = [];
+    arrayTemporal.push(estadoAprobacion.splice(0, contadorPosicionesIds[y]));
+    aprobacionMultidimensional.push(arrayTemporal);
 }
-grafica_barras_promedio_general(); //Esta ejecuta la gráfica por defecto
+aprobacionMultidimensional = aprobacionMultidimensional.flat(1);
+console.log('Arrays de aprobación por grupo', aprobacionMultidimensional); //Este contiene tanto aprobado como reprobado
 
-//Imprime la gráfica pastel
-function grafica_pastel_promedio_general() {
+let aprobacionMultidimensionalAprobados = [...aprobacionMultidimensional];
+let aprobacionMultidimensionalReprobados = [...aprobacionMultidimensional];
 
-    var data2 = [{
-        values: porcentajePromedioEquivalente,
-        labels: gruposNameArray,
-        type: 'pie',
-        marker: {
-            colors: ['#628E90', '#256D85', '#7895B2', '#5F6F94', '#2B4865']
-        }
-    }];
-
-    var layout = { //Titulo de la gráfica
-        title: 'Total points',
-        font: { size: 10 }
-    };
-
-    var config = { responsive: true } //Ajuste responsivo
-
-    Plotly.newPlot('graph1', data2, layout, config);
-}
-
-//Imprime la gráfica lineal
-//gruposNameArray
-//promediosMultidimensional
-function grafica_lineal_promedio_general() {
-
-    //Hacemos una fábrica de objetos
-    let objetoTrazos = {};
-    let contador = 0;
-    //Cantidad de dezplazamientos en x
-    let arraysWithASize = generadorArraysWithASize(contadorPosicionesIds);
-    //Fábrica....
-    let arrayTraceName = [] //Nombre de los trazos
-    gruposNameArray.forEach(grupo => {
-        objetoTrazos[contador] = {
-            x: arraysWithASize[contador],
-            y: promediosMultidimensional[contador++],
-            name: grupo,
-            type: 'scatter'
+//Debemos eliminar los reprobados del el array. [[],[],[]]
+let aprobadosCounter = [];
+let reprobadosCounter = [];
+let aprobacionTotal = [];
+aprobacionTotal.push(aprobadosCounter);
+aprobacionTotal.push(reprobadosCounter);
+let graficasTitle = ['aprobados','reprobados'];
+for(var i = 0; i < aprobacionMultidimensionalAprobados.length; i++){
+    let contadorAprobados = 0;
+    let contadorReprobados = 0;
+    aprobacionMultidimensionalAprobados[i].filter(element =>{
+        if(element == 'aprobado'){
+            contadorAprobados++;
+        }else if(element == 'reprobado'){
+            contadorReprobados++;
         }
     });
-    
-    let arrayTrazos = Object.values(objetoTrazos);
-    console.log('arrayTrazos', arrayTrazos);
+    aprobadosCounter.push(contadorAprobados);
+    reprobadosCounter.push(contadorReprobados);
+};
+console.log('aprobadosCounter', aprobadosCounter) //Hace la cuenta de los aprobados. 😀
+console.log('reprobadosCounter', reprobadosCounter) //Hace la cuenta de los reprobados 😀
+console.log('aprobacionTotal', aprobacionTotal) //Encontramos 2 arrays con los alumnos reprobados y aprobados
 
-    //Creamos nuestros objetos con los nombres del trace
-    contador=0;
-    var data = [];
-    arrayTrazos.forEach(trazo => {
-        data.push(arrayTrazos[contador++]);
-    });
-
-    var layout = { //Titulo de la gráfica
-        title: 'Cuestionarios de grupo',
-        font: { size: 10 }
-    };
-
-    var config = { responsive: true } //Ajuste responsivo
-
-    Plotly.newPlot('graph1', data, layout, config);
-}
 
 /////////////////////////////////////////////////
 //Funcion para limpiar los datos

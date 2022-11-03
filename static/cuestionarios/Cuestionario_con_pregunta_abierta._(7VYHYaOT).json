@@ -1,0 +1,24 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optAbierta"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "3"
+  }
+ ],
+ "preguntasModal1": [],
+ "preguntasModal2": [],
+ "preguntasModal3": [],
+ "preguntasModal4": [],
+ "preguntasModal5": [],
+ "preguntasModal6": [
+  {
+   "0": "Pregunta abierta",
+   "1": "",
+   "2": ""
+  }
+ ]
+}
