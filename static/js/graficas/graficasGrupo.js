@@ -9,27 +9,27 @@
 //Accedemos a la data como string
 let datosCuestionariosTerminados = document.getElementById('cuestionariosTerminados').value;
 datosCuestionariosTerminados = limpiarDatos(datosCuestionariosTerminados);
-//console.log('Cuestionarios terminados = ', datosCuestionariosTerminados);
+console.log('Cuestionarios terminados = ', datosCuestionariosTerminados);
 
 ////////////////////////////////////////////////////////
 //Accedemos a los Promedios de los cuestionarios
 let promediosCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
-    return element[6];
+    return parseFloat(element[6]);
 });
-//console.log('Promedios de los cuestionarios hechos = ', promediosCuestionariosHechos)
+console.log('Promedios de los cuestionarios hechos = ', promediosCuestionariosHechos)
 
 ////////////////////////////////////////////////////////
 //Accedemos a los IDS de los cuestionarios
 let idsCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
     return element[1];
 });
-//console.log('Ids de los cuestionarios hechos = ', idsCuestionariosHechos)
+console.log('Ids de los cuestionarios hechos = ', idsCuestionariosHechos)
 
 ////////////////////////////////////////////////////////
 //Accedemos a los nombres de los grupos del docente
 let datosCuestionariosProfe = document.getElementById('datosCuestionariosGeneralesCuestionarios').value;
 datosCuestionariosProfe = limpiarDatos(datosCuestionariosProfe);
-//console.log('Datos de los cuestionarios = ',datosCuestionariosProfe);
+console.log('Datos de los cuestionarios = ',datosCuestionariosProfe);
 
 ////////////////////////////////////////////////////////
 //Extraemos los IDs de los grupos
@@ -41,14 +41,14 @@ idsCuestionariosHechos.map((idGrupo) => {
         }
     });
 });
-//console.log('idGrupos', idGrupos)
+console.log('idGrupos', idGrupos)
 
 
 ////////////////////////////////////////////////////////
 //Accedemos a los nombres de los grupos del docente
 let datosGrupo = document.getElementById('datosDeLosGrupos').value;
 datosGrupo = limpiarDatos(datosGrupo);
-//console.log('Datos de los grupos = ', datosGrupo);
+console.log('Datos de los grupos = ', datosGrupo);
 
 ////////////////////////////////////////////////////////
 //Lo definimos como set para eliminar los repetidos
@@ -64,8 +64,8 @@ datosGrupo.filter((grupo) => {
 });
 let gruposNameArray = Array.from(gruposNames);
 let gruposIdsArray = Array.from(gruposIDSet);
-//console.log('gruposNameArray', gruposNameArray);
-//console.log('gruposIDSet', gruposIdsArray)
+console.log('gruposNameArray', gruposNameArray);
+console.log('gruposIDSet', gruposIdsArray)
 
 /////////////////////////////////////////////////////////
 //Debemos vincular los promedios con su respectivo grupo
@@ -78,37 +78,41 @@ let counter = 0;
 let sumaPromedioGrupos = idGrupos.map(id => {
     return `${id}_${promediosCuestionariosHechos[counter++]}`;
 });
-//console.log('sumaPromedioGrupos', sumaPromedioGrupos);
+console.log('sumaPromedioGrupos', sumaPromedioGrupos);
 
 //Contamos la cantidad de elemento pertenecientes a un grupo
 let contadorPosicionesIds = [];
 for (var i = 0; i < gruposIdsArray.length; i++) {
     contadorPosicionesIds.push(idGrupos.filter(x => x === gruposIdsArray[i]).length);
 }
-//console.log('contadorPosicionesIds', contadorPosicionesIds)
+console.log('contadorPosicionesIds', contadorPosicionesIds)
 
 //Debemos sumar los puntajes de cada grupo
 let puntajePorGrupo;
 let puntajePorGrupoArray = [];
+//Esta es una copia para poder hacer unshift en ella
+let promediosCuestionariosHechosCopia = {...promediosCuestionariosHechos};
+promediosCuestionariosHechosCopia = Object.values(promediosCuestionariosHechosCopia);
+
 for (var j = 0; j < contadorPosicionesIds.length; j++) {
     puntajePorGrupo = 0;
     for (var r = 0; r < contadorPosicionesIds[j]; r++) {
-        puntajePorGrupo += parseFloat(promediosCuestionariosHechos[r])
+        puntajePorGrupo += parseFloat(promediosCuestionariosHechosCopia[r])
     }
     r = 0;
     puntajePorGrupoArray.push(puntajePorGrupo);
     for (var h = 0; h < contadorPosicionesIds[j]; h++) {
-        promediosCuestionariosHechos.shift();
+        promediosCuestionariosHechosCopia.shift();
     }
 }
-//console.log('Puntaje por grupo', puntajePorGrupoArray);
+console.log('Puntaje por grupo', puntajePorGrupoArray);
 
 //Debemos dividir los puntajes entre el total de elementos por grupo
 contador = 0;
 let promedioFinalPorGrupo = puntajePorGrupoArray.map(sumatoria => {
     return sumatoria / contadorPosicionesIds[contador++];
 });
-//console.log('Promedio por cada grupo', promedioFinalPorGrupo);
+console.log('Promedio por cada grupo', promedioFinalPorGrupo);
 
 //Debemos obtener a cuanto en porcentage equivalen los promedios.
 //Debemos sumar los promedios
@@ -120,7 +124,15 @@ let porcentajePromedioEquivalente = promedioFinalPorGrupo.map(promedio =>{
 });
 console.log('porcentajePromedioEquivalente', porcentajePromedioEquivalente)
 
-
+//Debemos separar en un array multidimensional los promedios de los cuestionarios por grupo
+let promediosMultidimensional = []; //[[],[],[]] un array por grupo
+for(var y = 0; y < contadorPosicionesIds.length; y++){
+    let arrayTemporal = [];
+    arrayTemporal.push(promediosCuestionariosHechos.splice(0, contadorPosicionesIds[y]));
+    promediosMultidimensional.push(arrayTemporal);
+}
+promediosMultidimensional = promediosMultidimensional.flat(1);
+console.log('Promedio dividido en array por grupo', promediosMultidimensional);
 
 
 ////////////////////////////////////////////////////////
@@ -176,23 +188,38 @@ function grafica_pastel_promedio_general() {
 }
 
 //Imprime la gráfica lineal
+//gruposNameArray
+//promediosMultidimensional
 function grafica_lineal_promedio_general() {
-    var trace1 = {
-        x: [1, 2, 3, 4],
-        y: [10, 15, 13, 17],
-        type: 'scatter'
-    };
 
-    var trace2 = {
-        x: [1, 2, 3, 4],
-        y: [16, 5, 11, 9],
-        type: 'scatter'
-    };
+    //Hacemos una fábrica de objetos
+    let objetoTrazos = {};
+    let contador = 0;
+    //Cantidad de dezplazamientos en x
+    let arraysWithASize = generadorArraysWithASize(contadorPosicionesIds);
+    //Fábrica....
+    let arrayTraceName = [] //Nombre de los trazos
+    gruposNameArray.forEach(grupo => {
+        objetoTrazos[contador] = {
+            x: arraysWithASize[contador],
+            y: promediosMultidimensional[contador++],
+            name: grupo,
+            type: 'scatter'
+        }
+    });
+    
+    let arrayTrazos = Object.values(objetoTrazos);
+    console.log('arrayTrazos', arrayTrazos);
 
-    var data = [trace1, trace2];
+    //Creamos nuestros objetos con los nombres del trace
+    contador=0;
+    var data = [];
+    arrayTrazos.forEach(trazo => {
+        data.push(arrayTrazos[contador++]);
+    });
 
     var layout = { //Titulo de la gráfica
-        title: '',
+        title: 'Cuestionarios de grupo',
         font: { size: 10 }
     };
 
@@ -201,6 +228,7 @@ function grafica_lineal_promedio_general() {
     Plotly.newPlot('graph1', data, layout, config);
 }
 
+/////////////////////////////////////////////////
 //Funcion para limpiar los datos
 function limpiarDatos(string) {
     //Como en python eran tuplas, necesitamos convertir todo en array
@@ -212,4 +240,17 @@ function limpiarDatos(string) {
     //Son los datos de los cuestionarios evaluados. (en estado ready)
     string = JSON.parse(string);
     return string
+}
+
+//Funcion para generar arrays que cuenten de 1 en 1 según un tamaño dado.
+function generadorArraysWithASize(arraySizes){
+    let generalArray = [];
+    for(var i = 0; i < arraySizes.length; i++){
+        let temporalArray = [];
+        for(var j = 0; j < arraySizes[i]; j++){
+            temporalArray.push(j+1);
+        }
+        generalArray.push(temporalArray);
+    }
+    return generalArray;
 }
