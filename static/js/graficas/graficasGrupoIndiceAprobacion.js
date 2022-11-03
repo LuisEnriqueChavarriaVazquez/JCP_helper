@@ -37,3 +37,25 @@ function grafica_barras_indice_aprobacion() {
     Plotly.newPlot('graph2', data, layout, config);
 }
 grafica_barras_indice_aprobacion(); //Esta ejecuta la gráfica por defecto
+
+
+//Imprime la gráfica pastel
+function grafica_pastel_indice_aprobacion() {
+    var data2 = [{
+        values: arrayPorcentajeAprobacion,
+        labels: graficasTitle,
+        type: 'pie',
+        marker: {
+            colors: ['#628E90', '#256D85', '#7895B2', '#5F6F94', '#2B4865']
+        }
+    }];
+
+    var layout = { //Titulo de la gráfica
+        title: 'Reprobados vs Aprobados',
+        font: { size: 10 }
+    };
+
+    var config = { responsive: true } //Ajuste responsivo
+
+    Plotly.newPlot('graph2', data2, layout, config);
+}

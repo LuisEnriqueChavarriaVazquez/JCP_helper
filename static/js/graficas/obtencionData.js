@@ -182,6 +182,29 @@ console.log('aprobadosCounter', aprobadosCounter) //Hace la cuenta de los aproba
 console.log('reprobadosCounter', reprobadosCounter) //Hace la cuenta de los reprobados 😀
 console.log('aprobacionTotal', aprobacionTotal) //Encontramos 2 arrays con los alumnos reprobados y aprobados
 
+//Sumamos el total de los alumnos aprobados.
+let sumaAprobados = aprobadosCounter.reduce((sum, element) => {
+    return sum + element;
+});
+console.log('sumaAprobados', sumaAprobados)
+
+//Sumamos el total de los alumnos reprobados.
+let sumaReprobados = reprobadosCounter.reduce((sum, element) => {
+    return sum + element;
+});
+console.log('sumaReprobados', sumaReprobados)
+
+//Calculamos porcentaje de reprobados y aprobados
+let totalAprobacion = sumaReprobados + sumaAprobados;
+let porcentajeAprobacion = ((sumaAprobados*100)/totalAprobacion).toFixed(2);
+porcentajeAprobacion = parseFloat(porcentajeAprobacion);
+let porcentajeReprobacion = ((sumaReprobados*100)/totalAprobacion).toFixed(2);
+porcentajeReprobacion = parseFloat(porcentajeReprobacion);
+//Guardamos los porcentajes de aprobacion
+let arrayPorcentajeAprobacion = [];
+arrayPorcentajeAprobacion.push(porcentajeAprobacion);
+arrayPorcentajeAprobacion.push(porcentajeReprobacion);
+console.log('arrayPorcentajeAprobacion', arrayPorcentajeAprobacion)
 
 /////////////////////////////////////////////////
 //Funcion para limpiar los datos
