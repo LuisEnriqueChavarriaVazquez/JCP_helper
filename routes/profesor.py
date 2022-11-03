@@ -181,39 +181,60 @@ def gestionar_estadisticas(id_docente):
     ##############################################################
     #Obtenemos los datos del grupo
     datosGrupo = Op_profesor.obtener_grupos_datos_importantes(id_docente)
-    print(datosGrupo)
+    #print(datosGrupo) #Grupos del docente
 
     idGrupos = []
     for singleIDGrupo in datosGrupo:
         idGrupos.append(singleIDGrupo[0])
-    print(idGrupos) #[1,2]
+    #print(idGrupos) #[1,2] #ID de los grupos del docente
+
+    #Guardamos todos los cuestionarios del docente
+    datosCuestionariosProfe = ()
+    for singleIDGrupo in idGrupos:
+        datosCuestionariosProfe += (Op_profesor.obtener_cuestionarios_datos_importantes_con_grupo(singleIDGrupo));
+    #print(datosCuestionariosProfe)
+
+    #Guardamos solo las IDS de los cuestionarios del docente
+    idsCuestionariosProfe = []
+    for singleIDCuestionario in datosCuestionariosProfe:
+        idsCuestionariosProfe.append(singleIDCuestionario[0])
+    #print(idsCuestionariosProfe)
+
+    #Accedemos a los alumnos_hacen_cuestionario con los IDS cuestionarios del profe.
+    datosCuestionariosTerminados = ()
+    for singleIDCuestionario in idsCuestionariosProfe:
+        datosCuestionariosTerminados += (Op_profesor.obtener_cuestionarios_en_estado_ready(singleIDCuestionario))
+    #print(datosCuestionariosTerminados)
 
     datosGlobalesAlumnos = []
     alumnosDentroGrupo = []
-
     ########## INFORMACION ESTUDIANTES EN GRUPOS
     #Obtenemos los ids de los estudiantes dentro de un grupo
     for idGrupo in idGrupos:
         alumnosIdsDentroGrupo = Op_profesor.obtener_IDAlumno_dentro_de_grupo(idGrupo)
-        print(alumnosIdsDentroGrupo) # ((1, ), (2, ))
+        #Una tupla con cada alumno inscrito por grupo
+        #print(alumnosIdsDentroGrupo) # ((1, ), (2, ))
 
         idSeparada = []
         for singleID in alumnosIdsDentroGrupo:
             idSeparada.append(singleID[0])
-        print(idSeparada) # [1,2]
+        #Una array con los IDS de cada alumno inscrito en cada grupo
+        #print(idSeparada) # [1,2]
 
         datosAlumnos = []
         for idAlumno in idSeparada:
-            print(str(idAlumno)) # 1,2
+            #print(str(idAlumno)) # 1,2
             #Obtenemos los datos de los alumnos con los ids Obtenido
             datosAlumnos.append(Op_profesor.datos_completos_alumno_by_id(str(idAlumno)))
-        print(datosAlumnos) #[((1,), (2,))]
+        #Un array con los datos de cada alumno por cada grupo
+        #print(datosAlumnos) #[((1,), (2,))]
 
         datosGlobalesAlumnos.append(datosAlumnos)
-        alumnosDentroGrupo.append(alumnosIdsDentroGrupo)
-    
-    print(datosGlobalesAlumnos) #[[((1,), (2,))], [((1,), (2,))]]
-    print(alumnosDentroGrupo)
+        alumnosDentroGrupo.append(idSeparada)
+    #Todo lo de datos alumnos pero en otro array global
+    #print(datosGlobalesAlumnos) #[[((1,), (2,))], [((1,), (2,))]]
+    #Todas las IDS de los alumnos de cada grupo pero en un solo array
+    #print(alumnosDentroGrupo) #[[1,2,3],[1,2,3],[1]]
 
     #Contador de alumnos por grupo
     cantidadesDeAlumnos = []
@@ -221,15 +242,18 @@ def gestionar_estadisticas(id_docente):
     for alumnoDentroGrupo in alumnosDentroGrupo:
         cantidadesDeAlumnos.append(str(len(alumnoDentroGrupo)))
         k += 1
-    print(cantidadesDeAlumnos)
+    #Cantidad de alumnos por grupo
+    #print(cantidadesDeAlumnos)
 
     #Contador de cuestionarios
     #Cuenta los elementos
     IDS_Cuestionarios = Op_profesor.obtener_cuestionarios_IDS(id_docente)
     ##Contador de alumnos y grupos y cuestionarios
     contadorCuestionarios = len(IDS_Cuestionarios)
+    #Cuenta cuestionarios del docente.
+    #print(contadorCuestionarios)
 
-    return render_template('profesor/a_gestionar_estadisticas.html', datosGrupo=datosGrupo, datosGlobalesAlumnos = datosGlobalesAlumnos, cantidadesDeAlumnos = cantidadesDeAlumnos,IDS_Cuestionarios = contadorCuestionarios,xgrupos=xgrupos,ygrupos=ygrupos)
+    return render_template('profesor/a_gestionar_estadisticas.html',idGrupos=idGrupos,datosGrupo=datosGrupo, datosGlobalesAlumnos = datosGlobalesAlumnos, cantidadesDeAlumnos = cantidadesDeAlumnos,IDS_Cuestionarios = contadorCuestionarios,datosCuestionariosProfe = datosCuestionariosProfe, datosCuestionariosTerminados = datosCuestionariosTerminados,xgrupos=xgrupos,ygrupos=ygrupos)
 
 ##Ruta para la vista de gestion de grupos
 ##

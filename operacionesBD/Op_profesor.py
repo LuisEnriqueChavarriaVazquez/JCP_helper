@@ -311,6 +311,17 @@ def obtener_cuestionarios_datos_importantes(id_profesor):
     conexion.close()
     return grupos
 
+def obtener_cuestionarios_datos_importantes_con_grupo(id_grupo):
+    conexion=obtener_conexion()
+    grupos=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM cuestionarios WHERE IDGrupo = %s", (id_grupo))
+        grupos=cursor.fetchall()
+
+    conexion.close()
+    return grupos
+
 def obtener_cuestionarios_en_estado_pending(id_cuestionario):
     conexion=obtener_conexion()
     grupos=[]
@@ -322,6 +333,18 @@ def obtener_cuestionarios_en_estado_pending(id_cuestionario):
 
     conexion.close()
     return grupos
+
+def obtener_cuestionarios_en_estado_ready(id_cuestionario):
+    conexion=obtener_conexion()
+    cuestionarios=[]
+    readyState = "ready"
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM alumnos_hacen_cuestionario WHERE IDCuestionario = %s AND Revision_estado = %s", (id_cuestionario, readyState))
+        cuestionarios=cursor.fetchall()
+
+    conexion.close()
+    return cuestionarios
 
 ##
 ## Nos ayuda a actualizar los cuestionarios que estaban en estado de pending

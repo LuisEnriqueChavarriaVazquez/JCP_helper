@@ -54,7 +54,7 @@
         <div class="bordered2 shadow-2e cuerpoCardGraficaDashboard colorWhite">
             <div class="tituloCardGrafica flow-text bordered2Up colorGreyWhiter">
                 <div class="tituloCardGraficaText">
-                    Indice de aprobación de grupos
+                    Indice aprobación grupos
                 </div>
                 <div class="porcentageGraficaText">
                     <span class="porcentageGrafica coloredText"><i class="porcentageNumero">59</i>%</span>
@@ -181,7 +181,12 @@
 </section>
 
 <!--Accedemos a la data de la BD con python-->
-<input type="hidden" value="{{xgrupos}}" id="xgrupos"/>
+<input type="hidden" value="{{datosGrupo}}" id="datosDeLosGrupos">
+<input type="hidden" value="{{idGrupos}}" id="idGrupos">
+<input type="hidden" value="{{datosGlobalesAlumnos}}" id="datosGlobalesAlumnosDentroGrupo">
+<input type="hidden" value="{{datosCuestionariosProfe}}" id="datosCuestionariosGeneralesCuestionarios">
+<input type="hidden" value="{{datosCuestionariosTerminados}}" id="cuestionariosTerminados">
+<input type="hidden" value="{{xgrupos}}" id="xgrupos">
 <input type="hidden" value="{{ygrupos}}" id="ygrupos">
 <!--Tenemos nuestro script para imprimir la data de lso gráficos-->
 <script src="../../../static/js/graficas/graficasGrupo.js"></script>
