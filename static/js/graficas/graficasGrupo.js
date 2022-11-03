@@ -208,6 +208,7 @@ function limpiarDatos(string){
     //Como en python eran tuplas, necesitamos convertir todo en array
     string = string.replaceAll('(', '[');
     string = string.replaceAll(')', ']');
+    string = string.replace('],]', ']]');
     string = string.replaceAll("\'","\"");
     string = string.replaceAll("None", "0");
     //Son los datos de los cuestionarios evaluados. (en estado ready)

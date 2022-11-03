@@ -1,0 +1,25 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optArrastrar"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "3"
+  }
+ ],
+ "preguntasModal1": [],
+ "preguntasModal2": [],
+ "preguntasModal3": [],
+ "preguntasModal4": [
+  {
+   "0": "Relacione los conceptos",
+   "1": "P1*cincepto 2",
+   "2": "p2*concepto 3",
+   "3": "p3*concepto 4"
+  }
+ ],
+ "preguntasModal5": [],
+ "preguntasModal6": []
+}

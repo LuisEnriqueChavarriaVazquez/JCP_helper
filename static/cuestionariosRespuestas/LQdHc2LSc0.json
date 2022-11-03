@@ -1,0 +1,53 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optArrastrar"
+  },
+  {
+   "retrasado": "false"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "3"
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal2": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal3": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal4": [
+  {
+   "0": "Relacione los conceptos",
+   "1": "P1*cincepto 2",
+   "2": "p2*concepto 3",
+   "3": "p3*concepto 4"
+  },
+  {
+   "respuestas": [
+    "opt4InputGet_0/P1/cincepto 2/p2/concepto 3/p3/concepto 4/&3"
+   ]
+  }
+ ],
+ "preguntasModal5": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal6": [
+  {
+   "respuestas": []
+  }
+ ]
+}
