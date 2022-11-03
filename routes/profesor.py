@@ -173,8 +173,12 @@ def terminarRetroalimentarCuestionarios(id_cuestionario_pending):
 @routes.route('/gestionar_estadisticas/<string:id_docente>')
 #@login_required
 def gestionar_estadisticas(id_docente):
+    ######Manejo de las gráficas
     xgrupos=["3cm14","3cm15","2cv12"]
     ygrupos=[10,9.2,7]
+
+
+    ##############################################################
     #Obtenemos los datos del grupo
     datosGrupo = Op_profesor.obtener_grupos_datos_importantes(id_docente)
     print(datosGrupo)

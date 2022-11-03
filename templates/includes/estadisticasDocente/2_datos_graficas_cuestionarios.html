@@ -176,13 +176,3 @@
         </li>
     </ul>
 </section>
-
-<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
-<script type='text/javascript'>
-    var graphs = {{ graphJSON | safe}};
-    var graphs2 = {{ graphJSON2 | safe}}
-    Plotly.plot('chart9', graphs, {});
-    Plotly.plot('chart10', graphs2, {});
-    Plotly.plot('chart11', graphs2, {});
-    Plotly.plot('chart12', graphs, {});
-</script>
