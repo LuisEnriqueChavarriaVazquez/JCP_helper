@@ -27,168 +27,256 @@
 
     <!-- Selección de las opciones de la cuenta -->
 
-    <section class="mainBody">
-        <section style="width: 100%;">
-            <div class="title-general">
-                <h5 class="hide-on-large-only">Cuenta</h5>
-                <h4 class="hide-on-med-and-down">Cuenta</h4>
-            </div>
+  
 
-            <section class="row">
-                <div class="opcionesContainer col s6">
-                    <ul class="collapsible bordered5 colorWhite">
-                        <li>
-                            <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
-                                style="margin-bottom: 5px;"><i class="material-icons">account_circle</i>Aspectos
-                                generales cuenta.
-                            </div>
-                            <div class="bordered5 collapsible-body row">
-                                Los datos basicos para cualquier cuenta son nombre completo
-                                alias, correo, contraseña, escuela de procedencia y descripción
-                                para el perfil. Solo en caso de los estudiantes se les reuqiere el 
-                                area de especialización
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="opcionesContainer col s6">
-                    <ul class="collapsible bordered5 colorWhite">
-                        <li>
-                            <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
-                                style="margin-bottom: 5px;"><i class="material-icons">account_circle</i>Personalización.
-                            </div>
-                            <div class="bordered5 collapsible-body row">
-
-                                  La personalización comienza con el registro en el que se le permite al 
-                                  usuario incluir en sus datos de registro una foto de su selección. Esta 
-                                  se puede cambiar posteriormente. 
-
-                                  La personalización continua con el cambio de colores que
-                                  se maneja (temas) de entre 20 opciones (divididos en oscuros y clásicos) y otras 
-                                  cuatro opciones para gente que sufre deuteranomalia, deuteranopia, protanopia y tritanopia
-
-                                  Aparte se puede seleccionar entre cuatro idiomas: español, inglés, portugues y mandarín 
-                                  
-                                  Para el caso de los docentes se podra hacer grupos con una imagen para
-                                  sus grupos.
-
+<main class="politicasMainContainer">
+    <div class="hide-on-med-and-down politicasContainerMenu">
+        <div>
+            <ul class="section table-of-contents">
+                <!--Cuenta-->
+                <li class="colorTextReverse titleSectionPoliticasMenu"><b>Cuenta</b></li>
+               
+                <li><a class="colorTextReverse" href="#AspectosGeneralesCuenta">Aspectos generales de cuenta</a></li>
+                <li><a class="colorTextReverse" href="#Personalizacion">Personalización</a></li>
+                <li><a class="colorTextReverse" href="#Accesibilidad">Accesibilidad</a></li>
+                <li><a class="colorTextReverse" href="#Privacidad">Privacidad</a></li>
                 
-                                  
+                <!--Operaciones-->
+                <li class="colorTextReverse titleSectionPoliticasMenu"><b>Operaciones</b></li>
+                <li><a class="colorTextReverse" href="#GestionGrupos">Gestión de grupos</a></li>
+                <li><a class="colorTextReverse" href="#GestionCuestionarios">Gestión de cuestionarios</a></li>
+                <li><a class="colorTextReverse" href="#BancoDatos">Banco de datos</a></li>
+                <li><a class="colorTextReverse" href="#GestiónEstadisticas">Gestión de estadísticas</a></li>
+            </ul>
+        </div>
+    </div>
 
-                            </div>
-                        </li>
-                    </ul>
+    <div class="politicasContainerInfo colorGrey shadow-2e">
+
+
+
+        <div id="descargarTerminos" class="section">
+            <div class="contentPoliticasTexto colorText fondoStyle fondoDinamico">
+                <div class="title-general">
+                    <h5 class="hide-on-large-only"><b>Descargar términos</b></h5>
+                    <h4 class="hide-on-med-and-down"><b>Descargar términos</b></h4>
                 </div>
-
-                <div class="opcionesContainer col s6">
-                    <ul class="collapsible bordered5 colorWhite">
-                        <li>
-                            <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
-                                style="margin-bottom: 5px;"><i class="material-icons">account_circle</i>Accesibilidad.
-                            </div>
-                            <div class="bordered5 collapsible-body row">
-                                Para la inclusión de otros usuarios se maneja dentro de las opciones
-                                 paletas de colores para gente que deuteranomalia, deuteranopia, protanopia y tritanopia
-                            </div>
-                        </li>
-                    </ul>
+                <div class="descargarDocumentoContainer">
+                    <div class="descargarDocumentoSon1">
+                        <img src="../../static/images/brand_app/document.png" class="shadow-1e bordered2"
+                            alt="documento de terminos y condiciones">
+                        <a href="/static/documents/Terminos_y_aclaraciones.pdf" download="newfilename"
+                            class="btn color3 button-rounded"><i class="material-icons left">file_download</i>Descargar</a>
+                    </div>
+                    <div class="descargarDocumentoSon2">
+                        <p>Descague el manual para más ayuda</p>
+                    </div>
                 </div>
+            </div>
+        </div>
+        
 
-                <div class="opcionesContainer col s6">
-                    <ul class="collapsible bordered5 colorWhite">
-                        <li>
-                            <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
-                                style="margin-bottom: 5px;"><i class="material-icons">account_circle</i>Privacidad.
-                            </div>
-                            <div class="bordered5 collapsible-body row">
-                                Se garantiza el cumplimiento de la normativa vigente en materia de protección de datos
-                                personales, reflejada en la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y de Garantía de
-                                Derechos Digitales (LOPD GDD). Se cumple también con el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo de 27
-                                de abril de 2016 relativo a la protección de las personas físicas (RGPD).
-
-                                El uso de sitio Web implica la aceptación de esta Política de Privacidad así como las condiciones incluidas en el Aviso
-                                Legal.
-
-                                Para saber más se rerecomienda que se vea las secciones politica de privacidad, cookies y los terminos de uso y condiciones 
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-        </section>
-        <section style="width: 100%;">
+        <div id="AspectosGeneralesCuenta" class="section scrollspy">
             <div class="title-general">
-                <h5 class="hide-on-large-only">Operaciones</h5>
-                <h4 class="hide-on-med-and-down">Operaciones</h4>
+                <h5 class="hide-on-large-only"><b>Aspectos generales de cuenta</b></h5>
+                <h4 class="hide-on-med-and-down"><b>Aspectos generales de cuenta</b></h4>
             </div>
+            <div class="contentPoliticasTexto colorGreyDarker">
+                <p class="colorTextReverse textoInfoPoliticasMini">
+                    
 
-            <div class="opcionesContainer">
-                <ul class="collapsible bordered5 colorWhite">
-                    <li>
-                        <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
-                            style="margin-bottom: 5px;"><i class="material-icons">account_circle</i>Gestión de grupos.
-                        </div>
-                        <div class="bordered5 collapsible-body row">
-                            Esta acción es exclusiva de los docentes y que consiste en la creación, modificación y eliminación de los grupos de alumnos 
-                            que tiene el docente en la que estan los cuestionarios para estos
+                    Existen dos tipos de usuarios con los siguientes funciones en general:
+                    <br><br>
+                    ⚫ Docentes: Estos se encargan de la creación de cuestionarios y grupos que seran
+                        resueltos por los alumnos y con la información de los resultados de esto la plataforma
+                        regresa datos estadisticos de los alumnos para poder facilitar el logro de sus objetivos
+                        de docencia
 
-                            Para más información se recomienda leer el manual de usuario
-                        </div>
-                    </li>
-                </ul>
+                    <br><br>
+                    ⚫ Alumnos: Estos podran realizar cuestionarios y unirse a grupos creados por los docentes
+                    y poder ver los resultados de estos
+                    
+        
+                    
+                </p>
             </div>
+        </div>
 
-            <div class="opcionesContainer">
-                <ul class="collapsible bordered5 colorWhite">
-                    <li>
-                        <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
-                            style="margin-bottom: 5px;"><i class="material-icons">account_circle</i>Gestión de
-                            cuestionarios.
-                        </div>
-                        <div class="bordered5 collapsible-body row">
-                             Esta acción es exclusiva de los docentes y que consiste en la creación, modificación y eliminación 
-                             de los cuestionarios de los grupos de alumnos que tiene el docente en la que estan los cuestionarios para estos
 
-                             Para más información se recomienda leer el manual de usuario
-                        </div>
-                    </li>
-                </ul>
+        <div id="Personalizacion" class="section scrollspy">
+            <div class="title-general">
+                <h5 class="hide-on-large-only"><b>Personalización</b></h5>
+                <h4 class="hide-on-med-and-down"><b>Personalización</b></h4>
             </div>
-
-            <div class="opcionesContainer">
-                <ul class="collapsible bordered5 colorWhite">
-                    <li>
-                        <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
-                            style="margin-bottom: 5px;"><i class="material-icons">account_circle</i>Banco de datos.
-                        </div>
-                        <div class="bordered5 collapsible-body row">
-                             Este es un elemento que colecta cuestionarios de todos los ya creados para servir como plantilla
-
-                            Para más información se recomienda leer el manual de usuario
-                        </div>
-                    </li>
-                </ul>
+            <div class="contentPoliticasTexto colorGreyDarker">
+                <p class="colorTextReverse textoInfoPoliticasMini">
+        
+        
+                    Dentro de JCP_helper se tiene diferentes grados de personalización en varios 
+                    elementos de la plataforma:
+                <br><br>
+                ⚫ Cuenta: Se permite para todos los usuarios al crear una cuenta poder 
+                seleccionar una foto de perfil. Esta foto puede ser modificada posteriormente por 
+                cualquier otra que se deseé.
+                <br><br>
+                ⚫ Colores / Paleta colores: Se permite para todos los usuarios cambiar entre 19
+                paleta de colores que se clasifican en temas clásicos, oscuros y para gente con los
+                siguientes padecimientos deuteranomalia, deuteranopia, protanopia y tritanopia 
+                <br><br>
+                ⚫ Grupos: Los docentes podran craer grupos que podran seleccionar un tipo de color
+                de identificación y una foto de fondo
+                <br><br>
+                ⚫ Cuestionarios: Los docentes podran craer cuestionario que podran agregar a algunas
+                preguntas con recursos audiovisuales
+                <br><br>
+                ⚫ Grupos: Los docentes podran craer grupos que podran seleccionar un tipo de color
+                de identificación y una foto de fondo
+        
+                </p>
             </div>
+        </div>
 
-            <div class="opcionesContainer">
-                <ul class="collapsible bordered5 colorWhite">
-                    <li>
-                        <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
-                            style="margin-bottom: 5px;"><i class="material-icons">account_circle</i>Gestión de
-                            estadísticas.
-                        </div>
-                        <div class="bordered5 collapsible-body row">
-                              Este es un elemento que permite var la graficación de elementos de grupos, cuestionarios y alumnos
-                              
-                            Para más información se recomienda leer el manual de usuario
-                        </div>
-                    </li>
-                </ul>
+
+        <div id="Accesibilidad" class="section scrollspy">
+            <div class="title-general">
+                <h5 class="hide-on-large-only"><b>Accesibilidad</b></h5>
+                <h4 class="hide-on-med-and-down"><b>Accesibilidad</b></h4>
             </div>
-        </section>
-    </section>
-    <br><br>
+            <div class="contentPoliticasTexto colorGreyDarker">
+                <p class="colorTextReverse textoInfoPoliticasMini">
+        
+                     Los docentes son los que tienen el accesos a todos los elementos como grupos y cuestionarios, mientras 
+                     que los alumnos solo tienen acceso a los cuestionarios hechos y a sus resultados
+
+                    <br><br>
+                     Aparte los docentes tendran acceso a los cuestionarios de otros docentes por medio de un API
+
+                    <br><br>
+                    Para la inclusión de otros usuarios se maneja dentro de las opciones
+                    paletas de colores para gente que deuteranomalia, deuteranopia, protanopia y tritanopia
+        
+        
+        
+                </p>
+            </div>
+        </div>
+
+
+        <div id="Privacidad" class="section scrollspy">
+            <div class="title-general">
+                <h5 class="hide-on-large-only"><b>Privacidad</b></h5>
+                <h4 class="hide-on-med-and-down"><b>Privacidad</b></h4>
+            </div>
+            <div class="contentPoliticasTexto colorGreyDarker">
+                <p class="colorTextReverse textoInfoPoliticasMini">
+        
+        
+                    Se garantiza el cumplimiento de la normativa vigente en materia de protección de datos
+                    personales, reflejada en la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y de Garantía de
+                    Derechos Digitales (LOPD GDD). Se cumple también con el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo de
+                    27 de abril de 2016 relativo a la protección de las personas físicas (RGPD).
+                    <br><br>
+                    El uso de sitio Web implica la aceptación de esta Política de Privacidad así como las condiciones incluidas en el Aviso
+                    Legal.
+                    <br><br>
+                    Para saber más se rerecomienda que se vea las secciones politica de privacidad, cookies y los terminos de uso y
+                    condiciones
+        
+        
+        
+                </p>
+            </div>
+        </div>
+
+        <div id="GestionGrupos" class="section scrollspy">
+            <div class="title-general">
+                <h5 class="hide-on-large-only"><b>Gestion de Grupos</b></h5>
+                <h4 class="hide-on-med-and-down"><b>Gestion de Grupos</b></h4>
+            </div>
+            <div class="contentPoliticasTexto colorGreyDarker">
+                <p class="colorTextReverse textoInfoPoliticasMini">
+        
+        
+                    Esta acción es exclusiva de los docentes y que consiste en la creación, modificación y eliminación de los grupos de
+                    alumnos que tiene el docente en la que estan los cuestionarios para estos
+                    <br><br>
+                    Para más información se recomienda leer el manual de usuario
+        
+        
+        
+                </p>
+            </div>
+        </div>
+
+
+
+        <div id="GestionCuestionarios" class="section scrollspy">
+            <div class="title-general">
+                <h5 class="hide-on-large-only"><b>Gestion de cuestionarios</b></h5>
+                <h4 class="hide-on-med-and-down"><b>Gestion de cuestionarios</b></h4>
+            </div>
+            <div class="contentPoliticasTexto colorGreyDarker">
+                <p class="colorTextReverse textoInfoPoliticasMini">
+        
+        
+                    Esta acción es exclusiva de los docentes y que consiste en la creación, modificación y eliminación
+                    de los cuestionarios de los grupos de alumnos que tiene el docente en la que estan los cuestionarios para estos
+                    <br><br>
+                    Para más información se recomienda leer el manual de usuario
+        
+        
+        
+                </p>
+            </div>
+        </div>
+
+        <div id="BancoDatos" class="section scrollspy">
+            <div class="title-general">
+                <h5 class="hide-on-large-only"><b>Banco de datos</b></h5>
+                <h4 class="hide-on-med-and-down"><b>Banco de datos</b></h4>
+            </div>
+            <div class="contentPoliticasTexto colorGreyDarker">
+                <p class="colorTextReverse textoInfoPoliticasMini">
+        
+        
+                    Este es un elemento que colecta cuestionarios de todos los ya creados para servir como plantilla
+                    <br><br>
+                    Para más información se recomienda leer el manual de usuario
+        
+        
+        
+                </p>
+            </div>
+        </div>
+
+
+        <div id="GestiónEstadisticas" class="section scrollspy">
+            <div class="title-general">
+                <h5 class="hide-on-large-only"><b>Gestión de estadísticas</b></h5>
+                <h4 class="hide-on-med-and-down"><b>Gestión de estadísticas</b></h4>
+            </div>
+            <div class="contentPoliticasTexto colorGreyDarker">
+                <p class="colorTextReverse textoInfoPoliticasMini">
+        
+        
+                    Este es un elemento que permite var la graficación de elementos de grupos, cuestionarios y alumnos
+                    <br><br>
+                    Para más información se recomienda leer el manual de usuario
+        
+        
+        
+                </p>
+            </div>
+        </div>
+        
+
+    </div>
+
+</main>
+
+
+
+
     <!--Metemos el footer en la app-->
     {% include "includes/footer.html" %}
 
