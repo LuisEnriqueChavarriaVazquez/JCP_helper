@@ -18,7 +18,7 @@ function grafica_barras_promedio_general() {
     var data = [trace1];
 
     var layout = { //Titulo de la gráfica
-        title: 'Comparison',
+        title: 'Comparación de promedios grupales',
         font: { size: 10 }
     };
 
@@ -41,7 +41,7 @@ function grafica_pastel_promedio_general() {
     }];
 
     var layout = { //Titulo de la gráfica
-        title: 'Total points',
+        title: 'Indices porcentuales de promedios',
         font: { size: 10 }
     };
 
@@ -81,8 +81,8 @@ function grafica_lineal_promedio_general() {
     });
 
     var layout = { //Titulo de la gráfica
-        title: 'Cuestionarios de grupo',
-        font: { size: 10 }
+        title: 'Histórico de puntajes en cada evaluación de cada grupo',
+        font: { size: 7 }
     };
 
     var config = { responsive: true } //Ajuste responsivo

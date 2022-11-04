@@ -30,7 +30,7 @@ function grafica_barras_indice_aprobacion() {
     });
 
     var layout = { //Titulo de la gráfica
-        title: 'Comparison',
+        title: 'Comparación de reprobados vs aprobados',
         font: { size: 10 },
         barmode: 'stack',
     };
@@ -62,7 +62,7 @@ function grafica_pastel_indice_aprobacion() {
     }];
 
     var layout = { //Titulo de la gráfica
-        title: 'Reprobados vs Aprobados',
+        title: 'Porcentaje de aprobados vs reprobados',
         font: { size: 10 }
     };
 

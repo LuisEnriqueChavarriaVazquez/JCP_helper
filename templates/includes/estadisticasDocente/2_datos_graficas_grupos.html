@@ -1,5 +1,6 @@
 <script src='https://cdn.plot.ly/plotly-2.14.0.min.js'></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
 
 <!--Seccion de datos relevantes en las estadisticas
             para los dispositivos moviles.-->
@@ -8,8 +9,7 @@
     <h4 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Gráficas globales</h4>
     &nbsp;&nbsp;&nbsp;
     <!-- Dropdown Trigger -->
-    <a class='btn button-rounded colorGreyWhiter colorTextReverse' ><i
-            class="material-icons md-24">grid_view</i></a>
+    <a class='btn button-rounded colorGreyWhiter colorTextReverse'><i class="material-icons md-24">grid_view</i></a>
 </div>
 
 <!--SECCION PARA LAS TABLETAS Y PARA LAS COMPUTADORAS DE ESCRITORIO-->
@@ -36,17 +36,16 @@
             </div>
             <div class="bordered2Down centerAligner colorGrey viewsGraps">
                 <div>
-                    <a class='btn button-rounded colorGreyWhiter colorTextReverse' 
+                    <a class='btn button-rounded colorGreyWhiter colorTextReverse'
                         onclick="grafica_barras_promedio_general()"><i class="material-icons md-24">bar_chart</i></a>
                 </div>
                 <div>
-                    <a class='btn button-rounded colorGreyWhiter colorTextReverse' 
+                    <a class='btn button-rounded colorGreyWhiter colorTextReverse'
                         onclick="grafica_lineal_promedio_general()"><i class="material-icons md-24">show_chart</i></a>
                 </div>
                 <div>
-                    <a class='btn button-rounded colorGreyWhiter colorTextReverse' 
-                        onclick="grafica_pastel_promedio_general()"
-                        ><i class="material-icons md-24">pie_chart</i></a>
+                    <a class='btn button-rounded colorGreyWhiter colorTextReverse'
+                        onclick="grafica_pastel_promedio_general()"><i class="material-icons md-24">pie_chart</i></a>
                 </div>
             </div>
         </div>
@@ -58,7 +57,8 @@
                     Indice aprobación grupos
                 </div>
                 <div class="porcentageGraficaText">
-                    <span class="porcentageGrafica colorTextReverse"><i class="porcentageNumero" id="trendGlobalAprobacion">59</i>%</span>
+                    <span class="porcentageGrafica colorTextReverse"><i class="porcentageNumero"
+                            id="trendGlobalAprobacion">59</i>%</span>
                     <div class="porcentageGraficaTrends">
                         <span class="tendenciaGrafica goodColor"><i class="material-icons">trending_up</i></span>
                         <span class="tendenciaGrafica badColor"><i class="material-icons">trending_down</i></span>
@@ -72,18 +72,16 @@
             <div class="bordered2Down centerAligner colorGrey viewsGraps">
                 <div>
                     <a class='btn button-rounded colorGreyWhiter colorTextReverse'
-                    onclick="grafica_barras_indice_aprobacion()"><i
-                            class="material-icons md-24">bar_chart</i></a>
+                        onclick="grafica_barras_indice_aprobacion()"><i class="material-icons md-24">bar_chart</i></a>
                 </div>
                 <div>
                     <a class='btn button-rounded colorGreyWhiter colorTextReverse'
-                    onclick="barras_porcentage_por_grupo_aprobacion()"><i
+                        onclick="barras_porcentage_por_grupo_aprobacion()"><i
                             class="material-icons md-24">troubleshoot</i></a>
                 </div>
                 <div>
-                    <a class='btn button-rounded colorGreyWhiter colorTextReverse' 
-                    onclick="grafica_pastel_indice_aprobacion()"><i
-                            class="material-icons md-24">pie_chart</i></a>
+                    <a class='btn button-rounded colorGreyWhiter colorTextReverse'
+                        onclick="grafica_pastel_indice_aprobacion()"><i class="material-icons md-24">pie_chart</i></a>
                 </div>
             </div>
         </div>
@@ -92,95 +90,20 @@
 
 <!--Contenedor de elementos por grupo-->
 <section class="contenedorGrupos">
-    <ul class="collapsible bordered5 colorWhite">
+    <!--Listado de los informes.-->
+    <ul class="collapsible bordered2 colorWhite">
+        {%for i in range(0, datosGrupo|length)%}
         <li>
-            <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse">
-                <i class="material-icons">groups</i>Grupo 1.
+            <div class="collapsible-header bordered2"><i class="material-icons">group</i>{{datosGrupo[i][2]}}
+                <span class="colorGrey alumnosContador"></span> <!--Aqui van los indice de aprobacion-->
             </div>
-            <div class="bordered5 collapsible-body">
-                <!--Graficas de un grupo en concreto-->
-                <section class="row" id="dashboardGrafGruposSegmento">
-                    <!--Gráfica 1-->
-                    <div class="col s12 m12 l6">
-                        <div class="bordered2 shadow-2e cuerpoCardGraficaDashboard colorWhite">
-                            <div class="tituloCardGrafica flow-text bordered2Up colorGreyWhiter">
-                                <div class="tituloCardGraficaText">
-                                    Promedio general del grupo 1
-                                </div>
-                                <div class="porcentageGraficaText">
-                                    <span class="porcentageGrafica coloredText"><i
-                                            class="porcentageNumero">0</i>%</span>
-                                    <div class="porcentageGraficaTrends">
-                                        <span class="tendenciaGrafica goodColor"><i
-                                                class="material-icons">trending_up</i></span>
-                                        <span class="tendenciaGrafica badColor"><i
-                                                class="material-icons">trending_down</i></span>
-                                        <span class="tendenciaGrafica infoColor"><i
-                                                class="material-icons">trending_flat</i></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="graficoCardGrafica centerAligner">
-                                <!-- <div id='chart7' class='chart' ”></div> -->
-                            </div>
-                            <div class="bordered2Down centerAligner colorGrey viewsGraps">
-                                <div>
-                                    <a class='btn button-rounded colorGreyWhiter colorTextReverse' ><i
-                                            class="material-icons md-24">bar_chart</i></a>
-                                </div>
-                                <div>
-                                    <a class='btn button-rounded colorGreyWhiter colorTextReverse' ><i
-                                            class="material-icons md-24">show_chart</i></a>
-                                </div>
-                                <div>
-                                    <a class='btn button-rounded colorGreyWhiter colorTextReverse' ><i
-                                            class="material-icons md-24">pie_chart</i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Gráfica 2-->
-                    <div class="col s12 m12 l6">
-                        <div class="bordered2 shadow-2e cuerpoCardGraficaDashboard colorWhite">
-                            <div class="tituloCardGrafica flow-text bordered2Up colorGreyWhiter">
-                                <div class="tituloCardGraficaText">
-                                    Indice de aprobación de grupo 1
-                                </div>
-                                <div class="porcentageGraficaText">
-                                    <span class="porcentageGrafica coloredText"><i
-                                            class="porcentageNumero">89</i>%</span>
-                                    <div class="porcentageGraficaTrends">
-                                        <span class="tendenciaGrafica goodColor"><i
-                                                class="material-icons">trending_up</i></span>
-                                        <span class="tendenciaGrafica badColor"><i
-                                                class="material-icons">trending_down</i></span>
-                                        <span class="tendenciaGrafica infoColor"><i
-                                                class="material-icons">trending_flat</i></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="graficoCardGrafica centerAligner">
-                                <!-- <div id='chart8' class='chart' ”></div> -->
-                            </div>
-                            <div class="bordered2Down centerAligner colorGrey viewsGraps">
-                                <div>
-                                    <a class='btn button-rounded colorGreyWhiter colorTextReverse' ><i
-                                            class="material-icons md-24">bar_chart</i></a>
-                                </div>
-                                <div>
-                                    <a class='btn button-rounded colorGreyWhiter colorTextReverse' ><i
-                                            class="material-icons md-24">show_chart</i></a>
-                                </div>
-                                <div>
-                                    <a class='btn button-rounded colorGreyWhiter colorTextReverse' ><i
-                                            class="material-icons md-24">pie_chart</i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+            <div class="collapsible-body">
+                <section class="contenedorGrupoIndividualInsights">
+                    
+                </section>      
             </div>
         </li>
+        {%endfor%}
     </ul>
 </section>
 
@@ -196,3 +119,4 @@
 <script src="../../../static/js/graficas/obtencionData.js"></script>
 <script src="../../../static/js/graficas/graficasGrupoPromedio.js"></script>
 <script src="../../../static/js/graficas/graficasGrupoIndiceAprobacion.js"></script>
+<script src="../../../static/js/graficas/graficasGrupoIndividual.js"></script>

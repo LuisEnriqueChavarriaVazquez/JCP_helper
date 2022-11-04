@@ -93,3 +93,61 @@
     font-weight: 700;
     border-radius: 0 5px 5px 0;
 }
+
+/*Metemos aquí los estilos para los insights de los grupos*/
+.contenedorGrupoIndividualInsights{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "area1 area2"
+    "area3 area5"
+    "area3 area5"
+    "area4 area5";
+    gap: 20px;
+}
+
+@media only screen and (max-width: 1150px){
+    .contenedorGrupoIndividualInsights{
+        padding: 10px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "area1 area1"
+        "area2 area3"
+        "area4 area5"
+        "area4 area5";
+        gap: 20px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .contenedorGrupoIndividualInsights{
+        padding: 4px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "area1"
+        "area2"
+        "area3"
+        "area4"
+        "area5"
+        ;
+        gap: 15px;
+    }
+}
+
+.containerDataIndividualGroup{
+    padding: 15px;
+}
+
+/*primerContenedor*/
+.first_child_container{
+    grid-area: area1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
