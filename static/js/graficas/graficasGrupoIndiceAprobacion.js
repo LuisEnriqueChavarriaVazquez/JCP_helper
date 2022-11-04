@@ -75,10 +75,8 @@ function barras_porcentage_por_grupo_aprobacion() {
     //Insertamos contenedor para la informacion
     container.innerHTML = `
         <section class="contenedorAnalisisPorcentage">
-            <section class="contenedorAnalisisPorcentage_son1 bordered1 colorGreyWhiter shadow-1e">
-                <p class="dato_son1">
-                    <span class="dato_1_son1">2</span> / <span class="dato_2_son1">10</span> aprueban.
-                </p>
+            <section class="contenedorAnalisisPorcentage_son1 bordered1 colorGreyWhiter shadow-1e" id="resumenAnalisisAprobados">
+                
             </section>
             <section class="contenedorAnalisisPorcentage_son2">
                 <div class="significado_dato_son2">
@@ -112,6 +110,17 @@ function barras_porcentage_por_grupo_aprobacion() {
     `;
     contenedorAnalisisHtml.innerHTML = contendorGlobalDataAnalisisBar;
 
+    //Convertimos el procentage de aprobados a un número cercano a 10
+    let aprobadosFormatoDiez = Math.ceil(porcentageGlobal[0]/10);
+
+    //Hacemos la impresión del análisis
+    let containerAnalisiAprobados = document.getElementById('resumenAnalisisAprobados');
+    let contenidoAnalisis = `
+        <p class="dato_son1">
+            <span class="dato_1_son1">${aprobadosFormatoDiez}</span> / <span class="dato_2_son1">10</span> aprueban.
+        </p>
+    `
+    containerAnalisiAprobados.innerHTML = contenidoAnalisis;
 
     //Accedemos a los datos de manera individual
     let nombreGrupos_unitario = [...gruposNameArray];
@@ -132,7 +141,6 @@ function barras_porcentage_por_grupo_aprobacion() {
         gruposArrayTemporal.push(porcentageTemporalAprobados, porcentageTemporalReprobados);
         porcentagesDividosPorGrupo.push(gruposArrayTemporal);
     })
-    console.log('porcentagesDividosPorGrupo', porcentagesDividosPorGrupo)
 
     //Insertamos todos los procentajes de los grupos.
     nombreGrupos_unitario.forEach((nombre, i = 0) => {
