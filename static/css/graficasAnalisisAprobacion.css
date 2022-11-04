@@ -104,7 +104,7 @@
     "area1 area2"
     "area3 area5"
     "area3 area5"
-    "area4 area5";
+    "area4 area4";
     gap: 20px;
 }
 
@@ -141,13 +141,43 @@
 }
 
 .containerDataIndividualGroup{
-    padding: 15px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+
+.tituloContenedorUnitarioEstadisticas{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.contenidoContenedorUnitarioEstadisticas{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: auto;
 }
 
 /*primerContenedor*/
 .first_child_container{
-    grid-area: area1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    grid-area: area1; 
+}
+
+.second_child_container{
+    grid-area: area2; 
+}
+
+.third_child_container{
+    grid-area: area3; 
+}
+
+.fourth_child_container{
+    grid-area: area4; 
+}
+
+.fifth_child_container{
+    grid-area: area5; 
 }
