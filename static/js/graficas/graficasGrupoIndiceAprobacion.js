@@ -1,6 +1,9 @@
 ////////////////////////////////////////////////////////
 //Imprime la gráfica de barras
 function grafica_barras_indice_aprobacion() {
+    //Vaciamos de manera manual contenido de la caja
+    let container = document.getElementById('graph2');
+    container.innerHTML = "";
 
     //Hacemos una fábrica de objetos
     let objetoTrazos = {};
@@ -20,7 +23,7 @@ function grafica_barras_indice_aprobacion() {
     console.log('arrayTrazos', arrayTrazos);
 
     //Creamos nuestros objetos con los nombres del trace
-    contador=0;
+    contador = 0;
     var data = [];
     arrayTrazos.forEach(trazo => {
         data.push(arrayTrazos[contador++]);
@@ -41,6 +44,10 @@ grafica_barras_indice_aprobacion(); //Esta ejecuta la gráfica por defecto
 
 //Imprime la gráfica pastel
 function grafica_pastel_indice_aprobacion() {
+    //Vaciamos de manera manual contenido de la caja
+    let container = document.getElementById('graph2');
+    container.innerHTML = "";
+
     var data2 = [{
         values: arrayPorcentajeAprobacion,
         labels: graficasTitle,
@@ -60,7 +67,7 @@ function grafica_pastel_indice_aprobacion() {
     Plotly.newPlot('graph2', data2, layout, config);
 }
 
-function barras_porcentage_por_grupo_aprobacion(){
+function barras_porcentage_por_grupo_aprobacion() {
     //Vaciamos de manera manual contenido de la caja
     let container = document.getElementById('graph2');
     container.innerHTML = "";
@@ -91,10 +98,9 @@ function barras_porcentage_por_grupo_aprobacion(){
 
     //Accedemos a los porcentajes globales
     let porcentageGlobal = [...arrayPorcentajeAprobacion];
-    let titulosGlobal = [...graficasTitle];
 
     //Debemos imprimir los datos de procentage de todos los grupos
-    let contenedorAnalisisHtml = document.getElementById('dataContainerBarHTML'); 
+    let contenedorAnalisisHtml = document.getElementById('dataContainerBarHTML');
     let contendorGlobalDataAnalisisBar = `
         <div class="containerInfoBarAnalisisAprobacion bordered1 colorGreyWhiter shadow-1e">
             <div class="titleInfoBarAnalisisAprobacion">Global.</div>
@@ -104,12 +110,42 @@ function barras_porcentage_por_grupo_aprobacion(){
             </div>
         </div>
     `;
-    
     contenedorAnalisisHtml.innerHTML = contendorGlobalDataAnalisisBar;
 
 
     //Accedemos a los datos de manera individual
     let nombreGrupos_unitario = [...gruposNameArray];
-    let numerosAprobacionTotal = [...aprobacionTotal];
+    let numerosAprobacionTotal = [...aprobacionTotal[0]];
+    let numerosReprobacionTotal = [...aprobacionTotal[1]];
+
+    //Obtenemos el conteo del total de alumnos por grupo
+    let listadoALumnos = [...aprobacionMultidimensional];
+    let conteoPorGrupo = []; //Se guarda la cantidad de alumnos por grupo
+    listadoALumnos.forEach(grupo => conteoPorGrupo.push(grupo.length))
+
+    //Calculamos el porcentage de aprobados y reprobados por grupo
+    let porcentagesDividosPorGrupo = []; //Almacenamos los datos de los procentages
+    conteoPorGrupo.forEach((grupoTotal, i = 0) => {
+        let gruposArrayTemporal = [];
+        let porcentageTemporalAprobados = parseFloat(((numerosAprobacionTotal[i]*100)/grupoTotal).toFixed(2));
+        let porcentageTemporalReprobados = parseFloat(((numerosReprobacionTotal[i]*100)/grupoTotal).toFixed(2));
+        gruposArrayTemporal.push(porcentageTemporalAprobados, porcentageTemporalReprobados);
+        porcentagesDividosPorGrupo.push(gruposArrayTemporal);
+    })
+    console.log('porcentagesDividosPorGrupo', porcentagesDividosPorGrupo)
+
+    //Insertamos todos los procentajes de los grupos.
+    nombreGrupos_unitario.forEach((nombre, i = 0) => {
+        contendorGlobalDataAnalisisBar = `
+            <div class="containerInfoBarAnalisisAprobacion bordered1 colorGreyWhiter shadow-1e">
+                <div class="titleInfoBarAnalisisAprobacion">${nombre}</div>
+                <div class="barContainerInfoBarAnalisisAprobacion">
+                    <p class="color2 colorText aprobadosBar_analisis" style="width:${porcentagesDividosPorGrupo[i][0]}%;"> ${porcentagesDividosPorGrupo[i][0]}% </p>
+                    <p class="color3 colorText reprobadosBar_analisis" style="width:${porcentagesDividosPorGrupo[i][1]}%;"> ${porcentagesDividosPorGrupo[i][1]}% </p> 
+                </div>
+            </div>
+        `;
+        contenedorAnalisisHtml.innerHTML += contendorGlobalDataAnalisisBar;
+    });
 
 }   

@@ -62,10 +62,11 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     padding: 8px 10px;
+    margin-bottom: 15px;
 }
 
 .titleInfoBarAnalisisAprobacion{
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
 }
 
