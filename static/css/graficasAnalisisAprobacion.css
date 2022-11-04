@@ -1,0 +1,57 @@
+.contenedorAnalisisPorcentage{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.contenedorAnalisisPorcentage_son1{
+    padding: 5px 20px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dato_son1{
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.contenedorAnalisisPorcentage_son2{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.significado_dato_son2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.simbologiaBarra{
+    width: 40px !important;
+    height: 25px !important;
+}
+
+.textoSignificado{
+    font-weight: 500;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.contenedorAnalisisPorcentage_son3{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+    align-items: center;
+}
