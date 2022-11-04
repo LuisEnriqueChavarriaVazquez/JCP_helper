@@ -55,3 +55,40 @@
     justify-content: center;
     align-items: center;
 }
+
+/*Contenedores con la informacion*/
+.containerInfoBarAnalisisAprobacion{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 8px 10px;
+}
+
+.titleInfoBarAnalisisAprobacion{
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.barContainerInfoBarAnalisisAprobacion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+.aprobadosBar_analisis{
+    width: 30%;
+    height: 30px;
+    padding: 4px 10px;
+    font-weight: 700;
+    border-radius: 5px 0 0 5px;
+}
+
+.reprobadosBar_analisis{
+    width: 70%;
+    height: 30px;
+    padding: 4px 10px;
+    font-weight: 700;
+    border-radius: 0 5px 5px 0;
+}

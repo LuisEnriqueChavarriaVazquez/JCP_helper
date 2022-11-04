@@ -65,6 +65,7 @@ function barras_porcentage_por_grupo_aprobacion(){
     let container = document.getElementById('graph2');
     container.innerHTML = "";
 
+    //Insertamos contenedor para la informacion
     container.innerHTML = `
         <section class="contenedorAnalisisPorcentage">
             <section class="contenedorAnalisisPorcentage_son1 bordered1 colorGreyWhiter shadow-1e">
@@ -82,9 +83,33 @@ function barras_porcentage_por_grupo_aprobacion(){
                     <div class="colorTextReverse textoSignificado">Reprobado</div>
                 </div>
             </section>
-            <section class="contenedorAnalisisPorcentage_son3>
+            <section class="contenedorAnalisisPorcentage_son3" id="dataContainerBarHTML">
 
             </section>
         </section>
     `;
-}
+
+    //Accedemos a los porcentajes globales
+    let porcentageGlobal = [...arrayPorcentajeAprobacion];
+    let titulosGlobal = [...graficasTitle];
+
+    //Debemos imprimir los datos de procentage de todos los grupos
+    let contenedorAnalisisHtml = document.getElementById('dataContainerBarHTML'); 
+    let contendorGlobalDataAnalisisBar = `
+        <div class="containerInfoBarAnalisisAprobacion bordered1 colorGreyWhiter shadow-1e">
+            <div class="titleInfoBarAnalisisAprobacion">Global.</div>
+            <div class="barContainerInfoBarAnalisisAprobacion">
+                <p class="color2 colorText aprobadosBar_analisis" style="width:${porcentageGlobal[0]}%;"> ${porcentageGlobal[0]}% </p>
+                <p class="color3 colorText reprobadosBar_analisis" style="width:${porcentageGlobal[1]}%;"> ${porcentageGlobal[1]}% </p> 
+            </div>
+        </div>
+    `;
+    
+    contenedorAnalisisHtml.innerHTML = contendorGlobalDataAnalisisBar;
+
+
+    //Accedemos a los datos de manera individual
+    let nombreGrupos_unitario = [...gruposNameArray];
+    let numerosAprobacionTotal = [...aprobacionTotal];
+
+}   
