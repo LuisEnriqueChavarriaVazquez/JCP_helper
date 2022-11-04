@@ -38,6 +38,10 @@ function grafica_barras_indice_aprobacion() {
     var config = { responsive: true } //Ajuste responsivo
 
     Plotly.newPlot('graph2', data, layout, config);
+
+    //Imprimimos la tendencia global en el encabezado
+    let tendenciaGlobalAprobación = document.getElementById('trendGlobalAprobacion');
+    tendenciaGlobalAprobación.innerText = arrayPorcentajeAprobacion[0];
 }
 grafica_barras_indice_aprobacion(); //Esta ejecuta la gráfica por defecto
 
