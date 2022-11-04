@@ -97,11 +97,12 @@ def revisionCuestionarios(id_docente):
         #Almacenamos las IDS de los cuestionarios pending
         idsPendingCuestionarios = []
         for idCuestionarioPending in datosCuestionariosPending:
-            idsPendingCuestionarios += str(idCuestionarioPending[1])
+            idsPendingCuestionarios.append(idCuestionarioPending[1])
         
         #Almacenamos los datos de lso cuestionarios pending
         datosCuestionariosPendingExtendidos = []
         for idCuestionario2 in idsPendingCuestionarios:
+            print(idCuestionario2)
             datosCuestionariosPendingExtendidos += Op_profesor.obtener_cuestionario_datos_importantes_unitario(idCuestionario2)
         print("Cuestionarios data")
         print(datosCuestionariosPendingExtendidos)

@@ -1,0 +1,34 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optAbierta",
+   "1": "optEjercicios"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "",
+   "1": ""
+  }
+ ],
+ "preguntasModal1": [],
+ "preguntasModal2": [],
+ "preguntasModal3": [
+  {
+   "0": "ejercicio",
+   "1": "",
+   "2": "",
+   "3": "                                ",
+   "4": ""
+  }
+ ],
+ "preguntasModal4": [],
+ "preguntasModal5": [],
+ "preguntasModal6": [
+  {
+   "0": "abierta",
+   "1": "",
+   "2": ""
+  }
+ ]
+}

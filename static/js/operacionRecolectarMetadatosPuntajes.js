@@ -3,6 +3,7 @@
 function estadoRevisionCuestionario(){
     //Obtenemos el valor de los inputs de las preguntas opt3
     let rightAnswerOpt3 = document.getElementsByClassName('opt3Pendiente');
+    console.log('rightAnswerOpt3', rightAnswerOpt3)
 
     //Variable indicador
     let indicador = "";
@@ -18,6 +19,7 @@ function estadoRevisionCuestionario(){
 
     //Si existen elemento de preguntas abiertas
     let rightAnswerOpt6 = document.getElementsByClassName('opt6Pendiente');
+    console.log('rightAnswerOpt6', rightAnswerOpt6)
     //Si existen elementos con esta clase se ejecuta
     if (rightAnswerOpt6.length > 0) {
         for (var i = 0; i < rightAnswerOpt6.length; i++) {

@@ -994,6 +994,7 @@ function imprimirPreguntas() {
                 respuestaBox[i].innerText = "EMPTY";
             } else {
                 rightAnswerOpt6[i].value = "pendiente";
+                rightAnswerOpt6[i].classList.add("opt6Pendiente");
                 //Aplicamos los estilos
                 respuestaBox[i].classList.remove('goodColor');
                 respuestaBox[i].classList.add('sosoColor');
@@ -1006,7 +1007,7 @@ function imprimirPreguntas() {
     //Calculamos el promedio
     function calcularPromedio() {
         //Detecta la cantidad de preguntas abiertas que hay
-        let rightAnswerOpt6 = document.getElementsByClassName('rightAnswerOpt6');
+        let rightAnswerOpt6 = document.getElementsByClassName('opt6Pendiente');
         //Detecta la cantidad de inputs de pendiente que hay en los ejercicios (los que no tenian output)
         let opt3Pendiente = document.getElementsByClassName('opt3Pendiente');
         let calificacionContainer = document.getElementsByClassName("calificacionContainer");
