@@ -206,6 +206,35 @@ arrayPorcentajeAprobacion.push(porcentajeAprobacion);
 arrayPorcentajeAprobacion.push(porcentajeReprobacion);
 console.log('arrayPorcentajeAprobacion', arrayPorcentajeAprobacion)
 
+/////Calculo de los porcentages por grupo (Graficas de barrar horizontales)
+//Accedemos a los porcentajes globales
+let porcentageGlobal = [...arrayPorcentajeAprobacion];
+//Convertimos el procentage de aprobados a un número cercano a 10
+let aprobadosFormatoDiez = Math.ceil(porcentageGlobal[0]/10);
+console.log('aprobadosFormatoDiez', aprobadosFormatoDiez)
+//Accedemos a los datos de manera individual
+let nombreGrupos_unitario = [...gruposNameArray];
+let numerosAprobacionTotal = [...aprobacionTotal[0]];
+let numerosReprobacionTotal = [...aprobacionTotal[1]];
+//Obtenemos el conteo del total de alumnos por grupo
+let listadoALumnos = [...aprobacionMultidimensional];
+
+//Obtenemos el conteo del total de alumnos por grupo
+let conteoPorGrupo = []; //Se guarda la cantidad de alumnos por grupo
+listadoALumnos.forEach(grupo => conteoPorGrupo.push(grupo.length))
+console.log('conteoPorGrupo', conteoPorGrupo)
+
+//Calculamos el porcentage de aprobados y reprobados por grupo
+let porcentagesDividosPorGrupo = []; //Almacenamos los datos de los procentages
+conteoPorGrupo.forEach((grupoTotal, i = 0) => {
+    let gruposArrayTemporal = [];
+    let porcentageTemporalAprobados = parseFloat(((numerosAprobacionTotal[i]*100)/grupoTotal).toFixed(2));
+    let porcentageTemporalReprobados = parseFloat(((numerosReprobacionTotal[i]*100)/grupoTotal).toFixed(2));
+    gruposArrayTemporal.push(porcentageTemporalAprobados, porcentageTemporalReprobados);
+    porcentagesDividosPorGrupo.push(gruposArrayTemporal);
+})
+console.log('porcentagesDividosPorGrupo', porcentagesDividosPorGrupo)
+
 /////////////////////////////////////////////////
 //Funcion para limpiar los datos
 function limpiarDatos(string) {

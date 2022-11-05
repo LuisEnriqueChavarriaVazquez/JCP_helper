@@ -98,9 +98,6 @@ function barras_porcentage_por_grupo_aprobacion() {
         </section>
     `;
 
-    //Accedemos a los porcentajes globales
-    let porcentageGlobal = [...arrayPorcentajeAprobacion];
-
     //Debemos imprimir los datos de procentage de todos los grupos
     let contenedorAnalisisHtml = document.getElementById('dataContainerBarHTML');
     let contendorGlobalDataAnalisisBar = `
@@ -114,9 +111,6 @@ function barras_porcentage_por_grupo_aprobacion() {
     `;
     contenedorAnalisisHtml.innerHTML = contendorGlobalDataAnalisisBar;
 
-    //Convertimos el procentage de aprobados a un número cercano a 10
-    let aprobadosFormatoDiez = Math.ceil(porcentageGlobal[0]/10);
-
     //Hacemos la impresión del análisis
     let containerAnalisiAprobados = document.getElementById('resumenAnalisisAprobados');
     let contenidoAnalisis = `
@@ -125,26 +119,6 @@ function barras_porcentage_por_grupo_aprobacion() {
         </p>
     `
     containerAnalisiAprobados.innerHTML = contenidoAnalisis;
-
-    //Accedemos a los datos de manera individual
-    let nombreGrupos_unitario = [...gruposNameArray];
-    let numerosAprobacionTotal = [...aprobacionTotal[0]];
-    let numerosReprobacionTotal = [...aprobacionTotal[1]];
-
-    //Obtenemos el conteo del total de alumnos por grupo
-    let listadoALumnos = [...aprobacionMultidimensional];
-    let conteoPorGrupo = []; //Se guarda la cantidad de alumnos por grupo
-    listadoALumnos.forEach(grupo => conteoPorGrupo.push(grupo.length))
-
-    //Calculamos el porcentage de aprobados y reprobados por grupo
-    let porcentagesDividosPorGrupo = []; //Almacenamos los datos de los procentages
-    conteoPorGrupo.forEach((grupoTotal, i = 0) => {
-        let gruposArrayTemporal = [];
-        let porcentageTemporalAprobados = parseFloat(((numerosAprobacionTotal[i]*100)/grupoTotal).toFixed(2));
-        let porcentageTemporalReprobados = parseFloat(((numerosReprobacionTotal[i]*100)/grupoTotal).toFixed(2));
-        gruposArrayTemporal.push(porcentageTemporalAprobados, porcentageTemporalReprobados);
-        porcentagesDividosPorGrupo.push(gruposArrayTemporal);
-    })
 
     //Insertamos todos los procentajes de los grupos.
     nombreGrupos_unitario.forEach((nombre, i = 0) => {
