@@ -60,6 +60,24 @@ function promedio_intentos_por_grupo(idContainer, containerNumero){
     });
 }
 
+function promedio_max_min_por_grupo(idContainer,containerNumero){
+    let contenedorPadre = document.getElementById(idContainer);
+
+    promediosMultidimensionalOrdenado.forEach((grupo, i = 0) =>{
+        //Insertamos el análisis de 1 de cada 10 pasan
+        if(i == containerNumero){ //Valida que contenedor es...
+            let contenido = `
+            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Rango de promedios grupal</div>
+            <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
+            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Prom. min: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${grupo.at(0)}</span></p>
+            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Prom. max:<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${grupo.at(-1)}</span></p>
+            </div>`;
+            contenedorPadre.innerHTML += contenido;
+        }
+        i++
+    });
+}
+
 //1 de cada tantos estudiantes pasa en determinado curso
 function analisis_pasar_por_grupo(idContainer, containerNumero){
     let contenedorPadre = document.getElementById(idContainer);
@@ -97,6 +115,7 @@ function insertarCajasHijasEnCadaGrupo(numero_grupos, numero_ids){
                 promedio_intentos_por_grupo(ids_indivual_groups[i][j],i);
             }else if(j == 2){
                 document.getElementById(ids_indivual_groups[i][j]).classList.add('third_child_container');
+                promedio_max_min_por_grupo(ids_indivual_groups[i][j],i);
             }else if(j == 3){
                 document.getElementById(ids_indivual_groups[i][j]).classList.add('fourth_child_container');
                 analisis_pasar_por_grupo(ids_indivual_groups[i][j],i);

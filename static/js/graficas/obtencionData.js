@@ -16,7 +16,14 @@ console.log('Cuestionarios terminados = ', datosCuestionariosTerminados);
 let promediosCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
     return parseFloat(element[6]);
 });
-console.log('Promedios de los cuestionarios hechos = ', promediosCuestionariosHechos)
+console.log('Promedios de los cuestionarios hechos = ', promediosCuestionariosHechos);
+
+////////////////////////////////////////////////////////
+//Accedemos a los Promedios de los cuestionarios
+let idsAlumnosCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
+    return parseFloat(element[2]);
+});
+console.log('Ids de los alumnos que han hecho un cuestionario = ', idsAlumnosCuestionariosHechos);
 
 ////////////////////////////////////////////////////////
 //Accedemos a los Intentos de los cuestionarios
@@ -36,7 +43,7 @@ console.log('Ids de los cuestionarios hechos = ', idsCuestionariosHechos)
 //Accedemos a los nombres de los grupos del docente
 let datosCuestionariosProfe = document.getElementById('datosCuestionariosGeneralesCuestionarios').value;
 datosCuestionariosProfe = limpiarDatos(datosCuestionariosProfe);
-console.log('Datos de los cuestionarios = ',datosCuestionariosProfe);
+console.log('Datos de los cuestionarios = ', datosCuestionariosProfe);
 
 ////////////////////////////////////////////////////////
 //Extraemos los IDs de los grupos
@@ -98,7 +105,7 @@ console.log('contadorPosicionesIds', contadorPosicionesIds)
 let puntajePorGrupo;
 let puntajePorGrupoArray = [];
 //Esta es una copia para poder hacer unshift en ella
-let promediosCuestionariosHechosCopia = {...promediosCuestionariosHechos};
+let promediosCuestionariosHechosCopia = { ...promediosCuestionariosHechos };
 promediosCuestionariosHechosCopia = Object.values(promediosCuestionariosHechosCopia);
 
 for (var j = 0; j < contadorPosicionesIds.length; j++) {
@@ -125,8 +132,8 @@ console.log('Promedio por cada grupo', promedioFinalPorGrupo);
 //Debemos sumar los promedios
 let sumaAritmeticaPromedios = promedioFinalPorGrupo.reduce((suma, element) => suma + element);
 //Obtenemos los porcentages
-let porcentajePromedioEquivalente = promedioFinalPorGrupo.map(promedio =>{
-    let porcentajeCalculo = ((promedio*(100))/sumaAritmeticaPromedios).toFixed(2);
+let porcentajePromedioEquivalente = promedioFinalPorGrupo.map(promedio => {
+    let porcentajeCalculo = ((promedio * (100)) / sumaAritmeticaPromedios).toFixed(2);
     return parseFloat(porcentajeCalculo);
 });
 console.log('porcentajePromedioEquivalente', porcentajePromedioEquivalente)
@@ -134,7 +141,8 @@ console.log('porcentajePromedioEquivalente', porcentajePromedioEquivalente)
 //Debemos separar en un array multidimensional los promedios de los cuestionarios por grupo
 let promediosMultidimensional = []; //[[],[],[]] un array por grupo
 let intentosMultidimensional = [];
-for(var y = 0; y < contadorPosicionesIds.length; y++){
+let idsAlumnosMultidimensional = [];
+for (var y = 0; y < contadorPosicionesIds.length; y++) {
     //Para los promedios
     let arrayTemporal = [];
     arrayTemporal.push(promediosCuestionariosHechos.splice(0, contadorPosicionesIds[y]));
@@ -143,10 +151,25 @@ for(var y = 0; y < contadorPosicionesIds.length; y++){
     let arrayTemporal2 = [];
     arrayTemporal2.push(intentosCuestionariosHechos.splice(0, contadorPosicionesIds[y]));
     intentosMultidimensional.push(arrayTemporal2);
+
+    let arrayTemporal3 = [];
+    arrayTemporal3.push(idsAlumnosCuestionariosHechos.splice(0, contadorPosicionesIds[y]));
+    idsAlumnosMultidimensional.push(arrayTemporal3);
 }
 promediosMultidimensional = promediosMultidimensional.flat(1);
 console.log('Promedio dividido en array por grupo', promediosMultidimensional);
 console.log('Intentos dividido en array por grupo', intentosMultidimensional);
+
+//Ordenamos de menor a mayor el promedio por grupo multidimensional
+let promediosMultidimensionalOrdenado = [];
+promediosMultidimensional.forEach((grupo) => {
+    //Debemos ordenar los valores de menor a mayor
+    let grupoPromediosOrdenados = grupo.sort((current, next) => {
+        return current - next;
+    });
+    promediosMultidimensionalOrdenado.push(grupoPromediosOrdenados);
+});
+console.log('promediosMultidimensionalOrdenado', promediosMultidimensionalOrdenado)
 
 let arrayPromediosIntentosPorGrupo = [];
 intentosMultidimensional.forEach((grupo, i = 0) => {
@@ -170,7 +193,7 @@ console.log('Estados de aprobacion = ', estadoAprobacion)
 //contadorPosicionesIds
 //Debemos separar en un array multidimensional los promedios de los cuestionarios por grupo
 let aprobacionMultidimensional = []; //[[],[],[]] un array por grupo
-for(var y = 0; y < contadorPosicionesIds.length; y++){
+for (var y = 0; y < contadorPosicionesIds.length; y++) {
     let arrayTemporal = [];
     arrayTemporal.push(estadoAprobacion.splice(0, contadorPosicionesIds[y]));
     aprobacionMultidimensional.push(arrayTemporal);
@@ -187,14 +210,14 @@ let reprobadosCounter = [];
 let aprobacionTotal = [];
 aprobacionTotal.push(aprobadosCounter);
 aprobacionTotal.push(reprobadosCounter);
-let graficasTitle = ['aprobados','reprobados'];
-for(var i = 0; i < aprobacionMultidimensionalAprobados.length; i++){
+let graficasTitle = ['aprobados', 'reprobados'];
+for (var i = 0; i < aprobacionMultidimensionalAprobados.length; i++) {
     let contadorAprobados = 0;
     let contadorReprobados = 0;
-    aprobacionMultidimensionalAprobados[i].filter(element =>{
-        if(element == 'aprobado'){
+    aprobacionMultidimensionalAprobados[i].filter(element => {
+        if (element == 'aprobado') {
             contadorAprobados++;
-        }else if(element == 'reprobado'){
+        } else if (element == 'reprobado') {
             contadorReprobados++;
         }
     });
@@ -219,9 +242,9 @@ console.log('sumaReprobados', sumaReprobados)
 
 //Calculamos porcentaje de reprobados y aprobados
 let totalAprobacion = sumaReprobados + sumaAprobados;
-let porcentajeAprobacion = ((sumaAprobados*100)/totalAprobacion).toFixed(2);
+let porcentajeAprobacion = ((sumaAprobados * 100) / totalAprobacion).toFixed(2);
 porcentajeAprobacion = parseFloat(porcentajeAprobacion);
-let porcentajeReprobacion = ((sumaReprobados*100)/totalAprobacion).toFixed(2);
+let porcentajeReprobacion = ((sumaReprobados * 100) / totalAprobacion).toFixed(2);
 porcentajeReprobacion = parseFloat(porcentajeReprobacion);
 //Guardamos los porcentajes de aprobacion
 let arrayPorcentajeAprobacion = [];
@@ -233,7 +256,7 @@ console.log('arrayPorcentajeAprobacion', arrayPorcentajeAprobacion)
 //Accedemos a los porcentajes globales
 let porcentageGlobal = [...arrayPorcentajeAprobacion];
 //Convertimos el procentage de aprobados a un número cercano a 10
-let aprobadosFormatoDiez = Math.ceil(porcentageGlobal[0]/10);
+let aprobadosFormatoDiez = Math.ceil(porcentageGlobal[0] / 10);
 console.log('aprobadosFormatoDiez', aprobadosFormatoDiez)
 //Accedemos a los datos de manera individual
 let nombreGrupos_unitario = [...gruposNameArray];
@@ -251,8 +274,8 @@ console.log('conteoPorGrupo', conteoPorGrupo)
 let porcentagesDividosPorGrupo = []; //Almacenamos los datos de los procentages
 conteoPorGrupo.forEach((grupoTotal, i = 0) => {
     let gruposArrayTemporal = [];
-    let porcentageTemporalAprobados = parseFloat(((numerosAprobacionTotal[i]*100)/grupoTotal).toFixed(2));
-    let porcentageTemporalReprobados = parseFloat(((numerosReprobacionTotal[i]*100)/grupoTotal).toFixed(2));
+    let porcentageTemporalAprobados = parseFloat(((numerosAprobacionTotal[i] * 100) / grupoTotal).toFixed(2));
+    let porcentageTemporalReprobados = parseFloat(((numerosReprobacionTotal[i] * 100) / grupoTotal).toFixed(2));
     gruposArrayTemporal.push(porcentageTemporalAprobados, porcentageTemporalReprobados);
     porcentagesDividosPorGrupo.push(gruposArrayTemporal);
 })
@@ -265,6 +288,8 @@ function limpiarDatos(string) {
     string = string.replaceAll('(', '[');
     string = string.replaceAll(')', ']');
     string = string.replace('],]', ']]');
+    string = string.replace(']]]]', ']]');
+    string = string.replace('[[[[', '[[');
     string = string.replaceAll("\'", "\"");
     string = string.replaceAll("None", "0");
     //Son los datos de los cuestionarios evaluados. (en estado ready)
@@ -273,12 +298,12 @@ function limpiarDatos(string) {
 }
 
 //Funcion para generar arrays que cuenten de 1 en 1 según un tamaño dado.
-function generadorArraysWithASize(arraySizes){
+function generadorArraysWithASize(arraySizes) {
     let generalArray = [];
-    for(var i = 0; i < arraySizes.length; i++){
+    for (var i = 0; i < arraySizes.length; i++) {
         let temporalArray = [];
-        for(var j = 0; j < arraySizes[i]; j++){
-            temporalArray.push(j+1);
+        for (var j = 0; j < arraySizes[i]; j++) {
+            temporalArray.push(j + 1);
         }
         generalArray.push(temporalArray);
     }
