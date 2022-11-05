@@ -20,15 +20,37 @@ console.log('Promedios de los cuestionarios hechos = ', promediosCuestionariosHe
 
 ////////////////////////////////////////////////////////
 //Accedemos a los Promedios de los cuestionarios
+let tiemposRespuestaCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
+    return element[9];
+});
+console.log('Tiempos de respuesta de los cuestionarios = ', tiemposRespuestaCuestionariosHechos);
+
+//Debemos transformar las horas a un formato de minutos medible
+let horaConformatoNumerico = tiemposRespuestaCuestionariosHechos.map(hora => {
+    //Quitamos el texto
+    let numeroHora = hora.replaceAll('h', '').replaceAll('m','').replaceAll('s','');
+    //Convertimos en un array
+    numeroHora = numeroHora.split(':');
+    //Obtenemos las hora a minutos
+    numeroHora[0] = numeroHora[0] * 60;
+    //Obtenemos los segundo a minutos
+    numeroHora[2] = parseInt((numeroHora[2] * (1/60)).toFixed(0));
+    //Obtenemos los minutos totales
+    return numeroHora[0] + parseInt(numeroHora[1]) + numeroHora[2];
+})
+console.log('Minutos por cuestionarios', horaConformatoNumerico)
+
+////////////////////////////////////////////////////////
+//Accedemos a los Promedios de los cuestionarios
 let idsAlumnosCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
-    return parseFloat(element[2]);
+    return parseInt(element[2]);
 });
 console.log('Ids de los alumnos que han hecho un cuestionario = ', idsAlumnosCuestionariosHechos);
 
 ////////////////////////////////////////////////////////
 //Accedemos a los Intentos de los cuestionarios
 let intentosCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
-    return parseFloat(element[11]);
+    return parseInt(element[11]);
 });
 console.log('Intentos hechos por cuestionarios = ', intentosCuestionariosHechos)
 
@@ -142,23 +164,49 @@ console.log('porcentajePromedioEquivalente', porcentajePromedioEquivalente)
 let promediosMultidimensional = []; //[[],[],[]] un array por grupo
 let intentosMultidimensional = [];
 let idsAlumnosMultidimensional = [];
+let minutosPorCuestionarioMultidimensional = [];
 for (var y = 0; y < contadorPosicionesIds.length; y++) {
     //Para los promedios
     let arrayTemporal = [];
     arrayTemporal.push(promediosCuestionariosHechos.splice(0, contadorPosicionesIds[y]));
     promediosMultidimensional.push(arrayTemporal);
-
+    
+    //Para los intentos
     let arrayTemporal2 = [];
     arrayTemporal2.push(intentosCuestionariosHechos.splice(0, contadorPosicionesIds[y]));
     intentosMultidimensional.push(arrayTemporal2);
 
+    //Para los ids
     let arrayTemporal3 = [];
     arrayTemporal3.push(idsAlumnosCuestionariosHechos.splice(0, contadorPosicionesIds[y]));
     idsAlumnosMultidimensional.push(arrayTemporal3);
+    
+    //Para los minutos por cuestionario
+    let arrayTemporal4 = [];
+    arrayTemporal4.push(horaConformatoNumerico.splice(0, contadorPosicionesIds[y]));
+    minutosPorCuestionarioMultidimensional.push(arrayTemporal4);
 }
 promediosMultidimensional = promediosMultidimensional.flat(1);
 console.log('Promedio dividido en array por grupo', promediosMultidimensional);
 console.log('Intentos dividido en array por grupo', intentosMultidimensional);
+console.log('Minutos dividido en array por grupo', minutosPorCuestionarioMultidimensional)
+
+//Calculamos el promedio de la suma de los tiempos
+let sumaTiemposCuestionarioMultidimensional = [];
+minutosPorCuestionarioMultidimensional.forEach((grupo) => {
+    let arrayTemporal = [];
+    let suma = grupo[0].reduce((sum, element) => sum + element);
+    arrayTemporal.push(suma, grupo[0].length);
+    sumaTiemposCuestionarioMultidimensional.push(arrayTemporal);
+});
+console.log('Suma tiempos / cantidad cuestionarios en minutos', sumaTiemposCuestionarioMultidimensional);
+
+//Calculamos el promedio de tiempo por cuestionario
+let promedioTiempoPorGrupo = sumaTiemposCuestionarioMultidimensional.map(tiempo => {
+    return parseFloat(((tiempo[0]/tiempo[1])*(1/60)).toFixed(1));
+});
+console.log('Promedio de tiempo por grupo', promedioTiempoPorGrupo)
+
 
 //Ordenamos de menor a mayor el promedio por grupo multidimensional
 let promediosMultidimensionalOrdenado = [];
