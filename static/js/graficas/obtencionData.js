@@ -19,6 +19,13 @@ let promediosCuestionariosHechos = datosCuestionariosTerminados.map((element) =>
 console.log('Promedios de los cuestionarios hechos = ', promediosCuestionariosHechos)
 
 ////////////////////////////////////////////////////////
+//Accedemos a los Intentos de los cuestionarios
+let intentosCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
+    return parseFloat(element[11]);
+});
+console.log('Intentos hechos por cuestionarios = ', intentosCuestionariosHechos)
+
+////////////////////////////////////////////////////////
 //Accedemos a los IDS de los cuestionarios
 let idsCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
     return element[1];
@@ -126,14 +133,30 @@ console.log('porcentajePromedioEquivalente', porcentajePromedioEquivalente)
 
 //Debemos separar en un array multidimensional los promedios de los cuestionarios por grupo
 let promediosMultidimensional = []; //[[],[],[]] un array por grupo
+let intentosMultidimensional = [];
 for(var y = 0; y < contadorPosicionesIds.length; y++){
+    //Para los promedios
     let arrayTemporal = [];
     arrayTemporal.push(promediosCuestionariosHechos.splice(0, contadorPosicionesIds[y]));
     promediosMultidimensional.push(arrayTemporal);
+
+    let arrayTemporal2 = [];
+    arrayTemporal2.push(intentosCuestionariosHechos.splice(0, contadorPosicionesIds[y]));
+    intentosMultidimensional.push(arrayTemporal2);
 }
 promediosMultidimensional = promediosMultidimensional.flat(1);
 console.log('Promedio dividido en array por grupo', promediosMultidimensional);
+console.log('Intentos dividido en array por grupo', intentosMultidimensional);
 
+let arrayPromediosIntentosPorGrupo = [];
+intentosMultidimensional.forEach((grupo, i = 0) => {
+    let total = grupo[0].reduce((suma, element) => {
+        return suma + element
+    });
+    let promedio = parseFloat((total / contadorPosicionesIds[i++]).toFixed(2));
+    arrayPromediosIntentosPorGrupo.push(promedio);
+});
+console.log('arrayPromediosIntentosPorGrupo', arrayPromediosIntentosPorGrupo);
 
 ///////////////////////////Datos indice de aprobacion
 ////////////////////////////////////////////////////////🔴

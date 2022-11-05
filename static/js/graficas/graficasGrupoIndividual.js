@@ -26,7 +26,7 @@ impresionDeCasillasPorGrupo();
 
 
 //Imprime el procentage de reprobados y aprobados de cada grupo
-function procentageAprobacion_card1(idContainer,  containerNumero) {
+function porcentageAprobacion_card1(idContainer,  containerNumero) {
     let contenedorPadre = document.getElementById(idContainer);
 
     porcentagesDividosPorGrupo.forEach((porcentage, i = 0) =>{
@@ -41,7 +41,40 @@ function procentageAprobacion_card1(idContainer,  containerNumero) {
         }
         i++
     })
+}
 
+//Imprime el promedio de intentos por grupo
+function promedio_intentos_por_grupo(idContainer, containerNumero){
+    let contenedorPadre = document.getElementById(idContainer);
+
+    arrayPromediosIntentosPorGrupo.forEach((promedioIntento, i = 0) =>{
+        if(i == containerNumero){ //Valida que contenedor es...
+            let contenido = `
+            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Intentos promedio en grupo</div>
+            <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Intentos promedio: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${promedioIntento}</span></p>
+            </div>`;
+            contenedorPadre.innerHTML += contenido;
+        }
+        i++
+    });
+}
+
+//1 de cada tantos estudiantes pasa en determinado curso
+function analisis_pasar_por_grupo(idContainer, containerNumero){
+    let contenedorPadre = document.getElementById(idContainer);
+
+    porcentagesDividosPorGrupo.forEach((porcentageGrupo, i = 0) =>{
+        if(i == containerNumero){ //Valida que contenedor es...
+            let formatoNumero = Math.ceil(porcentageGrupo[0]/10);
+            let contenido = `
+            <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario"><span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${formatoNumero}/10</span> aprueba</p>
+            </div>`;
+            contenedorPadre.innerHTML += contenido;
+        }
+        i++
+    });
 }
 
 //Insertamos en el primer contenedor de cada grupo una gráfica lineal.
@@ -52,13 +85,15 @@ function insertarCajasHijasEnCadaGrupo(numero_grupos, numero_ids){
                 //Agregamos la clase para que se ajuste a CSS grid
                 document.getElementById(ids_indivual_groups[i][j]).classList.add('first_child_container');
                 //Ejecutamos la función para la impresión del dato o gráfica.
-                procentageAprobacion_card1(ids_indivual_groups[i][j], i);
+                porcentageAprobacion_card1(ids_indivual_groups[i][j], i);
             }else if(j == 1){
                 document.getElementById(ids_indivual_groups[i][j]).classList.add('second_child_container');
+                promedio_intentos_por_grupo(ids_indivual_groups[i][j],i);
             }else if(j == 2){
                 document.getElementById(ids_indivual_groups[i][j]).classList.add('third_child_container');
             }else if(j == 3){
                 document.getElementById(ids_indivual_groups[i][j]).classList.add('fourth_child_container');
+                analisis_pasar_por_grupo(ids_indivual_groups[i][j],i);
             }else if(j == 4){
                 document.getElementById(ids_indivual_groups[i][j]).classList.add('fifth_child_container');
             }
