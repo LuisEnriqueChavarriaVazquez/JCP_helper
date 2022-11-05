@@ -438,6 +438,13 @@ def mis_grupos(id_estudiante):
     else:
         return render_template("estudiante/b_mis_grupos.html", datosIds = resultIds, datosGroup = resultGroup, idsCuestionarios = idsCuestionarios, idEstudiante = idEstudiante)
 
+#Bloque para ver los resultados del alumno
+@routes.route('/gestionar_resultados_alumno/<string:id_estudiante>')
+def gestionar_resultados_alumno(id_estudiante):
+    pass
+    return render_template("estudiante/resultados_alumno.html")
+
+
 ##Para ver el perfil de un docente
 @routes.route('/viewTeacherProfile/<string:id>')
 def ver_perfil_docente_desde_alumno(id):
