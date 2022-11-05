@@ -1,0 +1,86 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optFalsoVerdadero",
+   "1": "optFalsoVerdadero",
+   "2": "optFalsoVerdadero",
+   "3": "optFalsoVerdadero",
+   "4": "optFalsoVerdadero",
+   "5": "optFalsoVerdadero"
+  },
+  {
+   "retrasado": "false"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "",
+   "1": "",
+   "2": "",
+   "3": "",
+   "4": "",
+   "5": ""
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal2": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal3": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal4": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal5": [
+  {
+   "0": "sdksdnkdsnsdknksd",
+   "1": "t"
+  },
+  {
+   "0": "sdksdnkdsnsdknksd",
+   "1": "t"
+  },
+  {
+   "0": "sdksdnkdsnsdknksd",
+   "1": "t"
+  },
+  {
+   "0": "sdksdnkdsnsdknksd",
+   "1": "t"
+  },
+  {
+   "0": "sdksdnkdsnsdknksd",
+   "1": "t"
+  },
+  {
+   "0": "sdksdnkdsnsdknksd",
+   "1": "t"
+  },
+  {
+   "respuestas": [
+    "opt5InputGet_0/true&1",
+    "opt5InputGet_1/true&1",
+    "opt5InputGet_2/true&1",
+    "opt5InputGet_3/true&1",
+    "opt5InputGet_4/&1",
+    "opt5InputGet_5/true&1"
+   ]
+  }
+ ],
+ "preguntasModal6": [
+  {
+   "respuestas": []
+  }
+ ]
+}

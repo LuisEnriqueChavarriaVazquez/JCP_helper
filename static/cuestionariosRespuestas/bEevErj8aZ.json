@@ -1,0 +1,51 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optFalsoVerdadero"
+  },
+  {
+   "retrasado": "false"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "3"
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal2": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal3": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal4": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal5": [
+  {
+   "0": "La siguiente pregunta es...",
+   "1": "F"
+  },
+  {
+   "respuestas": [
+    "opt5InputGet_0/true&3"
+   ]
+  }
+ ],
+ "preguntasModal6": [
+  {
+   "respuestas": []
+  }
+ ]
+}

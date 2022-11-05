@@ -1,0 +1,323 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optMultiple",
+   "1": "optMultiple",
+   "2": "optMultiple",
+   "3": "optMultiple",
+   "4": "optMultiple",
+   "5": "optAcompletar",
+   "6": "optAcompletar",
+   "7": "optAcompletar",
+   "8": "optMultiple",
+   "9": "optEjercicios",
+   "10": "optEjercicios",
+   "11": "optAcompletar",
+   "12": "optEjercicios",
+   "13": "optMultiple",
+   "14": "optArrastrar",
+   "15": "optArrastrar",
+   "16": "optArrastrar",
+   "17": "optArrastrar",
+   "18": "optFalsoVerdadero",
+   "19": "optArrastrar",
+   "20": "optFalsoVerdadero",
+   "21": "optFalsoVerdadero",
+   "22": "optFalsoVerdadero",
+   "23": "optFalsoVerdadero",
+   "24": "optFalsoVerdadero",
+   "25": "optAbierta",
+   "26": "optAbierta",
+   "27": "optFalsoVerdadero",
+   "28": "optAbierta"
+  },
+  {
+   "retrasado": "true"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "1",
+   "1": "2",
+   "2": "3",
+   "3": "4",
+   "4": "5",
+   "5": "3",
+   "6": "2",
+   "7": "2",
+   "8": "1",
+   "9": "2",
+   "10": "3",
+   "11": "2",
+   "12": "2",
+   "13": "2",
+   "14": "1",
+   "15": "2",
+   "16": "4",
+   "17": "5",
+   "18": "5",
+   "19": "3",
+   "20": "2",
+   "21": "1",
+   "22": "1",
+   "23": "1",
+   "24": "1",
+   "25": "2",
+   "26": "4",
+   "27": "4",
+   "28": "4"
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "0": "Pregunta 1",
+   "1": "",
+   "2": "A",
+   "3": "opt1",
+   "4": "",
+   "5": "",
+   "6": ""
+  },
+  {
+   "0": "Pregunta 2",
+   "1": "",
+   "2": "A",
+   "3": "opt1",
+   "4": "",
+   "5": "",
+   "6": ""
+  },
+  {
+   "0": "Pregunta 2",
+   "1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "2": "B",
+   "3": "opt1",
+   "4": "",
+   "5": "",
+   "6": ""
+  },
+  {
+   "0": "Pregunta 3",
+   "1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "2": "C",
+   "3": "opt1",
+   "4": "sdsdsdsd",
+   "5": "opxndkndsk",
+   "6": ""
+  },
+  {
+   "0": "Pregunta 3",
+   "1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "2": "D",
+   "3": "opt1",
+   "4": "sdsdsdsd",
+   "5": "opxndkndsk",
+   "6": "dsdewweewweew"
+  },
+  {
+   "0": "Pregunta 6",
+   "1": "",
+   "2": "A",
+   "3": "opt1",
+   "4": "sdsdsdsd",
+   "5": "opxndkndsk",
+   "6": "dsdewweewweew"
+  },
+  {
+   "0": "Pregunta 6",
+   "1": "",
+   "2": "D",
+   "3": "opt1",
+   "4": "sdsdsdsd",
+   "5": "opxndkndsk",
+   "6": "dsdewweewweew"
+  },
+  {
+   "respuestas": [
+    "opt1InputGet_0/A&1",
+    "opt1InputGet_1/D&2",
+    "opt1InputGet_2/A&3",
+    "opt1InputGet_3/B&4",
+    "opt1InputGet_4/C&5",
+    "opt1InputGet_5/D&1",
+    "opt1InputGet_6/B&2"
+   ]
+  }
+ ],
+ "preguntasModal2": [
+  {
+   "0": "El concepto [Blank 1]",
+   "1": "palabra 1"
+  },
+  {
+   "0": "El concepto [Blank 1][Blank 2]",
+   "1": "palabra 1",
+   "2": "palabra 2"
+  },
+  {
+   "0": "El concepto [Blank 1][Blank 2] se relaciona con [Blank 3]",
+   "1": "palabra 1",
+   "2": "palabra 2",
+   "3": "p3"
+  },
+  {
+   "0": "El concepto [Blank 1][Blank 2] se relaciona con [Blank 3][Blank 4]",
+   "1": "palabra 1",
+   "2": "palabra 2",
+   "3": "p3",
+   "4": "p4"
+  },
+  {
+   "respuestas": [
+    "opt2InputGet_0//sdsdkndsknds&3",
+    "opt2InputGet_1//palabra1/&2",
+    "opt2InputGet_2////&2",
+    "opt2InputGet_3////palabra1/&2"
+   ]
+  }
+ ],
+ "preguntasModal3": [
+  {
+   "0": "Ejercicio 1",
+   "1": "",
+   "2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "3": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "4": "hola"
+  },
+  {
+   "0": "Ejercicio 2",
+   "1": "",
+   "2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "3": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "4": ""
+  },
+  {
+   "0": "Ejercicio 3",
+   "1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "3": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "4": ""
+  },
+  {
+   "respuestas": [
+    "opt3InputGet_0/Output: EMPTY/Link: EMPTY&2",
+    "opt3InputGet_1/Output: EMPTY/Link: EMPTY&3",
+    "opt3InputGet_2/Output: EMPTY/Link: EMPTY&2"
+   ]
+  }
+ ],
+ "preguntasModal4": [
+  {
+   "0": "Relaciones las palabras",
+   "1": "p1*p2"
+  },
+  {
+   "0": "Relaciones las palabras",
+   "1": "p1*p2",
+   "2": "j1*j2",
+   "3": "ddssdsd*sdfsfdsdsfd",
+   "4": "sdfdsfsd*sddsfsddfs"
+  },
+  {
+   "0": "Relaciones las palabras",
+   "1": "p1*p2",
+   "2": "j1*j2",
+   "3": "ddssdsd*sdfsfdsdsfd",
+   "4": "sdfdsfsd*sddsfsddfs",
+   "5": "dsdsdsfdsf*sddsffdsdsf"
+  },
+  {
+   "0": "Relaciones las palabras",
+   "1": "p1*p2",
+   "2": "j1*j2",
+   "3": "ddssdsd*sdfsfdsdsfd",
+   "4": "sdfdsfsd*sddsfsddfs",
+   "5": "dsdsdsfdsf*sddsffdsdsf",
+   "6": "ff*fff"
+  },
+  {
+   "0": "Relaciones las palabras",
+   "1": "p1*p2",
+   "2": "j1*j2",
+   "3": "ddssdsd*sdfsfdsdsfd",
+   "4": "sdfdsfsd*sddsfsddfs",
+   "5": "dsdsdsfdsf*sddsffdsdsf",
+   "6": "ff*fff",
+   "7": "ffff*eeee"
+  },
+  {
+   "respuestas": [
+    "opt4InputGet_0/p1/p2/&1",
+    "opt4InputGet_1/p1/p2/j1/j2/ddssdsd/sdfsfdsdsfd/sdfdsfsd/sddsfsddfs/&2",
+    "opt4InputGet_2/p1/p2/j1/j2/ddssdsd/sdfsfdsdsfd/sdfdsfsd/sddsfsddfs/dsdsdsfdsf/sddsffdsdsf/&4",
+    "opt4InputGet_3/p1/p2/j1/j2/ddssdsd/sdfsfdsdsfd/sdfdsfsd/sddsfsddfs/dsdsdsfdsf/sddsffdsdsf/ff/fff/&5",
+    "opt4InputGet_4/ffff/p2/p1/j2/sdfdsfsd/sdfsfdsdsfd/ddssdsd/sddsfsddfs/dsdsdsfdsf/sddsffdsdsf/ff/fff/j1/eeee/&3"
+   ]
+  }
+ ],
+ "preguntasModal5": [
+  {
+   "0": "ffffff",
+   "1": "f"
+  },
+  {
+   "0": "ffffff 2",
+   "1": "f"
+  },
+  {
+   "0": "pregunta 3",
+   "1": "t"
+  },
+  {
+   "0": "pregunta 4",
+   "1": "t"
+  },
+  {
+   "0": "pregunta 5",
+   "1": "f"
+  },
+  {
+   "0": "pregunta 6",
+   "1": "f"
+  },
+  {
+   "0": "pregunta 7",
+   "1": "f"
+  },
+  {
+   "respuestas": [
+    "opt5InputGet_0/true&5",
+    "opt5InputGet_1/false&2",
+    "opt5InputGet_2/false&1",
+    "opt5InputGet_3/true&1",
+    "opt5InputGet_4/true&1",
+    "opt5InputGet_5/true&1",
+    "opt5InputGet_6/false&4"
+   ]
+  }
+ ],
+ "preguntasModal6": [
+  {
+   "0": "Pregunta abierta 1",
+   "1": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
+   "2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU"
+  },
+  {
+   "0": "Pregunta abierta 2",
+   "1": "",
+   "2": ""
+  },
+  {
+   "0": "Pregunta abierta 3",
+   "1": "",
+   "2": ""
+  },
+  {
+   "respuestas": [
+    "opt6InputGet_0/&2",
+    "opt6InputGet_1/&4",
+    "opt6InputGet_2/&4"
+   ]
+  }
+ ]
+}

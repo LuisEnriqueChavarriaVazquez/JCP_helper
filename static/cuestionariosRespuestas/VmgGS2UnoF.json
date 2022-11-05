@@ -1,0 +1,103 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optAbierta",
+   "1": "optFalsoVerdadero",
+   "2": "optFalsoVerdadero",
+   "3": "optAbierta",
+   "4": "optFalsoVerdadero",
+   "5": "optEjercicios",
+   "6": "optEjercicios"
+  },
+  {
+   "retrasado": "true"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "1",
+   "1": "2",
+   "2": "1",
+   "3": "3",
+   "4": "2",
+   "5": "2",
+   "6": "1"
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal2": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal3": [
+  {
+   "0": "Pregunta ejercicio abierto",
+   "1": "",
+   "2": "",
+   "3": "                                ",
+   "4": ""
+  },
+  {
+   "0": "Pregunta ejercicio abierto 2",
+   "1": "",
+   "2": "",
+   "3": "                                ",
+   "4": "3"
+  },
+  {
+   "respuestas": [
+    "opt3InputGet_0/&2",
+    "opt3InputGet_1/&1"
+   ]
+  }
+ ],
+ "preguntasModal4": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal5": [
+  {
+   "0": "pregunta 1",
+   "1": "t"
+  },
+  {
+   "0": "pregunta 2",
+   "1": "f"
+  },
+  {
+   "0": "pregunta 3",
+   "1": "t"
+  },
+  {
+   "respuestas": [
+    "opt5InputGet_0/&2",
+    "opt5InputGet_1/&1",
+    "opt5InputGet_2/&2"
+   ]
+  }
+ ],
+ "preguntasModal6": [
+  {
+   "0": "Pregunta abierta 1",
+   "1": "",
+   "2": ""
+  },
+  {
+   "0": "Pregunta abierta 2",
+   "1": "",
+   "2": ""
+  },
+  {
+   "respuestas": [
+    "opt6InputGet_0/&1",
+    "opt6InputGet_1/&3"
+   ]
+  }
+ ]
+}

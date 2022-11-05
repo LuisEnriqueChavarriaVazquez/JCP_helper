@@ -118,6 +118,7 @@ create table Alumnos_hacen_Cuestionario(
   Tiempo_respuestas varchar(20),
   Ruta_resultados varchar (200),
   Numero_intentos varchar (10),
+  Retraso_estado varchar (20),
   primary key (IDCuestionarioHecho, IDCuestionario,IDAlumno),
   foreign key (IDAlumno) references Alumnos(IDAlumno) ON DELETE CASCADE,
   foreign key (IDCuestionario) references Cuestionarios(IDCuestionario) ON DELETE CASCADE

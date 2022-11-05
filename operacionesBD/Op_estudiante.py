@@ -155,11 +155,11 @@ def insertar_primera_vez_cuestionario(idCuestionarioHecho, id_cuestionario, id_e
 ## Nos ayuda a registrar el tiempo que tardo el usuario en contestar
 ##
 
-def insertar_data_cuestinario_respondido(idCuestionarioHecho, tiempo_respuestas, ruta_resultados):
+def insertar_data_cuestinario_respondido(idCuestionarioHecho, tiempo_respuestas, ruta_resultados, retraso_estado):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE Alumnos_hacen_Cuestionario SET Tiempo_respuestas = %s, Ruta_resultados = %s WHERE IDCuestionarioHecho = %s",
-        (tiempo_respuestas, ruta_resultados,idCuestionarioHecho))
+        cursor.execute("UPDATE Alumnos_hacen_Cuestionario SET Tiempo_respuestas = %s, Ruta_resultados = %s, Retraso_estado = %s WHERE IDCuestionarioHecho = %s",
+        (tiempo_respuestas, ruta_resultados,retraso_estado,idCuestionarioHecho))
     conexion.commit()
     conexion.close()
     return "listo"

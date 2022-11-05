@@ -145,11 +145,13 @@ function mensajeDeRevisionRetraso(){
         //Mensajes del tiempo
         let contadorFecha = document.getElementById('contadorFecha').textContent;
         let tiempoRestante = document.getElementById('tiempoRestante').textContent;
+        let Retraso_estado = document.getElementById('Retraso_estado');
         //Mensaje del boton
         let botonRevisarMensaje = document.getElementById('botonRevisarMensaje');
         
         if(contadorFecha == "No time" || tiempoRestante == "No time"){
             botonRevisarMensaje.textContent = "Enviar con retraso.";
+            Retraso_estado.value = "retraso"
             botonRevisarMensaje.classList.remove('infoColorButton');
             botonRevisarMensaje.classList.add('badColorButton');
         }

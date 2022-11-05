@@ -341,6 +341,7 @@ def revisar_alumno(id_cuestionario):
     rutaResultados=request.form["rutaResultados"]
     idCuestionarioHecho=request.form["idCuestionarioHecho"]
     tiempoRespuestas=request.form["tiempoRespuestas"]
+    retraso_estado = request.form["Retraso_estado"]
     tiempoRespuestas = str(tiempoRespuestas)
     
     #Obtenemos los datos del cuestionario recienCreado
@@ -365,7 +366,7 @@ def revisar_alumno(id_cuestionario):
     jsonFile.close()
 
     ##Ingresamos la ruta y el tiempo que tardo a la base de datos
-    Op_estudiante.insertar_data_cuestinario_respondido(idCuestionarioHecho, tiempoRespuestas, rutaResultados)
+    Op_estudiante.insertar_data_cuestinario_respondido(idCuestionarioHecho, tiempoRespuestas, rutaResultados, retraso_estado)
 
 
     # Abrimos el archivo para que cargue los datos de las respuestas
