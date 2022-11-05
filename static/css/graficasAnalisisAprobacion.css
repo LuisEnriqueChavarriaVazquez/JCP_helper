@@ -110,7 +110,8 @@
     "area1 area2"
     "area3 area5"
     "area3 area5"
-    "area4 area4";
+    "area4 area4"
+    "area6 area6";
     gap: 20px;
 }
 
@@ -124,7 +125,8 @@
         "area1 area1"
         "area2 area3"
         "area5 area5"
-        "area4 area4";
+        "area4 area4"
+        "area6 area6";
         gap: 20px;
     }
 }
@@ -141,6 +143,7 @@
         "area3"
         "area4"
         "area5"
+        "area6"
         ;
         gap: 15px;
     }
@@ -218,4 +221,8 @@
 
 .fifth_child_container{
     grid-area: area5; 
+}
+
+.sixth_child_container{
+    grid-area: area6; 
 }

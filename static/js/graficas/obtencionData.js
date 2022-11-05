@@ -20,6 +20,13 @@ console.log('Promedios de los cuestionarios hechos = ', promediosCuestionariosHe
 
 ////////////////////////////////////////////////////////
 //Accedemos a los Promedios de los cuestionarios
+let entregasRetrasoCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
+    return element[12];
+});
+console.log('Estado cuestionarios Retraso/A tiempo = ', entregasRetrasoCuestionariosHechos);
+
+////////////////////////////////////////////////////////
+//Accedemos a los Promedios de los cuestionarios
 let tiemposRespuestaCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
     return element[9];
 });
@@ -165,6 +172,7 @@ let promediosMultidimensional = []; //[[],[],[]] un array por grupo
 let intentosMultidimensional = [];
 let idsAlumnosMultidimensional = [];
 let minutosPorCuestionarioMultidimensional = [];
+let entregasRetrasoMultidimensional = [];
 for (var y = 0; y < contadorPosicionesIds.length; y++) {
     //Para los promedios
     let arrayTemporal = [];
@@ -185,11 +193,17 @@ for (var y = 0; y < contadorPosicionesIds.length; y++) {
     let arrayTemporal4 = [];
     arrayTemporal4.push(horaConformatoNumerico.splice(0, contadorPosicionesIds[y]));
     minutosPorCuestionarioMultidimensional.push(arrayTemporal4);
+
+    //Para los minutos por cuestionario
+    let arrayTemporal5 = [];
+    arrayTemporal5.push(entregasRetrasoCuestionariosHechos.splice(0, contadorPosicionesIds[y]));
+    entregasRetrasoMultidimensional.push(arrayTemporal5);
 }
 promediosMultidimensional = promediosMultidimensional.flat(1);
 console.log('Promedio dividido en array por grupo', promediosMultidimensional);
 console.log('Intentos dividido en array por grupo', intentosMultidimensional);
 console.log('Minutos dividido en array por grupo', minutosPorCuestionarioMultidimensional)
+console.log('Retrasos multidimensional', entregasRetrasoMultidimensional)
 
 //Calculamos el promedio de la suma de los tiempos
 let sumaTiemposCuestionarioMultidimensional = [];
@@ -206,6 +220,27 @@ let promedioTiempoPorGrupo = sumaTiemposCuestionarioMultidimensional.map(tiempo 
     return parseFloat(((tiempo[0]/tiempo[1])*(1/60)).toFixed(1));
 });
 console.log('Promedio de tiempo por grupo', promedioTiempoPorGrupo)
+
+//Filtramos los elementos retreaso y a_tiempo
+let cantidadRetrasos = [];
+let cantidadATiempo = [];
+
+entregasRetrasoMultidimensional.forEach((element) => {
+    let arrayTemporalRetrasado = [];
+    let arrayTemporalA_tiempo = [];
+    element[0].forEach(estado => {
+        if(estado == "retraso"){
+            arrayTemporalRetrasado.push(estado);
+        }else{
+            arrayTemporalA_tiempo.push(estado);
+        }
+    });
+    let total = arrayTemporalRetrasado.length + arrayTemporalA_tiempo.length;
+    cantidadRetrasos.push(parseFloat(((arrayTemporalRetrasado.length*100)/total).toFixed(2)));
+    cantidadATiempo.push(parseFloat(((arrayTemporalA_tiempo.length*100)/total).toFixed(2)));
+});
+console.log('Porcentaje de retraso por grupo', cantidadRetrasos)
+console.log('Porcentaje de a_tiempo por grupo', cantidadATiempo)
 
 
 //Ordenamos de menor a mayor el promedio por grupo multidimensional

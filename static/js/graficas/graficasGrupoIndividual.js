@@ -11,7 +11,7 @@ function impresionDeCasillasPorGrupo() {
     let ids_individual_temporal = [];
     for (var i = 0; i < contenedorDeGrupo.length; i++) {
         ids_individual_temporal = [];
-        for (var j = 0; j < 5; j++) {
+        for (var j = 0; j < 6; j++) {
             contenedorDeGrupo[i].innerHTML += `
             <div id="contenedorUnitario_${i}${j}" class="colorGreyWhiter bordered1 containerDataIndividualGroup borderDecoration" >
                 
@@ -118,6 +118,24 @@ function tiempo_promedio_respuesta_examen_por_grupo(idContainer, containerNumero
     });
 }
 
+//Imprime el procentage de reprobados y aprobados de cada grupo
+function distribucion_entregas_retraso_por_grupo(idContainer, containerNumero) {
+    let contenedorPadre = document.getElementById(idContainer);
+
+    cantidadRetrasos.forEach((porcentage, i = 0) => {
+        if (i == containerNumero) { //Valida que contenedor es...
+            let contenido = `
+            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Porcentaje de retrasos</div>
+            <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">A tiempo:<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${cantidadATiempo[i]}%</span></p>
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Retraso: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${cantidadRetrasos[i]}%</span></p>
+            </div>`;
+            contenedorPadre.innerHTML += contenido;
+        }
+        i++
+    })
+}
+
 //Insertamos en el primer contenedor de cada grupo una gráfica lineal.
 function insertarCajasHijasEnCadaGrupo(numero_grupos, numero_ids) {
     for (var i = 0; i < numero_grupos; i++) {
@@ -139,6 +157,9 @@ function insertarCajasHijasEnCadaGrupo(numero_grupos, numero_ids) {
             } else if (j == 4) {
                 document.getElementById(ids_indivual_groups[i][j]).classList.add('fifth_child_container');
                 promedio_max_min_por_grupo(ids_indivual_groups[i][j], i);
+            }else if (j == 5) {
+                document.getElementById(ids_indivual_groups[i][j]).classList.add('sixth_child_container');
+                distribucion_entregas_retraso_por_grupo(ids_indivual_groups[i][j], i);
             }
         }
     }
