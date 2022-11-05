@@ -1,3 +1,9 @@
+.porcentajeAprobacionContadorIndividual{
+    padding: 0px 10px;
+    margin-left: 10px;
+    font-weight: 600;
+}
+
 .contenedorAnalisisPorcentage{
     display: grid;
     grid-template-columns: 1fr;

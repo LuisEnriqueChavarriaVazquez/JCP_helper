@@ -63,8 +63,14 @@ function promedio_intentos_por_grupo(idContainer, containerNumero){
 //1 de cada tantos estudiantes pasa en determinado curso
 function analisis_pasar_por_grupo(idContainer, containerNumero){
     let contenedorPadre = document.getElementById(idContainer);
+    //Al lado del título del grupo pone el porcentage de aprobacion
+    let contadorIndependiente = document.getElementsByClassName('porcentajeAprobacionContadorIndividual');
 
     porcentagesDividosPorGrupo.forEach((porcentageGrupo, i = 0) =>{
+        //Insertamos el porcentage de aprobacion al inicio al lado del titulo
+        contadorIndependiente[i].textContent = porcentageGrupo[0] + "%";
+
+        //Insertamos el análisis de 1 de cada 10 pasan
         if(i == containerNumero){ //Valida que contenedor es...
             let formatoNumero = Math.ceil(porcentageGrupo[0]/10);
             let contenido = `
