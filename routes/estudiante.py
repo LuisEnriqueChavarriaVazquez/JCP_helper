@@ -441,8 +441,13 @@ def mis_grupos(id_estudiante):
 #Bloque para ver los resultados del alumno
 @routes.route('/gestionar_resultados_alumno/<string:id_estudiante>')
 def gestionar_resultados_alumno(id_estudiante):
-    pass
-    return render_template("estudiante/resultados_alumno.html")
+    
+    cuestionariosHechos = ()
+    cuestionariosHechos = Op_estudiante.obtener_cuestionarios_alumnos(id_estudiante)
+    
+
+
+    return render_template("estudiante/resultados_alumno.html", cuestionariosDevuelta = cuestionariosHechos )
 
 
 ##Para ver el perfil de un docente

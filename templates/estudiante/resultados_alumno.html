@@ -2,37 +2,109 @@
 <html lang="en">
 
 <head>
-    <title>Mis grupos</title>
+    <title>Resultados alumno</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
 
 </head>
 
-
 <body class="oculto colorGrey">
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/cargador.html" %}
-    
+
+
     
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Mis grupos.</a>
+            <a href="#" class="brand-logo hide-on-small-only">Mis resultados</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Mis grupos.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">Mis resultados.</p>
             <ul class="right hide-on-med-and-down">
                 <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
             </ul>
         </div>
     </nav>
 
+        <!--Menu lateral para las pantallas grandes-->
+        <section class="operationContainerPrincipalCuestionarios">
+            <!--Contenedor principal-->
+            <section class="operationMainMisResultados">
+        
+                <!--Titulos de la página-->
+                <div class="title-general color1 fixedTitleOperationMain shadow-2e" id="cajaTituloBuscadorId">
+                    <h6 class="colorText hide-on-large-only hide-on-med-only" id="cajaTituloBuscadorContenidoId">Panel
+                        global</h6>
+                    <h5 class="colorText hide-on-small-only" id="cajaTituloBuscadorContenidoLargeId">Panel global</h5>
+                </div>
+        
+              
 
+            
+                   
+            
+                    <!--Menu lateral para pantallas grandes-->
+                    <div class="viewsContainerOperation">
+                        <div>
+                            <a id="buttonVistasAlternateGroup"
+                                class="hide-on-small-only waves-effect waves-light btn colorGreyWhiter colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                    id="iconVistasAlternateGroup" class="material-icons md-28">grid_view</i></a>
+            
+                            <a id="buttonVistasAlternateGroupMobile"
+                                class="hide-on-large-only hide-on-med-only waves-effect waves-light btn color1 colorText button-rounded centerAlignerNoWidth"><i
+                                    id="iconVistasAlternateGroupMobile" class="material-icons md-24">grid_view</i></a>
+                        </div>
+                    </div>
+            
+                    <div class="contenedorCardsCuestionariosOperationMisResultados" id="contenedorCardsGruposOperationId">
+                        {% if cuestionariosDevuelta %}
+                        {%for i in range(0, cuestionariosDevuelta|length)%}
+                        <div>
+                            <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
+                                <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId"
+                                    style=" background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: hue;">
+                                    <div>
+                                        <h5 class="titleGroupContentId">{{cuestionariosDevuelta[i][2]}}</h5>
+                                    </div>
+            
+                                </div>
+            
+                                <div class="sectionCardOperationActionsMisResultados colorGreyWhiter sectionCardOperationActionsId">
+                                    <!--Botones de cada grupo-->
+                                    
+
+                                <a href="/descargar_resultados_cuestionario_pdf/{{cuestionariosDevuelta[i][0]}}"
+                                    class=" classIdentifierGroupButtonEdit waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                        class="material-icons md-24">arrow_downward</i></a>
+
+                                 
+                                <a href=""
+                                    class=" classIdentifierGroupButtonEdit waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                        class="material-icons md-24">poll</i></a>
+
+
+                                </div>
+                            </div>
+                        </div>
+                       
+                        {%endfor%}
+                        {% endif %}
+                    </div>
+            
+                </section>
+            
+            </section>
     
 
-
 </body>
+
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+<script src="../../static/js/operacionesEditarPerfil.js"></script>
 
 </html>

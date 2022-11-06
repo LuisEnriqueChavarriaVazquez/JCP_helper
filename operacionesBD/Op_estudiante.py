@@ -299,3 +299,23 @@ def updatePost(id_publicacion,tituloPost, descripcionPost, fondoPost):
     conexion.commit()
     conexion.close()
     return confirmacionDeDelete
+
+
+#Obtener cuestionarios realizados por un alumno
+def obtener_cuestionarios_alumnos(idAlumno):
+    conexion=obtener_conexion()
+    cuestionariosHechos=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT Alumnos_hacen_Cuestionario.IDCuestionarioHecho, Cuestionarios.IDCuestionario, Cuestionarios.Titulo"+
+        " FROM Alumnos_hacen_Cuestionario INNER JOIN Cuestionarios"+
+         " ON Alumnos_hacen_Cuestionario.IDCuestionario = Cuestionarios.IDCuestionario"+
+         " WHERE Alumnos_hacen_Cuestionario.IDAlumno = %s AND  "+
+        "Alumnos_hacen_Cuestionario.Revision_estado = 'ready'  ", (idAlumno))
+        cuestionarioHechoData=cursor.fetchall()
+    
+    if len(cuestionarioHechoData) != 0:
+        conexion.close()
+        return cuestionarioHechoData
+    else:
+        return "noData"
