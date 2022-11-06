@@ -319,3 +319,14 @@ def obtener_cuestionarios_alumnos(idAlumno):
         return cuestionarioHechoData
     else:
         return "noData"
+
+
+#Recuperar ruta archivo de respuesta de un alumno
+def ruta_archivo_respuesta_alumno(id_cuestionario_respuesta):
+    conexion=obtener_conexion()
+    registro_cuestionario =""
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM Alumnos_hacen_Cuestionario WHERE IDCuestionarioHecho = %s",(id_cuestionario_respuesta))
+        registro_cuestionario = cursor.fetchone()
+    return registro_cuestionario
+    

@@ -8,6 +8,8 @@ from operacionesBD import Op_estudiante
 from operacionesBD import Op_profesor
 import bcrypt
 from flask_uploads import IMAGES, UploadSet
+from fpdf import FPDF
+from flask import make_response
 
 photos = UploadSet("photos", IMAGES)
 
@@ -660,3 +662,126 @@ def guardarFondoEst(id_alumno):
         fondo = request.form["fondo"]
         Op_estudiante.update_fondo_alumno(fondo, id_alumno)
         return redirect(url_for('routes.perfil_alumno'))
+
+#Sacar en pdf el reultado de los alumnos en sus cuestionarios
+@routes.route('/descargar_resultados_cuestionario_pdf/<string:id_cuestionario_resuelto>',methods=['GET','POST'])
+def descargarPdfCuestionarioResuelto(id_cuestionario_resuelto):
+    #Obtener registro de la base de datos de las respuesta del cuestionario
+    registro_cuestionario = Op_estudiante.ruta_archivo_respuesta_alumno(id_cuestionario_resuelto)
+    #Obtener ruta del archivo 
+    ruta_respuesta = registro_cuestionario[10]
+    #Obtener archivo en formato de json
+    f = open(ruta_respuesta)
+    dataJSON = json.load(f)
+    f.close()
+    #Creacion inicial del pdf
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Arial", size = 15)
+    numeroPreguntas = len(dataJSON["ordenPreguntas"][0])
+    #Titulo del PDF
+    pdf.cell(200, 18, txt = "Resultado cuestionario",
+         ln = 1, align = 'C')  
+    
+    #Contadores de los tipos de preguntas
+    contadoresTipoPreguntas=[0,0,0,0,0,0]
+    #Recorrer el tipo de preguntas
+    for i in range(0,numeroPreguntas):
+        #El tipo de pregunta en turno
+        tipoPregunta=dataJSON["ordenPreguntas"][0][str(i)] 
+        #Preguntas de Falso y Verdadero
+        if tipoPregunta == "optFalsoVerdadero":
+            #Titulo de pregunta
+            tituloPreguntaFV = dataJSON["preguntasModal5"][contadoresTipoPreguntas[4]]["0"]
+            pdf.cell(200, 8, txt = str(i +1)+"."+tituloPreguntaFV,ln = 1, align = 'L') 
+            #Puntos
+            PuntoPreguntaFV = dataJSON["ponderacionGlobal"][0][str(i)]
+            pdf.cell(200, 8, txt = "Puntos:" + str(PuntoPreguntaFV),ln = 1, align = 'L')
+            #Respuestas alumno
+            numeroPreguntasVF = len(dataJSON["preguntasModal5"])
+            jsonRespuestasVF = dataJSON["preguntasModal5"] [numeroPreguntasVF - 1] ["respuestas"]
+            respuestaVFjson = jsonRespuestasVF[contadoresTipoPreguntas[4]]
+            respuestaVF=""
+            if respuestaVFjson.find("true") != -1:
+                respuestaVF= "T"
+            else:
+                respuestaVF ="F"
+            pdf.cell(200, 8, txt = "Respuesta alumno:" + str(respuestaVF),ln = 1, align = 'L')
+            #Respuesta verdadero
+            respuestaVerdadera =  dataJSON["preguntasModal5"][contadoresTipoPreguntas[4]]["1"]           
+            pdf.cell(200, 8, txt = "Respuesta verdadera:" + str(respuestaVerdadera),ln = 1, align = 'L')
+            #Aumentar contador preguntas de verdadero y falso
+            contadoresTipoPreguntas[4]+=1
+        elif tipoPregunta == "optMultiple":
+            #Titulo de pregunta
+            tituloPreguntaOpcMul = dataJSON["preguntasModal1"][contadoresTipoPreguntas[0]]["0"]
+            pdf.cell(200, 8, txt = str(i +1)+"."+tituloPreguntaOpcMul,ln = 1, align = 'L') 
+            #Puntos
+            PuntoPreguntaOpcMul = dataJSON["ponderacionGlobal"][0][str(i)]
+            pdf.cell(200, 8, txt = "puntos:" + str(PuntoPreguntaOpcMul),ln = 1, align = 'L')
+            #Opcciones
+            opcA = dataJSON["preguntasModal1"][contadoresTipoPreguntas[0]]["3"]
+            opcB = dataJSON["preguntasModal1"][contadoresTipoPreguntas[0]]["4"]
+            opcC = dataJSON["preguntasModal1"][contadoresTipoPreguntas[0]]["5"]
+            opcD = dataJSON["preguntasModal1"][contadoresTipoPreguntas[0]]["6"]
+            pdf.cell(200, 8, txt = "Opción A:" + str(opcA),ln = 1, align = 'L')
+            pdf.cell(200, 8, txt = "Opción B:" + str(opcB),ln = 1, align = 'L')
+            pdf.cell(200, 8, txt = "Opción C:" + str(opcC),ln = 1, align = 'L')
+            pdf.cell(200, 8, txt = "Opción D:" + str(opcD),ln = 1, align = 'L')
+            #Respuestas alumno
+            numeroPreguntasOpcMul = len(dataJSON["preguntasModal1"])
+            jsonDatoRespuestasMul = dataJSON["preguntasModal1"] [numeroPreguntasOpcMul - 1] ["respuestas"]
+            respuestaEnJSON = jsonDatoRespuestasMul[contadoresTipoPreguntas[0]]
+            respuestaAlumnoFinal=""
+            if respuestaEnJSON.find("A") != -1:
+                respuestaAlumnoFinal= "A"
+            elif respuestaEnJSON.find("B") != -1:
+                respuestaAlumnoFinal ="B"
+            elif respuestaEnJSON.find("C") != -1:
+                respuestaAlumnoFinal ="C"
+            elif respuestaEnJSON.find("D") != -1:
+                respuestaAlumnoFinal ="D"
+            pdf.cell(200, 8, txt = "Respuesta alumno:" + str(respuestaAlumnoFinal),ln = 1, align = 'L')
+            #Respuesta verdadera
+            respuestaMulVerdadera = dataJSON["preguntasModal1"][contadoresTipoPreguntas[0]]["2"]
+            pdf.cell(200, 8, txt = "Respuesta Verdadera:" + str(respuestaMulVerdadera),ln = 1, align = 'L')
+            #Aumentar contador preguntas de opccion multiple
+            contadoresTipoPreguntas[0]+=1
+        elif tipoPregunta == "optArrastrars":
+            pass
+        elif tipoPregunta == "optEjercicios":
+            pass
+        elif tipoPregunta == "optAcompletar":
+            #Titulo de pregunta
+            tituloPreguntaOpcAcom= dataJSON["preguntasModal2"][contadoresTipoPreguntas[1]]["0"]
+            pdf.cell(200, 8, txt = str(i +1)+"."+tituloPreguntaOpcAcom,ln = 1, align = 'L')
+            #Puntos
+            PuntoPreguntaOpcMul = dataJSON["ponderacionGlobal"][0][str(i)]
+            pdf.cell(200, 8, txt = "puntos:" + str(PuntoPreguntaOpcMul),ln = 1, align = 'L')
+            #Respuestas alumno            
+            numeroPreguntasComp = len(dataJSON["preguntasModal2"])
+            jsonDatoRespuestasComp = dataJSON["preguntasModal2"] [numeroPreguntasComp - 1] ["respuestas"]
+            respuestaEnJSONComp = jsonDatoRespuestasComp[contadoresTipoPreguntas[1]]
+            indicePrefijo = respuestaEnJSONComp.find("//")
+            subString1 = respuestaEnJSONComp[indicePrefijo +2:]
+            indiceSufijo = subString1.find("&")
+            subString2 =  subString1[:indiceSufijo]
+            respuestaFinalComp = subString2.replace("/",",")
+            pdf.cell(200, 8, txt ="Respuestas usuario:"+respuestaFinalComp,ln = 1, align = 'L')
+            #Verdaderas respuestas
+            numeroRespuestasComp=len(dataJSON["preguntasModal2"][contadoresTipoPreguntas[1]])
+            respuestasVerdaderasComp="" 
+            for j in range(1, numeroRespuestasComp):
+                respuestasVerdaderasComp+= dataJSON["preguntasModal2"][contadoresTipoPreguntas[1]][str(j)]+ ","
+            respuestasVerdaderasComp = respuestasVerdaderasComp [:-1]
+            pdf.cell(200, 8, txt ="Respuestas verdaderas:"+respuestasVerdaderasComp,ln = 1, align = 'L')
+            #Aumentar contador preguntas de acompletar
+            contadoresTipoPreguntas[1]+=1
+        elif tipoPregunta == "optAbierta":
+            pass
+    response = make_response(pdf.output(dest='S').encode('latin-1'))
+    response.headers.set('Content-Disposition', 'attachment', filename="Resultados" + '.pdf')
+    response.headers.set('Content-Type', 'application/pdf')
+
+
+    return response
