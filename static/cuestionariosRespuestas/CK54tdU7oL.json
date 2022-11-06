@@ -5,6 +5,9 @@
    "1": "optFalsoVerdadero",
    "2": "optAcompletar",
    "3": "optFalsoVerdadero"
+  },
+  {
+   "retrasado": "true"
   }
  ],
  "ponderacionGlobal": [
@@ -24,6 +27,11 @@
    "4": "b",
    "5": "",
    "6": ""
+  },
+  {
+   "respuestas": [
+    "opt1InputGet_0/B&1"
+   ]
   }
  ],
  "preguntasModal2": [
@@ -31,10 +39,23 @@
    "0": "espacio1 [Blank 1] espacio2[Blank 2]",
    "1": "b1",
    "2": "b2"
+  },
+  {
+   "respuestas": [
+    "opt2InputGet_0//a/a&1"
+   ]
   }
  ],
- "preguntasModal3": [],
- "preguntasModal4": [],
+ "preguntasModal3": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal4": [
+  {
+   "respuestas": []
+  }
+ ],
  "preguntasModal5": [
   {
    "0": "pregunta 2",
@@ -43,7 +64,17 @@
   {
    "0": "pregunta 3",
    "1": "V"
+  },
+  {
+   "respuestas": [
+    "opt5InputGet_0/true&1",
+    "opt5InputGet_1/false&1"
+   ]
   }
  ],
- "preguntasModal6": []
+ "preguntasModal6": [
+  {
+   "respuestas": []
+  }
+ ]
 }
