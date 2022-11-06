@@ -722,12 +722,18 @@ def genera_cuestionarios_por_lenguaje():
     for i in cuestionarios:
         if i["temas"] in llaves[0] and i["tipo"] in llaves[1]:
             cuestionario_personalizado=i
+            datos_cuestionario=[i["autor"],i["fecha"],i["lenguaje"],i["temas"],i["tipo"]]
     
-    print(cuestionario_personalizado)
+    cuestionario=cuestionario_personalizado["preguntas"]
+    cuestionario=json.loads(cuestionario)
+
+    print(datos_cuestionario)
     id_profesor=session['IDDocente']
     cuestionario_rutas = Op_profesor.obtener_cuestionarios_rutas(id_profesor)
     resultCuestionarios = Op_profesor.obtener_cuestionarios_datos_importantes(id_profesor)
-    return render_template('profesor/cuestionario_del_banco_personalizado.html', id_profesor = id_profesor, cuestionario_rutas = cuestionario_rutas, datosCuestionario = resultCuestionarios,cuestionario=cuestionario_personalizado)
+    #return render_template('profesor/cuestionario_del_banco_personalizado.html', id_profesor = id_profesor, cuestionario_rutas = cuestionario_rutas, datosCuestionario = resultCuestionarios,cuestionario=cuestionario_personalizado)
+    return render_template('profesor/b_verCuestionarioBanco.html', datosCuestionario = datos_cuestionario, dataJSON = cuestionario)
+
 
 #Java coder runner
 @routes.route("/java_runner")
@@ -892,7 +898,8 @@ def view_cuestionario(id_cuestionario):
     #Guardamos la data como string
     #dataJSONstr = json.dumps(dataJSON, indent=2)
     f.close()
-
+    print(type(datosCuestionario))
+    print(datosCuestionario)
     #Enviamos al usuario al formulario para ver datos del cuestionario.
     return render_template('profesor/b_verCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON)
 
