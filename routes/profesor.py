@@ -679,24 +679,26 @@ def creacion_cuestionarios(id_profesor):
 def crear_cuestionario_del_banco():
     if request.method == 'POST':
         query=request.form["lenguaje"]
-        url=f"https://banco-de-datos.herokuapp.com/preguntas?lenguaje={query}"
+        url=f"https://banco-de-datos.herokuapp.com/cuestionarios?lenguaje={query}"
         response=requests.request("GET",url=url)
-        preguntas=response.text
-        preguntas=preguntas[1:-2]
-        preguntas=preguntas.replace("\"preguntas\":","")
-        preguntas = ast.literal_eval(preguntas)
+        cuestionarios=response.text
+        cuestionarios=cuestionarios[1:-2]
+        cuestionarios=cuestionarios.replace("\"cuestionarios\":","")
+        cuestionarios = ast.literal_eval(cuestionarios)
 
+        print(cuestionarios)
+        print(type(cuestionarios))
         temas=[]
-        tipo_pregunta=[]
+        tipos_cuestionarios=[]
 
-        for i in preguntas:
-            if i["tema"] not in temas:
-                temas.append(i["tema"])
+        for i in cuestionarios:
+            if i["temas"] not in temas:
+                temas.append(i["temas"])
+                tipos_cuestionarios.append(i["tipo"])
             
-            if i["tipo_pregunta"] not in tipo_pregunta:
-                tipo_pregunta.append(i["tipo_pregunta"])
+            
 
-        return render_template("profesor/cuestionarios_del_banco.html",temas=temas,preguntas=tipo_pregunta,lenguaje=query)
+        return render_template("profesor/cuestionarios_del_banco.html",temas=temas,lenguaje=query,tipos=tipos_cuestionarios)
     
     return render_template("profesor/cuestionarios_del_banco.html")
 

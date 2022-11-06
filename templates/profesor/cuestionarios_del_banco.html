@@ -49,20 +49,10 @@
         <form action="/genera_preguntas_por_lenguaje?lenguaje={{lenguaje}}" method="post">
             <p>Selecciona los temas que tendra el cuestionario</p>
             {% if temas %}
-            {% for tema in temas %}
+            {% for i in range(temas|length) %}
             <label>
                 <input type="checkbox" class="filled-in" name="temas" value="{{tema}}" />
-                <span>{{tema}}</span>
-            </label>
-            <br>
-            {% endfor %}
-            {% endif %}
-            <p>Selecciona los tipos de preguntas que tendra el cuestionario</p>
-            {% if preguntas %}
-            {% for pregunta in preguntas %}
-            <label>
-                <input type="checkbox" class="filled-in" name="tipos" value="{{pregunta}}" />
-                <span>{{pregunta}}</span>
+                <span>Temas: {{temas[i]}}   <br>Tipo de examen: {{tipos[i]}}</span>
             </label>
             <br>
             {% endfor %}
