@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en">
 
 <head>
@@ -46,12 +45,12 @@
         <h5>Configura tu cuestionario en {{lenguaje}} conforme a lo siguiente</h5>
         {% endif %}
 
-        <form action="/genera_preguntas_por_lenguaje?lenguaje={{lenguaje}}" method="post">
+        <form action="/genera_cuestionarios_por_lenguaje?lenguaje={{lenguaje}}" method="post">
             <p>Selecciona los temas que tendra el cuestionario</p>
             {% if temas %}
             {% for i in range(temas|length) %}
             <label>
-                <input type="checkbox" class="filled-in" name="temas" value="{{tema}}" />
+                <input type="checkbox" class="filled-in" name="llaves" value="{{temas[i]}},{{tipos[i]}}" />
                 <span>Temas: {{temas[i]}}   <br>Tipo de examen: {{tipos[i]}}</span>
             </label>
             <br>
