@@ -72,6 +72,7 @@ function grafica_lineal_promedio_general() {
     
     let arrayTrazos = Object.values(objetoTrazos);
     console.log('arrayTrazos', arrayTrazos);
+    console.log('promediosMultidimensional', promediosMultidimensional)
 
     //Creamos nuestros objetos con los nombres del trace
     contador=0;

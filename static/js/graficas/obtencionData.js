@@ -225,20 +225,21 @@ let porcentajePromedioEquivalente = promedioFinalPorGrupo.map(promedio => {
 console.log('porcentajePromedioEquivalente', porcentajePromedioEquivalente)
 
 //Hacemos arrays multidimensionales por cuestionarios hechos
+let promediosCuestionariosHechosCopia2 = [...promediosCuestionariosHechos];
 let promediosCuestionariosMultidimensionales = [];
 for (var y = 0; y < contadorFrecuenciaRespuestasArray.length; y++) {
     //Para los minutos por cuestionario
     let arrayTemporal1 = [];
-    arrayTemporal1.push(promediosCuestionariosHechos.splice(0, contadorFrecuenciaRespuestasArray[y]));
+    arrayTemporal1.push(promediosCuestionariosHechosCopia2.splice(0, contadorFrecuenciaRespuestasArray[y]));
     promediosCuestionariosMultidimensionales.push(arrayTemporal1);
 }
 console.log('Promedio por cuestionario multidimensional = ', promediosCuestionariosMultidimensionales)
 
 //Sumamos los promedios del array de promedios multidimensional
 let promediosPorCuestionario = []
-promediosCuestionariosMultidimensionales.map(element => {
+promediosCuestionariosMultidimensionales.forEach(element => {
     let sumaElementos = element[0].reduce((acumulado, value) => acumulado + value);
-    promediosPorCuestionario.push(parseFloat((sumaElementos/(element.length)).toFixed(2)));
+    promediosPorCuestionario.push(parseFloat((sumaElementos/(element[0].length)).toFixed(2)));
 });
 console.log('Promedios globales de los cuestionarios contestados = ', promediosPorCuestionario)
 
@@ -250,9 +251,9 @@ let minutosPorCuestionarioMultidimensional = [];
 let entregasRetrasoMultidimensional = [];
 for (var y = 0; y < contadorPosicionesIds.length; y++) {
     //Para los promedios
-    let arrayTemporal = [];
-    arrayTemporal.push(promediosCuestionariosHechos.splice(0, contadorPosicionesIds[y]));
-    promediosMultidimensional.push(arrayTemporal);
+    let arrayTemporal1 = [];
+    arrayTemporal1.push(promediosCuestionariosHechos.splice(0, contadorPosicionesIds[y]));
+    promediosMultidimensional.push(arrayTemporal1);
 
     //Para los intentos
     let arrayTemporal2 = [];
