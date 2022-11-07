@@ -35,13 +35,13 @@ console.log('Tiempos de respuesta de los cuestionarios = ', tiemposRespuestaCues
 //Debemos transformar las horas a un formato de minutos medible
 let horaConformatoNumerico = tiemposRespuestaCuestionariosHechos.map(hora => {
     //Quitamos el texto
-    let numeroHora = hora.replaceAll('h', '').replaceAll('m','').replaceAll('s','');
+    let numeroHora = hora.replaceAll('h', '').replaceAll('m', '').replaceAll('s', '');
     //Convertimos en un array
     numeroHora = numeroHora.split(':');
     //Obtenemos las hora a minutos
     numeroHora[0] = numeroHora[0] * 60;
     //Obtenemos los segundo a minutos
-    numeroHora[2] = parseInt((numeroHora[2] * (1/60)).toFixed(0));
+    numeroHora[2] = parseInt((numeroHora[2] * (1 / 60)).toFixed(0));
     //Obtenemos los minutos totales
     return numeroHora[0] + parseInt(numeroHora[1]) + numeroHora[2];
 })
@@ -68,24 +68,81 @@ let idsCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
 });
 console.log('Ids de los cuestionarios hechos = ', idsCuestionariosHechos)
 
+let idsCuestionariosHechosOrdenados = idsCuestionariosHechos.sort((current, actual) => {
+    return current - actual;
+})
+
+console.log("Ids de los cuestionarios en orden = ", idsCuestionariosHechosOrdenados);
 ////////////////////////////////////////////////////////
 //Accedemos a los nombres de los grupos del docente
 let datosCuestionariosProfe = document.getElementById('datosCuestionariosGeneralesCuestionarios').value;
 datosCuestionariosProfe = limpiarDatos(datosCuestionariosProfe);
 console.log('Datos de los cuestionarios = ', datosCuestionariosProfe);
 
+//Guardamos todos los nombres de los cuestionarios en un set
+let nombreCuestionariosSet = {};
+let idsCuestionariosSet = new Set();
+datosCuestionariosProfe.map(nombre => {
+    nombreCuestionariosSet[nombre[0]] = nombre[3];
+    idsCuestionariosSet.add(nombre[0]);
+});
+let arrayIdsCuestionariosGeneral = Array.from(idsCuestionariosSet);
+console.log('Ids de los cuestionarios ', arrayIdsCuestionariosGeneral);
+
+/*
+*   Hay que buscar los cuestionarios hechos con los cuestionarios general
+*   y borrar de los cuestionarios general los que no esten hechos.
+*/
+//arrayIdsCuestionariosGeneral (Todos los cuestionarios)
+//idsCuestionariosHechosOrdenados (Todos los cuestionarios hechos)
+let listaIdsCuestionariosDepurada =arrayIdsCuestionariosGeneral.filter(element => {
+    if(idsCuestionariosHechosOrdenados.includes(element)){
+        return element;
+    }else{
+        delete nombreCuestionariosSet[element];
+    }
+})
+console.log('listaIdsCuestionariosDepurada', listaIdsCuestionariosDepurada);
+console.log('Nombre de los cuestionarios ', nombreCuestionariosSet);
+
+//Obtenemos solo los values del objeto de nombres de los cuestionarios ()
+let cuestionarioConRespuestas = Object.values(nombreCuestionariosSet);
+console.log('Nombre de los cuestionarios con respuestas', cuestionarioConRespuestas);
+
+//Ordenamos la lista depurada
+let listaIdsCuestionariosDepuradaOrdenada = listaIdsCuestionariosDepurada.sort((current, element) => {
+    return current - element;
+});
+console.log('Lista depurada en orden', listaIdsCuestionariosDepuradaOrdenada);
+
+
+//Debemos contar cuantos cuestionarios hay contestados
+let contadorFrecuenciaRespuestas = idsCuestionariosHechosOrdenados.reduce((acc, curr) => {
+    if(acc[curr]){
+        ++acc[curr]
+    }else if(acc[curr] = ""){
+        acc[curr] = 0
+    }else{
+        acc[curr] = 1
+    }
+    return acc;
+}, {});
+
+console.log("Objeto con el conteo de los elementos", contadorFrecuenciaRespuestas) // => {2: 5, 4: 1, 5: 3, 9: 1}
+let contadorFrecuenciaRespuestasArray = Object.values(contadorFrecuenciaRespuestas);
+console.log('Array con el conteo de las respuestas', contadorFrecuenciaRespuestasArray) //🔴
+
 ////////////////////////////////////////////////////////
 //Extraemos los IDs de los grupos
 let idGrupos = [];
-idsCuestionariosHechos.map((idGrupo) => {
+idsCuestionariosHechosOrdenados.map((idGrupo) => {
     datosCuestionariosProfe.forEach(grupoId => {
         if (idGrupo == grupoId[0]) {
             idGrupos.push(grupoId[1]);
         }
     });
 });
-console.log('idGrupos', idGrupos)
-
+console.log('idGrupos', idGrupos);
 
 ////////////////////////////////////////////////////////
 //Accedemos a los nombres de los grupos del docente
@@ -167,6 +224,24 @@ let porcentajePromedioEquivalente = promedioFinalPorGrupo.map(promedio => {
 });
 console.log('porcentajePromedioEquivalente', porcentajePromedioEquivalente)
 
+//Hacemos arrays multidimensionales por cuestionarios hechos
+let promediosCuestionariosMultidimensionales = [];
+for (var y = 0; y < contadorFrecuenciaRespuestasArray.length; y++) {
+    //Para los minutos por cuestionario
+    let arrayTemporal1 = [];
+    arrayTemporal1.push(promediosCuestionariosHechos.splice(0, contadorFrecuenciaRespuestasArray[y]));
+    promediosCuestionariosMultidimensionales.push(arrayTemporal1);
+}
+console.log('Promedio por cuestionario multidimensional = ', promediosCuestionariosMultidimensionales)
+
+//Sumamos los promedios del array de promedios multidimensional
+let promediosPorCuestionario = []
+promediosCuestionariosMultidimensionales.map(element => {
+    let sumaElementos = element[0].reduce((acumulado, value) => acumulado + value);
+    promediosPorCuestionario.push(parseFloat((sumaElementos/(element.length)).toFixed(2)));
+});
+console.log('Promedios globales de los cuestionarios contestados = ', promediosPorCuestionario)
+
 //Debemos separar en un array multidimensional los promedios de los cuestionarios por grupo
 let promediosMultidimensional = []; //[[],[],[]] un array por grupo
 let intentosMultidimensional = [];
@@ -178,7 +253,7 @@ for (var y = 0; y < contadorPosicionesIds.length; y++) {
     let arrayTemporal = [];
     arrayTemporal.push(promediosCuestionariosHechos.splice(0, contadorPosicionesIds[y]));
     promediosMultidimensional.push(arrayTemporal);
-    
+
     //Para los intentos
     let arrayTemporal2 = [];
     arrayTemporal2.push(intentosCuestionariosHechos.splice(0, contadorPosicionesIds[y]));
@@ -188,7 +263,7 @@ for (var y = 0; y < contadorPosicionesIds.length; y++) {
     let arrayTemporal3 = [];
     arrayTemporal3.push(idsAlumnosCuestionariosHechos.splice(0, contadorPosicionesIds[y]));
     idsAlumnosMultidimensional.push(arrayTemporal3);
-    
+
     //Para los minutos por cuestionario
     let arrayTemporal4 = [];
     arrayTemporal4.push(horaConformatoNumerico.splice(0, contadorPosicionesIds[y]));
@@ -217,7 +292,7 @@ console.log('Suma tiempos / cantidad cuestionarios en minutos', sumaTiemposCuest
 
 //Calculamos el promedio de tiempo por cuestionario
 let promedioTiempoPorGrupo = sumaTiemposCuestionarioMultidimensional.map(tiempo => {
-    return parseFloat(((tiempo[0]/tiempo[1])*(1/60)).toFixed(1));
+    return parseFloat(((tiempo[0] / tiempo[1]) * (1 / 60)).toFixed(1));
 });
 console.log('Promedio de tiempo por grupo', promedioTiempoPorGrupo)
 
@@ -229,15 +304,15 @@ entregasRetrasoMultidimensional.forEach((element) => {
     let arrayTemporalRetrasado = [];
     let arrayTemporalA_tiempo = [];
     element[0].forEach(estado => {
-        if(estado == "retraso"){
+        if (estado == "retraso") {
             arrayTemporalRetrasado.push(estado);
-        }else{
+        } else {
             arrayTemporalA_tiempo.push(estado);
         }
     });
     let total = arrayTemporalRetrasado.length + arrayTemporalA_tiempo.length;
-    cantidadRetrasos.push(parseFloat(((arrayTemporalRetrasado.length*100)/total).toFixed(2)));
-    cantidadATiempo.push(parseFloat(((arrayTemporalA_tiempo.length*100)/total).toFixed(2)));
+    cantidadRetrasos.push(parseFloat(((arrayTemporalRetrasado.length * 100) / total).toFixed(2)));
+    cantidadATiempo.push(parseFloat(((arrayTemporalA_tiempo.length * 100) / total).toFixed(2)));
 });
 console.log('Porcentaje de retraso por grupo', cantidadRetrasos)
 console.log('Porcentaje de a_tiempo por grupo', cantidadATiempo)
