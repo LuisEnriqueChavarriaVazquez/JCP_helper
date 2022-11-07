@@ -59,6 +59,40 @@ function promedio_general_por_cuestionario(idContainer, containerNumero) {
     });
 }
 
+//Muestra el tiempo promedio para responder un examen a nivel de cuestionario
+function promedio_tiempo_respuestas_por_cuestionario(idContainer, containerNumero) {
+    let contenedorPadre = document.getElementById(idContainer);
+    promedioTiempoPorCuestionario.forEach((tiempo, i = 0) => {
+        //Insertamos el análisis de 1 de cada 10 pasan
+        if (i == containerNumero) { //Valida que contenedor es...
+            let contenido = `
+            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Promedio tiempo respuestas por cuestionario</div>
+            <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
+            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Tiempo: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${tiempo}hrs.</span></p>
+            </div>`;
+            contenedorPadre.innerHTML += contenido;
+        }
+    });
+}
+//Imprimimos el total de reprobados y aprobados
+function comparacion_entre_reprobados_aprobados_por_cuestionario(idContainer, containerNumero) {
+    let contenedorPadre = document.getElementById(idContainer);
+    //Al lado del título del grupo pone el porcentage de aprobacion
+    aprobacionCuestionarios.forEach((aprobacion, i = 0) => {
+        if (i == containerNumero) { //Valida que contenedor es...
+            let contenido = `
+            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Cifraz de aprobación y reprobación.</div>
+            <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Aprobados:<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${aprobacionCuestionarios[i]}</span></p>
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Reprobados: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${reprobacionCuestionarios[i]}</span></p>
+            </div>`;
+            contenedorPadre.innerHTML += contenido;
+        }
+        i++
+    })
+}
+
+
 function promedio_max_min_por_grupo(idContainer, containerNumero) {
     let contenedorPadre = document.getElementById(idContainer);
 
@@ -77,44 +111,7 @@ function promedio_max_min_por_grupo(idContainer, containerNumero) {
 }
 
 //1 de cada tantos estudiantes pasa en determinado curso
-function analisis_pasar_por_grupo(idContainer, containerNumero) {
-    let contenedorPadre = document.getElementById(idContainer);
-    //Al lado del título del grupo pone el porcentage de aprobacion
-    let contadorIndependiente = document.getElementsByClassName('porcentajeAprobacionContadorIndividual');
 
-    porcentagesDividosPorGrupo.forEach((porcentageGrupo, i = 0) => {
-        //Insertamos el porcentage de aprobacion al inicio al lado del titulo
-        contadorIndependiente[i].textContent = porcentageGrupo[0] + "%";
-
-        //Insertamos el análisis de 1 de cada 10 pasan
-        if (i == containerNumero) { //Valida que contenedor es...
-            let formatoNumero = Math.ceil(porcentageGrupo[0] / 10);
-            let contenido = `
-            <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Índice de aprobación</div>
-                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario"><span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${formatoNumero}/10</span> aprueba</p>
-            </div>`;
-            contenedorPadre.innerHTML += contenido;
-        }
-        i++
-    });
-}
-
-//Muuestra el tiempo promedio para responder un examen a nivel grupal
-function promedio_tiempo_respuestas_por_cuestionario(idContainer, containerNumero) {
-    let contenedorPadre = document.getElementById(idContainer);
-    promedioTiempoPorGrupo.forEach((tiempo, i = 0) => {
-        //Insertamos el análisis de 1 de cada 10 pasan
-        if (i == containerNumero) { //Valida que contenedor es...
-            let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Promedio grupal tiempo respuestas</div>
-            <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
-            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Tiempo: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${tiempo}hrs.</span></p>
-            </div>`;
-            contenedorPadre.innerHTML += contenido;
-        }
-    });
-}
 
 //Imprime el procentage de reprobados y aprobados de cada grupo
 function distribucion_entregas_retraso_por_grupo(idContainer, containerNumero) {
@@ -151,13 +148,13 @@ function insertarCajasHijasEnCadaGrupo(numero_grupos, numero_ids) {
                 promedio_tiempo_respuestas_por_cuestionario(ids_indivual_cuestionarios[i][j], i)
             } else if (j == 3) {
                 document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('fourth_child_container');
-                analisis_pasar_por_grupo(ids_indivual_cuestionarios[i][j], i);
+                comparacion_entre_reprobados_aprobados_por_cuestionario(ids_indivual_cuestionarios[i][j], i);
             } else if (j == 4) {
                 document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('fifth_child_container');
-                promedio_max_min_por_grupo(ids_indivual_cuestionarios[i][j], i);
+                //promedio_max_min_por_grupo(ids_indivual_cuestionarios[i][j], i);
             }else if (j == 5) {
                 document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('sixth_child_container');
-                distribucion_entregas_retraso_por_grupo(ids_indivual_cuestionarios[i][j], i);
+                //distribucion_entregas_retraso_por_grupo(ids_indivual_cuestionarios[i][j], i);
             }
         }
     }

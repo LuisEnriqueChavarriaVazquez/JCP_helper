@@ -53,7 +53,7 @@ function grafica_aprobados_reprobados_por_cuestionario() {
     });
 
     let arrayTrazos = Object.values(objetoTrazos);
-    console.log('arrayTrazos', arrayTrazos);
+    console.log('aprobacionCuestionarioMultidimensionalCuenta', aprobacionCuestionarioMultidimensionalCuenta);
 
     //Creamos nuestros objetos con los nombres del trace
     contador = 0;
