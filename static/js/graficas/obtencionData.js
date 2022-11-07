@@ -491,7 +491,10 @@ estadoAprobacionMultidimensional2.forEach(element => {
 aprobacionCuestionarioMultidimensionalCuenta.push(aprobacionCuestionarios, reprobacionCuestionarios);
 
 //Es un array con el conteo final de los aprobados y reprobados.
-console.log('Contador de aprobacion por cuestionario =', aprobacionCuestionarioMultidimensionalCuenta)
+console.log('Contador de aprobacion por cuestionario =', aprobacionCuestionarioMultidimensionalCuenta);
+
+///////////////////////ANALISIS DEL PUNTAJE POR TIPO DE PREGUNTA
+let nombreTipoPregunta = ["Opt1","Opt2","Opt3","Opt4","Opt5","Opt6"];
 
 
 /////////////////////////////////////////////////

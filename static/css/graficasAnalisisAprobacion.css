@@ -43,14 +43,40 @@
     margin: 5px 0;
 }
 
+.significado_dato_son3{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.containerSimbologiaTipoPregunta{
+    display: grid;
+    grid-template-columns: .1fr 4fr;
+    grid-template-rows: auto;
+}
+
 .simbologiaBarra{
     width: 40px !important;
     height: 25px !important;
 }
 
+.simbologiaBarraPequeno{
+    width: 100% !important;
+    height: 100% !important;
+}
+
 .textoSignificado{
     font-weight: 500;
     font-size: 16px;
+    margin-left: 20px;
+}
+
+.textoTipoPregunta{
+    font-weight: 500;
+    font-size: 13px;
     margin-left: 20px;
 }
 

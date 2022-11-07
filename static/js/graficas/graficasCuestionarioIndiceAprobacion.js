@@ -1,6 +1,10 @@
 ////////////////////////////////////////////////////////
 //Imprime la gráfica de barras
 function grafica_tiempo_general_respuesta_cuestinario() {
+    //Vaciamos de manera manual contenido de la caja
+   let container = document.getElementById('graph4');
+   container.innerHTML = "";
+
     var trace1 = {
         type: 'bar',
         x: cuestionarioConRespuestas,
@@ -69,4 +73,82 @@ function grafica_aprobados_reprobados_por_cuestionario() {
    //Imprimimos la tendencia global en el encabezado
    let tendenciaGlobalAprobación = document.getElementById('trendGlobalAprobacion');
    tendenciaGlobalAprobación.innerText = arrayPorcentajeAprobacion[0];
+}
+
+function porcentaje_aciertos_tipo_pregunta(){
+    //Vaciamos de manera manual contenido de la caja
+    let container = document.getElementById('graph4');
+    container.innerHTML = "";
+
+    //Insertamos contenedor para la informacion
+    container.innerHTML = `
+        <section class="contenedorAnalisisPorcentage">
+            <section class="contenedorAnalisisPorcentage_son2">
+                <div class="significado_dato_son2">
+                    <div class="color2 simbologiaBarra bordered1"> </div>
+                    <div class="colorTextReverse textoSignificado">Aciertos</div>
+                </div>
+                <div class="significado_dato_son2">
+                    <div class="color3 simbologiaBarra bordered1"> </div>
+                    <div class="colorTextReverse textoSignificado">Error</div>
+                </div>
+                <div class="significado_dato_son3">
+                    <div class="containerSimbologiaTipoPregunta">
+                        <div class="color5 simbologiaBarraPequeno bordered1"> </div>   
+                        <div class="colorTextReverse textoTipoPregunta">Opt1 = <span class="tipoPreguntaSpan">Opción multiple</span></div>
+                    </div>    
+                    <div class="containerSimbologiaTipoPregunta">    
+                        <div class="color5 simbologiaBarraPequeno bordered1"> </div>
+                        <div class="colorTextReverse textoTipoPregunta">Opt2 = <span class="tipoPreguntaSpan">Rellenar espacios</span></div>
+                    </div>
+                    <div class="containerSimbologiaTipoPregunta">    
+                        <div class="color5 simbologiaBarraPequeno bordered1"> </div>
+                        <div class="colorTextReverse textoTipoPregunta">Opt3 = <span class="tipoPreguntaSpan">Ejercicios</span></div>
+                    </div>
+                    <div class="containerSimbologiaTipoPregunta">    
+                        <div class="color5 simbologiaBarraPequeno bordered1"> </div>
+                        <div class="colorTextReverse textoTipoPregunta">Opt4 = <span class="tipoPreguntaSpan">Arrastrar</span></div>
+                    </div>
+                    <div class="containerSimbologiaTipoPregunta">    
+                        <div class="color5 simbologiaBarraPequeno bordered1"> </div>
+                        <div class="colorTextReverse textoTipoPregunta">Opt5 = <span class="tipoPreguntaSpan">Falso/verdadero</span></div>
+                    </div>
+                    <div class="containerSimbologiaTipoPregunta">    
+                        <div class="color5 simbologiaBarraPequeno bordered1"> </div>
+                        <div class="colorTextReverse textoTipoPregunta">Opt6 = <span class="tipoPreguntaSpan">Pregunta abierta</span></div>
+                    </div>
+                </div>
+            </section>
+            <section class="contenedorAnalisisPorcentage_son3" id="dataContainerBarHTML">
+
+            </section>
+        </section>
+    `;
+
+    //Debemos imprimir los datos de procentage de todos los grupos
+    let contenedorAnalisisHtml = document.getElementById('dataContainerBarHTML');
+    let contendorGlobalDataAnalisisBar = `
+        <div class="containerInfoBarAnalisisAprobacion bordered1 colorGreyWhiter shadow-1e">
+            <div class="titleInfoBarAnalisisAprobacion">Global.</div>
+            <div class="barContainerInfoBarAnalisisAprobacion">
+                <p class="color2 colorText aprobadosBar_analisis" style="width:${porcentageGlobal[0]}%;"> ${porcentageGlobal[0]}% </p>
+                <p class="color3 colorText reprobadosBar_analisis" style="width:${porcentageGlobal[1]}%;"> ${porcentageGlobal[1]}% </p> 
+            </div>
+        </div>
+    `;
+    contenedorAnalisisHtml.innerHTML = contendorGlobalDataAnalisisBar;
+
+    //Insertamos todos los procentajes de los grupos.
+    nombreTipoPregunta.forEach((nombre, i = 0) => {
+        contendorGlobalDataAnalisisBar = `
+            <div class="containerInfoBarAnalisisAprobacion bordered1 colorGreyWhiter shadow-1e">
+                <div class="titleInfoBarAnalisisAprobacion">${nombre}</div>
+                <div class="barContainerInfoBarAnalisisAprobacion">
+                    <p class="color2 colorText aprobadosBar_analisis" style="width:${porcentagesDividosPorGrupo[i][0]}%;"> ${porcentagesDividosPorGrupo[i][0]}% </p>
+                    <p class="color3 colorText reprobadosBar_analisis" style="width:${porcentagesDividosPorGrupo[i][1]}%;"> ${porcentagesDividosPorGrupo[i][1]}% </p> 
+                </div>
+            </div>
+        `;
+        contenedorAnalisisHtml.innerHTML += contendorGlobalDataAnalisisBar;
+    });
 }
