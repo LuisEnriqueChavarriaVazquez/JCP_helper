@@ -2,18 +2,15 @@
 //Imprime la gráfica de barras
 function grafica_tiempo_general_respuesta_cuestinario() {
     //Vaciamos de manera manual contenido de la caja
-   let container = document.getElementById('graph4');
-   container.innerHTML = "";
+    let container = document.getElementById('graph4');
+    container.innerHTML = "";
 
     var trace1 = {
         type: 'bar',
         x: cuestionarioConRespuestas,
         y: promedioTiempoPorCuestionario, //Promedio de tiempo
         marker: {
-            color: ['#628E90', '#256D85', '#7895B2', '#5F6F94', '#2B4865','#628E90', '#256D85', '#7895B2', '#5F6F94', '#2B4865','#628E90', '#256D85', '#7895B2', '#5F6F94', '#2B4865'],
-            line: {
-                width: 1
-            }
+            color: arrayColores
         }
     };
 
@@ -32,50 +29,55 @@ grafica_tiempo_general_respuesta_cuestinario(); //Esta ejecuta la gráfica por d
 
 
 function grafica_aprobados_reprobados_por_cuestionario() {
-   //Vaciamos de manera manual contenido de la caja
-   let container = document.getElementById('graph4');
-   container.innerHTML = "";
+    //Vaciamos de manera manual contenido de la caja
+    let container = document.getElementById('graph4');
+    container.innerHTML = "";
 
-   //Hacemos una fábrica de objetos
-   let objetoTrazos = {};
-   let contador = 0;
+    //Hacemos una fábrica de objetos
+    let objetoTrazos = {};
+    let contador = 0;
 
-   //Fábrica....
-   graficasTitle.forEach(claseAlumno => {
-       objetoTrazos[contador] = {
-           x: cuestionarioConRespuestas,
-           y: aprobacionCuestionarioMultidimensionalCuenta[contador++], //listo
-           name: claseAlumno,
-           type: 'bar',
-       }
-   });
+    //Array colores duales
+    let arrayColoresDuales = [];
+    arrayColoresDuales.push(arrayColores[1],arrayColores[4]);
 
-   let arrayTrazos = Object.values(objetoTrazos);
-   console.log('arrayTrazos', arrayTrazos);
+    //Fábrica....
+    graficasTitle.forEach((claseAlumno, i = 0) => {
+        objetoTrazos[contador] = {
+            x: cuestionarioConRespuestas,
+            y: aprobacionCuestionarioMultidimensionalCuenta[contador++], //listo
+            name: claseAlumno,
+            type: 'bar',
+            marker: {color: `${arrayColoresDuales[i++]}`}
+        }
+    });
 
-   //Creamos nuestros objetos con los nombres del trace
-   contador = 0;
-   var data = [];
-   arrayTrazos.forEach(trazo => {
-       data.push(arrayTrazos[contador++]);
-   });
+    let arrayTrazos = Object.values(objetoTrazos);
+    console.log('arrayTrazos', arrayTrazos);
 
-   var layout = { //Titulo de la gráfica
-       title: 'Comparación de reprobados vs aprobados',
-       font: { size: 10 },
-       barmode: 'stack',
-   };
+    //Creamos nuestros objetos con los nombres del trace
+    contador = 0;
+    var data = [];
+    arrayTrazos.forEach(trazo => {
+        data.push(arrayTrazos[contador++]);
+    });
 
-   var config = { responsive: true } //Ajuste responsivo
+    var layout = { //Titulo de la gráfica
+        title: 'Comparación de reprobados vs aprobados',
+        font: { size: 10 },
+        barmode: 'stack',
+    };
 
-   Plotly.newPlot('graph4', data, layout, config);
+    var config = { responsive: true } //Ajuste responsivo
 
-   //Imprimimos la tendencia global en el encabezado
-   let tendenciaGlobalAprobación = document.getElementById('trendGlobalAprobacion');
-   tendenciaGlobalAprobación.innerText = arrayPorcentajeAprobacion[0];
+    Plotly.newPlot('graph4', data, layout, config);
+
+    //Imprimimos la tendencia global en el encabezado
+    let tendenciaGlobalAprobación = document.getElementById('trendGlobalAprobacion');
+    tendenciaGlobalAprobación.innerText = arrayPorcentajeAprobacion[0];
 }
 
-function porcentaje_aciertos_tipo_pregunta(){
+function porcentaje_aciertos_tipo_pregunta() {
     //Vaciamos de manera manual contenido de la caja
     let container = document.getElementById('graph4');
     container.innerHTML = "";
@@ -119,24 +121,25 @@ function porcentaje_aciertos_tipo_pregunta(){
                     </div>
                 </div>
             </section>
-            <section class="contenedorAnalisisPorcentage_son3" id="dataContainerBarHTML">
+            <section class="contenedorAnalisisPorcentage_son3" id="dataContainerBarHTML2">
 
             </section>
         </section>
     `;
 
     //Debemos imprimir los datos de procentage de todos los grupos
-    let contenedorAnalisisHtml = document.getElementById('dataContainerBarHTML');
+    let contenedorAnalisisHtml = document.getElementById('dataContainerBarHTML2');
     let contendorGlobalDataAnalisisBar = `
         <div class="containerInfoBarAnalisisAprobacion bordered1 colorGreyWhiter shadow-1e">
             <div class="titleInfoBarAnalisisAprobacion">Global.</div>
             <div class="barContainerInfoBarAnalisisAprobacion">
                 <p class="color2 colorText aprobadosBar_analisis" style="width:${porcentageGlobal[0]}%;"> ${porcentageGlobal[0]}% </p>
                 <p class="color3 colorText reprobadosBar_analisis" style="width:${porcentageGlobal[1]}%;"> ${porcentageGlobal[1]}% </p> 
-            </div>
-        </div>
-    `;
+                </div>
+                </div>
+                `;
     contenedorAnalisisHtml.innerHTML = contendorGlobalDataAnalisisBar;
+    console.log('porcentageGlobal', porcentagesDividosPorGrupo)
 
     //Insertamos todos los procentajes de los grupos.
     nombreTipoPregunta.forEach((nombre, i = 0) => {
@@ -144,8 +147,8 @@ function porcentaje_aciertos_tipo_pregunta(){
             <div class="containerInfoBarAnalisisAprobacion bordered1 colorGreyWhiter shadow-1e">
                 <div class="titleInfoBarAnalisisAprobacion">${nombre}</div>
                 <div class="barContainerInfoBarAnalisisAprobacion">
-                    <p class="color2 colorText aprobadosBar_analisis" style="width:${porcentagesDividosPorGrupo[i][0]}%;"> ${porcentagesDividosPorGrupo[i][0]}% </p>
-                    <p class="color3 colorText reprobadosBar_analisis" style="width:${porcentagesDividosPorGrupo[i][1]}%;"> ${porcentagesDividosPorGrupo[i][1]}% </p> 
+                    <p class="color2 colorText aprobadosBar_analisis" style="width:50%;"> 50% </p>
+                    <p class="color3 colorText reprobadosBar_analisis" style="width:50%;"> 50% </p> 
                 </div>
             </div>
         `;

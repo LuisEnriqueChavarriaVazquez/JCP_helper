@@ -8,10 +8,7 @@ function grafica_barras_numero_cuestionarios_por_grupo() {
         x: cuestionarioConRespuestas,
         y: contadorFrecuenciaRespuestasArray,
         marker: {
-            color: ['#628E90', '#256D85', '#7895B2', '#5F6F94', '#2B4865','#628E90', '#256D85', '#7895B2', '#5F6F94', '#2B4865','#628E90', '#256D85', '#7895B2', '#5F6F94', '#2B4865'],
-            line: {
-                width: 1
-            }
+            color: arrayColores
         }
     };
 
@@ -36,10 +33,7 @@ function grafica_barras_promedio_general_por_cuestinario() {
         x: cuestionarioConRespuestas,
         y: promediosPorCuestionario, //Array con promedios generales
         marker: {
-            color: ['#628E90', '#256D85', '#7895B2', '#5F6F94', '#2B4865'],
-            line: {
-                width: 1
-            }
+            color: arrayColores
         }
     };
 
@@ -63,7 +57,9 @@ function grafica_radar_promedios_generales() {
         type: 'scatterpolar',
         r: promediosPorCuestionario,
         theta: cuestionarioConRespuestas,
-        fill: 'toself'
+        fill: 'toself',
+        fillcolor: arrayColores[3],
+        opacity: 0.8,
       }]
       
       layout = {
@@ -71,7 +67,8 @@ function grafica_radar_promedios_generales() {
           radialaxis: {
             visible: true,
             range: [0, 10]
-          }
+          },
+          bgcolor: arrayColores[4],
         },
         showlegend: false,
         title: "Radar de los promedios generales por cuestionario."

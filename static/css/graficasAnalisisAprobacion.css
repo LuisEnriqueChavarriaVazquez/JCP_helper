@@ -45,11 +45,22 @@
 
 .significado_dato_son3{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     gap: 10px;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 600px){
+    .significado_dato_son3{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
 }
 
 .containerSimbologiaTipoPregunta{

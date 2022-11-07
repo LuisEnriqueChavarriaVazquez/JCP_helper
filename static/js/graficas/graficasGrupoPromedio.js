@@ -8,10 +8,7 @@ function grafica_barras_promedio_general() {
         x: gruposNameArray,
         y: promedioFinalPorGrupo,
         marker: {
-            color: ['#628E90', '#256D85', '#7895B2', '#5F6F94', '#2B4865'],
-            line: {
-                width: 1
-            }
+            color: arrayColores,
         }
     };
 
@@ -36,7 +33,7 @@ function grafica_pastel_promedio_general() {
         labels: gruposNameArray,
         type: 'pie',
         marker: {
-            colors: ['#628E90', '#256D85', '#7895B2', '#5F6F94', '#2B4865']
+            colors: arrayColores
         }
     }];
 

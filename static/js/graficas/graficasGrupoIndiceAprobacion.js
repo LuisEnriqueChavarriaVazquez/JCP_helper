@@ -9,13 +9,18 @@ function grafica_barras_indice_aprobacion() {
     let objetoTrazos = {};
     let contador = 0;
 
+    //Array colores duales
+    let arrayColoresDuales = [];
+    arrayColoresDuales.push(arrayColores[1],arrayColores[4]);
+
     //Fábrica....
-    graficasTitle.forEach(claseAlumno => {
+    graficasTitle.forEach((claseAlumno, i = 0) => {
         objetoTrazos[contador] = {
             x: gruposNameArray,
             y: aprobacionTotal[contador++], //listo
             name: claseAlumno,
             type: 'bar',
+            marker: {color: `${arrayColoresDuales[i++]}`}
         }
     });
 
@@ -57,7 +62,7 @@ function grafica_pastel_indice_aprobacion() {
         labels: graficasTitle,
         type: 'pie',
         marker: {
-            colors: ['#628E90', '#256D85', '#7895B2', '#5F6F94', '#2B4865']
+            colors: arrayColores
         }
     }];
 
