@@ -95,7 +95,7 @@ console.log('Ids de los cuestionarios ', arrayIdsCuestionariosGeneral);
 */
 //arrayIdsCuestionariosGeneral (Todos los cuestionarios)
 //idsCuestionariosHechosOrdenados (Todos los cuestionarios hechos)
-let listaIdsCuestionariosDepurada =arrayIdsCuestionariosGeneral.filter(element => {
+let listaIdsCuestionariosDepurada = arrayIdsCuestionariosGeneral.filter(element => {
     if(idsCuestionariosHechosOrdenados.includes(element)){
         return element;
     }else{
@@ -227,13 +227,21 @@ console.log('porcentajePromedioEquivalente', porcentajePromedioEquivalente)
 //Hacemos arrays multidimensionales por cuestionarios hechos
 let promediosCuestionariosHechosCopia2 = [...promediosCuestionariosHechos];
 let promediosCuestionariosMultidimensionales = [];
+let horaConformatoNumericoCopia2 = [...horaConformatoNumerico];
+let horaConformatoNumericoMultidimensional2 = [];
 for (var y = 0; y < contadorFrecuenciaRespuestasArray.length; y++) {
-    //Para los minutos por cuestionario
+    //Para los promedios de los cuestionarios
     let arrayTemporal1 = [];
     arrayTemporal1.push(promediosCuestionariosHechosCopia2.splice(0, contadorFrecuenciaRespuestasArray[y]));
     promediosCuestionariosMultidimensionales.push(arrayTemporal1);
+
+    //Para los tiempos promedios de los cuestionarios
+    let arrayTemporal2 = [];
+    arrayTemporal2.push(horaConformatoNumericoCopia2.splice(0, contadorFrecuenciaRespuestasArray[y]));
+    horaConformatoNumericoMultidimensional2.push(arrayTemporal2);
 }
-console.log('Promedio por cuestionario multidimensional = ', promediosCuestionariosMultidimensionales)
+console.log('Promedio por cuestionario multidimensional = ', promediosCuestionariosMultidimensionales);
+console.log('Horas con formato de minutos muitidimensional = ', horaConformatoNumericoMultidimensional2);
 
 //Sumamos los promedios del array de promedios multidimensional
 let promediosPorCuestionario = []
@@ -241,7 +249,16 @@ promediosCuestionariosMultidimensionales.forEach(element => {
     let sumaElementos = element[0].reduce((acumulado, value) => acumulado + value);
     promediosPorCuestionario.push(parseFloat((sumaElementos/(element[0].length)).toFixed(2)));
 });
-console.log('Promedios globales de los cuestionarios contestados = ', promediosPorCuestionario)
+console.log('Promedios globales de los cuestionarios contestados = ', promediosPorCuestionario);
+
+//Sumamos el tiempo que se tardo cada estudiante y obtenemos el promedio en horas.
+let promedioTiempoPorCuestionario = [];
+horaConformatoNumericoMultidimensional2.forEach(element => {
+    let sumaElementos = element[0].reduce((sum, value) => sum + value);
+    sumaElementos = parseFloat((sumaElementos * (1/60)).toFixed(2))
+    promedioTiempoPorCuestionario.push(sumaElementos/element[0].length);
+})
+console.log('Promedio de tiempo por cuestionario = ', promedioTiempoPorCuestionario)
 
 //Debemos separar en un array multidimensional los promedios de los cuestionarios por grupo
 let promediosMultidimensional = []; //[[],[],[]] un array por grupo

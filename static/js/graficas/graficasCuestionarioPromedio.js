@@ -58,7 +58,7 @@ function grafica_barras_promedio_general_por_cuestinario() {
 //Imprime la gráfica lineal
 //gruposNameArray
 //promediosMultidimensional
-function grafica_tiempo_respuesta_promedio_cuestionario() {
+function grafica_radar_promedios_generales() {
     data = [{
         type: 'scatterpolar',
         r: promediosPorCuestionario,
