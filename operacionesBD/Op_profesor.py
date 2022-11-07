@@ -311,6 +311,17 @@ def obtener_cuestionarios_datos_importantes(id_profesor):
     conexion.close()
     return grupos
 
+def obtener_cuestionarios_datos_importantes_id_cuestionario(id_cuestionario):
+    conexion=obtener_conexion()
+    grupos=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM cuestionarios WHERE IDCuestionario = %s", (id_cuestionario))
+        grupos=cursor.fetchall()
+
+    conexion.close()
+    return grupos
+
 def obtener_cuestionarios_datos_importantes_con_grupo(id_grupo):
     conexion=obtener_conexion()
     grupos=[]

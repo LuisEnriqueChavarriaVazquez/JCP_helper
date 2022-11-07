@@ -174,11 +174,6 @@ def terminarRetroalimentarCuestionarios(id_cuestionario_pending):
 @routes.route('/gestionar_estadisticas/<string:id_docente>')
 #@login_required
 def gestionar_estadisticas(id_docente):
-    ######Manejo de las gráficas
-    xgrupos=["3cm14","3cm15","2cv12"]
-    ygrupos=[10,9.2,7]
-
-
     ##############################################################
     #Obtenemos los datos del grupo
     datosGrupo = Op_profesor.obtener_grupos_datos_importantes(id_docente)
@@ -195,6 +190,7 @@ def gestionar_estadisticas(id_docente):
         datosCuestionariosProfe += (Op_profesor.obtener_cuestionarios_datos_importantes_con_grupo(singleIDGrupo));
     #print(datosCuestionariosProfe)
 
+
     #Guardamos solo las IDS de los cuestionarios del docente
     idsCuestionariosProfe = []
     for singleIDCuestionario in datosCuestionariosProfe:
@@ -206,6 +202,20 @@ def gestionar_estadisticas(id_docente):
     for singleIDCuestionario in idsCuestionariosProfe:
         datosCuestionariosTerminados += (Op_profesor.obtener_cuestionarios_en_estado_ready(singleIDCuestionario))
     #print(datosCuestionariosTerminados)
+
+    #Guardamos solo las IDS de los cuestionarios que han sido terminados
+    idsCuestionariosProfeTerminados = []
+    for singleIDCuestionarioTerminado in datosCuestionariosTerminados:
+        idsCuestionariosProfeTerminados.append(int(singleIDCuestionarioTerminado[1]))
+    idsCuestionariosProfeTerminados_sinRepetir = list(dict.fromkeys(idsCuestionariosProfeTerminados))
+    listaOrdenada_cuestionarios_hechos_validados = sorted(idsCuestionariosProfeTerminados_sinRepetir)
+    #print(listaOrdenada_cuestionarios_hechos_validados)
+
+    #Debemos Buscar los datos de los cuestionarios con los IDS que tenemos
+    cuestionarioHechosValidados = ()
+    for singleIdCuestionarioHechoValido in listaOrdenada_cuestionarios_hechos_validados:
+        cuestionarioHechosValidados += Op_profesor.obtener_cuestionarios_datos_importantes_id_cuestionario(singleIdCuestionarioHechoValido);
+    #print(cuestionarioHechosValidados)
 
     datosGlobalesAlumnos = []
     alumnosDentroGrupo = []
@@ -254,7 +264,7 @@ def gestionar_estadisticas(id_docente):
     #Cuenta cuestionarios del docente.
     #print(contadorCuestionarios)
 
-    return render_template('profesor/a_gestionar_estadisticas.html',idGrupos=idGrupos,datosGrupo=datosGrupo, datosGlobalesAlumnos = datosGlobalesAlumnos, cantidadesDeAlumnos = cantidadesDeAlumnos,IDS_Cuestionarios = contadorCuestionarios,datosCuestionariosProfe = datosCuestionariosProfe, datosCuestionariosTerminados = datosCuestionariosTerminados,xgrupos=xgrupos,ygrupos=ygrupos)
+    return render_template('profesor/a_gestionar_estadisticas.html',cuestionarioHechosValidados = cuestionarioHechosValidados, idGrupos=idGrupos,datosGrupo=datosGrupo, datosGlobalesAlumnos = datosGlobalesAlumnos, cantidadesDeAlumnos = cantidadesDeAlumnos,IDS_Cuestionarios = contadorCuestionarios,datosCuestionariosProfe = datosCuestionariosProfe, datosCuestionariosTerminados = datosCuestionariosTerminados)
 
 ##Ruta para la vista de gestion de grupos
 ##
