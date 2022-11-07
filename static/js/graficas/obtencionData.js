@@ -364,6 +364,7 @@ let estadoAprobacion = datosCuestionariosTerminados.map((element) => {
     return element[5];
 });
 console.log('Estados de aprobacion = ', estadoAprobacion)
+let estadoAprobacionCopia1 = [...estadoAprobacion];
 
 //Se deben separar los estados de aprovado deun array multidimensional
 //contadorPosicionesIds
@@ -455,7 +456,43 @@ conteoPorGrupo.forEach((grupoTotal, i = 0) => {
     gruposArrayTemporal.push(porcentageTemporalAprobados, porcentageTemporalReprobados);
     porcentagesDividosPorGrupo.push(gruposArrayTemporal);
 })
-console.log('porcentagesDividosPorGrupo', porcentagesDividosPorGrupo)
+console.log('porcentagesDividosPorGrupo', porcentagesDividosPorGrupo);
+
+//Hacemos arrays multidimensionales por cuestionarios hechos de los estudiantes aprobados y reprobados
+let estadoAprobacionCopia2 = [...estadoAprobacionCopia1];
+let estadoAprobacionMultidimensional2 = [];
+for (var y = 0; y < contadorFrecuenciaRespuestasArray.length; y++) {
+    //Para los tiempos promedios de los cuestionarios
+    let arrayTemporal3 = [];
+    arrayTemporal3.push(estadoAprobacionCopia2.splice(0, contadorFrecuenciaRespuestasArray[y]));
+    estadoAprobacionMultidimensional2.push(arrayTemporal3);
+}
+console.log('Estado de aprobacion multidimensional (por cuestionario) = ', estadoAprobacionMultidimensional2);
+
+//Debemos contar los elementos que son reprobados/aprobados
+let aprobacionCuestionarioMultidimensionalCuenta = [];
+let aprobacionCuestionarios = [];
+let reprobacionCuestionarios = [];
+estadoAprobacionMultidimensional2.forEach(element => {
+    let contadorAprobados = 0;
+    let contadorReprobados = 0;
+    let arrayTemporal = [];
+    element[0].forEach(e => {
+        if (e == 'aprobado') {
+            contadorAprobados++;
+        } else if (e == 'reprobado') {
+            contadorReprobados++;
+        }
+    });
+
+    aprobacionCuestionarios.push(contadorAprobados);
+    reprobacionCuestionarios.push(contadorReprobados);
+});
+aprobacionCuestionarioMultidimensionalCuenta.push(aprobacionCuestionarios, reprobacionCuestionarios);
+
+//Es un array con el conteo final de los aprobados y reprobados.
+console.log('Contador de aprobacion por cuestionario =', aprobacionCuestionarioMultidimensionalCuenta)
+
 
 /////////////////////////////////////////////////
 //Funcion para limpiar los datos
