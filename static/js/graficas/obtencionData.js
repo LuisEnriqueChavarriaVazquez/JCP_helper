@@ -601,14 +601,93 @@ console.log('optTotalTipoPregunta', optTotalTipoPregunta)
 //Hacemos arrays multidimensionales por cuestionarios hechos de los estudiantes aprobados y reprobados
 let estadoAprobacionCopia2 = [...estadoAprobacionCopia1];
 let estadoAprobacionMultidimensional2 = [];
+let puntajesPreguntasSinFormato_cuestionarioIndependiente = [...arrayPuntajesPreguntasFragmentado];
+console.log([...arrayPuntajesPreguntasFragmentado]);
+let puntajesPreguntasSinFormato_cuestionarioIndependienteMultidimensional = [];
 for (var y = 0; y < contadorFrecuenciaRespuestasArray.length; y++) {
     //Para los tiempos promedios de los cuestionarios
     let arrayTemporal3 = [];
     arrayTemporal3.push(estadoAprobacionCopia2.splice(0, contadorFrecuenciaRespuestasArray[y]));
     estadoAprobacionMultidimensional2.push(arrayTemporal3);
+    
+    //Para los puntajes de las preguntas por el tipo
+    let arrayTemporal2 = [];
+    arrayTemporal2.push(puntajesPreguntasSinFormato_cuestionarioIndependiente.splice(0, contadorFrecuenciaRespuestasArray[y]));
+    puntajesPreguntasSinFormato_cuestionarioIndependienteMultidimensional.push(arrayTemporal2);
 }
 console.log('Estado de aprobacion multidimensional (por cuestionario) = ', estadoAprobacionMultidimensional2);
+console.log('Puntajes por las respuestas de los cuestionario (organizadaz por tipo)', puntajesPreguntasSinFormato_cuestionarioIndependienteMultidimensional)
 
+//Cada cuestionario tiene sus puntajes por tipo de pregunta, ahora hay que separalos.
+//Debemos tomar los elementos en orden y meterlos en 6 arrays
+let superArrayTipoPreguntas = [];
+puntajesPreguntasSinFormato_cuestionarioIndependienteMultidimensional.forEach(cuestionario => {
+    //Declaramos nuestros arrays temporales
+    let arrayopt1Temporal = [];
+    let arrayopt2Temporal = [];
+    let arrayopt3Temporal = [];
+    let arrayopt4Temporal = [];
+    let arrayopt5Temporal = [];
+    let arrayopt6Temporal = [];
+    let cuestionarioTemporalContainer = [];
+    //Organizamos todo por el tipo de pregunta
+    cuestionario[0].forEach(element => {
+        //console.log('cuestionario['+ +']', cuestionario[0])
+        element.forEach((value, i = 0) => {
+            //console.log(value)
+            if(i == 0){
+                arrayopt1Temporal.push(value);
+                i++;
+            }else if(i == 1){
+                arrayopt2Temporal.push(value);
+                i++;
+            }else if(i == 2){
+                arrayopt3Temporal.push(value);
+                i++;
+            }else if(i == 3){
+                arrayopt4Temporal.push(value);
+                i++;
+            }else if(i == 4){
+                arrayopt5Temporal.push(value);
+                i++;
+            }else if(i == 5){
+                arrayopt6Temporal.push(value);
+                i++;
+            }
+        })
+    });
+    cuestionarioTemporalContainer.push(arrayopt1Temporal,arrayopt2Temporal,arrayopt3Temporal,arrayopt4Temporal,arrayopt5Temporal,arrayopt6Temporal);
+    superArrayTipoPreguntas.push(cuestionarioTemporalContainer);
+})
+console.log('Tenemos las preguntas organizadas por tipo (por cuestionario)', superArrayTipoPreguntas) //🔴
+
+//Funcion para dividir los puntajes de los cuestionarios contestados (por cuestionario individual)
+function separarPuntajeTotal_porCuestionarios(array){
+    let optDividido = [];
+    let arrayPuntosTotales = [];
+    let arrayPuntosObtenidos = [];
+    array.forEach(element => {
+        let valorPuntos = element.split('/');
+        //console.log('valorPuntos', valorPuntos)
+        arrayPuntosTotales.push(parseFloat(valorPuntos[0]));
+        arrayPuntosObtenidos.push(parseFloat(valorPuntos[1]));    
+    })
+    optDividido.push(arrayPuntosTotales, arrayPuntosObtenidos);
+    return optDividido;
+}
+
+//Pasamos cada cuestionario a la función para que separe el puntaje total del obtenido
+let superArrayTipoPreguntasLimpio = [];
+superArrayTipoPreguntas.forEach(cuestionario => {
+    let arrayTemporal = [];
+    cuestionario.forEach(tipoPregunta => {
+        //console.log(tipoPregunta)
+        let puntajeDividido = separarPuntajeTotal_porCuestionarios(tipoPregunta);
+        arrayTemporal.push(puntajeDividido);
+    });
+    superArrayTipoPreguntasLimpio.push(arrayTemporal);
+});
+console.log('superArrayTipoPreguntasLimpio', superArrayTipoPreguntasLimpio)
 
 //Debemos contar los elementos que son reprobados/aprobados
 let aprobacionCuestionarioMultidimensionalCuenta = [];
