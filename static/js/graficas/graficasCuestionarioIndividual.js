@@ -42,7 +42,7 @@ function numero_de_respuestas_por_cuestionario(idContainer, containerNumero) {
     })
 }
 
-//Imprime el promedio de intentos por grupo
+//Promedios generales por cuestionario
 function promedio_general_por_cuestionario(idContainer, containerNumero) {
     let contenedorPadre = document.getElementById(idContainer);
 
@@ -56,6 +56,11 @@ function promedio_general_por_cuestionario(idContainer, containerNumero) {
             contenedorPadre.innerHTML += contenido;
         }
         i++
+    });
+
+    let promedio_por_cuestionario_container = document.querySelectorAll('.porcentajeAprobacionContadorIndividualCuestionario'); 
+    promedio_por_cuestionario_container.forEach((element, i = 0) => {
+        element.textContent = promediosPorCuestionario[i++];
     });
 }
 
@@ -168,7 +173,7 @@ function insertarCajasHijasEnCadaGrupo(numero_grupos, numero_ids) {
                 document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('sixth_child_container');
                 porcentaje_de_error_y_aciertos_cuestionario(ids_indivual_cuestionarios[i][j], i);
             }else if (j == 6) {
-                document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('sixth_child_container');
+                document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('seventh_child_container');
                 porcentaje_de_error_y_aciertos_cuestionario_por_tipo_pregunta(ids_indivual_cuestionarios[i][j], i);
             }
         }
