@@ -129,26 +129,14 @@ function porcentaje_aciertos_tipo_pregunta() {
 
     //Debemos imprimir los datos de procentage de todos los grupos
     let contenedorAnalisisHtml = document.getElementById('dataContainerBarHTML2');
-    let contendorGlobalDataAnalisisBar = `
-        <div class="containerInfoBarAnalisisAprobacion bordered1 colorGreyWhiter shadow-1e">
-            <div class="titleInfoBarAnalisisAprobacion">Global.</div>
-            <div class="barContainerInfoBarAnalisisAprobacion">
-                <p class="color2 colorText aprobadosBar_analisis" style="width:${porcentageGlobal[0]}%;"> ${porcentageGlobal[0]}% </p>
-                <p class="color3 colorText reprobadosBar_analisis" style="width:${porcentageGlobal[1]}%;"> ${porcentageGlobal[1]}% </p> 
-                </div>
-                </div>
-                `;
-    contenedorAnalisisHtml.innerHTML = contendorGlobalDataAnalisisBar;
-    console.log('porcentageGlobal', porcentagesDividosPorGrupo)
-
     //Insertamos todos los procentajes de los grupos.
     nombreTipoPregunta.forEach((nombre, i = 0) => {
         contendorGlobalDataAnalisisBar = `
             <div class="containerInfoBarAnalisisAprobacion bordered1 colorGreyWhiter shadow-1e">
                 <div class="titleInfoBarAnalisisAprobacion">${nombre}</div>
                 <div class="barContainerInfoBarAnalisisAprobacion">
-                    <p class="color2 colorText aprobadosBar_analisis" style="width:50%;"> 50% </p>
-                    <p class="color3 colorText reprobadosBar_analisis" style="width:50%;"> 50% </p> 
+                    <p class="color2 colorText aprobadosBar_analisis" style="width: ${optTotalTipoPregunta[i][1]}%;"> ${optTotalTipoPregunta[i][1]}% </p>
+                    <p class="color3 colorText reprobadosBar_analisis" style="width: ${optTotalTipoPregunta[i][0]}%;"> ${optTotalTipoPregunta[i][0]}% </p> 
                 </div>
             </div>
         `;
