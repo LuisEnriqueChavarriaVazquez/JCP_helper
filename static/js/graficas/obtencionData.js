@@ -584,7 +584,7 @@ optTotalTipoPregunta.forEach(pregunta => {
 let promedioTotalObtenidoTipoPregunta = parseFloat(((puntosObtenidosFor*100)/puntosTotalesFor).toFixed(2));
 let promedioTotalFaltanteTipoPregunta = parseFloat((100 - promedioTotalObtenidoTipoPregunta).toFixed(2));
 //Aqui metemos los puntos de todos los cuestionarios hechos
-let puntosTotalesTipoPreguntaArray = [promedioTotalObtenidoTipoPregunta,promedioTotalFaltanteTipoPregunta,puntosTotalesFor, puntosObtenidosFor];
+let puntosTotalesTipoPreguntaArray = [promedioTotalFaltanteTipoPregunta, promedioTotalObtenidoTipoPregunta,puntosTotalesFor, puntosObtenidosFor];
 
 //Almacenamos todos los puntajes finales de cada tipo de pregunta en el array.
 optTotalTipoPregunta.unshift(puntosTotalesTipoPreguntaArray); //🔴 Este es importante para imprimir en gráfico
