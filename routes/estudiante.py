@@ -712,6 +712,7 @@ def descargarPdfCuestionarioResuelto(id_cuestionario_resuelto):
             pdf.cell(200, 8, txt = "Respuesta verdadera:" + str(respuestaVerdadera),ln = 1, align = 'L')
             #Aumentar contador preguntas de verdadero y falso
             contadoresTipoPreguntas[4]+=1
+        #Preguntas de opccion multiple
         elif tipoPregunta == "optMultiple":
             #Titulo de pregunta
             tituloPreguntaOpcMul = dataJSON["preguntasModal1"][contadoresTipoPreguntas[0]]["0"]
@@ -747,10 +748,37 @@ def descargarPdfCuestionarioResuelto(id_cuestionario_resuelto):
             pdf.cell(200, 8, txt = "Respuesta Verdadera:" + str(respuestaMulVerdadera),ln = 1, align = 'L')
             #Aumentar contador preguntas de opccion multiple
             contadoresTipoPreguntas[0]+=1
-        elif tipoPregunta == "optArrastrars":
-            pass
+        #Preguntas de Arrastar  
+        elif tipoPregunta == "optArrastrar":
+            #Titulo de pregunta
+            tituloPreguntaArrastrar = dataJSON["preguntasModal4"][contadoresTipoPreguntas[3]]["0"]
+            pdf.cell(200, 8, txt = str(i +1)+"."+tituloPreguntaArrastrar,ln = 1, align = 'L') 
+            #Puntos
+            PuntoPreguntaArrastrar = dataJSON["ponderacionGlobal"][0][str(i)]
+            pdf.cell(200, 8, txt = "puntos:" + str(PuntoPreguntaArrastrar),ln = 1, align = 'L')
+            #Respuestas alumno
+            numeroPreguntasArrastar = len(dataJSON["preguntasModal4"])
+            jsonDatoRespuestasArrastrar = dataJSON["preguntasModal4"] [numeroPreguntasArrastar - 1] ["respuestas"]
+            respuestaEnJSONArrastrar = jsonDatoRespuestasArrastrar[contadoresTipoPreguntas[3]]
+            indicePrefijo = respuestaEnJSONArrastrar.find("/")
+            subString1 = respuestaEnJSONArrastrar[indicePrefijo +2:]
+            indiceSufijo = subString1.find("&")
+            subString2 =  subString1[:indiceSufijo]
+            respuestaFinalArrastrar = subString2.replace("/",",")
+            pdf.cell(200, 8, txt ="Respuestas usuario:"+respuestaFinalArrastrar,ln = 1, align = 'L')
+            #Respuestas verdderas
+            numeroRespuestasArrastarVer = len(dataJSON["preguntasModal4"][contadoresTipoPreguntas[3]])
+            respuestasVerdaderasArrastrar=""
+            for i in range(1,numeroRespuestasArrastarVer):
+                stringArrastarAux = dataJSON["preguntasModal4"][contadoresTipoPreguntas[3]][str(i)]
+                respuestasVerdaderasArrastrar += stringArrastarAux.replace("*",":")
+                if i != (numeroRespuestasArrastarVer - 1):
+                    respuestasVerdaderasArrastrar += ","
+            pdf.cell(200, 8, txt ="Respuestas verdaderas:"+respuestasVerdaderasArrastrar,ln = 1, align = 'L')       
+        #Preguntas de Ejercicios
         elif tipoPregunta == "optEjercicios":
             pass
+        #Preguntas de Acompletar
         elif tipoPregunta == "optAcompletar":
             #Titulo de pregunta
             tituloPreguntaOpcAcom= dataJSON["preguntasModal2"][contadoresTipoPreguntas[1]]["0"]
@@ -778,7 +806,24 @@ def descargarPdfCuestionarioResuelto(id_cuestionario_resuelto):
             #Aumentar contador preguntas de acompletar
             contadoresTipoPreguntas[1]+=1
         elif tipoPregunta == "optAbierta":
-            pass
+            #Titulo de pregunta
+            tituloPreguntaAbierta= dataJSON["preguntasModal6"][contadoresTipoPreguntas[5]]["0"]
+            pdf.cell(200, 8, txt = str(i +1)+"."+tituloPreguntaAbierta,ln = 1, align = 'L')
+            #Puntos
+            PuntoPreguntaArrastrar = dataJSON["ponderacionGlobal"][0][str(i)]
+            pdf.cell(200, 8, txt = "puntos:" + str(PuntoPreguntaArrastrar),ln = 1, align = 'L')
+            #Respuestas alumno
+            numeroPreguntasAbiertas = len(dataJSON["preguntasModal6"])
+            jsonDatoRespuestasAbiertas = dataJSON["preguntasModal6"] [numeroPreguntasAbiertas - 1] ["respuestas"]
+            respuestaEnJSONAbiertas = jsonDatoRespuestasAbiertas[contadoresTipoPreguntas[5]]
+            indicePrefijoAbierta = respuestaEnJSONAbiertas.find("/")
+            subString1Abierta = respuestaEnJSONAbiertas[indicePrefijoAbierta +1:]
+            indiceSufijoAbierta = subString1Abierta.find("&")
+            subString2Abierta =  subString1Abierta[:indiceSufijoAbierta]
+            respuestaFinalAbierta = subString2Abierta.replace("/",",")
+            pdf.cell(200, 8, txt ="Respuesta usuario:"+respuestaFinalAbierta,ln = 1, align = 'L')
+
+
     response = make_response(pdf.output(dest='S').encode('latin-1'))
     response.headers.set('Content-Disposition', 'attachment', filename="Resultados" + '.pdf')
     response.headers.set('Content-Type', 'application/pdf')
