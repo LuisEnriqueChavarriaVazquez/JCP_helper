@@ -235,6 +235,8 @@ let promediosCuestionariosHechosCopia2 = [...promediosCuestionariosHechos];
 let promediosCuestionariosMultidimensionales = [];
 let horaConformatoNumericoCopia2 = [...horaConformatoNumerico];
 let horaConformatoNumericoMultidimensional2 = [];
+let entregasRetrasoCuestionariosHechosCopia2 = [...entregasRetrasoCuestionariosHechos];
+let entregasRetrasoCuestionariosHechosMultidiomensional2 = [];
 for (var y = 0; y < contadorFrecuenciaRespuestasArray.length; y++) {
     //Para los promedios de los cuestionarios
     let arrayTemporal1 = [];
@@ -245,9 +247,15 @@ for (var y = 0; y < contadorFrecuenciaRespuestasArray.length; y++) {
     let arrayTemporal2 = [];
     arrayTemporal2.push(horaConformatoNumericoCopia2.splice(0, contadorFrecuenciaRespuestasArray[y]));
     horaConformatoNumericoMultidimensional2.push(arrayTemporal2);
+
+    //Para los retrasos y envios a tiempo de los cuestionarios
+    let arrayTemporal3 = [];
+    arrayTemporal3.push(entregasRetrasoCuestionariosHechosCopia2.splice(0, contadorFrecuenciaRespuestasArray[y]));
+    entregasRetrasoCuestionariosHechosMultidiomensional2.push(arrayTemporal3);
 }
 console.log('Promedio por cuestionario multidimensional = ', promediosCuestionariosMultidimensionales);
 console.log('Horas con formato de minutos muitidimensional = ', horaConformatoNumericoMultidimensional2);
+console.log('Entregas estado por cuestionario = ', entregasRetrasoCuestionariosHechosMultidiomensional2);
 
 //Sumamos los promedios del array de promedios multidimensional
 let promediosPorCuestionario = []
@@ -625,6 +633,28 @@ aprobacionCuestionarioMultidimensionalCuenta.push(aprobacionCuestionarios, repro
 
 //Es un array con el conteo final de los aprobados y reprobados.
 console.log('Contador de aprobacion por cuestionario =', aprobacionCuestionarioMultidimensionalCuenta);
+
+//Debemos contar los elementos entregados a tiempo y con retraso en los cuestionarios
+//entregasRetrasoCuestionariosHechosMultidiomensional2
+let entregaCuestionarioMultidimensionalCuenta = [];
+let a_tiempo_Cuestionarios = [];
+let retraso_Cuestionarios = [];
+entregasRetrasoCuestionariosHechosMultidiomensional2.forEach(element => {
+    let contadorA_tiempo = 0;
+    let contadorRetrasos = 0;
+    element[0].forEach(e => {
+        if (e == 'a_tiempo') {
+            contadorA_tiempo++;
+        } else if (e == 'retraso') {
+            contadorRetrasos++;
+        }
+    });
+
+    a_tiempo_Cuestionarios.push(contadorA_tiempo);
+    retraso_Cuestionarios.push(contadorRetrasos);
+});
+entregaCuestionarioMultidimensionalCuenta.push(a_tiempo_Cuestionarios, retraso_Cuestionarios);
+console.log('Estado de los cuestionarios por grupo = ', entregaCuestionarioMultidimensionalCuenta)
 
 ///////////////////////ANALISIS DEL PUNTAJE POR TIPO DE PREGUNTA
 let nombreTipoPregunta = ["Global","Opt1","Opt2","Opt3","Opt4","Opt5","Opt6"];

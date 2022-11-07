@@ -11,7 +11,7 @@ function impresionDeCasillasPorGrupo() {
     let ids_individual_temporal = [];
     for (var i = 0; i < contenedorDeCuestionario.length; i++) {
         ids_individual_temporal = [];
-        for (var j = 0; j < 6; j++) {
+        for (var j = 0; j < 7; j++) {
             contenedorDeCuestionario[i].innerHTML += `
             <div id="contenedorUnitarioCuestionarios_${i}${j}" class="colorGreyWhiter bordered1 containerDataIndividualGroup borderDecoration" >
                 
@@ -92,15 +92,31 @@ function comparacion_entre_reprobados_aprobados_por_cuestionario(idContainer, co
     })
 }
 
+//Imprime la cantidad de retrasos y entregas a tiempo de cada cuestionario
+function distribucion_entregas_retraso_por_cuestionario(idContainer, containerNumero) {
+    let contenedorPadre = document.getElementById(idContainer);
+    a_tiempo_Cuestionarios.forEach((retraso, i = 0) => {
+        if (i == containerNumero) { //Valida que contenedor es...
+            let contenido = `
+            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Cantidad de retrasos</div>
+            <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Entrega a tiempo:<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${a_tiempo_Cuestionarios[i]}</span></p>
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Entrega con retraso: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${retraso_Cuestionarios[i]}</span></p>
+            </div>`;
+            contenedorPadre.innerHTML += contenido;
+        }
+        i++
+    })
+}
 
-function promedio_max_min_por_grupo(idContainer, containerNumero) {
+function porcentaje_de_error_y_aciertos_cuestionario(idContainer, containerNumero) {
     let contenedorPadre = document.getElementById(idContainer);
 
     promedioTiempoPorCuestionario.forEach((tiempo, i = 0) => {
         //Insertamos el análisis de 1 de cada 10 pasan
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Promedio de tiempo contestar cuestionario</div>
+            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Porcentaje de aciertos y error en cuestionario</div>
             <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
             <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Prom. min: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${tiempo}</span></p>
             </div>`;
@@ -110,25 +126,21 @@ function promedio_max_min_por_grupo(idContainer, containerNumero) {
     });
 }
 
-//1 de cada tantos estudiantes pasa en determinado curso
-
-
-//Imprime el procentage de reprobados y aprobados de cada grupo
-function distribucion_entregas_retraso_por_grupo(idContainer, containerNumero) {
+function porcentaje_de_error_y_aciertos_cuestionario_por_tipo_pregunta(idContainer, containerNumero) {
     let contenedorPadre = document.getElementById(idContainer);
 
-    cantidadRetrasos.forEach((porcentage, i = 0) => {
+    promedioTiempoPorCuestionario.forEach((tiempo, i = 0) => {
+        //Insertamos el análisis de 1 de cada 10 pasan
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Porcentaje de retrasos</div>
+            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Porcentaje de aciertos y error en cuestionario</div>
             <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
-                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">A tiempo:<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${cantidadATiempo[i]}%</span></p>
-                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Retraso: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${cantidadRetrasos[i]}%</span></p>
+            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Prom. min: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${tiempo}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
         }
         i++
-    })
+    });
 }
 
 //Insertamos en el primer contenedor de cada grupo una gráfica lineal.
@@ -151,10 +163,13 @@ function insertarCajasHijasEnCadaGrupo(numero_grupos, numero_ids) {
                 comparacion_entre_reprobados_aprobados_por_cuestionario(ids_indivual_cuestionarios[i][j], i);
             } else if (j == 4) {
                 document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('fifth_child_container');
-                //promedio_max_min_por_grupo(ids_indivual_cuestionarios[i][j], i);
+                distribucion_entregas_retraso_por_cuestionario(ids_indivual_cuestionarios[i][j], i);
             }else if (j == 5) {
                 document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('sixth_child_container');
-                //distribucion_entregas_retraso_por_grupo(ids_indivual_cuestionarios[i][j], i);
+                porcentaje_de_error_y_aciertos_cuestionario(ids_indivual_cuestionarios[i][j], i);
+            }else if (j == 6) {
+                document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('sixth_child_container');
+                porcentaje_de_error_y_aciertos_cuestionario_por_tipo_pregunta(ids_indivual_cuestionarios[i][j], i);
             }
         }
     }
