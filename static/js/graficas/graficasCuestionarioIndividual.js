@@ -25,17 +25,16 @@ function impresionDeCasillasPorGrupo() {
 impresionDeCasillasPorGrupo();
 
 
-//Imprime el procentage de reprobados y aprobados de cada grupo
-function porcentageAprobacion_card1(idContainer, containerNumero) {
+//Imprime el numero de respuestas por cada cuestionario
+function numero_de_respuestas_por_cuestionario(idContainer, containerNumero) {
     let contenedorPadre = document.getElementById(idContainer);
 
     porcentagesDividosPorGrupo.forEach((porcentage, i = 0) => {
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Porcentaje de aprobación</div>
+            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Número de respuestas</div>
             <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
-                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Aprobados: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${porcentage[0]}%</span></p>
-                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Reprobados:<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${porcentage[1]}%</span></p>
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Número de respuestas: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${contadorFrecuenciaRespuestasArray[i]}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
         }
@@ -44,15 +43,15 @@ function porcentageAprobacion_card1(idContainer, containerNumero) {
 }
 
 //Imprime el promedio de intentos por grupo
-function promedio_intentos_por_grupo(idContainer, containerNumero) {
+function promedio_general_por_cuestionario(idContainer, containerNumero) {
     let contenedorPadre = document.getElementById(idContainer);
 
     arrayPromediosIntentosPorGrupo.forEach((promedioIntento, i = 0) => {
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Intentos promedio en grupo</div>
+            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Promedio general</div>
             <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
-                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Intentos promedio: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${promedioIntento}</span></p>
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Promedio general: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${promediosPorCuestionario[i]}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
         }
@@ -144,10 +143,10 @@ function insertarCajasHijasEnCadaGrupo(numero_grupos, numero_ids) {
                 //Agregamos la clase para que se ajuste a CSS grid
                 document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('first_child_container');
                 //Ejecutamos la función para la impresión del dato o gráfica.
-                porcentageAprobacion_card1(ids_indivual_cuestionarios[i][j], i);
+                numero_de_respuestas_por_cuestionario(ids_indivual_cuestionarios[i][j], i);
             } else if (j == 1) {
                 document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('second_child_container');
-                promedio_intentos_por_grupo(ids_indivual_cuestionarios[i][j], i);
+                promedio_general_por_cuestionario(ids_indivual_cuestionarios[i][j], i);
             } else if (j == 2) {
                 document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('third_child_container');
                 tiempo_promedio_respuesta_examen_por_grupo(ids_indivual_cuestionarios[i][j], i)
