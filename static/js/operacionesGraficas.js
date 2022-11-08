@@ -20,10 +20,11 @@ function leerTendenciaIcono() {
     }
 }
 
+
 //Actualiza los fondos de las cards de grupo
 function actualizarFondoGruposSiDefault(){
     const contenedorGruposInfoStatsContenedorSon1 = document.getElementsByClassName('contenedorGruposInfoStatsContenedorSon1');
-
+    
     for(var i = 0; i < contenedorGruposInfoStatsContenedorSon1.length; i++){
         if(contenedorGruposInfoStatsContenedorSon1[i].getAttribute('style').indexOf('default') != -1){
             contenedorGruposInfoStatsContenedorSon1[i].removeAttribute('style');
@@ -31,6 +32,16 @@ function actualizarFondoGruposSiDefault(){
         }
     }
 }
+
+//Imprimimos el promedio global
+function imprimimosPromedioGlobal(){
+    let counterGradeSmall = document.getElementById('counterGradeSmall');
+    let counterGradeMed = document.getElementById('counterGradeMed');
+    
+    counterGradeSmall.innerText = promedioGlobal_one;
+    counterGradeMed.innerText = promedioGlobal_one;
+}
+imprimimosPromedioGlobal();
 
 //Contador de grupos global
 function contarGruposGlobal(){

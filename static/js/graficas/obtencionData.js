@@ -18,6 +18,12 @@ let promediosCuestionariosHechos = datosCuestionariosTerminados.map((element) =>
 });
 console.log('Promedios de los cuestionarios hechos = ', promediosCuestionariosHechos);
 
+//Sumamos todos los promedios y obtenemos el promedio global
+let sumaPromediosGlobal_one = promediosCuestionariosHechos.reduce((sum, value) => {
+    return sum + value
+})
+let promedioGlobal_one = parseFloat((sumaPromediosGlobal_one / promediosCuestionariosHechos.length).toFixed(2));
+
 //Accedemos A los puntajes de los cuestionarios
 let puntajeCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
     return element[7];
