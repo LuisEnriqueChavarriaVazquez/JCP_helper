@@ -18,6 +18,12 @@ let promediosCuestionariosHechos = datosCuestionariosTerminados.map((element) =>
 });
 console.log('Promedios de los cuestionarios hechos = ', promediosCuestionariosHechos);
 
+//Accedemos A los puntajes de los cuestionarios
+let puntajeCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
+    return element[7];
+});
+console.log('Puntajes de los cuestionarios hechos = ', puntajeCuestionariosHechos);
+
 //Accedemos a los Puntajes de los cuestionarios
 let puntajesPorTipoPregunta = datosCuestionariosTerminados.map((element) => {
     return element[8];
@@ -228,7 +234,15 @@ let porcentajePromedioEquivalente = promedioFinalPorGrupo.map(promedio => {
     let porcentajeCalculo = ((promedio * (100)) / sumaAritmeticaPromedios).toFixed(2);
     return parseFloat(porcentajeCalculo);
 });
-console.log('porcentajePromedioEquivalente', porcentajePromedioEquivalente)
+console.log('porcentajePromedioEquivalente', porcentajePromedioEquivalente);
+
+//Debemos dar formato a los puntajes de los cuestionarios en general
+let puntajeCuestionariosHechosCopia1 = [...puntajeCuestionariosHechos];
+let puntajeCuestionarioConFormato = puntajeCuestionariosHechosCopia1.map(puntaje => {
+    let puntajeParcial = puntaje.replaceAll('pts.', '');
+    return puntajeParcial.split('/');
+})
+console.log('puntajeCuestionarioConFormato', puntajeCuestionarioConFormato)
 
 //Hacemos arrays multidimensionales por cuestionarios hechos
 let promediosCuestionariosHechosCopia2 = [...promediosCuestionariosHechos];
@@ -237,6 +251,8 @@ let horaConformatoNumericoCopia2 = [...horaConformatoNumerico];
 let horaConformatoNumericoMultidimensional2 = [];
 let entregasRetrasoCuestionariosHechosCopia2 = [...entregasRetrasoCuestionariosHechos];
 let entregasRetrasoCuestionariosHechosMultidiomensional2 = [];
+let puntajeCuestionarioConFormatoCopia1 = [...puntajeCuestionarioConFormato];
+let puntajeCuestionarioConFormatoPorCuestionario = [];
 for (var y = 0; y < contadorFrecuenciaRespuestasArray.length; y++) {
     //Para los promedios de los cuestionarios
     let arrayTemporal1 = [];
@@ -252,10 +268,35 @@ for (var y = 0; y < contadorFrecuenciaRespuestasArray.length; y++) {
     let arrayTemporal3 = [];
     arrayTemporal3.push(entregasRetrasoCuestionariosHechosCopia2.splice(0, contadorFrecuenciaRespuestasArray[y]));
     entregasRetrasoCuestionariosHechosMultidiomensional2.push(arrayTemporal3);
+
+    //Para los puntajes de los cuestionarios
+    let arrayTemporal4 = [];
+    arrayTemporal4.push(puntajeCuestionarioConFormatoCopia1.splice(0, contadorFrecuenciaRespuestasArray[y]));
+    puntajeCuestionarioConFormatoPorCuestionario.push(arrayTemporal4);
 }
 console.log('Promedio por cuestionario multidimensional = ', promediosCuestionariosMultidimensionales);
 console.log('Horas con formato de minutos muitidimensional = ', horaConformatoNumericoMultidimensional2);
 console.log('Entregas estado por cuestionario = ', entregasRetrasoCuestionariosHechosMultidiomensional2);
+console.log('Puntajes ordenados por cuestionarios = ', puntajeCuestionarioConFormatoPorCuestionario)
+
+//Debemos sumar los puntajes y obtener promedios por cuestionarios
+let puntajesPorCuestionarioFinal = [];
+puntajeCuestionarioConFormatoPorCuestionario.forEach(cuestionario => {
+    let puntajeTotal = 0;
+    let puntajeObtenido = 0;
+    let promedioPuntos = 0;
+    let arrayTemporal = [];
+    cuestionario[0].forEach(puntaje => {
+        puntajeTotal = parseFloat(puntaje[1]);
+        puntaje_a_numero = parseFloat(puntaje[0])
+        puntajeObtenido += puntaje_a_numero;
+    });
+    promedioPuntos = parseFloat((puntajeObtenido/cuestionario[0].length).toFixed(2));
+    
+    arrayTemporal.push(promedioPuntos, puntajeTotal);
+    puntajesPorCuestionarioFinal.push(arrayTemporal);
+});
+console.log('puntajesPorCuestionarioFinal', puntajesPorCuestionarioFinal)
 
 //Sumamos los promedios del array de promedios multidimensional
 let promediosPorCuestionario = []
@@ -700,7 +741,7 @@ function calculoPuntajeTipoPregunta_porCuestionario(array){
     }
     let porcentajeRestante = parseFloat((100-porcetajeObtenido).toFixed(2));
     let arrayValuesImportantes = [porcentajeRestante, porcetajeObtenido, sumaTotal, sumaObtenido];
-    console.log('arrayValuesImportantes', arrayValuesImportantes)
+    //console.log('arrayValuesImportantes', arrayValuesImportantes)
     return arrayValuesImportantes;
 }
 

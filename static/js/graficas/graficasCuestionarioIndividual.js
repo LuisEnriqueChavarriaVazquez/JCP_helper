@@ -114,16 +114,16 @@ function distribucion_entregas_retraso_por_cuestionario(idContainer, containerNu
     })
 }
 
-function porcentaje_de_error_y_aciertos_cuestionario(idContainer, containerNumero) {
+function puntaje_promedio_de_error_y_aciertos_cuestionario(idContainer, containerNumero) {
     let contenedorPadre = document.getElementById(idContainer);
 
-    promedioTiempoPorCuestionario.forEach((tiempo, i = 0) => {
+    puntajesPorCuestionarioFinal.forEach((puntaje, i = 0) => {
         //Insertamos el análisis de 1 de cada 10 pasan
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
             <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Porcentaje de aciertos y error en cuestionario</div>
             <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
-            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Prom. min: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${tiempo}</span></p>
+            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Puntaje promedio/total: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${puntaje[0]}/${puntaje[1]}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
         }
@@ -140,10 +140,12 @@ function porcentaje_de_error_y_aciertos_cuestionario_por_tipo_pregunta(idContain
             let contenido = `
         <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Porcentaje de aciertos por tipo de pregunta.</div>
         <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">`;
-            cuestionario.forEach(tipoPregunta => {
+            cuestionario.forEach((tipoPregunta, j = 0) => {
                 contenido += `
-                    <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Opt 1: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${tipoPregunta}</span></p>
-                `;
+                    <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">${nombreTipoPregunta[++j]}
+                    <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">Aciertos: ${tipoPregunta[1]}%</span>
+                    <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">Error: ${tipoPregunta[0]}%</span></p>
+                    `;
             })
             contenido += "</div>";
             contenedorPadre.innerHTML += contenido;
@@ -178,7 +180,7 @@ function insertarCajasHijasEnCadaGrupo(numero_grupos, numero_ids) {
                 porcentaje_de_error_y_aciertos_cuestionario_por_tipo_pregunta(ids_indivual_cuestionarios[i][j], i);
             } else if (j == 6) {
                 document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('seventh_child_container');
-                porcentaje_de_error_y_aciertos_cuestionario(ids_indivual_cuestionarios[i][j], i);
+                puntaje_promedio_de_error_y_aciertos_cuestionario(ids_indivual_cuestionarios[i][j], i);
             }
         }
     }
