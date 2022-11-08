@@ -6,17 +6,22 @@
 ////////////////////////////////////////////////////////
 //CÁLCULOS//////////////////////////////////////////////
 ////////////////////////////////////////////////////////
+//Accedemos a los comentarios de los cuestionarios de los grupos del docente
+let datosComentariosRetro = document.getElementById('datosComentariosRetro').value;
+datosComentariosRetro = limpiarDatos(datosComentariosRetro);
+//console.log('Comentarios retroalimentacion = ', datosComentariosRetro);
+
 //Accedemos a la data como string
 let datosCuestionariosTerminados = document.getElementById('cuestionariosTerminados').value;
 datosCuestionariosTerminados = limpiarDatos(datosCuestionariosTerminados);
-console.log('Cuestionarios terminados = ', datosCuestionariosTerminados);
+//console.log('Cuestionarios terminados = ', datosCuestionariosTerminados);
 
 ////////////////////////////////////////////////////////
 //Accedemos a los Promedios de los cuestionarios
 let promediosCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
     return parseFloat(element[6]);
 });
-console.log('Promedios de los cuestionarios hechos = ', promediosCuestionariosHechos);
+//console.log('Promedios de los cuestionarios hechos = ', promediosCuestionariosHechos);
 
 //Sumamos todos los promedios y obtenemos el promedio global
 let sumaPromediosGlobal_one = promediosCuestionariosHechos.reduce((sum, value) => {
@@ -28,27 +33,27 @@ let promedioGlobal_one = parseFloat((sumaPromediosGlobal_one / promediosCuestion
 let puntajeCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
     return element[7];
 });
-console.log('Puntajes de los cuestionarios hechos = ', puntajeCuestionariosHechos);
+//console.log('Puntajes de los cuestionarios hechos = ', puntajeCuestionariosHechos);
 
 //Accedemos a los Puntajes de los cuestionarios
 let puntajesPorTipoPregunta = datosCuestionariosTerminados.map((element) => {
     return element[8];
 });
-console.log('Accedemos a los puntajes de cada una de las preguntas = ', puntajesPorTipoPregunta);
+//console.log('Accedemos a los puntajes de cada una de las preguntas = ', puntajesPorTipoPregunta);
 
 ////////////////////////////////////////////////////////
 //Accedemos a los Promedios de los cuestionarios
 let entregasRetrasoCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
     return element[12];
 });
-console.log('Estado cuestionarios Retraso/A tiempo = ', entregasRetrasoCuestionariosHechos);
+//console.log('Estado cuestionarios Retraso/A tiempo = ', entregasRetrasoCuestionariosHechos);
 
 ////////////////////////////////////////////////////////
 //Accedemos a los Promedios de los cuestionarios
 let tiemposRespuestaCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
     return element[9];
 });
-console.log('Tiempos de respuesta de los cuestionarios = ', tiemposRespuestaCuestionariosHechos);
+//console.log('Tiempos de respuesta de los cuestionarios = ', tiemposRespuestaCuestionariosHechos);
 
 //Debemos transformar las horas a un formato de minutos medible
 let horaConformatoNumerico = tiemposRespuestaCuestionariosHechos.map(hora => {
@@ -63,39 +68,39 @@ let horaConformatoNumerico = tiemposRespuestaCuestionariosHechos.map(hora => {
     //Obtenemos los minutos totales
     return numeroHora[0] + parseInt(numeroHora[1]) + numeroHora[2];
 })
-console.log('Minutos por cuestionarios', horaConformatoNumerico)
+//console.log('Minutos por cuestionarios', horaConformatoNumerico)
 
 ////////////////////////////////////////////////////////
 //Accedemos a los Promedios de los cuestionarios
 let idsAlumnosCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
     return parseInt(element[2]);
 });
-console.log('Ids de los alumnos que han hecho un cuestionario = ', idsAlumnosCuestionariosHechos);
+//console.log('Ids de los alumnos que han hecho un cuestionario = ', idsAlumnosCuestionariosHechos);
 
 ////////////////////////////////////////////////////////
 //Accedemos a los Intentos de los cuestionarios
 let intentosCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
     return parseInt(element[11]);
 });
-console.log('Intentos hechos por cuestionarios = ', intentosCuestionariosHechos)
+//console.log('Intentos hechos por cuestionarios = ', intentosCuestionariosHechos)
 
 ////////////////////////////////////////////////////////
 //Accedemos a los IDS de los cuestionarios
 let idsCuestionariosHechos = datosCuestionariosTerminados.map((element) => {
     return element[1];
 });
-console.log('Ids de los cuestionarios hechos = ', idsCuestionariosHechos)
+//console.log('Ids de los cuestionarios hechos = ', idsCuestionariosHechos)
 
 let idsCuestionariosHechosOrdenados = idsCuestionariosHechos.sort((current, actual) => {
     return current - actual;
 })
 
-console.log("Ids de los cuestionarios en orden = ", idsCuestionariosHechosOrdenados);
+//console.log("Ids de los cuestionarios en orden = ", idsCuestionariosHechosOrdenados);
 ////////////////////////////////////////////////////////
 //Accedemos a los nombres de los grupos del docente
 let datosCuestionariosProfe = document.getElementById('datosCuestionariosGeneralesCuestionarios').value;
 datosCuestionariosProfe = limpiarDatos(datosCuestionariosProfe);
-console.log('Datos de los cuestionarios = ', datosCuestionariosProfe);
+//console.log('Datos de los cuestionarios = ', datosCuestionariosProfe);
 
 //Guardamos todos los nombres de los cuestionarios en un set
 let nombreCuestionariosSet = {};
@@ -105,7 +110,7 @@ datosCuestionariosProfe.map(nombre => {
     idsCuestionariosSet.add(nombre[0]);
 });
 let arrayIdsCuestionariosGeneral = Array.from(idsCuestionariosSet);
-console.log('Ids de los cuestionarios ', arrayIdsCuestionariosGeneral);
+//console.log('Ids de los cuestionarios ', arrayIdsCuestionariosGeneral);
 
 /*
 *   Hay que buscar los cuestionarios hechos con los cuestionarios general
@@ -120,18 +125,18 @@ let listaIdsCuestionariosDepurada = arrayIdsCuestionariosGeneral.filter(element 
         delete nombreCuestionariosSet[element];
     }
 })
-console.log('listaIdsCuestionariosDepurada', listaIdsCuestionariosDepurada);
-console.log('Nombre de los cuestionarios ', nombreCuestionariosSet);
+//console.log('listaIdsCuestionariosDepurada', listaIdsCuestionariosDepurada);
+//console.log('Nombre de los cuestionarios ', nombreCuestionariosSet);
 
 //Obtenemos solo los values del objeto de nombres de los cuestionarios ()
 let cuestionarioConRespuestas = Object.values(nombreCuestionariosSet);
-console.log('Nombre de los cuestionarios con respuestas', cuestionarioConRespuestas);
+//console.log('Nombre de los cuestionarios con respuestas', cuestionarioConRespuestas);
 
 //Ordenamos la lista depurada
 let listaIdsCuestionariosDepuradaOrdenada = listaIdsCuestionariosDepurada.sort((current, element) => {
     return current - element;
 });
-console.log('Lista depurada en orden', listaIdsCuestionariosDepuradaOrdenada);
+//console.log('Lista depurada en orden', listaIdsCuestionariosDepuradaOrdenada);
 
 
 //Debemos contar cuantos cuestionarios hay contestados
@@ -146,9 +151,9 @@ let contadorFrecuenciaRespuestas = idsCuestionariosHechosOrdenados.reduce((acc, 
     return acc;
 }, {});
 
-console.log("Objeto con el conteo de los elementos", contadorFrecuenciaRespuestas) // => {2: 5, 4: 1, 5: 3, 9: 1}
+//console.log("Objeto con el conteo de los elementos", contadorFrecuenciaRespuestas) // => {2: 5, 4: 1, 5: 3, 9: 1}
 let contadorFrecuenciaRespuestasArray = Object.values(contadorFrecuenciaRespuestas);
-console.log('Array con el conteo de las respuestas', contadorFrecuenciaRespuestasArray) //🔴
+//console.log('Array con el conteo de las respuestas', contadorFrecuenciaRespuestasArray) //🔴
 
 ////////////////////////////////////////////////////////
 //Extraemos los IDs de los grupos
@@ -160,13 +165,13 @@ idsCuestionariosHechosOrdenados.map((idGrupo) => {
         }
     });
 });
-console.log('idGrupos', idGrupos);
+//console.log('idGrupos', idGrupos);
 
 ////////////////////////////////////////////////////////
 //Accedemos a los nombres de los grupos del docente
 let datosGrupo = document.getElementById('datosDeLosGrupos').value;
 datosGrupo = limpiarDatos(datosGrupo);
-console.log('Datos de los grupos = ', datosGrupo);
+//console.log('Datos de los grupos = ', datosGrupo);
 
 ////////////////////////////////////////////////////////
 //Lo definimos como set para eliminar los repetidos
@@ -182,8 +187,8 @@ datosGrupo.filter((grupo) => {
 });
 let gruposNameArray = Array.from(gruposNames);
 let gruposIdsArray = Array.from(gruposIDSet);
-console.log('gruposNameArray', gruposNameArray);
-console.log('gruposIDSet', gruposIdsArray)
+//console.log('gruposNameArray', gruposNameArray);
+//console.log('gruposIDSet', gruposIdsArray)
 
 /////////////////////////////////////////////////////////
 //Debemos vincular los promedios con su respectivo grupo
@@ -196,14 +201,14 @@ let counter = 0;
 let sumaPromedioGrupos = idGrupos.map(id => {
     return `${id}_${promediosCuestionariosHechos[counter++]}`;
 });
-console.log('sumaPromedioGrupos', sumaPromedioGrupos);
+//console.log('sumaPromedioGrupos', sumaPromedioGrupos);
 
 //Contamos la cantidad de elemento pertenecientes a un grupo
 let contadorPosicionesIds = [];
 for (var i = 0; i < gruposIdsArray.length; i++) {
     contadorPosicionesIds.push(idGrupos.filter(x => x === gruposIdsArray[i]).length);
 }
-console.log('contadorPosicionesIds', contadorPosicionesIds)
+//console.log('contadorPosicionesIds', contadorPosicionesIds)
 
 //Debemos sumar los puntajes de cada grupo
 let puntajePorGrupo;
@@ -223,14 +228,14 @@ for (var j = 0; j < contadorPosicionesIds.length; j++) {
         promediosCuestionariosHechosCopia.shift();
     }
 }
-console.log('Puntaje por grupo', puntajePorGrupoArray);
+//console.log('Puntaje por grupo', puntajePorGrupoArray);
 
 //Debemos dividir los puntajes entre el total de elementos por grupo
 contador = 0;
 let promedioFinalPorGrupo = puntajePorGrupoArray.map(sumatoria => {
     return sumatoria / contadorPosicionesIds[contador++];
 });
-console.log('Promedio por cada grupo', promedioFinalPorGrupo);
+//console.log('Promedio por cada grupo', promedioFinalPorGrupo);
 
 //Debemos obtener a cuanto en porcentage equivalen los promedios.
 //Debemos sumar los promedios
@@ -240,7 +245,7 @@ let porcentajePromedioEquivalente = promedioFinalPorGrupo.map(promedio => {
     let porcentajeCalculo = ((promedio * (100)) / sumaAritmeticaPromedios).toFixed(2);
     return parseFloat(porcentajeCalculo);
 });
-console.log('porcentajePromedioEquivalente', porcentajePromedioEquivalente);
+//console.log('porcentajePromedioEquivalente', porcentajePromedioEquivalente);
 
 //Debemos dar formato a los puntajes de los cuestionarios en general
 let puntajeCuestionariosHechosCopia1 = [...puntajeCuestionariosHechos];
@@ -248,7 +253,7 @@ let puntajeCuestionarioConFormato = puntajeCuestionariosHechosCopia1.map(puntaje
     let puntajeParcial = puntaje.replaceAll('pts.', '');
     return puntajeParcial.split('/');
 })
-console.log('puntajeCuestionarioConFormato', puntajeCuestionarioConFormato)
+//console.log('puntajeCuestionarioConFormato', puntajeCuestionarioConFormato)
 
 //Hacemos arrays multidimensionales por cuestionarios hechos
 let promediosCuestionariosHechosCopia2 = [...promediosCuestionariosHechos];
@@ -280,10 +285,10 @@ for (var y = 0; y < contadorFrecuenciaRespuestasArray.length; y++) {
     arrayTemporal4.push(puntajeCuestionarioConFormatoCopia1.splice(0, contadorFrecuenciaRespuestasArray[y]));
     puntajeCuestionarioConFormatoPorCuestionario.push(arrayTemporal4);
 }
-console.log('Promedio por cuestionario multidimensional = ', promediosCuestionariosMultidimensionales);
-console.log('Horas con formato de minutos muitidimensional = ', horaConformatoNumericoMultidimensional2);
-console.log('Entregas estado por cuestionario = ', entregasRetrasoCuestionariosHechosMultidiomensional2);
-console.log('Puntajes ordenados por cuestionarios = ', puntajeCuestionarioConFormatoPorCuestionario)
+//console.log('Promedio por cuestionario multidimensional = ', promediosCuestionariosMultidimensionales);
+//console.log('Horas con formato de minutos muitidimensional = ', horaConformatoNumericoMultidimensional2);
+//console.log('Entregas estado por cuestionario = ', entregasRetrasoCuestionariosHechosMultidiomensional2);
+//console.log('Puntajes ordenados por cuestionarios = ', puntajeCuestionarioConFormatoPorCuestionario)
 
 //Debemos sumar los puntajes y obtener promedios por cuestionarios
 let puntajesPorCuestionarioFinal = [];
@@ -302,7 +307,7 @@ puntajeCuestionarioConFormatoPorCuestionario.forEach(cuestionario => {
     arrayTemporal.push(promedioPuntos, puntajeTotal);
     puntajesPorCuestionarioFinal.push(arrayTemporal);
 });
-console.log('puntajesPorCuestionarioFinal', puntajesPorCuestionarioFinal)
+//console.log('puntajesPorCuestionarioFinal', puntajesPorCuestionarioFinal)
 
 //Sumamos los promedios del array de promedios multidimensional
 let promediosPorCuestionario = []
@@ -310,7 +315,7 @@ promediosCuestionariosMultidimensionales.forEach(element => {
     let sumaElementos = element[0].reduce((acumulado, value) => acumulado + value);
     promediosPorCuestionario.push(parseFloat((sumaElementos / (element[0].length)).toFixed(2)));
 });
-console.log('Promedios globales de los cuestionarios contestados = ', promediosPorCuestionario);
+//console.log('Promedios globales de los cuestionarios contestados = ', promediosPorCuestionario);
 
 //Sumamos el tiempo que se tardo cada estudiante y obtenemos el promedio en horas.
 let promedioTiempoPorCuestionario = [];
@@ -319,7 +324,7 @@ horaConformatoNumericoMultidimensional2.forEach(element => {
     sumaElementos = parseFloat((sumaElementos * (1 / 60)).toFixed(2))
     promedioTiempoPorCuestionario.push(sumaElementos / element[0].length);
 })
-console.log('Promedio de tiempo por cuestionario = ', promedioTiempoPorCuestionario)
+//console.log('Promedio de tiempo por cuestionario = ', promedioTiempoPorCuestionario)
 
 //Debemos separar en un array multidimensional los promedios de los cuestionarios por grupo
 let promediosMultidimensional = []; //[[],[],[]] un array por grupo
@@ -354,10 +359,10 @@ for (var y = 0; y < contadorPosicionesIds.length; y++) {
     entregasRetrasoMultidimensional.push(arrayTemporal5);
 }
 promediosMultidimensional = promediosMultidimensional.flat(1);
-console.log('Promedio dividido en array por grupo', promediosMultidimensional);
-console.log('Intentos dividido en array por grupo', intentosMultidimensional);
-console.log('Minutos dividido en array por grupo', minutosPorCuestionarioMultidimensional)
-console.log('Retrasos multidimensional', entregasRetrasoMultidimensional)
+//console.log('Promedio dividido en array por grupo', promediosMultidimensional);
+//console.log('Intentos dividido en array por grupo', intentosMultidimensional);
+//console.log('Minutos dividido en array por grupo', minutosPorCuestionarioMultidimensional)
+//console.log('Retrasos multidimensional', entregasRetrasoMultidimensional)
 
 //Calculamos el promedio de la suma de los tiempos
 let sumaTiemposCuestionarioMultidimensional = [];
@@ -367,13 +372,13 @@ minutosPorCuestionarioMultidimensional.forEach((grupo) => {
     arrayTemporal.push(suma, grupo[0].length);
     sumaTiemposCuestionarioMultidimensional.push(arrayTemporal);
 });
-console.log('Suma tiempos / cantidad cuestionarios en minutos', sumaTiemposCuestionarioMultidimensional);
+//console.log('Suma tiempos / cantidad cuestionarios en minutos', sumaTiemposCuestionarioMultidimensional);
 
 //Calculamos el promedio de tiempo por cuestionario
 let promedioTiempoPorGrupo = sumaTiemposCuestionarioMultidimensional.map(tiempo => {
     return parseFloat(((tiempo[0] / tiempo[1]) * (1 / 60)).toFixed(1));
 });
-console.log('Promedio de tiempo por grupo', promedioTiempoPorGrupo)
+//console.log('Promedio de tiempo por grupo', promedioTiempoPorGrupo)
 
 //Filtramos los elementos retreaso y a_tiempo
 let cantidadRetrasos = [];
@@ -393,8 +398,8 @@ entregasRetrasoMultidimensional.forEach((element) => {
     cantidadRetrasos.push(parseFloat(((arrayTemporalRetrasado.length * 100) / total).toFixed(2)));
     cantidadATiempo.push(parseFloat(((arrayTemporalA_tiempo.length * 100) / total).toFixed(2)));
 });
-console.log('Porcentaje de retraso por grupo', cantidadRetrasos)
-console.log('Porcentaje de a_tiempo por grupo', cantidadATiempo)
+//console.log('Porcentaje de retraso por grupo', cantidadRetrasos)
+//console.log('Porcentaje de a_tiempo por grupo', cantidadATiempo)
 
 
 //Ordenamos de menor a mayor el promedio por grupo multidimensional
@@ -406,7 +411,7 @@ promediosMultidimensional.forEach((grupo) => {
     });
     promediosMultidimensionalOrdenado.push(grupoPromediosOrdenados);
 });
-console.log('promediosMultidimensionalOrdenado', promediosMultidimensionalOrdenado)
+//console.log('promediosMultidimensionalOrdenado', promediosMultidimensionalOrdenado)
 
 let arrayPromediosIntentosPorGrupo = [];
 intentosMultidimensional.forEach((grupo, i = 0) => {
@@ -416,7 +421,7 @@ intentosMultidimensional.forEach((grupo, i = 0) => {
     let promedio = parseFloat((total / contadorPosicionesIds[i++]).toFixed(2));
     arrayPromediosIntentosPorGrupo.push(promedio);
 });
-console.log('arrayPromediosIntentosPorGrupo', arrayPromediosIntentosPorGrupo);
+//console.log('arrayPromediosIntentosPorGrupo', arrayPromediosIntentosPorGrupo);
 
 ///////////////////////////Datos indice de aprobacion
 ////////////////////////////////////////////////////////🔴
@@ -424,7 +429,7 @@ console.log('arrayPromediosIntentosPorGrupo', arrayPromediosIntentosPorGrupo);
 let estadoAprobacion = datosCuestionariosTerminados.map((element) => {
     return element[5];
 });
-console.log('Estados de aprobacion = ', estadoAprobacion)
+//console.log('Estados de aprobacion = ', estadoAprobacion)
 let estadoAprobacionCopia1 = [...estadoAprobacion];
 
 //Se deben separar los estados de aprovado deun array multidimensional
@@ -437,7 +442,7 @@ for (var y = 0; y < contadorPosicionesIds.length; y++) {
     aprobacionMultidimensional.push(arrayTemporal);
 }
 aprobacionMultidimensional = aprobacionMultidimensional.flat(1);
-console.log('Arrays de aprobación por grupo', aprobacionMultidimensional); //Este contiene tanto aprobado como reprobado
+//console.log('Arrays de aprobación por grupo', aprobacionMultidimensional); //Este contiene tanto aprobado como reprobado
 
 let aprobacionMultidimensionalAprobados = [...aprobacionMultidimensional];
 let aprobacionMultidimensionalReprobados = [...aprobacionMultidimensional];
@@ -462,21 +467,21 @@ for (var i = 0; i < aprobacionMultidimensionalAprobados.length; i++) {
     aprobadosCounter.push(contadorAprobados);
     reprobadosCounter.push(contadorReprobados);
 };
-console.log('aprobadosCounter', aprobadosCounter) //Hace la cuenta de los aprobados. 😀
-console.log('reprobadosCounter', reprobadosCounter) //Hace la cuenta de los reprobados 😀
-console.log('aprobacionTotal', aprobacionTotal) //Encontramos 2 arrays con los alumnos reprobados y aprobados
+//console.log('aprobadosCounter', aprobadosCounter) //Hace la cuenta de los aprobados. 😀
+//console.log('reprobadosCounter', reprobadosCounter) //Hace la cuenta de los reprobados 😀
+//console.log('aprobacionTotal', aprobacionTotal) //Encontramos 2 arrays con los alumnos reprobados y aprobados
 
 //Sumamos el total de los alumnos aprobados.
 let sumaAprobados = aprobadosCounter.reduce((sum, element) => {
     return sum + element;
 });
-console.log('sumaAprobados', sumaAprobados)
+//console.log('sumaAprobados', sumaAprobados)
 
 //Sumamos el total de los alumnos reprobados.
 let sumaReprobados = reprobadosCounter.reduce((sum, element) => {
     return sum + element;
 });
-console.log('sumaReprobados', sumaReprobados)
+//console.log('sumaReprobados', sumaReprobados)
 
 //Calculamos porcentaje de reprobados y aprobados
 let totalAprobacion = sumaReprobados + sumaAprobados;
@@ -488,14 +493,14 @@ porcentajeReprobacion = parseFloat(porcentajeReprobacion);
 let arrayPorcentajeAprobacion = [];
 arrayPorcentajeAprobacion.push(porcentajeAprobacion);
 arrayPorcentajeAprobacion.push(porcentajeReprobacion);
-console.log('arrayPorcentajeAprobacion', arrayPorcentajeAprobacion)
+//console.log('arrayPorcentajeAprobacion', arrayPorcentajeAprobacion)
 
 /////Calculo de los porcentages por grupo (Graficas de barrar horizontales)
 //Accedemos a los porcentajes globales
 let porcentageGlobal = [...arrayPorcentajeAprobacion];
 //Convertimos el procentage de aprobados a un número cercano a 10
 let aprobadosFormatoDiez = Math.ceil(porcentageGlobal[0] / 10);
-console.log('aprobadosFormatoDiez', aprobadosFormatoDiez)
+//console.log('aprobadosFormatoDiez', aprobadosFormatoDiez)
 //Accedemos a los datos de manera individual
 let nombreGrupos_unitario = [...gruposNameArray];
 let numerosAprobacionTotal = [...aprobacionTotal[0]];
@@ -506,7 +511,7 @@ let listadoALumnos = [...aprobacionMultidimensional];
 //Obtenemos el conteo del total de alumnos por grupo
 let conteoPorGrupo = []; //Se guarda la cantidad de alumnos por grupo
 listadoALumnos.forEach(grupo => conteoPorGrupo.push(grupo.length))
-console.log('conteoPorGrupo', conteoPorGrupo)
+//console.log('conteoPorGrupo', conteoPorGrupo)
 
 //Calculamos el porcentage de aprobados y reprobados por grupo
 let porcentagesDividosPorGrupo = []; //Almacenamos los datos de los procentages
@@ -517,7 +522,7 @@ conteoPorGrupo.forEach((grupoTotal, i = 0) => {
     gruposArrayTemporal.push(porcentageTemporalAprobados, porcentageTemporalReprobados);
     porcentagesDividosPorGrupo.push(gruposArrayTemporal);
 })
-console.log('porcentagesDividosPorGrupo', porcentagesDividosPorGrupo);
+//console.log('porcentagesDividosPorGrupo', porcentagesDividosPorGrupo);
 
 //////////////////Hacemos la separación de puntajes
 let puntajesPorTipoPreguntaCopia2 = [...puntajesPorTipoPregunta];
@@ -532,7 +537,7 @@ let arrayPuntajesPreguntasFragmentado = puntajesPorTipoPreguntaCopia2.map(elemen
     let arrayTemporal = element.split(',');
     return arrayTemporal;
 });
-console.log('arrayPuntajesPreguntasFragmentado', arrayPuntajesPreguntasFragmentado)
+//console.log('arrayPuntajesPreguntasFragmentado', arrayPuntajesPreguntasFragmentado)
 
 //Debemos tomar los elementos en orden y meterlos en 6 arrays
 arrayPuntajesPreguntasFragmentado.forEach(element => {
@@ -553,14 +558,14 @@ arrayPuntajesPreguntasFragmentado.forEach(element => {
     })
 });
 //Los puntajes de todos los cuestionarios hechos por tipo de pregunta.
-console.log({
-    opt1Puntos,
-    opt2Puntos,
-    opt3Puntos,
-    opt4Puntos,
-    opt5Puntos,
-    opt6Puntos
-});
+//console.log({
+//     opt1Puntos,
+//     opt2Puntos,
+//     opt3Puntos,
+//     opt4Puntos,
+//     opt5Puntos,
+//     opt6Puntos
+// });
 
 //Funcion para dividir los puntajes de los cuestionarios contestados
 function separarPuntajeTotal(array) {
@@ -584,14 +589,14 @@ let opt4Dividido = separarPuntajeTotal(opt4Puntos);
 let opt5Dividido = separarPuntajeTotal(opt5Puntos);
 let opt6Dividido = separarPuntajeTotal(opt6Puntos);
 
-console.log({
-    opt1Dividido,
-    opt2Dividido,
-    opt3Dividido,
-    opt4Dividido,
-    opt5Dividido,
-    opt6Dividido
-});
+//console.log({
+//     opt1Dividido,
+//     opt2Dividido,
+//     opt3Dividido,
+//     opt4Dividido,
+//     opt5Dividido,
+//     opt6Dividido
+// });
 
 //Hacemos una funcion que nos obtenga el total de los puntajes totales y el porcentage obtenido
 function calculoPuntajeTipoPregunta(array) {
@@ -611,14 +616,14 @@ let opt4Final = calculoPuntajeTipoPregunta(opt4Dividido);
 let opt5Final = calculoPuntajeTipoPregunta(opt5Dividido);
 let opt6Final = calculoPuntajeTipoPregunta(opt6Dividido);
 
-console.log({
-    opt1Final,
-    opt2Final,
-    opt3Final,
-    opt4Final,
-    opt5Final,
-    opt6Final
-});
+//console.log({
+//     opt1Final,
+//     opt2Final,
+//     opt3Final,
+//     opt4Final,
+//     opt5Final,
+//     opt6Final
+// });
 
 let optTotalTipoPregunta = [opt1Final, opt2Final, opt3Final, opt4Final, opt5Final, opt6Final];
 
@@ -643,13 +648,13 @@ let puntosTotalesTipoPreguntaArray = [promedioTotalFaltanteTipoPregunta, promedi
 
 //Almacenamos todos los puntajes finales de cada tipo de pregunta en el array.
 optTotalTipoPregunta.unshift(puntosTotalesTipoPreguntaArray); //🔴 Este es importante para imprimir en gráfico
-console.log('optTotalTipoPregunta', optTotalTipoPregunta)
+//console.log('optTotalTipoPregunta', optTotalTipoPregunta)
 
 //Hacemos arrays multidimensionales por cuestionarios hechos de los estudiantes aprobados y reprobados
 let estadoAprobacionCopia2 = [...estadoAprobacionCopia1];
 let estadoAprobacionMultidimensional2 = [];
 let puntajesPreguntasSinFormato_cuestionarioIndependiente = [...arrayPuntajesPreguntasFragmentado];
-console.log([...arrayPuntajesPreguntasFragmentado]);
+//console.log([...arrayPuntajesPreguntasFragmentado]);
 let puntajesPreguntasSinFormato_cuestionarioIndependienteMultidimensional = [];
 for (var y = 0; y < contadorFrecuenciaRespuestasArray.length; y++) {
     //Para los tiempos promedios de los cuestionarios
@@ -662,8 +667,8 @@ for (var y = 0; y < contadorFrecuenciaRespuestasArray.length; y++) {
     arrayTemporal2.push(puntajesPreguntasSinFormato_cuestionarioIndependiente.splice(0, contadorFrecuenciaRespuestasArray[y]));
     puntajesPreguntasSinFormato_cuestionarioIndependienteMultidimensional.push(arrayTemporal2);
 }
-console.log('Estado de aprobacion multidimensional (por cuestionario) = ', estadoAprobacionMultidimensional2);
-console.log('Puntajes por las respuestas de los cuestionario (organizadaz por tipo)', puntajesPreguntasSinFormato_cuestionarioIndependienteMultidimensional)
+//console.log('Estado de aprobacion multidimensional (por cuestionario) = ', estadoAprobacionMultidimensional2);
+//console.log('Puntajes por las respuestas de los cuestionario (organizadaz por tipo)', puntajesPreguntasSinFormato_cuestionarioIndependienteMultidimensional)
 
 //Cada cuestionario tiene sus puntajes por tipo de pregunta, ahora hay que separalos.
 //Debemos tomar los elementos en orden y meterlos en 6 arrays
@@ -679,9 +684,9 @@ puntajesPreguntasSinFormato_cuestionarioIndependienteMultidimensional.forEach(cu
     let cuestionarioTemporalContainer = [];
     //Organizamos todo por el tipo de pregunta
     cuestionario[0].forEach(element => {
-        //console.log('cuestionario['+ +']', cuestionario[0])
+        ////console.log('cuestionario['+ +']', cuestionario[0])
         element.forEach((value, i = 0) => {
-            //console.log(value)
+            ////console.log(value)
             if (i == 0) {
                 arrayopt1Temporal.push(value);
                 i++;
@@ -706,7 +711,7 @@ puntajesPreguntasSinFormato_cuestionarioIndependienteMultidimensional.forEach(cu
     cuestionarioTemporalContainer.push(arrayopt1Temporal, arrayopt2Temporal, arrayopt3Temporal, arrayopt4Temporal, arrayopt5Temporal, arrayopt6Temporal);
     superArrayTipoPreguntas.push(cuestionarioTemporalContainer);
 })
-console.log('Tenemos las preguntas organizadas por tipo (por cuestionario)', superArrayTipoPreguntas) //🔴
+//console.log('Tenemos las preguntas organizadas por tipo (por cuestionario)', superArrayTipoPreguntas) //🔴
 
 //Funcion para dividir los puntajes de los cuestionarios contestados (por cuestionario individual)
 function separarPuntajeTotal_porCuestionarios(array) {
@@ -715,7 +720,7 @@ function separarPuntajeTotal_porCuestionarios(array) {
     let arrayPuntosObtenidos = [];
     array.forEach(element => {
         let valorPuntos = element.split('/');
-        //console.log('valorPuntos', valorPuntos)
+        ////console.log('valorPuntos', valorPuntos)
         arrayPuntosTotales.push(parseFloat(valorPuntos[0]));
         arrayPuntosObtenidos.push(parseFloat(valorPuntos[1]));
     })
@@ -728,13 +733,13 @@ let superArrayTipoPreguntasLimpio = [];
 superArrayTipoPreguntas.forEach(cuestionario => {
     let arrayTemporal = [];
     cuestionario.forEach(tipoPregunta => {
-        //console.log(tipoPregunta)
+        ////console.log(tipoPregunta)
         let puntajeDividido = separarPuntajeTotal_porCuestionarios(tipoPregunta);
         arrayTemporal.push(puntajeDividido);
     });
     superArrayTipoPreguntasLimpio.push(arrayTemporal);
 });
-console.log('superArrayTipoPreguntasLimpio', superArrayTipoPreguntasLimpio);
+//console.log('superArrayTipoPreguntasLimpio', superArrayTipoPreguntasLimpio);
 
 //Debemos hacer el calculo con los puntos de cada cuestionario
 //Hacemos una funcion que nos obtenga el total de los puntajes totales y el porcentage obtenido
@@ -747,7 +752,7 @@ function calculoPuntajeTipoPregunta_porCuestionario(array) {
     }
     let porcentajeRestante = parseFloat((100 - porcetajeObtenido).toFixed(2));
     let arrayValuesImportantes = [porcentajeRestante, porcetajeObtenido, sumaTotal, sumaObtenido];
-    //console.log('arrayValuesImportantes', arrayValuesImportantes)
+    ////console.log('arrayValuesImportantes', arrayValuesImportantes)
     return arrayValuesImportantes;
 }
 
@@ -755,16 +760,16 @@ let valoresTipoPreguntaFinal_porCuestionario = [];
 superArrayTipoPreguntasLimpio.forEach(cuestionario => {
     let arrayTemporal = [];
     let arrayTemporal2 = [];
-    //console.log(cuestionario)
+    ////console.log(cuestionario)
     cuestionario.forEach(tipoPregunta => {
-        //console.log('tipoPregunta', tipoPregunta)
+        ////console.log('tipoPregunta', tipoPregunta)
         let valorTemporal = calculoPuntajeTipoPregunta_porCuestionario(tipoPregunta);
         arrayTemporal2.push(valorTemporal);
     });
 
     valoresTipoPreguntaFinal_porCuestionario.push(arrayTemporal2);
 });
-console.log('valoresTipoPreguntaFinal_porCuestionario', valoresTipoPreguntaFinal_porCuestionario);
+//console.log('valoresTipoPreguntaFinal_porCuestionario', valoresTipoPreguntaFinal_porCuestionario);
 
 //Debemos contar los elementos que son reprobados/aprobados
 let aprobacionCuestionarioMultidimensionalCuenta = [];
@@ -793,12 +798,12 @@ let sumaReprobados_one = reprobacionCuestionarios.reduce((sum, value) => sum + v
 let total_reprobados_aprobados = sumaAprobados_one + sumaReprobados_one;
 
 let procentaje_sumasAprobados_one = parseFloat(((sumaAprobados_one * 100) / total_reprobados_aprobados).toFixed(2));
-console.log('procentaje_sumasAprobados_one', procentaje_sumasAprobados_one)
+//console.log('procentaje_sumasAprobados_one', procentaje_sumasAprobados_one)
 let procentaje_sumasReprobados_one = parseFloat(((sumaReprobados_one * 100) / total_reprobados_aprobados).toFixed(2));
-console.log('procentaje_sumasReprobados_one', procentaje_sumasReprobados_one)
+//console.log('procentaje_sumasReprobados_one', procentaje_sumasReprobados_one)
 
 //Es un array con el conteo final de los aprobados y reprobados.
-console.log('Contador de aprobacion por cuestionario =', aprobacionCuestionarioMultidimensionalCuenta);
+//console.log('Contador de aprobacion por cuestionario =', aprobacionCuestionarioMultidimensionalCuenta);
 
 //Debemos contar los elementos entregados a tiempo y con retraso en los cuestionarios
 //entregasRetrasoCuestionariosHechosMultidiomensional2
@@ -820,7 +825,7 @@ entregasRetrasoCuestionariosHechosMultidiomensional2.forEach(element => {
     retraso_Cuestionarios.push(contadorRetrasos);
 });
 entregaCuestionarioMultidimensionalCuenta.push(a_tiempo_Cuestionarios, retraso_Cuestionarios);
-console.log('Estado de los cuestionarios por grupo = ', entregaCuestionarioMultidimensionalCuenta)
+//console.log('Estado de los cuestionarios por grupo = ', entregaCuestionarioMultidimensionalCuenta)
 
 ///////////////////////ANALISIS DEL PUNTAJE POR TIPO DE PREGUNTA
 let nombreTipoPregunta = ["Global", "Opt1", "Opt2", "Opt3", "Opt4", "Opt5", "Opt6"];
