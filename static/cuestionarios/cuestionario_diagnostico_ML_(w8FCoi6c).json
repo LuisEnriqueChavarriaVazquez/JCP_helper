@@ -1,0 +1,23 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optFalsoVerdadero"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "2"
+  }
+ ],
+ "preguntasModal1": [],
+ "preguntasModal2": [],
+ "preguntasModal3": [],
+ "preguntasModal4": [],
+ "preguntasModal5": [
+  {
+   "0": "Prueba de falso y verdadero",
+   "1": "T"
+  }
+ ],
+ "preguntasModal6": []
+}

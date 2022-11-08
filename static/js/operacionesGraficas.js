@@ -33,6 +33,14 @@ function actualizarFondoGruposSiDefault(){
     }
 }
 
+//Pone un icono en caso de que no tengamos datos disponibles.
+function validarSinNoHayDatos(){
+    if(!datosCuestionariosTerminados){
+        console.log("No hay datos")
+    }
+}
+validarSinNoHayDatos();
+
 //Imprimimos el promedio global
 function imprimimosPromedioGlobal(){
     let counterGradeSmall = document.getElementById('counterGradeSmall');

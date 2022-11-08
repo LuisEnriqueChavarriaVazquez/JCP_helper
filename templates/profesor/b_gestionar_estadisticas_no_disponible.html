@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>No hay estadísticas para mostrar.</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
+</head>
+
+<body class="oculto color2">
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+
+    <!--Menu de página de inicio-->
+    <nav class="color1">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only">No hay estadísticas.</a>
+            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up">No hay estadísticas para mostrar.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="containerIntentosInfo">
+        <h4 class="colorText hide-on-small-only">Aún nadie constesta los cuestionarios.</h4>
+        <h5 class="colorText hide-on-med-and-up">Aún nadie constesta los cuestionarios.</h5>
+        <p class="colorText">Debe compartir sus su link de grupo y esperar a que sus estudiantes contesten los cuestionarios para poder ver estadísticas.</p>
+        <img src="../../static/images/icons/icon_no_stats.svg" id="iconIntentos">
+        <a href="/bienvenidaProfesor"class="waves-effect waves-light btn-large colorWhite coloredText shadow-2e button-rounded">Regresar</a>
+    </section>
+</body>
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+</html>

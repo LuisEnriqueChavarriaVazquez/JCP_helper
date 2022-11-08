@@ -114,9 +114,9 @@ console.log('Ids de los cuestionarios ', arrayIdsCuestionariosGeneral);
 //arrayIdsCuestionariosGeneral (Todos los cuestionarios)
 //idsCuestionariosHechosOrdenados (Todos los cuestionarios hechos)
 let listaIdsCuestionariosDepurada = arrayIdsCuestionariosGeneral.filter(element => {
-    if(idsCuestionariosHechosOrdenados.includes(element)){
+    if (idsCuestionariosHechosOrdenados.includes(element)) {
         return element;
-    }else{
+    } else {
         delete nombreCuestionariosSet[element];
     }
 })
@@ -136,11 +136,11 @@ console.log('Lista depurada en orden', listaIdsCuestionariosDepuradaOrdenada);
 
 //Debemos contar cuantos cuestionarios hay contestados
 let contadorFrecuenciaRespuestas = idsCuestionariosHechosOrdenados.reduce((acc, curr) => {
-    if(acc[curr]){
+    if (acc[curr]) {
         ++acc[curr]
-    }else if(acc[curr] = ""){
+    } else if (acc[curr] = "") {
         acc[curr] = 0
-    }else{
+    } else {
         acc[curr] = 1
     }
     return acc;
@@ -297,8 +297,8 @@ puntajeCuestionarioConFormatoPorCuestionario.forEach(cuestionario => {
         puntaje_a_numero = parseFloat(puntaje[0])
         puntajeObtenido += puntaje_a_numero;
     });
-    promedioPuntos = parseFloat((puntajeObtenido/cuestionario[0].length).toFixed(2));
-    
+    promedioPuntos = parseFloat((puntajeObtenido / cuestionario[0].length).toFixed(2));
+
     arrayTemporal.push(promedioPuntos, puntajeTotal);
     puntajesPorCuestionarioFinal.push(arrayTemporal);
 });
@@ -308,7 +308,7 @@ console.log('puntajesPorCuestionarioFinal', puntajesPorCuestionarioFinal)
 let promediosPorCuestionario = []
 promediosCuestionariosMultidimensionales.forEach(element => {
     let sumaElementos = element[0].reduce((acumulado, value) => acumulado + value);
-    promediosPorCuestionario.push(parseFloat((sumaElementos/(element[0].length)).toFixed(2)));
+    promediosPorCuestionario.push(parseFloat((sumaElementos / (element[0].length)).toFixed(2)));
 });
 console.log('Promedios globales de los cuestionarios contestados = ', promediosPorCuestionario);
 
@@ -316,8 +316,8 @@ console.log('Promedios globales de los cuestionarios contestados = ', promediosP
 let promedioTiempoPorCuestionario = [];
 horaConformatoNumericoMultidimensional2.forEach(element => {
     let sumaElementos = element[0].reduce((sum, value) => sum + value);
-    sumaElementos = parseFloat((sumaElementos * (1/60)).toFixed(2))
-    promedioTiempoPorCuestionario.push(sumaElementos/element[0].length);
+    sumaElementos = parseFloat((sumaElementos * (1 / 60)).toFixed(2))
+    promedioTiempoPorCuestionario.push(sumaElementos / element[0].length);
 })
 console.log('Promedio de tiempo por cuestionario = ', promedioTiempoPorCuestionario)
 
@@ -537,17 +537,17 @@ console.log('arrayPuntajesPreguntasFragmentado', arrayPuntajesPreguntasFragmenta
 //Debemos tomar los elementos en orden y meterlos en 6 arrays
 arrayPuntajesPreguntasFragmentado.forEach(element => {
     element.forEach((value, i = 0) => {
-        if(i == 0){
+        if (i == 0) {
             opt1Puntos.push(value);
-        }else if(i == 1){
+        } else if (i == 1) {
             opt2Puntos.push(value);
-        }else if(i == 2){
+        } else if (i == 2) {
             opt3Puntos.push(value);
-        }else if(i == 3){
+        } else if (i == 3) {
             opt4Puntos.push(value);
-        }else if(i == 4){
+        } else if (i == 4) {
             opt5Puntos.push(value);
-        }else if(i == 5){
+        } else if (i == 5) {
             opt6Puntos.push(value);
         }
     })
@@ -563,14 +563,14 @@ console.log({
 });
 
 //Funcion para dividir los puntajes de los cuestionarios contestados
-function separarPuntajeTotal(array){
+function separarPuntajeTotal(array) {
     let optDividido = [];
     let arrayPuntosTotales = [];
     let arrayPuntosObtenidos = [];
     array.forEach(element => {
         let valorPuntos = element.split('/');
         arrayPuntosTotales.push(parseFloat(valorPuntos[0]));
-        arrayPuntosObtenidos.push(parseFloat(valorPuntos[1]));    
+        arrayPuntosObtenidos.push(parseFloat(valorPuntos[1]));
     })
     optDividido.push(arrayPuntosTotales, arrayPuntosObtenidos);
     return optDividido;
@@ -594,11 +594,11 @@ console.log({
 });
 
 //Hacemos una funcion que nos obtenga el total de los puntajes totales y el porcentage obtenido
-function calculoPuntajeTipoPregunta(array){
+function calculoPuntajeTipoPregunta(array) {
     let sumaTotal = array[0].reduce((sum, value) => sum + value);
     let sumaObtenido = array[1].reduce((sum, value) => sum + value);
-    let porcetajeObtenido = parseFloat(((sumaObtenido*100)/sumaTotal).toFixed(2));
-    let porcentajeRestante = parseFloat((100- porcetajeObtenido).toFixed(2));
+    let porcetajeObtenido = parseFloat(((sumaObtenido * 100) / sumaTotal).toFixed(2));
+    let porcentajeRestante = parseFloat((100 - porcetajeObtenido).toFixed(2));
     let arrayValuesImportantes = [porcentajeRestante, porcetajeObtenido, sumaTotal, sumaObtenido];
     return arrayValuesImportantes;
 }
@@ -620,15 +620,15 @@ console.log({
     opt6Final
 });
 
-let optTotalTipoPregunta = [opt1Final,opt2Final,opt3Final,opt4Final,opt5Final,opt6Final];
+let optTotalTipoPregunta = [opt1Final, opt2Final, opt3Final, opt4Final, opt5Final, opt6Final];
 
 //Debemos hacer el calculo de los Puntajes por tipo de pregunta a nivel global
 let puntosTotalesFor = 0, puntosObtenidosFor = 0;
 optTotalTipoPregunta.forEach(pregunta => {
     pregunta.forEach((puntos, i = 0) => {
-        if(i == 2){
+        if (i == 2) {
             puntosTotalesFor += parseFloat((puntos).toFixed(2));
-        }else if (i == 3){
+        } else if (i == 3) {
             puntosObtenidosFor += parseFloat((puntos).toFixed(2));
         }
         i++
@@ -636,10 +636,10 @@ optTotalTipoPregunta.forEach(pregunta => {
 });
 
 //Calculamos el puntaje del total
-let promedioTotalObtenidoTipoPregunta = parseFloat(((puntosObtenidosFor*100)/puntosTotalesFor).toFixed(2));
+let promedioTotalObtenidoTipoPregunta = parseFloat(((puntosObtenidosFor * 100) / puntosTotalesFor).toFixed(2));
 let promedioTotalFaltanteTipoPregunta = parseFloat((100 - promedioTotalObtenidoTipoPregunta).toFixed(2));
 //Aqui metemos los puntos de todos los cuestionarios hechos
-let puntosTotalesTipoPreguntaArray = [promedioTotalFaltanteTipoPregunta, promedioTotalObtenidoTipoPregunta,puntosTotalesFor, puntosObtenidosFor];
+let puntosTotalesTipoPreguntaArray = [promedioTotalFaltanteTipoPregunta, promedioTotalObtenidoTipoPregunta, puntosTotalesFor, puntosObtenidosFor];
 
 //Almacenamos todos los puntajes finales de cada tipo de pregunta en el array.
 optTotalTipoPregunta.unshift(puntosTotalesTipoPreguntaArray); //🔴 Este es importante para imprimir en gráfico
@@ -656,7 +656,7 @@ for (var y = 0; y < contadorFrecuenciaRespuestasArray.length; y++) {
     let arrayTemporal3 = [];
     arrayTemporal3.push(estadoAprobacionCopia2.splice(0, contadorFrecuenciaRespuestasArray[y]));
     estadoAprobacionMultidimensional2.push(arrayTemporal3);
-    
+
     //Para los puntajes de las preguntas por el tipo
     let arrayTemporal2 = [];
     arrayTemporal2.push(puntajesPreguntasSinFormato_cuestionarioIndependiente.splice(0, contadorFrecuenciaRespuestasArray[y]));
@@ -682,34 +682,34 @@ puntajesPreguntasSinFormato_cuestionarioIndependienteMultidimensional.forEach(cu
         //console.log('cuestionario['+ +']', cuestionario[0])
         element.forEach((value, i = 0) => {
             //console.log(value)
-            if(i == 0){
+            if (i == 0) {
                 arrayopt1Temporal.push(value);
                 i++;
-            }else if(i == 1){
+            } else if (i == 1) {
                 arrayopt2Temporal.push(value);
                 i++;
-            }else if(i == 2){
+            } else if (i == 2) {
                 arrayopt3Temporal.push(value);
                 i++;
-            }else if(i == 3){
+            } else if (i == 3) {
                 arrayopt4Temporal.push(value);
                 i++;
-            }else if(i == 4){
+            } else if (i == 4) {
                 arrayopt5Temporal.push(value);
                 i++;
-            }else if(i == 5){
+            } else if (i == 5) {
                 arrayopt6Temporal.push(value);
                 i++;
             }
         })
     });
-    cuestionarioTemporalContainer.push(arrayopt1Temporal,arrayopt2Temporal,arrayopt3Temporal,arrayopt4Temporal,arrayopt5Temporal,arrayopt6Temporal);
+    cuestionarioTemporalContainer.push(arrayopt1Temporal, arrayopt2Temporal, arrayopt3Temporal, arrayopt4Temporal, arrayopt5Temporal, arrayopt6Temporal);
     superArrayTipoPreguntas.push(cuestionarioTemporalContainer);
 })
 console.log('Tenemos las preguntas organizadas por tipo (por cuestionario)', superArrayTipoPreguntas) //🔴
 
 //Funcion para dividir los puntajes de los cuestionarios contestados (por cuestionario individual)
-function separarPuntajeTotal_porCuestionarios(array){
+function separarPuntajeTotal_porCuestionarios(array) {
     let optDividido = [];
     let arrayPuntosTotales = [];
     let arrayPuntosObtenidos = [];
@@ -717,7 +717,7 @@ function separarPuntajeTotal_porCuestionarios(array){
         let valorPuntos = element.split('/');
         //console.log('valorPuntos', valorPuntos)
         arrayPuntosTotales.push(parseFloat(valorPuntos[0]));
-        arrayPuntosObtenidos.push(parseFloat(valorPuntos[1]));    
+        arrayPuntosObtenidos.push(parseFloat(valorPuntos[1]));
     })
     optDividido.push(arrayPuntosTotales, arrayPuntosObtenidos);
     return optDividido;
@@ -738,14 +738,14 @@ console.log('superArrayTipoPreguntasLimpio', superArrayTipoPreguntasLimpio);
 
 //Debemos hacer el calculo con los puntos de cada cuestionario
 //Hacemos una funcion que nos obtenga el total de los puntajes totales y el porcentage obtenido
-function calculoPuntajeTipoPregunta_porCuestionario(array){
+function calculoPuntajeTipoPregunta_porCuestionario(array) {
     let sumaTotal = array[0].reduce((sum, value) => sum + value);
     let sumaObtenido = array[1].reduce((sum, value) => sum + value);
     let porcetajeObtenido = 0;
-    if(sumaTotal != 0){
-        porcetajeObtenido = parseFloat(((sumaObtenido*100)/sumaTotal).toFixed(2));
+    if (sumaTotal != 0) {
+        porcetajeObtenido = parseFloat(((sumaObtenido * 100) / sumaTotal).toFixed(2));
     }
-    let porcentajeRestante = parseFloat((100-porcetajeObtenido).toFixed(2));
+    let porcentajeRestante = parseFloat((100 - porcetajeObtenido).toFixed(2));
     let arrayValuesImportantes = [porcentajeRestante, porcetajeObtenido, sumaTotal, sumaObtenido];
     //console.log('arrayValuesImportantes', arrayValuesImportantes)
     return arrayValuesImportantes;
@@ -761,7 +761,7 @@ superArrayTipoPreguntasLimpio.forEach(cuestionario => {
         let valorTemporal = calculoPuntajeTipoPregunta_porCuestionario(tipoPregunta);
         arrayTemporal2.push(valorTemporal);
     });
-    
+
     valoresTipoPreguntaFinal_porCuestionario.push(arrayTemporal2);
 });
 console.log('valoresTipoPreguntaFinal_porCuestionario', valoresTipoPreguntaFinal_porCuestionario);
@@ -792,9 +792,9 @@ let sumaAprobados_one = aprobacionCuestionarios.reduce((sum, value) => sum + val
 let sumaReprobados_one = reprobacionCuestionarios.reduce((sum, value) => sum + value);
 let total_reprobados_aprobados = sumaAprobados_one + sumaReprobados_one;
 
-let procentaje_sumasAprobados_one = parseFloat(((sumaAprobados_one*100)/total_reprobados_aprobados).toFixed(2));
+let procentaje_sumasAprobados_one = parseFloat(((sumaAprobados_one * 100) / total_reprobados_aprobados).toFixed(2));
 console.log('procentaje_sumasAprobados_one', procentaje_sumasAprobados_one)
-let procentaje_sumasReprobados_one = parseFloat(((sumaReprobados_one*100)/total_reprobados_aprobados).toFixed(2));
+let procentaje_sumasReprobados_one = parseFloat(((sumaReprobados_one * 100) / total_reprobados_aprobados).toFixed(2));
 console.log('procentaje_sumasReprobados_one', procentaje_sumasReprobados_one)
 
 //Es un array con el conteo final de los aprobados y reprobados.
@@ -823,7 +823,7 @@ entregaCuestionarioMultidimensionalCuenta.push(a_tiempo_Cuestionarios, retraso_C
 console.log('Estado de los cuestionarios por grupo = ', entregaCuestionarioMultidimensionalCuenta)
 
 ///////////////////////ANALISIS DEL PUNTAJE POR TIPO DE PREGUNTA
-let nombreTipoPregunta = ["Global","Opt1","Opt2","Opt3","Opt4","Opt5","Opt6"];
+let nombreTipoPregunta = ["Global", "Opt1", "Opt2", "Opt3", "Opt4", "Opt5", "Opt6"];
 
 
 /////////////////////////////////////////////////

@@ -63,15 +63,17 @@ def comunidad_profesor():
 def gestionar_cuestionarios():
     try:
         result=Op_profesor.datos_completos_docente_by_id(session["IDDocente"])
-        try:
-            resultCuestionarios = Op_profesor.obtener_cuestionarios_datos_importantes(session["IDDocente"])
-            resultGrupos = []
-            for cuestionarioIdGrupo in resultCuestionarios:
-                resultGrupos.append(Op_profesor.obtener_grupos_Nombre(cuestionarioIdGrupo[1]))
-                print(resultGrupos)
-        except:
-            return render_template('profesor/a_gestionar_cuestionarios.html',datos=result)
-        return render_template('profesor/a_gestionar_cuestionarios.html',datos=result, datosCuestionarios = resultCuestionarios, datosGrupos = resultGrupos)
+        resultCuestionarios = Op_profesor.obtener_cuestionarios_datos_importantes(session["IDDocente"])
+        resultGrupos = []
+        for cuestionarioIdGrupo in resultCuestionarios:
+            resultGrupos.append(Op_profesor.obtener_grupos_Nombre(cuestionarioIdGrupo[1]))
+            print(resultGrupos)
+        datosGrupos = Op_profesor.obtener_grupos_datos_importantes(session["IDDocente"])
+        print(datosGrupos)
+        if(len(datosGrupos) == 0):
+            return render_template('profesor/b_gestionar_cuestionarios_no_disponible.html')
+        else:
+            return render_template('profesor/a_gestionar_cuestionarios.html',datos=result, datosCuestionarios = resultCuestionarios, datosGrupos = resultGrupos)
     except:
         return render_template('profesor/a_gestionar_cuestionarios.html')
 
@@ -264,7 +266,12 @@ def gestionar_estadisticas(id_docente):
     #Cuenta cuestionarios del docente.
     #print(contadorCuestionarios)
 
-    return render_template('profesor/a_gestionar_estadisticas.html',cuestionarioHechosValidados = cuestionarioHechosValidados, idGrupos=idGrupos,datosGrupo=datosGrupo, datosGlobalesAlumnos = datosGlobalesAlumnos, cantidadesDeAlumnos = cantidadesDeAlumnos,IDS_Cuestionarios = contadorCuestionarios,datosCuestionariosProfe = datosCuestionariosProfe, datosCuestionariosTerminados = datosCuestionariosTerminados)
+    #Validamos que existan cuestionarios contestados.
+    print(len(listaOrdenada_cuestionarios_hechos_validados))
+    if(len(listaOrdenada_cuestionarios_hechos_validados) >= 1):
+        return render_template('profesor/a_gestionar_estadisticas.html',cuestionarioHechosValidados = cuestionarioHechosValidados, idGrupos=idGrupos,datosGrupo=datosGrupo, datosGlobalesAlumnos = datosGlobalesAlumnos, cantidadesDeAlumnos = cantidadesDeAlumnos,IDS_Cuestionarios = contadorCuestionarios,datosCuestionariosProfe = datosCuestionariosProfe, datosCuestionariosTerminados = datosCuestionariosTerminados)
+    else:
+        return render_template('profesor/b_gestionar_estadisticas_no_disponible.html')
 
 ##Ruta para la vista de gestion de grupos
 ##
