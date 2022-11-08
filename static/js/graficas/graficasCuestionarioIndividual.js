@@ -58,7 +58,7 @@ function promedio_general_por_cuestionario(idContainer, containerNumero) {
         i++
     });
 
-    let promedio_por_cuestionario_container = document.querySelectorAll('.porcentajeAprobacionContadorIndividualCuestionario'); 
+    let promedio_por_cuestionario_container = document.querySelectorAll('.porcentajeAprobacionContadorIndividualCuestionario');
     promedio_por_cuestionario_container.forEach((element, i = 0) => {
         element.textContent = promediosPorCuestionario[i++];
     });
@@ -134,14 +134,18 @@ function porcentaje_de_error_y_aciertos_cuestionario(idContainer, containerNumer
 function porcentaje_de_error_y_aciertos_cuestionario_por_tipo_pregunta(idContainer, containerNumero) {
     let contenedorPadre = document.getElementById(idContainer);
 
-    promedioTiempoPorCuestionario.forEach((tiempo, i = 0) => {
+    valoresTipoPreguntaFinal_porCuestionario.forEach((cuestionario, i = 0) => {
         //Insertamos el análisis de 1 de cada 10 pasan
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Porcentaje de aciertos y error en cuestionario</div>
-            <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
-            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Prom. min: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${tiempo}</span></p>
-            </div>`;
+        <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Porcentaje de aciertos por tipo de pregunta.</div>
+        <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">`;
+            cuestionario.forEach(tipoPregunta => {
+                contenido += `
+                    <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Opt 1: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${tipoPregunta}</span></p>
+                `;
+            })
+            contenido += "</div>";
             contenedorPadre.innerHTML += contenido;
         }
         i++
@@ -169,12 +173,12 @@ function insertarCajasHijasEnCadaGrupo(numero_grupos, numero_ids) {
             } else if (j == 4) {
                 document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('fifth_child_container');
                 distribucion_entregas_retraso_por_cuestionario(ids_indivual_cuestionarios[i][j], i);
-            }else if (j == 5) {
+            } else if (j == 5) {
                 document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('sixth_child_container');
-                porcentaje_de_error_y_aciertos_cuestionario(ids_indivual_cuestionarios[i][j], i);
-            }else if (j == 6) {
-                document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('seventh_child_container');
                 porcentaje_de_error_y_aciertos_cuestionario_por_tipo_pregunta(ids_indivual_cuestionarios[i][j], i);
+            } else if (j == 6) {
+                document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('seventh_child_container');
+                porcentaje_de_error_y_aciertos_cuestionario(ids_indivual_cuestionarios[i][j], i);
             }
         }
     }
