@@ -787,6 +787,16 @@ estadoAprobacionMultidimensional2.forEach(element => {
 });
 aprobacionCuestionarioMultidimensionalCuenta.push(aprobacionCuestionarios, reprobacionCuestionarios);
 
+//Sumamos los aprobados y los reprobados
+let sumaAprobados_one = aprobacionCuestionarios.reduce((sum, value) => sum + value);
+let sumaReprobados_one = reprobacionCuestionarios.reduce((sum, value) => sum + value);
+let total_reprobados_aprobados = sumaAprobados_one + sumaReprobados_one;
+
+let procentaje_sumasAprobados_one = parseFloat(((sumaAprobados_one*100)/total_reprobados_aprobados).toFixed(2));
+console.log('procentaje_sumasAprobados_one', procentaje_sumasAprobados_one)
+let procentaje_sumasReprobados_one = parseFloat(((sumaReprobados_one*100)/total_reprobados_aprobados).toFixed(2));
+console.log('procentaje_sumasReprobados_one', procentaje_sumasReprobados_one)
+
 //Es un array con el conteo final de los aprobados y reprobados.
 console.log('Contador de aprobacion por cuestionario =', aprobacionCuestionarioMultidimensionalCuenta);
 

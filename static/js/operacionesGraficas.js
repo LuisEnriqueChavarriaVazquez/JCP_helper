@@ -41,16 +41,15 @@ function imprimimosPromedioGlobal(){
     counterGradeSmall.innerText = promedioGlobal_one;
     counterGradeMed.innerText = promedioGlobal_one;
 }
-imprimimosPromedioGlobal();
 
 //Contador de grupos global
 function contarGruposGlobal(){
     const gruposContador = document.getElementById('gruposContador');
     const contenedorGruposInfoStatsContenedor = document.getElementsByClassName('contenedorGruposInfoStatsContenedor');
-
+    
     const counterGroupsMed = document.getElementById('counterGroupsMed');    
     const counterGroupsSmall = document.getElementById('counterGroupsSmall');
-
+    
     gruposContador.innerText = contenedorGruposInfoStatsContenedor.length;
     counterGroupsMed.innerText = contenedorGruposInfoStatsContenedor.length;
     counterGroupsSmall.innerText = contenedorGruposInfoStatsContenedor.length;
@@ -63,12 +62,13 @@ function contarEstudiantesGrupo(){
     //Contador de alumnos
     const counterStudentsMed = document.getElementById('counterStudentsMed');    
     const counterStudentsSmall = document.getElementById('counterStudentsSmall');
-
+    
     counterStudentsMed.innerText = cardAlumnoCounter.length;
     counterStudentsSmall.innerText = cardAlumnoCounter.length;
-
+    
 }
 
+imprimimosPromedioGlobal();
 actualizarFondoGruposSiDefault();
 leerTendenciaIcono();
 contarGruposGlobal();

@@ -60,7 +60,7 @@ function promedio_general_por_cuestionario(idContainer, containerNumero) {
 
     let promedio_por_cuestionario_container = document.querySelectorAll('.porcentajeAprobacionContadorIndividualCuestionario');
     promedio_por_cuestionario_container.forEach((element, i = 0) => {
-        element.textContent = promediosPorCuestionario[i++];
+        element.innerHTML = promediosPorCuestionario[i++];
     });
 }
 
@@ -86,7 +86,7 @@ function comparacion_entre_reprobados_aprobados_por_cuestionario(idContainer, co
     aprobacionCuestionarios.forEach((aprobacion, i = 0) => {
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Cifraz de aprobación y reprobación.</div>
+            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Cifras de aprobación y reprobación.</div>
             <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
                 <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Aprobados:<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${aprobacionCuestionarios[i]}</span></p>
                 <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Reprobados: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${reprobacionCuestionarios[i]}</span></p>
