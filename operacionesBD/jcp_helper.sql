@@ -89,6 +89,16 @@ primary key (IDPublicacionAlumno, IDAlumno),
 foreign key (IDAlumno) references Alumnos(IDAlumno) ON DELETE CASCADE
 );
 
+create table ComentariosRetroalimentacion(
+IDComentarioRetro int not null auto_increment,
+IDGrupo int not null,
+IDAlumno int not null,
+Comentario varchar(300),
+primary key (IDComentarioRetro, IDGrupo, IDAlumno),
+foreign key (IDGrupo) references Grupos(IDGrupo) ON DELETE CASCADE,
+foreign key (IDAlumno) references Alumnos(IDAlumno) ON DELETE CASCADE
+);
+
 create table Notificaciones_Alumno(
  IDAlumno int not null,
  IDNotificacion_Alumno int not null,

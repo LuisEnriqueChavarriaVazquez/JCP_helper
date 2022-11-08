@@ -192,6 +192,29 @@ def view_cuestionario_info(id):
     return render_template('estudiante/c_viewCuestionarioInfo.html', datosCuestionarios = datosCuestionarios[0], datosGrupo = pickedGroupData[0], datosDocente = pickedProfData, idEstudiante = idEstudiante)
 
 ##
+##Crear un comentario de retroalimentacion
+##
+@routes.route('/enviarRetroalimentacion',methods=['POST'])
+def crear_comentario_retroalimentacion():
+    #Obtenemos los datos del cuestionario y para el comentario de retroalimentacion
+    feedbackContent=request.form["feedbackContent"]
+    id_grupo=request.form["id_grupo"]
+    id_cuestionario=request.form["id_cuestionario"]
+    id_estudiante=request.form["id_estudiante"]
+
+    ##Insertamos el comentario de feedback en la BD
+    Op_estudiante.creaComentarioRetroalimentacion(id_grupo,id_estudiante,feedbackContent)
+
+    ######Obtención de información de los cuestionarios
+    datosCuestionarios = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
+    #Obtenemos los datos del grupo
+    pickedGroupData = Op_profesor.obtener_grupo_datos_importantes_unitario(datosCuestionarios[0][1])
+    #Obtenemos los datos del profesor
+    pickedProfData = Op_profesor.datos_completos_docente_by_id(datosCuestionarios[0][2])
+    #Enviamos al usuario al formulario para ver datos del grupo.
+    return render_template('estudiante/c_viewCuestionarioInfo.html', datosCuestionarios = datosCuestionarios[0], datosGrupo = pickedGroupData[0], datosDocente = pickedProfData, idEstudiante = id_estudiante, estado = "Pending")
+
+##
 ##  Aqui damos inicio a que el alumno conteste el cuestionario
 ##
 

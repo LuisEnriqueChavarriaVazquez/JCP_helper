@@ -329,4 +329,14 @@ def ruta_archivo_respuesta_alumno(id_cuestionario_respuesta):
         cursor.execute("SELECT * FROM Alumnos_hacen_Cuestionario WHERE IDCuestionarioHecho = %s",(id_cuestionario_respuesta))
         registro_cuestionario = cursor.fetchone()
     return registro_cuestionario
+
+####################################Operaciones para los post
+#Operacion para la creación de un post
+def creaComentarioRetroalimentacion(id_grupo, id_alumno, comentario):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("INSERT INTO ComentariosRetroalimentacion(IDGrupo, IDAlumno, Comentario) VALUES(%s,%s,%s)",
+        (id_grupo, id_alumno, comentario))
+    conexion.commit()
+    conexion.close()
     
