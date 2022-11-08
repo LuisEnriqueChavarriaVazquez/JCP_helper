@@ -437,11 +437,13 @@ def resultado_alumno(id_cuestionario):
 def mis_grupos(id_estudiante):
     #Busca los IDS de maestros, grupos y alumnos vinculados
     resultIds = Op_estudiante.obtener_IDs_dentro_de_grupo(id_estudiante)
+    #print(resultIds)
     
     #Busca toda la data del grupo para mostrar
     resultGroup = ()
     for idGroup in resultIds:
         resultGroup += Op_profesor.obtener_grupo_datos_importantes_unitario(idGroup[1])
+    print(resultGroup)
     
     #Busca toda la data del estudiante para extraer solo el id
     resultEstudiante = ()

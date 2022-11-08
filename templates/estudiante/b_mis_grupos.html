@@ -67,7 +67,7 @@
                             id="iconVistasAlternateGroupMobile" class="material-icons md-24">grid_view</i></a>
                 </div>
             </div>
-
+            
             <div class="contenedorCardsGruposOperationMyGroups" id="contenedorCardsGruposOperationId">
                 {% if datosGroup %}
                 {%for i in range(0, datosGroup|length)%}
@@ -95,7 +95,7 @@
                                 class="modal-trigger classIdentifierGroupButtonEdit waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
                                     class="material-icons md-24">logout</i></a>
 
-                            <form action="/viewGroupEstudiante/{{datosGroup[i][0]}}" method="post">
+                            <form action="/viewGroupEstudiante/{{datosGroup[i][1]}}" method="post">
                                 <input type="hidden" name="idEstudiante" value="{{idEstudiante}}">
                                 <button
                                     type="submit"
