@@ -1,23 +1,22 @@
-//Se encuentra en el JS para obtener los datos
-let gruposNameArrayCopia = [...gruposNameArray];
-//Ids de los grupos
-let gruposIdsCopia_1 = [...gruposIdsArray];
-
 //////////////////////////////////
 //Manejo y limpieza de los datos.
 let idAlumnoComentario = [];
 let idGrupoComentario = [];
+let idGrupoComentario_SET = new Set;
+let idGrupoComentario_sinRepetir = [];
 let comentarioRetroalimentacion = [];
 
 //Vaciamos el contenido de la DB.
 datosComentariosRetro.forEach(comentario => {
     idGrupoComentario.push(comentario[1]);
+    idGrupoComentario_SET.add(comentario[1]);
     idAlumnoComentario.push(comentario[2]);
     comentarioRetroalimentacion.push(comentario[3]);
 });
 console.log('idAlumnoComentario', idAlumnoComentario)
-console.log('idGrupoComentario', idGrupoComentario)
+console.log('idGrupoComentario', idGrupoComentario);
 console.log('comentarioRetroalimentacion', comentarioRetroalimentacion)
+idGrupoComentario_sinRepetir = Array.from(idGrupoComentario_SET);
 
 //Vaciamos los datos de los alumnos que han contestado
 let nombreAlumnoComentario = [];
@@ -29,6 +28,18 @@ datosAlumnosRetroalimentacion.forEach(alumno =>{
 })
 console.log('nombreAlumnoComentario', nombreAlumnoComentario)
 console.log('fotoAlumnoComentario', fotoAlumnoComentario)
+
+//Vaciamos los nombres de los grupos que tienes retroalimentacion
+let nombreGrupoComentarioRetro = []
+let nombreGrupoComentarioRetro_SET = new Set;
+let arrayNombresSinRepetir_retro = [];
+datosGruposConRetroalimentacion.forEach(grupo =>{
+    nombreGrupoComentarioRetro.push(grupo[2]);
+    nombreGrupoComentarioRetro_SET.add(grupo[2]);
+})
+console.log('nombreGrupoComentarioRetro', nombreGrupoComentarioRetro)
+console.log('Nombre grupos retro sin repetir', nombreGrupoComentarioRetro_SET);
+arrayNombresSinRepetir_retro = Array.from(nombreGrupoComentarioRetro_SET);
 /////////////////////////////////////////////
 
 //Hay que contar los elementos que tiene cada grupo
@@ -71,16 +82,13 @@ console.log('Foto de alumnos multidimensional = ', fotoAlumnoRetroMultidimension
  * 
  *  La llave es el IDGrupo
  */
-let objetoComentariosFinal = llavesIds_comentarios.map((llave) => {
-    return  {
+let objetoComentariosFinal = {}
+llavesIds_comentarios.forEach((llave) => {
+    objetoComentariosFinal += {
         [llave]: {
-            comentario:{
-                foto: "url de ejemplo",
-                nombre: "Nombre de ejemplo",
-                comentario: "Comentario ejemplo"
-            }
+            name: "Caca"
         }
-    } 
+    }
 })
 console.log('objetoComentariosFinal', objetoComentariosFinal)
 
@@ -92,9 +100,9 @@ function imprimimosGruposComentarios(){
 
     //Generamos los enlaces para mostrar los comentarios
     let contenido = "";
-    gruposNameArrayCopia.forEach((grupo, i = 0) => {
+    arrayNombresSinRepetir_retro.forEach((grupo, i = 0) => {
         contenido += `
-        <div onclick="mostrarComentarios('link_grupo_`+gruposIdsCopia_1[i]+`', '`+gruposIdsCopia_1[i++]+`')" id="link_grupo_`+gruposIdsCopia_1[i++]+`" class="waves-effect linkGrupo bordered1 colorGreyWhiter">
+        <div onclick="mostrarComentarios('link_grupo_`+idGrupoComentario_sinRepetir[i]+`', '`+idGrupoComentario_sinRepetir[i++]+`')" id="link_grupo_`+idGrupoComentario_sinRepetir[i++]+`" class="waves-effect linkGrupo bordered1 colorGreyWhiter">
             <p class="linkGrupoTexto coloredText">${grupo}</p>
         </div>
         `;
