@@ -33,7 +33,7 @@ function numero_de_respuestas_por_cuestionario(idContainer, containerNumero) {
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
             <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Número de respuestas</div>
-            <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
+            <div class="contenidoContenedorUnitarioEstadisticasModel2 bordered2Down">
                 <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Número de respuestas: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${respuestas}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
@@ -50,7 +50,7 @@ function promedio_general_por_cuestionario(idContainer, containerNumero) {
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
             <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Promedio general</div>
-            <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
+            <div class="contenidoContenedorUnitarioEstadisticasModel2 bordered2Down">
                 <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Promedio general: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${promedio}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
@@ -72,7 +72,7 @@ function promedio_tiempo_respuestas_por_cuestionario(idContainer, containerNumer
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
             <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Promedio tiempo respuestas por cuestionario</div>
-            <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
+            <div class="contenidoContenedorUnitarioEstadisticasModel2 bordered2Down">
             <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Tiempo: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${tiempo}hrs.</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
@@ -122,7 +122,7 @@ function puntaje_promedio_de_error_y_aciertos_cuestionario(idContainer, containe
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
             <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Porcentaje de aciertos y error en cuestionario</div>
-            <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
+            <div class="contenidoContenedorUnitarioEstadisticasModel2 bordered2Down">
             <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Puntaje promedio/total: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${puntaje[0]}/${puntaje[1]}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
@@ -171,16 +171,16 @@ function insertarCajasHijasEnCadaGrupo(numero_grupos, numero_ids) {
                 promedio_tiempo_respuestas_por_cuestionario(ids_indivual_cuestionarios[i][j], i)
             } else if (j == 3) {
                 document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('fourth_child_container');
-                comparacion_entre_reprobados_aprobados_por_cuestionario(ids_indivual_cuestionarios[i][j], i);
+                distribucion_entregas_retraso_por_cuestionario(ids_indivual_cuestionarios[i][j], i);
             } else if (j == 4) {
                 document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('fifth_child_container');
-                distribucion_entregas_retraso_por_cuestionario(ids_indivual_cuestionarios[i][j], i);
+                puntaje_promedio_de_error_y_aciertos_cuestionario(ids_indivual_cuestionarios[i][j], i);
             } else if (j == 5) {
                 document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('sixth_child_container');
                 porcentaje_de_error_y_aciertos_cuestionario_por_tipo_pregunta(ids_indivual_cuestionarios[i][j], i);
             } else if (j == 6) {
                 document.getElementById(ids_indivual_cuestionarios[i][j]).classList.add('seventh_child_container');
-                puntaje_promedio_de_error_y_aciertos_cuestionario(ids_indivual_cuestionarios[i][j], i);
+                comparacion_entre_reprobados_aprobados_por_cuestionario(ids_indivual_cuestionarios[i][j], i);
             }
         }
     }

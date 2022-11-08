@@ -50,9 +50,9 @@ function promedio_intentos_por_grupo(idContainer, containerNumero) {
     arrayPromediosIntentosPorGrupo.forEach((promedioIntento, i = 0) => {
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Intentos promedio en grupo</div>
-            <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
-                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Intentos promedio: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${promedioIntento}</span></p>
+            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Intentos promedio.</div>
+            <div class="contenidoContenedorUnitarioEstadisticasModel2 bordered2Down">
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Intentos: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${promedioIntento}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
         }
@@ -67,10 +67,10 @@ function promedio_max_min_por_grupo(idContainer, containerNumero) {
         //Insertamos el análisis de 1 de cada 10 pasan
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Rango de promedios grupal</div>
+            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Rango de calificaciones:</div>
             <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
-            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Prom. min: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${grupo.at(0)}</span></p>
-            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Prom. max:<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${grupo.at(-1)}</span></p>
+            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Calif. min.: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${grupo.at(0)}</span></p>
+            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Calif. max.:<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${grupo.at(-1)}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
         }
@@ -92,9 +92,9 @@ function analisis_pasar_por_grupo(idContainer, containerNumero) {
         if (i == containerNumero) { //Valida que contenedor es...
             let formatoNumero = Math.ceil(porcentageGrupo[0] / 10);
             let contenido = `
-            <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
             <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Índice de aprobación</div>
-                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario"><span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${formatoNumero}/10</span> aprueba</p>
+            <div class="contenidoContenedorUnitarioEstadisticasModel2 bordered2Down">
+                <p class="colorTextReverse porcetageAprobacionParrafoUnitario"><span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${formatoNumero}/10 aprueba</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
         }
@@ -109,8 +109,8 @@ function tiempo_promedio_respuesta_examen_por_grupo(idContainer, containerNumero
         //Insertamos el análisis de 1 de cada 10 pasan
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Promedio grupal tiempo respuestas</div>
-            <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
+            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Promedio tiempo respuestas:</div>
+            <div class="contenidoContenedorUnitarioEstadisticasModel2 bordered2Down">
             <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Tiempo: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${tiempo}hrs.</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;

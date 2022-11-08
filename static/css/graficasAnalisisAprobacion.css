@@ -138,8 +138,8 @@
 }
 
 /*Metemos aquí los estilos para los insights de los grupos*/
-.contenedorGrupoIndividualInsights{
-    padding: 10px;
+.contenedorGrupoIndividualInsights, .contenedorCuestionariosIndividualInsights{
+    padding: 10px 200px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
@@ -152,8 +152,8 @@
     gap: 20px;
 }
 
-@media only screen and (max-width: 1150px){
-    .contenedorGrupoIndividualInsights{
+@media only screen and (max-width: 1250px){
+    .contenedorGrupoIndividualInsights, .contenedorCuestionariosIndividualInsights{
         padding: 10px;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -169,7 +169,7 @@
 }
 
 @media only screen and (max-width: 600px){
-    .contenedorGrupoIndividualInsights{
+    .contenedorGrupoIndividualInsights, .contenedorCuestionariosIndividualInsights{
         padding: 4px;
         display: grid;
         grid-template-columns: 1fr;
@@ -190,6 +190,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+    padding: 5px;
 }
 
 .tituloContenedorUnitarioEstadisticas{
@@ -208,6 +209,15 @@
     grid-template-areas: auto;
     padding: 10px 20px;
 }
+
+.contenidoContenedorUnitarioEstadisticasModel2{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    grid-template-areas: auto;
+    padding: 10px 20px;
+}
+
 
 @media only screen and (max-width: 600px){
     .contenidoContenedorUnitarioEstadisticas{

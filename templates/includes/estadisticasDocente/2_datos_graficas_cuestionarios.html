@@ -93,7 +93,7 @@
     <ul class="collapsible bordered2 colorWhite">
         {%for i in range(0, cuestionarioHechosValidados|length)%}
         <li>
-            <div class="collapsible-header bordered2"><i class="material-icons">description</i>{{cuestionarioHechosValidados[i][3]}}
+            <div class="collapsible-header bordered2"><i class="material-icons">description</i>{{cuestionarioHechosValidados[i][3]}} &nbsp;<b class="hide-on-small-only">{{cuestionarioHechosValidados[i][7]}}</b>
                 <span class="colorGrey colorTextReverse bordered5 porcentajeAprobacionContadorIndividualCuestionario"></span> <!--Aqui van los indice de aprobacion-->
             </div>
             <div class="collapsible-body">
