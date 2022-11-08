@@ -22,7 +22,7 @@ idGrupoComentario_sinRepetir = Array.from(idGrupoComentario_SET);
 let nombreAlumnoComentario = [];
 let fotoAlumnoComentario = [];
 
-datosAlumnosRetroalimentacion.forEach(alumno =>{
+datosAlumnosRetroalimentacion.forEach(alumno => {
     nombreAlumnoComentario.push(alumno[1]);
     fotoAlumnoComentario.push(alumno[3]);
 })
@@ -33,7 +33,7 @@ console.log('fotoAlumnoComentario', fotoAlumnoComentario)
 let nombreGrupoComentarioRetro = []
 let nombreGrupoComentarioRetro_SET = new Set;
 let arrayNombresSinRepetir_retro = [];
-datosGruposConRetroalimentacion.forEach(grupo =>{
+datosGruposConRetroalimentacion.forEach(grupo => {
     nombreGrupoComentarioRetro.push(grupo[2]);
     nombreGrupoComentarioRetro_SET.add(grupo[2]);
 })
@@ -48,7 +48,7 @@ idGrupoComentario.forEach(element => {
     count[element] = (count[element] || 0) + 1;
 });
 let conteoIds_comentarios = Object.values(count);
-let llavesIds_comentarios = Object.keys(count); 
+let llavesIds_comentarios = Object.keys(count);
 console.log('llavesIds_comentarios', llavesIds_comentarios)
 console.log('conteoIds_comentarios', conteoIds_comentarios);
 
@@ -74,27 +74,8 @@ console.log('Comentarios retroalimentacion multidimensional = ', comentarioRetro
 console.log('Nombre de alumnos multidimensional = ', nombreAlumnoRetroMultidimensional)
 console.log('Foto de alumnos multidimensional = ', fotoAlumnoRetroMultidimensional)
 
-//Aqui debemos guardar los datos del comentario
-/*
- *  Link de la foto
- *  Nombre de la persona
- *  Comentario
- * 
- *  La llave es el IDGrupo
- */
-let objetoComentariosFinal = {}
-llavesIds_comentarios.forEach((llave) => {
-    objetoComentariosFinal += {
-        [llave]: {
-            name: "Caca"
-        }
-    }
-})
-console.log('objetoComentariosFinal', objetoComentariosFinal)
-
-
 ///////////////////////////////////////////////////
-function imprimimosGruposComentarios(){
+function imprimimosGruposComentarios() {
     //Container de los titulos de los grupos
     let containerGruposComentarios = document.getElementById('containerGruposComentarios');
 
@@ -102,26 +83,41 @@ function imprimimosGruposComentarios(){
     let contenido = "";
     arrayNombresSinRepetir_retro.forEach((grupo, i = 0) => {
         contenido += `
-        <div onclick="mostrarComentarios('link_grupo_`+idGrupoComentario_sinRepetir[i]+`', '`+idGrupoComentario_sinRepetir[i++]+`')" id="link_grupo_`+idGrupoComentario_sinRepetir[i++]+`" class="waves-effect linkGrupo bordered1 colorGreyWhiter">
+        <div onclick="mostrarComentarios('`+ i + `','link_grupo_` + idGrupoComentario_sinRepetir[i] + `', '` + idGrupoComentario_sinRepetir[i++] + `')" id="link_grupo_` + idGrupoComentario_sinRepetir[i++] + `" class="waves-effect linkGrupo bordered1 colorGreyWhiter">
             <p class="linkGrupoTexto coloredText">${grupo}</p>
         </div>
         `;
     });
     i++;
     containerGruposComentarios.innerHTML = contenido;
-    
+
 }
 imprimimosGruposComentarios();
 
 //Funcion que muestra los comentarios en la pantalla.
-let contenedorDinamico = document.getElementById('contenedorDinamicoComentarios');
-function mostrarComentarios(id, numeroGrupo){
-    console.log(id, numeroGrupo);
-    if(idGrupoComentario.includes(parseInt(numeroGrupo))){
-        comentarioRetroMultidimensional.forEach(comentario => {
-            contenedorDinamico.innerHTML = comentario;
+let contenedorDinamico = document.getElementById('containerMessages_retro');
+function mostrarComentarios(selectorArray, id, numeroGrupo) {
+    contenedorDinamico.innerHTML = "";
+
+    comentarioRetroMultidimensional[selectorArray].forEach((comentario, j = 0) => {
+        comentario.forEach((contenidoIndividual, i = 0) => {
+            contenedorDinamico.innerHTML += `
+                <div class="comentarioContainerRetroalimentacion bordered1 colorGreyWhiter">
+                    <div class="comentarioContainerRetroalimentacion-userData">
+                        <div class="comentarioContainerRetroalimentacion-userData-img">
+                            <img class="shadow-1e" src="../../../static/images/avatares/${fotoAlumnoRetroMultidimensional[selectorArray][j][i]}">
+                        </div>
+                        <div class="comentarioContainerRetroalimentacion-userData-name">
+                            <p class="coloreTextReverse">${nombreAlumnoRetroMultidimensional[selectorArray][j][i]}</p>
+                        </div>
+                    </div>
+                    <div class="comentarioContainerRetroalimentacion-comentary">
+                            ${contenidoIndividual}
+                    </div>
+                </div>
+                `;
+            i++;
         });
-    }else{
-        contenedorDinamico.innerHTML = "No hay comentarios";
-    }
+        j++;
+    });
 }

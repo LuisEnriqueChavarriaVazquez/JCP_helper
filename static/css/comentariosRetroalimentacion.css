@@ -1,11 +1,23 @@
 .dashBoardRetroalimentacionCursos{
     display: grid;
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: 1fr;
     grid-template-rows: auto;
     gap: 10px;
     margin: 0 50px 20px 50px;
     padding: 15px;
     height: auto;
+}
+
+@media only screen and (max-width: 750px) {
+    .dashBoardRetroalimentacionCursos{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 10px;
+        margin: 0 30px 20px 30px;
+        padding: 15px;
+        height: auto;
+    }
 }
 
 .dashBoardRetroalimentacionCursos-grupos{
@@ -15,9 +27,9 @@
     gap: 10px;
 }
 
-.dashBoardRetroalimentacionCursos-comentarios{
+#containerGruposComentarios{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     gap: 10px;
 }
@@ -25,8 +37,7 @@
 .linkGrupo{
     padding-left: 8px;
     height: 40px;
-    margin-bottom: 10px;
-
+    margin: 0 !important;
     display: flex;
     align-items: center;
 }
@@ -36,6 +47,55 @@
     font-weight: 700;
     text-decoration-line: underline;
 }
+
+@media only screen and (max-width: 750px) {
+    #containerGruposComentarios{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        gap: 10px;
+    }
+
+    .linkGrupo{
+        padding-left: 8px;
+        height: 40px;
+        margin: 0 !important;
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    #containerGruposComentarios{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 5px;
+    }
+
+    .linkGrupo{
+        padding-left: 8px;
+        height: 30px;
+        margin: 0 !important;
+        display: flex;
+        align-items: center;
+    }
+
+    .linkGrupoTexto{
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration-line: underline;
+    }
+}
+
+.dashBoardRetroalimentacionCursos-comentarios{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+}
+
+
 
 .comentarioContainerRetroalimentacion{
     display: grid;
@@ -69,6 +129,22 @@
     border: 2px solid #fff;
 }
 
+@media only screen and (max-width: 750px) {
+    .comentarioContainerRetroalimentacion-userData-img img{
+        width: 40px;
+        border-radius: 50px;
+        border: 2px solid #fff;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .comentarioContainerRetroalimentacion-userData-img img{
+        width: 35px;
+        border-radius: 50px;
+        border: 2px solid #fff;
+    }
+}
+
 .comentarioContainerRetroalimentacion-userData-name{
     display: flex;
     justify-content: left;
@@ -86,16 +162,34 @@
     font-size: 12px;
     font-weight: 600;
     padding: 0 10px;
-    height: 120px;
+    height: 90px;
     display: flex;
     justify-content: left;
     align-items: center;
     text-align: justify;
 }
 
-.containerMessages_retro{
+#containerMessages_retro{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     gap: 10px;
+}
+
+@media only screen and (max-width: 1500px) {
+    #containerMessages_retro{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        gap: 10px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #containerMessages_retro{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 10px;
+    }
 }
