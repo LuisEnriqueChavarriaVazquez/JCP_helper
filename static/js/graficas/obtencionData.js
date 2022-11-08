@@ -586,7 +586,7 @@ optTotalTipoPregunta.forEach(pregunta => {
         }
         i++
     });
-})
+});
 
 //Calculamos el puntaje del total
 let promedioTotalObtenidoTipoPregunta = parseFloat(((puntosObtenidosFor*100)/puntosTotalesFor).toFixed(2));
@@ -687,7 +687,37 @@ superArrayTipoPreguntas.forEach(cuestionario => {
     });
     superArrayTipoPreguntasLimpio.push(arrayTemporal);
 });
-console.log('superArrayTipoPreguntasLimpio', superArrayTipoPreguntasLimpio)
+console.log('superArrayTipoPreguntasLimpio', superArrayTipoPreguntasLimpio);
+
+//Debemos hacer el calculo con los puntos de cada cuestionario
+//Hacemos una funcion que nos obtenga el total de los puntajes totales y el porcentage obtenido
+function calculoPuntajeTipoPregunta_porCuestionario(array){
+    let sumaTotal = array[0].reduce((sum, value) => sum + value);
+    let sumaObtenido = array[1].reduce((sum, value) => sum + value);
+    let porcetajeObtenido = 0;
+    if(sumaTotal != 0){
+        porcetajeObtenido = parseFloat(((sumaObtenido*100)/sumaTotal).toFixed(2));
+    }
+    let porcentajeRestante = parseFloat((100-porcetajeObtenido).toFixed(2));
+    let arrayValuesImportantes = [porcentajeRestante, porcetajeObtenido, sumaTotal, sumaObtenido];
+    console.log('arrayValuesImportantes', arrayValuesImportantes)
+    return arrayValuesImportantes;
+}
+
+let valoresTipoPreguntaFinal_porCuestionario = [];
+superArrayTipoPreguntasLimpio.forEach(cuestionario => {
+    let arrayTemporal = [];
+    let arrayTemporal2 = [];
+    //console.log(cuestionario)
+    cuestionario.forEach(tipoPregunta => {
+        //console.log('tipoPregunta', tipoPregunta)
+        let valorTemporal = calculoPuntajeTipoPregunta_porCuestionario(tipoPregunta);
+        arrayTemporal2.push(valorTemporal);
+    });
+    
+    valoresTipoPreguntaFinal_porCuestionario.push(arrayTemporal2);
+});
+console.log('valoresTipoPreguntaFinal_porCuestionario', valoresTipoPreguntaFinal_porCuestionario);
 
 //Debemos contar los elementos que son reprobados/aprobados
 let aprobacionCuestionarioMultidimensionalCuenta = [];
