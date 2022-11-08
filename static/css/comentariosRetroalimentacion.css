@@ -1,0 +1,101 @@
+.dashBoardRetroalimentacionCursos{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    margin: 0 50px 20px 50px;
+    padding: 15px;
+    height: auto;
+}
+
+.dashBoardRetroalimentacionCursos-grupos{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+}
+
+.dashBoardRetroalimentacionCursos-comentarios{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+}
+
+.linkGrupo{
+    padding-left: 8px;
+    height: 40px;
+    margin-bottom: 10px;
+
+    display: flex;
+    align-items: center;
+}
+
+.linkGrupoTexto{
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration-line: underline;
+}
+
+.comentarioContainerRetroalimentacion{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.comentarioContainerRetroalimentacion-userData{
+    display: grid;
+    grid-template-columns: .5fr 2.5fr;
+    grid-template-rows: auto;
+    height: 30px;
+    padding: 5px 0;
+    margin-bottom: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.comentarioContainerRetroalimentacion-userData-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comentarioContainerRetroalimentacion-userData-img img{
+    width: 50px;
+    border-radius: 50px;
+    border: 2px solid #fff;
+}
+
+.comentarioContainerRetroalimentacion-userData-name{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.comentarioContainerRetroalimentacion-userData-name p{
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.comentarioContainerRetroalimentacion-comentary{
+    font-size: 12px;
+    font-weight: 600;
+    padding: 0 10px;
+    height: 120px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: justify;
+}
+
+.containerMessages_retro{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+}
