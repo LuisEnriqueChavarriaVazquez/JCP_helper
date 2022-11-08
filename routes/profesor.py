@@ -192,6 +192,18 @@ def gestionar_estadisticas(id_docente):
         datosComentariosRetro += (Op_estudiante.obtieneComentarioRetroalimentacion(singleIDGrupo2))
     #print(datosComentariosRetro)
 
+    #Obtenemos las IDS de los alumnos que han hecho algún comentario.
+    idsAlumnosQueHicieronComentario = []
+    for idAlumno in datosComentariosRetro:
+        idsAlumnosQueHicieronComentario.append(idAlumno[2])
+    #print(idsAlumnosQueHicieronComentario)
+
+    #Obtenemos los datos de los alumnos que hicieron comentarios
+    datosAlumnosRetroalimentacion = ()
+    for idAlumno2 in idsAlumnosQueHicieronComentario:
+        datosAlumnosRetroalimentacion += Op_profesor.datos_completos_alumno_by_id(idAlumno2)
+    #print(datosAlumnosRetroalimentacion)
+
     #Guardamos todos los cuestionarios del docente
     datosCuestionariosProfe = ()
     for singleIDGrupo in idGrupos:
@@ -275,7 +287,7 @@ def gestionar_estadisticas(id_docente):
     #Validamos que existan cuestionarios contestados.
     print(len(listaOrdenada_cuestionarios_hechos_validados))
     if(len(listaOrdenada_cuestionarios_hechos_validados) >= 1):
-        return render_template('profesor/a_gestionar_estadisticas.html',datosComentariosRetro = datosComentariosRetro,cuestionarioHechosValidados = cuestionarioHechosValidados, idGrupos=idGrupos,datosGrupo=datosGrupo, datosGlobalesAlumnos = datosGlobalesAlumnos, cantidadesDeAlumnos = cantidadesDeAlumnos,IDS_Cuestionarios = contadorCuestionarios,datosCuestionariosProfe = datosCuestionariosProfe, datosCuestionariosTerminados = datosCuestionariosTerminados)
+        return render_template('profesor/a_gestionar_estadisticas.html',datosAlumnosRetroalimentacion = datosAlumnosRetroalimentacion, datosComentariosRetro = datosComentariosRetro,cuestionarioHechosValidados = cuestionarioHechosValidados, idGrupos=idGrupos,datosGrupo=datosGrupo, datosGlobalesAlumnos = datosGlobalesAlumnos, cantidadesDeAlumnos = cantidadesDeAlumnos,IDS_Cuestionarios = contadorCuestionarios,datosCuestionariosProfe = datosCuestionariosProfe, datosCuestionariosTerminados = datosCuestionariosTerminados)
     else:
         return render_template('profesor/b_gestionar_estadisticas_no_disponible.html')
 

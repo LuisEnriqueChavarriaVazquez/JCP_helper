@@ -11,6 +11,11 @@ let datosComentariosRetro = document.getElementById('datosComentariosRetro').val
 datosComentariosRetro = limpiarDatos(datosComentariosRetro);
 //console.log('Comentarios retroalimentacion = ', datosComentariosRetro);
 
+//Accedemos a los datos de los alumnos que han agregado sus comentarios
+let datosAlumnosRetroalimentacion = document.getElementById('datosAlumnosRetroalimentacion').value;
+datosAlumnosRetroalimentacion = limpiarDatos(datosAlumnosRetroalimentacion);
+//console.log('datosAlumnosRetroalimentacion', datosAlumnosRetroalimentacion)
+
 //Accedemos a la data como string
 let datosCuestionariosTerminados = document.getElementById('cuestionariosTerminados').value;
 datosCuestionariosTerminados = limpiarDatos(datosCuestionariosTerminados);
