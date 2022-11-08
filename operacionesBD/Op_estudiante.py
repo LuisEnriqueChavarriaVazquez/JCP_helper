@@ -330,8 +330,8 @@ def ruta_archivo_respuesta_alumno(id_cuestionario_respuesta):
         registro_cuestionario = cursor.fetchone()
     return registro_cuestionario
 
-####################################Operaciones para los post
-#Operacion para la creación de un post
+####################################Operaciones para los comentarios de retroalimentacion
+#Operacion para la creación de un comentario
 def creaComentarioRetroalimentacion(id_grupo, id_alumno, comentario):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
@@ -339,4 +339,16 @@ def creaComentarioRetroalimentacion(id_grupo, id_alumno, comentario):
         (id_grupo, id_alumno, comentario))
     conexion.commit()
     conexion.close()
+
+#Operacion para la creación de un comentario
+def obtieneComentarioRetroalimentacion(id_grupo):
+    conexion=obtener_conexion()
+    comentarios=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM ComentariosRetroalimentacion WHERE IDGrupo = %s", (id_grupo))
+        comentarios=cursor.fetchall()
+
+    conexion.close()
+    return comentarios
     

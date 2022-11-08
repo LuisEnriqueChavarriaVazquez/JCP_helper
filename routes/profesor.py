@@ -186,6 +186,12 @@ def gestionar_estadisticas(id_docente):
         idGrupos.append(singleIDGrupo[0])
     #print(idGrupos) #[1,2] #ID de los grupos del docente
 
+    #Con las IDS de lso grupos obtenemos los comentarios de retroalimentacion
+    datosComentariosRetro = ()
+    for singleIDGrupo2 in idGrupos:
+        datosComentariosRetro += (Op_estudiante.obtieneComentarioRetroalimentacion(singleIDGrupo2))
+    #print(datosComentariosRetro)
+
     #Guardamos todos los cuestionarios del docente
     datosCuestionariosProfe = ()
     for singleIDGrupo in idGrupos:
@@ -269,7 +275,7 @@ def gestionar_estadisticas(id_docente):
     #Validamos que existan cuestionarios contestados.
     print(len(listaOrdenada_cuestionarios_hechos_validados))
     if(len(listaOrdenada_cuestionarios_hechos_validados) >= 1):
-        return render_template('profesor/a_gestionar_estadisticas.html',cuestionarioHechosValidados = cuestionarioHechosValidados, idGrupos=idGrupos,datosGrupo=datosGrupo, datosGlobalesAlumnos = datosGlobalesAlumnos, cantidadesDeAlumnos = cantidadesDeAlumnos,IDS_Cuestionarios = contadorCuestionarios,datosCuestionariosProfe = datosCuestionariosProfe, datosCuestionariosTerminados = datosCuestionariosTerminados)
+        return render_template('profesor/a_gestionar_estadisticas.html',datosComentariosRetro = datosComentariosRetro,cuestionarioHechosValidados = cuestionarioHechosValidados, idGrupos=idGrupos,datosGrupo=datosGrupo, datosGlobalesAlumnos = datosGlobalesAlumnos, cantidadesDeAlumnos = cantidadesDeAlumnos,IDS_Cuestionarios = contadorCuestionarios,datosCuestionariosProfe = datosCuestionariosProfe, datosCuestionariosTerminados = datosCuestionariosTerminados)
     else:
         return render_template('profesor/b_gestionar_estadisticas_no_disponible.html')
 
