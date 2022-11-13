@@ -726,7 +726,7 @@ def creacion_cuestionarios(id_profesor):
 def crear_cuestionario_del_banco():
     if request.method == 'POST':
         query=request.form["lenguaje"]
-        url=f"https://banco-de-datos.herokuapp.com/cuestionarios?lenguaje={query}"
+        url=f"https://jcp-banco-de-datos.up.railway.app/cuestionarios?lenguaje={query}"
         response=requests.request("GET",url=url)
         cuestionarios=response.text
         cuestionarios=cuestionarios[1:-2]
@@ -756,7 +756,7 @@ esto le genera el cuestionario en base a sus criterios seleccionados
 @routes.route('/genera_cuestionarios_por_lenguaje',methods=["GET","POST"])
 def genera_cuestionarios_por_lenguaje():
     query=request.args.get("lenguaje")
-    url=f"https://banco-de-datos.herokuapp.com/cuestionarios?lenguaje={query}"
+    url=f"https://jcp-banco-de-datos.up.railway.app/cuestionarios?lenguaje={query}"
     response=requests.request("GET",url=url)
     cuestionarios=response.text
     cuestionarios=cuestionarios[1:-2]
@@ -769,7 +769,7 @@ def genera_cuestionarios_por_lenguaje():
     for i in cuestionarios:
         if i["temas"] in llaves[0] and i["tipo"] in llaves[1]:
             cuestionario_personalizado=i
-            datos_cuestionario=[i["autor"],i["fecha"],i["lenguaje"],i["temas"],i["tipo"]]
+            datos_cuestionario=[i["autor"],i["fecha"],i["lenguaje"],i["temas"],i["tipo"],i["titulo"]]
     
     cuestionario=cuestionario_personalizado["preguntas"]
     cuestionario=json.loads(cuestionario)

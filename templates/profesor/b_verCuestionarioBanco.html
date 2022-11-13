@@ -47,7 +47,7 @@
                             <div class="bordered5 collapsible-body">
                                 {% if datosCuestionario %}
                                 <div class="">
-                                    <h5><b>Cuestionario del banco</b></h5>
+                                    <h5><b>{{datosCuestionario[5]}}</b></h5>
                                     <hr>
                                     <section class="row">
                                         <div class="col s12 m6 l12">
@@ -118,14 +118,55 @@
 
             </div>
         </section>
+        <div id="modalJSON" class="modal colorGrey bordered2 modalAltura">
+            <div class="modal-content">
+                <h4>Generando archivo JSON</h4>
+                <hr>
+                <p>El cuestionario será almacenado como archivo JSON, usted puede guardar una copia del
+                    cuestionario si asi lo desea.</p>
+                <p><b>Puede anexar algún JSON que haya descargado previamente.</b></p>
+                <input type="file" id="inputfileAnterior" class="hidden" />
+                <a id="leerArchivoEjercicioAnterior" style="width: 100%; right: 0; position: relative;">
+                    <label for="inputfileAnterior"
+                        class="waves-effect waves-light btn bordered5 colorGreyDarker colorTextReverse"
+                        style="width: 100%;" onclick="anexarJsonViejo('output', 'inputfileAnterior')">
+                        <i class="material-icons">upload_file</i>
+                    </label>
+                </a>
+        
+                <!--Preview del cuestionario-->
+                <h5><b>Preview de cuestionario JSON</b></h5>
+                <pre class="previewCodeContainer colorText bordered2" id="output"></pre>
+                <!--Input discreto para enviar contenido JSON a flask-->
+                <input type="hidden" name="jsonContentInput" id="jsonContentInput">
+                <!--Descarga del archivo-->
+                <a onclick="downloadJson()"
+                    class="waves-effect waves-light btn-large bordered2Up color3 shadow-2e"
+                    id="descargarJSON" style="width: 100%;">
+                    <i class="material-icons left">download</i>Descargar</a>
+                <!--Almacenado del archivo (en BD y servidor)-->
+                <button type="submit"
+                    class="waves-effect waves-light btn-large bordered2Down color1 shadow-2e"
+                    id="guardarJSON" style="width: 100%;">
+                    <i class="material-icons left">save</i>Guardar</button>
+            </div>
+        </div>
+
     </section>
 
+
+    <div class="fixed-action-btn buttonSaveJSON">
+        <button href="#modalJSON" onclick="convertToJSON()" class="modal-trigger btn-floating btn-large color1" id="buttonModalSaveFloat">
+            <i class="large material-icons">save</i>
+        </button>
+    </div>
     <!--Boton para ir hacia arriba-->
     <div class="fixed-action-btn hiddenElement animate__animated" id="buttonGoUpTerminos">
         <a class="btn-floating btn-large color4">
             <i class="large material-icons">arrow_upward</i>
         </a>
     </div>
+
 
 </body>
 
