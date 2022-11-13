@@ -779,7 +779,7 @@ def genera_cuestionarios_por_lenguaje():
     cuestionario_rutas = Op_profesor.obtener_cuestionarios_rutas(id_profesor)
     resultCuestionarios = Op_profesor.obtener_cuestionarios_datos_importantes(id_profesor)
     #return render_template('profesor/cuestionario_del_banco_personalizado.html', id_profesor = id_profesor, cuestionario_rutas = cuestionario_rutas, datosCuestionario = resultCuestionarios,cuestionario=cuestionario_personalizado)
-    return render_template('profesor/b_verCuestionarioBanco.html', datosCuestionario = datos_cuestionario, dataJSON = cuestionario)
+    return render_template('profesor/b_verCuestionarioBanco.html', datosCuestionario = datos_cuestionario, dataJSON = cuestionario,id_profesor=id_profesor)
 
 
 #Java coder runner

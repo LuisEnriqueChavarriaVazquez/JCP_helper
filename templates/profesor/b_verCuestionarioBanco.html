@@ -34,7 +34,10 @@
         <!--Datos importantes del cuestionario-->
         <section class="contenedorPreviewUno">
             <section class="infoColor bordered1 shadow-1e generalInfoPreviewAlumno">
-                <p class="infoColor"><i class="material-icons">info</i> Esta es una vista previa, con las preguntas ordenadas por tipo y con sus respuestas.</p>
+                <p class="infoColor">
+                    No, es el cuestionario que deseaba?
+                    <a href="crear_cuestionario_del_banco" class="btn color3 button-rounded">Elegir otro</a>
+                </p>
             </section>
             <div class="hide-on-small-only">
                 <h5>Preview cuestionario del banco</h5>
@@ -87,8 +90,8 @@
                 <div class="datosCuestionarioLive">
                     <h5>Contador preguntas</h5>
                     <div class="contenedorContadoresGrid">
-                        <div class="colorGrey bordered5">Total preguntas: <span class="coloredText"
-                                id="contadorTotal"> </span> </div>
+                        <div class="colorGrey bordered5">Total preguntas: <span class="coloredText" id="contadorTotal"></span>
+                            </span> </div>
                         <div class="colorGrey bordered5">Opción múltiples: <span class="coloredText" id="contadorOpt1">
                             </span> </div>
                         <div class="colorGrey bordered5">Rellenar espacios: <span class="coloredText" id="contadorOpt2">
@@ -104,7 +107,7 @@
                     </div>
                 </div>
                 <div class="accessCuestionarioLive">
-                    <a  href="/previewVerComoALumnoCuestionario/{{datosCuestionario[0][0]}}"
+                    <a href="/previewVerComoALumnoCuestionario/{{datosCuestionario[0][0]}}"
                         class="waves-effect waves-light btn-large bordered5 color3 shadow-2e" id="previewJsonResponder"
                         style="width: 100%;">
                         <i class="material-icons left">visibility</i>Ver como alumno</a>
@@ -112,59 +115,62 @@
             </div>
         </section>
         <!--Vista previa del cuestionario-->
+        <form action="/guardarCuestionarioJSON/{{id_profesor}}" method="post">
         <section class="contenedorPreviewDos">
             <h5>Preguntas cuestionario</h5>
+            <div class="tituloCuestionario">
+                <div class="contenedorTitulo hiddenElement">
+                    <h5 id="tituloCuestionario">Titulo del cuestionario</h5>
+                    <a class="waves-effect waves-light btn bordered5 color1 shadow-2e" href="#"
+                        id="editarTitulo"><i class="material-icons">edit</i></a>
+                </div>
+                <div class="inputNombreCuestionario">
+                    <input type="text" name="nombreCuestionario" id="nombreCuestionario"
+                        class="browser-default inputNombre shadow-1 flow-text bordered5"
+                        placeholder="Ingrese nombre del cuestionario">
+                    <input type="hidden" name="nombreCuestionarioConClave" id="nombreCuestionarioConClave">
+                    <a class="waves-effect waves-light btn color1 shadow-2e" href="#" id="guardarTitulo"><i
+                            class="material-icons left">done</i>Listo</a>
+                </div>
+            </div>
+        </div>
             <div class="contenedorPreguntasPreview" id="contenedorPreguntasPreview">
 
             </div>
         </section>
+
         <div id="modalJSON" class="modal colorGrey bordered2 modalAltura">
             <div class="modal-content">
                 <h4>Generando archivo JSON</h4>
                 <hr>
                 <p>El cuestionario será almacenado como archivo JSON, usted puede guardar una copia del
                     cuestionario si asi lo desea.</p>
-                <p><b>Puede anexar algún JSON que haya descargado previamente.</b></p>
-                <input type="file" id="inputfileAnterior" class="hidden" />
-                <a id="leerArchivoEjercicioAnterior" style="width: 100%; right: 0; position: relative;">
-                    <label for="inputfileAnterior"
-                        class="waves-effect waves-light btn bordered5 colorGreyDarker colorTextReverse"
-                        style="width: 100%;" onclick="anexarJsonViejo('output', 'inputfileAnterior')">
-                        <i class="material-icons">upload_file</i>
-                    </label>
-                </a>
-        
                 <!--Preview del cuestionario-->
                 <h5><b>Preview de cuestionario JSON</b></h5>
                 <pre class="previewCodeContainer colorText bordered2" id="output"></pre>
                 <!--Input discreto para enviar contenido JSON a flask-->
                 <input type="hidden" name="jsonContentInput" id="jsonContentInput">
                 <!--Descarga del archivo-->
-                <a onclick="downloadJson()"
-                    class="waves-effect waves-light btn-large bordered2Up color3 shadow-2e"
+                <a onclick="downloadJson()" class="waves-effect waves-light btn-large bordered2Up color3 shadow-2e"
                     id="descargarJSON" style="width: 100%;">
                     <i class="material-icons left">download</i>Descargar</a>
                 <!--Almacenado del archivo (en BD y servidor)-->
                 <button type="submit"
-                    class="waves-effect waves-light btn-large bordered2Down color1 shadow-2e"
-                    id="guardarJSON" style="width: 100%;">
+                    class="waves-effect waves-light btn-large bordered2Down color1 shadow-2e" id="guardarJSON"
+                    style="width: 100%;">
                     <i class="material-icons left">save</i>Guardar</button>
             </div>
         </div>
+    </form>
 
     </section>
 
 
     <div class="fixed-action-btn buttonSaveJSON">
-        <button href="#modalJSON" onclick="convertToJSON()" class="modal-trigger btn-floating btn-large color1" id="buttonModalSaveFloat">
+        <button href="#modalJSON" onclick="convertToJSON()" class="modal-trigger btn-floating btn-large color1"
+            id="buttonModalSaveFloat">
             <i class="large material-icons">save</i>
         </button>
-    </div>
-    <!--Boton para ir hacia arriba-->
-    <div class="fixed-action-btn hiddenElement animate__animated" id="buttonGoUpTerminos">
-        <a class="btn-floating btn-large color4">
-            <i class="large material-icons">arrow_upward</i>
-        </a>
     </div>
 
 
@@ -176,8 +182,129 @@
 
 <!--En esta parte todo los demás del script se hará en un archivo externo-->
 <script>
+    
     //Accedemos a los datos guardados en el JSON
-    const dataCuestionarioJSON = {{ dataJSON| tojson}}; 
+    const dataCuestionarioJSON = {{ dataJSON| tojson}};
+    function convertToJSON() {
+
+        console.log(typeof dataCuestionarioJSON);
+
+        //Se imprime en la vista previa
+        document.getElementById('output').innerText = JSON.stringify(dataCuestionarioJSON, null, 1);
+        //Almacenamos el contenido del JSON en el input
+        document.getElementById('jsonContentInput').value = JSON.stringify(dataCuestionarioJSON);
+    }
+
+    function downloadJson() {
+        //Obtenemos el valor del preview del JSON
+        var jsonObjectAsString = document.getElementById('output').innerText;
+
+        console.log(jsonObjectAsString)
+        //Hacemos la conversión
+        var blob = new Blob([jsonObjectAsString], {
+            //type: 'application/json'
+            //octet es de tipo binario y es más eficiente
+            type: 'octet/stream'
+        });
+
+        //Accedemos al boton de descarga
+        let botonDescarga = document.getElementById('descargarJSON');
+
+        //Accedemos al titulo del cuestionario
+        const nombreCuestionarioConClave = document.getElementById('nombreCuestionarioConClave');
+        let nombreCuestionarioArchivo;
+
+        //Validamos si el nombre del archivo esta vacio
+        if (nombreCuestionarioConClave.value == '') {
+            nombreCuestionarioArchivo = 'cuestionario_default.json';
+        } else {
+            nombreCuestionarioArchivo = nombreCuestionarioConClave.value + '.json';
+        }
+
+        //Modificamos el boton de descarga
+        botonDescarga.download = nombreCuestionarioArchivo;
+        botonDescarga.href = window.URL.createObjectURL(blob);
+    }
+
+    let codigoAgregado = false;
+    function ingresarTitulo() {
+        //Texto del titulo
+        const tituloCuestionario = document.getElementById('tituloCuestionario');
+        //Boton de guardado del titulo
+        const guardarTitulo = document.getElementById('guardarTitulo');
+        //Boton para editar el titulo
+        const editTitulo = document.getElementById('editarTitulo');
+        //Input del titulo
+        const nombreCuestionario = document.getElementById('nombreCuestionario');
+        const nombreCuestionarioConClave = document.getElementById('nombreCuestionarioConClave');
+        //Contenedor principal del titulo del cuestionario
+        const inputNombreCuestionario = document.getElementsByClassName('inputNombreCuestionario');
+        //Contenedor principal del titulo texto
+        const contenedorTitulo = document.getElementsByClassName('contenedorTitulo');
+
+
+        //Generador de clave única
+        function asignarCodigo() {
+            //Guardamos la clave de grupo
+            let claveDeGrupo = makeid(8);
+
+            //Generar el código
+            function makeid(length) {
+                var result = '';
+                var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                var charactersLength = characters.length;
+                for (var i = 0; i < length; i++) {
+                    result += characters.charAt(Math.floor(Math.random() *
+                        charactersLength));
+                }
+                return result;
+            }
+            return claveDeGrupo;
+        }
+        let clave = asignarCodigo();
+
+        guardarTitulo.addEventListener('click', agregarTitulo);
+        inputNombreCuestionario[0].addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                agregarTitulo();
+            }
+        });
+
+        function agregarTitulo() {
+            if (nombreCuestionario.value == "") {
+                nombreCuestionario.value = "Error";
+            } else {
+                if (codigoAgregado == false) {
+                    tituloCuestionario.innerText = nombreCuestionario.value;
+                    inputNombreCuestionario[0].classList.add('hiddenElement');
+                    contenedorTitulo[0].classList.remove('hiddenElement');
+                    nombreCuestionarioConClave.value = nombreCuestionario.value + " (" + clave + ")";
+                    codigoAgregado = true;
+                } else {
+                    tituloCuestionario.innerText = nombreCuestionario.value;
+                    inputNombreCuestionario[0].classList.add('hiddenElement');
+                    contenedorTitulo[0].classList.remove('hiddenElement');
+                    nombreCuestionarioConClave.value = nombreCuestionario.value + " (" + clave + ")";
+                }
+            }
+        }
+
+        editTitulo.addEventListener('click', editarTitulo);
+        function editarTitulo() {
+            if (codigoAgregado == false) {
+                nombreCuestionario.value = tituloCuestionario.innerText + " (" + clave + ")";
+                inputNombreCuestionario[0].classList.remove('hiddenElement');
+                contenedorTitulo[0].classList.add('hiddenElement');
+                codigoAgregado = true;
+            } else {
+                nombreCuestionario.value = tituloCuestionario.innerText;
+                inputNombreCuestionario[0].classList.remove('hiddenElement');
+                contenedorTitulo[0].classList.add('hiddenElement');
+            }
+        }
+    }
+    ingresarTitulo();
+
 </script>
 <script src="../../static/js/operacionesVerCuestionario.js"></script>
 <script src="../../static/js/operacionesTerminos.js"></script>
