@@ -158,3 +158,11 @@ create table Contacto_Docente(
    primary key (IDDocente ,Tipo_Contacto,Contacto),
    foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
 );
+
+create table DocentesPoliticasPrivacidad(
+IDPolitica int not null auto_increment,
+IDDocente int not null,
+Estado varchar(15),
+primary key (IDPolitica,IDDocente),
+foreign key (IDDocente) references docentes(IDDocente) ON DELETE CASCADE
+);
