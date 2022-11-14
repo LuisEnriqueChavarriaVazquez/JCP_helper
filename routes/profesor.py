@@ -584,7 +584,16 @@ def login_profesor():
                 contadorAlumnos = len(IDS_Alumnos)
                 contadorGrupos = len(IDS_Grupos)
                 contadorCuestionarios = len(IDS_Cuestionarios)
-                return render_template('profesor/bienvenidaProfesor.html',datos=result, IDS_Alumnos = contadorAlumnos, IDS_Grupos = contadorGrupos, IDS_Cuestionarios = contadorCuestionarios)  
+
+                politica_existe=Op_profesor.estadoPolitica(session['IDDocente'])
+                politica_no_atendida=True
+                if len(politica_existe)==0:
+                    print("aun no ha respondido la politica")
+                else:
+                    print("ya ha respondido la politica")
+                    politica_no_atendida=False
+
+                return render_template('profesor/bienvenidaProfesor.html',datos=result, IDS_Alumnos = contadorAlumnos, IDS_Grupos = contadorGrupos, IDS_Cuestionarios = contadorCuestionarios,politica_no_atendida=politica_no_atendida)  
             else:
                 flash("Usuario o contraseña incorrectos!")
                 return redirect(url_for('routes.login_general'))   

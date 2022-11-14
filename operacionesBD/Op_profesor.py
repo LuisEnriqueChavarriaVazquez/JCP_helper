@@ -535,3 +535,27 @@ def updatePost(id_publicacion,tituloPost, descripcionPost, fondoPost):
     conexion.commit()
     conexion.close()
     return confirmacionDeDelete
+
+
+################### Operaciones para las politicas
+#Agregar al docente y su respuesta sobre la politica
+def agregarResPolitica(id_docente, estado):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("INSERT INTO docentespoliticasprivacidad(IDDocente, Estado) VALUES(%s,%s)",
+        (id_docente, estado))
+    conexion.commit()
+    conexion.close()
+
+
+def estadoPolitica(id_docente):
+    conexion=obtener_conexion()
+    politica=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT estado FROM docentespoliticasprivacidad WHERE IDDocente = %s", (id_docente))
+        politica=cursor.fetchall()
+
+    conexion.close()
+    return politica
+    
