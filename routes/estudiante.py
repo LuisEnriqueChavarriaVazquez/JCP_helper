@@ -449,7 +449,7 @@ def mis_grupos(id_estudiante):
     resultEstudiante = ()
     for idGroup in resultIds:
         resultEstudiante += Op_profesor.datos_completos_alumno_by_id(idGroup[2]);
-    idEstudiante = resultEstudiante[0][0]
+    idEstudiante = resultEstudiante
 
 
     #Debemos contar el número de cuestionarios que hay dentro de cada grupo
