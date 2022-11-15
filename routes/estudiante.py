@@ -235,7 +235,8 @@ def answer_cuestionario_alumno(id_cuestionario):
     datosCuestionario = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
 
     #Obtenemos el id del alumno y la caducidad del cuestionario
-    idEstudiante=request.form["idEstudiante"]
+    #idEstudiante=request.form["idEstudiante"]
+    idEstudiante=session['IDAlumno']
     caducidadCuestionario=request.form["caducidadCuestionario"]
     idCuestionarioHecho=request.form["idCuestionarioHecho"]
     revision_estado = "started"
