@@ -436,6 +436,7 @@ def resultado_alumno(id_cuestionario):
 ##
 @routes.route('/mis_grupos/<string:id_estudiante>')
 def mis_grupos(id_estudiante):
+    print(id_estudiante)
     #Busca los IDS de maestros, grupos y alumnos vinculados
     resultIds = Op_estudiante.obtener_IDs_dentro_de_grupo(id_estudiante)
     #print(resultIds)

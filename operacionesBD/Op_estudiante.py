@@ -136,6 +136,17 @@ def obtener_IDs_dentro_de_grupo(id_alumno):
     conexion.close()
     return idsObtenidos
 
+def obtener_IDs_dentro_de_grupo_con_grupo(id_grupo):
+    conexion=obtener_conexion()
+    idsObtenidos=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM grupos_alumnos WHERE IDGrupo = %s", (id_grupo))
+        idsObtenidos=cursor.fetchall()
+
+    conexion.close()
+    return idsObtenidos
+
 ##
 ## Nos ayuda a registrar acceso a cuestionario
 ##
