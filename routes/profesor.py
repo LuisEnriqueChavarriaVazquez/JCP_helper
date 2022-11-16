@@ -1108,3 +1108,39 @@ def guardarFondo(id_docente):
         fondo = request.form["fondo"]
         Op_profesor.update_fondo_docente(fondo, id_docente)
         return redirect(url_for('routes.perfil_docente'))
+
+
+#Crear reporte pdf de los datos grupos
+@routes.route("/reporte_grupos_docente", methods = ["post"])
+def reporte_grupos_docente():
+
+    #Promedio general de grupos.
+      
+    data = request.get_json()
+    #Datos grafica comparacion de promedio grupales
+    
+    xdata = data["xComparacionPromedioGrupales"]
+    ydata = data["yComparacionPromedioGrupales"]
+    trace = go.Bar(x=xdata, y=ydata)
+    parametrosGrafica1 = {'title': ' Comparacion de promedio grupales'}
+    fig1 = go.Figure(data=trace, layout=parametrosGrafica1)
+    #fig.show()
+    fig1.write_image("static/images/ComparacionPromedioGrupales.png")
+
+    #Historico de puntajes en cada evaluacion de cada grupo
+    
+    valoresPastel = data["valoresPastel"]
+    labelPastel = data["labelsPastel"]
+    dataPie=[go.Pie(labels=labelPastel, values=valoresPastel)]
+
+    parametrosGrafica2 = {'title': ' Historico de puntajes en cada evaluacion de cada grupo'}
+    fig2 = go.Figure(data=dataPie, layout = parametrosGrafica2)
+
+    fig2.write_image("static/images/HistoricoPuntajesEvaluacionGrupo.png")
+
+    valoresGrupo = data ["datosGrupo"]
+
+    print("valores Grupo:" + str(valoresGrupo))
+
+   
+    return render_template("homePage.html")
