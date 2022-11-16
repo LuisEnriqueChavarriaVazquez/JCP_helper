@@ -27,6 +27,11 @@
                 </li>
                 <li><a href="/profesor_logout" class="btn color3 button-rounded"><i
                             class="material-icons left">directions_run</i>Cerrar sesión</a></li>
+                {% if politica_no_atendida %}
+                <li><a class="btn color3 button-rounded modal-trigger" id="politica" href="#modal2"><i
+                    class="material-icons left">done</i>Aceptar políticas</a></li>
+                <!-- <a class="waves-effect waves-light btn modal-trigger" id="politica" href="#modal2">politicas</a> -->
+                {% endif %}
             </ul>
         </div>
     </nav>
@@ -192,6 +197,10 @@
                                         class="colorTextReverse material-icons">gavel</i>Términos.</a></li>
                             <li><a href="/saber_mas" class="colorTextReverse"><i
                                         class="colorTextReverse material-icons">rocket</i>Saber más.</a></li>
+                            {% if politica_no_atendida %}
+                            <li><a id="politica" href="#modal2" class=" modal-trigger colorTextReverse"><i
+                                class="colorTextReverse material-icons">done</i>Aceptar política.</a></li>
+                            {% endif %}
                         </ul>
                     </div>
                 </li>
@@ -586,9 +595,10 @@
             </div>
         </div>
     </div>
-    <div id="modal2" class="modal bordered2 colorGreyWhiter modal-fixed-footer" style="height: 100vh;">
+    <div id="modal2" class="modal colorGrey bordered2 modalAltura modal-fixed-footer" style="height: 100vh;">
         <div class="modal-content">
-            <h4>Politicas de privacidad</h4>
+            <h5>Políticas de privacidad</h5>
+            <hr>
             <p class="colorTextReverse textoInfoPoliticasMini">
                 JCP_helper te informa sobre su Política de Privacidad respecto del tratamiento y protección de
                 los
@@ -606,9 +616,9 @@
                 <a href="politica_privacidad">Leer más...</a>
             </p>
         </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Aceptar</a>
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Rechazar</a>
+        <div class="modal-footer colorGreyDarker">
+            <a href="#!" class="modal-close waves-effect btn-flat">Aceptar</a>
+            <a href="#!" class="modal-close waves-effect btn-flat">Rechazar</a>
         </div>
     </div>
 
@@ -620,10 +630,6 @@
         </a>
         <div id="contadorNotificacion" class="color1 colorText bordered3">0</div>
     </div>
-
-    {% if politica_no_atendida %}
-    <a class="waves-effect waves-light btn modal-trigger" id="politica"  href="#modal2" >politicas</a>
-    {% endif %}
     <!--Metemos el footer en la app-->
     {% include "includes/footer.html" %}
 
