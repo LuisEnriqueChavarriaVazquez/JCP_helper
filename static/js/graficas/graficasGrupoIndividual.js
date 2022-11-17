@@ -5,6 +5,19 @@ let contenedorDeGrupo = document.getElementsByClassName('contenedorGrupoIndividu
 let numeroContenedorDeGrupo = contenedorDeGrupo.length;
 let numeroIdsContenedorDeGrupo = 0;
 
+//Variables para los reportes
+
+let PorcentajeAprobacionAproReportes = [];
+let PorcentajeAprobacionRepReportes = [];
+let IntentosPromedioReportes = [];
+let RangoCalMinReportes = [];
+let RangoCalMaxReportes = [];
+let IndiceAprobReportes = [];
+let PromedioTiempoRespuestasReportes = [];
+let GruposAtiempoReporte = [];
+let GruposRetrasoReporte = [];
+
+
 //Esta es la funcion para imprimir los contenedores de los insights de cada grupo
 function impresionDeCasillasPorGrupo() {
     //Accedemos a contenedores globales de cada grupo
@@ -38,6 +51,11 @@ function porcentageAprobacion_card1(idContainer, containerNumero) {
                 <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Reprobados:<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${porcentage[1]}%</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
+
+             //Info para los reportes
+            PorcentajeAprobacionAproReportes.push(porcentage[0]);
+            PorcentajeAprobacionRepReportes.push(porcentage[1]);
+
         }
         i++
     })
@@ -55,6 +73,11 @@ function promedio_intentos_por_grupo(idContainer, containerNumero) {
                 <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Intentos: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${promedioIntento}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
+
+
+
+            //info para los reportes
+            IntentosPromedioReportes.push(promedioIntento);
         }
         i++
     });
@@ -73,6 +96,12 @@ function promedio_max_min_por_grupo(idContainer, containerNumero) {
             <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Calif. max.:<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${grupo.at(-1)}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
+
+
+            //info reportes
+           RangoCalMinReportes.push(grupo.at(0));
+           RangoCalMaxReportes.push(grupo.at(-1));
+
         }
         i++
     });
@@ -97,6 +126,13 @@ function analisis_pasar_por_grupo(idContainer, containerNumero) {
                 <p class="colorTextReverse porcetageAprobacionParrafoUnitario"><span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${formatoNumero}/10 aprueba</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
+
+
+
+            //info reportes
+            IndiceAprobReportes.push(formatoNumero );
+
+
         }
         i++
     });
@@ -114,6 +150,12 @@ function tiempo_promedio_respuesta_examen_por_grupo(idContainer, containerNumero
             <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Tiempo: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${tiempo}hrs.</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
+
+
+           //info de reportes
+           PromedioTiempoRespuestasReportes.push(tiempo);
+
+
         }
     });
 }
@@ -131,6 +173,13 @@ function distribucion_entregas_retraso_por_grupo(idContainer, containerNumero) {
                 <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Retraso: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${cantidadRetrasos[i]}%</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
+
+
+            //info reportes
+
+            GruposAtiempoReporte.push(cantidadATiempo[i]);
+            GruposRetrasoReporte.push(cantidadRetrasos[i]);
+
         }
         i++
     })

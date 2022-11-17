@@ -1140,7 +1140,9 @@ def reporte_grupos_docente():
 
     valoresGrupo = data ["datosGrupo"]
 
-    print("valores Grupo:" + str(valoresGrupo))
+    PorcentajeAprobacionAproReportesPY = data ["PorcentajeAprobacionAproReportesPY"]
 
+    print("valores Grupo:" + str(valoresGrupo))
+    print("Prueba:" + str(PorcentajeAprobacionAproReportesPY))
    
     return render_template("homePage.html")
