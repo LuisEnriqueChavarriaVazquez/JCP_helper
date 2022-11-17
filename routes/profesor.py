@@ -15,6 +15,11 @@ import requests
 import ast
 import shutil
 
+
+import plotly.graph_objects as go
+from flask import make_response
+
+
 photos = UploadSet("photos", IMAGES)
 
 ##
