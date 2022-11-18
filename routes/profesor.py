@@ -560,8 +560,6 @@ def nuevo_profesor():
         descripcion=request.form["descripcion"]
         fondo="default"
 
-
-
         Op_profesor.insertar_profesor(nombre,alias,foto,correo,hashed,unidad_academica,descripcion,fondo)
         #Nos manda al log in para poder guardar datos en la sesión
         return render_template('login_general.html')
@@ -580,25 +578,7 @@ def login_profesor():
                 session['logged_in'] = True
                 session['IDDocente']=result[0]
                 session['correoS'] = result[4]
-
-                #Cuenta los elementos
-                IDS_Alumnos = Op_profesor.obtener_alumnos_con_profesor_IDS(session['IDDocente'])
-                IDS_Grupos = Op_profesor.obtener_grupos_IDS(session['IDDocente'])
-                IDS_Cuestionarios = Op_profesor.obtener_cuestionarios_IDS(session['IDDocente'])
-                ##Contador de alumnos y grupos y cuestionarios
-                contadorAlumnos = len(IDS_Alumnos)
-                contadorGrupos = len(IDS_Grupos)
-                contadorCuestionarios = len(IDS_Cuestionarios)
-
-                politica_existe=Op_profesor.estadoPolitica(session['IDDocente'])
-                politica_no_atendida=True
-                if len(politica_existe)==0:
-                    print("aun no ha respondido la politica")
-                else:
-                    print("ya ha respondido la politica")
-                    politica_no_atendida=False
-
-                return render_template('profesor/bienvenidaProfesor.html',datos=result, IDS_Alumnos = contadorAlumnos, IDS_Grupos = contadorGrupos, IDS_Cuestionarios = contadorCuestionarios,politica_no_atendida=politica_no_atendida)  
+                return redirect(url_for("routes.bienvenidaProfesor"))
             else:
                 flash("Usuario o contraseña incorrectos!")
                 return redirect(url_for('routes.login_general'))   
@@ -629,10 +609,21 @@ def bienvenidaProfesor():
         contadorAlumnos = len(IDS_Alumnos)
         contadorGrupos = len(IDS_Grupos)
         contadorCuestionarios = len(IDS_Cuestionarios)
-        return render_template('profesor/bienvenidaProfesor.html',datos=result, IDS_Alumnos = contadorAlumnos, IDS_Grupos = contadorGrupos, IDS_Cuestionarios = contadorCuestionarios)
+        politica_existe=Op_profesor.estadoPolitica(session['IDDocente'])
+        politica_no_atendida=True
+        if len(politica_existe)==0:
+            print("aun no ha respondido la politica")
+        else:
+            print("ya ha respondido la politica")
+            politica_no_atendida=False
+        return render_template('profesor/bienvenidaProfesor.html',datos=result, IDS_Alumnos = contadorAlumnos, IDS_Grupos = contadorGrupos, IDS_Cuestionarios = contadorCuestionarios,politica_no_atendida=politica_no_atendida)
     except:
         return render_template('profesor/bienvenidaProfesor.html')
 
+@routes.route('/bienvenidaProfesorP/<string:respuesta>')
+def bienvenidaProfesorPolitica(respuesta):
+    Op_profesor.agregarResPolitica(session['IDDocente'],respuesta)
+    return redirect(url_for("routes.bienvenidaProfesor"))
 
 #Perfil del docente
 """
