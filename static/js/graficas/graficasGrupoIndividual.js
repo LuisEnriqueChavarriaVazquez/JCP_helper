@@ -225,7 +225,10 @@ document.getElementById("valoresPastel").value = JSON.stringify(porcentajePromed
 document.getElementById("labelsPastel").value = JSON.stringify(gruposNameArray);
 document.getElementById("datosGrupo").value = JSON.stringify(datosGrupo);
 
+//Datos graficos de Aprobación general de grupos
 
+document.getElementById("arrayPorcentajeAprobacionPastel").value =JSON.stringify(arrayPorcentajeAprobacion);
+document.getElementById("graficasTitlelabelsPastel").value =JSON.stringify(graficasTitle);
 
 
 //Datos normales

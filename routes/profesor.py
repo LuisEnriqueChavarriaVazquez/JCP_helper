@@ -18,6 +18,8 @@ import shutil
 
 import plotly.graph_objects as go
 from flask import make_response
+from flask import make_response
+import os
 
 
 photos = UploadSet("photos", IMAGES)
@@ -1118,8 +1120,10 @@ def crear_reportes_grupos_docentes_PDF():
 
     #Creacion imagenes estadisticas
 
-    #Datos grafica comparacion de promedio grupales
+    #Datos graficas comparacion de promedio grupales
 
+
+    #Comparacion de promedio grupales
     xdata = request.form["xComparacionPromedioGrupales"]
     ydata = request.form["yComparacionPromedioGrupales"]
 
@@ -1140,8 +1144,17 @@ def crear_reportes_grupos_docentes_PDF():
     fig2.write_image("static/images/HistoricoPuntajesEvaluacionGrupo.png")
 
     
-    
+    #Datos graficas Aprobación general de grupos
 
+    #Porcentaje de aprobados vs reprobados
+    valoresPastelAvsR = request.form["arrayPorcentajeAprobacionPastel"]
+    labelPastelAvsR = request.form["graficasTitlelabelsPastel"]
+    dataPieAvsR=[go.Pie(labels=json.loads(labelPastelAvsR), values=json.loads(valoresPastelAvsR))]
+
+    parametrosGraficaAvsR = {'title': 'Porcentaje de aprobados vs reprobados'}
+    figAvsR = go.Figure(data=dataPieAvsR, layout = parametrosGraficaAvsR )
+
+    figAvsR.write_image("static/images/PorcentajeAprobadosReprobados.png")
 
    
     #Creacion inicial del pdf
@@ -1164,6 +1177,20 @@ def crear_reportes_grupos_docentes_PDF():
          ln = 1, align = 'L')
     pdf.image("static/images/HistoricoPuntajesEvaluacionGrupo.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
     
+    #Titulo Aprobación general de grupos
+    pdf.cell(200, 18, txt = "Graficas Promedio general de grupos",
+         ln = 1, align = 'L')
+
+    #Porcentaje de aprobación vs reprobados
+    pdf.cell(200, 18, txt = "Porcentaje de aprobación vs reprobados",
+         ln = 1, align = 'L')
+    pdf.image("static/images/PorcentajeAprobadosReprobados.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
+
+
+    #Eliminación archivos de mas
+    os.remove("static/images/ComparacionPromedioGrupales.png")
+    os.remove("static/images/HistoricoPuntajesEvaluacionGrupo.png")
+    os.remove("static/images/PorcentajeAprobadosReprobados.png")
 
     #Obtencion datos grupos
 
