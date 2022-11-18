@@ -38,11 +38,7 @@
                 </div>
 
 
-               <!--Boton decargar reportes-->
-              <div>
-                    <a class='btn button-rounded colorGreyWhiter colorTextReverse' onclick="reporte_grupos()"><i
-                            class="material-icons md-24">arrow_downward</i></a>
-                </div>
+              
 
 
             </div>
@@ -83,6 +79,42 @@
                 </div>
             </div>
         </div>
+    </div>
+</section>
+
+
+<!--Contenedor de opciones de reportes-->
+<section class="contenedorGrupos">
+    <div class="tituloCardGraficaText">
+        Opcciones del reportes
+    </div>
+    <div>
+        <form action="{{ url_for('routes.crear_reportes_grupos_docentes_PDF') }}" method="post" id="formGruposReporte">
+
+            <!--Elementos de grafica Promedio general de grupos.-->
+            <input type="hidden" id="xComparacionPromedioGrupales" name="xComparacionPromedioGrupales">
+            <input type="hidden" id="yComparacionPromedioGrupales" name="yComparacionPromedioGrupales">
+            <input type="hidden" id="valoresPastel" name="valoresPastel">
+            <input type="hidden" id="labelsPastel" name="labelsPastel">
+            <input type="hidden" id="datosGrupo" name="datosGrupo">
+            <input type="hidden" id="PorcentajeAprobacionAproReportesPY" name="PorcentajeAprobacionAproReportesPY">
+
+            <!--Datos-->
+            <input type="hidden" id="datosGrupo" name="datosGrupo">
+            <input type="hidden" id="PorcentajeAprobacionAproReportes" name="PorcentajeAprobacionAproReportes">
+            <input type="hidden" id="PorcentajeAprobacionRepReportes" name="PorcentajeAprobacionRepReportes">
+            <input type="hidden" id="IntentosPromedioReportes" name="IntentosPromedioReportes">
+            <input type="hidden" id="RangoCalMinReportes" name="RangoCalMinReportes">
+            <input type="hidden" id="RangoCalMaxReportes" name="RangoCalMaxReportes">
+            <input type="hidden" id="IndiceAprobReportes" name="IndiceAprobReportes">
+            <input type="hidden" id="PromedioTiempoRespuestasReportes" name="PromedioTiempoRespuestasReportes">
+            <input type="hidden" id="GruposAtiempoReporte" name="GruposAtiempoReporte">
+            <input type="hidden" id="GruposRetrasoReporte" name="GruposRetrasoReporte">
+
+
+            <button class='btn button-rounded colorGreyWhiter colorTextReverse' type="submit"><i
+                    class="material-icons md-24">arrow_downward</i></button>
+        </form>
     </div>
 </section>
 

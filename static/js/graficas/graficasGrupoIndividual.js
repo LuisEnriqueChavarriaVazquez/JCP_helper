@@ -215,3 +215,30 @@ function insertarCajasHijasEnCadaGrupo(numero_grupos, numero_ids) {
 }
 insertarCajasHijasEnCadaGrupo(numeroContenedorDeGrupo, numeroIdsContenedorDeGrupo);
 
+//Llenar datos de reportes para graficos
+
+//Datos graficos promedio general de los grupos
+
+document.getElementById("xComparacionPromedioGrupales").value = JSON.stringify(gruposNameArray);
+document.getElementById("yComparacionPromedioGrupales").value =JSON.stringify(promedioFinalPorGrupo);
+document.getElementById("valoresPastel").value = JSON.stringify(porcentajePromedioEquivalente);
+document.getElementById("labelsPastel").value = JSON.stringify(gruposNameArray);
+document.getElementById("datosGrupo").value = JSON.stringify(datosGrupo);
+
+
+
+
+//Datos normales
+
+
+document.getElementById("datosGrupo").value = JSON.stringify(datosGrupo);
+
+document.getElementById("PorcentajeAprobacionAproReportes").value =JSON.stringify(PorcentajeAprobacionAproReportes);
+document.getElementById("PorcentajeAprobacionRepReportes").value =JSON.stringify(PorcentajeAprobacionRepReportes);
+document.getElementById("IntentosPromedioReportes").value = JSON.stringify(IntentosPromedioReportes);
+document.getElementById("RangoCalMinReportes").value =JSON.stringify(RangoCalMinReportes);
+document.getElementById("RangoCalMaxReportes").value =JSON.stringify(RangoCalMaxReportes);
+document.getElementById("IndiceAprobReportes").value =JSON.stringify(IndiceAprobReportes);
+document.getElementById("PromedioTiempoRespuestasReportes").value =JSON.stringify(PromedioTiempoRespuestasReportes);
+document.getElementById("GruposAtiempoReporte").value =JSON.stringify(GruposAtiempoReporte);
+document.getElementById("GruposRetrasoReporte").value = JSON.stringify(GruposRetrasoReporte);

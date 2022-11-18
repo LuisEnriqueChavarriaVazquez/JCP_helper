@@ -1112,39 +1112,89 @@ def guardarFondo(id_docente):
         return redirect(url_for('routes.perfil_docente'))
 
 
-#Crear reporte pdf de los datos grupos
-@routes.route("/reporte_grupos_docente", methods = ["post"])
-def reporte_grupos_docente():
+@routes.route('/crear_reportes_grupos_docentes_PDF', methods=['POST'])
+def crear_reportes_grupos_docentes_PDF():
 
-    #Promedio general de grupos.
-      
-    data = request.get_json()
+
+    #Creacion imagenes estadisticas
+
     #Datos grafica comparacion de promedio grupales
-    
-    xdata = data["xComparacionPromedioGrupales"]
-    ydata = data["yComparacionPromedioGrupales"]
-    trace = go.Bar(x=xdata, y=ydata)
+
+    xdata = request.form["xComparacionPromedioGrupales"]
+    ydata = request.form["yComparacionPromedioGrupales"]
+
+    trace = go.Bar(x=json.loads(xdata), y=json.loads(ydata))
     parametrosGrafica1 = {'title': ' Comparacion de promedio grupales'}
     fig1 = go.Figure(data=trace, layout=parametrosGrafica1)
     #fig.show()
     fig1.write_image("static/images/ComparacionPromedioGrupales.png")
 
     #Historico de puntajes en cada evaluacion de cada grupo
-    
-    valoresPastel = data["valoresPastel"]
-    labelPastel = data["labelsPastel"]
-    dataPie=[go.Pie(labels=labelPastel, values=valoresPastel)]
+    valoresPastel = request.form["valoresPastel"]
+    labelPastel = request.form["labelsPastel"]
+    dataPie=[go.Pie(labels=json.loads(labelPastel), values=json.loads(valoresPastel))]
 
     parametrosGrafica2 = {'title': ' Historico de puntajes en cada evaluacion de cada grupo'}
     fig2 = go.Figure(data=dataPie, layout = parametrosGrafica2)
 
     fig2.write_image("static/images/HistoricoPuntajesEvaluacionGrupo.png")
 
-    valoresGrupo = data ["datosGrupo"]
+    
+    
 
-    PorcentajeAprobacionAproReportesPY = data ["PorcentajeAprobacionAproReportesPY"]
 
-    print("valores Grupo:" + str(valoresGrupo))
-    print("Prueba:" + str(PorcentajeAprobacionAproReportesPY))
    
-    return render_template("homePage.html")
+    #Creacion inicial del pdf
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Arial", size = 15)
+    #Titulo del PDF
+    pdf.cell(200, 18, txt = "Reporte grupos",
+         ln = 1, align = 'C')
+    #Titulo graficas Promedio general de grupos.
+    pdf.cell(200, 18, txt = "Graficas Promedio general de grupos",
+         ln = 1, align = 'L')
+    #Imagenes graficas Promedio general de grupos.
+    pdf.cell(200, 18, txt = "Grafica comparacion de promedio grupales",
+         ln = 1, align = 'L')
+    pdf.image("static/images/ComparacionPromedioGrupales.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
+   
+   #Historico de puntajes en cada evaluacion de cada grupo.
+    pdf.cell(200, 18, txt = "Historico de puntajes en cada evaluacion de cada grupo",
+         ln = 1, align = 'L')
+    pdf.image("static/images/HistoricoPuntajesEvaluacionGrupo.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
+    
+
+    #Obtencion datos grupos
+
+    datosGrupo =  request.form["datosGrupo"]
+    listDatosGrupo = json.loads(datosGrupo)
+    PorcentajeAprobacionAprobados = json.loads(request.form["PorcentajeAprobacionAproReportes"])
+    PorcentajeAprobacionReprobados = json.loads(request.form["PorcentajeAprobacionRepReportes"])
+    IntentosPromedio = json.loads(request.form["IntentosPromedioReportes"])
+    PromedioTiempoRespuesta = json.loads(request.form["PromedioTiempoRespuestasReportes"])
+    RangoCalificacionesMin = json.loads(request.form["RangoCalMinReportes"])
+    RangoCalificacionesMax= json.loads(request.form["RangoCalMaxReportes"])
+    IndiceAprob= json.loads(request.form["IndiceAprobReportes"])
+    PorcentajeAtiempo = json.loads(request.form["GruposAtiempoReporte"])
+    PorcentajeRetraso = json.loads(request.form["GruposRetrasoReporte"])
+
+    for i in range(0,len(listDatosGrupo)):
+        pdf.cell(200, 30, txt ="Grupo:"+ str(listDatosGrupo[i][2]),ln = 1, align = 'L') 
+        pdf.cell(200, 18, txt = "Porcentaje de aprobación:",ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Aprobados:" +str(PorcentajeAprobacionAprobados[i])+"%",ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Reprobados:" +str(PorcentajeAprobacionReprobados[i])+"%",ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Intentos promedio:"+str(IntentosPromedio[i]),ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Promedio de tiempo de respuesta:"+str(PromedioTiempoRespuesta[i])+"hrs",ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Rango de calificaciones:",ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Calificaciones Min:"+str(RangoCalificacionesMin[i]),ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Calificaciones Max:"+str(RangoCalificacionesMax[i]),ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Indice aprobacion:"+str(IndiceAprob[i])+"/10 aprueba",ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Porcentaje de retrasos:",ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Porcentaje a tiempo:"+str(PorcentajeAtiempo[i]) +"%",ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Porcentaje con retrasos:"+str(PorcentajeRetraso[i]) +"%",ln = 1, align = 'L')
+
+    response = make_response(pdf.output(dest='S').encode('latin-1'))
+    response.headers.set('Content-Disposition', 'attachment', filename="Reporte_Grupos" + '.pdf')
+    response.headers.set('Content-Type', 'application/pdf')
+    return response
