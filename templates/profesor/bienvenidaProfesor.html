@@ -27,7 +27,7 @@
                 </li>
                 <li><a href="/profesor_logout" class="btn color3 button-rounded"><i
                             class="material-icons left">directions_run</i>Cerrar sesión</a></li>
-                {% if politica_no_atendida %}
+                {% if pol_superior %}
                 <li><a class="btn color3 button-rounded modal-trigger" id="politica" href="#modal2"><i
                     class="material-icons left">done</i>Aceptar políticas</a></li>
                 <!-- <a class="waves-effect waves-light btn modal-trigger" id="politica" href="#modal2">politicas</a> -->
@@ -197,7 +197,7 @@
                                         class="colorTextReverse material-icons">gavel</i>Términos.</a></li>
                             <li><a href="/saber_mas" class="colorTextReverse"><i
                                         class="colorTextReverse material-icons">rocket</i>Saber más.</a></li>
-                            {% if politica_no_atendida %}
+                            {% if pol_lateral %}
                             <li><a id="politica" href="#modal2" class=" modal-trigger colorTextReverse"><i
                                 class="colorTextReverse material-icons">done</i>Aceptar política.</a></li>
                             {% endif %}

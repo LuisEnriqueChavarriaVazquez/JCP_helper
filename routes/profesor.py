@@ -610,19 +610,25 @@ def bienvenidaProfesor():
         contadorGrupos = len(IDS_Grupos)
         contadorCuestionarios = len(IDS_Cuestionarios)
         politica_existe=Op_profesor.estadoPolitica(session['IDDocente'])
-        politica_no_atendida=True
+        pol_lateral=False
+        pol_superior=False
         if len(politica_existe)==0:
-            print("aun no ha respondido la politica")
+            pol_superior=True
+            pol_lateral=True
         else:
-            print("ya ha respondido la politica")
-            politica_no_atendida=False
-        return render_template('profesor/bienvenidaProfesor.html',datos=result, IDS_Alumnos = contadorAlumnos, IDS_Grupos = contadorGrupos, IDS_Cuestionarios = contadorCuestionarios,politica_no_atendida=politica_no_atendida)
+            pol_lateral=True
+        return render_template('profesor/bienvenidaProfesor.html',datos=result, IDS_Alumnos = contadorAlumnos, IDS_Grupos = contadorGrupos, IDS_Cuestionarios = contadorCuestionarios,pol_lateral=pol_lateral,pol_superior=pol_superior)
     except:
         return render_template('profesor/bienvenidaProfesor.html')
 
 @routes.route('/bienvenidaProfesorP/<string:respuesta>')
 def bienvenidaProfesorPolitica(respuesta):
-    Op_profesor.agregarResPolitica(session['IDDocente'],respuesta)
+    #comprobamos si ya se ha registrado repuesta
+    estado=Op_profesor.estadoPolitica(session['IDDocente'])
+    if len(estado)>0:
+        Op_profesor.actualizarPolitica(session['IDDocente'],respuesta)
+    else:
+        Op_profesor.agregarResPolitica(session['IDDocente'],respuesta)
     return redirect(url_for("routes.bienvenidaProfesor"))
 
 #Perfil del docente

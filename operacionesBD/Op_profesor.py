@@ -559,3 +559,9 @@ def estadoPolitica(id_docente):
     conexion.close()
     return politica
     
+def actualizarPolitica(id_docente, estado):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE docentespoliticasprivacidad SET Estado=%s where IDDocente=%s",(estado,id_docente))
+    conexion.commit()
+    conexion.close()
