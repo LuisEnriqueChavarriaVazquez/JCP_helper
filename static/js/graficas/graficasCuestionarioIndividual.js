@@ -188,6 +188,15 @@ function insertarCajasHijasEnCadaGrupo(numero_grupos, numero_ids) {
 insertarCajasHijasEnCadaGrupo(numeroContenedorDeCuestionario, numeroIdsContenedorDeCuestionario);
 
 //Datos graficos numero de respuestas por grupo
-cuestionarioConRespuestas;
+//cuestionarioConRespuestas;
 document.getElementById("cuestionarioConRespuestas").value =JSON.stringify(cuestionarioConRespuestas);
 document.getElementById("contadorFrecuenciaRespuestasArray").value =JSON.stringify(contadorFrecuenciaRespuestasArray);
+
+//Datos graficos radar de los promedios generales por cuestionario
+document.getElementById("promediosPorCuestionario").value = JSON.stringify(promediosPorCuestionario);
+document.getElementById("cuestionarioConRespuestasRadio").value = JSON.stringify(cuestionarioConRespuestas);
+
+
+//Datos graficos Promedio general por cuestionario
+document.getElementById("cuestionarioConRespuestasPromGenCuest").value = JSON.stringify(cuestionarioConRespuestas);
+document.getElementById("promediosPorCuestionarioPromGenCuest").value =JSON.stringify(promediosPorCuestionario);

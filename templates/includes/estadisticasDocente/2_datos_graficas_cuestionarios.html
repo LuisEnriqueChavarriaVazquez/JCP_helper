@@ -72,14 +72,19 @@
         Opcciones del reportes
     </div>
     <div>
-        <form action="{{ url_for('routes.crear_reportes_cuestionarios_docentes_PDF') }}" method="post"
-            id="formGruposReporte">
+        <form action="{{ url_for('routes.crear_reportes_cuestionarios_docentes_PDF') }}" method="post" id="formGruposReporte">
 
             <!--Elementos de grafica Promedio general de grupos.-->
             <input type="hidden" id="cuestionarioConRespuestas" name="cuestionarioConRespuestas">
             <input type="hidden" id="contadorFrecuenciaRespuestasArray" name="contadorFrecuenciaRespuestasArray">
+        
+            <!--Elementos de grafica Datos graficos radar de los promedios generales por cuestionario.-->
+            <input type="hidden" id="promediosPorCuestionario" name="promediosPorCuestionario">
+            <input type="hidden" id="cuestionarioConRespuestasRadio" name="cuestionarioConRespuestasRadio">
 
-
+            <!--Elementos de grafica Promedio general dpor cuestionarios-->
+            <input type="hidden" id="cuestionarioConRespuestasPromGenCuest" name="cuestionarioConRespuestasPromGenCuest">
+            <input type="hidden" id="promediosPorCuestionarioPromGenCuest" name="promediosPorCuestionarioPromGenCuest">
 
             <button class='btn button-rounded colorGreyWhiter colorTextReverse' type="submit"><i
                     class="material-icons md-24">arrow_downward</i></button>
