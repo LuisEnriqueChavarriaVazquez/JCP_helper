@@ -690,6 +690,18 @@ def guardarFondoEst(id_alumno):
         Op_estudiante.update_fondo_alumno(fondo, id_alumno)
         return redirect(url_for('routes.perfil_alumno'))
 
+#########################################################################
+####                                                                 ####
+####                Configuraciones alumnos                          ####
+####                                                                 ####
+#########################################################################
+@routes.route('/configuraciones_alumno')
+def configuraciones_alumno():
+    return render_template('configuraciones_alumno.html')
+
+
+
+
 #Sacar en pdf el reultado de los alumnos en sus cuestionarios
 @routes.route('/descargar_resultados_cuestionario_pdf/<string:id_cuestionario_resuelto>',methods=['GET','POST'])
 def descargarPdfCuestionarioResuelto(id_cuestionario_resuelto):

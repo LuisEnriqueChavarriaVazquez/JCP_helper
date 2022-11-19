@@ -1114,6 +1114,17 @@ def guardarFondo(id_docente):
         return redirect(url_for('routes.perfil_docente'))
 
 
+#########################################################################
+####                                                                 ####
+####                Configuraciones docente                          ####
+####                                                                 ####
+#########################################################################
+@routes.route('/configuraciones_docente')
+def configuraciones_docente():
+    return render_template('configuraciones_docente.html')
+
+
+
 @routes.route('/crear_reportes_grupos_docentes_PDF', methods=['POST'])
 def crear_reportes_grupos_docentes_PDF():
 

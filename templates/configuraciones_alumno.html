@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Configuraciones</title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+</head>
+
+<body class="oculto colorGrey">
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+    <!--Menu de página de inicio-->
+    <nav class="color2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only TDI">Configuraciones.</a>
+            <a href="bienvenidaEstudiante" data-target="slide-out" class="sidenav-trigger"><i
+                    class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-large-only hide-on-med-only TDI">Configuraciones.</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="bienvenidaEstudiante" class="btn color3 button-rounded TDI">Volver</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Selección de las opciones de la cuenta -->
+
+    <section class="configuracionesMainBodyAdapterGrid">
+        <section style="width: 100%;">
+            <div class="title-general">
+                <h5 class="hide-on-large-only">Cuenta</h5>
+                <h4 class="hide-on-med-and-down">Cuenta</h4>
+            </div>
+
+            <div class="opcionesContainer">
+                <ul class="collapsible bordered5 colorWhite">
+                    <li>
+                        <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
+                            style="margin-bottom: 5px;"><i class="material-icons">settings</i>Opciones de la cuenta.
+                        </div>
+                        <div class="bordered5 collapsible-body row">
+                            <div class="col s12 m6 l6 cardConfiguracionesMainPadre">
+                                <div class="cardConfiguracionesMain shadow-2 bordered1 colorGreyWhiter">
+                                    <a href="#"
+                                        class="btn color1 button-rounded bordered5 shadow-2e iconCardConfiguraciones"><i
+                                            class="material-icons colorText">manage_accounts</i></a>
+                                    <div class="textCardConfiguraciones colorTextReverse">Modificar cuenta</div>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 l6 cardConfiguracionesMainPadre">
+                                <div class="cardConfiguracionesMain shadow-2 bordered1 colorGreyWhiter">
+                                    <a href="#"
+                                        class="btn color1 button-rounded bordered5 shadow-2e iconCardConfiguraciones">
+                                        <i class="material-icons colorText">description</i>
+                                    </a>
+                                    <div class="textCardConfiguraciones colorTextReverse">Acceso a informes</div>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 l6 cardConfiguracionesMainPadre">
+                                <div class="cardConfiguracionesMain shadow-2 bordered1 colorGreyWhiter">
+                                    <a href="perfil_alumno"
+                                        class="btn color1 button-rounded bordered5 shadow-2e iconCardConfiguraciones">
+                                        <i class="material-icons colorText">account_box</i>
+                                    </a>
+                                    <div class="textCardConfiguraciones colorTextReverse">Vistazo perfil</div>
+                                </div>
+                            </div>
+                            <div class="col s12 m6 l6 cardConfiguracionesMainPadre">
+                                <div class="cardConfiguracionesMain shadow-2 bordered1 colorGreyWhiter">
+                                    <a href="#"
+                                        class="btn color1 button-rounded bordered5 shadow-2e iconCardConfiguraciones"><i
+                                            class="material-icons colorText">delete</i></a>
+                                    <div class="textCardConfiguraciones colorTextReverse">Eliminar cuenta</div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+            </li>
+            </ul>
+            </div>
+        </section>
+
+        <!-- Selección de los temas en general -->
+
+        <section style="width: 100%;">
+            <div class="title-general">
+                <h5 class="hide-on-large-only">Temas</h5>
+                <h4 class="hide-on-med-and-down">Temas</h4>
+            </div>
+
+            <div class="opcionesContainer">
+                <ul class="collapsible bordered5 colorWhite">
+                    <li>
+                        <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
+                            style="margin-bottom: 5px;"><i class="material-icons">format_paint</i>Selector de temas
+                        </div>
+                        <div class="bordered5 collapsible-body colorWhite">
+
+                            <div class="bordered5 opcionesContainerInterno row">
+
+                                <div class="col s12 m12 l12">
+                                    <div class="card bordered1 colorGreyWhiter shadow-2">
+                                        <div class="card-stacked">
+                                            <div class="card-content centerAligner verticalAligner">
+                                                <div>
+                                                    <p class="colorTextReverse muestraDeColorText">Paleta actual</p>
+                                                </div>
+                                                <div class="centerAligner horizontalAligner">
+                                                    <div id="paleta1" class="shadow-3 paleta color1"></div>
+                                                    <div class="shadow-3 paleta color2"></div>
+                                                    <div class="shadow-3 paleta color3"></div>
+                                                    <div class="shadow-3 paleta color4"></div>
+                                                    <div id="paleta5" class="shadow-3 paleta color5"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Se meten aqui los elementos de tarjetas de colores
+                                desde el código de JS en el archivo de selectorTema.js -->
+                                <section id="container_colors"></section>
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Selección de los temas para personas con problemas visuales -->
+
+        <section style="width: 100%;">
+            <div class="title-general">
+                <h5 class="hide-on-large-only">Accesibilidad</h5>
+                <h4 class="hide-on-med-and-down">Accesibilidad</h4>
+            </div>
+
+            <div class="opcionesContainer">
+                <ul class="collapsible bordered5 colorWhite">
+                    <li>
+                        <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
+                            style="margin-bottom: 5px;"><i class="material-icons">settings_accessibility</i>Selector de
+                            temas adaptados
+                        </div>
+                        <div class="bordered5 collapsible-body colorWhite">
+
+                            <div class="bordered5 opcionesContainerInterno row">
+
+                                <div class="col s12 m12 l12">
+                                    <div class="card bordered1 colorGreyWhiter shadow-2">
+                                        <div class="card-stacked">
+                                            <div class="card-content centerAligner verticalAligner">
+                                                <div>
+                                                    <p class="colorTextReverse muestraDeColorText">Paleta actual</p>
+                                                </div>
+                                                <div class="centerAligner horizontalAligner">
+                                                    <div id="paleta1" class="shadow-3 paleta color1"></div>
+                                                    <div class="shadow-3 paleta color2"></div>
+                                                    <div class="shadow-3 paleta color3"></div>
+                                                    <div class="shadow-3 paleta color4"></div>
+                                                    <div id="paleta5" class="shadow-3 paleta color5"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Se meten aqui los elementos de tarjetas de colores
+                                desde el código de JS en el archivo de selectorTema.js
+                            
+                                Solo los temas para discapacidad visual-->
+                                <section id="container_colors_adapted"></section>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Selección de los idiomas -->
+
+        <section style="width: 100%;">
+            <div class="title-general">
+                <h5 class="hide-on-large-only">Idioma</h5>
+                <h4 class="hide-on-med-and-down">Idioma</h4>
+            </div>
+
+            <div class="opcionesContainer">
+                <ul class="collapsible bordered5 colorWhite">
+                    <li>
+                        <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
+                            style="margin-bottom: 5px;"><i class="material-icons">translate</i>Idiomas disponibles.
+                        </div>
+                        <div class="bordered5 collapsible-body colorWhite">
+                            <div class="bordered5 opcionesContainerInterno row">
+                                <div class="col s12 m6 l3">
+                                    <div class="card bordered1 colorGreyWhiter shadow-2">
+                                        <a onclick="M.toast({html: 'Lenguaje cambiado a español.'})" href="#!"
+                                            id="seleccionarEspanol">
+                                            <div class="card-stacked">
+                                                <div class="card-content centerAligner verticalAligner">
+                                                    <div>
+                                                        <p class="colorTextReverse muestraDeColorText">Español</p>
+                                                    </div>
+                                                    <img src="../static/images/paises/flag1.png" alt="bandera de china"
+                                                        class="banderaConfiguracionesIdioma bordered5 shadow-3">
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6 l3">
+                                    <div class="card bordered1 colorGreyWhiter shadow-2">
+                                        <a onclick="M.toast({html: 'Language changed to english.'})" href="#!"
+                                            id="seleccionarIngles">
+                                            <div class="card-stacked">
+                                                <div class="card-content centerAligner verticalAligner">
+                                                    <div>
+                                                        <p class="colorTextReverse muestraDeColorText">Ingles</p>
+                                                    </div>
+                                                    <img src="../static/images/paises/flag2.png" alt="bandera de china"
+                                                        class="banderaConfiguracionesIdioma bordered5 shadow-3">
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6 l3">
+                                    <div class="card bordered1 colorGreyWhiter shadow-2">
+                                        <a onclick="M.toast({html: 'Idioma alterado para português.'})" href="#!"
+                                            id="seleccionarPortugues">
+                                            <div class="card-stacked">
+                                                <div class="card-content centerAligner verticalAligner">
+                                                    <div>
+                                                        <p class="colorTextReverse muestraDeColorText">
+                                                            Portugues</p>
+                                                    </div>
+                                                    <img src="../static/images/paises/flag3.png" alt="bandera de china"
+                                                        class="banderaConfiguracionesIdioma bordered5 shadow-3">
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6 l3">
+                                    <div class="card bordered1 colorGreyWhiter shadow-2">
+                                        <a onclick="M.toast({html: '语言改为中文.'})" href="#!" id="seleccionarChino">
+                                            <div class="card-stacked">
+                                                <div class="card-content centerAligner verticalAligner">
+                                                    <div>
+                                                        <p class="colorTextReverse muestraDeColorText">Mandarín</p>
+                                                    </div>
+                                                    <img src="../static/images/paises/flag4.png" alt="bandera de china"
+                                                        class="banderaConfiguracionesIdioma bordered5 shadow-3">
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </section>
+    <br><br><br>
+    <div class="hide-on-med-and-down">
+        <br><br><br><br><br>
+    </div>
+    <!--Metemos el footer en la app-->
+    {% include "includes/footer.html" %}
+
+</body>
+
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+
+<script src="../static/js/selectorTema.js"></script>
+
+</html>
