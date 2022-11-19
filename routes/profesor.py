@@ -1252,8 +1252,27 @@ def crear_reportes_cuestionarios_docentes_PDF():
     graficaBarraNumRespGrupo = go.Bar(x=json.loads(cuestionarioConRespuestasPy), y=json.loads(contadorFrecuenciaRespuestasArrayPy))
     parametrosGraficaBarraNumRespGrupo = {'title': ' Numero de respuestas por grupo'}
     figGraficaBarraNumRespGrupo  = go.Figure(data=graficaBarraNumRespGrupo, layout=parametrosGraficaBarraNumRespGrupo )
-    figGraficaBarraNumRespGrupo.show()
+    #figGraficaBarraNumRespGrupo.show()
     figGraficaBarraNumRespGrupo.write_image("static/images/NumeroRespuestasPorGrupo.png")
+
+    #Graficos Datos graficos radar de los promedios generales por cuestionario
+    promediosPorCuestionarioPy = request.form["promediosPorCuestionario"]
+    cuestionarioConRespuestasRadioPy = request.form["cuestionarioConRespuestasRadio"]
+    
+    graficaRadioPromCuestionario = go.Scatterpolar(r =json.loads(promediosPorCuestionarioPy),
+    theta =json.loads(cuestionarioConRespuestasRadioPy) , mode = 'markers')
+    parametrosGraficaRadioPromCuestionario = {'title': ' Radar de los promedios generales por cuestionario'}
+    figGraficaRadioPromCuestionario =go.Figure(data=graficaRadioPromCuestionario, layout= parametrosGraficaRadioPromCuestionario)
+    figGraficaRadioPromCuestionario.write_image("static/images/GraficoRadarPromedioCuestionarios.png")
+
+    #Graficos Datos graficos Promedio general por cuestionarios
+    cuestionarioConRespuestasPromGenCuestPy = request.form["cuestionarioConRespuestasPromGenCuest"]
+    promediosPorCuestionarioPromGenCuestPy = request.form["promediosPorCuestionarioPromGenCuest"]
+    
+    graficaBarraPromGenCues =  go.Bar(x=json.loads(cuestionarioConRespuestasPromGenCuestPy), y=json.loads(promediosPorCuestionarioPromGenCuestPy))
+    parametrosGraficaPromGenCues = {'title': ' Promedio general por cuestionarios'}
+    figPromGenCues =  go.Figure(data=graficaBarraPromGenCues, layout=parametrosGraficaPromGenCues)
+    figPromGenCues.write_image("static/images/GraficoBarraPromGenCuest.png")
 
     #Creacion inicial del pdf
     pdf = FPDF()
@@ -1263,13 +1282,36 @@ def crear_reportes_cuestionarios_docentes_PDF():
     pdf.cell(200, 18, txt = "Reporte cuestionarios",
          ln = 1, align = 'C')
     
+    #Seccion de Insights cuestionarios generales en el pdf
+    pdf.cell(200, 18, txt = "Insights cuestionarios generales",
+         ln = 1, align = 'L')
+    
+    #Titulo Grafica Numero de respuestas por grupo en el pdf
+    pdf.cell(200, 18, txt = "Grafica Numero de respuestas por grupo",
+         ln = 1, align = 'L')
+
     #Agregar imagen Numero de respuestas por grupo
     pdf.image("static/images/NumeroRespuestasPorGrupo.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
 
+    #Titulo Grafica Radar de los promedios generales por cuestionario en el pdf
+    pdf.cell(200, 18, txt = "Grafica radar de los promedios generales por cuestionario",
+         ln = 1, align = 'L')
 
+    #Agregar imagen Radar de los promedios generales por cuestionario
+    pdf.image("static/images/GraficoRadarPromedioCuestionarios.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
 
+    #Titulo Grafica  Promedio general por cuestionarios
+    pdf.cell(200, 18, txt = "Grafica  Promedio general por cuestionarios",
+         ln = 1, align = 'L')
+    
+    #Aregar grafica Promedio general por cuestionarios
+
+    pdf.image("static/images/GraficoBarraPromGenCuest.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
+    
     #Eliminación archivos de mas
     os.remove("static/images/NumeroRespuestasPorGrupo.png")
+    os.remove("static/images/GraficoRadarPromedioCuestionarios.png")
+    os.remove("static/images/GraficoBarraPromGenCuest.png")
       
     response = make_response(pdf.output(dest='S').encode('latin-1'))
     response.headers.set('Content-Disposition', 'attachment', filename="Reporte_Cuestionarios" + '.pdf')
