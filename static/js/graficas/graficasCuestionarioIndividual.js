@@ -187,3 +187,7 @@ function insertarCajasHijasEnCadaGrupo(numero_grupos, numero_ids) {
 }
 insertarCajasHijasEnCadaGrupo(numeroContenedorDeCuestionario, numeroIdsContenedorDeCuestionario);
 
+//Datos graficos numero de respuestas por grupo
+cuestionarioConRespuestas;
+document.getElementById("cuestionarioConRespuestas").value =JSON.stringify(cuestionarioConRespuestas);
+document.getElementById("contadorFrecuenciaRespuestasArray").value =JSON.stringify(contadorFrecuenciaRespuestasArray);

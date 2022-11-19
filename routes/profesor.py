@@ -1225,3 +1225,42 @@ def crear_reportes_grupos_docentes_PDF():
     response.headers.set('Content-Disposition', 'attachment', filename="Reporte_Grupos" + '.pdf')
     response.headers.set('Content-Type', 'application/pdf')
     return response
+
+
+@routes.route('/crear_reportes_cuestionarios_docentes_PDF', methods=['POST'])
+def crear_reportes_cuestionarios_docentes_PDF():
+    #Creacion imagenes estadisticas
+
+    #Datos graficas Insights cuestionarios generales.
+
+    #Grafica Numero de respuestas por grupo
+
+    cuestionarioConRespuestasPy = request.form["cuestionarioConRespuestas"]
+    contadorFrecuenciaRespuestasArrayPy = request.form["contadorFrecuenciaRespuestasArray"]
+
+    graficaBarraNumRespGrupo = go.Bar(x=json.loads(cuestionarioConRespuestasPy), y=json.loads(contadorFrecuenciaRespuestasArrayPy))
+    parametrosGraficaBarraNumRespGrupo = {'title': ' Numero de respuestas por grupo'}
+    figGraficaBarraNumRespGrupo  = go.Figure(data=graficaBarraNumRespGrupo, layout=parametrosGraficaBarraNumRespGrupo )
+    figGraficaBarraNumRespGrupo.show()
+    figGraficaBarraNumRespGrupo.write_image("static/images/NumeroRespuestasPorGrupo.png")
+
+    #Creacion inicial del pdf
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Arial", size = 15)
+    #Titulo del PDF
+    pdf.cell(200, 18, txt = "Reporte cuestionarios",
+         ln = 1, align = 'C')
+    
+    #Agregar imagen Numero de respuestas por grupo
+    pdf.image("static/images/NumeroRespuestasPorGrupo.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
+
+
+
+    #Eliminación archivos de mas
+    os.remove("static/images/NumeroRespuestasPorGrupo.png")
+      
+    response = make_response(pdf.output(dest='S').encode('latin-1'))
+    response.headers.set('Content-Disposition', 'attachment', filename="Reporte_Cuestionarios" + '.pdf')
+    response.headers.set('Content-Type', 'application/pdf')
+    return response

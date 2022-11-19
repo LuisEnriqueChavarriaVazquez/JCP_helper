@@ -66,6 +66,28 @@
     </div>
 </section>
 
+<!--Contenedor de opciones de reportes-->
+<section class="contenedorGrupos">
+    <div class="tituloCardGraficaText">
+        Opcciones del reportes
+    </div>
+    <div>
+        <form action="{{ url_for('routes.crear_reportes_cuestionarios_docentes_PDF') }}" method="post"
+            id="formGruposReporte">
+
+            <!--Elementos de grafica Promedio general de grupos.-->
+            <input type="hidden" id="cuestionarioConRespuestas" name="cuestionarioConRespuestas">
+            <input type="hidden" id="contadorFrecuenciaRespuestasArray" name="contadorFrecuenciaRespuestasArray">
+
+
+
+            <button class='btn button-rounded colorGreyWhiter colorTextReverse' type="submit"><i
+                    class="material-icons md-24">arrow_downward</i></button>
+        </form>
+    </div>
+</section>
+
+
 <!--cuestionarioHechosValidados esta hecho para solo regresar los datos de los cuestionarios que fueron contestados-->
 <!--Contenedor de elementos por grupo-->
 <section class="contenedorGrupos">
