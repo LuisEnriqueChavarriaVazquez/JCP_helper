@@ -17,7 +17,7 @@ import shutil
 
 
 import plotly.graph_objects as go
-from flask import make_response
+from fpdf import FPDF
 from flask import make_response
 import os
 
