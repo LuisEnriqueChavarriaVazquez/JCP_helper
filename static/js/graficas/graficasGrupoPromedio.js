@@ -50,40 +50,55 @@ function grafica_pastel_promedio_general() {
 //Imprime la gráfica lineal
 //gruposNameArray
 //promediosMultidimensional
+
+//Variable para reporte de grafica 
+let elementosGraficaScatter = [];
+
 function grafica_lineal_promedio_general() {
-
-    //Hacemos una fábrica de objetos
-    let objetoTrazos = {};
-    let contador = 0;
-    //Cantidad de dezplazamientos en x
-    let arraysWithASize = generadorArraysWithASize(contadorPosicionesIds);
-    //Fábrica....
-    gruposNameArray.forEach(grupo => {
-        objetoTrazos[contador] = {
-            x: arraysWithASize[contador],
-            y: promediosMultidimensional[contador++],
-            name: grupo,
-            type: 'scatter'
-        }
-    });
-    
-    let arrayTrazos = Object.values(objetoTrazos);
-    console.log('arrayTrazos', arrayTrazos);
-    console.log('promediosMultidimensional', promediosMultidimensional)
-
-    //Creamos nuestros objetos con los nombres del trace
-    contador=0;
-    var data = [];
-    arrayTrazos.forEach(trazo => {
-        data.push(arrayTrazos[contador++]);
-    });
-
-    var layout = { //Titulo de la gráfica
-        title: 'Histórico de puntajes en cada evaluación de cada grupo',
-        font: { size: 7 }
+  //Hacemos una fábrica de objetos
+  let objetoTrazos = {};
+  let contador = 0;
+  //Cantidad de dezplazamientos en x
+  let arraysWithASize = generadorArraysWithASize(contadorPosicionesIds);
+  //Fábrica....
+  gruposNameArray.forEach((grupo) => {
+    objetoTrazos[contador] = {
+      x: arraysWithASize[contador],
+      y: promediosMultidimensional[contador++],
+      name: grupo,
+      type: "scatter",
     };
 
-    var config = { responsive: true } //Ajuste responsivo
+    //Porción código para datos reporte para historico de puntajes en cada evaluación de cada grupo
+    datoGraficaScatter = [
+      grupo,
+      arraysWithASize[contador - 1],
+      promediosMultidimensional[contador],
+    ];
 
-    Plotly.newPlot('graph1', data, layout, config);
+    elementosGraficaScatter.push(datoGraficaScatter);
+  });
+
+  let arrayTrazos = Object.values(objetoTrazos);
+  console.log("arrayTrazos", arrayTrazos);
+  console.log("promediosMultidimensional", promediosMultidimensional);
+
+  //Creamos nuestros objetos con los nombres del trace
+  contador = 0;
+  var data = [];
+  arrayTrazos.forEach((trazo) => {
+    data.push(arrayTrazos[contador++]);
+  });
+
+  var layout = {
+    //Titulo de la gráfica
+    title: "Histórico de puntajes en cada evaluación de cada grupo",
+    font: { size: 7 },
+  };
+
+  var config = { responsive: true }; //Ajuste responsivo
+
+  Plotly.newPlot("graph1", data, layout, config);
+  //Poner datos grafica scatter
+  document.getElementById("HistoricoPuntajesEvaluacionGrupo").value =JSON.stringify(elementosGraficaScatter);
 }

@@ -98,6 +98,9 @@
             <input type="hidden" id="xComparacionPromedioGrupales" name="xComparacionPromedioGrupales">
             <input type="hidden" id="yComparacionPromedioGrupales" name="yComparacionPromedioGrupales">
             
+            <!--Historico de puntajes en cada evaluación de cada grupo-->
+            <input type="hidden" id="HistoricoPuntajesEvaluacionGrupo" name="HistoricoPuntajesEvaluacionGrupo">
+            
             <!--indice porcentuales de promedios-->
             <input type="hidden" id="valoresPastel" name="valoresPastel">
             <input type="hidden" id="labelsPastel" name="labelsPastel">
@@ -159,7 +162,8 @@
     $(window).on("load", function () {
         barras_porcentage_por_grupo_aprobacion();
         grafica_barras_indice_aprobacion();
+        grafica_lineal_promedio_general();
+        grafica_barras_promedio_general();
     });
 </script>
-
 
