@@ -15,6 +15,7 @@ let cantidadRetrasosAtiempo = [];
 let cantidadRetrasosTarde = [];
 let cifrasAprobados = [];
 let cifasReprobados = [];
+let porcentajespreguntas = [];
 
 
 //Esta es la funcion para imprimir los contenedores de los insights de cada grupo
@@ -166,6 +167,12 @@ function porcentaje_de_error_y_aciertos_cuestionario_por_tipo_pregunta(idContain
                     <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">Aciertos: ${tipoPregunta[1]}%</span>
                     <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">Error: ${tipoPregunta[0]}%</span></p>
                     `;
+                    porcentaje = [
+                      nombreTipoPregunta[j],
+                      tipoPregunta[1],
+                      tipoPregunta[0],
+                    ];
+                    porcentajespreguntas.push(porcentaje);
             })
             contenido += "</div>";
             contenedorPadre.innerHTML += contenido;
@@ -236,3 +243,4 @@ document.getElementById("cantidadRetrasosAtiempo").value = JSON.stringify(cantid
 document.getElementById("cantidadRetrasosTarde").value = JSON.stringify(cantidadRetrasosTarde);
 document.getElementById("cifrasAprobados").value =JSON.stringify(cifrasAprobados);
 document.getElementById("cifasReprobados").value =JSON.stringify(cifasReprobados);
+document.getElementById("porcentajesPreguntas").value = JSON.stringify(porcentajespreguntas);

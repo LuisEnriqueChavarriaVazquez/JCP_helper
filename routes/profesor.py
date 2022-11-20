@@ -1287,6 +1287,7 @@ def crear_reportes_cuestionarios_docentes_PDF():
     cantidadRetrasosTardePy=json.loads(request.form["cantidadRetrasosTarde"])
     cifrasAprobadosPy=json.loads(request.form["cifrasAprobados"])
     cifasReprobadosPy=json.loads(request.form["cifasReprobados"])
+    porcentajePreguntasPy = json.loads(request.form["porcentajesPreguntas"])
 
     #Creacion inicial del pdf
     pdf = FPDF()
@@ -1357,7 +1358,14 @@ def crear_reportes_cuestionarios_docentes_PDF():
          ln = 1, align = 'L')
         pdf.cell(200, 18, txt = "Reprobacion:"+str(cifasReprobadosPy[i]),
          ln = 1, align = 'L')
-    
+        pdf.cell(200, 18, txt = "Porcentaje de aciertos por tipo de pregunta.:",
+         ln = 1, align = 'L')
+        for j in range(0, len(porcentajePreguntasPy)):
+            
+            pdf.cell(200, 18, txt = str(porcentajePreguntasPy[j][0]) + " Acierto:"+str(porcentajePreguntasPy[j][1])+"%"+
+             "Error:"+ str(porcentajePreguntasPy[j][2]) +"%",
+         ln = 1, align = 'L')
+            
     
 
 
