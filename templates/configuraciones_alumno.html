@@ -16,11 +16,11 @@
     <nav class="color2">
         <div class="nav-wrapper">
             <a href="#" class="brand-logo hide-on-small-only TDI">Configuraciones.</a>
-            <a href="bienvenidaEstudiante" data-target="slide-out" class="sidenav-trigger"><i
+            <a href="/bienvenidaEstudiante" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
             <p class="titleMobile colorText flow-text hide-on-large-only hide-on-med-only TDI">Configuraciones.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="bienvenidaEstudiante" class="btn color3 button-rounded TDI">Volver</a></li>
+                <li><a href="/bienvenidaEstudiante" class="btn color3 button-rounded TDI">Volver</a></li>
             </ul>
         </div>
     </nav>
@@ -43,7 +43,7 @@
                         <div class="bordered5 collapsible-body row">
                             <div class="col s12 m6 l6 cardConfiguracionesMainPadre">
                                 <div class="cardConfiguracionesMain shadow-2 bordered1 colorGreyWhiter">
-                                    <a href="#"
+                                    <a href="/editarPerfilAlumno/{{id_alumno}}"
                                         class="btn color1 button-rounded bordered5 shadow-2e iconCardConfiguraciones"><i
                                             class="material-icons colorText">manage_accounts</i></a>
                                     <div class="textCardConfiguraciones colorTextReverse">Modificar cuenta</div>
@@ -51,7 +51,7 @@
                             </div>
                             <div class="col s12 m6 l6 cardConfiguracionesMainPadre">
                                 <div class="cardConfiguracionesMain shadow-2 bordered1 colorGreyWhiter">
-                                    <a href="#"
+                                    <a href="/gestionar_resultados_alumno/{{id_alumno}}"
                                         class="btn color1 button-rounded bordered5 shadow-2e iconCardConfiguraciones">
                                         <i class="material-icons colorText">description</i>
                                     </a>
@@ -60,7 +60,7 @@
                             </div>
                             <div class="col s12 m6 l6 cardConfiguracionesMainPadre">
                                 <div class="cardConfiguracionesMain shadow-2 bordered1 colorGreyWhiter">
-                                    <a href="perfil_alumno"
+                                    <a href="/perfil_alumno"
                                         class="btn color1 button-rounded bordered5 shadow-2e iconCardConfiguraciones">
                                         <i class="material-icons colorText">account_box</i>
                                     </a>
@@ -69,8 +69,8 @@
                             </div>
                             <div class="col s12 m6 l6 cardConfiguracionesMainPadre">
                                 <div class="cardConfiguracionesMain shadow-2 bordered1 colorGreyWhiter">
-                                    <a href="#"
-                                        class="btn color1 button-rounded bordered5 shadow-2e iconCardConfiguraciones"><i
+                                    <a  href="#modal1"
+                                        class="waves-effect waves-light btn modal-trigger btn color1 button-rounded bordered5 shadow-2e iconCardConfiguraciones"><i
                                             class="material-icons colorText">delete</i></a>
                                     <div class="textCardConfiguraciones colorTextReverse">Eliminar cuenta</div>
                                 </div>
@@ -81,6 +81,7 @@
             </ul>
             </div>
         </section>
+
 
         <!-- Selección de los temas en general -->
 
@@ -270,6 +271,18 @@
     <div class="hide-on-med-and-down">
         <br><br><br><br><br>
     </div>
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>¿Desea eliminar su cuenta?</h4>
+        <p>Esta acción es irreversible, deseas continuar</p>
+      </div>
+      <div class="modal-footer">
+        <a  class="modal-close waves-effect waves-green btn-flat" style="color:red;">Cancelar</a>
+        <a href="/eliminarCuentaAlumno" class="modal-close waves-effect waves-green btn-flat" style="color:green;">Aceptar</a>
+      </div>
+    </div>
+            
+
     <!--Metemos el footer en la app-->
     {% include "includes/footer.html" %}
 
@@ -280,5 +293,6 @@
 {% include "includes/footerRecursos.html" %}
 
 <script src="../static/js/selectorTema.js"></script>
+
 
 </html>

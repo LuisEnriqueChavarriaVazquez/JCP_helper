@@ -362,4 +362,17 @@ def obtieneComentarioRetroalimentacion(id_grupo):
 
     conexion.close()
     return comentarios
-    
+
+
+##############################################################################
+####                                                                      ####
+####                Estudiante elimina su cuenta                          ####
+####                                                                      ####
+##############################################################################
+
+def alumnoEliminaCuenta(id_alumno):
+    conexion=obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("DELETE from Alumnos WHERE IDAlumno = %s",(id_alumno))
+    conexion.commit()
+    conexion.close()

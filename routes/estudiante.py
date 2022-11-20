@@ -697,9 +697,13 @@ def guardarFondoEst(id_alumno):
 #########################################################################
 @routes.route('/configuraciones_alumno')
 def configuraciones_alumno():
-    return render_template('configuraciones_alumno.html')
 
+    return render_template('configuraciones_alumno.html',id_alumno=session["IDAlumno"])
 
+@routes.route('/eliminarCuentaAlumno')
+def eliminarCuentaAlumno():
+    Op_estudiante.alumnoEliminaCuenta(session["IDAlumno"])
+    return redirect(url_for("routes.logoutEstudiante"))
 
 
 #Sacar en pdf el reultado de los alumnos en sus cuestionarios
