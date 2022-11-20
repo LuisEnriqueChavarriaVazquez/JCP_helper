@@ -565,3 +565,16 @@ def actualizarPolitica(id_docente, estado):
         cursor.execute("UPDATE docentespoliticasprivacidad SET Estado=%s where IDDocente=%s",(estado,id_docente))
     conexion.commit()
     conexion.close()
+
+##############################################################################
+####                                                                      ####
+####                   Docente elimina su cuenta                          ####
+####                                                                      ####
+##############################################################################
+
+def docenteEliminaCuenta(id_docente):
+    conexion=obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("DELETE from Docentes WHERE IDDocente = %s",(id_docente))
+    conexion.commit()
+    conexion.close()

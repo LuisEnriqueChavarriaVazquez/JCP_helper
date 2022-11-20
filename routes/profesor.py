@@ -41,17 +41,6 @@ def login_required(f):
     return wrap
 
 
-# def not_logged_in(f):
-#     @wraps(f)
-#     def wrap(*args, **kwargs):
-#         if 'logged_in' in session:
-#             return redirect(url_for('bienvenidaProfesor'))
-#         else:
-#             return f(*args, *kwargs)
-
-#     return wrap
-
-
 def wrappers(func, *args, **kwargs):
     def wrapped():
         return func(*args, **kwargs)
@@ -1121,7 +1110,12 @@ def guardarFondo(id_docente):
 #########################################################################
 @routes.route('/configuraciones_docente')
 def configuraciones_docente():
-    return render_template('configuraciones_docente.html')
+    return render_template('configuraciones_docente.html',id_profesor=session["IDDocente"])
+
+@routes.route('/eliminarCuentaDocente')
+def eliminarCuentaDocente():
+    Op_profesor.docenteEliminaCuenta(session["IDDocente"])
+    return redirect(url_for("routes.profesor_logout"))
 
 
 
