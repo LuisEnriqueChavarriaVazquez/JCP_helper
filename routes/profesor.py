@@ -1248,7 +1248,7 @@ def crear_reportes_cuestionarios_docentes_PDF():
 
     cuestionarioConRespuestasPy = request.form["cuestionarioConRespuestas"]
     contadorFrecuenciaRespuestasArrayPy = request.form["contadorFrecuenciaRespuestasArray"]
-
+    #print(str(cuestionarioConRespuestasPy)+"__:__"+contadorFrecuenciaRespuestasArrayPy)
     graficaBarraNumRespGrupo = go.Bar(x=json.loads(cuestionarioConRespuestasPy), y=json.loads(contadorFrecuenciaRespuestasArrayPy))
     parametrosGraficaBarraNumRespGrupo = {'title': ' Numero de respuestas por grupo'}
     figGraficaBarraNumRespGrupo  = go.Figure(data=graficaBarraNumRespGrupo, layout=parametrosGraficaBarraNumRespGrupo )
@@ -1273,6 +1273,26 @@ def crear_reportes_cuestionarios_docentes_PDF():
     parametrosGraficaPromGenCues = {'title': ' Promedio general por cuestionarios'}
     figPromGenCues =  go.Figure(data=graficaBarraPromGenCues, layout=parametrosGraficaPromGenCues)
     figPromGenCues.write_image("static/images/GraficoBarraPromGenCuest.png")
+
+    #Tiempo promedio en horas respuestas en cuestionarios
+    cuestionarioConRespuestasTiemProHorasPy = request.form["cuestionarioConRespuestasTiemProHoras"]
+    promedioTiempoPorCuestionarioTiemProHorasPy = request.form["promedioTiempoPorCuestionarioTiemProHoras"]
+
+    graficaTiemProHoras = go.Bar(x=json.loads(cuestionarioConRespuestasTiemProHorasPy ), y=json.loads(promedioTiempoPorCuestionarioTiemProHorasPy))
+    parametrosGraficaTiemProHoras =  {'title': ' Tiempo promedio en horas respuestas en cuestionarios'}
+
+    figTiemProHoras = go.Figure(data=graficaTiemProHoras, layout= parametrosGraficaTiemProHoras)
+    figTiemProHoras.write_image("static/images/TiempoPromedioHorasRespCuestionario.png")
+
+    #Datos de cuestionarios
+    numeroRespuestasPy=json.loads(request.form["numeroRespuestas"])
+    promediosGeneralesPy=json.loads(request.form["promediosGenerales"])
+    tiempoPromedioRespuestasPy=json.loads(request.form["tiempoPromedioRespuestas"])
+    PorcentajeAciertoPy=json.loads(request.form["PorcentajeAcierto"])
+    cantidadRetrasosAtiempoPy=json.loads(request.form["cantidadRetrasosAtiempo"])
+    cantidadRetrasosTardePy=json.loads(request.form["cantidadRetrasosTarde"])
+    cifrasAprobadosPy=json.loads(request.form["cifrasAprobados"])
+    cifasReprobadosPy=json.loads(request.form["cifasReprobados"])
 
     #Creacion inicial del pdf
     pdf = FPDF()
@@ -1308,10 +1328,50 @@ def crear_reportes_cuestionarios_docentes_PDF():
 
     pdf.image("static/images/GraficoBarraPromGenCuest.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
     
+    #Seccion de Insights cuestionarios generales 2en el pdf
+    pdf.cell(200, 18, txt = "Insights cuestionarios generales 2",
+         ln = 1, align = 'L')
+
+    pdf.cell(200, 18, txt = "Tiempo promedio en horas respuestas en cuestionarios",
+         ln = 1, align = 'L')
+
+    pdf.image("static/images/TiempoPromedioHorasRespCuestionario.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
+    
+
+    pdf.cell(200, 18, txt = "Datos cuestionarios ",
+         ln = 1, align = 'L')
+    print("Res"+str(numeroRespuestasPy))
+    #Agregar info cuestionarios 
+    for i in range(0, len(numeroRespuestasPy)):
+        pdf.cell(200, 18, txt = "Cuestionario " + str(i+1),
+         ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Numero de respuestas:"+ str(numeroRespuestasPy[i]),
+         ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Promedio general:"+ str(promediosGeneralesPy[i]),
+         ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Promedio tiempo respuestas por cuestionario:"+ str(tiempoPromedioRespuestasPy[i])+"hrs",
+         ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Porcentaje de aciertos y error en cuestionario:"+ str(PorcentajeAciertoPy[i]),
+         ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Entrega a tiempo::"+ str(cantidadRetrasosAtiempoPy[i]),
+         ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Entrega con retraso:"+ str( cantidadRetrasosTardePy[i]),
+         ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Citas aprobacion y reprobacion:",
+         ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Aprobacion:" +str(cifrasAprobadosPy[i]),
+         ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Reprobacion:"+str(cifasReprobadosPy[i]),
+         ln = 1, align = 'L')
+    
+    
+
+
     #Eliminación archivos de mas
     os.remove("static/images/NumeroRespuestasPorGrupo.png")
     os.remove("static/images/GraficoRadarPromedioCuestionarios.png")
     os.remove("static/images/GraficoBarraPromGenCuest.png")
+    os.remove("static/images/TiempoPromedioHorasRespCuestionario.png")
       
     response = make_response(pdf.output(dest='S').encode('latin-1'))
     response.headers.set('Content-Disposition', 'attachment', filename="Reporte_Cuestionarios" + '.pdf')

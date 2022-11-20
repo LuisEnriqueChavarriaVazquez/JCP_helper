@@ -5,6 +5,18 @@ let contenedorDeCuestionario = document.getElementsByClassName('contenedorCuesti
 let numeroContenedorDeCuestionario = contenedorDeCuestionario.length;
 let numeroIdsContenedorDeCuestionario = 0;
 
+//Variables para los reportes
+
+let numeroRespuestas = [];
+let promediosGenerales = [];
+let tiempoPromedioRespuestas = [];
+let PorcentajeAcierto = [];
+let cantidadRetrasosAtiempo = [];
+let cantidadRetrasosTarde = [];
+let cifrasAprobados = [];
+let cifasReprobados = [];
+
+
 //Esta es la funcion para imprimir los contenedores de los insights de cada grupo
 function impresionDeCasillasPorGrupo() {
     //Accedemos a contenedores globales de cada grupo
@@ -37,6 +49,7 @@ function numero_de_respuestas_por_cuestionario(idContainer, containerNumero) {
                 <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Número de respuestas: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${respuestas}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
+            numeroRespuestas.push(respuestas);
         }
         i++
     })
@@ -54,6 +67,7 @@ function promedio_general_por_cuestionario(idContainer, containerNumero) {
                 <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Promedio general: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${promedio}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
+            promediosGenerales.push(promedio);
         }
         i++
     });
@@ -76,6 +90,7 @@ function promedio_tiempo_respuestas_por_cuestionario(idContainer, containerNumer
             <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Tiempo: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${tiempo}hrs.</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
+            tiempoPromedioRespuestas.push(tiempo);
         }
     });
 }
@@ -92,6 +107,8 @@ function comparacion_entre_reprobados_aprobados_por_cuestionario(idContainer, co
                 <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Reprobados: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${reprobacionCuestionarios[i]}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
+            cifrasAprobados.push(aprobacionCuestionarios[i]);
+            cifasReprobados.push(reprobacionCuestionarios[i]);
         }
         i++
     })
@@ -109,6 +126,8 @@ function distribucion_entregas_retraso_por_cuestionario(idContainer, containerNu
                 <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Entrega con retraso: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${retraso_Cuestionarios[i]}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
+             cantidadRetrasosAtiempo.push(a_tiempo_Cuestionarios[i]);
+             cantidadRetrasosTarde.push(retraso_Cuestionarios[i]);
         }
         i++
     })
@@ -126,6 +145,7 @@ function puntaje_promedio_de_error_y_aciertos_cuestionario(idContainer, containe
             <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Puntaje promedio/total: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${puntaje[0]}/${puntaje[1]}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
+            PorcentajeAcierto.push(puntaje[0] + "/" + puntaje[1]);
         }
         i++
     });
@@ -200,3 +220,19 @@ document.getElementById("cuestionarioConRespuestasRadio").value = JSON.stringify
 //Datos graficos Promedio general por cuestionario
 document.getElementById("cuestionarioConRespuestasPromGenCuest").value = JSON.stringify(cuestionarioConRespuestas);
 document.getElementById("promediosPorCuestionarioPromGenCuest").value =JSON.stringify(promediosPorCuestionario);
+
+//Insights cuestionarios generales 2
+
+//Tiempo promedio en horas respuestas en cuestionarios
+document.getElementById("cuestionarioConRespuestasTiemProHoras").value = JSON.stringify(cuestionarioConRespuestas);
+document.getElementById("promedioTiempoPorCuestionarioTiemProHoras").value =JSON.stringify(promedioTiempoPorCuestionario);
+
+//Cuestionarios data
+document.getElementById("numeroRespuestas").value =JSON.stringify(numeroRespuestas);
+document.getElementById("promediosGenerales").value =JSON.stringify(promediosGenerales);
+document.getElementById("tiempoPromedioRespuestas").value = JSON.stringify(tiempoPromedioRespuestas);
+document.getElementById("PorcentajeAcierto").value =JSON.stringify(PorcentajeAcierto);
+document.getElementById("cantidadRetrasosAtiempo").value = JSON.stringify(cantidadRetrasosAtiempo);
+document.getElementById("cantidadRetrasosTarde").value = JSON.stringify(cantidadRetrasosTarde);
+document.getElementById("cifrasAprobados").value =JSON.stringify(cifrasAprobados);
+document.getElementById("cifasReprobados").value =JSON.stringify(cifasReprobados);
