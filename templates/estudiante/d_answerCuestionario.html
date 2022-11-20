@@ -25,8 +25,81 @@
             <ul class="right hide-on-med-and-down">
                 <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
             </ul>
+            <!--Botones del runner-->
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/python_runner" target="_blank" class="btn colorWhite colorTextReverse button-rounded"><i
+                    class="left" id="python_icons"></i>Python Runner</a></li>
+            </ul>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/java_runner" target="_blank" class="btn colorWhite colorTextReverse button-rounded"><i
+                    class="left" id="java_icons"></i>Java Runner</a></li>
+            </ul>
         </div>
     </nav>
+
+    <style>
+        #java_icons,#python_icons{
+            position: relative;
+            bottom: -5px;
+        }
+
+        #python_icons{
+            background-image: url('../../static/images/icons/python.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            width: 25px;
+            height: 25px;
+            color: #fff;
+        }
+
+        #java_icons{
+            background-image: url('../../static/images/icons/java.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            width: 25px;
+            height: 25px;
+            color: #fff;
+        }
+
+        #python_icons_float,#java_icons_float{
+            position: relative;
+            bottom: -6px;
+        }
+
+        #python_icons_float{
+            background-image: url('../../static/images/icons/python.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            width: 25px;
+            height: 25px;
+            color: #000;
+        }
+
+        #java_icons_float{
+            background-image: url('../../static/images/icons/java.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            width: 25px;
+            height: 25px;
+            color: #000;
+        }
+
+        .floatingPy{
+            position: fixed;
+            bottom: 0;
+            margin: 0 0 90px 0;
+        }
+
+        .floatingJava{
+            position: fixed;
+            bottom: 0;
+            margin: 0 0 160px 0;
+        }
+    </style>
 
 
     <!--Aqui se recibe el texto del JSON-->
@@ -123,6 +196,19 @@
     <div class="fixed-action-btn hiddenElement animate__animated" id="buttonGoUpTerminos">
         <a class="btn-floating btn-large color4">
             <i class="large material-icons">arrow_upward</i>
+        </a>
+    </div>
+
+    <!--Boton para el code runner-->
+    <div class="fixed-action-btn floatingPy">
+        <a href="/python_runner" target="_blank" class="btn-floating btn-large colorGreyWhiter">
+            <i class="large" id="python_icons_float"></i>
+        </a>
+    </div>
+
+    <div class="fixed-action-btn floatingJava">
+        <a href="/java_runner" target="_blank" class="btn-floating btn-large colorGreyWhiter">
+            <i class="large" id="java_icons_float"></i>
         </a>
     </div>
 
