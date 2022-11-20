@@ -161,21 +161,23 @@ function porcentaje_de_error_y_aciertos_cuestionario_por_tipo_pregunta(idContain
             let contenido = `
         <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Porcentaje de aciertos por tipo de pregunta.</div>
         <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">`;
+        cuestionarioTurno = [];
             cuestionario.forEach((tipoPregunta, j = 0) => {
                 contenido += `
                     <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">${nombreTipoPregunta[++j]}
                     <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">Aciertos: ${tipoPregunta[1]}%</span>
                     <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">Error: ${tipoPregunta[0]}%</span></p>
                     `;
-                    porcentaje = [
-                      nombreTipoPregunta[j],
-                      tipoPregunta[1],
-                      tipoPregunta[0],
-                    ];
-                    porcentajespreguntas.push(porcentaje);
+                   porcentaje = [
+                     nombreTipoPregunta[j],
+                     tipoPregunta[1],
+                     tipoPregunta[0],
+                   ];
+                   cuestionarioTurno.push(porcentaje);
             })
             contenido += "</div>";
             contenedorPadre.innerHTML += contenido;
+            porcentajespreguntas.push(cuestionarioTurno);
         }
         i++
     });

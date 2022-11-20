@@ -1360,10 +1360,10 @@ def crear_reportes_cuestionarios_docentes_PDF():
          ln = 1, align = 'L')
         pdf.cell(200, 18, txt = "Porcentaje de aciertos por tipo de pregunta.:",
          ln = 1, align = 'L')
-        for j in range(0, len(porcentajePreguntasPy)):
+        for j in range(0, len(porcentajePreguntasPy[i])):
             
-            pdf.cell(200, 18, txt = str(porcentajePreguntasPy[j][0]) + " Acierto:"+str(porcentajePreguntasPy[j][1])+"%"+
-             "Error:"+ str(porcentajePreguntasPy[j][2]) +"%",
+            pdf.cell(200, 18, txt = str(porcentajePreguntasPy[i][j][0]) + " Acierto:"+str(porcentajePreguntasPy[i][j][1])+"%"+
+             "Error:"+ str(porcentajePreguntasPy[i][j][2]) +"%",
          ln = 1, align = 'L')
             
     
