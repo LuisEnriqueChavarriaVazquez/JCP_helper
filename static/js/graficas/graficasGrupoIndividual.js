@@ -219,13 +219,21 @@ insertarCajasHijasEnCadaGrupo(numeroContenedorDeGrupo, numeroIdsContenedorDeGrup
 
 //Datos graficos promedio general de los grupos
 
+//Comparación de promedios grupales
+
 document.getElementById("xComparacionPromedioGrupales").value = JSON.stringify(gruposNameArray);
 document.getElementById("yComparacionPromedioGrupales").value =JSON.stringify(promedioFinalPorGrupo);
+
+//Datos Indice porcentuales promedio
+
 document.getElementById("valoresPastel").value = JSON.stringify(porcentajePromedioEquivalente);
 document.getElementById("labelsPastel").value = JSON.stringify(gruposNameArray);
 document.getElementById("datosGrupo").value = JSON.stringify(datosGrupo);
 
 //Datos graficos de Aprobación general de grupos
+
+
+//Datos Porcentaje de aprobados vs reprobados
 
 document.getElementById("arrayPorcentajeAprobacionPastel").value =JSON.stringify(arrayPorcentajeAprobacion);
 document.getElementById("graficasTitlelabelsPastel").value =JSON.stringify(graficasTitle);
