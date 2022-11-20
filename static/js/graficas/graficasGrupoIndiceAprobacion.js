@@ -76,13 +76,19 @@ function grafica_pastel_indice_aprobacion() {
     Plotly.newPlot('graph2', data2, layout, config);
 }
 
-function barras_porcentage_por_grupo_aprobacion() {
-    //Vaciamos de manera manual contenido de la caja
-    let container = document.getElementById('graph2');
-    container.innerHTML = "";
+//Variables para los reportes Aprobación general de grupos.
+var aprobadosFormatoDiezReporte = aprobadosFormatoDiez;
+var porcentajeGlobalAprobadorReporte = porcentageGlobal[0];
+var porcentajeGlobalReprobadorReporte = porcentageGlobal[1];
+let gruposAprobadosReprobadosReporte = [];
 
-    //Insertamos contenedor para la informacion
-    container.innerHTML = `
+function barras_porcentage_por_grupo_aprobacion() {
+  //Vaciamos de manera manual contenido de la caja
+  let container = document.getElementById("graph2");
+  container.innerHTML = "";
+
+  //Insertamos contenedor para la informacion
+  container.innerHTML = `
         <section class="contenedorAnalisisPorcentage">
             <section class="contenedorAnalisisPorcentage_son1 bordered1 colorGreyWhiter shadow-1e" id="resumenAnalisisAprobados">
                 
@@ -103,9 +109,9 @@ function barras_porcentage_por_grupo_aprobacion() {
         </section>
     `;
 
-    //Debemos imprimir los datos de procentage de todos los grupos
-    let contenedorAnalisisHtml = document.getElementById('dataContainerBarHTML');
-    let contendorGlobalDataAnalisisBar = `
+  //Debemos imprimir los datos de procentage de todos los grupos
+  let contenedorAnalisisHtml = document.getElementById("dataContainerBarHTML");
+  let contendorGlobalDataAnalisisBar = `
         <div class="containerInfoBarAnalisisAprobacion bordered1 colorGreyWhiter shadow-1e">
             <div class="titleInfoBarAnalisisAprobacion">Global.</div>
             <div class="barContainerInfoBarAnalisisAprobacion">
@@ -114,20 +120,22 @@ function barras_porcentage_por_grupo_aprobacion() {
             </div>
         </div>
     `;
-    contenedorAnalisisHtml.innerHTML = contendorGlobalDataAnalisisBar;
+  contenedorAnalisisHtml.innerHTML = contendorGlobalDataAnalisisBar;
 
-    //Hacemos la impresión del análisis
-    let containerAnalisiAprobados = document.getElementById('resumenAnalisisAprobados');
-    let contenidoAnalisis = `
+  //Hacemos la impresión del análisis
+  let containerAnalisiAprobados = document.getElementById(
+    "resumenAnalisisAprobados"
+  );
+  let contenidoAnalisis = `
         <p class="dato_son1">
             <span class="dato_1_son1">${aprobadosFormatoDiez}</span> / <span class="dato_2_son1">10</span> aprueban.
         </p>
-    `
-    containerAnalisiAprobados.innerHTML = contenidoAnalisis;
+    `;
+  containerAnalisiAprobados.innerHTML = contenidoAnalisis;
 
-    //Insertamos todos los procentajes de los grupos.
-    nombreGrupos_unitario.forEach((nombre, i = 0) => {
-        contendorGlobalDataAnalisisBar = `
+  //Insertamos todos los procentajes de los grupos.
+  nombreGrupos_unitario.forEach((nombre, i = 0) => {
+    contendorGlobalDataAnalisisBar = `
             <div class="containerInfoBarAnalisisAprobacion bordered1 colorGreyWhiter shadow-1e">
                 <div class="titleInfoBarAnalisisAprobacion">${nombre}</div>
                 <div class="barContainerInfoBarAnalisisAprobacion">
@@ -136,7 +144,17 @@ function barras_porcentage_por_grupo_aprobacion() {
                 </div>
             </div>
         `;
-        contenedorAnalisisHtml.innerHTML += contendorGlobalDataAnalisisBar;
-    });
+    //Elementos para el reporte
+    grupoReporte = [
+      nombre,
+      porcentagesDividosPorGrupo[i][0],
+      porcentagesDividosPorGrupo[i][1],
+    ];
 
+    gruposAprobadosReprobadosReporte.push(grupoReporte);
+    contenedorAnalisisHtml.innerHTML += contendorGlobalDataAnalisisBar;
+  });
+  //Elementos para los reportes
+  document.getElementById("gruposAprobadosReprobadosReporte").value =
+    JSON.stringify(gruposAprobadosReprobadosReporte);
 }   

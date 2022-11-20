@@ -253,3 +253,9 @@ document.getElementById("IndiceAprobReportes").value =JSON.stringify(IndiceAprob
 document.getElementById("PromedioTiempoRespuestasReportes").value =JSON.stringify(PromedioTiempoRespuestasReportes);
 document.getElementById("GruposAtiempoReporte").value =JSON.stringify(GruposAtiempoReporte);
 document.getElementById("GruposRetrasoReporte").value = JSON.stringify(GruposRetrasoReporte);
+
+//Variables reportes para graficas con valores multiple
+
+document.getElementById("aprobadosFormatoDiezReporte").value =aprobadosFormatoDiezReporte;
+document.getElementById("porcentajeGlobalAprobadorReporte").value =porcentajeGlobalAprobadorReporte;
+document.getElementById("porcentajeGlobalReprobadorReporte").value =porcentajeGlobalReprobadorReporte;

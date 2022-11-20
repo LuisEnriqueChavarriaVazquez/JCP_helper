@@ -92,18 +92,31 @@
         <form action="{{ url_for('routes.crear_reportes_grupos_docentes_PDF') }}" method="post" id="formGruposReporte">
 
             <!--Elementos de grafica Promedio general de grupos.-->
+            
+            
+            <!--Comparacion de promedios grupales-->
             <input type="hidden" id="xComparacionPromedioGrupales" name="xComparacionPromedioGrupales">
             <input type="hidden" id="yComparacionPromedioGrupales" name="yComparacionPromedioGrupales">
+            
+            <!--indice porcentuales de promedios-->
             <input type="hidden" id="valoresPastel" name="valoresPastel">
             <input type="hidden" id="labelsPastel" name="labelsPastel">
             <input type="hidden" id="datosGrupo" name="datosGrupo">
             <input type="hidden" id="PorcentajeAprobacionAproReportesPY" name="PorcentajeAprobacionAproReportesPY">
-
+            
             <!--Elementos de grafica Aprobación general de grupos-->
+            
+            <!--Datos aprovacion porcentaje-->
+            
+            <input type="hidden" id="aprobadosFormatoDiezReporte" name="aprobadosFormatoDiezReporte">
+            <input type="hidden" id="porcentajeGlobalAprobadorReporte" name="porcentajeGlobalAprobadorReporte">
+            <input type="hidden" id="porcentajeGlobalReprobadorReporte" name="porcentajeGlobalReprobadorReporte">
+            <input type="hidden" id="gruposAprobadosReprobadosReporte" name="gruposAprobadosReprobadosReporte">
+            
+            <!--Porcentaje aprovados vs reprobados-->
             <input type="hidden" id="arrayPorcentajeAprobacionPastel" name="arrayPorcentajeAprobacionPastel">
             <input type="hidden" id="graficasTitlelabelsPastel" name="graficasTitlelabelsPastel">
-
-
+            
             <!--Datos-->
             <input type="hidden" id="datosGrupo" name="datosGrupo">
             <input type="hidden" id="PorcentajeAprobacionAproReportes" name="PorcentajeAprobacionAproReportes">
@@ -141,5 +154,12 @@
         {%endfor%}
     </ul>
 </section>
+
+<script>
+    $(window).on("load", function () {
+        barras_porcentage_por_grupo_aprobacion();
+        grafica_barras_indice_aprobacion();
+    });
+</script>
 
 
