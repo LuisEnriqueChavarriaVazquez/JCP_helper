@@ -1133,6 +1133,7 @@ def crear_reportes_grupos_docentes_PDF():
     xdata = request.form["xComparacionPromedioGrupales"]
     ydata = request.form["yComparacionPromedioGrupales"]
 
+    #Comparacion de promedio grupales
     trace = go.Bar(x=json.loads(xdata), y=json.loads(ydata))
     parametrosGrafica1 = {'title': ' Comparacion de promedio grupales'}
     fig1 = go.Figure(data=trace, layout=parametrosGrafica1)
@@ -1140,14 +1141,28 @@ def crear_reportes_grupos_docentes_PDF():
     fig1.write_image("static/images/ComparacionPromedioGrupales.png")
 
     #Historico de puntajes en cada evaluacion de cada grupo
+    HistoricoPuntajesEvaluacionGrupoPy = json.loads(request.form["HistoricoPuntajesEvaluacionGrupo"])
+    figHistoricoPuntajeEvaluacionGrupo = go.Figure()
+    for i in range(0,len(HistoricoPuntajesEvaluacionGrupoPy)):
+        figHistoricoPuntajeEvaluacionGrupo.add_trace(go.Scatter(
+            x=HistoricoPuntajesEvaluacionGrupoPy[i][1], 
+            y=HistoricoPuntajesEvaluacionGrupoPy[i][2],
+            name=HistoricoPuntajesEvaluacionGrupoPy[i][0],
+            ))
+    
+    figHistoricoPuntajeEvaluacionGrupo.update_layout(title='Historico de puntajes en cada evaluacion de cada grupo')
+    figHistoricoPuntajeEvaluacionGrupo.write_image("static/images/HistoricoPuntajeEvaluacionGrupos.png")
+
+
+    #indice porcentuales de promedio
     valoresPastel = request.form["valoresPastel"]
     labelPastel = request.form["labelsPastel"]
     dataPie=[go.Pie(labels=json.loads(labelPastel), values=json.loads(valoresPastel))]
 
-    parametrosGrafica2 = {'title': ' Historico de puntajes en cada evaluacion de cada grupo'}
+    parametrosGrafica2 = {'title': ' Indice porcentuales de promedio'}
     fig2 = go.Figure(data=dataPie, layout = parametrosGrafica2)
 
-    fig2.write_image("static/images/HistoricoPuntajesEvaluacionGrupo.png")
+    fig2.write_image("static/images/IndicePorcentualesPromedio.png")
 
     
     #Datos graficas Aprobación general de grupos
@@ -1183,13 +1198,18 @@ def crear_reportes_grupos_docentes_PDF():
     #Imagenes graficas Promedio general de grupos.
     pdf.cell(200, 18, txt = "Grafica comparacion de promedio grupales",
          ln = 1, align = 'L')
-    pdf.image("static/images/ComparacionPromedioGrupales.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
+    pdf.image("static/images/ComparacionPromedioGrupales.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')   
    
    #Historico de puntajes en cada evaluacion de cada grupo.
     pdf.cell(200, 18, txt = "Historico de puntajes en cada evaluacion de cada grupo",
          ln = 1, align = 'L')
-    pdf.image("static/images/HistoricoPuntajesEvaluacionGrupo.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
+    pdf.image("static/images/HistoricoPuntajeEvaluacionGrupos.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
     
+    #indice porcentuales de promedio
+    pdf.cell(200, 18, txt = "Indice porcentuales de promedio",
+         ln = 1, align = 'L')
+    pdf.image("static/images/IndicePorcentualesPromedio.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
+
     #Titulo Aprobación general de grupos
     pdf.cell(200, 18, txt = "Graficas Aprobación general de grupos.",
          ln = 1, align = 'L')
@@ -1217,8 +1237,10 @@ def crear_reportes_grupos_docentes_PDF():
 
     #Eliminación archivos de mas
     os.remove("static/images/ComparacionPromedioGrupales.png")
-    os.remove("static/images/HistoricoPuntajesEvaluacionGrupo.png")
+    os.remove("static/images/HistoricoPuntajeEvaluacionGrupos.png")
+    os.remove("static/images/IndicePorcentualesPromedio.png")
     os.remove("static/images/PorcentajeAprobadosReprobados.png")
+    
 
     #Obtencion datos grupos
 
