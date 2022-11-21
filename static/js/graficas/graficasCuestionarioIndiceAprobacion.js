@@ -29,52 +29,66 @@ grafica_tiempo_general_respuesta_cuestinario(); //Esta ejecuta la gráfica por d
 
 
 function grafica_aprobados_reprobados_por_cuestionario() {
-    //Vaciamos de manera manual contenido de la caja
-    let container = document.getElementById('graph4');
-    container.innerHTML = "";
+  //Vaciamos de manera manual contenido de la caja
+  let container = document.getElementById("graph4");
+  container.innerHTML = "";
 
-    //Hacemos una fábrica de objetos
-    let objetoTrazos = {};
-    let contador = 0;
+  //Hacemos una fábrica de objetos
+  let objetoTrazos = {};
+  let contador = 0;
 
-    //Array colores duales
-    let arrayColoresDuales = [];
-    arrayColoresDuales.push(arrayColores[1],arrayColores[4]);
+  //Array colores duales
+  let arrayColoresDuales = [];
+  arrayColoresDuales.push(arrayColores[1], arrayColores[4]);
 
-    //Fábrica....
-    graficasTitle.forEach((claseAlumno, i = 0) => {
-        objetoTrazos[contador] = {
-            x: cuestionarioConRespuestas,
-            y: aprobacionCuestionarioMultidimensionalCuenta[contador++], //listo
-            name: claseAlumno,
-            type: 'bar',
-            marker: {color: `${arrayColoresDuales[i++]}`}
-        }
-    });
+  //Elementos de reporte
+  let reprobadosAprobadosCuestiBarra = [];
 
-    let arrayTrazos = Object.values(objetoTrazos);
-    console.log('arrayTrazos', arrayTrazos);
-
-    //Creamos nuestros objetos con los nombres del trace
-    contador = 0;
-    var data = [];
-    arrayTrazos.forEach(trazo => {
-        data.push(arrayTrazos[contador++]);
-    });
-
-    var layout = { //Titulo de la gráfica
-        title: 'Comparación de reprobados vs aprobados',
-        font: { size: 10 },
-        barmode: 'stack',
+  //Fábrica....
+  graficasTitle.forEach((claseAlumno, i = 0) => {
+    objetoTrazos[contador] = {
+      x: cuestionarioConRespuestas,
+      y: aprobacionCuestionarioMultidimensionalCuenta[contador++], //listo
+      name: claseAlumno,
+      type: "bar",
+      marker: { color: `${arrayColoresDuales[i++]}` },
     };
+    elementoReprobadosAprobadosCuestiBarra = [
+    claseAlumno,
+    cuestionarioConRespuestas,
+    aprobacionCuestionarioMultidimensionalCuenta[contador - 1],
+    ];
+    reprobadosAprobadosCuestiBarra.push(elementoReprobadosAprobadosCuestiBarra);
 
-    var config = { responsive: true } //Ajuste responsivo
+  });
 
-    Plotly.newPlot('graph4', data, layout, config);
+  let arrayTrazos = Object.values(objetoTrazos);
+  console.log("arrayTrazos", arrayTrazos);
 
-    //Imprimimos la tendencia global en el encabezado
-    let tendenciaGlobalAprobación = document.getElementById('trendGlobalAprobacion');
-    tendenciaGlobalAprobación.innerText = arrayPorcentajeAprobacion[0];
+  //Creamos nuestros objetos con los nombres del trace
+  contador = 0;
+  var data = [];
+  arrayTrazos.forEach((trazo) => {
+    data.push(arrayTrazos[contador++]);
+  });
+
+  var layout = {
+    //Titulo de la gráfica
+    title: "Comparación de reprobados vs aprobados",
+    font: { size: 10 },
+    barmode: "stack",
+  };
+
+  var config = { responsive: true }; //Ajuste responsivo
+
+  Plotly.newPlot("graph4", data, layout, config);
+
+  //Imprimimos la tendencia global en el encabezado
+  let tendenciaGlobalAprobación = document.getElementById(
+    "trendGlobalAprobacion"
+  );
+  tendenciaGlobalAprobación.innerText = arrayPorcentajeAprobacion[0];
+  document.getElementById("aprobadosReprobadosCuestionarioBarra").value =JSON.stringify(reprobadosAprobadosCuestiBarra);
 }
 
 function porcentaje_aciertos_tipo_pregunta() {

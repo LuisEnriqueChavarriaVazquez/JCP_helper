@@ -98,6 +98,10 @@
             
             <input type="hidden" id="porcentajeAciertosTipoPregunta" name="porcentajeAciertosTipoPregunta">
             
+            <!--  Comparacion reprobados vs aprobados barra -->
+            
+            <input type="hidden" id="aprobadosReprobadosCuestionarioBarra" name="aprobadosReprobadosCuestionarioBarra">
+            
             <!--Data de cuestionarios-->
             
             <input type="hidden" id="numeroRespuestas" name="numeroRespuestas">
@@ -109,6 +113,7 @@
             <input type="hidden" id="cifrasAprobados" name="cifrasAprobados">
             <input type="hidden" id="cifasReprobados" name="cifasReprobados">
             <input type="hidden" id="porcentajesPreguntas" name="porcentajesPreguntas">
+
 
 
             <button class='btn button-rounded colorGreyWhiter colorTextReverse' type="submit"><i
@@ -141,6 +146,7 @@
 <script>
     $(window).on("load", function () {
         porcentaje_aciertos_tipo_pregunta();
-        grafica_tiempo_general_respuesta_cuestinario()
+        grafica_aprobados_reprobados_por_cuestionario();
+        grafica_tiempo_general_respuesta_cuestinario();
     });
 </script>

@@ -1348,7 +1348,19 @@ def crear_reportes_cuestionarios_docentes_PDF():
     #porcentaje Aciertos Tipo Pregunta
     
     porcentajeAciertosTipoPreguntaPy = json.loads(request.form["porcentajeAciertosTipoPregunta"])
-       
+
+    #aprobadosReprobadosCuestionarioBarra
+    aprobadosReprobadosCuestionarioBarraPy =json.loads(request.form["aprobadosReprobadosCuestionarioBarra"])
+    
+    dataAprobadosReprobadosCuestionarioBarra = []
+    for i in range(0,len(aprobadosReprobadosCuestionarioBarraPy)):
+        dataAprobadosReprobadosCuestionarioBarra.append(go.Bar(name = aprobadosReprobadosCuestionarioBarraPy[i][0],
+        x =  aprobadosReprobadosCuestionarioBarraPy[i][1],
+        y = aprobadosReprobadosCuestionarioBarraPy[i][2]))
+
+    figAprobadosReprobadosCuestionarioBarra = go.Figure(dataAprobadosReprobadosCuestionarioBarra)
+    figAprobadosReprobadosCuestionarioBarra.update_layout(barmode='stack')
+    figAprobadosReprobadosCuestionarioBarra.write_image("static/images/aprobadosReprobadosCuestionarioBarra.png")
 
     #Datos de cuestionarios
     numeroRespuestasPy=json.loads(request.form["numeroRespuestas"])
@@ -1427,6 +1439,7 @@ def crear_reportes_cuestionarios_docentes_PDF():
     pdf.cell(200, 18, txt = "Opt6 = Pregunta abierta",
          ln = 1, align = 'L')
     
+    
 
     for i in range(0,len(porcentajeAciertosTipoPreguntaPy)):
         pdf.cell(200, 18, txt = str(porcentajeAciertosTipoPreguntaPy[i][0])+":",
@@ -1436,6 +1449,12 @@ def crear_reportes_cuestionarios_docentes_PDF():
         pdf.cell(200, 18, txt = "Error:"+str(porcentajeAciertosTipoPreguntaPy[i][2])+"%",
          ln = 1, align = 'L') 
 
+    #Aprobados vs Reprobados
+
+    pdf.cell(200, 18, txt = "Grafica comparacion reprobados vs reprobados",
+         ln = 1, align = 'L')
+
+    pdf.image("static/images/aprobadosReprobadosCuestionarioBarra.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '') 
 
     pdf.cell(200, 18, txt = "Datos cuestionarios ",
          ln = 1, align = 'L')
@@ -1478,6 +1497,7 @@ def crear_reportes_cuestionarios_docentes_PDF():
     os.remove("static/images/GraficoRadarPromedioCuestionarios.png")
     os.remove("static/images/GraficoBarraPromGenCuest.png")
     os.remove("static/images/TiempoPromedioHorasRespCuestionario.png")
+    os.remove("static/images/aprobadosReprobadosCuestionarioBarra.png")
       
     response = make_response(pdf.output(dest='S').encode('latin-1'))
     response.headers.set('Content-Disposition', 'attachment', filename="Reporte_Cuestionarios" + '.pdf')
