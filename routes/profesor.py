@@ -1167,6 +1167,19 @@ def crear_reportes_grupos_docentes_PDF():
     
     #Datos graficas Aprobación general de grupos
 
+    #Comparacion reprobados vs reprobados
+
+    comparacionReprovadosAprovadosBarraLista = json.loads(request.form["comparacionReprovadosAprovadosBarra"])
+    dataComparacionReprovadosAprovadosBarra = []
+    for i in range(0,len(comparacionReprovadosAprovadosBarraLista)):
+        dataComparacionReprovadosAprovadosBarra.append(go.Bar(name=comparacionReprovadosAprovadosBarraLista[i][0],
+         x=comparacionReprovadosAprovadosBarraLista[i][1], 
+         y=comparacionReprovadosAprovadosBarraLista[i][2]))
+    
+    figComparacionReprovadosAprovadosBarra = go.Figure(dataComparacionReprovadosAprovadosBarra)
+    figComparacionReprovadosAprovadosBarra.update_layout(barmode='stack')
+    figComparacionReprovadosAprovadosBarra.write_image("static/images/ComparacionReprovadosAprovadosBarra.png")
+
     #Datos  aprovacion porcentaje
     aprobadosFormatoDiezReporte = request.form["aprobadosFormatoDiezReporte"]
     porcentajeGlobalAprobadorReporte = request.form["porcentajeGlobalAprobadorReporte"]
@@ -1214,8 +1227,14 @@ def crear_reportes_grupos_docentes_PDF():
     pdf.cell(200, 18, txt = "Graficas Aprobación general de grupos.",
          ln = 1, align = 'L')
 
+    #Comparacion reprovados vs reprobados
+    pdf.cell(200, 18, txt = "Gráfica Comparacion reprovados vs reprobados",
+         ln = 1, align = 'L')
+    
+    pdf.image("static/images/ComparacionReprovadosAprovadosBarra.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
+
     #Parte del reporte con aprobacion porcentaje
-    pdf.cell(200, 18, txt = "Apobacion porcentaje",
+    pdf.cell(200, 18, txt = "Aprobacion porcentaje",
          ln = 1, align = 'L')
 
     pdf.cell(200, 18, txt = "Proporción:" +str(aprobadosFormatoDiezReporte)+"/10 aprueban",

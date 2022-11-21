@@ -1,52 +1,66 @@
 ////////////////////////////////////////////////////////
 //Imprime la gráfica de barras
 function grafica_barras_indice_aprobacion() {
-    //Vaciamos de manera manual contenido de la caja
-    let container = document.getElementById('graph2');
-    container.innerHTML = "";
+  //Vaciamos de manera manual contenido de la caja
+  let container = document.getElementById("graph2");
+  container.innerHTML = "";
 
-    //Hacemos una fábrica de objetos
-    let objetoTrazos = {};
-    let contador = 0;
+  //Hacemos una fábrica de objetos
+  let objetoTrazos = {};
+  let contador = 0;
 
-    //Array colores duales
-    let arrayColoresDuales = [];
-    arrayColoresDuales.push(arrayColores[1],arrayColores[4]);
+  //Array colores duales
+  let arrayColoresDuales = [];
+  arrayColoresDuales.push(arrayColores[1], arrayColores[4]);
 
-    //Fábrica....
-    graficasTitle.forEach((claseAlumno, i = 0) => {
-        objetoTrazos[contador] = {
-            x: gruposNameArray,
-            y: aprobacionTotal[contador++], //listo
-            name: claseAlumno,
-            type: 'bar',
-            marker: {color: `${arrayColoresDuales[i++]}`}
-        }
-    });
+  //Elementos de reporte
+  let comparacionReprovadosAprovadosBarra = [];
 
-    let arrayTrazos = Object.values(objetoTrazos);
-    console.log('arrayTrazos', arrayTrazos);
-
-    //Creamos nuestros objetos con los nombres del trace
-    contador = 0;
-    var data = [];
-    arrayTrazos.forEach(trazo => {
-        data.push(arrayTrazos[contador++]);
-    });
-
-    var layout = { //Titulo de la gráfica
-        title: 'Comparación de reprobados vs aprobados',
-        font: { size: 10 },
-        barmode: 'stack',
+  //Fábrica....
+  graficasTitle.forEach((claseAlumno, i = 0) => {
+    objetoTrazos[contador] = {
+      x: gruposNameArray,
+      y: aprobacionTotal[contador++], //listo
+      name: claseAlumno,
+      type: "bar",
+      marker: { color: `${arrayColoresDuales[i++]}` },
     };
+    elementoReprovadosAprovadosBarra = [
+      claseAlumno,
+      gruposNameArray,
+      aprobacionTotal[contador - 1],
+    ];
+    comparacionReprovadosAprovadosBarra.push(elementoReprovadosAprovadosBarra);
+  });
 
-    var config = { responsive: true } //Ajuste responsivo
+  let arrayTrazos = Object.values(objetoTrazos);
+  console.log("arrayTrazos", arrayTrazos);
 
-    Plotly.newPlot('graph2', data, layout, config);
+  //Creamos nuestros objetos con los nombres del trace
+  contador = 0;
+  var data = [];
+  arrayTrazos.forEach((trazo) => {
+    data.push(arrayTrazos[contador++]);
+  });
 
-    //Imprimimos la tendencia global en el encabezado
-    let tendenciaGlobalAprobación = document.getElementById('trendGlobalAprobacion');
-    tendenciaGlobalAprobación.innerText = arrayPorcentajeAprobacion[0];
+  var layout = {
+    //Titulo de la gráfica
+    title: "Comparación de reprobados vs aprobados",
+    font: { size: 10 },
+    barmode: "stack",
+  };
+
+  var config = { responsive: true }; //Ajuste responsivo
+
+  Plotly.newPlot("graph2", data, layout, config);
+
+  //Imprimimos la tendencia global en el encabezado
+  let tendenciaGlobalAprobación = document.getElementById(
+    "trendGlobalAprobacion"
+  );
+  tendenciaGlobalAprobación.innerText = arrayPorcentajeAprobacion[0];
+  document.getElementById("comparacionReprovadosAprovadosBarra").value =
+    JSON.stringify(comparacionReprovadosAprovadosBarra);
 }
 grafica_barras_indice_aprobacion(); //Esta ejecuta la gráfica por defecto
 
