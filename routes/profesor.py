@@ -1333,6 +1333,8 @@ def crear_reportes_cuestionarios_docentes_PDF():
     figPromGenCues =  go.Figure(data=graficaBarraPromGenCues, layout=parametrosGraficaPromGenCues)
     figPromGenCues.write_image("static/images/GraficoBarraPromGenCuest.png")
 
+    #Insights cuestionarios generales 2.
+    
     #Tiempo promedio en horas respuestas en cuestionarios
     cuestionarioConRespuestasTiemProHorasPy = request.form["cuestionarioConRespuestasTiemProHoras"]
     promedioTiempoPorCuestionarioTiemProHorasPy = request.form["promedioTiempoPorCuestionarioTiemProHoras"]
@@ -1342,6 +1344,11 @@ def crear_reportes_cuestionarios_docentes_PDF():
 
     figTiemProHoras = go.Figure(data=graficaTiemProHoras, layout= parametrosGraficaTiemProHoras)
     figTiemProHoras.write_image("static/images/TiempoPromedioHorasRespCuestionario.png")
+
+    #porcentaje Aciertos Tipo Pregunta
+    
+    porcentajeAciertosTipoPreguntaPy = json.loads(request.form["porcentajeAciertosTipoPregunta"])
+       
 
     #Datos de cuestionarios
     numeroRespuestasPy=json.loads(request.form["numeroRespuestas"])
@@ -1397,10 +1404,42 @@ def crear_reportes_cuestionarios_docentes_PDF():
 
     pdf.image("static/images/TiempoPromedioHorasRespCuestionario.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
     
+    #porcentaje Aciertos Tipo Pregunta
+
+    pdf.cell(200, 18, txt = "Porcentaje Aciertos Tipo Pregunta",
+         ln = 1, align = 'L')
+
+    pdf.cell(200, 18, txt = "Opt1 = Opción multiple",
+         ln = 1, align = 'L')
+
+    pdf.cell(200, 18, txt = "Opt2 = Rellenar espacios",
+         ln = 1, align = 'L')
+    
+    pdf.cell(200, 18, txt = "Opt3 = Ejercicios",
+         ln = 1, align = 'L')
+
+    pdf.cell(200, 18, txt = "Opt4 = Arrastrar",
+         ln = 1, align = 'L')
+
+    pdf.cell(200, 18, txt = "Opt5 = Falso/verdadero",
+         ln = 1, align = 'L')
+
+    pdf.cell(200, 18, txt = "Opt6 = Pregunta abierta",
+         ln = 1, align = 'L')
+    
+
+    for i in range(0,len(porcentajeAciertosTipoPreguntaPy)):
+        pdf.cell(200, 18, txt = str(porcentajeAciertosTipoPreguntaPy[i][0])+":",
+         ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Aciertos:"+str(porcentajeAciertosTipoPreguntaPy[i][1])+"%",
+         ln = 1, align = 'L')
+        pdf.cell(200, 18, txt = "Error:"+str(porcentajeAciertosTipoPreguntaPy[i][2])+"%",
+         ln = 1, align = 'L') 
+
 
     pdf.cell(200, 18, txt = "Datos cuestionarios ",
          ln = 1, align = 'L')
-    print("Res"+str(numeroRespuestasPy))
+    
     #Agregar info cuestionarios 
     for i in range(0, len(numeroRespuestasPy)):
         pdf.cell(200, 18, txt = "Cuestionario " + str(i+1),

@@ -78,12 +78,12 @@ function grafica_aprobados_reprobados_por_cuestionario() {
 }
 
 function porcentaje_aciertos_tipo_pregunta() {
-    //Vaciamos de manera manual contenido de la caja
-    let container = document.getElementById('graph4');
-    container.innerHTML = "";
+  //Vaciamos de manera manual contenido de la caja
+  let container = document.getElementById("graph4");
+  container.innerHTML = "";
 
-    //Insertamos contenedor para la informacion
-    container.innerHTML = `
+  //Insertamos contenedor para la informacion
+  container.innerHTML = `
         <section class="contenedorAnalisisPorcentage">
             <section class="contenedorAnalisisPorcentage_son2">
                 <div class="significado_dato_son2">
@@ -127,11 +127,14 @@ function porcentaje_aciertos_tipo_pregunta() {
         </section>
     `;
 
-    //Debemos imprimir los datos de procentage de todos los grupos
-    let contenedorAnalisisHtml = document.getElementById('dataContainerBarHTML2');
-    //Insertamos todos los procentajes de los grupos.
-    nombreTipoPregunta.forEach((nombre, i = 0) => {
-        contendorGlobalDataAnalisisBar = `
+  //Variable para reporte de porcentaje de aciertos de tipo de pregunta
+  let porcentajeAciertosTipoPregunta = [];
+
+  //Debemos imprimir los datos de procentage de todos los grupos
+  let contenedorAnalisisHtml = document.getElementById("dataContainerBarHTML2");
+  //Insertamos todos los procentajes de los grupos.
+  nombreTipoPregunta.forEach((nombre, i = 0) => {
+    contendorGlobalDataAnalisisBar = `
             <div class="containerInfoBarAnalisisAprobacion bordered1 colorGreyWhiter shadow-1e">
                 <div class="titleInfoBarAnalisisAprobacion">${nombre}</div>
                 <div class="barContainerInfoBarAnalisisAprobacion">
@@ -140,6 +143,13 @@ function porcentaje_aciertos_tipo_pregunta() {
                 </div>
             </div>
         `;
-        contenedorAnalisisHtml.innerHTML += contendorGlobalDataAnalisisBar;
-    });
+    contenedorAnalisisHtml.innerHTML += contendorGlobalDataAnalisisBar;
+    elementoTipoPregunta = [
+      nombre,
+      optTotalTipoPregunta[i][1],
+      optTotalTipoPregunta[i][0],
+    ];
+    porcentajeAciertosTipoPregunta.push(elementoTipoPregunta);
+  });
+  document.getElementById("porcentajeAciertosTipoPregunta").value =JSON.stringify(porcentajeAciertosTipoPregunta);
 }

@@ -74,36 +74,41 @@
     <div>
         <form action="{{ url_for('routes.crear_reportes_cuestionarios_docentes_PDF') }}" method="post" id="formGruposReporte">
 
+            <!--Insights cuestionarios generales.  -->
+            
             <!--Elementos de grafica Promedio general de grupos.-->
             <input type="hidden" id="cuestionarioConRespuestas" name="cuestionarioConRespuestas">
             <input type="hidden" id="contadorFrecuenciaRespuestasArray" name="contadorFrecuenciaRespuestasArray">
-        
+            
             <!--Elementos de grafica Datos graficos radar de los promedios generales por cuestionario.-->
             <input type="hidden" id="promediosPorCuestionario" name="promediosPorCuestionario">
             <input type="hidden" id="cuestionarioConRespuestasRadio" name="cuestionarioConRespuestasRadio">
-
+            
             <!--Elementos de grafica Promedio general dpor cuestionarios-->
             <input type="hidden" id="cuestionarioConRespuestasPromGenCuest" name="cuestionarioConRespuestasPromGenCuest">
             <input type="hidden" id="promediosPorCuestionarioPromGenCuest" name="promediosPorCuestionarioPromGenCuest">
-
+            
             <!--Insights cuestionarios generales 2-->
             
             <!--Elementos de grafica Tiempo promedio en horas respuestas en cuestionarios-->
             <input type="hidden" id="cuestionarioConRespuestasTiemProHoras" name="cuestionarioConRespuestasTiemProHoras">
             <input type="hidden" id="promedioTiempoPorCuestionarioTiemProHoras" name="promedioTiempoPorCuestionarioTiemProHoras">
             
+            <!-- porcentaje aciertos tipo pregunta --->
             
-        <!--Data de cuestionarios-->
-        
-        <input type="hidden" id="numeroRespuestas" name="numeroRespuestas">
-        <input type="hidden" id="promediosGenerales" name="promediosGenerales">
-        <input type="hidden" id="tiempoPromedioRespuestas" name="tiempoPromedioRespuestas">
-        <input type="hidden" id="PorcentajeAcierto" name="PorcentajeAcierto">
-        <input type="hidden" id="cantidadRetrasosAtiempo" name="cantidadRetrasosAtiempo">
-        <input type="hidden" id="cantidadRetrasosTarde" name="cantidadRetrasosTarde">
-        <input type="hidden" id="cifrasAprobados" name="cifrasAprobados">
-        <input type="hidden" id="cifasReprobados" name="cifasReprobados">
-        <input type="hidden" id="porcentajesPreguntas" name="porcentajesPreguntas">
+            <input type="hidden" id="porcentajeAciertosTipoPregunta" name="porcentajeAciertosTipoPregunta">
+            
+            <!--Data de cuestionarios-->
+            
+            <input type="hidden" id="numeroRespuestas" name="numeroRespuestas">
+            <input type="hidden" id="promediosGenerales" name="promediosGenerales">
+            <input type="hidden" id="tiempoPromedioRespuestas" name="tiempoPromedioRespuestas">
+            <input type="hidden" id="PorcentajeAcierto" name="PorcentajeAcierto">
+            <input type="hidden" id="cantidadRetrasosAtiempo" name="cantidadRetrasosAtiempo">
+            <input type="hidden" id="cantidadRetrasosTarde" name="cantidadRetrasosTarde">
+            <input type="hidden" id="cifrasAprobados" name="cifrasAprobados">
+            <input type="hidden" id="cifasReprobados" name="cifasReprobados">
+            <input type="hidden" id="porcentajesPreguntas" name="porcentajesPreguntas">
 
 
             <button class='btn button-rounded colorGreyWhiter colorTextReverse' type="submit"><i
@@ -132,3 +137,10 @@
         {%endfor%}
     </ul>
 </section>
+
+<script>
+    $(window).on("load", function () {
+        porcentaje_aciertos_tipo_pregunta();
+        grafica_tiempo_general_respuesta_cuestinario()
+    });
+</script>
