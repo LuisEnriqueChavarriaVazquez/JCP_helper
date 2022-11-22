@@ -1135,7 +1135,7 @@ def crear_reportes_grupos_docentes_PDF():
 
     #Comparacion de promedio grupales
     trace = go.Bar(x=json.loads(xdata), y=json.loads(ydata))
-    parametrosGrafica1 = {'title': ' Comparacion de promedio grupales'}
+    parametrosGrafica1 = {'title': ' Comparación de promedio grupales'}
     fig1 = go.Figure(data=trace, layout=parametrosGrafica1)
     #fig.show()
     fig1.write_image("static/images/ComparacionPromedioGrupales.png")
@@ -1150,7 +1150,7 @@ def crear_reportes_grupos_docentes_PDF():
             name=HistoricoPuntajesEvaluacionGrupoPy[i][0],
             ))
     
-    figHistoricoPuntajeEvaluacionGrupo.update_layout(title='Historico de puntajes en cada evaluacion de cada grupo')
+    figHistoricoPuntajeEvaluacionGrupo.update_layout(title='Histórico de puntajes en cada evaluación de cada grupo')
     figHistoricoPuntajeEvaluacionGrupo.write_image("static/images/HistoricoPuntajeEvaluacionGrupos.png")
 
 
@@ -1159,7 +1159,7 @@ def crear_reportes_grupos_docentes_PDF():
     labelPastel = request.form["labelsPastel"]
     dataPie=[go.Pie(labels=json.loads(labelPastel), values=json.loads(valoresPastel))]
 
-    parametrosGrafica2 = {'title': ' Indice porcentuales de promedio'}
+    parametrosGrafica2 = {'title': ' Índice porcentuales de promedio'}
     fig2 = go.Figure(data=dataPie, layout = parametrosGrafica2)
 
     fig2.write_image("static/images/IndicePorcentualesPromedio.png")
@@ -1176,6 +1176,8 @@ def crear_reportes_grupos_docentes_PDF():
          x=comparacionReprovadosAprovadosBarraLista[i][1], 
          y=comparacionReprovadosAprovadosBarraLista[i][2]))
     
+    parametrosComparacionReprovadosAprovadosBarra = {'title': ' Comparación reprobados vs reprobados'}
+
     figComparacionReprovadosAprovadosBarra = go.Figure(dataComparacionReprovadosAprovadosBarra)
     figComparacionReprovadosAprovadosBarra.update_layout(barmode='stack')
     figComparacionReprovadosAprovadosBarra.write_image("static/images/ComparacionReprovadosAprovadosBarra.png")
@@ -1206,41 +1208,41 @@ def crear_reportes_grupos_docentes_PDF():
     pdf.cell(200, 18, txt = "Reporte grupos",
          ln = 1, align = 'C')
     #Titulo graficas Promedio general de grupos.
-    pdf.cell(200, 18, txt = "Graficas Promedio general de grupos",
+    pdf.cell(200, 18, txt = "Gráficas promedio general de grupos",
          ln = 1, align = 'L')
     #Imagenes graficas Promedio general de grupos.
-    pdf.cell(200, 18, txt = "Grafica comparacion de promedio grupales",
+    pdf.cell(200, 18, txt = "Gráfica comparación de promedio grupales",
          ln = 1, align = 'L')
     pdf.image("static/images/ComparacionPromedioGrupales.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')   
    
    #Historico de puntajes en cada evaluacion de cada grupo.
-    pdf.cell(200, 18, txt = "Historico de puntajes en cada evaluacion de cada grupo",
+    pdf.cell(200, 18, txt = "Histórico de puntajes en cada evaluacion de cada grupo",
          ln = 1, align = 'L')
     pdf.image("static/images/HistoricoPuntajeEvaluacionGrupos.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
     
     #indice porcentuales de promedio
-    pdf.cell(200, 18, txt = "Indice porcentuales de promedio",
+    pdf.cell(200, 18, txt = "Índice porcentuales de promedio",
          ln = 1, align = 'L')
     pdf.image("static/images/IndicePorcentualesPromedio.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
 
     #Titulo Aprobación general de grupos
-    pdf.cell(200, 18, txt = "Graficas Aprobación general de grupos.",
+    pdf.cell(200, 18, txt = "Gráficas aprobación general de grupos",
          ln = 1, align = 'L')
 
     #Comparacion reprovados vs reprobados
-    pdf.cell(200, 18, txt = "Gráfica Comparacion reprovados vs reprobados",
+    pdf.cell(200, 18, txt = "Gráfica comparación reprovados vs reprobados",
          ln = 1, align = 'L')
     
     pdf.image("static/images/ComparacionReprovadosAprovadosBarra.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
 
     #Parte del reporte con aprobacion porcentaje
-    pdf.cell(200, 18, txt = "Aprobacion porcentaje",
+    pdf.cell(200, 18, txt = "Aprobación porcentaje",
          ln = 1, align = 'L')
 
     pdf.cell(200, 18, txt = "Proporción:" +str(aprobadosFormatoDiezReporte)+"/10 aprueban",
          ln = 1, align = 'L')
 
-    pdf.cell(200, 18, txt = "Proporción Global:" +str(porcentajeGlobalAprobadorReporte)+"% / " + 
+    pdf.cell(200, 18, txt = "Proporción global:" +str(porcentajeGlobalAprobadorReporte)+"% / " + 
     str(porcentajeGlobalReprobadorReporte) +"%",
          ln = 1, align = 'L')
     #print(gruposAprobadosReprobadosReporte)
