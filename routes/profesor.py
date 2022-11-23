@@ -1280,19 +1280,26 @@ def crear_reportes_grupos_docentes_PDF():
     if (len(listDatosGrupo)!=0):
 
         for i in range(0,len(listDatosGrupo)):
-            pdf.cell(200, 30, txt ="Grupo:"+ str(listDatosGrupo[i][2]),ln = 1, align = 'L') 
-            pdf.cell(200, 18, txt = "Porcentaje de aprobación:",ln = 1, align = 'L')
-            pdf.cell(200, 18, txt = "Aprobados:" +str(PorcentajeAprobacionAprobados[i])+"%",ln = 1, align = 'L')
-            pdf.cell(200, 18, txt = "Reprobados:" +str(PorcentajeAprobacionReprobados[i])+"%",ln = 1, align = 'L')
-            pdf.cell(200, 18, txt = "Intentos promedio:"+str(IntentosPromedio[i]),ln = 1, align = 'L')
-            pdf.cell(200, 18, txt = "Promedio de tiempo de respuesta:"+str(PromedioTiempoRespuesta[i])+"hrs",ln = 1, align = 'L')
-            pdf.cell(200, 18, txt = "Rango de calificaciones:",ln = 1, align = 'L')
-            pdf.cell(200, 18, txt = "Calificaciones Min:"+str(RangoCalificacionesMin[i]),ln = 1, align = 'L')
-            pdf.cell(200, 18, txt = "Calificaciones Max:"+str(RangoCalificacionesMax[i]),ln = 1, align = 'L')
-            pdf.cell(200, 18, txt = "Indice aprobacion:"+str(IndiceAprob[i])+"/10 aprueba",ln = 1, align = 'L')
-            pdf.cell(200, 18, txt = "Porcentaje de retrasos:",ln = 1, align = 'L')
-            pdf.cell(200, 18, txt = "Porcentaje a tiempo:"+str(PorcentajeAtiempo[i]) +"%",ln = 1, align = 'L')
-            pdf.cell(200, 18, txt = "Porcentaje con retrasos:"+str(PorcentajeRetraso[i]) +"%",ln = 1, align = 'L')
+
+            if (len(Op_profesor.grupos_con_cuestionarios_resueltos(listDatosGrupo[i][0]))!=0):
+                
+                pdf.cell(200, 30, txt ="Grupo:"+ str(listDatosGrupo[i][2]),ln = 1, align = 'L') 
+                pdf.cell(200, 18, txt = "Porcentaje de aprobación:",ln = 1, align = 'L')
+                pdf.cell(200, 18, txt = "Aprobados:" +str(PorcentajeAprobacionAprobados[i])+"%",ln = 1, align = 'L')
+                pdf.cell(200, 18, txt = "Reprobados:" +str(PorcentajeAprobacionReprobados[i])+"%",ln = 1, align = 'L')
+                pdf.cell(200, 18, txt = "Intentos promedio:"+str(IntentosPromedio[i]),ln = 1, align = 'L')
+                pdf.cell(200, 18, txt = "Promedio de tiempo de respuesta:"+str(PromedioTiempoRespuesta[i])+"hrs",ln = 1, align = 'L')
+                pdf.cell(200, 18, txt = "Rango de calificaciones:",ln = 1, align = 'L')
+                pdf.cell(200, 18, txt = "Calificaciones Min:"+str(RangoCalificacionesMin[i]),ln = 1, align = 'L')
+                pdf.cell(200, 18, txt = "Calificaciones Max:"+str(RangoCalificacionesMax[i]),ln = 1, align = 'L')
+                pdf.cell(200, 18, txt = "Indice aprobacion:"+str(IndiceAprob[i])+"/10 aprueba",ln = 1, align = 'L')
+                pdf.cell(200, 18, txt = "Porcentaje de retrasos:",ln = 1, align = 'L')
+                pdf.cell(200, 18, txt = "Porcentaje a tiempo:"+str(PorcentajeAtiempo[i]) +"%",ln = 1, align = 'L')
+                pdf.cell(200, 18, txt = "Porcentaje con retrasos:"+str(PorcentajeRetraso[i]) +"%",ln = 1, align = 'L')
+            else:
+                pdf.cell(200, 30, txt ="Grupo:"+ str(listDatosGrupo[i][2])+ " no tiene cuestionarios resueltos",ln = 1, align = 'L') 
+                
+
     else:
         pdf.cell(200, 30, txt ="No hay datos disponible",ln = 1, align = 'L')
     

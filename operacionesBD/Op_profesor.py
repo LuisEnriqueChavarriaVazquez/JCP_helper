@@ -578,3 +578,16 @@ def docenteEliminaCuenta(id_docente):
         cursor.execute("DELETE from Docentes WHERE IDDocente = %s",(id_docente))
     conexion.commit()
     conexion.close()
+
+
+#Función para los reportes de grupos-sirve para ver si hay grupos que no tengan cuestionarios resueltos
+def grupos_con_cuestionarios_resueltos(id_grupo):
+    conexion=obtener_conexion()
+    gruposConCuestionariosResueltos = []
+    with conexion.cursor() as cursor:
+        cursor.execute("select * from Alumnos_hacen_Cuestionario INNER JOIN cuestionarios ON "+
+                       "Alumnos_hacen_Cuestionario.IDCuestionario = cuestionarios.IDCuestionario"+
+                       " where cuestionarios.IDGrupo =  %s", (id_grupo))
+        gruposConCuestionariosResueltos = cursor.fetchall()
+    conexion.close()
+    return gruposConCuestionariosResueltos
