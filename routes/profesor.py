@@ -1393,21 +1393,21 @@ def crear_reportes_cuestionarios_docentes_PDF():
          ln = 1, align = 'L')
     
     #Titulo Grafica Numero de respuestas por grupo en el pdf
-    pdf.cell(200, 18, txt = "Grafica Numero de respuestas por grupo",
+    pdf.cell(200, 18, txt = "Gráfica Numero de respuestas por grupo",
          ln = 1, align = 'L')
 
     #Agregar imagen Numero de respuestas por grupo
     pdf.image("static/images/NumeroRespuestasPorGrupo.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
 
     #Titulo Grafica Radar de los promedios generales por cuestionario en el pdf
-    pdf.cell(200, 18, txt = "Grafica radar de los promedios generales por cuestionario",
+    pdf.cell(200, 18, txt = "Gráfica radar de los promedios generales por cuestionario",
          ln = 1, align = 'L')
 
     #Agregar imagen Radar de los promedios generales por cuestionario
     pdf.image("static/images/GraficoRadarPromedioCuestionarios.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
 
     #Titulo Grafica  Promedio general por cuestionarios
-    pdf.cell(200, 18, txt = "Grafica  Promedio general por cuestionarios",
+    pdf.cell(200, 18, txt = "Gráfica  promedio general por cuestionarios",
          ln = 1, align = 'L')
     
     #Aregar grafica Promedio general por cuestionarios
@@ -1458,7 +1458,7 @@ def crear_reportes_cuestionarios_docentes_PDF():
 
     #Aprobados vs Reprobados
 
-    pdf.cell(200, 18, txt = "Grafica comparacion reprobados vs reprobados",
+    pdf.cell(200, 18, txt = "Gráfica comparación reprobados vs reprobados",
          ln = 1, align = 'L')
 
     pdf.image("static/images/aprobadosReprobadosCuestionarioBarra.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '') 
@@ -1482,11 +1482,11 @@ def crear_reportes_cuestionarios_docentes_PDF():
          ln = 1, align = 'L')
         pdf.cell(200, 18, txt = "Entrega con retraso:"+ str( cantidadRetrasosTardePy[i]),
          ln = 1, align = 'L')
-        pdf.cell(200, 18, txt = "Citas aprobacion y reprobacion:",
+        pdf.cell(200, 18, txt = "Citas aprobación y reprobación:",
          ln = 1, align = 'L')
-        pdf.cell(200, 18, txt = "Aprobacion:" +str(cifrasAprobadosPy[i]),
+        pdf.cell(200, 18, txt = "Aprobación:" +str(cifrasAprobadosPy[i]),
          ln = 1, align = 'L')
-        pdf.cell(200, 18, txt = "Reprobacion:"+str(cifasReprobadosPy[i]),
+        pdf.cell(200, 18, txt = "Reprobación:"+str(cifasReprobadosPy[i]),
          ln = 1, align = 'L')
         pdf.cell(200, 18, txt = "Porcentaje de aciertos por tipo de pregunta.:",
          ln = 1, align = 'L')
