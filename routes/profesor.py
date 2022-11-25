@@ -1403,31 +1403,37 @@ def crear_reportes_cuestionarios_docentes_PDF():
     #Creacion inicial del pdf
     pdf = FPDF()
     pdf.add_page()
-    pdf.set_font("Arial", size = 15)
+
     #Titulo del PDF
-    pdf.cell(200, 18, txt = "Reporte cuestionarios",
+    pdf.set_font("Arial","B", size = 25)
+    pdf.set_text_color(224, 9, 9)
+    pdf.cell(w=200, h=45, txt = "Reporte cuestionarios",
          ln = 1, align = 'C')
     
     #Seccion de Insights cuestionarios generales en el pdf
-    pdf.cell(200, 18, txt = "Insights cuestionarios generales",
+    pdf.set_font("Arial", "B",size = 15)
+    pdf.set_text_color(0, 0, 0)
+    pdf.cell(w=0, h=25, txt = "Insights cuestionarios generales",
          ln = 1, align = 'L')
     
+    pdf.set_font("Arial", "",size = 15)
+
     #Titulo Grafica Numero de respuestas por grupo en el pdf
-    pdf.cell(200, 18, txt = "Gráfica Numero de respuestas por grupo",
+    pdf.cell(w=0, h=15, txt = "Gráfica Numero de respuestas por grupo",
          ln = 1, align = 'L')
 
     #Agregar imagen Numero de respuestas por grupo
     pdf.image("static/images/NumeroRespuestasPorGrupo.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
 
     #Titulo Grafica Radar de los promedios generales por cuestionario en el pdf
-    pdf.cell(200, 18, txt = "Gráfica radar de los promedios generales por cuestionario",
+    pdf.cell(w=0, h=15, txt = "Gráfica radar de los promedios generales por cuestionario",
          ln = 1, align = 'L')
 
     #Agregar imagen Radar de los promedios generales por cuestionario
     pdf.image("static/images/GraficoRadarPromedioCuestionarios.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
 
     #Titulo Grafica  Promedio general por cuestionarios
-    pdf.cell(200, 18, txt = "Gráfica  promedio general por cuestionarios",
+    pdf.cell(w=0, h=15, txt = "Gráfica  promedio general por cuestionarios",
          ln = 1, align = 'L')
     
     #Aregar grafica Promedio general por cuestionarios
@@ -1435,84 +1441,91 @@ def crear_reportes_cuestionarios_docentes_PDF():
     pdf.image("static/images/GraficoBarraPromGenCuest.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
     
     #Seccion de Insights cuestionarios generales 2en el pdf
-    pdf.cell(200, 18, txt = "Insights cuestionarios generales 2",
+    pdf.set_font("Arial", "B",size = 15)
+    pdf.cell(w=0, h=15, txt = "Insights cuestionarios generales 2",
          ln = 1, align = 'L')
+    pdf.set_font("Arial", "",size = 15)
 
-    pdf.cell(200, 18, txt = "Tiempo promedio en horas respuestas en cuestionarios",
+    pdf.cell(w=0, h=15, txt = "Tiempo promedio en horas respuestas en cuestionarios",
          ln = 1, align = 'L')
 
     pdf.image("static/images/TiempoPromedioHorasRespCuestionario.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
     
     #porcentaje Aciertos Tipo Pregunta
 
-    pdf.cell(200, 18, txt = "Porcentaje Aciertos Tipo Pregunta",
+    pdf.cell(w=0,h=15, txt = "Porcentaje Aciertos Tipo Pregunta",
          ln = 1, align = 'L')
 
-    pdf.cell(200, 18, txt = "Opt1 = Opción multiple",
+    pdf.cell(w=0, h=15, txt = "Opt1 = Opción multiple",
          ln = 1, align = 'L')
 
-    pdf.cell(200, 18, txt = "Opt2 = Rellenar espacios",
+    pdf.cell(w=0, h=15, txt = "Opt2 = Rellenar espacios",
          ln = 1, align = 'L')
     
-    pdf.cell(200, 18, txt = "Opt3 = Ejercicios",
+    pdf.cell(w=0, h=15, txt = "Opt3 = Ejercicios",
          ln = 1, align = 'L')
 
-    pdf.cell(200, 18, txt = "Opt4 = Arrastrar",
+    pdf.cell(w=0, h=15, txt = "Opt4 = Arrastrar",
          ln = 1, align = 'L')
 
-    pdf.cell(200, 18, txt = "Opt5 = Falso/verdadero",
+    pdf.cell(w=0, h=15, txt = "Opt5 = Falso/verdadero",
          ln = 1, align = 'L')
 
-    pdf.cell(200, 18, txt = "Opt6 = Pregunta abierta",
+    pdf.cell(w=0, h=15, txt = "Opt6 = Pregunta abierta",
          ln = 1, align = 'L')
     
     
 
     for i in range(0,len(porcentajeAciertosTipoPreguntaPy)):
-        pdf.cell(200, 18, txt = str(porcentajeAciertosTipoPreguntaPy[i][0])+":",
+        pdf.cell(w=0,h=15, txt = str(porcentajeAciertosTipoPreguntaPy[i][0])+":",
          ln = 1, align = 'L')
-        pdf.cell(200, 18, txt = "Aciertos:"+str(porcentajeAciertosTipoPreguntaPy[i][1])+"%",
+        pdf.cell(w=0, h=15, txt = "Aciertos:"+str(porcentajeAciertosTipoPreguntaPy[i][1])+"%",
          ln = 1, align = 'L')
-        pdf.cell(200, 18, txt = "Error:"+str(porcentajeAciertosTipoPreguntaPy[i][2])+"%",
+        pdf.cell(w=0, h=15, txt = "Error:"+str(porcentajeAciertosTipoPreguntaPy[i][2])+"%",
          ln = 1, align = 'L') 
 
     #Aprobados vs Reprobados
 
-    pdf.cell(200, 18, txt = "Gráfica comparación reprobados vs reprobados",
+    pdf.cell(w=0, h=15, txt = "Gráfica comparación reprobados vs reprobados",
          ln = 1, align = 'L')
 
     pdf.image("static/images/aprobadosReprobadosCuestionarioBarra.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '') 
 
-    pdf.cell(200, 18, txt = "Datos cuestionarios ",
+    
+    pdf.set_font("Arial", "B",size = 15)
+
+    pdf.cell(w=0, h=15, txt = "Datos cuestionarios ",
          ln = 1, align = 'L')
+    
+    pdf.set_font("Arial", "",size = 15)
     
     #Agregar info cuestionarios 
     for i in range(0, len(numeroRespuestasPy)):
-        pdf.cell(200, 18, txt = "Cuestionario " + str(i+1),
+        pdf.cell(w=0,h=15, txt = "Cuestionario " + str(i+1),
          ln = 1, align = 'L')
-        pdf.cell(200, 18, txt = "Numero de respuestas:"+ str(numeroRespuestasPy[i]),
+        pdf.cell(w=0,h=15, txt = "Numero de respuestas:"+ str(numeroRespuestasPy[i]),
          ln = 1, align = 'L')
-        pdf.cell(200, 18, txt = "Promedio general:"+ str(promediosGeneralesPy[i]),
+        pdf.cell(w=0,h=15, txt = "Promedio general:"+ str(promediosGeneralesPy[i]),
          ln = 1, align = 'L')
-        pdf.cell(200, 18, txt = "Promedio tiempo respuestas por cuestionario:"+ str(tiempoPromedioRespuestasPy[i])+"hrs",
+        pdf.cell(w=0,h=15, txt = "Promedio tiempo respuestas por cuestionario:"+ str(tiempoPromedioRespuestasPy[i])+"hrs",
          ln = 1, align = 'L')
-        pdf.cell(200, 18, txt = "Porcentaje de aciertos y error en cuestionario:"+ str(PorcentajeAciertoPy[i]),
+        pdf.cell(w=0,h=15, txt = "Porcentaje de aciertos y error en cuestionario:"+ str(PorcentajeAciertoPy[i]),
          ln = 1, align = 'L')
-        pdf.cell(200, 18, txt = "Entrega a tiempo::"+ str(cantidadRetrasosAtiempoPy[i]),
+        pdf.cell(w=0,h=15, txt = "Entrega a tiempo::"+ str(cantidadRetrasosAtiempoPy[i]),
          ln = 1, align = 'L')
-        pdf.cell(200, 18, txt = "Entrega con retraso:"+ str( cantidadRetrasosTardePy[i]),
+        pdf.cell(w=0,h=15, txt = "Entrega con retraso:"+ str( cantidadRetrasosTardePy[i]),
          ln = 1, align = 'L')
-        pdf.cell(200, 18, txt = "Citas aprobación y reprobación:",
+        pdf.cell(w=0,h=15, txt = "Citas aprobación y reprobación:",
          ln = 1, align = 'L')
-        pdf.cell(200, 18, txt = "Aprobación:" +str(cifrasAprobadosPy[i]),
+        pdf.cell(w=0,h=15, txt = "Aprobación:" +str(cifrasAprobadosPy[i]),
          ln = 1, align = 'L')
-        pdf.cell(200, 18, txt = "Reprobación:"+str(cifasReprobadosPy[i]),
+        pdf.cell(w=0,h=15, txt = "Reprobación:"+str(cifasReprobadosPy[i]),
          ln = 1, align = 'L')
-        pdf.cell(200, 18, txt = "Porcentaje de aciertos por tipo de pregunta.:",
+        pdf.cell(w=0,h=15, txt = "Porcentaje de aciertos por tipo de pregunta.:",
          ln = 1, align = 'L')
         for j in range(0, len(porcentajePreguntasPy[i])):
             
-            pdf.cell(200, 18, txt = str(porcentajePreguntasPy[i][j][0]) + " Acierto:"+str(porcentajePreguntasPy[i][j][1])+"%"+
+            pdf.cell(w=0,h=15, txt = str(porcentajePreguntasPy[i][j][0]) + " Acierto:"+str(porcentajePreguntasPy[i][j][1])+"%"+
              "Error:"+ str(porcentajePreguntasPy[i][j][2]) +"%",
          ln = 1, align = 'L')
             
