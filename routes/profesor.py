@@ -1178,7 +1178,7 @@ def crear_reportes_grupos_docentes_PDF():
     
     parametrosComparacionReprovadosAprovadosBarra = {'title': ' Comparación reprobados vs reprobados'}
 
-    figComparacionReprovadosAprovadosBarra = go.Figure(dataComparacionReprovadosAprovadosBarra)
+    figComparacionReprovadosAprovadosBarra = go.Figure(data = dataComparacionReprovadosAprovadosBarra,layout = parametrosComparacionReprovadosAprovadosBarra)
     figComparacionReprovadosAprovadosBarra.update_layout(barmode='stack')
     figComparacionReprovadosAprovadosBarra.write_image("static/images/ComparacionReprovadosAprovadosBarra.png")
 
@@ -1203,20 +1203,25 @@ def crear_reportes_grupos_docentes_PDF():
     #Creacion inicial del pdf
     pdf = FPDF()
     pdf.add_page()
-    pdf.set_font("Arial", size = 15)
+   
     #Titulo del PDF
-    pdf.cell(200, 18, txt = "Reporte grupos",
+    pdf.set_font("Arial","B", size = 25)
+    pdf.set_text_color(224, 9, 9)
+    pdf.cell(w=200, h=45, txt = "Reporte grupos",
          ln = 1, align = 'C')
     #Titulo graficas Promedio general de grupos.
-    pdf.cell(200, 18, txt = "Gráficas promedio general de grupos",
+    pdf.set_font("Arial", "B",size = 15)
+    pdf.set_text_color(0, 0, 0)
+    pdf.cell(w=0, h=25, txt = "Gráficas promedio general de grupos",
          ln = 1, align = 'L')
     #Imagenes graficas Promedio general de grupos.
-    pdf.cell(200, 18, txt = "Gráfica comparación de promedio grupales",
+    pdf.set_font("Arial","",size = 15)
+    pdf.cell(w=0, h=15, txt = "Gráfica comparación de promedio grupales",
          ln = 1, align = 'L')
     pdf.image("static/images/ComparacionPromedioGrupales.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')   
    
    #Historico de puntajes en cada evaluacion de cada grupo.
-    pdf.cell(200, 18, txt = "Histórico de puntajes en cada evaluacion de cada grupo",
+    pdf.cell(w=0, h=15, txt = "Histórico de puntajes en cada evaluacion de cada grupo",
          ln = 1, align = 'L')
     pdf.image("static/images/HistoricoPuntajeEvaluacionGrupos.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
     
@@ -1226,10 +1231,12 @@ def crear_reportes_grupos_docentes_PDF():
     pdf.image("static/images/IndicePorcentualesPromedio.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
 
     #Titulo Aprobación general de grupos
+    pdf.set_font("Arial", "B",size = 15)
     pdf.cell(200, 18, txt = "Gráficas aprobación general de grupos",
          ln = 1, align = 'L')
 
     #Comparacion reprovados vs reprobados
+    pdf.set_font("Arial", "",size = 15)
     pdf.cell(200, 18, txt = "Gráfica comparación reprovados vs reprobados",
          ln = 1, align = 'L')
     
