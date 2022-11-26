@@ -134,6 +134,7 @@ def salir_grupo(id_docente, id_grupo ,id_estudiante):
 ##
 ##Bloque para ver datos de grupo
 ##
+"""
 @routes.route('/viewGroupEstudiante/<string:id>',methods=['POST'])
 def view_group_alumno(id):
     #Obtenemos los datos del grupo
@@ -167,6 +168,40 @@ def view_group_alumno(id):
 
     #Enviamos al usuario al formulario para ver datos del grupo.
     return render_template('estudiante/b_verGrupo.html', groupInfo = pickedGroupData[0], datosAlumnos = datosAlumnos, datosCuestionarios = datosCuestionarios, profData = pickedProfData, idEstudiante = idEstudiante)
+"""
+@routes.route('/viewGroupEstudiante/<string:id_grupo>',methods=['POST'])
+def view_group_alumno(id_grupo):
+    #Obtenemos los datos del grupo
+    pickedGroupData = Op_profesor.obtener_grupo_datos_importantes_unitario(id_grupo)
+    #Obtenemos los datos del profesor
+    pickedProfData = Op_profesor.datos_completos_docente_by_id(pickedGroupData[0][1])
+    #Obtenemos el id del alumno 
+    idEstudiante=request.form["idEstudiante"]
+
+    ########## INFORMACION ESTUDIANTES EN GRUPOS
+    #Obtenemos los ids de los estudiantes dentro de un grupo
+    alumnosIdsDentroGrupo = Op_profesor.obtener_IDAlumno_dentro_de_grupo(id_grupo)
+    print(alumnosIdsDentroGrupo)
+
+    idSeparada = []
+    for singleID in alumnosIdsDentroGrupo:
+        idSeparada.append(singleID[0])
+    print(idSeparada)
+
+    datosAlumnos = []
+    for idAlumno in idSeparada:
+        print(str(idAlumno)) # 1,2
+        #Obtenemos los datos de los alumnos con los ids Obtenido
+        datosAlumnos.append(Op_profesor.datos_completos_alumno_by_id(str(idAlumno)))
+    print(datosAlumnos)
+
+    ######Obtención de información de los cuestionarios
+    datosCuestionarios = Op_profesor.obtener_cuestionarios_datos_importantes(pickedGroupData[0][1])
+    print(datosCuestionarios)
+
+    return render_template('estudiante/b_verGrupo.html', groupInfo = pickedGroupData[0], datosAlumnos = datosAlumnos, datosCuestionarios = datosCuestionarios, profData = pickedProfData, idEstudiante = idEstudiante)
+
+    
 
 ##
 ##Bloque para ver datos de grupo
