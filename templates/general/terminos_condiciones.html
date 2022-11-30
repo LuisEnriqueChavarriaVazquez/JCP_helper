@@ -5,7 +5,7 @@
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
 
-    <title>Términos y condiciones.</title>
+    <title class="TDI">Términos y condiciones.</title>
 </head>
 
 <body class="ocultoc colorGreyWhiter">
@@ -15,18 +15,18 @@
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Términos y condiciones.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Términos y condiciones.</a>
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons"></i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Términos y condiciones.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Términos y condiciones.</p>
             <ul class="right hide-on-med-and-down">
                 <li><a href="/static/documents/Terminos_y_aclaraciones.pdf" download="newfilename" class="btn color3 button-rounded"><i
-                    class="material-icons left">file_download</i>Descargar</a></li>
+                    class="material-icons left">file_download</i><span class="TDI">Descargar</span></a></li>
                 <li><a href="/politica_privacidad" class="btn color3 button-rounded"><i
-                            class="material-icons left">privacy_tip</i>Privacidad</a></li>
+                            class="material-icons left">privacy_tip</i><span class="TDI">Privacidad</span></a></li>
                 <li><a href="/politica_cookies" class="btn color3 button-rounded"><i
-                            class="material-icons left">cookie</i>Cookies</a></li>
+                            class="material-icons left">cookie</i><span class="TDI">Cookies</span></a></li>
                 <li><a href="/saber_mas" class="btn color3 button-rounded"><i
-                            class="material-icons left">rocket</i>Saber más</a></li>
+                            class="material-icons left">rocket</i><span class="TDI">Saber más</span></a></li>
             </ul>
         </div>
     </nav>
@@ -36,12 +36,12 @@
         <div class="hide-on-med-and-down politicasContainerMenu">
             <div>
                 <ul class="section table-of-contents">
-                    <li class="colorTextReverse titleSectionPoliticasMenu"><b>Secciones</b></li>
-                    <li><a class="colorTextReverse" href="#informacionCondiciones">Información relevante</a></li>
-                    <li><a class="colorTextReverse" href="#licenciaCondiciones">Licencia</a></li>
-                    <li><a class="colorTextReverse" href="#autorizadoCondiciones">Uso no autorizado</a></li>
-                    <li><a class="colorTextReverse" href="#propiedadCondiciones">Propiedad</a></li>
-                    <li><a class="colorTextReverse" href="#aclaracionesCondiciones">Aclaraciones</a></li>
+                    <li class="colorTextReverse titleSectionPoliticasMenu"><b class="TDI">Secciones</b></li>
+                    <li><a class="colorTextReverse TDI" href="#informacionCondiciones">Información relevante</a></li>
+                    <li><a class="colorTextReverse TDI" href="#licenciaCondiciones">Licencia</a></li>
+                    <li><a class="colorTextReverse TDI" href="#autorizadoCondiciones">Uso no autorizado</a></li>
+                    <li><a class="colorTextReverse TDI" href="#propiedadCondiciones">Propiedad</a></li>
+                    <li><a class="colorTextReverse TDI" href="#aclaracionesCondiciones">Aclaraciones</a></li>
                 </ul>
                 <div class="containerImagenPoliticaCookies">
                     <img class="imagenPoliticaCookies" src="../../static/images/icons/icon_terminos.svg"
@@ -52,48 +52,56 @@
         <div class="politicasContainerInfo colorGrey shadow-2e">
             <div id="informacionCondiciones" class="section scrollspy">
                 <div class="title-general">
-                    <h5 class="hide-on-large-only"><b>Información relevante</b></h5>
-                    <h4 class="hide-on-med-and-down"><b>Información relevante</b></h4>
+                    <h5 class="hide-on-large-only"><b class="TDI">Información relevante</b></h5>
+                    <h4 class="hide-on-med-and-down"><b class="TDI">Información relevante</b></h4>
                 </div>
                 <div class="contentPoliticasTexto colorGreyDarker">
                     <p class="colorTextReverse flow-text colorTextReverse">
-                        Es requisito necesario para la adquisición de los servicios que se ofrecen en este sitio, que
-                        lea y acepte los siguientes Términos y Condiciones que a continuación se redactan.
+                        <span class="TDI">
+                            Es requisito necesario para la adquisición de los servicios que se ofrecen en este sitio, que
+                            lea y acepte los siguientes Términos y Condiciones que a continuación se redactan.
+                        </span>
                         <br><br>
-                        El uso de nuestros servicios implicará que usted ha leído y aceptado los Términos y Condiciones
-                        de Uso
-                        en el presente documento. Todas los servicios que son ofrecidos por nuestro sitio web
-                        pudieran ser creadas, cobradas, enviadas o presentadas por una página web tercera y en tal
-                        caso estarían sujetas a sus propios Términos y Condiciones. En algunos casos, para adquirir
-                        un servicio, será necesario el registro por parte del usuario, con ingreso de datos personales
-                        fidedignos y definición de una contraseña.
+                        <span class="TDI">
+                            El uso de nuestros servicios implicará que usted ha leído y aceptado los Términos y Condiciones
+                            de Uso
+                            en el presente documento. Todas los servicios que son ofrecidos por nuestro sitio web
+                            pudieran ser creadas, cobradas, enviadas o presentadas por una página web tercera y en tal
+                            caso estarían sujetas a sus propios Términos y Condiciones. En algunos casos, para adquirir
+                            un servicio, será necesario el registro por parte del usuario, con ingreso de datos personales
+                            fidedignos y definición de una contraseña.
+                        </span>
                         <br><br>
-                        El usuario puede elegir y cambiar la clave para su acceso de administración de la cuenta en
-                        cualquier momento, en caso de que se haya registrado y que sea necesario para la solicitud
-                        de alguno de nuestros servicios. JCP_helper no asume la responsabilidad en
-                        caso de que entregue dicha clave a terceros.
+                        <span class="TDI">
+                            El usuario puede elegir y cambiar la clave para su acceso de administración de la cuenta en
+                            cualquier momento, en caso de que se haya registrado y que sea necesario para la solicitud
+                            de alguno de nuestros servicios. JCP_helper no asume la responsabilidad en
+                            caso de que entregue dicha clave a terceros.
+                        </span>
                     </p>
                 </div>
             </div>
 
             <div id="licenciaCondiciones" class="section scrollspy">
                 <div class="title-general">
-                    <h5 class="hide-on-large-only"><b>Licencia</b></h5>
-                    <h4 class="hide-on-med-and-down"><b>Licencia</b></h4>
+                    <h5 class="hide-on-large-only"><b class="TDI">Licencia</b></h5>
+                    <h4 class="hide-on-med-and-down"><b class="TDI">Licencia</b></h4>
                 </div>
                 <div class="contentPoliticasTexto colorGreyWhiter">
-                    <p class="colorTextReverse flow-text">
+                    <p class="colorTextReverse flow-text TDI">
                         El software es de licencia MIT, por lo que resulta importante para efectos de su conocimiento
                         en que consiste dicha licencia.
                     </p>
                     <p class="colorTextReverse textoInfoPoliticasMini">
-                        ⚫ La licencia MIT es una licencia de software que fue creada en el Instituto Tecnológico de
-                        Massachusetts y es posible usarla tanto para licenciar software libre como software no libre.
-                        Debido a las distintas licencias que ha empleado el MIT, se recomienda usar la denominación
-                        licencia X11 por ser esta a la cual se refiere generalmente cuando se habla de licencia MIT. Se
-                        encuentra entre las licencias compatibles con GNU-GPL y es muy parecida a la Licencia BSD.
+                        <span class="TDI">
+                            ⚫ La licencia MIT es una licencia de software que fue creada en el Instituto Tecnológico de
+                            Massachusetts y es posible usarla tanto para licenciar software libre como software no libre.
+                            Debido a las distintas licencias que ha empleado el MIT, se recomienda usar la denominación
+                            licencia X11 por ser esta a la cual se refiere generalmente cuando se habla de licencia MIT. Se
+                            encuentra entre las licencias compatibles con GNU-GPL y es muy parecida a la Licencia BSD.
+                        </span>
                         <br><br>
-                        <b>La primera característica es que es una licencia sin copyleft, lo que permite que la creación
+                        <b class="TDI">La primera característica es que es una licencia sin copyleft, lo que permite que la creación
                             de trabajos derivados a partir de ella pudieran ser no libres. Siempre debe adjuntarse una
                             copia de la licencia con el software que se distribuya. Por otro lado, concede al usuario
                             final los derechos de usar, copiar, modificar, publicar, distribuir o sublicenciar el
@@ -104,11 +112,11 @@
 
             <div id="autorizadoCondiciones" class="section scrollspy">
                 <div class="title-general">
-                    <h5 class="hide-on-large-only"><b>Uso no autorizado</b></h5>
-                    <h4 class="hide-on-med-and-down"><b>Uso no autorizado</b></h4>
+                    <h5 class="hide-on-large-only"><b class="TDI">Uso no autorizado</b></h5>
+                    <h4 class="hide-on-med-and-down"><b class="TDI">Uso no autorizado</b></h4>
                 </div>
                 <div class="contentPoliticasTexto colorGreyWhiter">
-                    <p class="colorTextReverse textoInfoPoliticasMini">
+                    <p class="colorTextReverse textoInfoPoliticasMini TDI">
                         En caso de que aplique (para venta de software, templetes, u otro producto de diseño y
                         programación) usted no puede colocar uno de nuestros productos, modificado o sin
                         modificar, en un CD, sitio web o ningún otro medio y ofrecerlos para la redistribución o la
@@ -119,11 +127,11 @@
 
             <div id="propiedadCondiciones" class="section scrollspy">
                 <div class="title-general">
-                    <h5 class="hide-on-large-only"><b>Propiedad</b></h5>
-                    <h4 class="hide-on-med-and-down"><b>Propiedad</b></h4>
+                    <h5 class="hide-on-large-only"><b class="TDI">Propiedad</b></h5>
+                    <h4 class="hide-on-med-and-down"><b class="TDI">Propiedad</b></h4>
                 </div>
                 <div class="contentPoliticasTexto colorGreyWhiter">
-                    <p class="colorTextReverse flow-text">
+                    <p class="colorTextReverse flow-text TDI">
                         Todos los servicios son propiedad de los proveedores del
                         contenido. En caso de que no se especifique lo contrario, nuestros servicios se proporcionan
                         sin ningún tipo de garantía, expresa o implícita. En ningún momento esta compañía será
@@ -131,7 +139,7 @@
                         especiales, fortuitos o consecuentes u otras pérdidas resultantes del uso o de la imposibilidad
                         de utilizar nuestros servicios.
                     </p>
-                    <p class="colorTextReverse textoInfoPoliticasMini">
+                    <p class="colorTextReverse textoInfoPoliticasMini TDI">
                         En caso de que requiera alguna especificación adicional, es importante enviar un correo a
                         JCP_helper@gmail.com para aclaraciones adicionales con el equipo. También puede revisar la
                         documentación oficial para más información sobre característica básicas del software.
@@ -139,23 +147,27 @@
                     <p class="colorTextReverse ">
                         <span class="politicasImportantInfo color5 colorTextReverse shadow-1e">Github:
                             <a href="https://github.com/LuisEnriqueChavarriaVazquez/JCP_helper"
-                                class="colorTextReverse">Acceso a documentación oficial.</a></span>
+                                class="colorTextReverse TDI">Acceso a documentación oficial.</a></span>
                     </p>
                 </div>
             </div>
 
             <div id="aclaracionesCondiciones" class="section scrollspy">
                 <div class="title-general">
-                    <h5 class="hide-on-large-only"><b>Aclaraciones.</b></h5>
-                    <h4 class="hide-on-med-and-down"><b>Aclaraciones.</b></h4>
+                    <h5 class="hide-on-large-only"><b class="TDI">Aclaraciones.</b></h5>
+                    <h4 class="hide-on-med-and-down"><b class="TDI">Aclaraciones.</b></h4>
                 </div>
                 <div class="contentPoliticasTexto colorGreyWhiter">
                     <p class="colorTextReverse textoInfoPoliticasMini">
-                        JCP_helper garantiza que la información personal que usted envía cuenta con la
-                        seguridad necesaria. Puede revisar más a detalle en nuestra POLÍTICA DE PRIVACIDAD
+                        <span class="TDI">
+                            JCP_helper garantiza que la información personal que usted envía cuenta con la
+                            seguridad necesaria. Puede revisar más a detalle en nuestra POLÍTICA DE PRIVACIDAD
+                        </span>
                         <br><br>
-                        JCP_helper reserva los derechos de cambiar o de modificar estos términos sin
-                        previo aviso.
+                        <span class="TDI">
+                            JCP_helper reserva los derechos de cambiar o de modificar estos términos sin
+                            previo aviso.
+                        </span>
                     </p>
                 </div>
             </div>
@@ -170,12 +182,19 @@
     </div>
 
 
-    <!--Metemos el footer en la app-->
-    {% include "includes/footer.html" %}
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
+
 </body>
 
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
+<script src="../../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 <script src="../../static/js/operacionesTerminos.js"></script>
 
 </html>
