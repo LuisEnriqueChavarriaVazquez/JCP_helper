@@ -1,30 +1,22 @@
-
-textEspanol = [
-    {
-        text1: 'Configuraciones',
-        text2: 'Configuraciones',
-        text3: 'volver'
+//Guardamos todas las rutas en un array
+let rutas = {
+    "configuraciones_docente": {
+        "textEspanol":{
+            text1: 'Configuraciones',
+            text2: 'Configuraciones',
+            text3: 'volver'
+        },
+        "textIngles":{
+            text1: 'Settings'
+        },
+        "textPortugues":{
+            text1: 'Definições'
+        },
+        "textChino":{
+            text1: '设置'
+        }
     }
-]
-
-textIngles = [
-    {
-        text1: 'Settings'
-    }
-]
-
-textPortugues = [
-    {
-        text1: 'definições'
-    }
-]
-
-textChino = [
-    {
-        text1: '设置'
-    }
-]
-
+}
 
 //Botones para elegir los idiomas
 const seleccionarEspanol = document.querySelector('#seleccionarEspanol');
@@ -33,7 +25,7 @@ const seleccionarPortugues = document.querySelector('#seleccionarPortugues');
 const seleccionarChino = document.querySelector('#seleccionarChino');
 
 //Accedemos a todos los elementos que funcionen con clase de texto dinámico
-let TDI = document.querySelectorAll('.TDI');
+let TDI = document.getElementsByClassName('TDI');
 
 //Variable para el idioma elegido
 let idiomaElegido = '';
@@ -83,24 +75,41 @@ function validarPorDefecto(){
     }
 }
 
+//Funcion que nos ayuda a obtener solo la ruta
+function rutaValidation(stringUrl){
+    stringUrl = stringUrl.reverse();
+    stringUrl = stringUrl.join("");
+    stringUrl = stringUrl.substring(0, stringUrl.indexOf("/"));
+    stringUrl = stringUrl.replaceAll("!", "");
+    stringUrl = stringUrl.replaceAll("#", "");
+    stringUrl = stringUrl.split("");
+    stringUrl = stringUrl.reverse();
+    stringUrl = stringUrl.join("");
+    return stringUrl;
+}
+
 
 //Asignación de los array con los texto de idiomas
 function asignarIdioma(valorIdiomaLocalStorage){
+    //Nos ayuda a elegir elemento del objeto.
+    let rutaPage = (location.href).split("");
+    rutaPage = rutaValidation(rutaPage);
+   
     if(valorIdiomaLocalStorage === 'esp'){
         for(i = 0; i < TDI.length; i++){
-            TDI[i].textContent =  textEspanol[0].text1;
+            TDI[i].textContent = rutas[rutaPage].textEspanol.text1;
         }
     }else if(valorIdiomaLocalStorage === 'en'){
         for(i = 0; i < TDI.length; i++){
-            TDI[i].textContent =  textIngles[0].text1;
+            TDI[i].textContent = rutas[rutaPage].textIngles.text1;
         }
     }else if(valorIdiomaLocalStorage === 'pt'){
         for(i = 0; i < TDI.length; i++){
-            TDI[i].textContent =  textPortugues[0].text1;
+            TDI[i].textContent = rutas[rutaPage].textPortugues.text1;
         }
     }else if(valorIdiomaLocalStorage === 'chn'){
         for(i = 0; i < TDI.length; i++){
-            TDI[i].textContent =  textChino[0].text1;
+            TDI[i].textContent = rutas[rutaPage].textChino.text1;
         }
     }
 }
