@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Sign up estudiante</title>
+    <title class="TDI">Sign up estudiante</title>
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
 
@@ -16,20 +16,20 @@
     <!--Menu de página de inicio-->
     <nav class="color2">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Sign up estudiante.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Sign up estudiante.</a>
             <a href="bienvenida" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Sign up estudiante.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Sign up estudiante.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="bienvenida" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="bienvenida" class="btn color3 button-rounded TDI">Volver al inicio</a></li>
             </ul>
         </div>
     </nav>
 
     <section class="mainBody colorGreyWhiter">
         <div class="title-general">
-            <h5 class="hide-on-large-only">Creación de cuenta</h5>
-            <h4 class="hide-on-med-and-down">Creación de cuenta</h4>
+            <h5 class="hide-on-large-only TDI">Creación de cuenta</h5>
+            <h4 class="hide-on-med-and-down TDI">Creación de cuenta</h4>
         </div>
         <form action="{{ url_for('routes.nuevo_estudiante') }}" method="post" enctype="multipart/form-data">
             <!--Contenedor global-->
@@ -37,37 +37,37 @@
                 <!--Datos básicos del cuestionario-->
                 <section class="holeContainerSignUp1 colorWhite shadow-1 borderDecoration bordered2">
                     <section class="tituloFormContainer fondoDinamico">
-                        <p class="colorText">Datos básicos</p>
+                        <p class="colorText TDI">Datos básicos</p>
                     </section>
                     <section class="row contentFormContainer">
                         <div class="input-field col s12 m6 l6">
                             <i class="material-icons prefix">account_circle</i>
-                            <input placeholder="Escriba su nombre completo" class="colorTextReverse truncate" id="text"
+                            <input class="colorTextReverse truncate" id="text"
                                 type="text" name="nombre" class="validate" required>
-                            <label for="text">Nombre <b class="red-text">*</b> </label>
+                            <label for="text" class="TDI">Nombre <b class="red-text">*</b> </label>
                         </div>
                         <div class="input-field col s12 m6 l6">
                             <i class="material-icons prefix">badge</i>
-                            <input placeholder="Escriba su alias" class="colorTextReverse truncate" id="text" type="text"
+                            <input class="colorTextReverse truncate" id="text" type="text"
                                 name="alias" class="validate" required>
-                            <label for="text">Alias <b class="red-text">*</b></label>
+                            <label for="text" class="TDI">Alias <b class="red-text">*</b></label>
                         </div>
                         <div class="input-field col s12 m6 l12">
                             <i class="material-icons prefix">email</i>
-                            <input placeholder="Escriba su correo electrónico" class="colorTextReverse truncate" id="email"
+                            <input class="colorTextReverse truncate" id="email"
                                 name="correo" type="email" class="validate" required>
-                            <label for="email">Correo <b class="red-text">*</b></label>
+                            <label for="email" class="TDI">Correo <b class="red-text">*</b></label>
                         </div>
                         <div class="input-field col s12 m6 l6">
                             <i class="material-icons prefix">password</i>
-                            <input placeholder="Escriba su contraseña" class="colorTextReverse truncate" id="password"
+                            <input class="colorTextReverse truncate" id="password"
                                 type="password" name="contra" class="validate" required>
-                            <label for="password">Password <b class="red-text">*</b></label>
+                            <label for="password" class="TDI">Password <b class="red-text">*</b></label>
                         </div>
                         <div class="input-field col s12 m6 l6">
-                            <input placeholder="Confirme su contraseña" class="colorTextReverse truncate" id="password"
+                            <input class="colorTextReverse truncate" id="password"
                                 type="password" name="contra2" class="validate" required>
-                            <label for="password">Confirmación <b class="red-text">*</b></label>
+                            <label for="password" class="TDI">Confirmación <b class="red-text">*</b></label>
                         </div>
                         <div class="input-field col s12 m6 l12">
                             {% with messages = get_flashed_messages() %}
@@ -82,29 +82,29 @@
                         </div>
                         <div class="input-field col s12 m6 l12">
                             <i class="material-icons prefix">school</i>
-                            <input placeholder="Escriba su escuela de procedencia" class="colorTextReverse truncate"
+                            <input class="colorTextReverse truncate"
                                 id="text" type="text" name="escuela" class="validate">
-                            <label for="text">Escuela de procedencia <b class="red-text">*</b></label>
+                            <label for="text" class="TDI">Escuela de procedencia <b class="red-text">*</b></label>
                         </div>
                         <div class="input-field col s12 m12 l12">
                             <i class="material-icons prefix">info</i>
-                            <textarea placeholder="Escriba una descripción para su perfil"
-                                class="colorTextReverse materialize-textarea" id="text"
-                                class="validate" name="descripcion" style="min-height: 60px;"></textarea>
-                            <label for="text" class="truncate">Descripción general (Opcional)</label>
+                            <textarea 
+                                class="colorTextReverse materialize-textarea validate" id="text" 
+                                name="descripcion" style="min-height: 60px;"></textarea>
+                            <label for="text" class="truncate TDI">Descripción general (Opcional)</label>
                         </div>
                         <div class="input-field col s12 m12 l12">
                             <i class="material-icons prefix">psychology</i>
-                            <input placeholder="Escriba su area de especialización" class="colorTextReverse truncate"
+                            <input class="colorTextReverse truncate"
                                 id="text" type="text" name="area" class="validate">
-                            <label for="text">Área de especialización (Opcional)</label>
+                            <label for="text" class="TDI">Área de especialización (Opcional)</label>
                         </div>
                     </section>
                 </section>
                 <!--Foto del perfil de usuario-->
                 <section class="holeContainerSignUp2 colorWhite shadow-1 borderDecoration bordered2">
                     <section class="tituloFormContainer tituloFormContainerFoto fondoDinamico">
-                        <p class="colorText">Foto de perfil</p>
+                        <p class="colorText TDI">Foto de perfil</p>
                     </section>
                     <section class="row contentFormContainer contentFormContainerFoto">
                         <div class="col 12 centerAligner verticalAligner">
@@ -116,7 +116,7 @@
                             <div class="centerAligner botonImagenContainerForm">
                                 <label for="imageUploadEst"
                                     class="buttonMax centerAligner custom-file-upload color3 btn-large waves-effect waves-light button-rounded">
-                                    <i class="fa fa-cloud-upload"></i> Elegir foto
+                                    <i class="fa fa-cloud-upload"></i> <span class="TDI">Elegir foto</span>
                                 </label>
                                 <input id="imageUploadEst" name="foto" type="file" required />
                             </div>
@@ -126,20 +126,27 @@
                 <!--Boton de registro-->
                 <section class="holeContainerSignUp3">
                     <button type="submit" class="buttonMax buttons-bienvenida waves-effect waves-light btn-large color3"><i
-                            class="material-icons left">done</i>Registrarse &nbsp;&nbsp;&nbsp;</button>
+                            class="material-icons left">done</i><span class="TDI">Registrarse</span> &nbsp;&nbsp;&nbsp;</button>
                 </section>
             </section>
         </form>
     </section>
     <br>
-    <!--Metemos el footer en la app-->
-    {% include "includes/footer.html" %}
-
-</body>
-
-
-<!--Jalamos todo el contenido del encabezado-->
-{% include "includes/footerRecursos.html" %}
+      <!--Botones para que el gestor de idiomas no falle-->
+      <span class="hiddenElement" id="seleccionarEspanol"></span>
+      <span class="hiddenElement" id="seleccionarIngles"></span>
+      <span class="hiddenElement" id="seleccionarPortugues"></span>
+      <span class="hiddenElement" id="seleccionarChino"></span>
+      
+      <!--Metemos el footer en la app-->
+      {% include "includes/footer.html" %}
+  </body>
+  
+  <!--Jalamos todo el contenido del encabezado-->
+  {% include "includes/footerRecursos.html" %}
+  <script src="../../static/js/idiomas/textExtractor.js"></script>
+  <script src="../static/js/idiomas/textos.mjs" type="module"></script>
+  <script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
 
 </html>
