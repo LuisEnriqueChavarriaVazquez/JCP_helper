@@ -1,39 +1,32 @@
 //Guardamos todas las rutas en un array
 let textosFooter = [
-    ['Adicionales', 'Términos de uso y condiciones', 'Política de privacidad', 'Política de cookies', 'Manual de usuario', 'Banco de datos API', 'Saber más', 'Nuestro equipo', 'Coded with love ❤️ by JCP_team ', '© Todos los derechos reservados'],
-    ['Additional', 'Terms of use and conditions', 'Privacy policy', 'Cookies policy', 'User manual', 'API data bank', 'Know more', 'Our team','Coded with love ❤️ by JCP_team ', '© All rights reserved'],
-    ['Adicionais', 'Termos de uso e condições', 'Política de privacidade', 'Política de cookies', 'Manual do usuário', 'Banco de dados API', 'Saiba mais', 'Nosso team','Codificado com amor ❤️ por JCP_team ', '© Todos os direitos reservados'],
-    ['附加', '使用条款和条件', '隐私政策', 'Cookies政策', '用户手册', 'API数据库', '了解更多', '我们的团队','用爱编码❤️ 由 JCP_team', '© 版权所有']
+    ['Adicionales', 'Términos de uso y condiciones', 'Política de privacidad', 'Política de cookies', 'Manual de usuario', 'Banco de datos API', 'Saber más', 'Saber más', 'Nuestro equipo', 'Coded with love ❤️ by JCP_team ', '© Todos los derechos reservados'],
+    ['Additional', 'Terms of use and conditions', 'Privacy policy', 'Cookies policy', 'User manual', 'API data bank', 'Know more','Know more', 'Our team', 'Coded with love ❤️ by JCP_team ', '© All rights reserved'],
+    ['Adicionais', 'Termos de uso e condições', 'Política de privacidade', 'Política de cookies', 'Manual do usuário', 'Banco de dados API', 'Saiba mais','Saiba mais', 'Nosso team', 'Codificado com amor ❤️ por JCP_team ', '© Todos os direitos reservados'],
+    ['附加', '使用条款和条件', '隐私政策', 'Cookies政策', '用户手册', 'API数据库', '了解更多','了解更多', '我们的团队', '用爱编码❤️ 由 JCP_team', '© 版权所有']
 ];
+
+let objetoConfiguraciones = {
+    "textEspanol": {
+        texts: ["Configuraciones", "Configuraciones", "Configuraciones", "volver", "Cuenta de usuario", "Cuenta de usuario", "Opciones de la cuenta.", "Modificar cuenta", "Acceso a informes", "Vistazo perfil", "Eliminar cuenta", "Colores", "Colores", "Selector de temas", "Paleta actual", "Accesibilidad", "Accesibilidad", "Selector de temas adaptados", "Paleta actual", "Idioma", "Idioma", "Idiomas disponibles", "Español", "Inglés", "Portugués", "Mandarín", "¿Desea eliminar su cuenta?", "Esta acción es irreversible, deseas continuar", "Cancelar", "Continuar",]
+    },
+    "textIngles": {
+        texts: ["Settings", "Settings", "Settings", "return", "User account", "User account", "Account Options.", "Modify account", "Access to reports", "profile look", "Delete account", "Colors", "Colors", "Theme selector", "Current Palette", "Accessibility", "Accessibility", "Custom theme selector", "Current Palette", "Idiom", "Idiom", "Available languages", "Spanish", "English", "Portuguese", "Mandarin", "Do you want to delete your account?", "This action is irreversible, you wish to continue", "Cancel", "Continue",]
+    },
+    "textPortugues": {
+        texts: ["Definições", "Definições", "Definições", "Retorna", "Conta de usuario", "Conta de usuario", "Opções de conta.", "Modificar conta", "Acesso a relatórios", "look de perfil", "Eliminar conta", "Cores", "Cores", "Seletor de tema", "Paleta atual", "Acessibilidade", "Acessibilidade", "Seletor de tema personalizado", "Paleta atual", "Idioma", "Idioma", "Idiomas disponíveis", "Espanhol", "Inglês", "Português", "Mandarim", "Deseja deletar sua conta?", "Esta ação é irreversível, você deseja continuar", "Cancelar", "Continuar",]
+    },
+    "textChino": {
+        texts: ["设置", "设置", "设置", "返回", "用户帐号", "用户帐号", "账户选项。", "修改账户", "访问报告", "个人资料外观", "删除帐户", "颜色", "颜色", "主题选择器", "当前调色板", "辅助功能", "辅助功能", "自定义主题选择器", "当前调色板", "成语", "成语", "可用语言", "西班牙语", "英语", "葡萄牙语", "普通话", "你想删除你的帐户吗?", "此操作不可逆,您希望继续", "取消", "继续",]
+    }
+}
 
 let rutas = {
     "configuraciones_docente": {
-        "textEspanol": {
-            texts: ["Configuraciones", "Configuraciones", "Configuraciones", "volver", "Cuenta de usuario", "Cuenta de usuario", "Opciones de la cuenta.", "Modificar cuenta", "Acceso a informes", "Vistazo perfil", "Eliminar cuenta", "Colores", "Colores", "Selector de temas", "Paleta actual", "Accesibilidad", "Accesibilidad", "Selector de temas adaptados", "Paleta actual", "Idioma", "Idioma", "Idiomas disponibles", "Español", "Inglés", "Portugués", "Mandarín", "¿Desea eliminar su cuenta?", "Esta acción es irreversible, deseas continuar", "Cancelar", "Continuar",]
-        },
-        "textIngles": {
-            texts: ["Settings", "Settings", "Settings", "return", "User account", "User account", "Account Options.", "Modify account", "Access to reports", "profile look", "Delete account", "Colors", "Colors", "Theme selector", "Current Palette", "Accessibility", "Accessibility", "Custom theme selector", "Current Palette", "Idiom", "Idiom", "Available languages", "Spanish", "English", "Portuguese", "Mandarin", "Do you want to delete your account?", "This action is irreversible, you wish to continue", "Cancel", "Continue",]
-        },
-        "textPortugues": {
-            texts: ["Definições", "Definições", "Definições", "Retorna", "Conta de usuario", "Conta de usuario", "Opções de conta.", "Modificar conta", "Acesso a relatórios", "look de perfil", "Eliminar conta", "Cores", "Cores", "Seletor de tema", "Paleta atual", "Acessibilidade", "Acessibilidade", "Seletor de tema personalizado", "Paleta atual", "Idioma", "Idioma", "Idiomas disponíveis", "Espanhol", "Inglês", "Português", "Mandarim", "Deseja deletar sua conta?", "Esta ação é irreversível, você deseja continuar", "Cancelar", "Continuar",]
-        },
-        "textChino": {
-            texts: ["设置", "设置", "设置", "返回", "用户帐号", "用户帐号", "账户选项。", "修改账户", "访问报告", "个人资料外观", "删除帐户", "颜色", "颜色", "主题选择器", "当前调色板", "辅助功能", "辅助功能", "自定义主题选择器", "当前调色板", "成语", "成语", "可用语言", "西班牙语", "英语", "葡萄牙语", "普通话", "你想删除你的帐户吗?", "此操作不可逆,您希望继续", "取消", "继续",]
-        }
+        ...objetoConfiguraciones
     },
     "configuraciones_alumno": {
-        "textEspanol": {
-            texts: ["Configuraciones", "Configuraciones", "Configuraciones", "volver", "Cuenta de usuario", "Cuenta de usuario", "Opciones de la cuenta.", "Modificar cuenta", "Acceso a informes", "Vistazo perfil", "Eliminar cuenta", "Colores", "Colores", "Selector de temas", "Paleta actual", "Accesibilidad", "Accesibilidad", "Selector de temas adaptados", "Paleta actual", "Idioma", "Idioma", "Idiomas disponibles", "Español", "Inglés", "Portugués", "Mandarín", "¿Desea eliminar su cuenta?", "Esta acción es irreversible, deseas continuar", "Cancelar", "Continuar",]
-        },
-        "textIngles": {
-            texts: ["Settings", "Settings", "Settings", "return", "User account", "User account", "Account Options.", "Modify account", "Access to reports", "profile look", "Delete account", "Colors", "Colors", "Theme selector", "Current Palette", "Accessibility", "Accessibility", "Custom theme selector", "Current Palette", "Idiom", "Idiom", "Available languages", "Spanish", "English", "Portuguese", "Mandarin", "Do you want to delete your account?", "This action is irreversible, you wish to continue", "Cancel", "Continue",]
-        },
-        "textPortugues": {
-            texts: ["Definições", "Definições", "Definições", "Retorna", "Conta de usuario", "Conta de usuario", "Opções de conta.", "Modificar conta", "Acesso a relatórios", "look de perfil", "Eliminar conta", "Cores", "Cores", "Seletor de tema", "Paleta atual", "Acessibilidade", "Acessibilidade", "Seletor de tema personalizado", "Paleta atual", "Idioma", "Idioma", "Idiomas disponíveis", "Espanhol", "Inglês", "Português", "Mandarim", "Deseja deletar sua conta?", "Esta ação é irreversível, você deseja continuar", "Cancelar", "Continuar",]
-        },
-        "textChino": {
-            texts: ["设置", "设置", "设置", "返回", "用户帐号", "用户帐号", "账户选项。", "修改账户", "访问报告", "个人资料外观", "删除帐户", "颜色", "颜色", "主题选择器", "当前调色板", "辅助功能", "辅助功能", "自定义主题选择器", "当前调色板", "成语", "成语", "可用语言", "西班牙语", "英语", "葡萄牙语", "普通话", "你想删除你的帐户吗?", "此操作不可逆,您希望继续", "取消", "继续",]
-        }
+        ...objetoConfiguraciones
     },
     "politica_privacidad": {
         "textEspanol": {
@@ -107,29 +100,30 @@ let rutas = {
     },
     "login_general": {
         "textEspanol": {
-            texts: ['Log in.','Log in.','Log in.','Volver al inicio','Docente','Estudiante','Cuenta docente','Cuenta docente','Correo','Contraseña','Olvide mi contraseña','Acceder','Cuenta estudiante','Cuenta estudiante','Correo','Contraseña','Olvide mi contraseña','Acceder',...textosFooter[0]]
+            texts: ['Log in.', 'Log in.', 'Log in.', 'Volver al inicio', 'Docente', 'Estudiante', 'Cuenta docente', 'Cuenta docente', 'Correo', 'Contraseña', 'Olvide mi contraseña', 'Acceder', 'Cuenta estudiante', 'Cuenta estudiante', 'Correo', 'Contraseña', 'Olvide mi contraseña', 'Acceder', ...textosFooter[0]]
         },
         "textIngles": {
-            texts: ['Log in.','Log in.','Log in.','Back to landing','Teacher','Student','Teacher account','Teacher account','Mail','Password','I forgot my password','To access','Student account','Student account','Mail','Password','I forgot my password','To access',...textosFooter[1]]},
+            texts: ['Log in.', 'Log in.', 'Log in.', 'Back to landing', 'Teacher', 'Student', 'Teacher account', 'Teacher account', 'Mail', 'Password', 'I forgot my password', 'To access', 'Student account', 'Student account', 'Mail', 'Password', 'I forgot my password', 'To access', ...textosFooter[1]]
+        },
         "textPortugues": {
-            texts: ['Conecte-se.','Conecte-se.','Conecte-se.','Voltar ao início','Professora','Aluna','Conta do professor','Conta do professor','Correspondência','Senha','Esqueci minha senha','Acessar','Conta de estudante','Conta de estudante','Correspondência','Senha','Esqueci minha senha','Acessar',...textosFooter[2]]
+            texts: ['Conecte-se.', 'Conecte-se.', 'Conecte-se.', 'Voltar ao início', 'Professora', 'Aluna', 'Conta do professor', 'Conta do professor', 'Correspondência', 'Senha', 'Esqueci minha senha', 'Acessar', 'Conta de estudante', 'Conta de estudante', 'Correspondência', 'Senha', 'Esqueci minha senha', 'Acessar', ...textosFooter[2]]
         },
         "textChino": {
-            texts: ['登录。','登录。','登录。','回到顶部','老师','学生','教师帐号','教师帐号','邮件','密码','我忘记了我的密码','访问','学生账户','学生账户','邮件','密码','我忘记了我的密码','访问',...textosFooter[3]]
+            texts: ['登录。', '登录。', '登录。', '回到顶部', '老师', '学生', '教师帐号', '教师帐号', '邮件', '密码', '我忘记了我的密码', '访问', '学生账户', '学生账户', '邮件', '密码', '我忘记了我的密码', '访问', ...textosFooter[3]]
         }
     },
-    "saber_mas2": {
+    "signup_prof": {
         "textEspanol": {
-            texts: []
+            texts: ['Sign up docente.', 'Sign up docente.', 'Sign up docente.', 'Volver al inicio', 'Creación de cuenta', 'Creación de cuenta', 'Datos básicos', 'Nombre ', 'Alias ', 'Correo ', 'Password ', 'Confirmación ', 'Escuela de procedencia ', 'Descripción general (Opcional)', 'Foto de perfil', 'Elegir foto', 'Registrarse', ...textosFooter[0]]
         },
         "textIngles": {
-            texts: []
+            texts: ['Sign up teacher.','Sign up teacher.','Sign up teacher.','Back to landing','Account creation','Account creation','Basic data','Name ','Alias','Mail ','Password ','confirmation','School of origin ','Overview (Optional)','Profile picture','Choose photo','Check in',...textosFooter[1]]
         },
         "textPortugues": {
-            texts: []
+            texts: ['Inscreva-se professor.','Inscreva-se professor.','Inscreva-se professor.','Voltar ao início','Criação de conta','Criação de conta','Dados básicos','Nome ','pseudônimo','Correspondência ','Senha ','confirmação','Escola de origem','Visão geral (opcional)','Imagem de perfil','Escolher Foto','Check-in',...textosFooter[2]]
         },
         "textChino": {
-            texts: []
+            texts: ['报名老师。','报名老师。','报名老师。','回到顶部','帐户创建','帐户创建','基本数据','姓名 ','别名','邮件 ','密码 ','确认','原产地','概述（可选）','个人资料图片','选择照片','报到',...textosFooter[3]]
         }
     },
     "saber_mas2": {
