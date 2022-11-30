@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Bienvenida Profesor</title>
+    <title class="TDI">Bienvenida Profesor</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -19,18 +19,19 @@
         <div class="nav-wrapper">
             <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i
                     class="material-icons">menu</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Panel central.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Panel central.</p>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/configuraciones_docente" class="btn color2 button-rounded"><i
-                            class="material-icons left">settings</i>Configuraciones</a></li>
-                <li><a href="/ayuda" class="btn color2 button-rounded"><i class="material-icons left">help</i>Ayuda</a>
+                            class="material-icons left">settings</i><span class="TDI">Configuraciones</span></a></li>
+                <li><a href="/ayuda" class="btn color2 button-rounded"><i class="material-icons left">help</i><span
+                            class="TDI">Ayuda</span></a>
                 </li>
                 <li><a href="/profesor_logout" class="btn color3 button-rounded"><i
-                            class="material-icons left">directions_run</i>Cerrar sesión</a></li>
+                            class="material-icons left">directions_run</i><span class="TDI">Cerrar sesión</span></a>
+                </li>
                 {% if pol_superior %}
                 <li><a class="btn color3 button-rounded modal-trigger" id="politica" href="#modal2"><i
-                    class="material-icons left">done</i>Aceptar políticas</a></li>
-                <!-- <a class="waves-effect waves-light btn modal-trigger" id="politica" href="#modal2">politicas</a> -->
+                            class="material-icons left">done</i><span>Info. Terms.</span></a></li>
                 {% endif %}
             </ul>
         </div>
@@ -46,7 +47,7 @@
                 <div class="background fondoDinamico" id="fondoBienvenida"></div>
                 <a href="/perfil_docente"><img style="border: 3px solid #fff;" class="circle shadow-3e"
                         src="../../static/images/docentes/{{datos[3]}}"></a>
-                <a href="#"><span class="white-text name"><b>Cuenta de docente</b></span></a>
+                <a href="#"><span class="white-text name"><b class="TDI">Cuenta de docente</b></span></a>
                 <a href="#"><span class="white-text name" style="margin-top: 0;">
                         {{datos[1]}}
                     </span></a>
@@ -57,61 +58,63 @@
                 {% endif %}
             </div>
         </li>
-        <li><a href="/gestionar_grupos" class="colorTextReverse"><i
-                    class="colorTextReverse material-icons">groups_2</i>Gestionar
-                grupos.</a></li>
+        <li><a href="/gestionar_grupos" class="colorTextReverse"><i class="colorTextReverse material-icons">groups_2</i>
+                <span class="TDI">
+                    Gestionar grupos.
+                </span>
+            </a></li>
         <li><a href="/gestionar_cuestionarios" class="colorTextReverse"><i
-                    class="colorTextReverse material-icons">description</i>Gestionar
-                cuestionarios.</a></li>
+                    class="colorTextReverse material-icons">description</i><span class="TDI">Gestionar
+                cuestionarios.</span></a></li>
         <li><a href="/gestionar_estadisticas" class="colorTextReverse"><i
-                    class="colorTextReverse material-icons">stacked_bar_chart</i>Gestionar
-                estadísticas.</a></li>
-        <li><a href="/banco_de_datos" class="colorTextReverse"><i class="colorTextReverse material-icons">cloud</i>Banco
-                de datos.</a></li>
+                    class="colorTextReverse material-icons">stacked_bar_chart</i><span class="TDI">Gestionar
+                estadísticas.</span></a></li>
+        <li><a href="/banco_de_datos" class="colorTextReverse"><i class="colorTextReverse material-icons">cloud</i><span class="TDI">Banco
+                de datos.</span></a></li>
         <hr>
         <li><a href="/configuraciones_docente" class="colorTextReverse"><i
-                    class="colorTextReverse material-icons">settings</i>Configuraciones.</a></li>
-        <li><a href="/ayuda" class="colorTextReverse"><i class="colorTextReverse material-icons">help</i>Ayuda.</a></li>
+                    class="colorTextReverse material-icons">settings</i><span class="TDI">Configuraciones.</span></a></li>
+        <li><a href="/ayuda" class="colorTextReverse"><i class="colorTextReverse material-icons">help</i><span class="TDI">Ayuda.</span></a></li>
         <hr>
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
                 <li>
-                    <a class="collapsible-header colorTextReverse">Temas<i
+                    <a class="collapsible-header colorTextReverse TDI">Temas<i
                             class="material-icons colorTextReverse">expand_more</i></a>
                     <div class="collapsible-body">
                         <ul class="colorWhite">
                             <li>
                                 <ul class="collapsible collapsible-accordion">
                                     <li>
-                                        <a class="collapsible-header colorTextReverse">Temas clásicos<i
+                                        <a class="collapsible-header colorTextReverse TDI">Temas clásicos<i
                                                 class="material-icons colorTextReverse">arrow_drop_down</i></a>
                                         <div class="collapsible-body">
                                             <ul class="colorWhite">
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="coloresDefault" class="colorTextReverse">Normal</a>
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
+                                                        id="coloresDefault" class="colorTextReverse">Green jungle</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
                                                         id="coloresAqua" class="colorTextReverse">Aqua</a></li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
                                                         id="coloresBlue" class="colorTextReverse">Azul</a></li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="coloresBronce" class="colorTextReverse">Bronce</a>
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
+                                                        id="coloresBronce" class="colorTextReverse">Metal</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
                                                         id="coloresCafe" class="colorTextReverse">Cafe</a></li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="coloresGotico" class="colorTextReverse">Gótico</a>
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
+                                                        id="coloresGotico" class="colorTextReverse">Sad mode</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="coloresNaranja" class="colorTextReverse">Naranja</a>
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
+                                                        id="coloresNaranja" class="colorTextReverse">Happy orange</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="coloresPink" class="colorTextReverse">Rosa</a></li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="coloresPurple" class="colorTextReverse">Purpura</a>
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
+                                                        id="coloresPink" class="colorTextReverse">Pink panter</a></li>
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
+                                                        id="coloresPurple" class="colorTextReverse">Purple mood</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="coloresRed" class="colorTextReverse">Rojo</a></li>
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
+                                                        id="coloresRed" class="colorTextReverse">Red color</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -120,35 +123,34 @@
                             <li>
                                 <ul class="collapsible collapsible-accordion">
                                     <li>
-                                        <a class="collapsible-header colorTextReverse">Temas oscuros<i
+                                        <a class="collapsible-header colorTextReverse TDI">Temas oscuros<i
                                                 class="material-icons colorTextReverse">arrow_drop_down</i></a>
                                         <div class="collapsible-body">
                                             <ul class="colorWhite">
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="coloresModoOscuro" class="colorTextReverse">Modo
-                                                        Oscuro</a></li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="dark_aqua" class="colorTextReverse">Oscuro aqua</a>
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
+                                                        id="coloresModoOscuro" class="colorTextReverse">Dark mode</a></li>
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
+                                                        id="dark_aqua" class="colorTextReverse">Dark aqua</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="dark_blue" class="colorTextReverse">Oscuro azul</a>
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
+                                                        id="dark_blue" class="colorTextReverse">Dark blue</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="dark_green" class="colorTextReverse">Oscuro verde</a>
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
+                                                        id="dark_green" class="colorTextReverse">Dark green</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
                                                         id="dark_orange" class="colorTextReverse">Oscuro
                                                         naranja</a></li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="dark_pink" class="colorTextReverse">Oscuro rosa</a>
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
+                                                        id="dark_pink" class="colorTextReverse">Dark pink</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="dark_purple" class="colorTextReverse">Oscuro purpura</a>
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
+                                                        id="dark_purple" class="colorTextReverse">Dark purpura</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="dark_red" class="colorTextReverse">Oscuro rojo</a></li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="dark_yellow" class="colorTextReverse">Oscuro amarillo</a>
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
+                                                        id="dark_red" class="colorTextReverse">Dark red</a></li>
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
+                                                        id="dark_yellow" class="colorTextReverse">Dark yellow</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -158,19 +160,19 @@
                             <li>
                                 <ul class="collapsible collapsible-accordion">
                                     <li>
-                                        <a class="collapsible-header colorTextReverse">Accesibilidad<i
+                                        <a class="collapsible-header colorTextReverse TDI">Accesibilidad<i
                                                 class="material-icons colorTextReverse">arrow_drop_down</i></a>
                                         <div class="collapsible-body">
                                             <ul class="colorWhite">
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="deuteranomalia" class="colorTextReverse">Deuteranomalia</a>
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
+                                                        id="deuteranomalia" class="colorTextReverse TDI">Deuteranomalia</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="deuteranopia" class="colorTextReverse">Deuteranopia</a></li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="protanopia" class="colorTextReverse">Protanopia</a></li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="tritanopia" class="colorTextReverse">Tritanopia</a></li>
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
+                                                        id="deuteranopia" class="colorTextReverse TDI">Deuteranopia</a></li>
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
+                                                        id="protanopia" class="colorTextReverse TDI">Protanopia</a></li>
+                                                <li><a onclick="M.toast({html: '👍😀'})" href="#!"
+                                                        id="tritanopia" class="colorTextReverse TDI">Tritanopia</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -185,21 +187,21 @@
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
                 <li>
-                    <a class="collapsible-header colorTextReverse">Adicionales<i
+                    <a class="collapsible-header colorTextReverse TDI">Adicionales<i
                             class="material-icons colorTextReverse">expand_more</i></a>
                     <div class="collapsible-body">
                         <ul class="colorWhite">
                             <li><a href="/politica_cookies" class="colorTextReverse"><i
-                                        class="colorTextReverse material-icons">cookie</i>Cookies.</a></li>
+                                        class="colorTextReverse material-icons">cookie</i><span class="TDI">Cookies.</span></a></li>
                             <li><a href="/politica_privacidad" class="colorTextReverse"><i
-                                        class="colorTextReverse material-icons">privacy_tip</i>Privacidad.</a></li>
+                                        class="colorTextReverse material-icons">privacy_tip</i><span class="TDI">Privacidad.</span></a></li>
                             <li><a href="/terminos_condiciones" class="colorTextReverse"><i
-                                        class="colorTextReverse material-icons">gavel</i>Términos.</a></li>
+                                        class="colorTextReverse material-icons">gavel</i><span class="TDI">Términos.</span></a></li>
                             <li><a href="/saber_mas" class="colorTextReverse"><i
-                                        class="colorTextReverse material-icons">rocket</i>Saber más.</a></li>
+                                        class="colorTextReverse material-icons">rocket</i><span class="TDI">Saber más.</span></a></li>
                             {% if pol_lateral %}
                             <li><a id="politica" href="#modal2" class=" modal-trigger colorTextReverse"><i
-                                class="colorTextReverse material-icons">done</i>Aceptar política.</a></li>
+                                        class="colorTextReverse material-icons">done</i><span class="TDI">Aceptar política.</span></a></li>
                             {% endif %}
                         </ul>
                     </div>
@@ -208,15 +210,18 @@
         </li>
         <hr>
         <li><a href="/profesor_logout" class="colorTextReverse"><i
-                    class="material-icons colorTextReverse">directions_run</i>Cerrar
-                sesión.</a></li>
+                    class="material-icons colorTextReverse">directions_run</i>
+                    <span class="TDI">
+                        Cerrar sesión.
+                    </span>
+                </a></li>
     </ul>
 
     <!--Cuerpo principal del documento-->
     <section class="mainBodyAdicional">
         <div class="title-general colorGrey">
-            <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Menú de opciones</h5>
-            <h4 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Menú de opciones</h4>
+            <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;<span class="TDI">Menú de opciones</span></h5>
+            <h4 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;<span class="TDI">Menú de opciones</span></h4>
         </div>
         <!--Para dispositivos de escritorio-->
         <section class="hide-on-small-only hide-on-med-only centerAligner verticalAligner colorGrey"
@@ -224,31 +229,28 @@
             <section class="centerAligner horizontalAligner">
                 <a href="gestionar_grupos">
                     <div class="borderDecoration cardMainDesktopPanel shadow-2 bordered2">
-                        <div class="cardMainDesktopPanelHead centerAligner">Gestionar grupos</div>
+                        <div class="cardMainDesktopPanelHead centerAligner TDI">Gestionar grupos</div>
                         <div class="centerAligner horizontalAligner">
                             <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
                                 <p><i class="material-icons colorTextReverse">groups_2</i></p>
                             </div>
                             <div
-                                class="cardMainDesktopPanelRight centerAlignerNoWidth colorTextReverse colorGreyWhiter">
-                                Crear, editar,
-                                eliminar y administrar los grupos de estudiantes.</div>
+                                class="cardMainDesktopPanelRight centerAlignerNoWidth colorTextReverse colorGreyWhiter TDI">
+                                Crear, editar, eliminar y administrar los grupos de estudiantes.</div>
                         </div>
                     </div>
                 </a>
 
                 <a href="gestionar_cuestionarios">
                     <div class="borderDecoration cardMainDesktopPanel shadow-2 bordered2">
-                        <div class="cardMainDesktopPanelHead centerAligner">Gestionar cuestionarios</div>
+                        <div class="cardMainDesktopPanelHead centerAligner TDI">Gestionar cuestionarios</div>
                         <div class="centerAligner horizontalAligner">
                             <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
                                 <p><i class="material-icons colorTextReverse">description</i></p>
                             </div>
                             <div
-                                class="cardMainDesktopPanelRight centerAlignerNoWidth colorTextReverse colorGreyWhiter">
-                                Crear, editar,
-                                eliminar,
-                                administrar los cuestionarios.</div>
+                                class="cardMainDesktopPanelRight centerAlignerNoWidth colorTextReverse colorGreyWhiter TDI">
+                                Crear, editar,eliminar,administrar los cuestionarios.</div>
                         </div>
                     </div>
                 </a>
@@ -257,29 +259,27 @@
             <section class="centerAligner horizontalAligner">
                 <a href="gestionar_estadisticas/{{datos[0]}}">
                     <div class="borderDecoration cardMainDesktopPanel shadow-2 bordered2">
-                        <div class="cardMainDesktopPanelHead centerAligner">Gestionar estadísticas</div>
+                        <div class="cardMainDesktopPanelHead centerAligner TDI">Gestionar estadísticas</div>
                         <div class="centerAligner horizontalAligner">
                             <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
                                 <p><i class="material-icons colorTextReverse">stacked_bar_chart</i></p>
                             </div>
                             <div
-                                class="cardMainDesktopPanelRight centerAlignerNoWidth colorTextReverse colorGreyWhiter">
-                                Ver estadísticas
-                                diversas sobre
-                                los grupos creados y las pruebas publicadas.</div>
+                                class="cardMainDesktopPanelRight centerAlignerNoWidth colorTextReverse colorGreyWhiter TDI">
+                                Ver estadísticas diversas sobre los grupos creados y las pruebas publicadas.</div>
                         </div>
                     </div>
                 </a>
 
                 <a href="comunidad_profesor">
                     <div class="borderDecoration cardMainDesktopPanel shadow-2 bordered2">
-                        <div class="cardMainDesktopPanelHead centerAligner">Banco de datos</div>
+                        <div class="cardMainDesktopPanelHead centerAligner TDI">Banco de datos</div>
                         <div class="centerAligner horizontalAligner">
                             <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
                                 <p><i class="material-icons colorTextReverse">cloud</i></p>
                             </div>
                             <div
-                                class="cardMainDesktopPanelRight centerAlignerNoWidth colorTextReverse colorGreyWhiter">
+                                class="cardMainDesktopPanelRight centerAlignerNoWidth colorTextReverse colorGreyWhiter TDI">
                                 Conozca más sobre el banco de datos y su funcionamiento.</div>
                         </div>
                     </div>
@@ -295,11 +295,8 @@
                         <div class="centerAligner cardCarouselMainHead">
                             <p><i class="material-icons">groups_2</i></p>
                         </div>
-                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner">Gestionar
-                            grupos</div>
-                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner">Crear,
-                            editar, eliminar y
-                            administrar los grupos de estudiantes.</div>
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner TDI">Gestionar grupos</div>
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner TDI">Crear,editar, eliminar y administrar los grupos de estudiantes.</div>
                     </div>
                 </a>
 
@@ -308,9 +305,8 @@
                         <div class="centerAligner cardCarouselMainHead">
                             <p><i class="material-icons">description</i></p>
                         </div>
-                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner">Gestionar
-                            cuestionarios</div>
-                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner">Crear,
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner TDI">Gestionar cuestionarios</div>
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner TDI">Crear,
                             editar, eliminar,
                             administrar los cuestionarios.</div>
                     </div>
@@ -323,9 +319,9 @@
                         <div class="centerAligner cardCarouselMainHead">
                             <p><i class="material-icons">stacked_bar_chart</i></p>
                         </div>
-                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner">Gestionar
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner TDI">Gestionar
                             estadísticas</div>
-                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner">Ver
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner TDI">Ver
                             estadísticas diversas
                             sobre
                             los grupos creados y las pruebas publicadas.</div>
@@ -337,9 +333,9 @@
                         <div class="centerAligner cardCarouselMainHead">
                             <p><i class="material-icons">cloud</i></p>
                         </div>
-                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner">Banco de datos
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner TDI">Banco de datos
                         </div>
-                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner">Conozca más
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner TDI">Conozca más
                             sobre el banco de datos y su funcionamiento</div>
                     </div>
                 </a>
@@ -355,10 +351,10 @@
                         <div class="centerAligner cardCarouselMainHead">
                             <p><i class="material-icons">groups_2</i></p>
                         </div>
-                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Gestionar
+                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse TDI">Gestionar
                             grupos</div>
                         <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">
-                            <p class="center-align colorTextReverse">Crear, editar, eliminar y administrar los grupos de
+                            <p class="center-align colorTextReverse TDI">Crear, editar, eliminar y administrar los grupos de
                                 estudiantes.</p>
                         </div>
                     </div>
@@ -371,10 +367,10 @@
                         <div class="centerAligner cardCarouselMainHead">
                             <p><i class="material-icons">description</i></p>
                         </div>
-                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Gestionar
+                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse TDI">Gestionar
                             cuestionarios</div>
                         <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">
-                            <p class="center-align colorTextReverse">Crear, editar, eliminar, administrar los
+                            <p class="center-align colorTextReverse TDI">Crear, editar, eliminar, administrar los
                                 cuestionarios.</p>
                         </div>
                     </div>
@@ -387,10 +383,10 @@
                         <div class="centerAligner cardCarouselMainHead">
                             <p><i class="material-icons">stacked_bar_chart</i></p>
                         </div>
-                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Gestionar
+                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse TDI">Gestionar
                             estadísticas</div>
                         <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">
-                            <p class="center-align colorTextReverse">Ver estadísticas diversas sobre los grupos creados
+                            <p class="center-align colorTextReverse TDI">Ver estadísticas diversas sobre los grupos creados
                                 y
                                 las pruebas
                                 publicadas.</p>
@@ -405,10 +401,10 @@
                         <div class="centerAligner cardCarouselMainHead">
                             <p><i class="material-icons">cloud</i></p>
                         </div>
-                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Banco de datos
+                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse TDI">Banco de datos
                         </div>
                         <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">
-                            <p class="center-align colorTextReverse">Conozca más sobre el banco de datos y su
+                            <p class="center-align colorTextReverse TDI">Conozca más sobre el banco de datos y su
                                 funcionamiento.</p>
                         </div>
                     </div>
@@ -421,34 +417,31 @@
 
         <!--Resumen de actividad-->
         <div class="title-general">
-            <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Resumen general</h5>
-            <h4 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Resumen general</h4>
+            <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;<span class="TDI">Resumen general</span></h5>
+            <h4 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;<span class="TDI">Resumen general</span></h4>
         </div>
 
         <!--Resumen para dispositivos móviles-->
         <section class="centerAligner verticalAligner bodySummary hide-on-med-only hide-on-large-only">
             <div class="centerAligner borderDecorationStrong cardSummary shadow-1 bordered1 colorGreyWhiter">
                 <div class="counterSummary center-align bordered3 color3 colorText shadow-1e">{{IDS_Grupos}}</div>
-                <div class="statisticSummary truncate flow-text colorTextReverse">&nbsp; &nbsp; Número de grupos</div>
+                <div class="statisticSummary truncate flow-text colorTextReverse">&nbsp; &nbsp; <span class="TDI">Número de grupos</span></div>
             </div>
 
             <div class="centerAligner borderDecorationStrong cardSummary shadow-1 bordered1 colorGreyWhiter">
                 <div class="counterSummary center-align bordered3 color4 colorText shadow-1e">{{IDS_Alumnos}}</div>
-                <div class="statisticSummary truncate flow-text colorTextReverse">&nbsp; &nbsp; Número de estudiantes
-                </div>
+                <div class="statisticSummary truncate flow-text colorTextReverse">&nbsp; &nbsp; <span class="TDI">Número de estudiantes</span></div>
             </div>
 
             <div class="centerAligner borderDecorationStrong cardSummary shadow-1 bordered1 colorGreyWhiter">
                 <div class="counterSummary center-align bordered3 color2 colorText shadow-1e">{{IDS_Cuestionarios}}
                 </div>
-                <div class="statisticSummary truncate flow-text colorTextReverse">&nbsp; &nbsp; Número de cuestionarios
-                </div>
+                <div class="statisticSummary truncate flow-text colorTextReverse">&nbsp; &nbsp; <span class="TDI">Número de cuestionarios</span></div>
             </div>
 
             <div class="centerAligner borderDecorationStrong cardSummary shadow-1 bordered1 colorGreyWhiter">
                 <div class="counterSummary center-align bordered3 color1 colorText shadow-1e">19</div>
-                <div class="statisticSummary truncate flow-text colorTextReverse">&nbsp; &nbsp; Número de respuestas
-                </div>
+                <div class="statisticSummary truncate flow-text colorTextReverse">&nbsp; &nbsp; <span class="TDI">Número de respuestas</span></div>
             </div>
         </section>
 
@@ -461,7 +454,7 @@
                             <div class="card-stacked">
                                 <div class="card-content centerAligner verticalAligner">
                                     <div>
-                                        <p class="colorTextReverse fontTabletSummary">Número de grupos</p>
+                                        <p class="colorTextReverse fontTabletSummary TDI">Número de grupos</p>
                                     </div>
                                     <div class="fontCounterSummary colorTextReverse">
                                         {{IDS_Grupos}}
@@ -477,7 +470,7 @@
                             <div class="card-stacked">
                                 <div class="card-content centerAligner verticalAligner">
                                     <div>
-                                        <p class="colorTextReverse fontTabletSummary">Número de estudiantes</p>
+                                        <p class="colorTextReverse fontTabletSummary TDI">Número de estudiantes</p>
                                     </div>
                                     <div class="fontCounterSummary colorTextReverse">
                                         {{IDS_Alumnos}}
@@ -493,7 +486,7 @@
                             <div class="card-stacked">
                                 <div class="card-content centerAligner verticalAligner">
                                     <div>
-                                        <p class="colorTextReverse fontTabletSummary">
+                                        <p class="colorTextReverse fontTabletSummary TDI">
                                             Número de cuestionarios</p>
                                     </div>
                                     <div class="fontCounterSummary colorTextReverse">
@@ -510,7 +503,7 @@
                             <div class="card-stacked">
                                 <div class="card-content centerAligner verticalAligner">
                                     <div>
-                                        <p class="colorTextReverse fontTabletSummary">Número de respuestas</p>
+                                        <p class="colorTextReverse fontTabletSummary TDI">Número de respuestas</p>
                                     </div>
                                     <div class="fontCounterSummary colorTextReverse">
                                         0
@@ -526,6 +519,33 @@
     </section>
 
     <br><br><br>
+
+    <div id="modal2" class="modal colorGrey bordered2 modalAltura modal-fixed-footer" style="height: 100vh;">
+        <div class="modal-content">
+            <h5 class="TDI">Políticas de privacidad</h5>
+            <hr>
+            <p class="colorTextReverse textoInfoPoliticasMini TDI">
+                JCP_helper te informa sobre su Política de Privacidad respecto del tratamiento y protección de
+                los
+                datos de carácter personal de los usuarios y clientes que puedan ser recabados por la navegación
+                o contratación de servicios a través del sitio JCP_helper.com.
+
+                <br><br>
+                En este sentido, el Titular garantiza el cumplimiento de la normativa vigente en materia de
+                protección de datos personales, reflejada en la Ley Orgánica 3/2018, de 5 de diciembre, de
+                Protección de Datos Personales y de Garantía de Derechos Digitales (LOPD GDD). Cumple también
+                con el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo de 27 de abril de 2016
+                relativo a la protección de las personas físicas (RGPD).
+
+                <br><br>
+                <a href="/politica_privacidad" class="TDI">Leer más...</a>
+            </p>
+        </div>
+        <div class="modal-footer colorWhite">
+            <a href="bienvenidaProfesorP/Aceptada" class="modal-close waves-effect btn-flat TDI">Aceptar</a>
+            <a href="bienvenidaProfesorP/Rechazada" class="modal-close waves-effect btn-flat TDI">Rechazar</a>
+        </div>
+    </div>
 
     <!--
         Seccion de notificaciones
@@ -586,34 +606,6 @@
             </div>
         </div>
     </div>
-    <div id="modal2" class="modal colorGrey bordered2 modalAltura modal-fixed-footer" style="height: 100vh;">
-        <div class="modal-content">
-            <h5>Políticas de privacidad</h5>
-            <hr>
-            <p class="colorTextReverse textoInfoPoliticasMini">
-                JCP_helper te informa sobre su Política de Privacidad respecto del tratamiento y protección de
-                los
-                datos de carácter personal de los usuarios y clientes que puedan ser recabados por la navegación
-                o contratación de servicios a través del sitio JCP_helper.com.
-
-                <br><br>
-                En este sentido, el Titular garantiza el cumplimiento de la normativa vigente en materia de
-                protección de datos personales, reflejada en la Ley Orgánica 3/2018, de 5 de diciembre, de
-                Protección de Datos Personales y de Garantía de Derechos Digitales (LOPD GDD). Cumple también
-                con el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo de 27 de abril de 2016
-                relativo a la protección de las personas físicas (RGPD).
-
-                <br><br>
-                <a href="/politica_privacidad">Leer más...</a>
-            </p>
-        </div>
-        <div class="modal-footer colorGreyDarker">
-            <a href="bienvenidaProfesorP/Aceptada" class="modal-close waves-effect btn-flat">Aceptar</a>
-            <a href="bienvenidaProfesorP/Rechazada" class="modal-close waves-effect btn-flat">Rechazar</a>
-        </div>
-    </div>
-
-
     <!--Boton para notificaciones-->
     <div class="fixed-action-btn" id="buttonNotificationOurs">
         <a class="btn-floating btn-large color3 modal-trigger" href="#modal1">
@@ -621,16 +613,22 @@
         </a>
         <div id="contadorNotificacion" class="color1 colorText bordered3">0</div>
     </div>
-    <!--Metemos el footer en la app-->
-    {% include "includes/footer.html" %}
 
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
 
 </body>
 
-
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
+<!--Diseño para las notificaciones-->
 <script src="../../static/js/bienvenidaEfectos.js"></script>
 <script src="../../static/js/efectosNotificaciones.js"></script>
 
