@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>{% block title %}Inicio | JCP{% endblock %}</title>
+    <title class="TDI">Inicio</title>
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
     <!--Estos estilos quedan aqui para evitar que se mezclen con otros-->
@@ -31,18 +31,18 @@
                 <br>
             </div>
         </li>
-        <li><a href="/login_general" class="colorTextReverse"><i class="colorTextReverse material-icons">person</i>Acceder</a></li>
-        <li><a href="/signup_est" class="colorTextReverse"><i class="colorTextReverse material-icons">school</i>Sign up estudiante</a></li>
-        <li><a href="/signup_prof" class="colorTextReverse"><i class="colorTextReverse material-icons">history_edu</i>Sign up profesor</a></li>
+        <li><a href="/login_general" class="colorTextReverse"><i class="colorTextReverse material-icons">person</i><span class="TDI">Acceder</span></a></li>
+        <li><a href="/signup_est" class="colorTextReverse"><i class="colorTextReverse material-icons">school</i><span class="TDI">Sign up estudiante</span></a></li>
+        <li><a href="/signup_prof" class="colorTextReverse"><i class="colorTextReverse material-icons">history_edu</i><span class="TDI">Sign up profesor</span></a></li>
         <hr>
         <li><a href="/politica_cookies" class="colorTextReverse"><i
-                    class="colorTextReverse material-icons">cookie</i>Cookies.</a></li>
+                    class="colorTextReverse material-icons">cookie</i><span class="TDI">Cookies.</span></a></li>
         <li><a href="/politica_privacidad" class="colorTextReverse"><i
-                    class="colorTextReverse material-icons">privacy_tip</i>Privacidad.</a></li>
+                    class="colorTextReverse material-icons">privacy_tip</i><span class="TDI">Privacidad.</span></a></li>
         <li><a href="/terminos_condiciones" class="colorTextReverse"><i
-                    class="colorTextReverse material-icons">gavel</i>Términos.</a></li>
-        <li><a href="/saber_mas" class="colorTextReverse"><i class="colorTextReverse material-icons">rocket</i>Saber
-                más.</a></li>
+                    class="colorTextReverse material-icons">gavel</i><span class="TDI">Términos.</span></a></li>
+        <li><a href="/saber_mas" class="colorTextReverse"><i class="colorTextReverse material-icons">rocket</i><span class="TDI">Saber
+                más.</span></a></li>
     </ul>
 
     <!--Menu para las tables y los escritorios-->
@@ -56,9 +56,9 @@
         <div></div>
         <div class="menuButtonsNavDesktop">
             <a class="waves-effect waves-light btn-large color3" href="/login_general"><i
-                    class="material-icons left">person</i>Acceder</a>
+                    class="material-icons left">person</i><span class="TDI">Acceder</span></a>
             <a class="waves-effect waves-light btn-large color2" href="#sectionAccess"><i
-                    class="material-icons left">person_add</i>Registrarse</a>
+                    class="material-icons left">person_add</i><span class="TDI">Registrarse</span></a>
         </div>
     </section>
     <div class="color3 hide-on-med-and-down">
@@ -69,38 +69,38 @@
         <div class="carousel carousel-slider center caruselHomePage">
             <div class="carousel-fixed-item center">
                 <a class="waves-effect btnCarouselHome waves-light btn-large color1" href="/login_general"><i
-                        class="material-icons left">person</i>Acceder</a>
+                        class="material-icons left">person</i><span class="TDI">Acceder</span></a>
             </div>
             <div class="carousel-item carouselItemModified informeCard white-text" href="#one!">
-                <h2 class="titleCarousel titleCarouselOne">Diseñe</h2>
-                <p class="white-text">Pruebas totalmente personalizadas.</p>
+                <h2 class="titleCarousel titleCarouselOne"><span class="TDI">Diseñe</span></h2>
+                <p class="white-text TDI">Pruebas totalmente personalizadas.</p>
             </div>
             <div class="carousel-item carouselItemModified iconSecondary white-text" href="#two!">
-                <h2 class="titleCarousel">Mida</h2>
-                <p class="white-text">Obtenga reportes de sus resultados.</p>
+                <h2 class="titleCarousel TDI">Mida</h2>
+                <p class="white-text TDI">Obtenga reportes de sus resultados.</p>
             </div>
             <div class="carousel-item carouselItemModified fondoDinamico white-text" href="#three!">
-                <h2 class="titleCarousel">Machine Learning</h2>
-                <p class="white-text">Mediciones basadas en modelos de ML.</p>
+                <h2 class="titleCarousel TDI">Machine Learning</h2>
+                <p class="white-text TDI">Mediciones basadas en modelos de ML.</p>
             </div>
             <div class="carousel-item carouselItemModified cardMainDesktopPanelHead white-text" href="#four!">
-                <h2 class="titleCarousel">Comparta</h2>
-                <p class="white-text">Acceda a bancos de datos.</p>
+                <h2 class="titleCarousel TDI">Comparta</h2>
+                <p class="white-text TDI">Acceda a bancos de datos.</p>
             </div>
         </div>
 
         <div class="title-general colorGreyWhiter hide-on-med-and-up">
-            <h5 class="hide-on-med-and-up">Versatilidad garantizada</h5>
+            <h5 class="hide-on-med-and-up TDI">Versatilidad garantizada</h5>
         </div>
 
         <div class="mainBody-headerContainer shadow-5e">
             <div>
-                <h1 class="titleHomePage colorText">Bienvenido a JCP_helper</h1>
-                <p class="colorText">Obtenga <b>métricas</b> de sus resultados <br> en el aprendizaje y enseñanza de
+                <h1 class="titleHomePage colorText TDI">Bienvenido a JCP_helper</h1>
+                <p class="colorText TDI">Obtenga <b>métricas</b> de sus resultados <br> en el aprendizaje y enseñanza de
                     programación.</p>
 
                 <div class="menuButtonsNavDesktop hide-on-med-and-down">
-                    <a class="waves-effect waves-light btn-large colorGrey colorTextReverse" href="#sectionId">Conocer más</a>
+                    <a class="waves-effect waves-light btn-large colorGrey colorTextReverse TDI" href="#sectionId">Conocer más</a>
                 </div>
             </div>
             <div class="iconPrincipalContainer hide-on-med-and-down">
@@ -118,23 +118,27 @@
 
         <section>
             <div class="titleInfoContainer colorTextReverse">
-                <h2>Saque el máximo provecho a JCP</h2>
+                <h2 class="TDI">Saque el máximo provecho a JCP</h2>
                 <hr>
             </div>
             <div class="gridInfoContainer">
                 <div class="itemInfo-1">
                     <h4 class="colorText color2 shadow-1e">
                         <span class="material-icons md-24">brush</span>
-                        Diseñar
+                        <span class="TDI">
+                            Diseñar
+                        </span>
                     </h4>
-                    <p>Cree pruebas personalizadas de acuerdo a sus necesidades.</p>
+                    <p class="TDI">Cree pruebas personalizadas de acuerdo a sus necesidades.</p>
                 </div>
                 <div class="itemInfo-2">
                     <h4 class="colorText color2 shadow-1e">
                         <span class="material-icons md-24">check_circle</span>
-                        Evaluar
+                        <span class="TDI">
+                            Evaluar
+                        </span>
                     </h4>
-                    <p>Ponga a prueba los conocimientos adquiridos.</p>
+                    <p class="TDI">Ponga a prueba los conocimientos adquiridos.</p>
                 </div>
                 <div class="itemInfo-3">
                     <div class="iconBoxInfo iconBoxInfoDinamico"></div>
@@ -142,16 +146,20 @@
                 <div class="itemInfo-4">
                     <h4 class="colorText color2 shadow-1e">
                         <span class="material-icons md-24">insights</span>
-                        Medir
+                        <span class="TDI">
+                            Medir
+                        </span>
                     </h4>
-                    <p>Mida sus resultados y documente su avance.</p>
+                    <p class="TDI">Mida sus resultados y documente su avance.</p>
                 </div>
                 <div class="itemInfo-5">
                     <h4 class="colorText color2 shadow-1e">
                         <span class="material-icons md-24">backup</span>
-                        Compartir
+                        <span class="TDI">
+                            Compartir
+                        </span>
                     </h4>
-                    <p>Acceda a bancos de datos con preguntas de otros usuarios.</p>
+                    <p class="TDI">Acceda a bancos de datos con preguntas de otros usuarios.</p>
                 </div>
                 <div class="itemInfo-6">
 
@@ -159,9 +167,11 @@
                 <div class="itemInfo-7">
                     <h4 class="colorText color2 shadow-1e">
                         <span class="material-icons md-24">psychology</span>
-                        Machine Learning
+                        <span class="TDI">
+                            Machine Learning
+                        </span>
                     </h4>
-                    <p>Obtenga métricas basadas en nuestros modelos de ML.</p>
+                    <p class="TDI">Obtenga métricas basadas en nuestros modelos de ML.</p>
                 </div>
                 <div class="itemInfo-8">
 
@@ -172,10 +182,10 @@
 
         <section class="desktopInfoContainer colorGreyWhiter">
             <div class="titleInfoContainer colorTextReverse">
-                <h2>Aprenda donde usted quiera.</h2>
+                <h2 class="TDI">Aprenda donde usted quiera.</h2>
                 <hr>
                 <div class="color1 colorText">
-                    <p>Utilize <b>JCP</b> donde usted quiera, en <b>celular, tableta o computadora</b>.</p>
+                    <p class="TDI">Utilize <b>JCP</b> donde usted quiera, en <b>celular, tableta o computadora</b>.</p>
                 </div>
             </div>
             <div class="imageGalleryContainer">
@@ -209,14 +219,14 @@
 
 
         <div class="title-general color2">
-            <h5 class="hide-on-med-and-up colorText">Oferta incomparable</h5>
+            <h5 class="hide-on-med-and-up colorText TDI">Oferta incomparable</h5>
         </div>
         <section class="containerTablaComparativa color2 shadow-4e">
             <div class="titleInfoContainer titleInfoModified colorText">
-                <h2>Oferta de valor incomparable.</h2>
+                <h2 class="TDI">Oferta de valor incomparable.</h2>
                 <hr>
                 <div class="color1 colorText">
-                    <p>Conozca todas la funcionalidades</b>.</p>
+                    <p class="TDI">Conozca todas la funcionalidades</b>.</p>
                 </div>
             </div>
             <div class="tableMainContainer">
@@ -224,20 +234,20 @@
                     <table class="centered highlight responsive-table">
                         <thead>
                             <tr>
-                                <th>Característica</th>
-                                <th class="color1 colorText shadow-4e ourColumn firstOurColumn">JCP_helper</th>
-                                <th>Google Forms</th>
-                                <th>Online exam builder</th>
-                                <th>Kahoot!</th>
-                                <th>Growledge</th>
-                                <th>Gexcat</th>
-                                <th>Socrative</th>
+                                <th class="TDI colorTextReverse">Característica</th>
+                                <th class="color1 colorText shadow-4e ourColumn firstOurColumn TDI">JCP_helper</th>
+                                <th class="TDI colorTextReverse">Google Forms</th>
+                                <th class="TDI colorTextReverse">Online exam builder</th>
+                                <th class="TDI colorTextReverse">Kahoot!</th>
+                                <th class="TDI colorTextReverse">Growledge</th>
+                                <th class="TDI colorTextReverse">Gexcat</th>
+                                <th class="TDI colorTextReverse">Socrative</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr>
-                                <td>Pruebas personalizadas</td>
+                                <td class="TDI colorTextReverse">Pruebas personalizadas</td>
                                 <td class="color1 colorText shadow-4e ourColumn">✅</td>
                                 <td>✅</td>
                                 <td>✅</td>
@@ -247,7 +257,7 @@
                                 <td>✅</td>
                             </tr>
                             <tr>
-                                <td>Banco de preguntas</td>
+                                <td class="TDI colorTextReverse">Banco de preguntas</td>
                                 <td class="color1 colorText shadow-4e ourColumn">✅</td>
                                 <td>❌</td>
                                 <td>❌</td>
@@ -257,7 +267,7 @@
                                 <td>✅</td>
                             </tr>
                             <tr>
-                                <td>Interfaz responsiva</td>
+                                <td class="TDI colorTextReverse">Interfaz responsiva</td>
                                 <td class="color1 colorText shadow-4e ourColumn">✅</td>
                                 <td>✅</td>
                                 <td>✅</td>
@@ -267,7 +277,7 @@
                                 <td>✅</td>
                             </tr>
                             <tr>
-                                <td>Interfaz personalizable</td>
+                                <td class="TDI colorTextReverse">Interfaz personalizable</td>
                                 <td class="color1 colorText shadow-4e ourColumn">✅</td>
                                 <td>❌</td>
                                 <td>❌</td>
@@ -277,7 +287,7 @@
                                 <td>❌</td>
                             </tr>
                             <tr>
-                                <td>Generador de reportes</td>
+                                <td class="TDI colorTextReverse">Generador de reportes</td>
                                 <td class="color1 colorText shadow-4e ourColumn">✅</td>
                                 <td>✅</td>
                                 <td>✅</td>
@@ -287,7 +297,7 @@
                                 <td>✅</td>
                             </tr>
                             <tr>
-                                <td>Live coder</td>
+                                <td class="TDI colorTextReverse">Live coder</td>
                                 <td class="color1 colorText shadow-4e ourColumn">✅</td>
                                 <td>❌</td>
                                 <td>❌</td>
@@ -297,7 +307,7 @@
                                 <td>❌</td>
                             </tr>
                             <tr>
-                                <td>Registro de resultados</td>
+                                <td class="TDI colorTextReverse">Registro de resultados</td>
                                 <td class="color1 colorText shadow-4e ourColumn">✅</td>
                                 <td>✅</td>
                                 <td>✅</td>
@@ -307,7 +317,7 @@
                                 <td>✅</td>
                             </tr>
                             <tr>
-                                <td>Modelos de análisis de métricas</td>
+                                <td class="TDI colorTextReverse">Modelos de análisis de métricas</td>
                                 <td class="color1 colorText shadow-4e ourColumn lastOurColumn">✅</td>
                                 <td>❌</td>
                                 <td>✅</td>
@@ -324,15 +334,15 @@
 
         <section class="containerCreateAccountHome" id="sectionAccess">
             <div class="containerCreateAccountHomeSecondary">
-                <p class="colorText tituloSeleccion">¿Qué tipo de usuario es?</p>
+                <p class="colorText tituloSeleccion TDI">¿Qué tipo de usuario es?</p>
                 <div class="colorGreyWhiter cardContainerWhatToDo">
                     <div class="cardContainerWhatToDoSon1">
                         <a class="waves-effect waves-light btn-large color3" href="/signup_est"><i
-                                class="material-icons left">school</i>Estudiante</a>
+                                class="material-icons left">school</i><span class="TDI">Estudiante</span></a>
                     </div>
                     <div class="cardContainerWhatToDoSon2">
                         <a class="waves-effect waves-light btn-large color2" href="/signup_prof"><i
-                                class="material-icons left">history_edu</i>Docente</a>
+                                class="material-icons left">history_edu</i><span class="TDI">Docente</span></a>
                     </div>
                 </div>
             </div>
@@ -343,9 +353,21 @@
 
 </body>
 
-<!--Jalamos todo el contenido del encabezado-->
+<!--Botones para que el gestor de idiomas no falle-->
+<span class="hiddenElement" id="seleccionarEspanol"></span>
+<span class="hiddenElement" id="seleccionarIngles"></span>
+<span class="hiddenElement" id="seleccionarPortugues"></span>
+<span class="hiddenElement" id="seleccionarChino"></span>
+
+<!--Metemos el footer en la app-->
 {% include "includes/footer.html" %}
+</body>
+
+<!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
 
 </html>

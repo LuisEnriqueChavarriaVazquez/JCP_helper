@@ -62,16 +62,20 @@ function validarPorDefecto() {
 
 //Funcion que nos ayuda a obtener solo la ruta
 function rutaValidation(stringUrl) {
-    stringUrl = stringUrl.split("");
-    stringUrl = stringUrl.reverse();
-    stringUrl = stringUrl.join("");
-    stringUrl = stringUrl.substring(0, stringUrl.indexOf("/"));
-    stringUrl = stringUrl.replaceAll("!", "");
-    stringUrl = stringUrl.replaceAll("#", "");
-    stringUrl = stringUrl.split("");
-    stringUrl = stringUrl.reverse();
-    stringUrl = stringUrl.join("");
-    return stringUrl;
+        stringUrl = stringUrl.split("");
+        stringUrl = stringUrl.reverse();
+        stringUrl = stringUrl.join("");
+        stringUrl = stringUrl.substring(0, stringUrl.indexOf("/"));
+        stringUrl = stringUrl.replaceAll("!", "");
+        stringUrl = stringUrl.replaceAll("#", "");
+        stringUrl = stringUrl.split("");
+        stringUrl = stringUrl.reverse();
+        stringUrl = stringUrl.join("");
+        if(stringUrl == ""){
+            return "index";
+        }else{
+            return stringUrl;
+        }
 }
 
 
