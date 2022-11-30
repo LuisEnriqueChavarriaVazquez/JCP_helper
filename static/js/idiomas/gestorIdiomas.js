@@ -41,25 +41,25 @@ seleccionarChino.addEventListener('click', elegirChino);
 function elegirEspanol(){
     idiomaElegido = 'esp';
     guardarIdioma(idiomaElegido);
-    asignarIdioma(localStorage.getItem('idioma'))
+    asignarIdioma(localStorage.getItem('idioma'));
 }
 
 function elegirIngles(){
     idiomaElegido = 'en';
     guardarIdioma(idiomaElegido);
-    asignarIdioma(localStorage.getItem('idioma'))
+    asignarIdioma(localStorage.getItem('idioma'));
 }
 
 function elegirPortugues(){
     idiomaElegido = 'pt';
     guardarIdioma(idiomaElegido);
-    asignarIdioma(localStorage.getItem('idioma'))
+    asignarIdioma(localStorage.getItem('idioma'));
 }
 
 function elegirChino(){
     idiomaElegido = 'chn';
     guardarIdioma(idiomaElegido);
-    asignarIdioma(localStorage.getItem('idioma'))
+    asignarIdioma(localStorage.getItem('idioma'));
 }
 
 //Guardar el idioma
@@ -72,6 +72,9 @@ function guardarIdioma(idioma){
 function validarPorDefecto(){
     if (localStorage.getItem('idioma') === null){
         localStorage.setItem('idioma', 'esp');
+        asignarIdioma(localStorage.getItem('idioma'));
+    }else{
+        asignarIdioma(localStorage.getItem('idioma'));
     }
 }
 
