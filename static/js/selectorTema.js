@@ -14,13 +14,30 @@ $(document).ready(function () {
 
     });
 
+    //Funcion que nos ayuda a obtener solo la ruta
+    function rutaValidationTwo(stringUrl) {
+        stringUrl = stringUrl.split("");
+        stringUrl = stringUrl.reverse();
+        stringUrl = stringUrl.join("");
+        stringUrl = stringUrl.substring(0, stringUrl.indexOf("/"));
+        stringUrl = stringUrl.replaceAll("!", "");
+        stringUrl = stringUrl.replaceAll("#", "");
+        stringUrl = stringUrl.split("");
+        stringUrl = stringUrl.reverse();
+        stringUrl = stringUrl.join("");
+        return stringUrl;
+    }
+
     // Solo se ejecuta en la pantalla de configuraciones
     // Debe ser puesta la URL final
-    if (window.location.href == "http://127.0.0.1:5000/configuraciones" || window.location.href == "http://127.0.0.1:5000/configuraciones#!" || window.location.href == "https://jcphelperdos.herokuapp.com/configuraciones#!" || window.location.href == "https://jcphelperdos.herokuapp.com/configuraciones") {
+    let rutaPageColor = rutaValidationTwo(window.location.href);
+    let rutaValidaUno = "configuraciones_docente";
+    let rutaValidaDos = "configuraciones_alumno";
+    if (rutaPageColor == rutaValidaUno || rutaPageColor == rutaValidaDos) {
         function insertar_phone() {
             contenedorColores.innerHTML = `
                     <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresAqua">
+                        <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresAqua">
                             <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                                 <div class="colorSelectorMuestraPhone">
                                     <div class="shadow-2e" style="background-color: #125163;"></div>
@@ -32,7 +49,7 @@ $(document).ready(function () {
                         </a>
                     </div>
                     <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBlue">
+                        <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresBlue">
                             <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                                 <div class="colorSelectorMuestraPhone">
                                     <div class="shadow-2e" style="background-color: #3e5b65;"></div>
@@ -44,19 +61,19 @@ $(document).ready(function () {
                         </a>
                     </div>
                     <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBronce">
+                        <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresBronce">
                             <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                                 <div class="colorSelectorMuestraPhone">
                                     <div class="shadow-2e" style="background-color: #9b4b00;"></div>
                                 </div>
                                 <div class="colorSelectorTextoPhone colorTextReverse">
-                                    Bronce
+                                    Metal
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresCafe">
+                        <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresCafe">
                             <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                                 <div class="colorSelectorMuestraPhone">
                                     <div class="shadow-2e" style="background-color: #775e57;"></div>
@@ -68,91 +85,91 @@ $(document).ready(function () {
                         </a>
                     </div>
                     <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresDefault">
+                        <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresDefault">
                             <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                                 <div class="colorSelectorMuestraPhone">
                                     <div class="shadow-2e" style="background-color: #377e5b;"></div>
                                 </div>
                                 <div class="colorSelectorTextoPhone colorTextReverse">
-                                    Verde
+                                    Green jungle
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresGotico">
+                        <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresGotico">
                             <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                                 <div class="colorSelectorMuestraPhone">
                                     <div class="shadow-2e" style="background-color: #75656a;"></div>
                                 </div>
                                 <div class="colorSelectorTextoPhone colorTextReverse">
-                                    Gótico
+                                    Sad mode
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresNaranja">
+                        <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresNaranja">
                             <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                                 <div class="colorSelectorMuestraPhone">
                                     <div class="shadow-2e" style="background-color: #bc521c;"></div>
                                 </div>
                                 <div class="colorSelectorTextoPhone colorTextReverse">
-                                    Naranja
+                                    Happy orange
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPink">
+                        <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresPink">
                             <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                                 <div class="colorSelectorMuestraPhone">
                                     <div class="shadow-2e" style="background-color: #b0537a;"></div>
                                 </div>
                                 <div class="colorSelectorTextoPhone colorTextReverse">
-                                    Pink
+                                    Pink panter
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPurple">
+                        <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresPurple">
                             <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                                 <div class="colorSelectorMuestraPhone">
                                     <div class="shadow-2e" style="background-color: #594668;"></div>
                                 </div>
                                 <div class="colorSelectorTextoPhone colorTextReverse">
-                                    Purple
+                                    Purple mood
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresRed">
+                        <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresRed">
                             <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                                 <div class="colorSelectorMuestraPhone">
                                     <div class="shadow-2e" style="background-color: #9c3537;"></div>
                                 </div>
                                 <div class="colorSelectorTextoPhone colorTextReverse">
-                                    Red
+                                    Red color
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresModoOscuro">
+                        <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresModoOscuro">
                             <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                                 <div class="colorSelectorMuestraPhone">
                                     <div class="shadow-2e" style="background-color: #000000;"></div>
                                 </div>
                                 <div class="colorSelectorTextoPhone colorTextReverse">
-                                    Oscuro
+                                    Dark mode
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_aqua">
+                        <a onclick="M.toast({html: '👍😀'})" href="#!" id="dark_aqua">
                             <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                                 <div class="colorSelectorMuestraPhone">
                                     <div class="shadow-2e" style="background-color: #00312f;"></div>
@@ -164,7 +181,7 @@ $(document).ready(function () {
                         </a>
                     </div>
                     <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_blue">
+                        <a onclick="M.toast({html: '👍😀'})" href="#!" id="dark_blue">
                             <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                                 <div class="colorSelectorMuestraPhone">
                                     <div class="shadow-2e" style="background-color: #001846;"></div>
@@ -176,7 +193,7 @@ $(document).ready(function () {
                         </a>
                     </div>
                     <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_green">
+                        <a onclick="M.toast({html: '👍😀'})" href="#!" id="dark_green">
                             <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                                 <div class="colorSelectorMuestraPhone">
                                     <div class="shadow-2e" style="background-color: #023600;"></div>
@@ -188,7 +205,7 @@ $(document).ready(function () {
                         </a>
                     </div>
                     <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_orange">
+                        <a onclick="M.toast({html: '👍😀'})" href="#!" id="dark_orange">
                             <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                                 <div class="colorSelectorMuestraPhone">
                                     <div class="shadow-2e" style="background-color: #461c00;"></div>
@@ -200,7 +217,7 @@ $(document).ready(function () {
                         </a>
                     </div>
                     <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_pink">
+                        <a onclick="M.toast({html: '👍😀'})" href="#!" id="dark_pink">
                             <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                                 <div class="colorSelectorMuestraPhone">
                                     <div class="shadow-2e" style="background-color: #3d003a;"></div>
@@ -212,7 +229,7 @@ $(document).ready(function () {
                         </a>
                     </div>
                      <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_purple">
+                        <a onclick="M.toast({html: '👍😀'})" href="#!" id="dark_purple">
                             <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                                 <div class="colorSelectorMuestraPhone">
                                     <div class="shadow-2e" style="background-color: #22004e;"></div>
@@ -224,7 +241,7 @@ $(document).ready(function () {
                         </a>
                     </div>
                     <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_red">
+                        <a onclick="M.toast({html: '👍😀'})" href="#!" id="dark_red">
                             <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                                 <div class="colorSelectorMuestraPhone">
                                     <div class="shadow-2e" style="background-color: #470001;"></div>
@@ -236,7 +253,7 @@ $(document).ready(function () {
                         </a>
                     </div>
                     <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_yellow">
+                        <a onclick="M.toast({html: '👍😀'})" href="#!" id="dark_yellow">
                             <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                                 <div class="colorSelectorMuestraPhone">
                                     <div class="shadow-2e" style="background-color: #312a00;"></div>
@@ -249,37 +266,9 @@ $(document).ready(function () {
                     </div>
                     `;
 
-            /*
-                <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresUsuario">
-                        <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
-                            <div class="colorSelectorMuestraPhone">
-                                <div class="shadow-2e" style="background: linear-gradient(
-                                    90deg,
-                                    rgba(255, 0, 0, 1) 0%,
-                                    rgba(255, 154, 0, 1) 10%,
-                                    rgba(208, 222, 33, 1) 20%,
-                                    rgba(79, 220, 74, 1) 30%,
-                                    rgba(63, 218, 216, 1) 40%,
-                                    rgba(47, 201, 226, 1) 50%,
-                                    rgba(28, 127, 238, 1) 60%,
-                                    rgba(95, 21, 242, 1) 70%,
-                                    rgba(186, 12, 248, 1) 80%,
-                                    rgba(251, 7, 217, 1) 90%,
-                                    rgba(255, 0, 0, 1) 100%
-                                );"></div>
-                            </div>
-                            <div class="colorSelectorTextoPhone colorTextReverse">
-                                Personalizado
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            */
-
             contenedorColoresAdaptados.innerHTML = `
             <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="protanopia">
+                <a onclick="M.toast({html: '👍😀'})" href="#!" id="protanopia">
                     <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                         <div class="colorSelectorMuestraPhone">
                             <div class="shadow-2e" style="background-color: #787056;"></div>
@@ -291,7 +280,7 @@ $(document).ready(function () {
                 </a>
             </div>
             <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="deuteranopia">
+                <a onclick="M.toast({html: '👍😀'})" href="#!" id="deuteranopia">
                     <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                         <div class="colorSelectorMuestraPhone">
                             <div class="shadow-2e" style="background-color: rgb(130, 108, 97);"></div>
@@ -303,7 +292,7 @@ $(document).ready(function () {
                 </a>
             </div>
             <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="tritanopia">
+                <a onclick="M.toast({html: '👍😀'})" href="#!" id="tritanopia">
                     <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                         <div class="colorSelectorMuestraPhone">
                             <div class="shadow-2e" style="background-color: rgb(71, 120, 129);"></div>
@@ -315,13 +304,13 @@ $(document).ready(function () {
                 </a>
             </div>
             <div class="col s12 hide-on-large-only hide-on-med-only colorSelectorMainPadre">
-                <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="deuteranomalia">
+                <a onclick="M.toast({html: '👍😀'})" href="#!" id="deuteranomalia">
                     <div class="colorSelectorMainPhone shadow-2e colorGreyWhiter bordered1">
                         <div class="colorSelectorMuestraPhone">
                             <div class="shadow-2e" style="background-color: rgb(102, 115, 95);"></div>
                         </div>
                         <div class="colorSelectorTextoPhone colorTextReverse">
-                            Deuteranomalia
+                            Deuteranomaly
                         </div>
                     </div>
                 </a>
@@ -332,7 +321,7 @@ $(document).ready(function () {
             contenedorColores.innerHTML = `
                     <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
-                            <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresAqua">
+                            <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresAqua">
                                 <div class="card-stacked">
                                     <div class="card-content centerAligner verticalAligner">
                                         <div>
@@ -347,7 +336,7 @@ $(document).ready(function () {
                     </div>
                     <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
-                            <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBlue">
+                            <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresBlue">
                                 <div class="card-stacked">
                                     <div class="card-content centerAligner verticalAligner">
                                         <div>
@@ -362,11 +351,11 @@ $(document).ready(function () {
                     </div>
                     <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
-                            <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresBronce">
+                            <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresBronce">
                                 <div class="card-stacked">
                                     <div class="card-content centerAligner verticalAligner">
                                         <div>
-                                            <p class="colorTextReverse muestraDeColorText">Bronce</p>
+                                            <p class="colorTextReverse muestraDeColorText">Metal</p>
                                         </div>
                                         <div class="bordered5 muestraDeColor"
                                             style="background-color: #9b4b00;"></div>
@@ -377,7 +366,7 @@ $(document).ready(function () {
                     </div>
                     <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
-                            <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresCafe">
+                            <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresCafe">
                                 <div class="card-stacked">
                                     <div class="card-content centerAligner verticalAligner">
                                         <div>
@@ -392,11 +381,11 @@ $(document).ready(function () {
                     </div>
                     <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
-                            <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresDefault">
+                            <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresDefault">
                                 <div class="card-stacked">
                                     <div class="card-content centerAligner verticalAligner">
                                         <div>
-                                            <p class="colorTextReverse muestraDeColorText">Verde</p>
+                                            <p class="colorTextReverse muestraDeColorText">Green jungle</p>
                                         </div>
                                         <div class="bordered5 muestraDeColor"
                                             style="background-color: #377e5b;"></div>
@@ -407,11 +396,11 @@ $(document).ready(function () {
                     </div>
                     <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
-                            <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresGotico">
+                            <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresGotico">
                                 <div class="card-stacked">
                                     <div class="card-content centerAligner verticalAligner">
                                         <div>
-                                            <p class="colorTextReverse muestraDeColorText">Gótico</p>
+                                            <p class="colorTextReverse muestraDeColorText">Sad mode</p>
                                         </div>
                                         <div class="bordered5 muestraDeColor"
                                             style="background-color: #75656a;"></div>
@@ -422,11 +411,11 @@ $(document).ready(function () {
                     </div>
                     <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
-                            <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresNaranja">
+                            <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresNaranja">
                                 <div class="card-stacked">
                                     <div class="card-content centerAligner verticalAligner">
                                         <div>
-                                            <p class="colorTextReverse muestraDeColorText">Naranja</p>
+                                            <p class="colorTextReverse muestraDeColorText">Happy orange</p>
                                         </div>
                                         <div class="bordered5 muestraDeColor"
                                             style="background-color: #bc521c;"></div>
@@ -437,11 +426,11 @@ $(document).ready(function () {
                     </div>
                     <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
-                            <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPink">
+                            <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresPink">
                                 <div class="card-stacked">
                                     <div class="card-content centerAligner verticalAligner">
                                         <div>
-                                            <p class="colorTextReverse muestraDeColorText">Pink</p>
+                                            <p class="colorTextReverse muestraDeColorText">Pink panter</p>
                                         </div>
                                         <div class="bordered5 muestraDeColor"
                                             style="background-color: #b0537a;"></div>
@@ -452,11 +441,11 @@ $(document).ready(function () {
                     </div>
                     <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
-                            <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresPurple">
+                            <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresPurple">
                                 <div class="card-stacked">
                                     <div class="card-content centerAligner verticalAligner">
                                         <div>
-                                            <p class="colorTextReverse muestraDeColorText">Purple</p>
+                                            <p class="colorTextReverse muestraDeColorText">Purple mood</p>
                                         </div>
                                         <div class="bordered5 muestraDeColor"
                                             style="background-color: #594668;"></div>
@@ -467,11 +456,11 @@ $(document).ready(function () {
                     </div>
                     <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyWhiter shadow-2">
-                            <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresRed">
+                            <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresRed">
                                 <div class="card-stacked">
                                     <div class="card-content verticalAligner centerAligner">
                                         <div>
-                                            <p class="colorTextReverse muestraDeColorText">Red</p>
+                                            <p class="colorTextReverse muestraDeColorText">Red color</p>
                                         </div>
                                         <div class="bordered5 muestraDeColor"
                                             style="background-color: #9c3537;"></div>
@@ -482,11 +471,11 @@ $(document).ready(function () {
                     </div>
                     <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyDarker shadow-2">
-                            <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresModoOscuro">
+                            <a onclick="M.toast({html: '👍😀'})" href="#!" id="coloresModoOscuro">
                                 <div class="card-stacked">
                                     <div class="card-content centerAligner verticalAligner">
                                         <div>
-                                            <p class="colorTextReverse muestraDeColorText">Oscuro</p>
+                                            <p class="colorTextReverse muestraDeColorText">Dark</p>
                                         </div>
                                         <div class="bordered5 muestraDeColor"
                                             style="background-color: #000000;"></div>
@@ -497,7 +486,7 @@ $(document).ready(function () {
                     </div>
                     <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyDarker shadow-2">
-                            <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_aqua">
+                            <a onclick="M.toast({html: '👍😀'})" href="#!" id="dark_aqua">
                                 <div class="card-stacked">
                                     <div class="card-content verticalAligner centerAligner">
                                         <div>
@@ -512,7 +501,7 @@ $(document).ready(function () {
                     </div>
                     <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyDarker shadow-2">
-                            <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_blue">
+                            <a onclick="M.toast({html: '👍😀'})" href="#!" id="dark_blue">
                                 <div class="card-stacked">
                                     <div class="card-content verticalAligner centerAligner">
                                         <div>
@@ -527,7 +516,7 @@ $(document).ready(function () {
                     </div>
                     <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyDarker shadow-2">
-                            <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_green">
+                            <a onclick="M.toast({html: '👍😀'})" href="#!" id="dark_green">
                                 <div class="card-stacked">
                                     <div class="card-content verticalAligner centerAligner">
                                         <div>
@@ -542,7 +531,7 @@ $(document).ready(function () {
                     </div>
                     <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyDarker shadow-2">
-                            <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_orange">
+                            <a onclick="M.toast({html: '👍😀'})" href="#!" id="dark_orange">
                                 <div class="card-stacked">
                                     <div class="card-content verticalAligner centerAligner">
                                         <div>
@@ -557,7 +546,7 @@ $(document).ready(function () {
                     </div>
                     <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyDarker shadow-2">
-                            <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_pink">
+                            <a onclick="M.toast({html: '👍😀'})" href="#!" id="dark_pink">
                                 <div class="card-stacked">
                                     <div class="card-content verticalAligner centerAligner">
                                         <div>
@@ -572,7 +561,7 @@ $(document).ready(function () {
                     </div>
                     <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyDarker shadow-2">
-                            <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_purple">
+                            <a onclick="M.toast({html: '👍😀'})" href="#!" id="dark_purple">
                                 <div class="card-stacked">
                                     <div class="card-content verticalAligner centerAligner">
                                         <div>
@@ -587,7 +576,7 @@ $(document).ready(function () {
                     </div>
                     <div class="col s12 m4 l4 hide-on-small-only">
                         <div class="card bordered1 colorGreyDarker shadow-2">
-                            <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_red">
+                            <a onclick="M.toast({html: '👍😀'})" href="#!" id="dark_red">
                                 <div class="card-stacked">
                                     <div class="card-content verticalAligner centerAligner">
                                         <div>
@@ -602,7 +591,7 @@ $(document).ready(function () {
                     </div>
                     <div class="col s12 m12 l12 hide-on-small-only">
                         <div class="card bordered1 colorGreyDarker shadow-2">
-                            <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="dark_yellow">
+                            <a onclick="M.toast({html: '👍😀'})" href="#!" id="dark_yellow">
                                 <div class="card-stacked">
                                     <div class="card-content verticalAligner centerAligner">
                                         <div>
@@ -617,41 +606,10 @@ $(document).ready(function () {
                     </div>
                     `;
 
-            /*
-                <div class="col s12 m6 l3 hide-on-small-only">
-                    <div class="card bordered1 colorGreyDarker shadow-2">
-                        <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="coloresUsuario">
-                            <div class="card-stacked">
-                                <div class="card-content verticalAligner centerAligner">
-                                    <div>
-                                        <p class="colorTextReverse muestraDeColorText">Personalizado</p>
-                                    </div>
-                                    <div class="bordered5 muestraDeColor"
-                                        style="background: linear-gradient(
-                                            90deg,
-                                            rgba(255, 0, 0, 1) 0%,
-                                            rgba(255, 154, 0, 1) 10%,
-                                            rgba(208, 222, 33, 1) 20%,
-                                            rgba(79, 220, 74, 1) 30%,
-                                            rgba(63, 218, 216, 1) 40%,
-                                            rgba(47, 201, 226, 1) 50%,
-                                            rgba(28, 127, 238, 1) 60%,
-                                            rgba(95, 21, 242, 1) 70%,
-                                            rgba(186, 12, 248, 1) 80%,
-                                            rgba(251, 7, 217, 1) 90%,
-                                            rgba(255, 0, 0, 1) 100%
-                                        );"></div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            */
-
             contenedorColoresAdaptados.innerHTML = `
             <div class="col s12 m6 l3 hide-on-small-only">
                 <div class="card bordered1 colorGrey shadow-2">
-                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="protanopia">
+                    <a onclick="M.toast({html: '👍😀'})" href="#!" id="protanopia">
                         <div class="card-stacked">
                             <div class="card-content verticalAligner centerAligner">
                                 <div>
@@ -666,7 +624,7 @@ $(document).ready(function () {
             </div>
             <div class="col s12 m6 l3 hide-on-small-only">
                 <div class="card bordered1 colorGrey shadow-2">
-                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="deuteranopia">
+                    <a onclick="M.toast({html: '👍😀'})" href="#!" id="deuteranopia">
                         <div class="card-stacked">
                             <div class="card-content verticalAligner centerAligner">
                                 <div>
@@ -681,7 +639,7 @@ $(document).ready(function () {
             </div>
             <div class="col s12 m6 l3 hide-on-small-only">
                 <div class="card bordered1 colorGrey shadow-2">
-                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="tritanopia">
+                    <a onclick="M.toast({html: '👍😀'})" href="#!" id="tritanopia">
                         <div class="card-stacked">
                             <div class="card-content verticalAligner centerAligner">
                                 <div>
@@ -696,11 +654,11 @@ $(document).ready(function () {
             </div>
             <div class="col s12 m6 l3 hide-on-small-only">
                 <div class="card bordered1 colorGrey shadow-2">
-                    <a onclick="M.toast({html: 'Tema aplicado.'})" href="#!" id="deuteranomalia">
+                    <a onclick="M.toast({html: '👍😀'})" href="#!" id="deuteranomalia">
                         <div class="card-stacked">
                             <div class="card-content verticalAligner centerAligner">
                                 <div>
-                                    <p class="colorTextReverse muestraDeColorText">Deuteranomalia</p>
+                                    <p class="colorTextReverse muestraDeColorText">Deuteranomaly</p>
                                 </div>
                                 <div class="bordered5 muestraDeColor shadow-1e"
                                     style="background-color: rgb(102, 115, 95);"></div>
@@ -725,7 +683,7 @@ $(document).ready(function () {
             Cuando se suba la app al dominio debe ser modificado
             el valor de la url.
         */
-        if (window.location.href == "http://127.0.0.1:5000/configuraciones" || window.location.href == "http://127.0.0.1:5000/configuraciones#!" || window.location.href == "https://jcphelperdos.herokuapp.com/configuraciones#!" || window.location.href == "https://jcphelperdos.herokuapp.com/configuraciones") {
+        if (rutaPageColor == rutaValidaUno || rutaPageColor == rutaValidaDos) {
             if (w < 600) {
                 insertar_phone();
             } else if (w > 600) {
@@ -1027,7 +985,7 @@ $(document).ready(function () {
         
         Esto no sobrecarga el procesador porque por lo regular el tamaño de la pantalla
         se mantiene estático*/
-        if (window.location.href == "http://127.0.0.1:5000/configuraciones" || window.location.href == "http://127.0.0.1:5000/configuraciones#!" || window.location.href == "https://jcphelperdos.herokuapp.com/configuraciones#!" || window.location.href == "https://jcphelperdos.herokuapp.com/configuraciones") {
+        if (rutaPageColor == rutaValidaUno || rutaPageColor == rutaValidaDos) {
             if (newWidth < 600) {
                 for (var i = 0; i < 1; i++) {
                     console.log("Menor");
