@@ -164,5 +164,5 @@ IDPolitica int not null auto_increment,
 IDDocente int not null,
 Estado varchar(15),
 primary key (IDPolitica,IDDocente),
-foreign key (IDDocente) references docentes(IDDocente) ON DELETE CASCADE
+foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
 );
