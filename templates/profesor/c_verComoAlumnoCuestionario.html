@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Preview de alumno</title>
+    <title class="TDI">Preview de alumno</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -18,57 +18,50 @@
     <!--Menu de página de inicio-->
     <nav class="color2">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Preview de alumno.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Preview de alumno.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Preview de alumno.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Preview de alumno.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
-            </ul>
-            <!--Botones del runner-->
-            <ul class="right hide-on-med-and-down">
-                <li><a href="/python_runner" target="_blank" class="btn colorWhite colorTextReverse button-rounded"><i
-                    class="left" id="python_icons"></i>Python Runner</a></li>
-            </ul>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="/java_runner" target="_blank" class="btn colorWhite colorTextReverse button-rounded"><i
-                    class="left" id="java_icons"></i>Java Runner</a></li>
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded TDI">Volver</a></li>
             </ul>
         </div>
     </nav>
 
     <style>
-        #java_icons,#python_icons{
+        #java_icons,
+        #python_icons {
             position: relative;
             bottom: -5px;
         }
 
-        #python_icons{
+        #python_icons {
             background-image: url('../../static/images/icons/python.svg');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
             width: 25px;
             height: 25px;
-            color: #fff;
+            color: #000 !important;
         }
 
-        #java_icons{
+        #java_icons {
             background-image: url('../../static/images/icons/java.svg');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
             width: 25px;
             height: 25px;
-            color: #fff;
+            color: #000;
         }
 
-        #python_icons_float,#java_icons_float{
+        #python_icons_float,
+        #java_icons_float {
             position: relative;
             bottom: -6px;
         }
 
-        #python_icons_float{
+        #python_icons_float {
             background-image: url('../../static/images/icons/python.svg');
             background-repeat: no-repeat;
             background-size: cover;
@@ -78,7 +71,7 @@
             color: #000;
         }
 
-        #java_icons_float{
+        #java_icons_float {
             background-image: url('../../static/images/icons/java.svg');
             background-repeat: no-repeat;
             background-size: cover;
@@ -88,13 +81,13 @@
             color: #000;
         }
 
-        .floatingPy{
+        .floatingPy {
             position: fixed;
             bottom: 0;
             margin: 0 0 90px 0;
         }
 
-        .floatingJava{
+        .floatingJava {
             position: fixed;
             bottom: 0;
             margin: 0 0 160px 0;
@@ -106,31 +99,50 @@
         <!--Datos importantes del cuestionario-->
         <section class="contenedorPreviewUno">
             <section class="infoColor bordered1 shadow-1e generalInfoPreviewAlumno">
-                <p class="infoColor"><i class="material-icons">info</i> Usted puede ver el cuestionario como lo vería el estudiante al momento de contestar.</p>
+                <p class="infoColor"><i class="material-icons">info</i>
+                    <span class="TDI">
+                        Usted puede ver el cuestionario como lo vería el estudiante al momento de contestar.
+                    </span>
+                </p>
             </section>
             <div class="hide-on-small-only">
                 <h5><b>{{datosCuestionario[0][3]}}</b></h5>
             </div>
             <div class="contenedorOperacionesLive colorGreyWhiter bordered2 shadow-1e" id="contenedorLive">
                 <div class="datosCuestionarioLive">
-                    <h5>Tablero de información.</h5>
+                    <h5 class="colorTextReverse TDI">Tablero de información.</h5>
                     <div class="contenedorContadoresGrid">
-                        <div class="colorGreyDarker bordered5">Total preguntas: 
+                        <div class="colorGreyDarker bordered5">
+                            <span class="colorTextReverse TDI">
+                                Total preguntas:
+                            </span>
                             <span class="coloredText" id="contadorTotal"></span>
                         </div>
-                        <div class="colorGreyDarker bordered5">Respondidas: 
-                            <span class="coloredText"id="contadorRespondidas"></span>
+                        <div class="colorGreyDarker bordered5">
+                            <span class="colorTextReverse TDI">
+                                Respondidas:
+                            </span>
+                            <span class="coloredText" id="contadorRespondidas"></span>
                         </div>
                         <!--Nota: No borrar este input, porque aqui es donde indicamos si es aleatorio o no-->
                         <input type="hidden" value="{{datosCuestionario[0][10]}}" id="ordenCuestionarioValue">
-                        <div class="colorGreyDarker bordered5">Orden:
+                        <div class="colorGreyDarker bordered5">
+                            <span class="colorTextReverse TDI">
+                                Orden:
+                            </span>
                             <span class="coloredText" id="ordenCuestionario">{{datosCuestionario[0][10]}}</span>
                         </div>
-                        <div class="color5 bordered5">Días restantes:
+                        <div class="color5 bordered5">
+                            <span class="colorTextReverse TDI">
+                                Días restantes:
+                            </span>
                             <span class="coloredText" id="contadorFecha">{{datosCuestionario[0][12]}}</span>
-                            <span  class="coloredText" id="contadorTiempo">{{datosCuestionario[0][13]}}</span>
+                            <span class="coloredText" id="contadorTiempo">{{datosCuestionario[0][13]}}</span>
                         </div>
-                        <div class="color5 bordered5">Minutos restantes:
+                        <div class="color5 bordered5">
+                            <span class="colorTextReverse TDI">
+                                Minutos restantes:
+                            </span>
                             <span class="coloredText" id="tiempoRestante">{{datosCuestionario[0][11]}}</span>
                         </div>
                         <div class="contenedorBarra colorGrey bordered5">
@@ -139,23 +151,30 @@
                     </div>
                 </div>
                 <div class="accessCuestionarioLive">
-                    <button
-                        href="#revisarModal"
-                        class="modal-trigger waves-effect waves-light btn-large bordered5 color2 shadow-2e" id="previewJsonResponder"
-                        style="width: 100%;">
-                        <i class="material-icons left">check</i>Simular entrega</button>
+                    <button href="#revisarModal"
+                        class="modal-trigger waves-effect waves-light btn-large bordered5 color2 shadow-2e"
+                        id="previewJsonResponder" style="width: 100%;">
+                        <i class="material-icons left">check</i>
+                        <span class="colorTextReverse TDI">
+                            Simular entrega
+                        </span>
+                    </button>
                 </div>
                 <div class="accessCuestionarioLive">
                     <a href="/viewCuestionario/{{datosCuestionario[0][0]}}"
                         class="waves-effect waves-light btn-large bordered5 color3 shadow-2e" id="previewJsonResponder2"
                         style="width: 100%;">
-                        <i class="material-icons left">keyboard_return</i>Volver a la vista general</a>
+                        <i class="material-icons left">keyboard_return</i>
+                        <span class="colorTextReverse TDI">
+                            Volver a la vista general
+                        </span>
+                    </a>
                 </div>
             </div>
         </section>
         <!--Vista previa del cuestionario-->
         <section class="contenedorPreviewDos">
-            <h5>Preguntas cuestionario</h5>
+            <h5 class="colorTextReverse TDI">Preguntas cuestionario</h5>
             <!--Se crean varios contendores para poder dar variedad a la posicion de las preguntas
             EN EL CASO DE ARRASTRAR SOLO PODRAN IR EN ESOS CONTENEDORES DESTINADOS PARA ELLOS-->
 
@@ -163,7 +182,7 @@
             porque sortable JS tiene un fallo cuando las pagina deben ajustar su altura-->
             <div class="contenedorPreguntasPreview" id="contenedorPreguntasPreview"></div>
             <div class="contenedorPreguntasPreviewArrastrar" id="contenedorPreguntasPreviewArrastrar"></div>
-            <div class="contenedorPreguntasPreview2" id="contenedorPreguntasPreview2"></div> 
+            <div class="contenedorPreguntasPreview2" id="contenedorPreguntasPreview2"></div>
             <div class="contenedorPreguntasPreviewArrastrar2" id="contenedorPreguntasPreviewArrastrar2"></div>
             <div class="contenedorPreguntasPreview3" id="contenedorPreguntasPreview3"></div>
         </section>
@@ -172,13 +191,12 @@
     <!--Pop up de preguntar si revisar-->
     <div id="revisarModal" class="modal bordered2 colorGrey">
         <div class="modal-content">
-            <h4>¿Desea enviar el cuestionario?</h4>
-            <p>Este procedimiento no se puede revertir.</p>
+            <h4 class="colorTextReverse TDI">¿Desea enviar el cuestionario?</h4>
+            <p class="colorTextReverse TDI">Este procedimiento no se puede revertir.</p>
             <hr>
             <form action="/simularRevision/{{datosCuestionario[0][0]}}" method="post">
-                <button onclick="procesamientoDeResultados()" 
-                    id="botonRevisarMensaje"
-                    class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded"
+                <button onclick="procesamientoDeResultados()" id="botonRevisarMensaje"
+                    class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded colorTextReverse TDI"
                     style="width: 100%;">Enviar</button>
                 <input type="hidden" name="jsonContentInput" id="jsonContentInput" value="">
             </form>
@@ -194,19 +212,25 @@
 
     <!--Boton para el code runner-->
     <div class="fixed-action-btn floatingPy">
-        <a href="/python_runner" target="_blank" class="btn-floating btn-large colorGreyWhiter">
+        <a href="/python_runner" target="_blank" class="btn-floating btn-large colorGreyWhiter"
+            style="background-color: #fff;">
             <i class="large" id="python_icons_float"></i>
         </a>
     </div>
 
     <div class="fixed-action-btn floatingJava">
-        <a href="/java_runner" target="_blank" class="btn-floating btn-large colorGreyWhiter">
+        <a href="/java_runner" target="_blank" class="btn-floating btn-large colorGreyWhiter"
+            style="background-color: #fff;">
             <i class="large" id="java_icons_float"></i>
         </a>
     </div>
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
 
 </body>
-
 
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
@@ -220,6 +244,9 @@
 <script src="../../static/js/operacionesPreviewDeAlumno.js"></script>
 <script src="../../static/js/operacionesCuestionariosCuentaAtras.js"></script>
 <script src="../../static/js/operacionesCuestionariosRespuestas.js"></script>
+
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
 <!--Esta parte necesita ser agregada aqui porque son cambios en tiempo real-->
 <script>
@@ -248,21 +275,21 @@
     }
 
     //Rellenar textos
-    function agregarRespuestaOpt2(classBlank, idButton, idRespuesta,idInputGet) {
+    function agregarRespuestaOpt2(classBlank, idButton, idRespuesta, idInputGet) {
         let buttonElement = document.getElementById(idButton);
         let textInput = document.getElementById(idRespuesta);
         let classBlankElements = document.getElementsByClassName(classBlank);
 
         //Accedemos al elemento input hidden y le metemeo la respuesta
         let idInputGetElement = document.getElementById(idInputGet);
-        
+
         let valoresInputs;
         //Accedemos a los values de los inputs con esa clase
         textInput.innerText = "";
         idInputGetElement.value = "";
         for (var i = 0; i < classBlankElements.length; i++) {
             textInput.innerText += classBlankElements[i].value + "/";
-            idInputGetElement.value +=  "/" + classBlankElements[i].value;
+            idInputGetElement.value += "/" + classBlankElements[i].value;
         }
 
         textInput.classList.remove("colorGreyDarker");
@@ -285,16 +312,16 @@
 
         //Accedemos al elemento input hidden y le metemeo la respuesta
         let idInputGetElement = document.getElementById(idInputGet);
-        
+
         //Ingresamos los valores
         if (resultadoInput.value != "" || resultadoLink.value != "") {
             outputResultado.innerText = resultadoInput.value;
             outputLink.innerText = resultadoLink.value;
-            if(resultadoInput.value == "" && resultadoLink.value != ""){
+            if (resultadoInput.value == "" && resultadoLink.value != "") {
                 idInputGetElement.value = "Output: EMPTY" + "/Link: " + resultadoLink.value;
-            }else if( resultadoLink.value == "" && resultadoInput.value != ""){
+            } else if (resultadoLink.value == "" && resultadoInput.value != "") {
                 idInputGetElement.value = "Output: " + resultadoInput.value + "/Link: " + "EMPTY";
-            }else{
+            } else {
                 idInputGetElement.value = "Output: " + resultadoInput.value + "/Link: " + resultadoLink.value;
             }
         } else {
@@ -317,16 +344,16 @@
     }
 
     //Para las preguntas de arrastrar
-    function agregarRespuestaArrastrar(respuesta, idInputGet, contenedorDefiniciones){
+    function agregarRespuestaArrastrar(respuesta, idInputGet, contenedorDefiniciones) {
         let respuestaInput = document.getElementById(respuesta);
-        
+
         //Accedemos al elemento input hidden y al contenedor de definiciones
         let idInputGetElement = document.getElementById(idInputGet);
         let contenedorDefinicionesElement = document.getElementById(contenedorDefiniciones);
         let hijosContenedorDefiniciones = contenedorDefinicionesElement.querySelectorAll(".arrastrarElemento");
         idInputGetElement.value = "";
         //Juntamos todo el contenido de los elementos hijos en un array
-        for(y = 0; y < hijosContenedorDefiniciones.length; y++){
+        for (y = 0; y < hijosContenedorDefiniciones.length; y++) {
             idInputGetElement.value += hijosContenedorDefiniciones[y].innerText + "/";
         }
 
@@ -342,7 +369,7 @@
     }
 
     //Preguntas true false
-    function agregarRespuestaOpt4(resultadoOutput, value, idInputGet){
+    function agregarRespuestaOpt4(resultadoOutput, value, idInputGet) {
         let output = document.getElementById(resultadoOutput);
         output.innerHTML = value;
 
@@ -359,7 +386,7 @@
         imprimirBarraProgreso();
     }
 
-    function agregarRespuestaOptAbiertas(respuesta, resultado, button, idInputGet){
+    function agregarRespuestaOptAbiertas(respuesta, resultado, button, idInputGet) {
         let respuestaInput = document.getElementById(respuesta);
         let resultadoInput = document.getElementById(resultado);
         let buttonInput = document.getElementById(button);
@@ -394,14 +421,14 @@
     }
 
     //Se imprime la barra de progreso
-    function imprimirBarraProgreso(){
+    function imprimirBarraProgreso() {
         //Accedemos a la barra de carga
         let cargaBarra = document.getElementsByClassName('cargaBarra');
         //Accedemos al numero total
         let numeroPreguntas = document.getElementById('contadorTotal').innerText;
         //Accedemos a las preguntas que se van agregando
         let answerReadySize = document.getElementsByClassName('answerReady').length;
-        cargaBarra[0].setAttribute('style', 'width:' + ((100/numeroPreguntas)*answerReadySize) + '%;')
+        cargaBarra[0].setAttribute('style', 'width:' + ((100 / numeroPreguntas) * answerReadySize) + '%;')
     }
 </script>
 

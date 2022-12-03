@@ -69,6 +69,8 @@ function rutaValidation(stringUrl) {
         return "viewGroup"
     }else if(stringUrl.includes("viewCuestionario")){
         return "viewCuestionario"
+    }else if(stringUrl.includes("previewVerComoALumnoCuestionario")){
+        return "previewVerComoALumnoCuestionario"
     }
     
     
