@@ -227,95 +227,30 @@ let rutas = {
     },
     "previewVerComoALumnoCuestionario": {
         "textEspanol": {
-            texts: [
-            'Preview de alumno.',
-            'Preview de alumno.',
-            'Preview de alumno.',
-            'Volver',
-            'Usted puede ver el cuestionario como lo vería el estudiante al momento de contestar.',
-            'Tablero de información.',
-            'Total preguntas:',
-            'Respondidas:',
-            'Orden:',
-            'Días restantes:',
-            'Minutos restantes:',
-            'Simular entrega',
-            'Volver a la vista general',
-            'Preguntas cuestionario',
-            '¿Desea enviar el cuestionario?',
-            'Este procedimiento no se puede revertir.',
-            'Enviar']
+            texts: ['Preview de alumno.','Preview de alumno.','Preview de alumno.','Volver','Usted puede ver el cuestionario como lo vería el estudiante al momento de contestar.','Tablero de información.','Total preguntas:','Respondidas:','Orden:','Días restantes:','Minutos restantes:','Simular entrega','Volver a la vista general','Preguntas cuestionario','¿Desea enviar el cuestionario?','Este procedimiento no se puede revertir.','Enviar']
         },
         "textIngles": {
-            texts: ['Student preview.',
-            'Student preview.',
-            'Student preview.',
-            'Return',
-            'You can see the questionnaire as the student would see it when answering.',
-            'Information board.',
-            'Total questions:',
-            'Answers:',
-            'Order:',
-            'Remaining days:',
-            'Remaining minutes:',
-            'Simulate delivery',
-            'Back to overview',
-            'Quiz questions',
-            'Do you want to send the questionnaire?',
-            'This procedure cannot be reversed.',
-            'Send']
+            texts: ['Student preview.','Student preview.','Student preview.','Return','You can see the questionnaire as the student would see it when answering.','Information board.','Total questions:','Answers:','Order:','Remaining days:','Remaining minutes:','Simulate delivery','Back to overview','Quiz questions','Do you want to send the questionnaire?','This procedure cannot be reversed.','Send']
         },
         "textPortugues": {
-            texts: ['Visualização do aluno.',
-            'Visualização do aluno.',
-            'Visualização do aluno.',
-            'Retornar',
-            'Você pode ver o questionário como o aluno o veria ao responder.',
-            'Painel de informações.',
-            'Total de perguntas:',
-            'Respostas:',
-            'Ordem:',
-            'Dias restantes:',
-            'Minutos restantes:',
-            'Simular entrega',
-            'Voltar ao menu principal',
-            'Perguntas do questionário',
-            'Deseja enviar o questionário?',
-            'Este procedimento não pode ser revertido.',
-            'Mandar']
+            texts: ['Visualização do aluno.','Visualização do aluno.','Visualização do aluno.','Retornar','Você pode ver o questionário como o aluno o veria ao responder.','Painel de informações.','Total de perguntas:','Respostas:','Ordem:','Dias restantes:','Minutos restantes:','Simular entrega','Voltar ao menu principal','Perguntas do questionário','Deseja enviar o questionário?','Este procedimento não pode ser revertido.','Mandar']
         },
         "textChino": {
-            texts: ['学生预览。',
-            '学生预览。',
-            '学生预览。',
-            '返回',
-            '您可以像学生回答时看到的那样看到问卷。',
-            '信息板。',
-            '总问题：',
-            '答案：',
-            '命令：',
-            '剩余天数：',
-            '剩余分钟数：',
-            '模拟交付',
-            '返回概览',
-            '测验问题',
-            '你想发送问卷吗？',
-            '此过程不可逆。',
-            '发送']
+            texts: ['学生预览。','学生预览。','学生预览。','返回','您可以像学生回答时看到的那样看到问卷。','信息板。','总问题：','答案：','命令：','剩余天数：','剩余分钟数：','模拟交付','返回概览','测验问题','你想发送问卷吗？','此过程不可逆。','发送']
         }
     },
-    "saber_mas2": {
+    "simularRevision": {
         "textEspanol": {
-            texts: []
+            texts: ['Resultados de preview.','Resultados de preview.','Resultados de preview.','Volver','Usted esta observando el cuestionario cuando el alumno ya lo ha enviado y como algunas respuestas han sido evaluadas automaticamente.','Resultados','Preguntas y puntaje','Preguntas y puntaje','Preguntas/Respuestas cuestionario']
         },
         "textIngles": {
-            texts: []
+            texts: ['Preview results.','Preview results.','Preview results.','Return','You are observing the questionnaire when the student has already sent it and how some answers have been evaluated automatically.','Results','Questions and scoring','Questions and scoring','Questions/Answers questionnaire']
         },
         "textPortugues": {
-            texts: []
+            texts: ['Visualizar resultados.','Visualizar resultados.','Visualizar resultados.','Retornar','Você está observando o questionário quando o aluno já o enviou e como algumas respostas foram avaliadas automaticamente.','Resultados','Perguntas e pontuação','Perguntas e pontuação','Questionário de perguntas/respostas']
         },
         "textChino": {
-            texts: []
+            texts: ['预览结果。','预览结果。','预览结果。','返回','当学生已经发送问卷时,您正在观察问卷以及如何自动评估一些答案。','结果','问题和评分','问题和评分','问答问卷']
         }
     },
     "saber_mas2": {

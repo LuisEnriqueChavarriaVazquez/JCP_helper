@@ -89,27 +89,27 @@ function imprimirPreguntas() {
                 //Contenido de la pregunta
                 let contenido =
                     `  
-                <h5 class="tituloPregunta"><b>Opción múltiple ` + (m + 1) + `</b></h5>
+                <h5 class="tituloPregunta"><b>Q/1 ` + (m + 1) + `</b></h5>
                 <hr>
-                <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray1[m][0] + `</b></div>
+                <div class="preguntaBox colorGrey bordered1"><b class="colorTextReverse">` + preguntasModalArray1[m][0] + `</b></div>
                 <div class="imagenBox bordered1 shadow-1e colorGrey">
-                <h6><b>Imagen adjunta.</b></h6>
+                <h6><b class="colorTextReverse">Img.</b></h6>
                 <img alt='not available image' class="materialboxed imagenBoxContent bordered1" src="` + preguntasModalArray1[m][1] + `"></img>
                 </div>
-                <h6><b>Opciones de la pregunta.</b></h6>
+                <h6><b class="colorTextReverse">Opts.</b></h6>
                 <div class="opcionesContainerStyleViewCuestionario">
-                    <div class="color5 bordered5 coloredText letterStyleViewCuestionario">A</div><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][3] + `</div>
-                    <div class="color5 bordered5 coloredText letterStyleViewCuestionario">B</div><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][4] + `</div>
-                    <div class="color5 bordered5 coloredText letterStyleViewCuestionario">C</div><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][5] + `</div>
-                    <div class="color5 bordered5 coloredText letterStyleViewCuestionario">D</div><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][6] + `</div>
+                    <div class="color5 bordered5 coloredText letterStyleViewCuestionario">A</div><div class="colorGrey colorTextReverse bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][3] + `</div>
+                    <div class="color5 bordered5 coloredText letterStyleViewCuestionario">B</div><div class="colorGrey colorTextReverse bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][4] + `</div>
+                    <div class="color5 bordered5 coloredText letterStyleViewCuestionario">C</div><div class="colorGrey colorTextReverse bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][5] + `</div>
+                    <div class="color5 bordered5 coloredText letterStyleViewCuestionario">D</div><div class="colorGrey colorTextReverse bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][6] + `</div>
                     </div>
                     <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
-                        <h6><b>Respuesta correcta.</b></h6>
-                        <div class="preguntaBox color5 bordered1"><b>` + preguntasModalArray1[m][2] + `</b></div>
-                        <input type="hidden" value="` + preguntasModalArray1[m][2] + `" class="rightAnswerOpt1" id="rightAnswerOpt1` + m + `" name="rightAnswerOpt1` + m + `"></input>
-                        <h6><b>Su respuesta.</b></h6>
-                        <div class="respuestaBox respuestaBoxOpt1 goodColor bordered1"></div>
-                        <div class="ponderacionBox ponderacion_opt1 colorWhite bordered1"></div>
+                        <h6><b class="colorTextReverse">R:</b></h6>
+                        <div class="preguntaBox color5 bordered1 colorTextReverse"><b>` + preguntasModalArray1[m][2] + `</b></div>
+                        <input type="hidden" value="` + preguntasModalArray1[m][2] + `" class="rightAnswerOpt1 colorTextReverse" id="rightAnswerOpt1` + m + `" name="rightAnswerOpt1` + m + `"></input>
+                        <h6><b class="colorTextReverse">Result.</b></h6>
+                        <div class="respuestaBox respuestaBoxOpt1 goodColor colorTextReverse bordered1"></div>
+                        <div class="ponderacionBox ponderacion_opt1 colorWhite colorTextReverse bordered1"></div>
                     </section>`;
                 contenedoresPregunta[m].innerHTML = contenido;
             }
@@ -137,28 +137,28 @@ function imprimirPreguntas() {
 
                 //Contenido de la pregunta
                 let contenidoInicial = `  
-            <h5 class="tituloPregunta"><b>Rellenar espacio ` + (m + 1) + `</b></h5>
+            <h5 class="tituloPregunta"><b>Q/2 ` + (m + 1) + `</b></h5>
             <hr>
-            <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray2[m][0] + `</b></div>
+            <div class="preguntaBox colorGrey bordered1"><b class="colorTextReverse">` + preguntasModalArray2[m][0] + `</b></div>
             <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
-                <h6><b>Soluciones de los espacios.</b></h6>
-                <div class="opcionesContainerStyleViewCuestionario">
+                <h6><b class="colorTextReverse">Soluciones de los espacios.</b></h6>
+                <div class="opcionesContainerStyleViewCuestionario colorTextReverse">
             `;
 
                 for (var t = 1; t < longitudPregunta; t++) {
                     contenidoIntermedio += `
                     <div class="colorGreyDarker bordered1 colorTextReverse letterStyleViewCuestionario">Blank `+ (t) + `</div>
-                    <div class="colorGreyWhiter bordered1 opcionStyleViewCuestionario">` + preguntasModalArray2[m][t] + `</div>
+                    <div class="colorGreyWhiter bordered1 colorTextReverse opcionStyleViewCuestionario">` + preguntasModalArray2[m][t] + `</div>
                 `;
                 }
 
                 let contenidoFinal = `
                 </div>
             </section>
-            <h6><b>Su respuesta.</b></h6>
-            <input type="hidden" class="rightAnswerOpt2" id="rightAnswerOpt2`+ m + `" name="rightAnswerOpt2` + m + `"></input>
-            <div class="respuestaBox respuestaBoxOpt2 goodColor bordered1"></div>
-            <div class="ponderacionBox ponderacion_opt2 colorWhite bordered1"></div>`;
+            <h6><b class="colorTextReverse">R.</b></h6>
+            <input type="hidden" class="rightAnswerOpt2 colorTextReverse" id="rightAnswerOpt2`+ m + `" name="rightAnswerOpt2` + m + `"></input>
+            <div class="respuestaBox respuestaBoxOpt2 goodColor colorTextReverse bordered1"></div>
+            <div class="ponderacionBox ponderacion_opt2 colorWhite colorTextReverse bordered1"></div>`;
                 contenedoresPregunta[m].innerHTML = contenidoInicial + contenidoIntermedio + contenidoFinal;
             }
         } else {
@@ -179,21 +179,21 @@ function imprimirPreguntas() {
                 //Contenido de la pregunta
                 let contenido =
                     `  
-            <h5 class="tituloPregunta"><b>Ejercicio ` + (k + 1) + `</b></h5>
+            <h5 class="tituloPregunta"><b>Q/3 ` + (k + 1) + `</b></h5>
             <hr>
-            <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray3[k][0] + `</b></div>
-            <div class="imagenBox bordered1 shadow-1e colorGrey">
-            <h6><b>Imagen adjunta.</b></h6>
+            <div class="preguntaBox colorGrey bordered1"><b class="colorTextReverse">` + preguntasModalArray3[k][0] + `</b></div>
+            <div class="imagenBox bordered1 shadow-1e colorGrey colorTextReverse">
+            <h6><b class="colorTextReverse">Img.</b></h6>
             <img alt='not available image' class="materialboxed imagenBoxContent bordered1" src="` + preguntasModalArray3[k][1] + `"></img>
             </div>
             <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
-                <h6><b>Propuesta de solución del docente.</b></h6>
-                <div class="codeContainerBox"><pre class="previewCodeContainer colorText bordered1">` + preguntasModalArray3[k][3] + `</pre></div>
-                <div class="preguntaBox outputEsperado outputGetValue color5 bordered1"><b>Output: ` + preguntasModalArray3[k][4] + `</b></div>
-                <h6 class="tituloEjercicioPendiente"><b>Su respuesta.</b></h6>
-                <input type="hidden" class="rightAnswerOpt3" id="rightAnswerOpt3`+ k + `" name="rightAnswerOpt3` + k + `"></input>
-                <div class="respuestaBox respuestaBoxOpt3 goodColor bordered1"></div>
-                <div class="ponderacionBox ponderacion_opt3 colorWhite bordered1"></div>
+                <h6><b class="colorTextReverse">Propuesta de solución del docente.</b></h6>
+                <div class="codeContainerBox"><pre class="previewCodeContainer colorTextReverse bordered1">` + preguntasModalArray3[k][3] + `</pre></div>
+                <div class="preguntaBox outputEsperado outputGetValue color5 bordered1 colorTextReverse"><b class="colorTextReverse">Output: ` + preguntasModalArray3[k][4] + `</b></div>
+                <h6 class="tituloEjercicioPendiente"><b class="colorTextReverse">R:</b></h6>
+                <input type="hidden" class="rightAnswerOpt3 colorTextReverse" id="rightAnswerOpt3`+ k + `" name="rightAnswerOpt3` + k + `"></input>
+                <div class="respuestaBox respuestaBoxOpt3 goodColor colorTextReverse bordered1"></div>
+                <div class="ponderacionBox ponderacion_opt3 colorWhite colorTextReverse bordered1"></div>
             </section>`;
 
                 contenedoresPregunta[k].innerHTML = contenido;
@@ -226,9 +226,9 @@ function imprimirPreguntas() {
                 var definicion = [];
                 for (var x = 0; x < concepto_y_definiciones[y].length; x++) {
                     //Guardamos solo el concepto en una lista
-                    concepto.push("<div class='arrastrarElemento arrastrarElementoC shadow-1e colorGrey'>" + concepto_y_definiciones[y][x].substr(0, concepto_y_definiciones[y][x].indexOf('*')) + "</div>");
+                    concepto.push("<div class='arrastrarElemento arrastrarElementoC shadow-1e colorGrey colorTextReverse'>" + concepto_y_definiciones[y][x].substr(0, concepto_y_definiciones[y][x].indexOf('*')) + "</div>");
                     //Guardamos solo las definiciones en una lista
-                    definicion.push("<div class='arrastrarElemento arrastrarElementoD shadow-1e colorGreyDarker'>" + concepto_y_definiciones[y][x].substr(concepto_y_definiciones[y][x].indexOf('*') + 1) + "</div>");
+                    definicion.push("<div class='arrastrarElemento arrastrarElementoD shadow-1e colorGreyDarker colorTextReverse'>" + concepto_y_definiciones[y][x].substr(concepto_y_definiciones[y][x].indexOf('*') + 1) + "</div>");
                 }
                 conceptoTotal.push(concepto);
                 definicionTotal.push(definicion);
@@ -243,12 +243,12 @@ function imprimirPreguntas() {
             function crearInicio(numero) {
                 inicioContenido =
                     `  
-            <h5 class="tituloPregunta"><b>Ejercicio arrastrar ` + (numero + 1) + `</b></h5>
+            <h5 class="tituloPregunta"><b>Q/6 ` + (numero + 1) + `</b></h5>
             <hr>
             <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray4[numero][0] + `</b></div>
-            <h6><b>Relación correcta.</b></h6>
-            <input type="hidden" value="" class="rightAnswerOpt4" id="rightAnswerOpt4`+ numero + `" name="rightAnswerOpt4` + numero + `"></input>
-            <div class="opcionesContainerStyleViewCuestionarioArrastrar">`;
+            <h6><b class="colorTextReverse">Opts.</b></h6>
+            <input type="hidden" value="" class="rightAnswerOpt4 colorTextReverse" id="rightAnswerOpt4`+ numero + `" name="rightAnswerOpt4` + numero + `"></input>
+            <div class="opcionesContainerStyleViewCuestionarioArrastrar colorTextReverse">`;
                 return inicioContenido;
             }
 
@@ -257,16 +257,15 @@ function imprimirPreguntas() {
             let finalContenido = `
             </div>
             <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
-                <h6><b>Sus respuestas.</b></h6>
-                <p>El puntaje se divide de acuerdo a las cantidad de respuestas buenas. 
-                En caso de faltar conceptos se considera como mala.</p>
-                <div class="respuestaBox respuestaBoxOpt4 goodColor bordered1"></div>
-                <div class="badAnswerBox badColor bordered1"></div>
+                <h6><b class="colorTextReverse>R.</b></h6>
+                <p class="colorTextReverse colorGreyDarker">The points are divided by the total, if one is wrong all is wrong.</p>
+                <div class="respuestaBox respuestaBoxOpt4 goodColor colorTextReverse bordered1"></div>
+                <div class="badAnswerBox badColor bordered1 colorTextReverse"></div>
                 <section class="contadorBoxAnswerArrastrar">
-                    <div class="countAnswerBoxRight goodColor colorGreyWhiter bordered1"></div>
-                    <div class="countAnswerBox colorGreyWhiter bordered1"></div>
+                    <div class="countAnswerBoxRight goodColor colorTextReverse colorGreyWhiter bordered1"></div>
+                    <div class="countAnswerBox colorGreyWhiter colorTextReverse bordered1"></div>
                 </section>
-                <div class="ponderacionBox ponderacion_opt4 colorWhite bordered1"></div>
+                <div class="ponderacionBox ponderacion_opt4 colorWhite bordered1 colorTextReverse"></div>
             </section>`;
 
             //Aqui hacemos la impresion de los elementos (conceptos y definiciones dentro del contenido)
@@ -297,18 +296,18 @@ function imprimirPreguntas() {
                 //Contenido de la pregunta
                 let contenido =
                     `  
-                <h5 class="tituloPregunta"><b>Pregunta True/False ` + (m + 1) + `</b></h5>
+                <h5 class="tituloPregunta"><b>Q/4 ` + (m + 1) + `</b></h5>
                 <hr>
-                <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray5[m][0] + `</b></div>
+                <div class="preguntaBox colorGrey bordered1"><b class="colorTextReverse">` + preguntasModalArray5[m][0] + `</b></div>
                 <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
-                    <h6><b>Solución de la pregunta.</b></h6>
+                    <h6><b class="colorTextReverse">Solution.</b></h6>
                     <div class="opcionesContainerStyleViewCuestionarioTrueFalse">
-                    <div class="preguntaBoxFalseTrue color5 coloredText bordered1"><b>` + preguntasModalArray5[m][1] + `</b></div>
+                    <div class="preguntaBoxFalseTrue color5 coloredText bordered1"><b class="colorTextReverse">` + preguntasModalArray5[m][1] + `</b></div>
                     </div>
-                    <h6><b>Su respuesta.</b></h6>
-                    <input type="hidden" value="` + preguntasModalArray5[m][1] + `" class="rightAnswerOpt5" id="rightAnswerOpt5` + m + `" name="rightAnswerOpt5` + m + `"></input>
-                    <div class="respuestaBox respuestaBoxOpt5 goodColor bordered1"></div>
-                    <div class="ponderacionBox ponderacion_opt5 colorWhite bordered1"></div>
+                    <h6><b class="colorTextReverse">R.</b></h6>
+                    <input type="hidden" value="` + preguntasModalArray5[m][1] + `" class="rightAnswerOpt5 colorTextReverse" id="rightAnswerOpt5` + m + `" name="rightAnswerOpt5` + m + `"></input>
+                    <div class="respuestaBox respuestaBoxOpt5 goodColor bordered1 colorTextReverse"></div>
+                    <div class="ponderacionBox ponderacion_opt5 colorWhite bordered1 colorTextReverse"></div>
                 </section>
                 `;
                 contenedoresPregunta[m].innerHTML = contenido;
@@ -330,22 +329,22 @@ function imprimirPreguntas() {
                 //Contenido de la pregunta
                 let contenido =
                     `  
-            <h5 class="tituloPregunta"><b>Pregunta abierta ` + (m + 1) + `</b></h5>
+            <h5 class="tituloPregunta"><b>Q/5 ` + (m + 1) + `</b></h5>
             <hr>
-                <h6><b>Descripción.</b></h6>
-                <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray6[m][0] + `</b></div>
+                <h6><b class="colorTextReverse">Desc.</b></h6>
+                <div class="preguntaBox colorGrey bordered1 colorTextReverse"><b>` + preguntasModalArray6[m][0] + `</b></div>
                 <div class="imagenBox bordered1 shadow-1e colorGrey">
-                    <h6><b>Imagen adjunta.</b></h6>
+                    <h6><b class="colorTextReverse">Img.</b></h6>
                     <img alt='not available image' class="materialboxed imagenBoxContent bordered1" src="` + preguntasModalArray6[m][2] + `"></img>
                 </div>
                 <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
-                <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
-                    <h6><b>Solución de la pregunta.</b></h6>
-                    <div class="preguntaBox outputEsperado colorGreyDarker bordered1"><b>Estas preguntas se revisan de manera manual, espera a que tu profesor lea tu respuesta.</b></div>
-                    <h6><b>Su respuesta.</b></h6>
-                    <input type="hidden" value="pendiente" class="rightAnswerOpt6" id="rightAnswerOpt6`+ m + `" name="rightAnswerOpt6` + m + `"></input>
-                    <div class="respuestaBox respuestaBoxOpt6 goodColor bordered1"></div>
-                    <div class="ponderacionBox ponderacion_opt6 colorWhite bordered1"></div>
+                <section class="colorGrey bordered1 shadow-1e colorTextReverse respuestaFinalBoxes">
+                    <h6><b class="colorTextReverse">Solution.</b></h6>
+                    <div class="preguntaBox outputEsperado colorGreyDarker bordered1"><b class="colorTextReverse">Manual check pending</b></div>
+                    <h6><b class="colorTextReverse">R.</b></h6>
+                    <input type="hidden" value="pendiente" class="rightAnswerOpt6 colorTextReverse" id="rightAnswerOpt6`+ m + `" name="rightAnswerOpt6` + m + `"></input>
+                    <div class="respuestaBox respuestaBoxOpt6 goodColor bordered1 colorTextReverse"></div>
+                    <div class="ponderacionBox ponderacion_opt6 colorWhite bordered1 colorTextReverse"></div>
                 </section>
                 `;
                 contenedoresPregunta[m].innerHTML = contenido;
@@ -991,10 +990,10 @@ function imprimirPreguntas() {
         //Evalua si existen
         if (rightAnswerOpt6.length > 0 || opt3Pendiente.length > 0) {
             //En caso de que haya preguntas abiertas o ejercicios sin output.
-            calificacionContainer[0].innerHTML = "<p>Revisión manual pendiente</p>";
+            calificacionContainer[0].innerHTML = "<p>Manual check pending</p>";
         } else {
             var promedio = (ponderacionGlobal.toFixed(2) * 10) / ponderacionGlobalDada;
-            calificacionContainer[0].innerHTML = "<p>Calificación: " + promedio.toFixed(2) + "</p>";
+            calificacionContainer[0].innerHTML = "<p>Grade: " + promedio.toFixed(2) + "</p>";
         }
     }
     calcularPromedio();
@@ -1004,9 +1003,9 @@ function imprimirPreguntas() {
         let estadoRetrasoBox = document.getElementsByClassName('estadoRetraso');
         let estadoRetraso = Object.values(ordenPreguntas[1]);
         if (estadoRetraso == "true") {
-            estadoRetrasoBox[0].innerHTML = "<p>Enviado con retraso</p>";
+            estadoRetrasoBox[0].innerHTML = "<p>Ready but late</p>";
         } else {
-            estadoRetrasoBox[0].innerHTML = "<p>Enviado a tiempo</p>";
+            estadoRetrasoBox[0].innerHTML = "<p>Ready</p>";
         }
 
     }

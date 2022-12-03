@@ -33,6 +33,9 @@
   },
   {
    "retrasado": "true"
+  },
+  {
+   "retrasado": "true"
   }
  ],
  "ponderacionGlobal": [
@@ -142,6 +145,17 @@
     "opt1InputGet_5/&1",
     "opt1InputGet_6/&2"
    ]
+  },
+  {
+   "respuestas": [
+    "opt1InputGet_0/&1",
+    "opt1InputGet_1/&2",
+    "opt1InputGet_2/&3",
+    "opt1InputGet_3/&4",
+    "opt1InputGet_4/&5",
+    "opt1InputGet_5/&1",
+    "opt1InputGet_6/&2"
+   ]
   }
  ],
  "preguntasModal2": [
@@ -174,6 +188,14 @@
     "opt2InputGet_2/&2",
     "opt2InputGet_3/&2"
    ]
+  },
+  {
+   "respuestas": [
+    "opt2InputGet_0/&3",
+    "opt2InputGet_1/&2",
+    "opt2InputGet_2/&2",
+    "opt2InputGet_3/&2"
+   ]
   }
  ],
  "preguntasModal3": [
@@ -197,6 +219,13 @@
    "2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
    "3": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhs5Ejr2qTh_xaK_LNgGFHCSxPepQFVpcnfw&usqp=CAU",
    "4": ""
+  },
+  {
+   "respuestas": [
+    "opt3InputGet_0/&2",
+    "opt3InputGet_1/&3",
+    "opt3InputGet_2/&2"
+   ]
   },
   {
    "respuestas": [
@@ -249,7 +278,16 @@
    "respuestas": [
     "opt4InputGet_0/&1",
     "opt4InputGet_1/&2",
-    "opt4InputGet_2/&4",
+    "opt4InputGet_2/p1/p2/j1/j2/ddssdsd/sdfsfdsdsfd/sdfdsfsd/sddsfsddfs/dsdsdsfdsf/sddsffdsdsf/&4",
+    "opt4InputGet_3/&5",
+    "opt4InputGet_4/&3"
+   ]
+  },
+  {
+   "respuestas": [
+    "opt4InputGet_0/&1",
+    "opt4InputGet_1/&2",
+    "opt4InputGet_2/p1/p2/j1/j2/ddssdsd/sdfsfdsdsfd/sdfdsfsd/sddsfsddfs/dsdsdsfdsf/sddsffdsdsf/&4",
     "opt4InputGet_3/&5",
     "opt4InputGet_4/&3"
    ]
@@ -294,6 +332,17 @@
     "opt5InputGet_5/&1",
     "opt5InputGet_6/&4"
    ]
+  },
+  {
+   "respuestas": [
+    "opt5InputGet_0/&5",
+    "opt5InputGet_1/&2",
+    "opt5InputGet_2/&1",
+    "opt5InputGet_3/&1",
+    "opt5InputGet_4/&1",
+    "opt5InputGet_5/&1",
+    "opt5InputGet_6/&4"
+   ]
   }
  ],
  "preguntasModal6": [
@@ -311,6 +360,13 @@
    "0": "Pregunta abierta 3",
    "1": "",
    "2": ""
+  },
+  {
+   "respuestas": [
+    "opt6InputGet_0/&2",
+    "opt6InputGet_1/&4",
+    "opt6InputGet_2/&4"
+   ]
   },
   {
    "respuestas": [

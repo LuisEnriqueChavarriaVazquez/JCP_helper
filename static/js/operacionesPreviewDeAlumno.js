@@ -360,7 +360,7 @@ $(document).ready(function () {
                 //Contenido de la pregunta
                 let contenido =
                     `  
-                <h5 class="tituloPregunta colorTextReverse"><b class="colorText">Q/1 ` + (m + 1) + `</b></h5>
+                <h5 class="tituloPregunta"><b>Q/1 ` + (m + 1) + `</b></h5>
                 <hr>
                 <div class="preguntaBox colorGrey bordered1 colorTextReverse"><b>` + preguntasModalArray1[m][0] + `</b></div>
                 <div class="imagenBox bordered1 shadow-1e colorGrey">
@@ -401,7 +401,7 @@ $(document).ready(function () {
 
                 //Contenido de la pregunta
                 let contenidoInicial = `  
-                <h5 class="tituloPregunta"><b class="colorText">Q/2 ` + (m + 1) + `</b></h5>
+                <h5 class="tituloPregunta"><b>Q/2 ` + (m + 1) + `</b></h5>
                 <hr>
                 <div class="preguntaBox colorGrey bordered1"><b class="colorTextReverse">` + preguntasModalArray2[m][0] + `</b></div>
                 <h6><b class="colorTextReverse">Opts.</b></h6>
@@ -441,7 +441,7 @@ $(document).ready(function () {
                 //Contenido de la pregunta
                 let contenido =
                     `  
-            <h5 class="tituloPregunta"><b class="colorText">Q/3 ` + (k + 1) + `</b></h5>
+            <h5 class="tituloPregunta"><b>Q/3 ` + (k + 1) + `</b></h5>
             <hr>
             <div class="preguntaBox colorGrey bordered1"><b class="colorTextReverse">` + preguntasModalArray3[k][0] + `</b></div>
             <div class="imagenBox bordered1 shadow-1e colorGrey">
@@ -514,7 +514,7 @@ $(document).ready(function () {
             function crearInicio(numero) {
                 inicioContenido =
                     `  
-            <h5 class="tituloPregunta"><b class="colorText">Q/6 ` + (numero + 1) + `</b></h5>
+            <h5 class="tituloPregunta"><b>Q/6 ` + (numero + 1) + `</b></h5>
             <hr>
             <div class="preguntaBox colorGrey bordered1"><b class="colorTextReverse">` + preguntasModalArray4[numero][0] + `</b></div>
             <h6><b class="colorTextReverse">Opts.</b></h6>
@@ -579,7 +579,7 @@ $(document).ready(function () {
                 //Contenido de la pregunta
                 let contenido =
                     `  
-                <h5 class="tituloPregunta"><b class="colorText">Q/4 ` + (m + 1) + `</b></h5>
+                <h5 class="tituloPregunta"><b>Q/4 ` + (m + 1) + `</b></h5>
                 <hr>
                 <div class="preguntaBox colorGrey bordered1"><b class="colorTextReverse">` + preguntasModalArray5[m][0] + `</b></div>
                 <div class="contendorBotonesTrueFalse"> 
@@ -612,7 +612,7 @@ $(document).ready(function () {
                 //Contenido de la pregunta
                 let contenido =
                     `  
-                <h5 class="tituloPregunta"><b class="colorText">Q/5 ` + (m + 1) + `</b></h5>
+                <h5 class="tituloPregunta"><b>Q/5 ` + (m + 1) + `</b></h5>
                 <hr>
                 <h6><b class="colorTextReverse">Desc.</b></h6>
                 <div class="preguntaBox colorGrey bordered1"><b class="colorTextReverse">` + preguntasModalArray6[m][0] + `</b></div>

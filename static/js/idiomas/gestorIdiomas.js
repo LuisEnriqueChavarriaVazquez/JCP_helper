@@ -71,7 +71,10 @@ function rutaValidation(stringUrl) {
         return "viewCuestionario"
     }else if(stringUrl.includes("previewVerComoALumnoCuestionario")){
         return "previewVerComoALumnoCuestionario"
+    }else if(stringUrl.includes("simularRevision")){
+        return "simularRevision"
     }
+
     
     
     //En caso de que la URL no tenga IDs
