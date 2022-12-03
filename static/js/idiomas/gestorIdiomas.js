@@ -65,6 +65,8 @@ function rutaValidation(stringUrl) {
     //Debemos validar aquellos casos en los que la URL tiene un ID
     if (stringUrl.includes("editGroup")) {
         return "editGroup"
+    }else if(stringUrl.includes("viewGroup")){
+        return "viewGroup"
     }
     
     //En caso de que la URL no tenga IDs

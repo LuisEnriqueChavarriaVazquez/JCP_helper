@@ -197,6 +197,71 @@ let rutas = {
             texts: ['编辑组。','编辑组。','编辑组。','返回','形式','形式','组数据','团队名字','小组介绍','设计','默认背景','默认背景','图片网址','组代码','集团语言','语言列表','小组主题','主题数','生成框','主题框','列出主题','主题列表','编辑']
         }
     },
+    "viewGroup": {
+        "textEspanol": {
+            texts: [
+                'Ver grupo.',
+                'Ver grupo.',
+                'Ver grupo.',
+                'Volver',
+                'Datos generales',
+                'Descripción de grupo:',
+                'Lenguajes del grupo:',
+                'Temas del grupo:',
+                'Cuestionarios. ',
+                'Alumnos. ']
+        },
+        "textIngles": {
+            texts: ['View group.',
+            'View group.',
+            'View group.',
+            'Return',
+            'General data',
+            'Group description:',
+            'Group languages:',
+            'Group Topics:',
+            'Questionnaires. ',
+            'Students. ']
+        },
+        "textPortugues": {
+            texts: ['Visualizar grupo.',
+            'Visualizar grupo.',
+            'Visualizar grupo.',
+            'Retornar',
+            'Dados gerais',
+            'Descrição do grupo:',
+            'Idiomas do grupo:',
+            'Tópicos do grupo:',
+            'Questionários. ',
+            'Estudantes. ']
+        },
+        "textChino": {
+            texts: ['查看组。',
+            '查看组。',
+            '查看组。',
+            '返回',
+            '一般数据',
+            '小组介绍：',
+            '集团语言：',
+            '小组主题：',
+            '问卷调查。 ',
+            '学生。 ']
+        }
+    },
+    "saber_mas2": {
+        "textEspanol": {
+            texts: []
+        },
+        "textIngles": {
+            texts: []
+        },
+        "textPortugues": {
+            texts: []
+        },
+        "textChino": {
+            texts: []
+        }
+    },
     "saber_mas2": {
         "textEspanol": {
             texts: []
