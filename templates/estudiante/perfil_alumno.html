@@ -5,7 +5,7 @@
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
 
-    <title>Perfil de usuario</title>
+    <title class="TDI">Perfil de usuario</title>
 </head>
 
 <body class="ocultoc colorGreyWhiter">
@@ -15,11 +15,11 @@
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Perfil del alumno.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Perfil del alumno.</a>
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Perfil del alumno.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Perfil del alumno.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="/bienvenidaEstudiante" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="/bienvenidaEstudiante" class="btn color3 button-rounded TDI">Volver</a></li>
             </ul>
         </div>
     </nav>
@@ -67,16 +67,16 @@
             </div>
 
             <!-- Modal con opciones de las fotos -->
-            <div id="modalFoto" class="modal bottom-sheet" style="height: 30vh;">
+            <div id="modalFoto" class="modal bottom-sheet colorWhite" style="height: 30vh;">
                 <div class="modal-content">
-                    <h5>Opciones</h5>
+                    <h5 class="colorTextReverse TDI">Opciones</h5>
                     <br>
                     <section class="row optionsFotoContainer">
                         <div class="col s12 m6">
                             <div class="cardConfiguracionesMain shadow-2 bordered1 colorGreyWhiter">
                                 <div class="iconCardConfiguraciones color1 bordered5 shadow-2e"><i
                                         class="material-icons colorText">visibility</i></div>
-                                <div class="textCardConfiguraciones colorTextReverse">Ver foto</div>
+                                <div class="textCardConfiguraciones colorTextReverse TDI">Ver foto</div>
                             </div>
                         </div>
                         <a href="#modalSubirFoto" class="modal-trigger">
@@ -84,7 +84,7 @@
                                 <div class="cardConfiguracionesMain shadow-2 bordered1 colorGreyWhiter">
                                     <div class="iconCardConfiguraciones color1 bordered5 shadow-2e"><i
                                             class="material-icons colorText">edit</i></div>
-                                    <div class="textCardConfiguraciones colorTextReverse">Modificar foto</div>
+                                    <div class="textCardConfiguraciones colorTextReverse TDI">Modificar foto</div>
                                 </div>
                             </div>
                         </a>
@@ -95,7 +95,7 @@
             <!-- Modal con opciones de las fotos -->
             <div id="modalSubirFoto" class="modal bottom-sheet" style="height: 80vh;">
                 <div class="modal-content">
-                    <h5>Cambiar foto</h5>
+                    <h5 class="TDI">Cambiar foto</h5>
                     <br>
                     <form enctype="multipart/form-data" action="/editarFotoPerfilAlumno/{{datos[0]}}" method="post">
                         <section class="optionsFotoContainer">
@@ -108,7 +108,10 @@
                                 <div style="padding: 5px 40px 10px 40px;" class="centerAligner">
                                     <label for="imageUploadProf"
                                         class="centerAligner custom-file-upload color3 btn-large waves-effect waves-light button-rounded">
-                                        <i class="fa fa-cloud-upload"></i> Elegir
+                                        <i class="fa fa-cloud-upload"></i> 
+                                        <span class="TDI">
+                                            Elegir
+                                        </span>
                                     </label>
                                     <input id="imageUploadProf" name="foto" type="file" required />
                                     <button type="submit"
@@ -139,23 +142,35 @@
 
                 {% if datos %}
                 <div class="title-general">
-                    <h5 class="hide-on-large-only">Datos de la cuenta</h5>
-                    <h4 class="hide-on-med-and-down">Datos de la cuenta</h4>
+                    <h5 class="hide-on-large-only TDI">Datos de la cuenta</h5>
+                    <h4 class="hide-on-med-and-down TDI">Datos de la cuenta</h4>
                 </div>
                 <div class="gridDataProfileContainer">
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-1">
                         <p class="iconDataProfile colorGrey"><i
-                                class="material-icons md-24 colorTextReverse">email</i>Contacto</p>
+                                class="material-icons md-24 colorTextReverse">email</i>
+                                <span class="TDI">    
+                                    Contacto
+                                </span>
+                        </p>
                         <p class="textDataProfile colorGreyWhiter">{{datos[4]}}</p>
                     </div>
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-2">
                         <p class="iconDataProfile colorGrey"><i
-                                class="material-icons md-24 colorTextReverse">doorbell</i>Unidad</p>
+                                class="material-icons md-24 colorTextReverse">doorbell</i>
+                                <span class="TDI"> 
+                                    Unidad
+                                </span>
+                        </p>
                         <p class="textDataProfile colorGreyWhiter">{{datos[7]}}</p>
                     </div>
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-3">
                         <p class="iconDataProfile colorGrey"><i
-                                class="material-icons md-24 colorTextReverse">adjust</i>Especialización</p>
+                                class="material-icons md-24 colorTextReverse">adjust</i>
+                                <span class="TDI"> 
+                                    Especialización
+                                </span>
+                        </p>
                         <p class="textDataProfile colorGreyWhiter">{{datos[6]}}</p>
                     </div>
                 </div>
@@ -166,13 +181,13 @@
         <section class="postContainerParentStudent colorGrey">
             <div>
                 <div class="title-general">
-                    <h5 class="hide-on-large-only">Publicaciones</h5>
-                    <h4 class="hide-on-med-and-down">Publicaciones</h4>
+                    <h5 class="hide-on-large-only TDI">Publicaciones</h5>
+                    <h4 class="hide-on-med-and-down TDI">Publicaciones</h4>
                 </div>
                 <div class="postCreatorContainer">
                     <input href="#modalPublicacion" type="text" name="postCreator"
                     class="modal-trigger browser-default shadow-1" id="postCreatorInput"
-                    placeholder="🖋️ Nuevo post">
+                    placeholder="🖋️ post">
                 </div>
                 {% if post %}
                 <div class="gridPostUser">
@@ -180,7 +195,7 @@
                     <div class="postGeneral fotoValuePost borderDecoration">
                         <div class="color2 colorText tituloPost">{{post[i][2]}}</div>
                         <div class="imagePost" style="background-image:url('{{post[i][4]}}');"></div>
-                        <div class="descriptionPost colorGreyWhiter">{{post[i][3]}}</div>
+                        <div class="descriptionPost colorGreyWhiter colorTextReverse">{{post[i][3]}}</div>
                         <div class="actionPost colorGreyWhiter">
                             <a href="#modalBorrado{{post[i][0]}}" class="modal-trigger btn waves-effect colorGreyDarker bordered5"><i
                                     class="material-icons colorTextReverse md-24">delete</i></a>
@@ -193,12 +208,11 @@
                     <!--Pop up de eliminar el post-->
                     <div id="modalBorrado{{post[i][0]}}" class="modal bordered2 colorGrey">
                         <div class="modal-content">
-                            <h4>¿Desea eliminar el post?</h4>
-                            <p>Este procedimiento no se puede revertir.</p>
+                            <h4>¿🚮?😕</h4>
                             <hr>
                             <a href="/deletePostAlumno/{{post[i][0]}}"
                             class="waves-effect waves-light btn badColorButton shadow-2e button-rounded"
-                            style="width: 100%;">Eliminar</a>
+                            style="width: 100%;"><i class="material-icons md-28">delete</i></a>
                         </div>
                     </div>
                     {% endfor %}
@@ -208,7 +222,7 @@
         </section>
         <section class="colorGrey">
             <div class="notFoundMsg">
-                <div><h5><b>No hay ningún post.</b></h5></div>
+                <div><h5><b>No posts.</b></h5></div>
                 <div><img src="../../static/images/icons/icon_no_results.svg"></div>
             </div>
         </section>
@@ -219,35 +233,35 @@
     <!--Modal para publicar nuevas cosas-->
     <div id="modalPublicacion" class="modal bordered2 colorGrey" style="height: 80vh !important;">
         <div class="modal-content">
-            <h5>Crear un nuevo POST</h5>
-            <p>Haga una publicación para que otros usuarios en la plataforma puedan verla.</p>
+            <h5 class="TDI">Crear un nuevo POST</h5>
+            <p class="TDI">Haga una publicación para que otros usuarios en la plataforma puedan verla.</p>
             <hr>
             <form class="col s12 popUpForm bordered2 colorGreyWhiter shadow-2e" action="crearPostAlumno/{{datos[0]}}"
                 method="post">
 
-                <h5>Datos del POST</h5>
+                <h5 class="TDI">Datos del POST</h5>
                 <div class="row">
                     <div class="input-field col s12 m12 l6">
-                        <input id="tituloPost" name="tituloPost" type="text" class="validate">
-                        <label for="tituloPost">Titulo del post</label>
+                        <input id="tituloPost" name="tituloPost" type="text" class="validate colorTextReverse">
+                        <label for="tituloPost" class="TDI">Titulo del post</label>
                     </div>
                     <div class="input-field col s12 m12 l6">
-                        <textarea id="descripcionPost" name="descripcionPost" class="validate materialize-textarea"
+                        <textarea id="descripcionPost" name="descripcionPost" class="validate colorTextReverse materialize-textarea"
                             data-length="100"></textarea>
-                        <label for="descripcionPost">Descripción del post</label>
+                        <label for="descripcionPost" class="TDI">Descripción del post</label>
                     </div>
                 </div>
 
-                <h5>Multimedia</h5>
+                <h5 class="TDI">Multimedia</h5>
                 <div class="row">
                     <div class="input-field col s12 m12">
                         <input placeholder="Fondo para el grupo" id="fondoPost" name="fondoPost" type="text"
-                            value="No foto">
-                        <label for="fondoPost">URL de imagen</label>
+                            value="No foto" class="colorTextReverse">
+                        <label for="fondoPost" class="TDI">URL de imagen</label>
                     </div>
                 </div>
 
-                <button type="submit" class="btn-large color2 bordered5 buttonPopUp">Crear</button>
+                <button type="submit" class="btn-large color2 bordered5 buttonPopUp TDI">Crear</button>
 
             </form>
         </div>
@@ -255,16 +269,20 @@
 
 
     <!-- Modal para elegir el tema del perfil -->
-    <div id="modal1" class="modal modal-fixed-footer bordered2" style="height: 80vh !important;">
+    <div id="modal1" class="modal colorWhite modal-fixed-footer bordered2" style="height: 80vh !important;">
         <div class="modal-content">
-            <h5>Ingresar URL</h5>
+            <h5 class="TDI">Ingresar URL</h5>
             <div class="colorGreyWhiter addThemeOnlineContainer shadow-1">
-                <input id="fotoThemeSelectorUrl" type="text" name="fotoThemeSelectorUrl" value="URL">
+                <input id="fotoThemeSelectorUrl" type="text" name="fotoThemeSelectorUrl" class="colorTextReverse" value="URL">
                 <a id="fotoThemeSelectorUrlButton" href="#" class="waves-effect btn color3 button-rounded"><i
-                        class="material-icons left">add_photo_alternate</i>Agregar</a>
+                        class="material-icons left">add_photo_alternate</i>
+                        <span class="TDI">
+                            Agregar
+                        </span>
+                </a>
             </div>
             <br>
-            <h5>Temas offline</h5>
+            <h5 class="TDI">Temas offline</h5>
             <div class="fotosSelector">
                 <div class="fotosIndividual">
                     <div class="row" id="popUpThemes">
@@ -273,12 +291,12 @@
                 </div>
             </div>
         </div>
-        <form method="POST" id="fondoForm" action="/guardarFondoEst/{{datos[0]}}">
+        <form method="POST" id="fondoForm" class="colorWhite" action="/guardarFondoEst/{{datos[0]}}">
             <input type="hidden" id="guardarFondoInput" name="fondo">
             <button type="button" id="guardarFondoButton" onclick="submitForm()" style="display: none;"></button>
         </form>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Listo</a>
+        <div class="modal-footer colorWhite">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat TDI">Listo</a>
         </div>
     </div>
 
@@ -289,8 +307,12 @@
         </a>
     </div>
 
-    <!--Metemos el footer en la app-->
-    <!-- {% include "includes/footer.html" %} -->
+<!--Botones para que el gestor de idiomas no falle-->
+<span class="hiddenElement" id="seleccionarEspanol"></span>
+<span class="hiddenElement" id="seleccionarIngles"></span>
+<span class="hiddenElement" id="seleccionarPortugues"></span>
+<span class="hiddenElement" id="seleccionarChino"></span>
+
 </body>
 
 <!--Jalamos todo el contenido del encabezado-->
@@ -299,5 +321,9 @@
 <script src="../../static/js/insertThemes.js"></script>
 <script src="../../static/js/operacionesOpcionesFoto.js"></script>
 <script src="../../static/js/perfilUsuarioPost.js"></script>
+
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
 </html>

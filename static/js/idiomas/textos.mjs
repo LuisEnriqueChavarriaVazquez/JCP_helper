@@ -176,7 +176,7 @@ let rutas = {
             texts: ['Manage groups.','Groups.','Groups.','Return','Operations.','Create group','Browser.','Search','Count.','Groups:','Students:','Created groups','Created groups','Create new group','Enter the data in the form to create a new group.','Group data','Group name','Group description','Design','Default background','Default background','image url','Group code','Give your students this code (no spaces) to join the group.','Group languages','List of languages','Group Topics','Number of topics','Generate boxes','Subject boxes','List topics','List of topics','Create']
         },
         "textPortugues": {
-            texts: ['Gerenciar grupos.','Grupos.','Grupos.','Retornar','Operações.','Criar grupo','Buscador.','Procurar','Contar.','Grupos:','Estudantes:','Grupos criados','Grupos criados','Criar novo grupo','Digite os dados no formulário para criar um novo grupo.','Dados do grupo','Nome do grupo','Descrição do grupo','Projeto','Fundo padrão','Fundo padrão','imagem URL','Código de grupo','Dê a seus alunos este código (sem espaços) para entrar no grupo.','Idiomas de grupo','Lista de idiomas','Tópicos do Grupo','Número de tópicos','Gerar caixas','Caixas de assunto','Listar tópicos','Lista de tópicos','Para criar']
+            texts: ['Gerenciar grupos.','Grupos.','Grupos.','Retornar','Operações.','Criar grupo','Buscador.','Procurar','Contar.','Grupos:','Estudantes:','Grupos criados','Grupos criados','Criar novo grupo','Digite os dados no formulário para criar um novo grupo.','Dados do grupo','Nome do grupo','Descrição do grupo','Projeto','Fundo padrão','Fundo padrão','imagem URL','Código de grupo','Dê a seus alunos este código (sem espaços) para entrar no grupo.','Idiomas de grupo','Lista de idiomas','Tópicos do Grupo','Número de tópicos','Gerar caixas','Caixas de assunto','Listar tópicos','Lista de tópicos','Criar post']
         },
         "textChino": {
             texts: ['管理群组。','团体。','团体。','返回','操作','创建组','探索者','搜索','数数。','团体：','学生：','创建的组','创建的组','创建新组','在表单中输入数据以创建新组。','组数据','团队名字','小组介绍','设计','默认背景','默认背景','图片网址','组代码','给你的学生这个代码（没有空格）加入小组。','集团语言','语言列表','小组主题','主题数','生成框','主题框','列出主题','主题列表','去创造']
@@ -255,68 +255,140 @@ let rutas = {
     },
     "perfil_general_view": {
         "textEspanol": {
+            texts: ['Perfil de usuario.','Perfil de usuario.','Perfil de usuario.','Datos de la cuenta','Datos de la cuenta','Contacto','Unidad','Especialización','Publicaciones','Publicaciones'
+            ]
+        },
+        "textIngles": {
+            texts: ['User profile.','User profile.','User profile.','Account data','Account data','Contact','Academic unit','Specialization','User post','User post']
+        },
+        "textPortugues": {
+            texts: ['Perfil de usuário.','Perfil de usuário.','Perfil de usuário.','Dados da conta','Dados da conta','Contato','Unidade','Especialização','Publicações','Publicações']
+        },
+        "textChino": {
+            texts: ['用户资料。','用户资料。','用户资料。','账户数据','账户数据','接触','单元','专业化','出版物','出版物']
+        }
+    },
+    "perfil_alumno": {
+        "textEspanol": {
             texts: [
-                'Perfil de usuario.',
-                'Perfil de usuario.',
-                'Perfil de usuario.',
+                'Perfil del alumno.',
+                'Perfil del alumno.',
+                'Perfil del alumno.',
+                'Volver',
+                'Opciones',
+                'Ver foto',
+                'Modificar foto',
+                'Cambiar foto',
+                'Elegir',
                 'Datos de la cuenta',
                 'Datos de la cuenta',
                 'Contacto',
                 'Unidad',
                 'Especialización',
                 'Publicaciones',
-                'Publicaciones'
-            ]
+                'Publicaciones',
+                'Crear un nuevo POST',
+                'Haga una publicación para que otros usuarios en la plataforma puedan verla.',
+                'Datos del POST',
+                'Titulo del post',
+                'Descripción del post',
+                'Multimedia',
+                'URL de imagen',
+                'Crear',
+                'Ingresar URL',
+                'Agregar',
+                'Temas offline',
+                'Publicar']
         },
         "textIngles": {
-            texts: ['User profile.',
-            'User profile.',
-            'User profile.',
+            texts: ['Student profile.',
+            'Student profile.',
+            'Student profile.',
+            'Return',
+            'options',
+            'View photo',
+            'Modify photo',
+            'Change photo',
+            'To choose',
             'Account data',
             'Account data',
             'Contact',
             'Academic unit',
             'Specialization',
-            'User post',
-            'User post']
+            'User posts',
+            'User posts',
+            'Create a new POST',
+            'Make a post so other users on the platform can see it.',
+            'POST data',
+            'Post title',
+            'Post description',
+            'Multimedia',
+            'image url',
+            'Post it',
+            'Enter URL',
+            'Add',
+            'Offline Themes',
+            'Post']
         },
         "textPortugues": {
-            texts: ['Perfil de usuário.',
-            'Perfil de usuário.',
-            'Perfil de usuário.',
+            texts: ['Perfil do aluno.',
+            'Perfil do aluno.',
+            'Perfil do aluno.',
+            'Retornar',
+            'opções',
+            'Ver foto',
+            'Modificar foto',
+            'Mudar foto',
+            'Escolher',
             'Dados da conta',
             'Dados da conta',
             'Contato',
             'Unidade',
             'Especialização',
             'Publicações',
-            'Publicações']
+            'Publicações',
+            'Criar um novo POST',
+            'Faça uma postagem para que outros usuários da plataforma possam vê-la.',
+            'Dados de postagem',
+            'Título da postagem',
+            'Descrição da postagem',
+            'Multimídia',
+            'imagem URL',
+            'Criar post',
+            'Inserir URL',
+            'Adicionar',
+            'Temas off-line',
+            'Publicar']
         },
         "textChino": {
-            texts: ['用户资料。',
-            '用户资料。',
-            '用户资料。',
+            texts: ['学生档案。',
+            '学生档案。',
+            '学生档案。',
+            '返回',
+            '选项',
+            '查看照片',
+            '修改照片',
+            '更改照片',
+            '选择',
             '账户数据',
             '账户数据',
             '接触',
             '单元',
             '专业化',
             '出版物',
-            '出版物']
-        }
-    },
-    "saber_mas2": {
-        "textEspanol": {
-            texts: []
-        },
-        "textIngles": {
-            texts: []
-        },
-        "textPortugues": {
-            texts: []
-        },
-        "textChino": {
-            texts: []
+            '出版物',
+            '创建一个新的帖子',
+            '发布一个帖子,让平台上的其他用户可以看到它。',
+            '发布数据',
+            '帖子标题',
+            '帖子描述',
+            '多媒体',
+            '图片网址',
+            '去创造',
+            '输入网址',
+            '添加',
+            '离线主题',
+            '邮政']
         }
     },
     "saber_mas2": {
