@@ -67,7 +67,10 @@ function rutaValidation(stringUrl) {
         return "editGroup"
     }else if(stringUrl.includes("viewGroup")){
         return "viewGroup"
+    }else if(stringUrl.includes("viewCuestionario")){
+        return "viewCuestionario"
     }
+    
     
     //En caso de que la URL no tenga IDs
     stringUrl = stringUrl.split("");

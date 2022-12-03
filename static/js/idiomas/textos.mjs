@@ -199,56 +199,19 @@ let rutas = {
     },
     "viewGroup": {
         "textEspanol": {
-            texts: [
-                'Ver grupo.',
-                'Ver grupo.',
-                'Ver grupo.',
-                'Volver',
-                'Datos generales',
-                'Descripción de grupo:',
-                'Lenguajes del grupo:',
-                'Temas del grupo:',
-                'Cuestionarios. ',
-                'Alumnos. ']
+            texts: ['Ver grupo.','Ver grupo.','Ver grupo.','Volver','Datos generales','Descripción de grupo:','Lenguajes del grupo:','Temas del grupo:','Cuestionarios. ','Alumnos. ']
         },
         "textIngles": {
-            texts: ['View group.',
-            'View group.',
-            'View group.',
-            'Return',
-            'General data',
-            'Group description:',
-            'Group languages:',
-            'Group Topics:',
-            'Questionnaires. ',
-            'Students. ']
+            texts: ['View group.','View group.','View group.','Return','General data','Group description:','Group languages:','Group Topics:','Questionnaires. ','Students. ']
         },
         "textPortugues": {
-            texts: ['Visualizar grupo.',
-            'Visualizar grupo.',
-            'Visualizar grupo.',
-            'Retornar',
-            'Dados gerais',
-            'Descrição do grupo:',
-            'Idiomas do grupo:',
-            'Tópicos do grupo:',
-            'Questionários. ',
-            'Estudantes. ']
+            texts: ['Visualizar grupo.','Visualizar grupo.','Visualizar grupo.','Retornar','Dados gerais','Descrição do grupo:','Idiomas do grupo:','Tópicos do grupo:','Questionários. ','Estudantes. ']
         },
         "textChino": {
-            texts: ['查看组。',
-            '查看组。',
-            '查看组。',
-            '返回',
-            '一般数据',
-            '小组介绍：',
-            '集团语言：',
-            '小组主题：',
-            '问卷调查。 ',
-            '学生。 ']
+            texts: ['查看组。','查看组。','查看组。','返回','一般数据','小组介绍：','集团语言：','小组主题：','问卷调查。 ','学生。 ']
         }
     },
-    "saber_mas2": {
+    "viewCuestionario": {
         "textEspanol": {
             texts: []
         },
