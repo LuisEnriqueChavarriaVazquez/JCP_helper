@@ -106,6 +106,7 @@ function interaccionFormularioAgregarGrupos() {
         for (var x = 0; x < numeroTemasGrupo.value; x++) {
             let input = document.createElement('input');
             input.classList.add('temaInputBoxElement');
+            input.classList.add('colorTextReverse');
             input.setAttribute('type', 'text');
             input.setAttribute('placeholder', 'Escriba el tema');
             seccionInputsTemasContenedor.append(input);

@@ -170,145 +170,45 @@ let rutas = {
     },
     "gestionar_grupos": {
         "textEspanol": {
-            texts: [
-                'Gestionar grupos.',
-                'Grupos.',
-                'Grupos.',
-                'Volver',
-                'Operaciones.',
-                'Crear grupo',
-                'Buscador.',
-                'Buscar',
-                'Conteo.',
-                'Grupos:',
-                'Estudiantes:',
-                'Grupos creados',
-                'Grupos creados',
-                'Crear nuevo grupo',
-                'Ingrese los datos en el formulario para crear un nuevo grupo.',
-                'Datos del grupo',
-                'Nombre de grupo',
-                'Descripción del grupo',
-                'Diseño',
-                'Fondo por defecto',
-                'Fondo por defecto',
-                'URL de imagen',
-                'Código del grupo',
-                'Proporcione este código a sus estudiantes (sin espacios) para entrar al grupo.',
-                'Lenguajes del grupo',
-                'Listado de lenguajes',
-                'Temas del grupo',
-                'Número de temas',
-                'Generar casillas',
-                'Casillas temas',
-                'Enlistar temas',
-                'Listado de temas',
-                'Crear']
+            texts: ['Gestionar grupos.','Grupos.','Grupos.','Volver','Operaciones.','Crear grupo','Buscador.','Buscar','Conteo.','Grupos:','Estudiantes:','Grupos creados','Grupos creados','Crear nuevo grupo','Ingrese los datos en el formulario para crear un nuevo grupo.','Datos del grupo','Nombre de grupo','Descripción del grupo','Diseño','Fondo por defecto','Fondo por defecto','URL de imagen','Código del grupo','Proporcione este código a sus estudiantes (sin espacios) para entrar al grupo.','Lenguajes del grupo','Listado de lenguajes','Temas del grupo','Número de temas','Generar casillas','Casillas temas','Enlistar temas','Listado de temas','Crear']
         },
         "textIngles": {
-            texts: ['Manage groups.',
-            'Groups.',
-            'Groups.',
-            'Return',
-            'Operations.',
-            'Create group',
-            'Browser.',
-            'Search',
-            'Count.',
-            'Groups:',
-            'Students:',
-            'Created groups',
-            'Created groups',
-            'Create new group',
-            'Enter the data in the form to create a new group.',
-            'Group data',
-            'Group name',
-            'Group description',
-            'Design',
-            'Default background',
-            'Default background',
-            'image url',
-            'Group code',
-            'Give your students this code (no spaces) to join the group.',
-            'Group languages',
-            'List of languages',
-            'Group Topics',
-            'Number of topics',
-            'Generate boxes',
-            'Subject boxes',
-            'List topics',
-            'List of topics',
-            'Create']
+            texts: ['Manage groups.','Groups.','Groups.','Return','Operations.','Create group','Browser.','Search','Count.','Groups:','Students:','Created groups','Created groups','Create new group','Enter the data in the form to create a new group.','Group data','Group name','Group description','Design','Default background','Default background','image url','Group code','Give your students this code (no spaces) to join the group.','Group languages','List of languages','Group Topics','Number of topics','Generate boxes','Subject boxes','List topics','List of topics','Create']
         },
         "textPortugues": {
-            texts: ['Gerenciar grupos.',
-            'Grupos.',
-            'Grupos.',
-            'Retornar',
-            'Operações.',
-            'Criar grupo',
-            'Buscador.',
-            'Procurar',
-            'Contar.',
-            'Grupos:',
-            'Estudantes:',
-            'Grupos criados',
-            'Grupos criados',
-            'Criar novo grupo',
-            'Digite os dados no formulário para criar um novo grupo.',
-            'Dados do grupo',
-            'Nome do grupo',
-            'Descrição do grupo',
-            'Projeto',
-            'Fundo padrão',
-            'Fundo padrão',
-            'imagem URL',
-            'Código de grupo',
-            'Dê a seus alunos este código (sem espaços) para entrar no grupo.',
-            'Idiomas de grupo',
-            'Lista de idiomas',
-            'Tópicos do Grupo',
-            'Número de tópicos',
-            'Gerar caixas',
-            'Caixas de assunto',
-            'Listar tópicos',
-            'Lista de tópicos',
-            'Para criar']
+            texts: ['Gerenciar grupos.','Grupos.','Grupos.','Retornar','Operações.','Criar grupo','Buscador.','Procurar','Contar.','Grupos:','Estudantes:','Grupos criados','Grupos criados','Criar novo grupo','Digite os dados no formulário para criar um novo grupo.','Dados do grupo','Nome do grupo','Descrição do grupo','Projeto','Fundo padrão','Fundo padrão','imagem URL','Código de grupo','Dê a seus alunos este código (sem espaços) para entrar no grupo.','Idiomas de grupo','Lista de idiomas','Tópicos do Grupo','Número de tópicos','Gerar caixas','Caixas de assunto','Listar tópicos','Lista de tópicos','Para criar']
         },
         "textChino": {
-            texts: ['管理群组。',
-            '团体。',
-            '团体。',
-            '返回',
-            '操作',
-            '创建组',
-            '探索者',
-            '搜索',
-            '数数。',
-            '团体：',
-            '学生：',
-            '创建的组',
-            '创建的组',
-            '创建新组',
-            '在表单中输入数据以创建新组。',
-            '组数据',
-            '团队名字',
-            '小组介绍',
-            '设计',
-            '默认背景',
-            '默认背景',
-            '图片网址',
-            '组代码',
-            '给你的学生这个代码（没有空格）加入小组。',
-            '集团语言',
-            '语言列表',
-            '小组主题',
-            '主题数',
-            '生成框',
-            '主题框',
-            '列出主题',
-            '主题列表',
-            '去创造']
+            texts: ['管理群组。','团体。','团体。','返回','操作','创建组','探索者','搜索','数数。','团体：','学生：','创建的组','创建的组','创建新组','在表单中输入数据以创建新组。','组数据','团队名字','小组介绍','设计','默认背景','默认背景','图片网址','组代码','给你的学生这个代码（没有空格）加入小组。','集团语言','语言列表','小组主题','主题数','生成框','主题框','列出主题','主题列表','去创造']
+        }
+    },
+    "editGroup": {
+        "textEspanol": {
+            texts: ['Editar grupo.','Editar grupo.','Editar grupo.','Volver','Formulario de','Formulario de','Datos del grupo','Nombre de grupo','Descripción del grupo','Diseño','Fondo por defecto','Fondo por defecto','URL de imagen','Código del grupo','Lenguajes del grupo','Listado de lenguajes','Temas del grupo','Número de temas','Generar casillas','Casillas temas','Enlistar temas','Listado de temas','Editar'
+            ]
+        },
+        "textIngles": {
+            texts: ['Edit group.','Edit group.','Edit group.','Return','Form of','Form of','Group data','Group name','Group description','Design','Default background','Default background','image url','Group code','Group languages','List of languages','Group Topics','Number of topics','Generate boxes','Subject boxes','List topics','List of topics','Edit']
+        },
+        "textPortugues": {
+            texts: ['Editar grupo.','Editar grupo.','Editar grupo.','Retornar','Forma de','Forma de','Dados do grupo','Nome do grupo','Descrição do grupo','Projeto','Fundo padrão','Fundo padrão','imagem URL','Código de grupo','Idiomas de grupo','Lista de idiomas','Tópicos do Grupo','Número de tópicos','Gerar caixas','Caixas de assunto','Listar tópicos','Lista de tópicos','Editar']
+        },
+        "textChino": {
+            texts: ['编辑组。','编辑组。','编辑组。','返回','形式','形式','组数据','团队名字','小组介绍','设计','默认背景','默认背景','图片网址','组代码','集团语言','语言列表','小组主题','主题数','生成框','主题框','列出主题','主题列表','编辑']
+        }
+    },
+    "saber_mas2": {
+        "textEspanol": {
+            texts: []
+        },
+        "textIngles": {
+            texts: []
+        },
+        "textPortugues": {
+            texts: []
+        },
+        "textChino": {
+            texts: []
         }
     },
     "saber_mas2": {

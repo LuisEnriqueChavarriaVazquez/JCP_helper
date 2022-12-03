@@ -62,20 +62,26 @@ function validarPorDefecto() {
 
 //Funcion que nos ayuda a obtener solo la ruta
 function rutaValidation(stringUrl) {
-        stringUrl = stringUrl.split("");
-        stringUrl = stringUrl.reverse();
-        stringUrl = stringUrl.join("");
-        stringUrl = stringUrl.substring(0, stringUrl.indexOf("/"));
-        stringUrl = stringUrl.replaceAll("!", "");
-        stringUrl = stringUrl.replaceAll("#", "");
-        stringUrl = stringUrl.split("");
-        stringUrl = stringUrl.reverse();
-        stringUrl = stringUrl.join("");
-        if(stringUrl == ""){
-            return "index";
-        }else{
-            return stringUrl;
-        }
+    //Debemos validar aquellos casos en los que la URL tiene un ID
+    if (stringUrl.includes("editGroup")) {
+        return "editGroup"
+    }
+    
+    //En caso de que la URL no tenga IDs
+    stringUrl = stringUrl.split("");
+    stringUrl = stringUrl.reverse();
+    stringUrl = stringUrl.join("");
+    stringUrl = stringUrl.substring(0, stringUrl.indexOf("/"));
+    stringUrl = stringUrl.replaceAll("!", "");
+    stringUrl = stringUrl.replaceAll("#", "");
+    stringUrl = stringUrl.split("");
+    stringUrl = stringUrl.reverse();
+    stringUrl = stringUrl.join("");
+    if (stringUrl == "") {
+        return "index";
+    } else {
+        return stringUrl;
+    }
 }
 
 
