@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Gestionar grupos</title>
+    <title class="TDI">Gestionar grupos</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -18,12 +18,12 @@
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Grupos.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Grupos.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Grupos.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Grupos.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded TDI">Volver al inicio</a></li>
             </ul>
         </div>
     </nav>
@@ -47,27 +47,34 @@
             </div>
             <div class="colorGreyWhiter operationsContainerSecondarySideNav">
                 <div class="operationButtonSideNav">
-                    <h5>Operaciones.</h5>
+                    <h5 class="TDI">Operaciones.</h5>
                     <a class="waves-effect waves-light btn color2 shadow-2e modal-trigger" href="#modalSpecial"
-                        id="buttonNuevoGrupo"><i class="material-icons left">add</i>Crear
-                        grupo</a>
+                        id="buttonNuevoGrupo"><i class="material-icons left">add</i>
+                        <span class="TDI">
+                            Crear grupo
+                        </span> 
+                    </a>
                 </div>
                 <div class="operationButtonSideNav">
-                    <h5>Buscador.</h5>
+                    <h5 class="TDI">Buscador.</h5>
                     <input type="text" name="buscadorGruposGestor" id="buscadorGruposGestor"
                         class="buscadorGruposGestor">
                     <a class="waves-effect waves-light btn colorGrey colorTextReverse" id="buscadorGruposButton"><i
-                            class="material-icons left">search</i>Buscar</a>
+                            class="material-icons left">search</i>
+                           <span class="TDI">
+                               Buscar
+                           </span> 
+                        </a>
                 </div>
                 <div class="operationButtonSideNav">
-                    <h5>Conteo.</h5>
+                    <h5 class="TDI">Conteo.</h5>
 
                     <div class="contadorElementosCardOperation colorGrey shadow-1e">
                         <p class="colorGreyWhiter" id="contadorGruposId">
-                            Grupos:
+                            <span class="TDI">Grupos:</span> 
                         </p>
                         <p class="colorGreyWhiter" id="contadorEstudiantesId">
-                            Estudiantes:
+                            <span class="TDI">Grupos:</span> 
                         </p>
                     </div>
 
@@ -80,9 +87,9 @@
         <section class="operationMainNav">
             <!--Titulos de la página-->
             <div class="title-general color1 fixedTitleOperationMain shadow-2e" id="cajaTituloBuscadorId">
-                <h6 class="colorText hide-on-large-only hide-on-med-only" id="cajaTituloBuscadorContenidoId">Grupos
+                <h6 class="colorText hide-on-large-only hide-on-med-only TDI" id="cajaTituloBuscadorContenidoId">Grupos
                     creados</h6>
-                <h5 class="colorText hide-on-small-only" id="cajaTituloBuscadorContenidoLargeId">Grupos creados</h5>
+                <h5 class="colorText hide-on-small-only TDI" id="cajaTituloBuscadorContenidoLargeId">Grupos creados</h5>
             </div>
 
             <!--Buscador para los dispositivos moviles-->
@@ -92,7 +99,7 @@
                     <div class="icon_browser_mine shadow-2 bordered5 color3 colorText" id="icon_browser_mine"><i
                             class="material-icons colorText">search</i></div>
                     <div class="box_browser">
-                        <input type="text" class="colorGreyWhiter browser-default shadow-2e flow-text" placeholder="🔎"
+                        <input type="text" class="colorGreyWhiter colorTextReverse browser-default shadow-2e flow-text" placeholder="🔎"
                             id="buscadorInput_tres">
                     </div>
                     <div class="icon_search_voice_mine shadow-2 bordered5 color3 colorText" id="icon_search_voice_mine">
@@ -162,12 +169,11 @@
                 <!--Pop up de eliminar el grupo-->
                 <div id="modal{{result_object[0]}}" class="modal bordered2 colorGrey">
                     <div class="modal-content">
-                        <h4>¿Desea eliminar el grupo?</h4>
-                        <p>Este procedimiento no se puede revertir.</p>
+                        <h4>¿🚮?😕</h4>
                         <hr>
                         <a href="/deleteGroup/{{result_object[0]}}"
                             class="waves-effect waves-light btn badColorButton shadow-2e button-rounded"
-                            style="width: 100%;">Eliminar</a>
+                            style="width: 100%;"><i class="material-icons md-28">delete</i></a>
                     </div>
                 </div>
                 {% endfor %}
@@ -177,8 +183,8 @@
         <!-- Pop up para agregar nuevos grupos  con formulario-->
         <div id="modalSpecial" class="modal bordered2 colorGrey" style="height: 90vh !important;">
             <div class="modal-content">
-                <h4>Crear nuevo grupo</h4>
-                <p>Ingrese los datos en el formulario para crear un nuevo grupo.</p>
+                <h4 class="TDI">Crear nuevo grupo</h4>
+                <p class="TDI">Ingrese los datos en el formulario para crear un nuevo grupo.</p>
                 <hr><br>
                 {% with messages = get_flashed_messages() %}
                 {% if messages %}
@@ -191,42 +197,42 @@
                 {% endwith %}
                 <form class="col s12 popUpForm bordered2 colorGreyWhiter shadow-2e"
                     action="{{ url_for('routes.gestionar_grupos') }}" method="post">
-                    <h5>Datos del grupo</h5>
+                    <h5 class="TDI">Datos del grupo</h5>
                     <div class="row">
                         <div class="input-field col s12 m6">
                             <input id="nombreGrupo" name="nombreGrupo" type="text" class="validate">
-                            <label for="nombreGrupo">Nombre de grupo</label>
+                            <label for="nombreGrupo" class="TDI">Nombre de grupo</label>
                         </div>
                         <div class="input-field col s12 m6">
                             <textarea id="descGrupo" name="descGrupo" class="validate materialize-textarea"
                                 data-length="100"></textarea>
-                            <label for="descGrupo">Descripción del grupo</label>
+                            <label for="descGrupo" class="TDI">Descripción del grupo</label>
                         </div>
                     </div>
 
-                    <h5>Diseño</h5>
+                    <h5 class="TDI">Diseño</h5>
                     <div class="row">
                         <div class="col s12">
-                            <p>Fondo por defecto</p>
+                            <p class="TDI">Fondo por defecto</p>
                             <div class="muestraFondoForm fondoDinamico bordered1 shadow-2e" id="muestraFondoForm"></div>
                         </div>
                         <br><br><br><br><br>
                         <div class="input-field col s12 m12">
                             <label>
                                 <input type="checkbox" id="fondoDefaultPicker" class="filled-in" checked="checked" />
-                                <span>Fondo por defecto</span>
+                                <span class="TDI">Fondo por defecto</span>
                             </label>
                         </div>
                         <br><br><br><br><br><br>
                         <div class="input-field col s12 m12">
-                            <input placeholder="Fondo para el grupo" id="fondoGrupo" name="fondoGrupo" type="text"
-                                value="default">
-                            <label for="fondoGrupo">URL de imagen</label>
+                            <input id="fondoGrupo" name="fondoGrupo" type="text"
+                                value="default" class="colorTextReverse">
+                            <label for="fondoGrupo" class="TDI">URL de imagen</label>
                         </div>
                     </div>
 
-                    <h5>Código del grupo</h5>
-                    <h6>Proporcione este código a sus estudiantes (sin espacios) para entrar al grupo.</h6>
+                    <h5 class="TDI">Código del grupo</h5>
+                    <h6 class="TDI colorTextReverse">Proporcione este código a sus estudiantes (sin espacios) para entrar al grupo.</h6>
                     <div class="row">
                         <div class="input-field col s12">
                             <input type="hidden" id="codigoGrupo" style="min-height:55px;" name="codigoGrupo">
@@ -234,7 +240,7 @@
                         </div>
                     </div>
 
-                    <h5>Lenguajes del grupo</h5>
+                    <h5 class="TDI colorTextReverse">Lenguajes del grupo</h5>
                     <div class="row">
                         <div class="input-field col s12">
                             <label>
@@ -256,38 +262,38 @@
                         </div>
                         <br><br><br><br><br><br>
                         <div class="input-field col s12">
-                            <h6>Listado de lenguajes</h6>
-                            <input placeholder="Escriba los lenguajes de este grupo" id="lenguajesGrupo"
-                                name="lenguajesGrupo" type="text" class="validate" value="Default">
+                            <h6 class="TDI colorTextReverse">Listado de lenguajes</h6>
+                            <input id="lenguajesGrupo"
+                                name="lenguajesGrupo" type="text" class="validate colorTextReverse" value="Default">
                         </div>
                     </div>
 
-                    <h5>Temas del grupo</h5>
+                    <h5 class="TDI">Temas del grupo</h5>
                     <div class="row">
                         <div class="input-field col s12">
-                            <h6>Número de temas</h6>
-                            <input placeholder="Escriba cuantos temas quiere" id="numeroTemasGrupo"
-                                name="numeroTemasGrupo" type="number" class="validate" value="1">
+                            <h6 class="TDI colorTextReverse">Número de temas</h6>
+                            <input id="numeroTemasGrupo"
+                                name="numeroTemasGrupo" type="number" class="validate colorTextReverse" value="1">
                             <a style="width:100%;"
-                                class="btn colorGreyDarker colorTextReverse bordered5 waves-effect waves-light"
+                                class="btn colorGreyDarker colorTextReverse bordered5 waves-effect waves-light TDI"
                                 id="generarTemasButton">Generar casillas</a>
                         </div>
                         <div class="input-field col s12">
-                            <h6>Casillas temas</h6>
-                            <section id="seccionInputsTemasContenedor">
+                            <h6 class="TDI colorTextReverse">Casillas temas</h6>
+                            <section id="seccionInputsTemasContenedor" class="colorTextReverse">
                             </section>
                             <a style="width:100%;"
-                                class="btn colorGreyDarker colorTextReverse bordered5 waves-effect waves-light"
+                                class="btn colorGreyDarker colorTextReverse bordered5 waves-effect waves-light TDI"
                                 id="enlistarTemasButton">Enlistar temas</a>
                         </div>
                         <div class="input-field col s12">
-                            <h6>Listado de temas</h6>
-                            <input placeholder="Escriba los temas del grupo" id="temasGrupo" name="temasGrupo"
-                                type="text" class="validate">
+                            <h6 class="TDI colorTextReverse">Listado de temas</h6>
+                            <input id="temasGrupo" name="temasGrupo"
+                                type="text" class="validate colorTextReverse">
                         </div>
                     </div>
 
-                    <button type="submit" class="btn-large color2 bordered5 buttonPopUp">Crear</button>
+                    <button type="submit" class="btn-large color2 bordered5 buttonPopUp TDI">Crear</button>
 
                 </form>
             </div>
@@ -308,13 +314,23 @@
             <div></div>
         </section>
     </section>
-</body>
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
 
+</body>
 
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
 
 <script src="../../static/js/bienvenidaEfectos.js"></script>
 <script src="../../static/js/operacionesGestionGrupos.js"></script>
+
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
+
 
 </html>

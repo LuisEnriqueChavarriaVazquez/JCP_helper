@@ -186,16 +186,16 @@ function buscarGrupos() {
 
             //Ultima validación en caso de no haber encontrado nada
             if (encontrado == true) {
-                M.toast({ html: 'Busqueda exitosa.' });
+                M.toast({ html: '😀👍🔎' });
                 limpiarInputsBusqueda();
             } else {
-                M.toast({ html: 'No encontramos elementos que coincidan.' })
+                M.toast({ html: '😥🔎' })
                 limpiarInputsBusqueda();
             }
 
         } else {
             reiniciarElementosBuscador();
-            M.toast({ html: 'Input de busqueda vacio.' })
+            M.toast({ html: '😥❓🔎' })
         }
     }
 
@@ -500,6 +500,7 @@ function interaccionFormularioAgregarGrupos() {
         for (var x = 0; x < numeroTemasGrupo.value; x++) {
             let input = document.createElement('input');
             input.classList.add('temaInputBoxElement');
+            input.classList.add('colorTextReverse');
             input.setAttribute('type', 'text');
             input.setAttribute('placeholder', 'Escriba el tema');
             seccionInputsTemasContenedor.append(input);
@@ -526,7 +527,7 @@ function interaccionFormularioAgregarGrupos() {
 function copyCodeGroup(codigo) {
     valorButton = codigo  
     navigator.clipboard.writeText(valorButton);
-    M.toast({ html: 'Código copiado.'});
+    M.toast({ html: '😀👍📕'});
 }
 
 contarGruposAlumnos();
