@@ -5,7 +5,7 @@
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
 
-    <title>Perfil de usuario</title>
+    <title class="TDI">Perfil de usuario</title>
 </head>
 
 <body class="ocultoc colorGreyWhiter">
@@ -15,10 +15,9 @@
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Perfil de usuario.</a>
-            <a href="#" data-target="slide-out" class="sidenav-trigger"><i
-                class="material-icons"></i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Perfil de usuario.</p>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Perfil de usuario.</a>
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons"></i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Perfil de usuario.</p>
         </div>
     </nav>
     <br><br>
@@ -40,7 +39,8 @@
                         alt="foto del usuario">
                 </div>
                 <div class="allDataUserContainer">
-                    <p class="colorTextReverse nombre_perfil" id="datos_perfil_containerNombrePerfil">{{datos[0][1]}}</p>
+                    <p class="colorTextReverse nombre_perfil" id="datos_perfil_containerNombrePerfil">{{datos[0][1]}}
+                    </p>
                     <p class="colorTextReverse alias_perfil" id="datos_perfil_containerAliasPerfil">{{datos[0][2]}}</p>
                     <p class="colorTextReverse descripcion_perfil flow-text" id="datos_perfil_containerDescPerfil">
                         {{datos[0][8]}}
@@ -66,23 +66,33 @@
             <div>
                 {% if datos %}
                 <div class="title-general">
-                    <h5 class="hide-on-large-only">Datos de la cuenta</h5>
-                    <h4 class="hide-on-med-and-down">Datos de la cuenta</h4>
+                    <h5 class="hide-on-large-only TDI">Datos de la cuenta</h5>
+                    <h4 class="hide-on-med-and-down TDI">Datos de la cuenta</h4>
                 </div>
                 <div class="gridDataProfileContainer">
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-1">
-                        <p class="iconDataProfile colorGrey"><i
-                                class="material-icons md-24 colorTextReverse">email</i>Contacto</p>
+                        <p class="iconDataProfile colorGrey"><i class="material-icons md-24 colorTextReverse">email</i>
+                            <span class="TDI">
+                                Contacto
+                            </span>
+                        </p>
                         <p class="textDataProfile colorGreyWhiter">{{datos[0][4]}}</p>
                     </div>
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-2">
                         <p class="iconDataProfile colorGrey"><i
-                                class="material-icons md-24 colorTextReverse">doorbell</i>Unidad</p>
+                                class="material-icons md-24 colorTextReverse">doorbell</i>
+                            <span class="TDI">
+                                Unidad
+                            </span>
+                        </p>
                         <p class="textDataProfile colorGreyWhiter">{{datos[0][7]}}</p>
                     </div>
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-3">
-                        <p class="iconDataProfile colorGrey"><i
-                                class="material-icons md-24 colorTextReverse">adjust</i>Especialización</p>
+                        <p class="iconDataProfile colorGrey"><i class="material-icons md-24 colorTextReverse">adjust</i>
+                            <span class="TDI">
+                                Especialización
+                            </span>
+                        </p>
                         <p class="textDataProfile colorGreyWhiter">{{datos[0][6]}}</p>
                     </div>
                 </div>
@@ -93,8 +103,8 @@
         <section class="postContainerParentStudent colorGrey">
             <div>
                 <div class="title-general">
-                    <h5 class="hide-on-large-only">Publicaciones</h5>
-                    <h4 class="hide-on-med-and-down">Publicaciones</h4>
+                    <h5 class="hide-on-large-only TDI">Publicaciones</h5>
+                    <h4 class="hide-on-med-and-down TDI">Publicaciones</h4>
                 </div>
                 {% if post %}
                 <div class="gridPostUser">
@@ -102,19 +112,7 @@
                     <div class="postGeneral fotoValuePost borderDecoration">
                         <div class="color2 colorText tituloPost">{{post[i][2]}}</div>
                         <div class="imagePost" style="background-image:url('{{post[i][4]}}');"></div>
-                        <div class="descriptionPostView colorGreyWhiter">{{post[i][3]}}</div>
-                    </div>
-
-                    <!--Pop up de eliminar el post-->
-                    <div id="modalBorrado{{post[i][0]}}" class="modal bordered2 colorGrey">
-                        <div class="modal-content">
-                            <h4>¿Desea eliminar el post?</h4>
-                            <p>Este procedimiento no se puede revertir.</p>
-                            <hr>
-                            <a href="/deletePostAlumno/{{post[i][0]}}"
-                                class="waves-effect waves-light btn badColorButton shadow-2e button-rounded"
-                                style="width: 100%;">Eliminar</a>
-                        </div>
+                        <div class="descriptionPostView colorGreyWhiter colorTextReverse">{{post[i][3]}}</div>
                     </div>
                     {% endfor %}
                 </div>
@@ -123,45 +121,32 @@
         </section>
         <section class="colorGrey">
             <div class="notFoundMsg">
-                <div><h5><b>No hay ningún post.</b></h5></div>
+                <div>
+                    <h5 class="colorTextReverse"><b>No post.</b></h5>
+                </div>
                 <div><img src="../../static/images/icons/icon_no_results.svg"></div>
             </div>
         </section>
         {% endif %}
     </section>
 
-    <!-- Modal para elegir el tema del perfil -->
-    <div id="modal1" class="modal modal-fixed-footer bordered2" style="height: 80vh !important;">
-        <div class="modal-content">
-            <h5>Ingresar URL</h5>
-            <div class="colorGreyWhiter addThemeOnlineContainer shadow-1">
-                <input id="fotoThemeSelectorUrl" type="text" name="fotoThemeSelectorUrl" value="URL">
-                <a id="fotoThemeSelectorUrlButton" href="#" class="waves-effect btn color3 button-rounded"><i
-                        class="material-icons left">add_photo_alternate</i>Agregar</a>
-            </div>
-            <br>
-            <h5>Temas offline</h5>
-            <div class="fotosSelector">
-                <div class="fotosIndividual">
-                    <div class="row" id="popUpThemes">
-                        <!-- Se insertan los elementos del selector de temas. -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Listo</a>
-        </div>
-    </div>
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
 
-    <!--Metemos el footer en la app-->
-    <!-- {% include "includes/footer.html" %} -->
 </body>
 
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
 
+
 <script src="../../static/js/insertThemes.js"></script>
 <script src="../../static/js/perfilUsuarioPost.js"></script>
+
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
 </html>

@@ -253,6 +253,72 @@ let rutas = {
             texts: ['预览结果。','预览结果。','预览结果。','返回','当学生已经发送问卷时,您正在观察问卷以及如何自动评估一些答案。','结果','问题和评分','问题和评分','问答问卷']
         }
     },
+    "perfil_general_view": {
+        "textEspanol": {
+            texts: [
+                'Perfil de usuario.',
+                'Perfil de usuario.',
+                'Perfil de usuario.',
+                'Datos de la cuenta',
+                'Datos de la cuenta',
+                'Contacto',
+                'Unidad',
+                'Especialización',
+                'Publicaciones',
+                'Publicaciones'
+            ]
+        },
+        "textIngles": {
+            texts: ['User profile.',
+            'User profile.',
+            'User profile.',
+            'Account data',
+            'Account data',
+            'Contact',
+            'Academic unit',
+            'Specialization',
+            'User post',
+            'User post']
+        },
+        "textPortugues": {
+            texts: ['Perfil de usuário.',
+            'Perfil de usuário.',
+            'Perfil de usuário.',
+            'Dados da conta',
+            'Dados da conta',
+            'Contato',
+            'Unidade',
+            'Especialização',
+            'Publicações',
+            'Publicações']
+        },
+        "textChino": {
+            texts: ['用户资料。',
+            '用户资料。',
+            '用户资料。',
+            '账户数据',
+            '账户数据',
+            '接触',
+            '单元',
+            '专业化',
+            '出版物',
+            '出版物']
+        }
+    },
+    "saber_mas2": {
+        "textEspanol": {
+            texts: []
+        },
+        "textIngles": {
+            texts: []
+        },
+        "textPortugues": {
+            texts: []
+        },
+        "textChino": {
+            texts: []
+        }
+    },
     "saber_mas2": {
         "textEspanol": {
             texts: []
