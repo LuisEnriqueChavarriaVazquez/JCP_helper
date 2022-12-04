@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Mis grupos</title>
+    <title class="TDI">Mis grupos</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -18,12 +18,12 @@
     <!--Menu de página de inicio-->
     <nav class="color2">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Mis grupos.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Mis grupos.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Mis grupos.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Mis grupos.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded TDI">Volver</a></li>
             </ul>
         </div>
     </nav>
@@ -39,7 +39,7 @@
     <section class="contenedorInformacionPrincipal">
         <section class="contenedorInformacionSecundarioUno">
             <div class="colorGreyWhiter bordered2 shadow-2e contenedorDataGrupo">
-                <h5>Datos generales</h5>
+                <h5 class="TDI">Datos generales</h5>
                 <hr>
                 <a href="/viewTeacherProfile/{{profData.0}}">
                     <section class="perfilDocenteViewContainerLink colorText">
@@ -52,16 +52,16 @@
                     </section>
                 </a>
                 <div>
-                    <h6>Descripción de grupo:</h6>
+                    <h6 class="TDI colorTextReverse">Descripción de grupo:</h6>
                     <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1" style="text-align: left;">
                         {{groupInfo.3}}</p>
                 </div>
                 <div>
-                    <h6>Lenguajes del grupo:</h6>
+                    <h6 class="TDI colorTextReverse">Lenguajes del grupo:</h6>
                     <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1 truncate">{{groupInfo.6}}</p>
                 </div>
                 <div>
-                    <h6>Temas del grupo:</h6>
+                    <h6 class="TDI colorTextReverse">Temas del grupo:</h6>
                     <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1 truncate">{{groupInfo.7}}</p>
                 </div>
             </div>
@@ -72,8 +72,11 @@
                 <ul class="collapsible bordered5 colorWhite">
                     <li>
                         <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
-                            style="margin-bottom: 5px;"><i class="material-icons">article</i>Cuestionarios. <span
-                                id="cuestionariosContador" class="colorGrey"></span>
+                            style="margin-bottom: 5px;"><i class="material-icons">article</i>
+                            <span class="TDI">
+                                Cuestionarios.
+                            </span>
+                            <span id="cuestionariosContador" class="colorGrey"></span>
                         </div>
                         <div class="bordered5 collapsible-body">
                             <section class="contenedorEstudiantesInfo">
@@ -82,16 +85,18 @@
                                 {% if datosCuestionarios[i][1] == groupInfo.0%}
                                 <div class="colorTextReverse cardCuestionarioGrupoVer">
                                     <div class="colorGrey titleCardCuestionarioGrupoVer truncate">
-                                        <h6>{{datosCuestionarios[i][3]}}</h6>
+                                        <h6 class="colorTextReverse">{{datosCuestionarios[i][3]}}</h6>
                                     </div>
                                     <div class="colorGreyDarker descCardCuestionarioGrupoVer" style="border-radius: 0;">
-                                        <p id="muestraCodigoGrupo" style="text-align: left;">Tipo:
+                                        <p id="muestraCodigoGrupo" style="text-align: left;">
                                             {{datosCuestionarios[i][7]}}</p>
                                     </div>
-                                    <div class="colorGreyDarker borderDecoration bordered2Down" style="padding: 20px 20px; width: 100%; display: flex; justify-content: center; align-items: center;">
+                                    <div class="colorGreyDarker borderDecoration bordered2Down"
+                                        style="padding: 20px 20px; width: 100%; display: flex; justify-content: center; align-items: center;">
                                         <form action="/viewCuestionarioInfo/{{datosCuestionarios[i][0]}}" method="post">
                                             <input type="hidden" name="idEstudiante" value="{{idEstudiante}}">
-                                            <button type="submit" class="btn waves-effect color2 bordered5" style="width: 200px;">Acceder</button>
+                                            <button type="submit" class="btn waves-effect color2 bordered5"
+                                                style="width: 200px;">Enter</button>
                                         </form>
                                     </div>
                                 </div>
@@ -110,8 +115,10 @@
                 <ul class="collapsible bordered5 colorWhite">
                     <li>
                         <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
-                            style="margin-bottom: 5px;"><i class="material-icons">people</i>Alumnos. <span
-                                id="alumnosContador" class="colorGrey"></span>
+                            style="margin-bottom: 5px;"><i class="material-icons">people</i>
+                            <span class="TDI">
+                                Alumnos.
+                            </span> <span id="alumnosContador" class="colorGrey"></span>
                         </div>
                         <div class="bordered5 collapsible-body">
                             <section class="contenedorEstudiantesInfo">
@@ -138,13 +145,22 @@
             </div>
         </section>
 
-</body>
+        <!--Botones para que el gestor de idiomas no falle-->
+        <span class="hiddenElement" id="seleccionarEspanol"></span>
+        <span class="hiddenElement" id="seleccionarIngles"></span>
+        <span class="hiddenElement" id="seleccionarPortugues"></span>
+        <span class="hiddenElement" id="seleccionarChino"></span>
 
+</body>
 
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
 
 <script src="../../static/js/operacionesVerGrupo.js"></script>
 <script src="../../static/js/generadorCodigosCuestionarioHacer.js"></script>
+
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
 </html>
