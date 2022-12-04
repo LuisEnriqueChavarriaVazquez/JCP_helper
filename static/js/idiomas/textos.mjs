@@ -270,125 +270,44 @@ let rutas = {
     },
     "perfil_alumno": {
         "textEspanol": {
-            texts: [
-                'Perfil del alumno.',
-                'Perfil del alumno.',
-                'Perfil del alumno.',
-                'Volver',
-                'Opciones',
-                'Ver foto',
-                'Modificar foto',
-                'Cambiar foto',
-                'Elegir',
-                'Datos de la cuenta',
-                'Datos de la cuenta',
-                'Contacto',
-                'Unidad',
-                'Especialización',
-                'Publicaciones',
-                'Publicaciones',
-                'Crear un nuevo POST',
-                'Haga una publicación para que otros usuarios en la plataforma puedan verla.',
-                'Datos del POST',
-                'Titulo del post',
-                'Descripción del post',
-                'Multimedia',
-                'URL de imagen',
-                'Crear',
-                'Ingresar URL',
-                'Agregar',
-                'Temas offline',
-                'Publicar']
+            texts: ['Perfil del alumno.','Perfil del alumno.','Perfil del alumno.','Volver','Opciones','Ver foto','Modificar foto','Cambiar foto','Elegir','Datos de la cuenta','Datos de la cuenta','Contacto','Unidad','Especialización','Publicaciones','Publicaciones','Crear un nuevo POST','Haga una publicación para que otros usuarios en la plataforma puedan verla.','Datos del POST','Titulo del post','Descripción del post','Multimedia','URL de imagen','Crear','Ingresar URL','Agregar','Temas offline','Publicar']
         },
         "textIngles": {
-            texts: ['Student profile.',
-            'Student profile.',
-            'Student profile.',
-            'Return',
-            'options',
-            'View photo',
-            'Modify photo',
-            'Change photo',
-            'To choose',
-            'Account data',
-            'Account data',
-            'Contact',
-            'Academic unit',
-            'Specialization',
-            'User posts',
-            'User posts',
-            'Create a new POST',
-            'Make a post so other users on the platform can see it.',
-            'POST data',
-            'Post title',
-            'Post description',
-            'Multimedia',
-            'image url',
-            'Post it',
-            'Enter URL',
-            'Add',
-            'Offline Themes',
-            'Post']
+            texts: ['Student profile.','Student profile.','Student profile.','Return','options','View photo','Modify photo','Change photo','To choose','Account data','Account data','Contact','Academic unit','Specialization','User posts','User posts','Create a new POST','Make a post so other users on the platform can see it.','POST data','Post title','Post description','Multimedia','image url','Post it','Enter URL','Add','Offline Themes','Post']
         },
         "textPortugues": {
-            texts: ['Perfil do aluno.',
-            'Perfil do aluno.',
-            'Perfil do aluno.',
-            'Retornar',
-            'opções',
-            'Ver foto',
-            'Modificar foto',
-            'Mudar foto',
-            'Escolher',
-            'Dados da conta',
-            'Dados da conta',
-            'Contato',
-            'Unidade',
-            'Especialização',
-            'Publicações',
-            'Publicações',
-            'Criar um novo POST',
-            'Faça uma postagem para que outros usuários da plataforma possam vê-la.',
-            'Dados de postagem',
-            'Título da postagem',
-            'Descrição da postagem',
-            'Multimídia',
-            'imagem URL',
-            'Criar post',
-            'Inserir URL',
-            'Adicionar',
-            'Temas off-line',
-            'Publicar']
+            texts: ['Perfil do aluno.','Perfil do aluno.','Perfil do aluno.','Retornar','opções','Ver foto','Modificar foto','Mudar foto','Escolher','Dados da conta','Dados da conta','Contato','Unidade','Especialização','Publicações','Publicações','Criar um novo POST','Faça uma postagem para que outros usuários da plataforma possam vê-la.','Dados de postagem','Título da postagem','Descrição da postagem','Multimídia','imagem URL','Criar post','Inserir URL','Adicionar','Temas off-line','Publicar']
         },
         "textChino": {
-            texts: ['学生档案。',
-            '学生档案。',
-            '学生档案。',
-            '返回',
-            '选项',
-            '查看照片',
-            '修改照片',
-            '更改照片',
-            '选择',
-            '账户数据',
-            '账户数据',
-            '接触',
-            '单元',
-            '专业化',
-            '出版物',
-            '出版物',
-            '创建一个新的帖子',
-            '发布一个帖子,让平台上的其他用户可以看到它。',
-            '发布数据',
-            '帖子标题',
-            '帖子描述',
-            '多媒体',
-            '图片网址',
-            '去创造',
-            '输入网址',
-            '添加',
-            '离线主题',
-            '邮政']
+            texts: ['学生档案。','学生档案。','学生档案。','返回','选项','查看照片','修改照片','更改照片','选择','账户数据','账户数据','接触','单元','专业化','出版物','出版物','创建一个新的帖子','发布一个帖子,让平台上的其他用户可以看到它。','发布数据','帖子标题','帖子描述','多媒体','图片网址','去创造','输入网址','添加','离线主题','邮政']
+        }
+    },
+    "perfil_docente": {
+        "textEspanol": {
+            texts: ['Perfil del docente.','Perfil del docente.','Perfil del docente.','Volver.','Opciones','Ver foto','Modificar foto','Cambiar foto','Elegir','Datos de la cuenta','Datos de la cuenta','Contacto','Unidad','Publicaciones','Publicaciones','Crear un nuevo POST','Haga una publicación para que otros usuarios en la plataforma puedan verla.','Datos del POST','Titulo del post','Descripción del post','Multimedia','URL de imagen','Crear','Ingresar URL','Agregar una imagen de internet para el perfil.','Agregar','Temas offline','Agregar una imagen para el perfil sin necesidad de conexión a internet']
+        },
+        "textIngles": {
+            texts: ['Teacher\'s profile.','Teacher\'s profile.','Teacher\'s profile.','Return.','options','View photo','Modify photo','Change photo','To choose','Account data','Account data','Contact','Unit','Publications','Publications','Create a new POST','Make a post so other users on the platform can see it.','POST data','Post title','Post description','Multimedia','image url','Create post','Enter URL','Add an image from the internet to the profile.','Add','Offline Themes','Add an image to the profile without the need for an internet connection']
+        },
+        "textPortugues": {
+            texts: ['Perfil do professor.','Perfil do professor.','Perfil do professor.','Retornar.','opções','Ver foto','Modificar foto','Mudar foto','Escolher','Dados da conta','Dados da conta','Contato','Unidade','Publicações','Publicações','Criar um novo POST','Faça uma postagem para que outros usuários da plataforma possam vê-la.','Dados de postagem','Título da postagem','Descrição da postagem','Multimídia','imagem URL','Criar post','Inserir URL','Adicione uma imagem da internet ao perfil.','Adicionar','Temas off-line','Adicione uma imagem ao perfil sem a necessidade de uma conexão com a internet']
+        },
+        "textChino": {
+            texts: ['教师简介','教师简介','教师简介','返回。','选项','查看照片','修改照片','更改照片','选择','账户数据','账户数据','接触','单元','出版物','出版物','创建一个新的帖子','发布一个帖子,让平台上的其他用户可以看到它。','发布数据','帖子标题','帖子描述','多媒体','图片网址','去创造','输入网址','将来自互联网的图像添加到个人资料中。','添加','离线主题','无需互联网连接即可将图像添加到个人资料']
+        }
+    },
+    "saber_mas2": {
+        "textEspanol": {
+            texts: []
+        },
+        "textIngles": {
+            texts: []
+        },
+        "textPortugues": {
+            texts: []
+        },
+        "textChino": {
+            texts: []
         }
     },
     "saber_mas2": {
