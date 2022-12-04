@@ -21,6 +21,7 @@ from fpdf import FPDF
 from flask import make_response
 import os
 
+from random import randint
 
 photos = UploadSet("photos", IMAGES)
 
@@ -47,11 +48,6 @@ def wrappers(func, *args, **kwargs):
 
     return wrapped
 
-##Ruta para la vista de comunidad del profesor
-@routes.route('/comunidad_profesor')
-#@login_required
-def comunidad_profesor():
-    return render_template('profesor/a_comunidad_profesor.html')
 
 ##Ruta para la vista de gestion de cuestionarios
 @routes.route('/gestionar_cuestionarios')
@@ -783,6 +779,55 @@ def genera_cuestionarios_por_lenguaje():
     #return render_template('profesor/cuestionario_del_banco_personalizado.html', id_profesor = id_profesor, cuestionario_rutas = cuestionario_rutas, datosCuestionario = resultCuestionarios,cuestionario=cuestionario_personalizado)
     return render_template('profesor/b_verCuestionarioBanco.html', datosCuestionario = datos_cuestionario, dataJSON = cuestionario,id_profesor=id_profesor)
 
+##Ruta para la vista de comunidad del profesor
+@routes.route('/comunidad_profesor')
+#@login_required
+def comunidad_profesor():
+
+    #para mostrar preguntas de java
+    url1=f"https://jcp-banco-de-datos.up.railway.app/cuestionarios?lenguaje=Java"
+    response1=requests.request("GET",url=url1)
+    cuestionario_java=response1.text
+    cuestionario_java=cuestionario_java[1:-2]
+    cuestionario_java=cuestionario_java.replace("\"cuestionarios\":","")
+    cuestionario_java = ast.literal_eval(cuestionario_java)
+
+    #para mostrar preguntas de c
+    url2=f"https://jcp-banco-de-datos.up.railway.app/cuestionarios?lenguaje=C"
+    response2=requests.request("GET",url=url2)
+    cuestionario_c=response2.text
+    cuestionario_c=cuestionario_c[1:-2]
+    cuestionario_c=cuestionario_c.replace("\"cuestionarios\":","")
+    cuestionario_c = ast.literal_eval(cuestionario_c)
+
+    #para motrar preguntas de python
+    url3=f"https://jcp-banco-de-datos.up.railway.app/cuestionarios?lenguaje=Python"
+    response3=requests.request("GET",url=url3)
+    cuestionario_python=response3.text
+    cuestionario_python=cuestionario_python[1:-2]
+    cuestionario_python=cuestionario_python.replace("\"cuestionarios\":","")
+    cuestionario_python = ast.literal_eval(cuestionario_python)
+
+    #para mostrar preguntas en general
+    url4=f"https://jcp-banco-de-datos.up.railway.app/cuestionarios"
+    response4=requests.request("GET",url=url4)
+    cuestionario_general=response4.text
+    cuestionario_general=cuestionario_general[1:-2]
+    cuestionario_general=cuestionario_general.replace("\"cuestionarios\":","")
+    cuestionario_general = ast.literal_eval(cuestionario_general)
+
+    #para mostrar 6 cuestionarios aleatorios del total existente en la api
+    cuestionarios_generales=[cuestionario_general[randint(0,len(cuestionario_general)-1)] for n in range(8)]
+
+    cuestionarios_python=[cuestionario_python[randint(0,len(cuestionario_python)-1)] for n in range(3)]
+    cuestionarios_c=[cuestionario_c[randint(0,len(cuestionario_c)-1)] for n in range(2)]
+    cuestionarios_java=[cuestionario_java[randint(0,len(cuestionario_java)-1)] for n in range(3)]
+
+
+    # cuestionario=cuestionario_personalizado["preguntas"]
+    # cuestionario=json.loads(cuestionario)
+
+    return render_template('profesor/a_comunidad_profesor.html',general=cuestionarios_generales,python=cuestionarios_python,lenguajec=cuestionarios_c,java=cuestionarios_java)
 
 #Java coder runner
 @routes.route("/java_runner")

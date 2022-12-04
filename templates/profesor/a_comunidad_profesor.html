@@ -16,11 +16,11 @@
     <nav class="color2 shadow-2e" style="z-index:20000;">
         <div class="nav-wrapper">
             <a href="#" class="brand-logo hide-on-small-only">&nbsp;&nbsp;&nbsp;Comunidad.</a>
-            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+            <a href="/bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
             <p class="titleMobile colorText flow-text hide-on-med-and-up">Comunidad.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="/bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
             </ul>
         </div>
     </nav>
@@ -50,70 +50,28 @@
     <!--Para dispositivos de tamaño grande-->
     <section class="mainBodyAdicional mainBodyAdicionalComunidadGrande hide-on-small-only">
         <div class="row">
-            <div class="col m4 l3 xl2">
+            {% for item in general %}
+            <div class="col m6 l4 xl3">
                 <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
                     <div class="imagen_card_Comunidad_Grande">
-                        <img src="../../static/images/carousel_three.jpg" class="bordered2Up">
+                        {% if item.lenguaje == "Python" %}
+                            <img  src="../../static/images/python.png" class="bordered2Up">
+                        {% elif item.lenguaje == "Java" %}
+                            <img src="../../static/images/java.jpg" class="bordered2Up">
+                        {% elif item.lenguaje == "C" %}
+                            <img src="../../static/images/loc.png" class="bordered2Up">
+                        {% endif %}
                     </div>
                     <div class="padre_datos_card_Comunidad">
-                        <div class="imagen_card_usuario_Comunidad_Grande">
-                            <img src="../../static/images/user.png" class="shadow-2e bordered5">
-                        </div>
                         <div class="text_card_grande">
-                            <p class="truncate colorTextReverse">Nombre del cuestionario</p>
-                            <p class="truncate colorTextReverse">Nombre del docente</p>
+                            <p class="truncate colorTextReverse">{{item.titulo}}</p>
+                            <p class="truncate colorTextReverse">{{item.autor}}</p>
+                            <p  class="truncate colorTextReverse">{{item.temas}}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col m4 l3 xl2">
-                <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
-                    <div class="imagen_card_Comunidad_Grande">
-                        <img src="../../static/images/carousel_three.jpg" class="bordered2Up">
-                    </div>
-                    <div class="padre_datos_card_Comunidad">
-                        <div class="imagen_card_usuario_Comunidad_Grande">
-                            <img src="../../static/images/user.png" class="shadow-2e bordered5">
-                        </div>
-                        <div class="text_card_grande">
-                            <p class="truncate colorTextReverse">Nombre del cuestionario</p>
-                            <p class="truncate colorTextReverse">Nombre del docente</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col m4 l3 xl2">
-                <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
-                    <div class="imagen_card_Comunidad_Grande">
-                        <img src="../../static/images/carousel_three.jpg" class="bordered2Up">
-                    </div>
-                    <div class="padre_datos_card_Comunidad">
-                        <div class="imagen_card_usuario_Comunidad_Grande">
-                            <img src="../../static/images/user.png" class="shadow-2e bordered5">
-                        </div>
-                        <div class="text_card_grande">
-                            <p class="truncate colorTextReverse">Nombre del cuestionario</p>
-                            <p class="truncate colorTextReverse">Nombre del docente</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col m4 l3 xl2">
-                <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
-                    <div class="imagen_card_Comunidad_Grande">
-                        <img src="../../static/images/carousel_three.jpg" class="bordered2Up">
-                    </div>
-                    <div class="padre_datos_card_Comunidad">
-                        <div class="imagen_card_usuario_Comunidad_Grande">
-                            <img src="../../static/images/user.png" class="shadow-2e bordered5">
-                        </div>
-                        <div class="text_card_grande">
-                            <p class="truncate colorTextReverse">Nombre del cuestionario</p>
-                            <p class="truncate colorTextReverse">Nombre del docente</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </section>
     <!--Para las pantallas de celular-->
@@ -198,70 +156,72 @@
     </div>
     <section class="mainBodyAdicional mainBodyAdicionalComunidadGrande hide-on-small-only">
         <div class="row">
-            <div class="col m4 l3 xl2">
+            {% for item in python %}
+            <div class="col m6 l4 xl3">
                 <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
                     <div class="imagen_card_Comunidad_Grande">
-                        <img src="../../static/images/carousel_three.jpg" class="bordered2Up">
+                        {% if item.lenguaje == "Python" %}
+                            <img  src="../../static/images/python.png" class="bordered2Up">
+                        {% elif item.lenguaje == "Java" %}
+                            <img src="../../static/images/java.jpg" class="bordered2Up">
+                        {% elif item.lenguaje == "C" %}
+                            <img src="../../static/images/loc.png" class="bordered2Up">
+                        {% endif %}
                     </div>
                     <div class="padre_datos_card_Comunidad">
-                        <div class="imagen_card_usuario_Comunidad_Grande">
-                            <img src="../../static/images/user.png" class="shadow-2e bordered5">
-                        </div>
                         <div class="text_card_grande">
-                            <p class="truncate colorTextReverse">Nombre del cuestionario</p>
-                            <p class="truncate colorTextReverse">Nombre del docente</p>
+                            <p class="truncate colorTextReverse">{{item.titulo}}</p>
+                            <p class="truncate colorTextReverse">{{item.autor}}</p>
+                            <p  class="truncate colorTextReverse">{{item.temas}}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col m4 l3 xl2">
+            {% endfor %}
+            {% for item in lenguajec %}
+            <div class="col m6 l4 xl3">
                 <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
                     <div class="imagen_card_Comunidad_Grande">
-                        <img src="../../static/images/carousel_three.jpg" class="bordered2Up">
+                        {% if item.lenguaje == "Python" %}
+                            <img  src="../../static/images/python.png" class="bordered2Up">
+                        {% elif item.lenguaje == "Java" %}
+                            <img src="../../static/images/java.jpg" class="bordered2Up">
+                        {% elif item.lenguaje == "C" %}
+                            <img src="../../static/images/loc.png" class="bordered2Up">
+                        {% endif %}
                     </div>
                     <div class="padre_datos_card_Comunidad">
-                        <div class="imagen_card_usuario_Comunidad_Grande">
-                            <img src="../../static/images/user.png" class="shadow-2e bordered5">
-                        </div>
                         <div class="text_card_grande">
-                            <p class="truncate colorTextReverse">Nombre del cuestionario</p>
-                            <p class="truncate colorTextReverse">Nombre del docente</p>
+                            <p class="truncate colorTextReverse">{{item.titulo}}</p>
+                            <p class="truncate colorTextReverse">{{item.autor}}</p>
+                            <p  class="truncate colorTextReverse">{{item.temas}}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col m4 l3 xl2">
+            {% endfor %}
+            {% for item in java %}
+            <div class="col m6 l4 xl3">
                 <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
                     <div class="imagen_card_Comunidad_Grande">
-                        <img src="../../static/images/carousel_three.jpg" class="bordered2Up">
+                        {% if item.lenguaje == "Python" %}
+                            <img  src="../../static/images/python.png" class="bordered2Up">
+                        {% elif item.lenguaje == "Java" %}
+                            <img src="../../static/images/java.jpg" class="bordered2Up">
+                        {% elif item.lenguaje == "C" %}
+                            <img src="../../static/images/loc.png" class="bordered2Up">
+                        {% endif %}
                     </div>
                     <div class="padre_datos_card_Comunidad">
-                        <div class="imagen_card_usuario_Comunidad_Grande">
-                            <img src="../../static/images/user.png" class="shadow-2e bordered5">
-                        </div>
                         <div class="text_card_grande">
-                            <p class="truncate colorTextReverse">Nombre del cuestionario</p>
-                            <p class="truncate colorTextReverse">Nombre del docente</p>
+                            <p class="truncate colorTextReverse">{{item.titulo}}</p>
+                            <p class="truncate colorTextReverse">{{item.autor}}</p>
+                            <p  class="truncate colorTextReverse">{{item.temas}}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col m4 l3 xl2">
-                <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
-                    <div class="imagen_card_Comunidad_Grande">
-                        <img src="../../static/images/carousel_three.jpg" class="bordered2Up">
-                    </div>
-                    <div class="padre_datos_card_Comunidad">
-                        <div class="imagen_card_usuario_Comunidad_Grande">
-                            <img src="../../static/images/user.png" class="shadow-2e bordered5">
-                        </div>
-                        <div class="text_card_grande">
-                            <p class="truncate colorTextReverse">Nombre del cuestionario</p>
-                            <p class="truncate colorTextReverse">Nombre del docente</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </section>
     <section class="mainBodyAdicional">

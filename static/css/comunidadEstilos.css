@@ -117,3 +117,8 @@
     top: 62px;
     transition: all .2s ease-in-out;
 }*/
+
+.imagen_card_Comunidad_Grande img{
+    width: 120px;
+    height: 140px;
+}
