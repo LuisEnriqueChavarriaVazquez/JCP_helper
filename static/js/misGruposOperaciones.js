@@ -169,16 +169,16 @@ function buscarGrupos() {
 
             //Ultima validación en caso de no haber encontrado nada
             if (encontrado == true) {
-                M.toast({ html: 'Busqueda exitosa.' });
+                M.toast({ html: '😀👍.' });
                 limpiarInputsBusqueda();
             } else {
-                M.toast({ html: 'No encontramos elementos que coincidan.' })
+                M.toast({ html: '🔎😥' })
                 limpiarInputsBusqueda();
             }
 
         } else {
             reiniciarElementosBuscador();
-            M.toast({ html: 'Input de busqueda vacio.' })
+            M.toast({ html: '🔎❓😥' })
         }
     }
 

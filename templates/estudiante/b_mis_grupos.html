@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Mis grupos</title>
+    <title class="TDI">Mis grupos</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -18,12 +18,12 @@
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Mis grupos.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Mis grupos.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Mis grupos.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Mis grupos.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded TDI">Volver</a></li>
             </ul>
         </div>
     </nav>
@@ -34,9 +34,9 @@
         <section class="operationMainNavMyGroups">
             <!--Titulos de la página-->
             <div class="title-general color1 fixedTitleOperationMain shadow-2e" id="cajaTituloBuscadorId">
-                <h6 class="colorText hide-on-large-only hide-on-med-only" id="cajaTituloBuscadorContenidoId">Panel
+                <h6 class="colorText hide-on-large-only hide-on-med-only TDI" id="cajaTituloBuscadorContenidoId">Panel
                     global</h6>
-                <h5 class="colorText hide-on-small-only" id="cajaTituloBuscadorContenidoLargeId">Panel global</h5>
+                <h5 class="colorText hide-on-small-only TDI" id="cajaTituloBuscadorContenidoLargeId">Panel global</h5>
             </div>
 
             <!--Buscador para los dispositivos moviles-->
@@ -46,7 +46,7 @@
                     <div class="icon_browser_mine shadow-2 bordered5 color3 colorText" id="icon_browser_mine"><i
                             class="material-icons colorText">search</i></div>
                     <div class="box_browser">
-                        <input type="text" class="colorGreyWhiter browser-default shadow-2e flow-text" placeholder="🔎"
+                        <input type="text" class="colorGreyWhiter colorTextReverse browser-default shadow-2e flow-text" placeholder="🔎"
                             id="buscadorInput_tres">
                     </div>
                     <div class="icon_search_voice_mine shadow-2 bordered5 color3 colorText" id="icon_search_voice_mine">
@@ -67,7 +67,7 @@
                             id="iconVistasAlternateGroupMobile" class="material-icons md-24">grid_view</i></a>
                 </div>
             </div>
-            
+
             <div class="contenedorCardsGruposOperationMyGroups" id="contenedorCardsGruposOperationId">
                 {% if datosGroup %}
                 {%for i in range(0, datosGroup|length)%}
@@ -96,9 +96,7 @@
                                     class="material-icons md-24">logout</i></a>
                             <form action="/viewGroupEstudiante/{{datosGroup[i][0]}}" method="post">
                                 <input type="hidden" name="idEstudiante" value="{{idEstudiante}}">
-                                <button
-                                    type="submit"
-                                    style="width:100%;"
+                                <button type="submit" style="width:100%;"
                                     class="modal-trigger classIdentifierGroupButtonDelete waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
                                         class="material-icons md-24">visibility</i></button>
                             </form>
@@ -108,12 +106,11 @@
                 <!--Pop up para salir del grupo-->
                 <div id="modal{{datosIds[i][1]}}" class="modal bordered2 colorGrey">
                     <div class="modal-content">
-                        <h4>¿Desea salir del grupo?</h4>
-                        <p>Se recomienda informar a su docente en caso de que el curso no haya terminado.</p>
+                        <h4>Exit group? </h4>
                         <hr>
                         <a href="/salirGrupo/{{datosIds[i][0]}}/{{datosIds[i][1]}}/{{datosIds[i][2]}}"
                             class="waves-effect waves-light btn badColorButton shadow-2e button-rounded"
-                            style="width: 100%;">Salir</a>
+                            style="width: 100%;"><i class="material-icons md-28">logout</i></a>
                     </div>
                 </div>
                 {%endfor%}
@@ -122,13 +119,22 @@
         </section>
 
     </section>
-</body>
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
 
+</body>
 
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
 
 <script src="../../static/js/bienvenidaEfectos.js"></script>
 <script src="../../static/js/misGruposOperaciones.js"></script>
+
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
 </html>

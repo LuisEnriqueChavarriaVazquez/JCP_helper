@@ -326,150 +326,44 @@ let rutas = {
     },
     "bienvenidaEstudiante": {
         "textEspanol": {
-            texts: [
-                'Panel central.',
-                'Panel central.',
-                'Configuraciones',
-                'Ayuda',
-                'Cerrar sesión',
-                'Cuenta de estudiante',
-                'Mis grupos.',
-                'Mis resultados.',
-                'Configuraciones.',
-                'Ayuda.',
-                'Temas',
-                'Temas clásicos',
-                'Temas oscuros',
-                'Accesibilidad',
-                'Adicionales',
-                'Cookies.',
-                'Privacidad.',
-                'Términos.',
-                'Saber más.',
-                'Cerrar sesión.',
-                'Menú de opciones',
-                'Menú de opciones',
-                'Mis grupos',
-                'Acceda a sus grupos y resuelva sus cuestionarios.',
-                'Mis resultados',
-                'Revise sus resultado obtenidos en los cuestionarios.',
-                'Mis grupos',
-                'Acceda a sus grupos y resuelva sus cuestionarios.',
-                'Mis resultados',
-                'Revise sus resultado obtenidos en los cuestionarios.',
-                'Mis grupos',
-                'Acceda a sus grupos y resuelva sus cuestionarios.',
-                'Mis resultados',
-                'Revise sus resultado obtenidos en los cuestionarios.'
-                ]
+            texts: ['Panel central.','Panel central.','Configuraciones','Ayuda','Cerrar sesión','Cuenta de estudiante','Mis grupos.','Mis resultados.','Configuraciones.','Ayuda.','Temas','Temas clásicos','Temas oscuros','Accesibilidad','Adicionales','Cookies.','Privacidad.','Términos.','Saber más.','Cerrar sesión.','Menú de opciones','Menú de opciones','Mis grupos','Acceda a sus grupos y resuelva sus cuestionarios.','Mis resultados','Revise sus resultado obtenidos en los cuestionarios.','Mis grupos','Acceda a sus grupos y resuelva sus cuestionarios.','Mis resultados','Revise sus resultado obtenidos en los cuestionarios.','Mis grupos','Acceda a sus grupos y resuelva sus cuestionarios.','Mis resultados','Revise sus resultado obtenidos en los cuestionarios.']
         },
         "textIngles": {
-            texts: ['Central panel',
-            'Central panel',
-            'Settings',
-            'Help',
-            'Log out',
-            'Student account',
-            'My groups.',
-            'My results.',
-            'Settings.',
-            'Help',
-            'Styles',
-            'Classic Themes',
-            'Dark Themes',
-            'Accessibility',
-            'Additional',
-            'Cookies.',
-            'Privacy.',
-            'Terms.',
-            'Know more.',
-            'Log out.',
-            'Options menu',
-            'Options menu',
-            'My groups',
-            'Access your groups and solve your quizzes.',
-            'My results',
-            'Check your results obtained in the questionnaires.',
-            'My groups',
-            'Access your groups and solve your quizzes.',
-            'My results',
-            'Check your results obtained in the questionnaires.',
-            'My groups',
-            'Access your groups and solve your quizzes.',
-            'My results',
-            'Check your results obtained in the questionnaires.']
+            texts: ['Central panel','Central panel','Settings','Help','Log out','Student account','My groups.','My results.','Settings.','Help','Styles','Classic Themes','Dark Themes','Accessibility','Additional','Cookies.','Privacy.','Terms.','Know more.','Log out.','Options menu','Options menu','My groups','Access your groups and solve your quizzes.','My results','Check your results obtained in the questionnaires.','My groups','Access your groups and solve your quizzes.','My results','Check your results obtained in the questionnaires.','My groups','Access your groups and solve your quizzes.','My results','Check your results obtained in the questionnaires.']
         },
         "textPortugues": {
-            texts: ['Painel central',
-            'Painel central',
-            'Definições',
-            'Ajuda',
-            'Fechar Sessão',
-            'Conta de estudante',
-            'Meus grupos.',
-            'Meus resultados.',
-            'Definições.',
-            'Ajuda.',
-            'Tópicos',
-            'Temas Clássicos',
-            'Temas Sombrios',
-            'Acessibilidade',
-            'adicional',
-            'Cookies.',
-            'Privacidade.',
-            'Termos.',
-            'Saber mais.',
-            'Fechar Sessão.',
-            'Menu de opções',
-            'Menu de opções',
-            'Meus grupos',
-            'Acesse seus grupos e resolva seus quizzes.',
-            'Meus resultados',
-            'Verifique os resultados obtidos nos questionários.',
-            'Meus grupos',
-            'Acesse seus grupos e resolva seus quizzes.',
-            'Meus resultados',
-            'Verifique os resultados obtidos nos questionários.',
-            'Meus grupos',
-            'Acesse seus grupos e resolva seus quizzes.',
-            'Meus resultados',
-            'Verifique os resultados obtidos nos questionários.']
+            texts: ['Painel central','Painel central','Definições','Ajuda','Fechar Sessão','Conta de estudante','Meus grupos.','Meus resultados.','Definições.','Ajuda.','Tópicos','Temas Clássicos','Temas Sombrios','Acessibilidade','adicional','Cookies.','Privacidade.','Termos.','Saber mais.','Fechar Sessão.','Menu de opções','Menu de opções','Meus grupos','Acesse seus grupos e resolva seus quizzes.','Meus resultados','Verifique os resultados obtidos nos questionários.','Meus grupos','Acesse seus grupos e resolva seus quizzes.','Meus resultados','Verifique os resultados obtidos nos questionários.','Meus grupos','Acesse seus grupos e resolva seus quizzes.','Meus resultados','Verifique os resultados obtidos nos questionários.']
         },
         "textChino": {
-            texts: ['中间面板。',
-            '中间面板。',
-            '设置',
-            '援助',
-            '登出',
-            '学生账户',
-            '我的群组。',
-            '我的结果。',
-            '设置。',
-            '援助。',
-            '话题',
-            '经典主题',
-            '黑暗主题',
-            '辅助功能',
-            '额外的',
-            '饼干。',
-            '隐私。',
-            '条款',
-            '了解更多。',
-            '登出。',
-            '选项菜单',
-            '选项菜单',
-            '我的群组',
-            '访问您的群组并解决您的测验。',
-            '我的成绩',
-            '检查您在问卷中获得的结果。',
-            '我的群组',
-            '访问您的群组并解决您的测验。',
-            '我的成绩',
-            '检查您在问卷中获得的结果。',
-            '我的群组',
-            '访问您的群组并解决您的测验。',
-            '我的成绩',
-            '检查您在问卷中获得的结果。']
+            texts: ['中间面板。','中间面板。','设置','援助','登出','学生账户','我的群组。','我的结果。','设置。','援助。','话题','经典主题','黑暗主题','辅助功能','额外的','饼干。','隐私。','条款','了解更多。','登出。','选项菜单','选项菜单','我的群组','访问您的群组并解决您的测验。','我的成绩','检查您在问卷中获得的结果。','我的群组','访问您的群组并解决您的测验。','我的成绩','检查您在问卷中获得的结果。','我的群组','访问您的群组并解决您的测验。','我的成绩','检查您在问卷中获得的结果。']
+        }
+    },
+    "mis_grupos": {
+        "textEspanol": {
+            texts: ['Mis grupos.','Mis grupos.','Mis grupos.','Volver','Panel global','Panel global']
+        },
+        "textIngles": {
+            texts: ['My groups.','My groups.','My groups.','Back','Global panel','Global panel']
+        },
+        "textPortugues": {
+            texts: ['Meus grupos.','Meus grupos.','Meus grupos.','Voltar','Painel global','Painel global']
+        },
+        "textChino": {
+            texts: ['我的群组','我的群组','我的群组','返回','全局面板','全局面板']
+        }
+    },
+    "saber_mas2": {
+        "textEspanol": {
+            texts: []
+        },
+        "textIngles": {
+            texts: []
+        },
+        "textPortugues": {
+            texts: []
+        },
+        "textChino": {
+            texts: []
         }
     },
     "saber_mas2": {
