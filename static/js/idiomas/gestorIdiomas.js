@@ -77,7 +77,10 @@ function rutaValidation(stringUrl) {
         return "perfil_general_view"
     }else if(stringUrl.includes("editarPerfilProfesor")){
         return "editarPerfilProfesor"
+    }else if(stringUrl.includes("editarPerfilAlumno")){
+        return "editarPerfilAlumno"
     }
+
     
     
     //En caso de que la URL no tenga IDs

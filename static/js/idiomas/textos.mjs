@@ -11,7 +11,7 @@ let objetoConfiguraciones = {
         texts: ["Configuraciones", "Configuraciones", "Configuraciones", "volver", "Cuenta de usuario", "Cuenta de usuario", "Opciones de la cuenta.", "Modificar cuenta", "Acceso a informes", "Vistazo perfil", "Eliminar cuenta", "Colores", "Colores", "Selector de temas", "Paleta actual", "Accesibilidad", "Accesibilidad", "Selector de temas adaptados", "Paleta actual", "Idioma", "Idioma", "Idiomas disponibles", "Español", "Inglés", "Portugués", "Mandarín", "¿Desea eliminar su cuenta?", "Esta acción es irreversible, deseas continuar", "Cancelar", "Continuar",]
     },
     "textIngles": {
-        texts: ["Settings", "Settings", "Settings", "return", "User account", "User account", "Account Options.", "Modify account", "Access to reports", "profile look", "Delete account", "Colors", "Colors", "Theme selector", "Current Palette", "Accessibility", "Accessibility", "Custom theme selector", "Current Palette", "Idiom", "Idiom", "Available languages", "Spanish", "English", "Portuguese", "Mandarin", "Do you want to delete your account?", "This action is irreversible, you wish to continue", "Cancel", "Continue",]
+        texts: ["Settings", "Settings", "Settings", "return", "User account", "User account", "Account Options.", "Modify account", "Access to reports", "profile look", "Delete account", "Colors", "Colors", "Theme selector", "Current Palette", "Accessibility", "Accessibility", "Custom theme selector", "Current Palette", "Language", "Language", "Available languages", "Spanish", "English", "Portuguese", "Mandarin", "Do you want to delete your account?", "This action is irreversible, you wish to continue", "Cancel", "Continue",]
     },
     "textPortugues": {
         texts: ["Definições", "Definições", "Definições", "Retorna", "Conta de usuario", "Conta de usuario", "Opções de conta.", "Modificar conta", "Acesso a relatórios", "look de perfil", "Eliminar conta", "Cores", "Cores", "Seletor de tema", "Paleta atual", "Acessibilidade", "Acessibilidade", "Seletor de tema personalizado", "Paleta atual", "Idioma", "Idioma", "Idiomas disponíveis", "Espanhol", "Inglês", "Português", "Mandarim", "Deseja deletar sua conta?", "Esta ação é irreversível, você deseja continuar", "Cancelar", "Continuar",]
@@ -298,23 +298,37 @@ let rutas = {
     },
     "editarPerfilProfesor": {
         "textEspanol": {
-            texts: [
-                'Editar perfil.',
-                'Editar perfil.',
-                'Editar perfil.',
-                'Volver',
-                'Formulario de edición.',
-                'Formulario de edición.',
-                'Datos de',
-                'Nombre de usuario',
-                'Alias de usuario',
-                'Descripción',
-                'Seguridad',
-                'Contraseña',
-                'Confirmar contraseña',
-                'Datos académicos',
-                'Unidad académica',
-                'Editar']
+            texts: ['Editar perfil.','Editar perfil.','Editar perfil.','Volver','Formulario de edición.','Formulario de edición.','Datos de','Nombre de usuario','Alias de usuario','Descripción','Seguridad','Contraseña','Confirmar contraseña','Datos académicos','Unidad académica','Editar']
+        },
+        "textIngles": {
+            texts: ['Edit profile.','Edit profile.','Edit profile.','Return','Edit form.','Edit form.','Data of','Username','User aliases','Description','Security','Password','Confirm Password','Academic data','Academic Unit','Edit']
+        },
+        "textPortugues": {
+            texts: ['Editar Perfil.','Editar Perfil.','Editar Perfil.','Retornar','Editar formulário.','Editar formulário.','Dados de','Nome de usuário','Alcunhas de usuário','Descrição','Segurança','Senha','Confirmar senha','Dados académicos','Unidade Académica','Editar']
+        },
+        "textChino": {
+            texts: ['编辑个人资料。','编辑个人资料。','编辑个人资料。','返回','编辑表格。','编辑表格。','来自','用户名','用户别名','描述','安全','密码','确认密码','学术数据','学术单位','编辑']
+        }
+    },
+    "editarPerfilAlumno": {
+        "textEspanol": {
+            texts: ['Editar perfil.',
+            'Editar perfil.',
+            'Editar perfil.',
+            'Volver',
+            'Formulario de edición.',
+            'Formulario de edición.',
+            'Datos de',
+            'Nombre de usuario',
+            'Alias de usuario',
+            'Descripción',
+            'Seguridad',
+            'Contraseña',
+            'Confirmar contraseña',
+            'Datos académicos',
+            'Area',
+            'Escuela',
+            'Editar']
         },
         "textIngles": {
             texts: ['Edit profile.',
@@ -331,7 +345,8 @@ let rutas = {
             'Password',
             'Confirm Password',
             'Academic data',
-            'Academic Unit',
+            'Area',
+            'School',
             'Edit']
         },
         "textPortugues": {
@@ -349,7 +364,8 @@ let rutas = {
             'Senha',
             'Confirmar senha',
             'Dados académicos',
-            'Unidade Académica',
+            'Área',
+            'Escola',
             'Editar']
         },
         "textChino": {
@@ -359,7 +375,7 @@ let rutas = {
             '返回',
             '编辑表格。',
             '编辑表格。',
-            '来自',
+            '茱莉亚数据',
             '用户名',
             '用户别名',
             '描述',
@@ -367,8 +383,23 @@ let rutas = {
             '密码',
             '确认密码',
             '学术数据',
-            '学术单位',
+            '区域',
+            '学校',
             '编辑']
+        }
+    },
+    "saber_mas2": {
+        "textEspanol": {
+            texts: []
+        },
+        "textIngles": {
+            texts: []
+        },
+        "textPortugues": {
+            texts: []
+        },
+        "textChino": {
+            texts: []
         }
     },
     "saber_mas2": {

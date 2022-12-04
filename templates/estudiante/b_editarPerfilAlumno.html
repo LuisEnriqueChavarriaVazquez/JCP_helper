@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Editar perfil</title>
+    <title class="TDI">Editar perfil</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -18,19 +18,19 @@
     <!--Menu de página de inicio-->
     <nav class="color2">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Editar perfil.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Editar perfil.</a>
             <a href="/bienvenidaEstudiante" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Editar perfil.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Editar perfil.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="/bienvenidaEstudiante" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="/bienvenidaEstudiante" class="btn color3 button-rounded TDI">Volver</a></li>
             </ul>
         </div>
     </nav>
     <!--Titulos de la página-->
     <div class="title-general">
-        <h5 class="colorTextReverse hide-on-large-only hide-on-med-only">Formulario de edición.</h5>
-        <h4 class="colorTextReverse hide-on-small-only">Formulario de edición.</h4>
+        <h5 class="colorTextReverse hide-on-large-only hide-on-med-only TDI">Formulario de edición.</h5>
+        <h4 class="colorTextReverse hide-on-small-only TDI">Formulario de edición.</h4>
     </div>
 
     <!--Contenedor principal-->
@@ -47,67 +47,74 @@
         <section class="contenedorFormularioPrincipal">
             <form class="popUpForm bordered2 colorGreyWhiter shadow-2e" action="/updateAlumno/{{userInfo.0}}"
                 method="post">
-                <h5>Datos de {{userInfo.1}}</h5>
+                <h5><span class="TDI">Datos de</span> {{userInfo.1}}</h5>
                 <br>
                 <div class="row">
                     <div class="input-field col s12 m6">
-                        <input id="nombreUsuario" name="nombreUsuario" type="text" class="validate"
+                        <input id="nombreUsuario" name="nombreUsuario" type="text" class="validate colorTextReverse"
                             value="{{userInfo.1}}">
-                        <label for="nombreUsuario">Nombre de usuario</label>
+                        <label for="nombreUsuario" class="TDI">Nombre de usuario</label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <input id="aliasUsuario" name="aliasUsuario" type="text" class="validate"
+                        <input id="aliasUsuario" name="aliasUsuario" type="text" class="validate colorTextReverse"
                             value="{{userInfo.2}}">
-                        <label for="aliasUsuario">Alias de usuario</label>
+                        <label for="aliasUsuario" class="TDI">Alias de usuario</label>
                     </div>
                     <div class="input-field col s12">
-                        <textarea id="descUser" name="descUser" class="validate"
+                        <textarea id="descUser" name="descUser" class="validate colorTextReverse"
                             style="border: 0px solid #000; padding: 10px; margin-top: 5px;"
                             data-length="100">{{userInfo.8}}</textarea>
-                        <label for="descUser">Descripción</label>
+                        <label for="descUser" class="TDI">Descripción</label>
                     </div>
                 </div>
 
-                <h5>Seguridad</h5>
+                <h5 class="TDI">Seguridad</h5>
                 <br id="espacioExtra" class="hiddenElement">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="contraFirst" name="contraFirst" type="password" value="">
-                        <label for="contraFirst">Contraseña</label>
+                        <input id="contraFirst" class="colorTextReverse" name="contraFirst" type="password" value="">
+                        <label for="contraFirst" class="TDI">Contraseña</label>
                     </div>
                     <div class="input-field col s12 hiddenElement" id="contraSecondContainer">
-                        <input id="contraSecond" name="contraSecond" type="password" value="">
-                        <label for="contraSecond">Confirmar contraseña</label>
+                        <input id="contraSecond" class="colorTextReverse" name="contraSecond" type="password" value="">
+                        <label for="contraSecond" class="TDI">Confirmar contraseña</label>
                     </div>
                 </div>
 
-                <h5>Datos académicos</h5>
+                <h5 class="TDI">Datos académicos</h5>
                 <br>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="area" name="area" type="text" class="validate"
-                            value="{{userInfo.6}}">
-                        <label for="area">Area</label>
+                        <input id="area" name="area" type="text" class="validate colorTextReverse" value="{{userInfo.6}}">
+                        <label for="area" class="TDI">Area</label>
                     </div>
                     <div class="input-field col s12">
-                        <input id="escuela" name="escuela" type="text" class="validate"
-                            value="{{userInfo.7}}">
-                        <label for="escuela">Escuela</label>
+                        <input id="escuela" name="escuela" type="text" class="validate colorTextReverse" value="{{userInfo.7}}">
+                        <label for="escuela" class="TDI">Escuela</label>
                     </div>
                 </div>
 
                 <br>
-                <button type="submit" class="btn-large color2 bordered5 buttonPopUp">Editar</button>
+                <button type="submit" class="btn-large color2 bordered5 buttonPopUp TDI">Editar</button>
             </form>
         </section>
     </section>
 
-</body>
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
 
+</body>
 
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
 
 <script src="../../static/js/operacionesEditarPerfil.js"></script>
+
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
 </html>
