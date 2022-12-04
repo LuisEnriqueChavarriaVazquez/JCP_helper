@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Bienvenida Estudiante</title>
+    <title class="TDI">Bienvenida Estudiante</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -19,14 +19,28 @@
         <div class="nav-wrapper">
             <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i
                     class="material-icons">menu</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Panel central.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Panel central.</p>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/configuraciones_alumno" class="btn color2 button-rounded"><i
-                            class="material-icons left">settings</i>Configuraciones</a></li>
-                <li><a href="/ayuda" class="btn color2 button-rounded"><i class="material-icons left">help</i>Ayuda</a>
+                            class="material-icons left">settings</i>
+                            <span class="TDI">
+                                Configuraciones
+                            </span>
+                </a></li>
+                <li>
+                    <a href="/ayuda" class="btn color2 button-rounded"><i class="material-icons left">help</i>
+                        <span class="TDI">
+                            Ayuda
+                        </span>
+                    </a>
                 </li>
                 <li><a href="/logoutEstudiante" class="btn color3 button-rounded"><i
-                            class="material-icons left">directions_run</i>Cerrar sesión</a></li>
+                            class="material-icons left">directions_run</i>
+                            <span class="TDI">
+                                Cerrar sesión
+                            </span>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -41,7 +55,7 @@
                 <div class="background fondoDinamico" id="fondoBienvenida"></div>
                 <a href="/perfil_alumno"><img style="border: 3px solid #fff;" class="circle shadow-3e"
                         src="../../static/images/alumnos/{{datos[3]}}"></a>
-                <a href="#"><span class="white-text name"><b>Cuenta de estudiante</b></span></a>
+                <a href="#"><span class="white-text name"><b class="TDI">Cuenta de estudiante</b></span></a>
                 <a href="#"><span class="white-text name" style="margin-top: 0;">
                         {{datos[1]}}
                     </span></a>
@@ -54,53 +68,63 @@
         </li>
         <li><a href="/gestionar_grupos_alumno" class="colorTextReverse"><i
                     class="colorTextReverse material-icons">groups_2</i>
-                Mis grupos.</a></li>
+                <span class="TDI">
+                    Mis grupos.
+                </span>
+            </a>
+        </li>
         <li><a href="/gestionar_resultados_alumno" class="colorTextReverse"><i
-                    class="colorTextReverse material-icons">grade</i>Mis resultados.</a></li>
+                    class="colorTextReverse material-icons">grade</i>
+                    <span class="TDI">
+                        Mis resultados.
+                    </span>
+            </a>
+        </li>
         <hr>
         <li><a href="/configuraciones_alumno" class="colorTextReverse"><i
-                    class="colorTextReverse material-icons">settings</i>Configuraciones.</a></li>
-        <li><a href="/ayuda" class="colorTextReverse"><i class="colorTextReverse material-icons">help</i>Ayuda.</a></li>
+                    class="colorTextReverse material-icons">settings</i><span class="TDI">Configuraciones.</span></a></li>
+        <li><a href="/ayuda" class="colorTextReverse"><i class="colorTextReverse material-icons">help</i>
+            <span class="TDI">Ayuda.</span></a></li>
         <hr>
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
                 <li>
-                    <a class="collapsible-header colorTextReverse">Temas<i
+                    <a class="collapsible-header colorTextReverse"><span class="TDI">Temas</span><i
                             class="material-icons colorTextReverse">expand_more</i></a>
                     <div class="collapsible-body">
                         <ul class="colorWhite">
                             <li>
                                 <ul class="collapsible collapsible-accordion">
                                     <li>
-                                        <a class="collapsible-header colorTextReverse">Temas clásicos<i
+                                        <a class="collapsible-header colorTextReverse"><span class="TDI">Temas clásicos</span><i
                                                 class="material-icons colorTextReverse">arrow_drop_down</i></a>
                                         <div class="collapsible-body">
                                             <ul class="colorWhite">
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="coloresDefault" class="colorTextReverse">Normal</a>
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
+                                                        id="coloresDefault" class="colorTextReverse">Green jungle</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
                                                         id="coloresAqua" class="colorTextReverse">Aqua</a></li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="coloresBlue" class="colorTextReverse">Azul</a></li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="coloresBronce" class="colorTextReverse">Bronce</a>
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
+                                                        id="coloresBlue" class="colorTextReverse">Blue</a></li>
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
+                                                        id="coloresBronce" class="colorTextReverse">Metal</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
                                                         id="coloresCafe" class="colorTextReverse">Cafe</a></li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="coloresGotico" class="colorTextReverse">Gótico</a>
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
+                                                        id="coloresGotico" class="colorTextReverse">Sad mode</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="coloresNaranja" class="colorTextReverse">Naranja</a>
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
+                                                        id="coloresNaranja" class="colorTextReverse">Happy orange</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="coloresPink" class="colorTextReverse">Rosa</a></li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="coloresPurple" class="colorTextReverse">Purpura</a>
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
+                                                        id="coloresPink" class="colorTextReverse">Pink panter</a></li>
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
+                                                        id="coloresPurple" class="colorTextReverse">Purple mood</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="coloresRed" class="colorTextReverse">Rojo</a></li>
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
+                                                        id="coloresRed" class="colorTextReverse">Red color</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -109,35 +133,34 @@
                             <li>
                                 <ul class="collapsible collapsible-accordion">
                                     <li>
-                                        <a class="collapsible-header colorTextReverse">Temas oscuros<i
+                                        <a class="collapsible-header colorTextReverse TDI">Temas oscuros<i
                                                 class="material-icons colorTextReverse">arrow_drop_down</i></a>
                                         <div class="collapsible-body">
                                             <ul class="colorWhite">
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="coloresModoOscuro" class="colorTextReverse">Modo
-                                                        Oscuro</a></li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="dark_aqua" class="colorTextReverse">Oscuro aqua</a>
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
+                                                        id="coloresModoOscuro" class="colorTextReverse">Dark mode</a></li>
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
+                                                        id="dark_aqua" class="colorTextReverse">Dark aqua</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="dark_blue" class="colorTextReverse">Oscuro azul</a>
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
+                                                        id="dark_blue" class="colorTextReverse">Dark blue</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="dark_green" class="colorTextReverse">Oscuro verde</a>
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
+                                                        id="dark_green" class="colorTextReverse">Dark green</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="dark_orange" class="colorTextReverse">Oscuro
-                                                        naranja</a></li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="dark_pink" class="colorTextReverse">Oscuro rosa</a>
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
+                                                        id="dark_orange" class="colorTextReverse">Dark
+                                                        orange</a></li>
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
+                                                        id="dark_pink" class="colorTextReverse">Dark pink</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="dark_purple" class="colorTextReverse">Oscuro purpura</a>
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
+                                                        id="dark_purple" class="colorTextReverse">Dark purple</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="dark_red" class="colorTextReverse">Oscuro rojo</a></li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="dark_yellow" class="colorTextReverse">Oscuro amarillo</a>
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
+                                                        id="dark_red" class="colorTextReverse">Dark red</a></li>
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
+                                                        id="dark_yellow" class="colorTextReverse">Dark yellow</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -147,18 +170,18 @@
                             <li>
                                 <ul class="collapsible collapsible-accordion">
                                     <li>
-                                        <a class="collapsible-header colorTextReverse">Accesibilidad<i
+                                        <a class="collapsible-header colorTextReverse TDI">Accesibilidad<i
                                                 class="material-icons colorTextReverse">arrow_drop_down</i></a>
                                         <div class="collapsible-body">
                                             <ul class="colorWhite">
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
-                                                        id="deuteranomalia" class="colorTextReverse">Deuteranomalia</a>
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
+                                                        id="deuteranomalia" class="colorTextReverse">Deuteranomaly</a>
                                                 </li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
                                                         id="deuteranopia" class="colorTextReverse">Deuteranopia</a></li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
                                                         id="protanopia" class="colorTextReverse">Protanopia</a></li>
-                                                <li><a onclick="M.toast({html: 'Tema aplicado.'})" href="#!"
+                                                <li><a onclick="M.toast({html: '😀👍'})" href="#!"
                                                         id="tritanopia" class="colorTextReverse">Tritanopia</a></li>
                                             </ul>
                                         </div>
@@ -174,33 +197,35 @@
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
                 <li>
-                    <a class="collapsible-header colorTextReverse">Adicionales<i
+                    <a class="collapsible-header colorTextReverse TDI">Adicionales<i
                             class="material-icons colorTextReverse">expand_more</i></a>
                     <div class="collapsible-body">
                         <ul class="colorWhite">
                             <li><a href="/politica_cookies" class="colorTextReverse"><i
-                                        class="colorTextReverse material-icons">cookie</i>Cookies.</a></li>
+                                        class="colorTextReverse material-icons">cookie</i><span class="TDI">Cookies.</span></a></li>
                             <li><a href="/politica_privacidad" class="colorTextReverse"><i
-                                        class="colorTextReverse material-icons">privacy_tip</i>Privacidad.</a></li>
+                                        class="colorTextReverse material-icons">privacy_tip</i><span class="TDI">Privacidad.</span></a></li>
                             <li><a href="/terminos_condiciones" class="colorTextReverse"><i
-                                        class="colorTextReverse material-icons">gavel</i>Términos.</a></li>
+                                        class="colorTextReverse material-icons">gavel</i><span class="TDI">Términos.</span></a></li>
                             <li><a href="/saber_mas" class="colorTextReverse"><i
-                                        class="colorTextReverse material-icons">rocket</i>Saber más.</a></li>
+                                        class="colorTextReverse material-icons">rocket</i><span class="TDI">Saber más.</span></a></li>
                         </ul>
                     </div>
                 </li>
             </ul>
         </li>
         <hr>
-        <li><a href="/logoutEstudiante" class="colorTextReverse"><i class="material-icons colorTextReverse">directions_run</i>Cerrar
-                sesión.</a></li>
+        <li><a href="/logoutEstudiante" class="colorTextReverse"><i
+                    class="material-icons colorTextReverse">directions_run</i>
+                    <span class="TDI">Cerrar
+                sesión.</span></a></li>
     </ul>
 
     <!--Cuerpo principal del documento-->
     <section class="mainBodyAdicional">
         <div class="title-general colorGreyDarker">
-            <h5 class="hide-on-large-only">Menú de opciones</h5>
-            <h4 class="hide-on-med-and-down">Menú de opciones</h4>
+            <h5 class="hide-on-large-only TDI">Menú de opciones</h5>
+            <h4 class="hide-on-med-and-down TDI">Menú de opciones</h4>
         </div>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -219,28 +244,28 @@
             <section class="centerAligner horizontalAligner">
                 <a href="/mis_grupos/{{datos[0]}}">
                     <div class="borderDecoration cardMainDesktopPanel shadow-2 bordered2">
-                        <div class="cardMainDesktopPanelHead centerAligner">Mis grupos</div>
+                        <div class="cardMainDesktopPanelHead centerAligner TDI">Mis grupos</div>
                         <div class="centerAligner horizontalAligner">
                             <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
                                 <p><i class="material-icons colorTextReverse">groups_2</i></p>
                             </div>
                             <div
-                                class="cardMainDesktopPanelRight centerAlignerNoWidth colorTextReverse colorGreyWhiter">
+                                class="cardMainDesktopPanelRight centerAlignerNoWidth colorTextReverse colorGreyWhiter TDI">
                                 Acceda a sus grupos y resuelva sus cuestionarios.</div>
                         </div>
                     </div>
                 </a>
-                
+
 
                 <a href="/gestionar_resultados_alumno/{{datos[0]}}">
                     <div class="borderDecoration cardMainDesktopPanel shadow-2 bordered2">
-                        <div class="cardMainDesktopPanelHead centerAligner">Mis resultados</div>
+                        <div class="cardMainDesktopPanelHead centerAligner TDI">Mis resultados</div>
                         <div class="centerAligner horizontalAligner">
                             <div class="cardMainDesktopPanelLeft centerAlignerNoWidth colorGreyWhiter">
                                 <p><i class="material-icons colorTextReverse">grade</i></p>
                             </div>
                             <div
-                                class="cardMainDesktopPanelRight centerAlignerNoWidth colorTextReverse colorGreyWhiter">
+                                class="cardMainDesktopPanelRight centerAlignerNoWidth colorTextReverse colorGreyWhiter TDI">
                                 Revise sus resultado obtenidos en los cuestionarios.</div>
                         </div>
                     </div>
@@ -256,9 +281,9 @@
                         <div class="centerAligner cardCarouselMainHead">
                             <p><i class="material-icons">groups_2</i></p>
                         </div>
-                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner">Mis
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner TDI">Mis
                             grupos</div>
-                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner">Acceda a sus
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner TDI">Acceda a sus
                             grupos y resuelva sus cuestionarios.</div>
                     </div>
                 </a>
@@ -268,9 +293,9 @@
                         <div class="centerAligner cardCarouselMainHead">
                             <p><i class="material-icons">grade</i></p>
                         </div>
-                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner">Mis
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainBody centerAligner TDI">Mis
                             resultados</div>
-                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner">Revise sus
+                        <div class="colorGreyWhiter colorTextReverse cardCarouselMainFooter centerAligner TDI">Revise sus
                             resultado obtenidos en los cuestionarios.</div>
                     </div>
                 </a>
@@ -286,10 +311,10 @@
                         <div class="centerAligner cardCarouselMainHead">
                             <p><i class="material-icons">groups_2</i></p>
                         </div>
-                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Mis grupos
+                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse TDI">Mis grupos
                         </div>
                         <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">
-                            <p class="center-align colorTextReverse">Acceda a sus grupos y resuelva sus cuestionarios.
+                            <p class="center-align colorTextReverse TDI">Acceda a sus grupos y resuelva sus cuestionarios.
                             </p>
                         </div>
                     </div>
@@ -302,10 +327,10 @@
                         <div class="centerAligner cardCarouselMainHead">
                             <p><i class="material-icons">grade</i></p>
                         </div>
-                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse">Mis resultados
+                        <div class="colorGreyWhiter cardCarouselMainBody centerAligner colorTextReverse TDI">Mis resultados
                         </div>
                         <div class="colorGreyWhiter cardCarouselMainFooter centerAligner">
-                            <p class="center-align colorTextReverse">Revise sus resultado obtenidos en los
+                            <p class="center-align colorTextReverse TDI">Revise sus resultado obtenidos en los
                                 cuestionarios.</p>
                         </div>
                     </div>
@@ -320,8 +345,9 @@
         <section class="colorGreyWhiter contenedorBuscadorGrupo">
             <div class="buscadorContainerMainStudent">
                 <form action="{{ url_for('routes.search_group')}}" method="post">
-                    <input type="text" name="buscadorGruposCodigo" id="buscadorGruposCodigo" class="browser-default shadow-1 flow-text bordered5"
-                    placeholder="🔎 Ingrese su código de grupo">
+                    <input type="text" name="buscadorGruposCodigo" id="buscadorGruposCodigo"
+                        class="browser-default shadow-1 flow-text bordered5"
+                        placeholder="🔎 Group code">
                     {% if datos %}
                     <input type="hidden" name="idUsuario" value="{{datos[0]}}">
                     {% endif %}
@@ -344,7 +370,8 @@
             <div class="resultadoContainerMainStudent">
                 {% if datosGrupo %}
                 <div class="cardBusquedaGrupoMain shadow-3e">
-                    <div id="cardBusqueda" class="part1cardBusquedaGrupoMain fondoDinamico" style="background-image: url('{{datosGrupo[4]}}');">
+                    <div id="cardBusqueda" class="part1cardBusquedaGrupoMain fondoDinamico"
+                        style="background-image: url('{{datosGrupo[4]}}');">
 
                     </div>
                     <div class="part2cardBusquedaGrupoMain colorGreyDarker colorTextReverse">
@@ -355,7 +382,7 @@
                     </div>
                     <div class="part4cardBusquedaGrupoMain colorGreyDarker">
                         <a href="/entrarGrupo/{{datosGrupo[0]}}/{{datosGrupo[1]}}/{{datos[0]}}"
-                            class="btn waves-effect waves-light bordered3 color2 colorText politicasNButton">Entrar</a>
+                            class="btn waves-effect waves-light bordered3 color2 colorText politicasNButton TDI">Entrar</a>
                     </div>
                 </div>
                 {% endif %}
@@ -431,12 +458,13 @@
         <div id="contadorNotificacion" class="color1 colorText bordered3">0</div>
     </div>
 
-    <!--Metemos el footer en la app-->
-    {% include "includes/footer.html" %}
-
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
 
 </body>
-
 
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
@@ -444,6 +472,10 @@
 <script src="../../static/js/bienvenidaEfectos.js"></script>
 <script src="../../static/js/buscadorGruposCodigo.js"></script>
 <script src="../../static/js/efectosNotificaciones.js"></script>
+
+
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
 
 </html>
