@@ -352,6 +352,49 @@ let rutas = {
             texts: ['我的群组','我的群组','我的群组','返回','全局面板','全局面板']
         }
     },
+    "viewTeacherProfile": {
+        "textEspanol": {
+            texts: ['Perfil de usuario.','Perfil de usuario.','Perfil de usuario.','Datos de la cuenta','Datos de la cuenta','Contacto','Unidad','Publicaciones','Publicaciones'
+            ]
+        },
+        "textIngles": {
+            texts: ['User profile.','User profile.','User profile.','Account data','Account data','Contact','Academic unit','User post','User post']
+        },
+        "textPortugues": {
+            texts: ['Perfil de usuário.','Perfil de usuário.','Perfil de usuário.','Dados da conta','Dados da conta','Contato','Unidade','Publicações','Publicações']
+        },
+        "textChino": {
+            texts: ['用户资料。','用户资料。','用户资料。','账户数据','账户数据','接触','专业化','出版物','出版物']
+        }
+    },
+    "saber_mas2": {
+        "textEspanol": {
+            texts: []
+        },
+        "textIngles": {
+            texts: []
+        },
+        "textPortugues": {
+            texts: []
+        },
+        "textChino": {
+            texts: []
+        }
+    },
+    "saber_mas2": {
+        "textEspanol": {
+            texts: []
+        },
+        "textIngles": {
+            texts: []
+        },
+        "textPortugues": {
+            texts: []
+        },
+        "textChino": {
+            texts: []
+        }
+    },
     "saber_mas2": {
         "textEspanol": {
             texts: []

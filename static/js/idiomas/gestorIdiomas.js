@@ -81,7 +81,10 @@ function rutaValidation(stringUrl) {
         return "editarPerfilAlumno"
     }else if(stringUrl.includes("mis_grupos")){
         return "mis_grupos"
+    }else if(stringUrl.includes("viewTeacherProfile")){
+        return "viewTeacherProfile"
     }
+    
     
     
     //En caso de que la URL no tenga IDs

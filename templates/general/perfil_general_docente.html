@@ -5,7 +5,7 @@
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
 
-    <title>Perfil de docente</title>
+    <title class="TDI">Perfil de docente</title>
 </head>
 
 <body class="ocultoc colorGreyWhiter">
@@ -15,9 +15,9 @@
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Perfil de docente.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Perfil de docente.</a>
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons"></i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Perfil de docente.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Perfil de docente.</p>
         </div>
     </nav>
     <br><br>
@@ -65,18 +65,26 @@
             <div>
                 {% if datos %}
                 <div class="title-general">
-                    <h5 class="hide-on-large-only">Datos de la cuenta</h5>
-                    <h4 class="hide-on-med-and-down">Datos de la cuenta</h4>
+                    <h5 class="hide-on-large-only TDI">Datos de la cuenta</h5>
+                    <h4 class="hide-on-med-and-down TDI">Datos de la cuenta</h4>
                 </div>
                 <div class="gridDataProfileContainer">
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-1">
                         <p class="iconDataProfile colorGrey"><i
-                                class="material-icons md-24 colorTextReverse">email</i>Contacto</p>
+                                class="material-icons md-24 colorTextReverse">email</i>
+                                <span class="TDI">
+                                    Contacto
+                                </span>
+                        </p>
                         <p class="textDataProfile colorGreyWhiter">{{datos[4]}}</p>
                     </div>
                     <div class="itemDataGridGeneral shadow-1" id="itemDataGrid-2">
                         <p class="iconDataProfile colorGrey"><i
-                                class="material-icons md-24 colorTextReverse">doorbell</i>Unidad</p>
+                                class="material-icons md-24 colorTextReverse">doorbell</i>
+                                <span class="TDI">
+                                    Unidad
+                                </span>
+                        </p>
                         <p class="textDataProfile colorGreyWhiter">{{datos[6]}}</p>
                     </div>
                 </div>
@@ -87,8 +95,8 @@
         <section class="postContainerParentTeacher colorGrey">
             <div>
                 <div class="title-general">
-                    <h5 class="hide-on-large-only">Publicaciones</h5>
-                    <h4 class="hide-on-med-and-down">Publicaciones</h4>
+                    <h5 class="hide-on-large-only TDI">Publicaciones</h5>
+                    <h4 class="hide-on-med-and-down TDI">Publicaciones</h4>
                 </div>
                 {% if post %}
                 <div class="gridPostUser">
@@ -96,18 +104,17 @@
                     <div class="postGeneral fotoValuePost borderDecoration">
                         <div class="color2 colorText tituloPost">{{post[i][2]}}</div>
                         <div class="imagePost" style="background-image:url('{{post[i][4]}}');"></div>
-                        <div class="descriptionPostView colorGreyWhiter">{{post[i][3]}}</div>
+                        <div class="descriptionPostView colorGreyWhiter colorTextReverse">{{post[i][3]}}</div>
                     </div>
 
                     <!--Pop up de eliminar el post-->
                     <div id="modalBorrado{{post[i][0]}}" class="modal bordered2 colorGrey">
                         <div class="modal-content">
-                            <h4>¿Desea eliminar el post?</h4>
-                            <p>Este procedimiento no se puede revertir.</p>
+                            <h4>¿🚮?😕</h4>
                             <hr>
                             <a href="/deletePostAlumno/{{post[i][0]}}"
                                 class="waves-effect waves-light btn badColorButton shadow-2e button-rounded"
-                                style="width: 100%;">Eliminar</a>
+                                style="width: 100%;"><I class="material-icons md-28">delete</I></a>
                         </div>
                     </div>
                     {% endfor %}
@@ -118,16 +125,19 @@
         <section class="colorGrey">
             <div class="notFoundMsg">
                 <div>
-                    <h5><b>No hay ningún post.</b></h5>
+                    <h5><b>No posts</b></h5>
                 </div>
                 <div><img src="../../static/images/icons/icon_no_results.svg"></div>
             </div>
         </section>
         {% endif %}
     </section>
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
 
-    <!--Metemos el footer en la app-->
-    <!-- {% include "includes/footer.html" %} -->
 </body>
 
 <!--Jalamos todo el contenido del encabezado-->
@@ -135,5 +145,9 @@
 
 <script src="../../static/js/insertThemes.js"></script>
 <script src="../../static/js/perfilUsuarioPost.js"></script>
+
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
 </html>
