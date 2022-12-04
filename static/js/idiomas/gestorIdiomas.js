@@ -75,6 +75,8 @@ function rutaValidation(stringUrl) {
         return "simularRevision"
     }else if(stringUrl.includes("perfil_general_view")){
         return "perfil_general_view"
+    }else if(stringUrl.includes("editarPerfilProfesor")){
+        return "editarPerfilProfesor"
     }
     
     

@@ -296,18 +296,79 @@ let rutas = {
             texts: ['教师简介','教师简介','教师简介','返回。','选项','查看照片','修改照片','更改照片','选择','账户数据','账户数据','接触','单元','出版物','出版物','创建一个新的帖子','发布一个帖子,让平台上的其他用户可以看到它。','发布数据','帖子标题','帖子描述','多媒体','图片网址','去创造','输入网址','将来自互联网的图像添加到个人资料中。','添加','离线主题','无需互联网连接即可将图像添加到个人资料']
         }
     },
-    "saber_mas2": {
+    "editarPerfilProfesor": {
         "textEspanol": {
-            texts: []
+            texts: [
+                'Editar perfil.',
+                'Editar perfil.',
+                'Editar perfil.',
+                'Volver',
+                'Formulario de edición.',
+                'Formulario de edición.',
+                'Datos de',
+                'Nombre de usuario',
+                'Alias de usuario',
+                'Descripción',
+                'Seguridad',
+                'Contraseña',
+                'Confirmar contraseña',
+                'Datos académicos',
+                'Unidad académica',
+                'Editar']
         },
         "textIngles": {
-            texts: []
+            texts: ['Edit profile.',
+            'Edit profile.',
+            'Edit profile.',
+            'Return',
+            'Edit form.',
+            'Edit form.',
+            'Data of',
+            'Username',
+            'User aliases',
+            'Description',
+            'Security',
+            'Password',
+            'Confirm Password',
+            'Academic data',
+            'Academic Unit',
+            'Edit']
         },
         "textPortugues": {
-            texts: []
+            texts: ['Editar Perfil.',
+            'Editar Perfil.',
+            'Editar Perfil.',
+            'Retornar',
+            'Editar formulário.',
+            'Editar formulário.',
+            'Dados de',
+            'Nome de usuário',
+            'Alcunhas de usuário',
+            'Descrição',
+            'Segurança',
+            'Senha',
+            'Confirmar senha',
+            'Dados académicos',
+            'Unidade Académica',
+            'Editar']
         },
         "textChino": {
-            texts: []
+            texts: ['编辑个人资料。',
+            '编辑个人资料。',
+            '编辑个人资料。',
+            '返回',
+            '编辑表格。',
+            '编辑表格。',
+            '来自',
+            '用户名',
+            '用户别名',
+            '描述',
+            '安全',
+            '密码',
+            '确认密码',
+            '学术数据',
+            '学术单位',
+            '编辑']
         }
     },
     "saber_mas2": {
