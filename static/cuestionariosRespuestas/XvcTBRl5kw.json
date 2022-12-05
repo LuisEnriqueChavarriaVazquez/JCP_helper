@@ -1,0 +1,100 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optMultiple",
+   "1": "optAcompletar",
+   "2": "optEjercicios",
+   "3": "optArrastrar",
+   "4": "optFalsoVerdadero",
+   "5": "optAbierta"
+  },
+  {
+   "retrasado": "false"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "",
+   "1": "",
+   "2": "",
+   "3": "",
+   "4": "",
+   "5": ""
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "0": "dsdssd",
+   "1": "",
+   "2": "A",
+   "3": "sdsddssd",
+   "4": "sddssd",
+   "5": "dssdsdsd",
+   "6": "sddssd"
+  },
+  {
+   "respuestas": [
+    "opt1InputGet_0/B&1"
+   ]
+  }
+ ],
+ "preguntasModal2": [
+  {
+   "0": "sddsdssd[Blank 1]",
+   "1": "sdsdsd"
+  },
+  {
+   "respuestas": [
+    "opt2InputGet_0//sdsdsdds&1"
+   ]
+  }
+ ],
+ "preguntasModal3": [
+  {
+   "0": "sdsdds",
+   "1": "",
+   "2": "sdsdsdsd",
+   "3": "sdsdsdsdds ",
+   "4": "dssddssd"
+  },
+  {
+   "respuestas": [
+    "opt3InputGet_0/Output: sdsdsd/Link: sdsd&1"
+   ]
+  }
+ ],
+ "preguntasModal4": [
+  {
+   "0": "sdsdsdsd",
+   "1": "sddssd*sdsdsd"
+  },
+  {
+   "respuestas": [
+    "opt4InputGet_0/sddssd/sdsdsd/&1"
+   ]
+  }
+ ],
+ "preguntasModal5": [
+  {
+   "0": "sddssd",
+   "1": "f"
+  },
+  {
+   "respuestas": [
+    "opt5InputGet_0/true&1"
+   ]
+  }
+ ],
+ "preguntasModal6": [
+  {
+   "0": "sddssdsd",
+   "1": "sdsdsd",
+   "2": "sdsdsd"
+  },
+  {
+   "respuestas": [
+    "opt6InputGet_0/wqwqwqwq&1"
+   ]
+  }
+ ]
+}

@@ -230,7 +230,7 @@ let rutas = {
             texts: ['Preview de alumno.', 'Preview de alumno.', 'Preview de alumno.', 'Volver', 'Usted puede ver el cuestionario como lo vería el estudiante al momento de contestar.', 'Tablero de información.', 'Total preguntas:', 'Respondidas:', 'Orden:', 'Días restantes:', 'Minutos restantes:', 'Simular entrega', 'Volver a la vista general', 'Preguntas cuestionario', '¿Desea enviar el cuestionario?', 'Este procedimiento no se puede revertir.', 'Enviar']
         },
         "textIngles": {
-            texts: ['Student preview.', 'Student preview.', 'Student preview.', 'Return', 'You can see the questionnaire as the student would see it when answering.', 'Information board.', 'Total questions:', 'Answers:', 'Order:', 'Remaining days:', 'Remaining minutes:', 'Simulate delivery', 'Back to overview', 'Quiz questions', 'Do you want to send the questionnaire?', 'This procedure cannot be reversed.', 'Send']
+            texts: ['Student preview.', 'Student preview.', 'Student preview.', 'Return', 'You can see the Test as the student would see it when answering.', 'Information board.', 'Total questions:', 'Answers:', 'Order:', 'Remaining days:', 'Remaining minutes:', 'Simulate delivery', 'Back to overview', 'Quiz questions', 'Do you want to send the Test?', 'This procedure cannot be reversed.', 'Send']
         },
         "textPortugues": {
             texts: ['Visualização do aluno.', 'Visualização do aluno.', 'Visualização do aluno.', 'Retornar', 'Você pode ver o questionário como o aluno o veria ao responder.', 'Painel de informações.', 'Total de perguntas:', 'Respostas:', 'Ordem:', 'Dias restantes:', 'Minutos restantes:', 'Simular entrega', 'Voltar ao menu principal', 'Perguntas do questionário', 'Deseja enviar o questionário?', 'Este procedimento não pode ser revertido.', 'Mandar']
@@ -244,7 +244,7 @@ let rutas = {
             texts: ['Resultados de preview.', 'Resultados de preview.', 'Resultados de preview.', 'Volver', 'Usted esta observando el cuestionario cuando el alumno ya lo ha enviado y como algunas respuestas han sido evaluadas automaticamente.', 'Resultados', 'Preguntas y puntaje', 'Preguntas y puntaje', 'Preguntas/Respuestas cuestionario']
         },
         "textIngles": {
-            texts: ['Preview results.', 'Preview results.', 'Preview results.', 'Return', 'You are observing the questionnaire when the student has already sent it and how some answers have been evaluated automatically.', 'Results', 'Questions and scoring', 'Questions and scoring', 'Questions/Answers questionnaire']
+            texts: ['Preview results.', 'Preview results.', 'Preview results.', 'Return', 'You are observing the Test when the student has already sent it and how some answers have been evaluated automatically.', 'Results', 'Questions and scoring', 'Questions and scoring', 'Questions/Answers Test']
         },
         "textPortugues": {
             texts: ['Visualizar resultados.', 'Visualizar resultados.', 'Visualizar resultados.', 'Retornar', 'Você está observando o questionário quando o aluno já o enviou e como algumas respostas foram avaliadas automaticamente.', 'Resultados', 'Perguntas e pontuação', 'Perguntas e pontuação', 'Questionário de perguntas/respostas']
@@ -329,7 +329,7 @@ let rutas = {
             texts: ['Panel central.', 'Panel central.', 'Configuraciones', 'Ayuda', 'Cerrar sesión', 'Cuenta de estudiante', 'Mis grupos.', 'Mis resultados.', 'Configuraciones.', 'Ayuda.', 'Temas', 'Temas clásicos', 'Temas oscuros', 'Accesibilidad', 'Adicionales', 'Cookies.', 'Privacidad.', 'Términos.', 'Saber más.', 'Cerrar sesión.', 'Menú de opciones', 'Menú de opciones', 'Mis grupos', 'Acceda a sus grupos y resuelva sus cuestionarios.', 'Mis resultados', 'Revise sus resultado obtenidos en los cuestionarios.', 'Mis grupos', 'Acceda a sus grupos y resuelva sus cuestionarios.', 'Mis resultados', 'Revise sus resultado obtenidos en los cuestionarios.', 'Mis grupos', 'Acceda a sus grupos y resuelva sus cuestionarios.', 'Mis resultados', 'Revise sus resultado obtenidos en los cuestionarios.']
         },
         "textIngles": {
-            texts: ['Central panel', 'Central panel', 'Settings', 'Help', 'Log out', 'Student account', 'My groups.', 'My results.', 'Settings.', 'Help', 'Styles', 'Classic Themes', 'Dark Themes', 'Accessibility', 'Additional', 'Cookies.', 'Privacy.', 'Terms.', 'Know more.', 'Log out.', 'Options menu', 'Options menu', 'My groups', 'Access your groups and solve your quizzes.', 'My results', 'Check your results obtained in the questionnaires.', 'My groups', 'Access your groups and solve your quizzes.', 'My results', 'Check your results obtained in the questionnaires.', 'My groups', 'Access your groups and solve your quizzes.', 'My results', 'Check your results obtained in the questionnaires.']
+            texts: ['Central panel', 'Central panel', 'Settings', 'Help', 'Log out', 'Student account', 'My groups.', 'My results.', 'Settings.', 'Help', 'Styles', 'Classic Themes', 'Dark Themes', 'Accessibility', 'Additional', 'Cookies.', 'Privacy.', 'Terms.', 'Know more.', 'Log out.', 'Options menu', 'Options menu', 'My groups', 'Access your groups and solve your quizzes.', 'My results', 'Check your results obtained in the Tests.', 'My groups', 'Access your groups and solve your quizzes.', 'My results', 'Check your results obtained in the Tests.', 'My groups', 'Access your groups and solve your quizzes.', 'My results', 'Check your results obtained in the Tests.']
         },
         "textPortugues": {
             texts: ['Painel central', 'Painel central', 'Definições', 'Ajuda', 'Fechar Sessão', 'Conta de estudante', 'Meus grupos.', 'Meus resultados.', 'Definições.', 'Ajuda.', 'Tópicos', 'Temas Clássicos', 'Temas Sombrios', 'Acessibilidade', 'adicional', 'Cookies.', 'Privacidade.', 'Termos.', 'Saber mais.', 'Fechar Sessão.', 'Menu de opções', 'Menu de opções', 'Meus grupos', 'Acesse seus grupos e resolva seus quizzes.', 'Meus resultados', 'Verifique os resultados obtidos nos questionários.', 'Meus grupos', 'Acesse seus grupos e resolva seus quizzes.', 'Meus resultados', 'Verifique os resultados obtidos nos questionários.', 'Meus grupos', 'Acesse seus grupos e resolva seus quizzes.', 'Meus resultados', 'Verifique os resultados obtidos nos questionários.']
@@ -383,30 +383,91 @@ let rutas = {
     },
     "viewCuestionarioInfo": {
         "textEspanol": {
-            texts: ["Caca"]
+            texts: ['Datos cuestionario.','Datos cuestionario.','Datos cuestionario.','Volver','Docente:','Alias:','Contacto:','Datos de cuestionario','Datos de cuestionario','Grupo','Lenguaje','Temas','Tipo','Tiempo límite','Fecha límite','Número de intentos máximo','Comenzar','¿Desea responder el cuestionario?','Se recomienda que este preparado, ya que el cuestionario no se puede pausar.','Comenzar']
         },
         "textIngles": {
-            texts: []
+            texts: ['Test data.','Test data.','Test data.','Return','Teacher:','Alias:','Contact:','Test data','Test data','Cluster','Language','Topics','Guy','time limit','Deadline','Maximum number of attempts','Begin','Do you want to answer the Test?','It is recommended that you be prepared, as the quiz cannot be paused.','Begin']
         },
         "textPortugues": {
-            texts: []
+            texts: ['Dados do questionário.','Dados do questionário.','Dados do questionário.','Retornar','Professor@:','Alias:','Contato:','Dados do questionário','Dados do questionário','Clase','Linguagem','Tópicos','Cara','limite de tempo','Data limite','Número máximo de tentativas','Começar','Quer responder ao questionário?','Recomenda-se que você esteja preparado, pois o questionário não pode ser pausado.','Começar']
         },
         "textChino": {
-            texts: []
+            texts: ['问卷数据。','问卷数据。','问卷数据。','返回','老师：','别名：','接触：','问卷数据','问卷数据','簇','语','话题','家伙','时限','最后期限','最大尝试次数','开始','你想回答问卷吗？','建议您做好准备,因为测验不能暂停。','开始']
         }
     },
-    "gestionar_cuestionarios": {
+    "answerCuestionarioAlumno": {
         "textEspanol": {
-            texts: []
+            texts: [
+                'Contestar cuestionario.',
+                'Contestar cuestionario.',
+                'Contestar cuestionario.',
+                'Volver',
+                'Tablero de información.',
+                'Total preguntas:',
+                'Respondidas:',
+                'Límite:',
+                'Minutos restantes:',
+                'Caducidad:',
+                'Intentos:',
+                'Entregar',
+                'Preguntas cuestionario',
+                '¿Desea enviar el cuestionario?',
+                'Este procedimiento no se puede revertir.',
+                'Enviar']
         },
         "textIngles": {
-            texts: []
+            texts: ['Answer questionnaire.',
+            'Answer questionnaire.',
+            'Answer questionnaire.',
+            'Return',
+            'Information board.',
+            'Total questions:',
+            'Answers:',
+            'Limit:',
+            'Remaining minutes:',
+            'Expiration:',
+            'Attempts:',
+            'Deliver',
+            'Quiz questions',
+            'Do you want to send the questionnaire?',
+            'This procedure cannot be reversed.',
+            'Send']
         },
         "textPortugues": {
-            texts: []
+            texts: ['Responder ao questionário.',
+            'Responder ao questionário.',
+            'Responder ao questionário.',
+            'Retornar',
+            'Painel de informações.',
+            'Total de perguntas:',
+            'Respostas:',
+            'Limite:',
+            'Minutos restantes:',
+            'Expiração:',
+            'Tentativas:',
+            'Entregar',
+            'Perguntas do questionário',
+            'Deseja enviar o questionário?',
+            'Este procedimento não pode ser revertido.',
+            'Mandar']
         },
         "textChino": {
-            texts: []
+            texts: ['回答问卷。',
+            '回答问卷。',
+            '回答问卷。',
+            '返回',
+            '信息板。',
+            '总问题：',
+            '答案：',
+            '限制：',
+            '剩余分钟数：',
+            '过期：',
+            '尝试：',
+            '递送',
+            '测验问题',
+            '你想发送问卷吗？',
+            '此过程不可逆。',
+            '发送']
         }
     },
     "saber_mas2": {

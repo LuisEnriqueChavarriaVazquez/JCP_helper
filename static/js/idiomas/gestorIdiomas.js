@@ -92,6 +92,8 @@ function rutaValidation(stringUrl) {
         return "mis_grupos"
     }else if(stringUrl.includes("viewTeacherProfile")){
         return "viewTeacherProfile"
+    }else if(stringUrl.includes("answerCuestionarioAlumno")){
+        return "answerCuestionarioAlumno"
     }
     
     

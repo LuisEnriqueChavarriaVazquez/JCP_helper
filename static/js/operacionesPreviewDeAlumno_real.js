@@ -360,24 +360,24 @@ $(document).ready(function () {
                 //Contenido de la pregunta
                 let contenido =
                     `  
-                <h5 class="tituloPregunta"><b>Opción múltiple ` + (m + 1) + `</b></h5>
+                <h5 class="tituloPregunta"><b>Q/1 ` + (m + 1) + `</b></h5>
                 <hr>
-                <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray1[m][0] + `</b></div>
+                <div class="preguntaBox colorGrey bordered1 colorTextReverse"><b>` + preguntasModalArray1[m][0] + `</b></div>
                 <div class="imagenBox bordered1 shadow-1e colorGrey">
-                    <h6><b>Imagen adjunta.</b></h6>
+                    <h6 class="colorTextReverse"><b>Img.</b></h6>
                     <img alt='not available image' class="materialboxed imagenBoxContent bordered1" src="` + preguntasModalArray1[m][1] + `"></img>
                 </div>
-                <h6><b>Opciones de la pregunta.</b></h6>
+                <h6 class="colorTextReverse"><b>Opts.</b></h6>
                 <div class="opcionesContainerStyleViewCuestionario">
-                    <button onclick="agregarRespuesta('opt1_` + m + "a" + `','opt1Button_` + m + `','opt1InputGet_` + m + `')" id="opt1_` + m + "a" + `" class="btn waves-effect color5 bordered5 coloredText letterStyleViewCuestionario">A</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][3] + `</div>
-                    <button onclick="agregarRespuesta('opt1_` + m + "b" + `','opt1Button_` + m + `','opt1InputGet_` + m + `')" id="opt1_` + m + "b" + `" class="btn waves-effect color5 bordered5 coloredText letterStyleViewCuestionario">B</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][4] + `</div>
-                    <button onclick="agregarRespuesta('opt1_` + m + "c" + `','opt1Button_` + m + `','opt1InputGet_` + m + `')" id="opt1_` + m + "c" + `" class="btn waves-effect color5 bordered5 coloredText letterStyleViewCuestionario">C</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][5] + `</div>
-                    <button onclick="agregarRespuesta('opt1_` + m + "d" + `','opt1Button_` + m + `','opt1InputGet_` + m + `')" id="opt1_` + m + "d" + `" class="btn waves-effect color5 bordered5 coloredText letterStyleViewCuestionario">D</button><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][6] + `</div>
+                    <button onclick="agregarRespuesta('opt1_` + m + "a" + `','opt1Button_` + m + `','opt1InputGet_` + m + `')" id="opt1_` + m + "a" + `" class="btn waves-effect color5 bordered5 letterStyleViewCuestionario">A</button><div class="colorGrey bordered1 opcionStyleViewCuestionario colorTextReverse">` + preguntasModalArray1[m][3] + `</div>
+                    <button onclick="agregarRespuesta('opt1_` + m + "b" + `','opt1Button_` + m + `','opt1InputGet_` + m + `')" id="opt1_` + m + "b" + `" class="btn waves-effect color5 bordered5 letterStyleViewCuestionario">B</button><div class="colorGrey bordered1 opcionStyleViewCuestionario colorTextReverse">` + preguntasModalArray1[m][4] + `</div>
+                    <button onclick="agregarRespuesta('opt1_` + m + "c" + `','opt1Button_` + m + `','opt1InputGet_` + m + `')" id="opt1_` + m + "c" + `" class="btn waves-effect color5 bordered5 letterStyleViewCuestionario">C</button><div class="colorGrey bordered1 opcionStyleViewCuestionario colorTextReverse">` + preguntasModalArray1[m][5] + `</div>
+                    <button onclick="agregarRespuesta('opt1_` + m + "d" + `','opt1Button_` + m + `','opt1InputGet_` + m + `')" id="opt1_` + m + "d" + `" class="btn waves-effect color5 bordered5 letterStyleViewCuestionario">D</button><div class="colorGrey bordered1 opcionStyleViewCuestionario colorTextReverse">` + preguntasModalArray1[m][6] + `</div>
                 </div>
                 
-                <div class="preguntaBox colorGreyDarker bordered1" id="opt1Button_` + m + `"><b>R:</b></div>
-                <div class="ponderacionBox ponderacion_opt1 colorWhite bordered1"></div>
-                <input type="hidden" value="" class="answerCollector" id="opt1InputGet_` + m + `"></input>
+                <div class="preguntaBox colorTextReverse colorGreyDarker bordered1" id="opt1Button_` + m + `"><b>R:</b></div>
+                <div class="ponderacionBox colorTextReverse ponderacion_opt1 colorWhite bordered1"></div>
+                <input type="hidden" value="" class="answerCollector colorTextReverse" id="opt1InputGet_` + m + `"></input>
             `;
 
                 contenedoresPregunta[m].innerHTML = contenido;
@@ -401,28 +401,28 @@ $(document).ready(function () {
 
                 //Contenido de la pregunta
                 let contenidoInicial = `  
-                <h5 class="tituloPregunta"><b>Rellenar espacio ` + (m + 1) + `</b></h5>
+                <h5 class="tituloPregunta"><b>Q/2 ` + (m + 1) + `</b></h5>
                 <hr>
-                <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray2[m][0] + `</b></div>
-                <h6><b>Respuestas de espacios.</b></h6>
+                <div class="preguntaBox colorGrey colorTextReverse bordered1"><b>` + preguntasModalArray2[m][0] + `</b></div>
+                <h6 class="colorTextReverse"><b>Rs.</b></h6>
                 <div class="opcionesContainerStyleViewCuestionario">
                 `;
 
                 for (var t = 1; t < longitudPregunta; t++) {
                     contenidoIntermedio += `
                     <div class="colorGreyDarker bordered1 colorTextReverse letterStyleViewCuestionario">Blank `+ t + `</div>
-                    <input type="text" placeholder="text" class="opcionStyleViewCuestionario opt2_`+ m + `"></input>
+                    <input type="text" placeholder="text" class="opcionStyleViewCuestionario colorTextReverse opt2_`+ m + `"></input>
                     `;
                 }
 
                 let contenidoFinal = `
                 </div>
                 <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
-                    <button id="opt2Button_`+ m + `" onclick="agregarRespuestaOpt2('opt2_` + m + `','opt2Button_` + m + `','opt2InputRespuesta_` + m + `','opt2InputGet_` + m + `')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Agregar respuestas</button>
+                    <button id="opt2Button_`+ m + `" onclick="agregarRespuestaOpt2('opt2_` + m + `','opt2Button_` + m + `','opt2InputRespuesta_` + m + `','opt2InputGet_` + m + `')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Ready</button>
                 </div>
-                <div id="opt2InputRespuesta_`+ m + `" class="preguntaBox colorGreyDarker bordered1"><b>R:</b></div>
-                <div class="ponderacionBox ponderacion_opt2 colorWhite bordered1"></div>
-                <input type="hidden" value="" class="answerCollector" id="opt2InputGet_` + m + `"></input>`;
+                <div id="opt2InputRespuesta_`+ m + `" class="preguntaBox colorGreyDarker colorTextReverse bordered1"><b>R:</b></div>
+                <div class="ponderacionBox ponderacion_opt2 colorWhite colorTextReverse bordered1"></div>
+                <input type="hidden" value="" class="answerCollector colorTextReverse" id="opt2InputGet_` + m + `"></input>`;
                 contenedoresPregunta[m].innerHTML = contenidoInicial + contenidoIntermedio + contenidoFinal;
             }
         }
@@ -441,31 +441,31 @@ $(document).ready(function () {
                 //Contenido de la pregunta
                 let contenido =
                     `  
-            <h5 class="tituloPregunta"><b>Ejercicio ` + (k + 1) + `</b></h5>
+            <h5 class="tituloPregunta"><b>Q/3 ` + (k + 1) + `</b></h5>
             <hr>
-            <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray3[k][0] + `</b></div>
+            <div class="preguntaBox colorGrey bordered1 colorTextReverse"><b>` + preguntasModalArray3[k][0] + `</b></div>
             <div class="imagenBox bordered1 shadow-1e colorGrey">
-                <h6><b>Imagen adjunta.</b></h6>
+                <h6 class="colorTextReverse"><b>Img.</b></h6>
                 <img alt='not available image' class="materialboxed imagenBoxContent bordered1" src="` + preguntasModalArray3[k][1] + `"></img>
             </div>
             <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
-            <a href="` + preguntasModalArray3[k][2] + `" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">cloud</i>Acceder a recurso online</a>
+            <a href="` + preguntasModalArray3[k][2] + `" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">cloud</i>Extra data</a>
             </div>
-            <h6><b>Resultado.</b></h6>
-            <p>Escriba su output de salida o anexe algún repositorio con su código.</p>
+            <h6 class="colorTextReverse"><b>R.</b></h6>
+            <p class="colorTextReverse">Your info:</p>
             <div class="opcionesContainerStyleViewCuestionario">
                 <div class="colorGrey bordered1 colorTextReverse letterStyleViewCuestionario">Output: </div>
-                <input type="text" placeholder="output" class="opcionStyleViewCuestionario" id="opt3_resultado`+ k + `"></input>
+                <input type="text" placeholder="output" class="opcionStyleViewCuestionario colorTextReverse" id="opt3_resultado`+ k + `"></input>
                 <div class="colorGrey bordered1 colorTextReverse letterStyleViewCuestionario">Link: </div>
-                <input type="text" placeholder="link" class="opcionStyleViewCuestionario" id="opt3_link`+ k + `"></input>
+                <input type="text" placeholder="link" class="opcionStyleViewCuestionario colorTextReverse" id="opt3_link`+ k + `"></input>
             </div>
             <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
-                <button id="opt3Button_`+ k + `" onclick="agregarRespuestaOpt3('opt3_resultado` + k + `','opt3_link` + k + `','opt3Button_` + k + `','opt3outputResult_` + k + `','opt3linkResult` + k + `','opt3InputGet_` + k + `')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Agregar respuestas</button>
+                <button id="opt3Button_`+ k + `" onclick="agregarRespuestaOpt3('opt3_resultado` + k + `','opt3_link` + k + `','opt3Button_` + k + `','opt3outputResult_` + k + `','opt3linkResult` + k + `','opt3InputGet_` + k + `')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Ready</button>
             </div>
-            <div id="opt3outputResult_`+ k + `" class="preguntaBox colorGreyDarker bordered1" style="margin-bottom: 10px;"><b>Output:</b></div>
-            <div id="opt3linkResult`+ k + `" class="preguntaBox colorGreyDarker bordered1"><b>Link:</b></div>
-            <div class="ponderacionBox ponderacion_opt3 colorWhite bordered1"></div>
-            <input type="hidden" value="" class="answerCollector" id="opt3InputGet_` + k + `"></input>
+            <div id="opt3outputResult_`+ k + `" class="preguntaBox colorGreyDarker colorTextReverse bordered1" style="margin-bottom: 10px;"><b>Output:</b></div>
+            <div id="opt3linkResult`+ k + `" class="preguntaBox colorGreyDarker colorTextReverse bordered1"><b>Link:</b></div>
+            <div class="ponderacionBox ponderacion_opt3 colorWhite colorTextReverse bordered1"></div>
+            <input type="hidden" value="" class="answerCollector colorTextReverse" id="opt3InputGet_` + k + `"></input>
             `;
 
                 contenedoresPregunta[k].innerHTML = contenido;
@@ -491,8 +491,8 @@ $(document).ready(function () {
                 //Eliminamos el primer elemento (descripcion del problema)
                 concepto_y_definiciones[y].shift();
                 //Reiniciamos nuestras lista cada que se recorre una pregunta entera
-                var concepto = [`<div class="maxconceptos" id="conceptosContainer` + y + `"><h6>Conceptos</h6>`];
-                var definicion = [`<div class="maxdefiniciones colorGrey bordered2" id="definicionesContainer` + y + `"><h6>Definiciones</h6>`];
+                var concepto = [`<div class="maxconceptos" id="conceptosContainer` + y + `"><h6>Column 1.</h6>`];
+                var definicion = [`<div class="maxdefiniciones colorGrey bordered2" id="definicionesContainer` + y + `"><h6>Column 2.</h6>`];
                 for (var x = 0; x < concepto_y_definiciones[y].length; x++) {
                     //Guardamos solo el concepto en una lista
                     concepto.push("<div class='arrastrarElemento arrastrarElementoC shadow-1e color3 colorText'>" + concepto_y_definiciones[y][x].substring(0, concepto_y_definiciones[y][x].indexOf('*')) + "</div>");
@@ -514,12 +514,12 @@ $(document).ready(function () {
             function crearInicio(numero) {
                 inicioContenido =
                     `  
-            <h5 class="tituloPregunta"><b>Ejercicio arrastrar ` + (numero + 1) + `</b></h5>
+            <h5 class="tituloPregunta"><b>Q/6 ` + (numero + 1) + `</b></h5>
             <hr>
-            <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray4[numero][0] + `</b></div>
-            <h6><b>Relación de palabras.</b></h6>
-            <p>Coloca el concepto arriba de su definición en el lado derecho</p>
-            <div class="opcionesContainerStyleViewCuestionarioArrastrar">`;
+            <div class="preguntaBox colorGrey bordered1 colorTextReverse"><b>` + preguntasModalArray4[numero][0] + `</b></div>
+            <h6 class="colorTextReverse"><b>Opts.</b></h6>
+            <p class="colorTextReverse">Join the concepts. (Column 1 to Column 2 in that order Top to Down)</p>
+            <div class="opcionesContainerStyleViewCuestionarioArrastrar colorTextReverse">`;
                 return inicioContenido;
             }
 
@@ -529,11 +529,11 @@ $(document).ready(function () {
                 //Este es el div que cierra el contenido
                 let finalContenido = `</div>
                     <div style="width: 100%;"> 
-                        <button id="optArrastrarButton`+ t + `" onclick="agregarRespuestaArrastrar('resultadoArrastrar` + t + `','opt4InputGet_` + t + `','definicionesContainer` + t + `')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Confirmar orden</button>
-                        <div id="resultadoArrastrar`+ t + `" class="preguntaBox outputEsperado colorGreyDarker bordered1" style="margin-bottom: 10px; width: 100%;"><b>Output:</b></div>
+                        <button id="optArrastrarButton`+ t + `" onclick="agregarRespuestaArrastrar('resultadoArrastrar` + t + `','opt4InputGet_` + t + `','definicionesContainer` + t + `')" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">check</i>Ready</button>
+                        <div id="resultadoArrastrar`+ t + `" class="preguntaBox outputEsperado colorTextReverse colorGreyDarker bordered1" style="margin-bottom: 10px; width: 100%;"><b>Output:</b></div>
                     </div>
-                    <div class="ponderacionBox ponderacion_opt4 colorWhite bordered1"></div>
-                    <input type="hidden" value="" class="answerCollector" id="opt4InputGet_` + t + `"></input>
+                    <div class="ponderacionBox ponderacion_opt4 colorWhite bordered1 colorTextReverse"></div>
+                    <input type="hidden" value="" class="answerCollector colorTextReverse" id="opt4InputGet_` + t + `"></input>
                 `;
                 //En final se guarda el contenido FINAL para la pregunta
                 var final;
@@ -579,9 +579,9 @@ $(document).ready(function () {
                 //Contenido de la pregunta
                 let contenido =
                     `  
-                <h5 class="tituloPregunta"><b>Pregunta True/False ` + (m + 1) + `</b></h5>
+                <h5 class="tituloPregunta"><b>Q/4 ` + (m + 1) + `</b></h5>
                 <hr>
-                <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray5[m][0] + `</b></div>
+                <div class="preguntaBox colorTextReverse colorGrey bordered1"><b>` + preguntasModalArray5[m][0] + `</b></div>
                 <div class="contendorBotonesTrueFalse"> 
                     <button 
                     onclick="agregarRespuestaOpt4('opt4outputResult_`+ m + `','true','opt5InputGet_`+ m + `')" 
@@ -591,10 +591,10 @@ $(document).ready(function () {
                     onclick="agregarRespuestaOpt4('opt4outputResult_`+ m + `','false','opt5InputGet_`+ m + `')" 
                     class="waves-effect waves-light btn-large colorGrey colorTextReverse trueFalsebtn2">F</button>
                 </div>
-                <h6><b>Resultado.</b></h6>
-                <div id="opt4outputResult_`+ m + `" class="preguntaBox outputEsperado colorGreyDarker bordered1" style="margin-bottom: 10px;"><b>Output:</b></div>
-                <div class="ponderacionBox ponderacion_opt5 colorWhite bordered1"></div>
-                <input type="hidden" value="" class="answerCollector" id="opt5InputGet_` + m + `"></input>
+                <h6 class="colorTextReverse"><b>R.</b></h6>
+                <div id="opt4outputResult_`+ m + `" class="preguntaBox outputEsperado colorTextReverse colorGreyDarker bordered1" style="margin-bottom: 10px;"><b class="colorTextReverse">Output:</b></div>
+                <div class="ponderacionBox colorTextReverse ponderacion_opt5 colorWhite bordered1"></div>
+                <input type="hidden" value="" class="answerCollector colorTextReverse" id="opt5InputGet_` + m + `"></input>
             `;
                 contenedoresPregunta[m].innerHTML = contenido;
             }
@@ -612,33 +612,33 @@ $(document).ready(function () {
                 //Contenido de la pregunta
                 let contenido =
                     `  
-                <h5 class="tituloPregunta"><b>Pregunta abierta ` + (m + 1) + `</b></h5>
+                <h5 class="tituloPregunta"><b>Q/5 ` + (m + 1) + `</b></h5>
                 <hr>
-                <h6><b>Descripción.</b></h6>
-                <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray6[m][0] + `</b></div>
+                <h6 class="colorTextReverse"><b>Desc.</b></h6>
+                <div class="preguntaBox colorGrey colorTextReverse bordered1"><b>` + preguntasModalArray6[m][0] + `</b></div>
                 <div class="imagenBox bordered1 shadow-1e colorGrey">
-                    <h6><b>Imagen adjunta.</b></h6>
+                    <h6 class="colorTextReverse"><b>Img.</b></h6>
                     <img alt='not available image' class="materialboxed imagenBoxContent bordered1" src="` + preguntasModalArray6[m][2] + `"></img>
                 </div>
                 <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
-                    <h6><b>Media.</b></h6>
-                    <a href="` + preguntasModalArray6[m][1] + `" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">play_arrow</i>Acceder a video online</a>
+                    <h6 class="colorTextReverse"><b>Media.</b></h6>
+                    <a href="` + preguntasModalArray6[m][1] + `" class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat"><i class="material-icons left">play_arrow</i>Video</a>
                 </div>
-                <h6><b>Respuesta.</b></h6>
+                <h6 class="colorTextReverse"><b>R.</b></h6>
                 <div class="opcionesContainerStyleViewCuestionario">
                     <div class="colorGrey bordered1 colorTextReverse letterStyleViewCuestionario">R:</div>
-                    <textarea placeholder="text" class="materialize-textarea" id="opt6_respuesta`+ m + `"></textarea>
+                    <textarea placeholder="text" class="materialize-textarea colorTextReverse" id="opt6_respuesta`+ m + `"></textarea>
                 </div>
                 <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
                     <button id="opt6_agregarRespuesta`+ m + `" 
                     onclick="agregarRespuestaOptAbiertas('opt6_respuesta`+ m + `','opt6outputResult_` + m + `','opt6_agregarRespuesta` + m + `','opt6InputGet_` + m + `')" 
                     class="recursoOnlineEjerciciosLink waves-effect waves-light btn colorGreyDarker colorTextReverse bordered1 btnPreguntaStyleFormat">
-                    <i class="material-icons left">check</i>Agregar respuestas</button>
+                    <i class="material-icons left">check</i>Ready</button>
                 </div>
-                <div id="opt6outputResult_`+ m + `" class="preguntaBox outputEsperado colorGreyDarker bordered1" 
+                <div id="opt6outputResult_`+ m + `" class="preguntaBox outputEsperado colorTextReverse colorGreyDarker bordered1" 
                 style="margin-bottom: 10px;"><b>Output:</b></div>
-                <div class="ponderacionBox ponderacion_opt6 colorWhite bordered1"></div>
-                <input type="hidden" value="" class="answerCollector" id="opt6InputGet_` + m + `"></input>
+                <div class="ponderacionBox ponderacion_opt6 colorTextReverse colorWhite bordered1"></div>
+                <input type="hidden" value="" class="answerCollector colorTextReverse" id="opt6InputGet_` + m + `"></input>
             `;
                 contenedoresPregunta[m].innerHTML = contenido;
             }

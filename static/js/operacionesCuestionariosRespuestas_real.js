@@ -150,7 +150,7 @@ function mensajeDeRevisionRetraso(){
         let botonRevisarMensaje = document.getElementById('botonRevisarMensaje');
         
         if(contadorFecha == "No time" || tiempoRestante == "No time"){
-            botonRevisarMensaje.textContent = "Enviar con retraso.";
+            botonRevisarMensaje.textContent = "Send but no time.";
             Retraso_estado.value = "retraso"
             botonRevisarMensaje.classList.remove('infoColorButton');
             botonRevisarMensaje.classList.add('badColorButton');
