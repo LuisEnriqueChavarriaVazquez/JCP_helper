@@ -395,18 +395,76 @@ let rutas = {
             texts: ['问卷数据。','问卷数据。','问卷数据。','返回','老师：','别名：','接触：','问卷数据','问卷数据','簇','语','话题','家伙','时限','最后期限','最大尝试次数','开始','你想回答问卷吗？','建议您做好准备,因为测验不能暂停。','开始']
         }
     },
-    "answerCuestionarioAlumno": {
+    "cuestionarioPendiente": {
         "textEspanol": {
-            texts: ['Contestar cuestionario.','Contestar cuestionario.','Contestar cuestionario.','Volver','Tablero de información.','Total preguntas:','Respondidas:','Límite:','Minutos restantes:','Caducidad:','Intentos:','Entregar','Preguntas cuestionario','¿Desea enviar el cuestionario?','Este procedimiento no se puede revertir.','Enviar']
+            texts: ['Datos cuestionario.','Datos cuestionario.','Datos cuestionario.','Volver','Docente:','Alias:','Contacto:','Datos de cuestionario','Datos de cuestionario','Grupo','Lenguaje','Temas','Tipo','Tiempo límite','Fecha límite','Número de intentos máximo','Comenzar','¿Desea responder el cuestionario?','Se recomienda que este preparado, ya que el cuestionario no se puede pausar.','Comenzar']
         },
         "textIngles": {
-            texts: ['Answer test.','Answer test.','Answer test.','Return','Information board.','Total questions:','Answers:','Limit:','Remaining minutes:','Expiration:','Attempts:','Deliver','Quiz questions','Do you want to send the test?','This procedure cannot be reversed.','Send']
+            texts: ['Test data.','Test data.','Test data.','Return','Teacher:','Alias:','Contact:','Test data','Test data','Cluster','Language','Topics','Guy','time limit','Deadline','Maximum number of attempts','Begin','Do you want to answer the Test?','It is recommended that you be prepared, as the quiz cannot be paused.','Begin']
         },
         "textPortugues": {
-            texts: ['Responder ao questionário.','Responder ao questionário.','Responder ao questionário.','Retornar','Painel de informações.','Total de perguntas:','Respostas:','Limite:','Minutos restantes:','Expiração:','Tentativas:','Entregar','Perguntas do questionário','Deseja enviar o questionário?','Este procedimento não pode ser revertido.','Mandar']
+            texts: ['Dados do questionário.','Dados do questionário.','Dados do questionário.','Retornar','Professor@:','Alias:','Contato:','Dados do questionário','Dados do questionário','Clase','Linguagem','Tópicos','Cara','limite de tempo','Data limite','Número máximo de tentativas','Começar','Quer responder ao questionário?','Recomenda-se que você esteja preparado, pois o questionário não pode ser pausado.','Começar']
         },
         "textChino": {
-            texts: ['回答问卷。','回答问卷。','回答问卷。','返回','信息板。','总问题：','答案：','限制：','剩余分钟数：','过期：','尝试：','递送','测验问题','你想发送问卷吗？','此过程不可逆。','发送']
+            texts: ['问卷数据。','问卷数据。','问卷数据。','返回','老师：','别名：','接触：','问卷数据','问卷数据','簇','语','话题','家伙','时限','最后期限','最大尝试次数','开始','你想回答问卷吗？','建议您做好准备,因为测验不能暂停。','开始']
+        }
+    },
+    "answerCuestionarioAlumno": {
+        "textEspanol": {
+            //Cuando entramos a contestar el cuestionario
+            texts_1: ['Contestar cuestionario.','Contestar cuestionario.','Contestar cuestionario.','Volver','Tablero de información.','Total preguntas:','Respondidas:','Límite:','Minutos restantes:','Caducidad:','Intentos:','Entregar','Preguntas cuestionario','¿Desea enviar el cuestionario?','Este procedimiento no se puede revertir.','Enviar'],
+            //Cuando ya no hay intentos
+            texts_2: ['Se han terminado los intentos','Intentos.','Intentos.','Volver','Usted ha agotado su número máximo de intentos.','Usted ha agotado su número máximo de intentos.','Ha usted superado el número máximo de intentos posibles para este cuestionario, comuniquese con su docente para más información.','Regresar'],
+            //Cuando sigue pendiente
+            texts_3: ['La evaluación sigue pendiente.','Pendiente.','Pendiente.','Volver','Debe esperar a que su docente evalué algunas preguntas.','Debe esperar a que su docente evalué algunas preguntas.','Algunas preguntas del cuestionario deben ser evaluadas de manera manual por el docente.','Regresar'],
+            //Cuando la evalaucion esta lista
+            texts_4: ['La evaluación ha sido terminada.','Terminado.','Terminado.','Volver','La revisión ha sido terminada.','La revisión ha sido terminada.','El resultado ha sido registrado satisfactoriamente.','Regresar','Apelar resultado','Retroalimentación.','Escriba un comentario de retroalimentación para este curso y su profesor podrá saber las areas de oportunidad en las evaluaciones.','Feedback','Enviar'],
+        },
+        "textIngles": {
+            texts_1: ['Answer test.','Answer test.','Answer test.','Return','Information board.','Total questions:','Answers:','Limit:','Remaining minutes:','Expiration:','Attempts:','Deliver','Quiz questions','Do you want to send the test?','This procedure cannot be reversed.','Send'],
+            texts_2: ['The attempts are over','Attempts.','Attempts.','Return','You have exhausted your maximum number of attempts.','You have exhausted your maximum number of attempts.','You have exceeded the maximum number of possible attempts for this quiz, contact your teacher for more information.','Return'],
+            texts_3: ['Evaluation is still pending.','Pending result.','Pending result.','Return','You must wait for your teacher to evaluate some questions.','You must wait for your teacher to evaluate some questions.','Some questions in the questionnaire must be evaluated manually by the teacher.','Return'],
+            texts_4: ['The evaluation has been finished.','Finished.','Finished.','Return','The review has been completed.','The review has been completed.','The result has been registered successfully.','Return','Appeal result','Feedback.','Write a feedback comment for this course and your teacher will know the areas of opportunity in the evaluations.','Feedback','Send'],
+        },
+        "textPortugues": {
+            texts_1: ['Responder test.','Responder test.','Responder test.','Retornar','Painel de informações.','Total de perguntas:','Respostas:','Limite:','Minutos restantes:','Expiração:','Tentativas:','Entregar','Perguntas do questionário','Deseja enviar o questionário?','Este procedimento não pode ser revertido.','Mandar'],
+            texts_2: ['As tentativas acabaram','Tentativas.','Tentativas.','Retornar','Você esgotou seu número máximo de tentativas.','Você esgotou seu número máximo de tentativas.','Você excedeu o número máximo de tentativas possíveis para este questionário, entre em contato com seu professor para obter mais informações.','Voltar'],
+            texts_3: ['A avaliação ainda está pendente.','Resultado pendente.','Resultado pendente.','Retornar','Você deve esperar que seu professor avalie algumas questões.','Você deve esperar que seu professor avalie algumas questões.','Algumas questões do questionário devem ser avaliadas manualmente pelo professor.','Voltar'],
+            texts_4: ['A avaliação foi finalizada.','Finalizado.','Finalizado.','Retornar','A revisão foi concluída.','A revisão foi concluída.','O resultado foi registrado com sucesso.','Voltar','Resultado da apelação','Comentários.','Escreva um comentário de feedback para este curso e seu professor saberá as áreas de oportunidade nas avaliações.','Comentários','Mandar'],
+        },
+        "textChino": {
+            texts_1: ['回答问卷。','回答问卷。','回答问卷。','返回','信息板。','总问题：','答案：','限制：','剩余分钟数：','过期：','尝试：','递送','测验问题','你想发送问卷吗？','此过程不可逆。','发送'],
+            texts_2: ['尝试结束','尝试。','尝试。','返回','您已经用尽了最大尝试次数。','您已经用尽了最大尝试次数。','您已超过此测验的最大尝试次数,请联系您的老师以获取更多信息。','返回'],
+            texts_3: ['评估仍在进行中。','结果待定','结果待定','返回','你必须等待你的老师评估一些问题。','你必须等待你的老师评估一些问题。','问卷中有些问题必须由老师人工评价。','返回'],
+            texts_4: ['评估已完成。','完成的。','完成的。','返回','审核已完成。','审核已完成。','结果已注册成功。','返回','申诉结果','反馈。','为这门课程写一个反馈评论,你的老师就会知道评估中的机会领域。','反馈','发送']
+        }
+    },
+    "cuestionarioListo": {
+        "textEspanol": {
+            texts: ['Datos cuestionario.','Datos cuestionario.','Datos cuestionario.','Volver','Docente:','Alias:','Contacto:','Datos de cuestionario','Datos de cuestionario','Grupo','Lenguaje','Temas','Tipo','Tiempo límite','Fecha límite','Número de intentos máximo','Comenzar','¿Desea responder el cuestionario?','Se recomienda que este preparado, ya que el cuestionario no se puede pausar.','Comenzar']
+        },
+        "textIngles": {
+            texts: ['Test data.','Test data.','Test data.','Return','Teacher:','Alias:','Contact:','Test data','Test data','Cluster','Language','Topics','Guy','time limit','Deadline','Maximum number of attempts','Begin','Do you want to answer the Test?','It is recommended that you be prepared, as the quiz cannot be paused.','Begin']
+        },
+        "textPortugues": {
+            texts: ['Dados do questionário.','Dados do questionário.','Dados do questionário.','Retornar','Professor@:','Alias:','Contato:','Dados do questionário','Dados do questionário','Clase','Linguagem','Tópicos','Cara','limite de tempo','Data limite','Número máximo de tentativas','Começar','Quer responder ao questionário?','Recomenda-se que você esteja preparado, pois o questionário não pode ser pausado.','Começar']
+        },
+        "textChino": {
+            texts: ['问卷数据。','问卷数据。','问卷数据。','返回','老师：','别名：','接触：','问卷数据','问卷数据','簇','语','话题','家伙','时限','最后期限','最大尝试次数','开始','你想回答问卷吗？','建议您做好准备,因为测验不能暂停。','开始']
+        }
+    },
+    "noIntentosDisponibles": {
+        "textEspanol": {
+            texts: ['Datos cuestionario.','Datos cuestionario.','Datos cuestionario.','Volver','Docente:','Alias:','Contacto:','Datos de cuestionario','Datos de cuestionario','Grupo','Lenguaje','Temas','Tipo','Tiempo límite','Fecha límite','Número de intentos máximo','Comenzar','¿Desea responder el cuestionario?','Se recomienda que este preparado, ya que el cuestionario no se puede pausar.','Comenzar']
+        },
+        "textIngles": {
+            texts: ['Test data.','Test data.','Test data.','Return','Teacher:','Alias:','Contact:','Test data','Test data','Cluster','Language','Topics','Guy','time limit','Deadline','Maximum number of attempts','Begin','Do you want to answer the Test?','It is recommended that you be prepared, as the quiz cannot be paused.','Begin']
+        },
+        "textPortugues": {
+            texts: ['Dados do questionário.','Dados do questionário.','Dados do questionário.','Retornar','Professor@:','Alias:','Contato:','Dados do questionário','Dados do questionário','Clase','Linguagem','Tópicos','Cara','limite de tempo','Data limite','Número máximo de tentativas','Começar','Quer responder ao questionário?','Recomenda-se que você esteja preparado, pois o questionário não pode ser pausado.','Começar']
+        },
+        "textChino": {
+            texts: ['问卷数据。','问卷数据。','问卷数据。','返回','老师：','别名：','接触：','问卷数据','问卷数据','簇','语','话题','家伙','时限','最后期限','最大尝试次数','开始','你想回答问卷吗？','建议您做好准备,因为测验不能暂停。','开始']
         }
     },
     "revisarAlumno": {
@@ -423,18 +481,22 @@ let rutas = {
             texts: ['你的结果。','你的结果。','你的结果。','返回',' 这些是您的答案,问卷已经过完整评估。',' 这些是他们的答案,但还有一些有待老师审阅。','结果','问题和评分','问题和评分','接受','问答问卷']
         }
     },
-    "saber_mas2": {
+    "resultadoAlumno": {
         "textEspanol": {
-            texts: []
+            texts_3: ['La evaluación sigue pendiente.','Pendiente.','Pendiente.','Volver','Debe esperar a que su docente evalué algunas preguntas.','Debe esperar a que su docente evalué algunas preguntas.','Algunas preguntas del cuestionario deben ser evaluadas de manera manual por el docente.','Regresar'],
+            texts_4: ['La evaluación ha sido terminada.','Terminado.','Terminado.','Volver','La revisión ha sido terminada.','La revisión ha sido terminada.','El resultado ha sido registrado satisfactoriamente.','Regresar','Apelar resultado','Retroalimentación.','Escriba un comentario de retroalimentación para este curso y su profesor podrá saber las areas de oportunidad en las evaluaciones.','Feedback','Enviar'],
         },
         "textIngles": {
-            texts: []
+            texts_3: ['Evaluation is still pending.','Pending result.','Pending result.','Return','You must wait for your teacher to evaluate some questions.','You must wait for your teacher to evaluate some questions.','Some questions in the questionnaire must be evaluated manually by the teacher.','Return'],
+            texts_4: ['The evaluation has been finished.','Finished.','Finished.','Return','The review has been completed.','The review has been completed.','The result has been registered successfully.','Return','Appeal result','Feedback.','Write a feedback comment for this course and your teacher will know the areas of opportunity in the evaluations.','Feedback','Send'],
         },
         "textPortugues": {
-            texts: []
+            texts_3: ['A avaliação ainda está pendente.','Resultado pendente.','Resultado pendente.','Retornar','Você deve esperar que seu professor avalie algumas questões.','Você deve esperar que seu professor avalie algumas questões.','Algumas questões do questionário devem ser avaliadas manualmente pelo professor.','Voltar'],
+            texts_4: ['A avaliação foi finalizada.','Finalizado.','Finalizado.','Retornar','A revisão foi concluída.','A revisão foi concluída.','O resultado foi registrado com sucesso.','Voltar','Resultado da apelação','Comentários.','Escreva um comentário de feedback para este curso e seu professor saberá as áreas de oportunidade nas avaliações.','Comentários','Mandar'],
         },
         "textChino": {
-            texts: []
+            texts_3: ['评估仍在进行中。','结果待定','结果待定','返回','你必须等待你的老师评估一些问题。','你必须等待你的老师评估一些问题。','问卷中有些问题必须由老师人工评价。','返回'],
+            texts_4: ['评估已完成。','完成的。','完成的。','返回','审核已完成。','审核已完成。','结果已注册成功。','返回','申诉结果','反馈。','为这门课程写一个反馈评论,你的老师就会知道评估中的机会领域。','反馈','发送']
         }
     },
     "saber_mas2": {

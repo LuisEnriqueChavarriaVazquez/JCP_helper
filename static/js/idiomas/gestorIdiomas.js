@@ -65,40 +65,48 @@ function rutaValidation(stringUrl) {
     //Debemos validar aquellos casos en los que la URL tiene un ID
     if (stringUrl.includes("editGroup")) {
         return "editGroup"
-    }else if(stringUrl.includes("viewGroup")){
+    } else if (stringUrl.includes("viewGroup")) {
         return "viewGroup"
-    }else if(stringUrl.includes("viewGroupEstudiante")){
+    } else if (stringUrl.includes("viewGroupEstudiante")) {
         return "viewGroupEstudiante"
-    }else if(stringUrl.includes("viewCuestionario")){
+    } else if (stringUrl.includes("viewCuestionario")) {
         console.log('stringUrl', stringUrl)
-        if(stringUrl.search(/viewCuestionarioInfo/) != -1){
+        if (stringUrl.search(/viewCuestionarioInfo/) != -1) {
             console.log(stringUrl.search(/viewCuestionarioInfo/))
             return "viewCuestionarioInfo"
-        }else if(stringUrl.search(/viewCuestionario/) != -1){
+        } else if (stringUrl.search(/viewCuestionario/) != -1) {
             console.log(stringUrl.search(/viewCuestionario/) != -1)
             return "viewCuestionario"
         }
-    }else if(stringUrl.includes("previewVerComoALumnoCuestionario")){
+    } else if (stringUrl.includes("previewVerComoALumnoCuestionario")) {
         return "previewVerComoALumnoCuestionario"
-    }else if(stringUrl.includes("simularRevision")){
+    } else if (stringUrl.includes("simularRevision")) {
         return "simularRevision"
-    }else if(stringUrl.includes("perfil_general_view")){
+    } else if (stringUrl.includes("perfil_general_view")) {
         return "perfil_general_view"
-    }else if(stringUrl.includes("editarPerfilProfesor")){
+    } else if (stringUrl.includes("editarPerfilProfesor")) {
         return "editarPerfilProfesor"
-    }else if(stringUrl.includes("editarPerfilAlumno")){
+    } else if (stringUrl.includes("editarPerfilAlumno")) {
         return "editarPerfilAlumno"
-    }else if(stringUrl.includes("mis_grupos")){
+    } else if (stringUrl.includes("mis_grupos")) {
         return "mis_grupos"
-    }else if(stringUrl.includes("viewTeacherProfile")){
+    } else if (stringUrl.includes("viewTeacherProfile")) {
         return "viewTeacherProfile"
-    }else if(stringUrl.includes("answerCuestionarioAlumno")){
+    } else if (stringUrl.includes("answerCuestionarioAlumno")) {
         return "answerCuestionarioAlumno"
-    }else if(stringUrl.includes("revisarAlumno")){
+    } else if (stringUrl.includes("revisarAlumno")) {
         return "revisarAlumno"
+    } else if (stringUrl.includes("resultadoAlumno")) {
+        return "resultadoAlumno"
+    } else if (stringUrl.includes("cuestionarioPendiente")) {
+        return "cuestionarioPendiente"
+    } else if (stringUrl.includes("cuestionarioListo")) {
+        return "cuestionarioListo"
+    } else if (stringUrl.includes("noIntentosDisponibles")) {
+        return "noIntentosDisponibles"
     }
 
-    
+
     //En caso de que la URL no tenga IDs
     stringUrl = stringUrl.split("");
     stringUrl = stringUrl.reverse();
@@ -122,21 +130,99 @@ function asignarIdioma(valorIdiomaLocalStorage) {
     //Nos ayuda a elegir elemento del objeto.
     let rutaPage = rutaValidation(location.href);
 
-    if (valorIdiomaLocalStorage === 'esp') {
-        for (var i = 0; i < TDI.length; i++) {
-            TDI[i].textContent = rutas[rutaPage].textEspanol.texts[i];
+    //Para el caso de páginas que tienen distintas vistas según el caso.
+    if (rutaPage == "resultadoAlumno" || rutaPage == "answerCuestionarioAlumno") {
+        if (casePageVariable == "First_case_page") {
+            if (valorIdiomaLocalStorage === 'esp') {
+                for (var i = 0; i < TDI.length; i++) {
+                    TDI[i].textContent = rutas[rutaPage].textEspanol.texts_1[i];
+                }
+            } else if (valorIdiomaLocalStorage === 'en') {
+                for (var i = 0; i < TDI.length; i++) {
+                    TDI[i].textContent = rutas[rutaPage].textIngles.texts_1[i];
+                }
+            } else if (valorIdiomaLocalStorage === 'pt') {
+                for (var i = 0; i < TDI.length; i++) {
+                    TDI[i].textContent = rutas[rutaPage].textPortugues.texts_1[i];
+                }
+            } else if (valorIdiomaLocalStorage === 'chn') {
+                for (var i = 0; i < TDI.length; i++) {
+                    TDI[i].textContent = rutas[rutaPage].textChino.texts_1[i];
+                }
+            }
+        }else if(casePageVariable == "Second_case_page"){
+            if (valorIdiomaLocalStorage === 'esp') {
+                for (var i = 0; i < TDI.length; i++) {
+                    TDI[i].textContent = rutas[rutaPage].textEspanol.texts_2[i];
+                }
+            } else if (valorIdiomaLocalStorage === 'en') {
+                for (var i = 0; i < TDI.length; i++) {
+                    TDI[i].textContent = rutas[rutaPage].textIngles.texts_2[i];
+                }
+            } else if (valorIdiomaLocalStorage === 'pt') {
+                for (var i = 0; i < TDI.length; i++) {
+                    TDI[i].textContent = rutas[rutaPage].textPortugues.texts_2[i];
+                }
+            } else if (valorIdiomaLocalStorage === 'chn') {
+                for (var i = 0; i < TDI.length; i++) {
+                    TDI[i].textContent = rutas[rutaPage].textChino.texts_2[i];
+                }
+            }
+        }else if(casePageVariable == "Third_case_page"){
+            if (valorIdiomaLocalStorage === 'esp') {
+                for (var i = 0; i < TDI.length; i++) {
+                    TDI[i].textContent = rutas[rutaPage].textEspanol.texts_3[i];
+                }
+            } else if (valorIdiomaLocalStorage === 'en') {
+                for (var i = 0; i < TDI.length; i++) {
+                    TDI[i].textContent = rutas[rutaPage].textIngles.texts_3[i];
+                }
+            } else if (valorIdiomaLocalStorage === 'pt') {
+                for (var i = 0; i < TDI.length; i++) {
+                    TDI[i].textContent = rutas[rutaPage].textPortugues.texts_3[i];
+                }
+            } else if (valorIdiomaLocalStorage === 'chn') {
+                for (var i = 0; i < TDI.length; i++) {
+                    TDI[i].textContent = rutas[rutaPage].textChino.texts_3[i];
+                }
+            }
+        }else if(casePageVariable == "Fourth_case_page"){
+            if (valorIdiomaLocalStorage === 'esp') {
+                for (var i = 0; i < TDI.length; i++) {
+                    TDI[i].textContent = rutas[rutaPage].textEspanol.texts_4[i];
+                }
+            } else if (valorIdiomaLocalStorage === 'en') {
+                for (var i = 0; i < TDI.length; i++) {
+                    TDI[i].textContent = rutas[rutaPage].textIngles.texts_4[i];
+                }
+            } else if (valorIdiomaLocalStorage === 'pt') {
+                for (var i = 0; i < TDI.length; i++) {
+                    TDI[i].textContent = rutas[rutaPage].textPortugues.texts_4[i];
+                }
+            } else if (valorIdiomaLocalStorage === 'chn') {
+                for (var i = 0; i < TDI.length; i++) {
+                    TDI[i].textContent = rutas[rutaPage].textChino.texts_4[i];
+                }
+            }
         }
-    } else if (valorIdiomaLocalStorage === 'en') {
-        for (var i = 0; i < TDI.length; i++) {
-            TDI[i].textContent = rutas[rutaPage].textIngles.texts[i];
-        }
-    } else if (valorIdiomaLocalStorage === 'pt') {
-        for (var i = 0; i < TDI.length; i++) {
-            TDI[i].textContent = rutas[rutaPage].textPortugues.texts[i];
-        }
-    } else if (valorIdiomaLocalStorage === 'chn') {
-        for (var i = 0; i < TDI.length; i++) {
-            TDI[i].textContent = rutas[rutaPage].textChino.texts[i];
+    } else { //Para el caso de páginas standar
+        if (valorIdiomaLocalStorage === 'esp') {
+            for (var i = 0; i < TDI.length; i++) {
+                TDI[i].textContent = rutas[rutaPage].textEspanol.texts[i];
+            }
+        } else if (valorIdiomaLocalStorage === 'en') {
+            for (var i = 0; i < TDI.length; i++) {
+                TDI[i].textContent = rutas[rutaPage].textIngles.texts[i];
+            }
+        } else if (valorIdiomaLocalStorage === 'pt') {
+            for (var i = 0; i < TDI.length; i++) {
+                TDI[i].textContent = rutas[rutaPage].textPortugues.texts[i];
+            }
+        } else if (valorIdiomaLocalStorage === 'chn') {
+            for (var i = 0; i < TDI.length; i++) {
+                TDI[i].textContent = rutas[rutaPage].textChino.texts[i];
+            }
         }
     }
+
 }

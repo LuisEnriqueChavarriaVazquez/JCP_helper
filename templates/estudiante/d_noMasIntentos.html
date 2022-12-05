@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Se han terminado los intentos</title>
+    <title class="TDI">Se han terminado los intentos</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -18,27 +18,44 @@
     <!--Menu de página de inicio-->
     <nav class="color1">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Intentos.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Intentos.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Intentos.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Intentos.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded TDI">Volver</a></li>
             </ul>
         </div>
     </nav>
 
     <section class="containerIntentosInfo">
-        <h4 class="colorText hide-on-small-only">Usted ha agotado su número máximo de intentos.</h4>
-        <h5 class="colorText hide-on-med-and-up">Usted ha agotado su número máximo de intentos.</h5>
-        <p class="colorText">Ha usted superado el número máximo de intentos posibles para este cuestionario, comuniquese con su docente para más información.</p>
+        <h4 class="colorText hide-on-small-only TDI">Usted ha agotado su número máximo de intentos.</h4>
+        <h5 class="colorText hide-on-med-and-up TDI">Usted ha agotado su número máximo de intentos.</h5>
+        <p class="colorText TDI">Ha usted superado el número máximo de intentos posibles para este cuestionario, comuniquese
+            con su docente para más información.</p>
         <img src="../../static/images/icons/icon_noIntentos.svg" id="iconIntentos">
         <form action="/noIntentosDisponibles/{{datosCuestionario[0][0]}}" method="post">
             <input type="hidden" name="idEstudiante" value="{{idEstudiante}}">
-            <button type="submit" class="waves-effect waves-light btn-large colorWhite coloredText shadow-2e button-rounded">Regresar</button>
+            <button type="submit"
+                class="waves-effect waves-light btn-large colorWhite coloredText shadow-2e button-rounded TDI">Regresar</button>
         </form>
     </section>
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
+
 </body>
+
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
+
+<script>
+    let casePageVariable = "Second_case_page";
+</script>
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
+
 </html>

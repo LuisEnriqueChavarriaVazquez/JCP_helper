@@ -91,7 +91,7 @@ function imprimirPreguntas() {
                 //Contenido de la pregunta
                 let contenido =
                     `  
-                <h5 class="tituloPregunta colorTextReverse"><b>Q/1 ` + (m + 1) + `</b></h5>
+                <h5 class="tituloPregunta"><b>Q/1 ` + (m + 1) + `</b></h5>
                 <hr>
                 <div class="preguntaBox colorGrey colorTextReverse bordered1"><b>` + preguntasModalArray1[m][0] + `</b></div>
                 <div class="imagenBox bordered1 shadow-1e colorGrey">

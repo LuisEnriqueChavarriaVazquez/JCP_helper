@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Ha terminado el cuestionario</title>
+    <title class="TDI">Ha terminado el cuestionario</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -18,20 +18,20 @@
     <!--Menu de página de inicio-->
     <nav class="color1">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Terminado.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Terminado.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Terminado.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Terminado.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded TDI">Volver</a></li>
             </ul>
         </div>
     </nav>
 
     <section class="containerIntentosInfo">
-        <h4 class="colorText hide-on-small-only">La revisión ha sido terminada.</h4>
-        <h5 class="colorText hide-on-med-and-up">La revisión ha sido terminada.</h5>
-        <p class="colorText">El resultado ha sido registrado satisfactoriamente.</p>
+        <h4 class="colorText hide-on-small-only TDI">La revisión ha sido terminada.</h4>
+        <h5 class="colorText hide-on-med-and-up TDI">La revisión ha sido terminada.</h5>
+        <p class="colorText TDI">El resultado ha sido registrado satisfactoriamente.</p>
         <img src="../../static/images/icons/icon_cuestionario_terminado.svg" id="iconIntentos">
         <form action="/cuestionarioListo/{{datosCuestionario[0][0]}}" method="post"
             style="display: flex; justify-content:center; align-items: center; flex-direction: column;">
@@ -39,9 +39,9 @@
             <input type="hidden" id="pedirApelacion" name="pedirApelacion" value="apelar">
             <input type="hidden" id="idCuestionarioHecho" name="idCuestionarioHecho" value="{{idCuestionarioHecho}}">
             <button type="submit" id="aceptarResultado"
-                class="waves-effect waves-light btn-large colorWhite coloredText shadow-2e button-rounded">Regresar</button><br>
+                class="waves-effect waves-light btn-large colorWhite coloredText shadow-2e button-rounded TDI">Regresar</button><br>
             <button type="submit" id="apelarResultado"
-                class="waves-effect waves-light btn-large color2 colorText shadow-2e button-rounded">Apelar
+                class="waves-effect waves-light btn-large color2 colorText shadow-2e button-rounded TDI">Apelar
                 resultado</button>
         </form>
     </section>
@@ -49,41 +49,57 @@
     <!--Pop up para agregar un comentario de retroalimentacion-->
     <div id="comentarioRetroalimentacion" class="modal bordered2 colorGrey">
         <div class="modal-content">
-            <h4>Retroalimentación.</h4>
-            <p>Escriba un comentario de retroalimentación para este curso y su profesor podrá saber las areas de
+            <h4 class="TDI">Retroalimentación.</h4>
+            <p class="TDI">Escriba un comentario de retroalimentación para este curso y su profesor podrá saber las areas de
                 oportunidad en las evaluaciones.</p>
             <hr>
             <form action="/enviarRetroalimentacion" method="post">
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">feedback</i>
-                        <textarea maxlength="160" name="feedbackContent" id="feedbackContent" class="materialize-textarea"></textarea>
-                        <label for="feedbackContent">Feedback</label>
+                        <textarea maxlength="160" name="feedbackContent" id="feedbackContent"
+                            class="materialize-textarea colorTextReverse"></textarea>
+                        <label for="feedbackContent" class="TDI">Feedback</label>
                     </div>
                 </div>
                 <input type="hidden" name="id_cuestionario" value="{{datosCuestionario[0][0]}}">
                 <input type="hidden" name="id_grupo" value="{{datosCuestionario[0][1]}}">
                 <input type="hidden" name="id_estudiante" value="{{idEstudiante}}">
 
-                <button class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded"
+                <button class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded TDI"
                     style="width: 100%;">Enviar</button>
             </form>
         </div>
     </div>
 
-</body>
+    <!--Boton para ir hacia arriba-->
+    <div class="fixed-action-btn">
+        <a href="#comentarioRetroalimentacion" class="btn-floating btn-large color1 modal-trigger">
+            <i class="large material-icons">feedback</i>
+        </a>
+    </div>
 
-<!--Boton para ir hacia arriba-->
-<div class="fixed-action-btn">
-    <a href="#comentarioRetroalimentacion" class="btn-floating btn-large color1 modal-trigger">
-        <i class="large material-icons">feedback</i>
-    </a>
-</div>
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
+
+</body>
 
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
 
+
 <!--Codigo para validar la apelacion-->
 <script src="../../static/js/operacionDeApelarEstudiante.js"></script>
+
+<!--Traduccion de las paginas-->
+<script>
+    let casePageVariable = "Fourth_case_page";
+</script>
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
 </html>
