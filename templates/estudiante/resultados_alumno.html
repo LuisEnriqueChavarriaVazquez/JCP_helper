@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Resultados alumno</title>
+    <title class="TDI">Resultados alumno</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -15,97 +15,78 @@
     {% include "includes/cargador.html" %}
 
 
-    
+
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Mis resultados</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Mis resultados</a>
             <a href="/bienvenidaEstudiante" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Mis resultados.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Mis resultados.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="/bienvenidaEstudiante" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="/bienvenidaEstudiante" class="btn color3 button-rounded TDI">Volver</a></li>
             </ul>
         </div>
     </nav>
 
-        <!--Menu lateral para las pantallas grandes-->
-        <section class="operationContainerPrincipalCuestionarios">
-            <!--Contenedor principal-->
-            <section class="operationMainMisResultados">
-        
-                <!--Titulos de la página-->
-                <div class="title-general color1 fixedTitleOperationMain shadow-2e" id="cajaTituloBuscadorId">
-                    <h6 class="colorText hide-on-large-only hide-on-med-only" id="cajaTituloBuscadorContenidoId">Panel
-                        global</h6>
-                    <h5 class="colorText hide-on-small-only" id="cajaTituloBuscadorContenidoLargeId">Panel global</h5>
-                </div>
-        
-              
+    <!--Menu lateral para las pantallas grandes-->
+    <section class="operationContainerPrincipalCuestionarios">
+        <!--Contenedor principal-->
+        <section class="operationMainMisResultados">
 
-            
-                   
-            
-                    <!--Menu lateral para pantallas grandes-->
-                    <div class="viewsContainerOperation">
-                        <div>
-                            <a id="buttonVistasAlternateGroup"
-                                class="hide-on-small-only waves-effect waves-light btn colorGreyWhiter colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                    id="iconVistasAlternateGroup" class="material-icons md-28">grid_view</i></a>
-            
-                            <a id="buttonVistasAlternateGroupMobile"
-                                class="hide-on-large-only hide-on-med-only waves-effect waves-light btn color1 colorText button-rounded centerAlignerNoWidth"><i
-                                    id="iconVistasAlternateGroupMobile" class="material-icons md-24">grid_view</i></a>
-                        </div>
-                    </div>
-            
-                    <div class="contenedorCardsCuestionariosOperationMisResultados" id="contenedorCardsGruposOperationId">
-                        {% if cuestionariosDevuelta %}
-                        {%for i in range(0, cuestionariosDevuelta|length)%}
-                        <div>
-                            <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
-                                <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId"
-                                    style=" background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: hue;">
-                                    <div>
-                                        <h5 class="titleGroupContentId">{{cuestionariosDevuelta[i][2]}}</h5>
-                                    </div>
-            
-                                </div>
-            
-                                <div class="sectionCardOperationActionsMisResultados colorGreyWhiter sectionCardOperationActionsId">
-                                    <!--Botones de cada grupo-->
-                                    
+            <!--Titulos de la página-->
+            <div class="title-general color1 fixedTitleOperationMain shadow-2e" id="cajaTituloBuscadorId">
+                <h6 class="colorText hide-on-large-only hide-on-med-only TDI" id="cajaTituloBuscadorContenidoId">Panel
+                    global</h6>
+                <h5 class="colorText hide-on-small-only TDI" id="cajaTituloBuscadorContenidoLargeId">Panel global</h5>
+            </div>
 
-                                <a href="/descargar_resultados_cuestionario_pdf/{{cuestionariosDevuelta[i][0]}}"
-                                    class="descargarResultado classIdentifierGroupButtonEdit waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                        class="material-icons md-24">arrow_downward</i></a>
+            <br><br><br><br><br>
 
-                                 
-                               <!-- <a href=""
-                                    class=" classIdentifierGroupButtonEdit waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                        class="material-icons md-24">poll</i></a>-->
-
-
-                                </div>
+            <div class="contenedorCardsCuestionariosOperationMisResultados" id="contenedorCardsGruposOperationId">
+                {% if cuestionariosDevuelta %}
+                {%for i in range(0, cuestionariosDevuelta|length)%}
+                <div>
+                    <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
+                        <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId"
+                            style=" background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: hue;">
+                            <div>
+                                <h5 class="titleGroupContentId">{{cuestionariosDevuelta[i][2]}}</h5>
                             </div>
+
                         </div>
-                       
-                        {%endfor%}
-                        {% endif %}
+                        <div
+                            class="sectionCardOperationActionsMisResultados colorGreyWhiter sectionCardOperationActionsId">
+                            <!--Botones de cada grupo-->
+                            <a href="/descargar_resultados_cuestionario_pdf/{{cuestionariosDevuelta[i][0]}}"
+                                class="descargarResultado classIdentifierGroupButtonEdit waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
+                                    class="material-icons md-24">arrow_downward</i></a>
+                        </div>
                     </div>
-            
-                </section>
-            
-            </section>
-    
+                </div>
+
+                {%endfor%}
+                {% endif %}
+            </div>
+        </section>
+    </section>
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
 
 </body>
-
 
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
 
 <script src="../../static/js/operacionesEditarPerfil.js"></script>
 
+<!--Traductor-->
+
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
 </html>

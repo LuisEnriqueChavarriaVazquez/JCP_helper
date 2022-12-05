@@ -104,8 +104,9 @@ function rutaValidation(stringUrl) {
         return "cuestionarioListo"
     } else if (stringUrl.includes("noIntentosDisponibles")) {
         return "noIntentosDisponibles"
+    } else if (stringUrl.includes("gestionar_resultados_alumno")) {
+        return "gestionar_resultados_alumno"
     }
-
 
     //En caso de que la URL no tenga IDs
     stringUrl = stringUrl.split("");

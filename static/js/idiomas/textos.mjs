@@ -513,6 +513,48 @@ let rutas = {
             texts_4: ['评估已完成。','完成的。','完成的。','返回','审核已完成。','审核已完成。','结果已注册成功。','返回','申诉结果','反馈。','为这门课程写一个反馈评论,你的老师就会知道评估中的机会领域。','反馈','发送']
         }
     },
+    "gestionar_resultados_alumno": {
+        "textEspanol": {
+            texts: ['Mis resultados','Mis resultados','Mis resultados.','Volver','Panel global','Panel global']
+        },
+        "textIngles": {
+            texts: ['My results','My results','My results.','Return','Global Dashboard','Global Dashboard']
+        },
+        "textPortugues": {
+            texts: ['Meus resultados','Meus resultados','Meus resultados.','Retornar','Painel Global','Painel Global']
+        },
+        "textChino": {
+            texts: ['我的成绩','我的成绩','我的结果。','返回','全球仪表板','全球仪表板']
+        }
+    },
+    "saber_mas2": {
+        "textEspanol": {
+            texts: []
+        },
+        "textIngles": {
+            texts: []
+        },
+        "textPortugues": {
+            texts: []
+        },
+        "textChino": {
+            texts: []
+        }
+    },
+    "saber_mas2": {
+        "textEspanol": {
+            texts: []
+        },
+        "textIngles": {
+            texts: []
+        },
+        "textPortugues": {
+            texts: []
+        },
+        "textChino": {
+            texts: []
+        }
+    },
     "saber_mas2": {
         "textEspanol": {
             texts: []
