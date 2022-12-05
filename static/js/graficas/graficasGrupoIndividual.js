@@ -1,3 +1,23 @@
+//Creamos textos para identificar el idioma
+let español_7 = ['Porcentaje de aprobación','Aprobados:','Reprobados:','Intentos promedio.','Intentos: ','Rango de calificaciones:','Calificación min.:','Calificación max.:','Índice de aprobación','aprueba','Promedio tiempo respuestas:','Tiempo: ','Porcentaje de retrasos','A tiempo:','Retraso: ',];
+let ingles_7 = ['Approval rate','Approved:','Failed:','Average attempts.','Attempts: ','Range of grades:','Min. grade:','Max rating:','Approval rating','approves','Average response time:','Time: ','Percentage of delays','On time:','Delay: ',];
+let portugues_7 = ['Taxa de aprovação','Aprovado:','Fracassado:','Tentativas médias.','Tentativas: ','Faixa de notas:','Grau mínimo:','Classificação máxima:','Taxa de aprovação','aprova','Tempo médio de resposta:','Tempo: ','Porcentagem de atrasos','A tempo:','Atraso: ',];
+let chino_7 = ['批准率','得到正式认可的：','失败的：','平均尝试次数。','尝试：','成绩范围：','最低等级：','最大评分：','认可度','批准','平均响应时间：','天气： ','延误百分比','准时：','延迟： ',];
+let futureLanguage_7 = [];
+let currentLenguage_7 = localStorage.getItem('idioma');
+console.log('currentLenguage_7', currentLenguage_7)
+
+if (currentLenguage_7 == 'esp') {
+  futureLanguage_7 = [...español_7];
+} else if (currentLenguage_7 == 'en') {
+  futureLanguage_7 = [...ingles_7];
+} else if (currentLenguage_7 == 'pt') {
+  futureLanguage_7 = [...portugues_7];
+} else if (currentLenguage_7 == 'chn') {
+  futureLanguage_7 = [...chino_7];
+}
+
+
 //Se almacenan las IDS de los contenedores individuales.
 //Nos servira para en el futuro saber donde meter los gráficos
 let ids_indivual_groups = []
@@ -26,7 +46,7 @@ function impresionDeCasillasPorGrupo() {
         ids_individual_temporal = [];
         for (var j = 0; j < 6; j++) {
             contenedorDeGrupo[i].innerHTML += `
-            <div id="contenedorUnitario_${i}${j}" class="colorGreyWhiter bordered1 containerDataIndividualGroup borderDecoration" >
+            <div id="contenedorUnitario_${i}${j}" class="colorGreyWhiter colorTextReverse bordered1 containerDataIndividualGroup borderDecoration" >
                 
             </div>`;
             ids_individual_temporal.push(`contenedorUnitario_${i}${j}`);
@@ -45,10 +65,10 @@ function porcentageAprobacion_card1(idContainer, containerNumero) {
     porcentagesDividosPorGrupo.forEach((porcentage, i = 0) => {
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Porcentaje de aprobación</div>
+            <div class="tituloContenedorUnitarioEstadisticas colorTextReverse bordered2Up">${futureLanguage_7[0]}</div>
             <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
-                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Aprobados: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${porcentage[0]}%</span></p>
-                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Reprobados:<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${porcentage[1]}%</span></p>
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">${futureLanguage_7[1]} <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${porcentage[0]}%</span></p>
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">${futureLanguage_7[2]}<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${porcentage[1]}%</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
 
@@ -68,9 +88,9 @@ function promedio_intentos_por_grupo(idContainer, containerNumero) {
     arrayPromediosIntentosPorGrupo.forEach((promedioIntento, i = 0) => {
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Intentos promedio.</div>
+            <div class="tituloContenedorUnitarioEstadisticas colorTextReverse bordered2Up">${futureLanguage_7[3]}</div>
             <div class="contenidoContenedorUnitarioEstadisticasModel2 bordered2Down">
-                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Intentos: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${promedioIntento}</span></p>
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">${futureLanguage_7[4]}<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${promedioIntento}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
 
@@ -90,10 +110,10 @@ function promedio_max_min_por_grupo(idContainer, containerNumero) {
         //Insertamos el análisis de 1 de cada 10 pasan
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Rango de calificaciones:</div>
+            <div class="tituloContenedorUnitarioEstadisticas colorTextReverse bordered2Up">${futureLanguage_7[5]}</div>
             <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
-            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Calif. min.: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${grupo.at(0)}</span></p>
-            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Calif. max.:<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${grupo.at(-1)}</span></p>
+            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">${futureLanguage_7[6]}<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${grupo.at(0)}</span></p>
+            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">${futureLanguage_7[7]}<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${grupo.at(-1)}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
 
@@ -121,9 +141,9 @@ function analisis_pasar_por_grupo(idContainer, containerNumero) {
         if (i == containerNumero) { //Valida que contenedor es...
             let formatoNumero = Math.ceil(porcentageGrupo[0] / 10);
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Índice de aprobación</div>
+            <div class="tituloContenedorUnitarioEstadisticas colorTextReverse bordered2Up">${futureLanguage_7[8]}</div>
             <div class="contenidoContenedorUnitarioEstadisticasModel2 bordered2Down">
-                <p class="colorTextReverse porcetageAprobacionParrafoUnitario"><span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${formatoNumero}/10 aprueba</span></p>
+                <p class="colorTextReverse porcetageAprobacionParrafoUnitario"><span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${formatoNumero}/10 ${futureLanguage_7[9]}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
 
@@ -145,9 +165,9 @@ function tiempo_promedio_respuesta_examen_por_grupo(idContainer, containerNumero
         //Insertamos el análisis de 1 de cada 10 pasan
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Promedio tiempo respuestas:</div>
+            <div class="tituloContenedorUnitarioEstadisticas colorTextReverse bordered2Up">${futureLanguage_7[10]}</div>
             <div class="contenidoContenedorUnitarioEstadisticasModel2 bordered2Down">
-            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Tiempo: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${tiempo}hrs.</span></p>
+            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">${futureLanguage_7[11]}<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${tiempo}hrs.</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
 
@@ -167,10 +187,10 @@ function distribucion_entregas_retraso_por_grupo(idContainer, containerNumero) {
     cantidadRetrasos.forEach((porcentage, i = 0) => {
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Porcentaje de retrasos</div>
+            <div class="tituloContenedorUnitarioEstadisticas colorTextReverse bordered2Up">${futureLanguage_7[12]}</div>
             <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
-                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">A tiempo:<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${cantidadATiempo[i]}%</span></p>
-                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Retraso: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${cantidadRetrasos[i]}%</span></p>
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">${futureLanguage_7[13]}<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${cantidadATiempo[i]}%</span></p>
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">${futureLanguage_7[14]}<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${cantidadRetrasos[i]}%</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
 
