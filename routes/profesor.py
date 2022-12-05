@@ -729,54 +729,37 @@ def crear_cuestionario_del_banco():
         cuestionarios=cuestionarios[1:-2]
         cuestionarios=cuestionarios.replace("\"cuestionarios\":","")
         cuestionarios = ast.literal_eval(cuestionarios)
-
-        print(cuestionarios)
-        print(type(cuestionarios))
-        temas=[]
-        tipos_cuestionarios=[]
-
-        for i in cuestionarios:
-            if i["temas"] not in temas:
-                temas.append(i["temas"])
-                tipos_cuestionarios.append(i["tipo"])
             
-            
-
-        return render_template("profesor/cuestionarios_del_banco.html",temas=temas,lenguaje=query,tipos=tipos_cuestionarios)
+        return render_template("profesor/cuestionarios_del_banco.html",cuestionarios=cuestionarios,lenguaje=query)
     
     return render_template("profesor/cuestionarios_del_banco.html")
 
 
-"""
-esto le genera el cuestionario en base a sus criterios seleccionados
-"""
+## creacion de cuestionario por id
 @routes.route('/genera_cuestionarios_por_lenguaje',methods=["GET","POST"])
 def genera_cuestionarios_por_lenguaje():
-    query=request.args.get("lenguaje")
-    url=f"https://jcp-banco-de-datos.up.railway.app/cuestionarios?lenguaje={query}"
+
+    if request.args.get("id"):
+        idCuestionario=request.args.get("id")
+    else:
+        idCuestionario=request.form.get("idCuestionario")
+    
+    url=f"https://jcp-banco-de-datos.up.railway.app/cuestionario_id?id={idCuestionario}"
     response=requests.request("GET",url=url)
     cuestionarios=response.text
     cuestionarios=cuestionarios[1:-2]
-    cuestionarios=cuestionarios.replace("\"cuestionarios\":","")
-    cuestionarios = ast.literal_eval(cuestionarios)
+    cuestionarios=cuestionarios.replace("\"cuestionario\":","")
+    cuestionarios=ast.literal_eval(cuestionarios)
 
-    values=request.form.get("llaves")
-    llaves=values.split(",")
-    cuestionario_personalizado=""
-    for i in cuestionarios:
-        if i["temas"] in llaves[0] and i["tipo"] in llaves[1]:
-            cuestionario_personalizado=i
-            datos_cuestionario=[i["autor"],i["fecha"],i["lenguaje"],i["temas"],i["tipo"],i["titulo"]]
+    for cuestionario in cuestionarios:
+        datos_cuestionario=[cuestionario["autor"],cuestionario["fecha"],cuestionario["lenguaje"],cuestionario["temas"],cuestionario["tipo"],cuestionario["titulo"]]
+        cuestionario=cuestionario["preguntas"]
     
-    cuestionario=cuestionario_personalizado["preguntas"]
     cuestionario=json.loads(cuestionario)
 
-    print(datos_cuestionario)
     id_profesor=session['IDDocente']
-    cuestionario_rutas = Op_profesor.obtener_cuestionarios_rutas(id_profesor)
-    resultCuestionarios = Op_profesor.obtener_cuestionarios_datos_importantes(id_profesor)
-    #return render_template('profesor/cuestionario_del_banco_personalizado.html', id_profesor = id_profesor, cuestionario_rutas = cuestionario_rutas, datosCuestionario = resultCuestionarios,cuestionario=cuestionario_personalizado)
     return render_template('profesor/b_verCuestionarioBanco.html', datosCuestionario = datos_cuestionario, dataJSON = cuestionario,id_profesor=id_profesor)
+
 
 ##Ruta para la vista de comunidad del profesor
 @routes.route('/comunidad_profesor')
@@ -818,13 +801,12 @@ def comunidad_profesor():
     #para mostrar 6 cuestionarios aleatorios del total existente en la api
     cuestionarios_generales=[cuestionario_general[randint(0,len(cuestionario_general)-1)] for n in range(8)]
 
+    #para mostrar 3 cuestionarios aleatorios de python
     cuestionarios_python=[cuestionario_python[randint(0,len(cuestionario_python)-1)] for n in range(3)]
+    #para mostrar 2 cuestionarios aleatorios de c
     cuestionarios_c=[cuestionario_c[randint(0,len(cuestionario_c)-1)] for n in range(2)]
+    #para mostrar 3 cuestionatios aleatorios de java
     cuestionarios_java=[cuestionario_java[randint(0,len(cuestionario_java)-1)] for n in range(3)]
-
-
-    # cuestionario=cuestionario_personalizado["preguntas"]
-    # cuestionario=json.loads(cuestionario)
 
     return render_template('profesor/a_comunidad_profesor.html',general=cuestionarios_generales,python=cuestionarios_python,lenguajec=cuestionarios_c,java=cuestionarios_java)
 
