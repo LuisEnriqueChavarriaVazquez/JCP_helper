@@ -143,6 +143,19 @@
     border-radius: 20px;
 }
 
+/*Correcion para pantallas pequeñas*/
+@media (max-height: 850px) and (orientation:landscape) {
+
+    .containerCreacionCuestionariosSon3 {
+        display: none;
+    }
+
+    .containerCreacionCuestionarios{
+        padding: 80px 0 0 0;
+    }
+ 
+ }
+
 .containerOpciones a{
     width: 90%;
     margin: 3px 0px;

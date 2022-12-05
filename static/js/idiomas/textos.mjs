@@ -583,6 +583,34 @@ let rutas = {
             texts: ['编辑问卷数据。','附加信息。','附加信息。','返回','主体结构','附加数据','编辑表格。','创建数据','问卷作者','创建日期','试用时间','截止时间解决','deadline day to solve','倒计时 (hh:mm)','尝试次数','问卷数据','测验名称','测验主题','输入类型','随机的','按创建顺序','按问题类型','测验订单','输入语言','编辑']
         }
     },
+    "creacion_cuestionarios": {
+        "textEspanol": {
+            texts: []
+        },
+        "textIngles": {
+            texts: []
+        },
+        "textPortugues": {
+            texts: []
+        },
+        "textChino": {
+            texts: []
+        }
+    },
+    "saber_mas2": {
+        "textEspanol": {
+            texts: []
+        },
+        "textIngles": {
+            texts: []
+        },
+        "textPortugues": {
+            texts: []
+        },
+        "textChino": {
+            texts: []
+        }
+    },
     "saber_mas2": {
         "textEspanol": {
             texts: []

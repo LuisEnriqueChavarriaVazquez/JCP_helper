@@ -108,10 +108,12 @@ function rutaValidation(stringUrl) {
         return "gestionar_resultados_alumno"
     } else if (stringUrl.includes("editarPostAlumno")) {
         return "editarPostAlumno"
-    }else if (stringUrl.includes("editarPost")) {
+    } else if (stringUrl.includes("editarPost")) {
         return "editarPost"
-    }else if (stringUrl.includes("editCuestionario")) {
+    } else if (stringUrl.includes("editCuestionario")) {
         return "editCuestionario"
+    } else if (stringUrl.includes("creacion_cuestionarios")) {
+        return "creacion_cuestionarios"
     }
 
     //En caso de que la URL no tenga IDs
@@ -157,7 +159,7 @@ function asignarIdioma(valorIdiomaLocalStorage) {
                     TDI[i].textContent = rutas[rutaPage].textChino.texts_1[i];
                 }
             }
-        }else if(casePageVariable == "Second_case_page"){
+        } else if (casePageVariable == "Second_case_page") {
             if (valorIdiomaLocalStorage === 'esp') {
                 for (var i = 0; i < TDI.length; i++) {
                     TDI[i].textContent = rutas[rutaPage].textEspanol.texts_2[i];
@@ -175,7 +177,7 @@ function asignarIdioma(valorIdiomaLocalStorage) {
                     TDI[i].textContent = rutas[rutaPage].textChino.texts_2[i];
                 }
             }
-        }else if(casePageVariable == "Third_case_page"){
+        } else if (casePageVariable == "Third_case_page") {
             if (valorIdiomaLocalStorage === 'esp') {
                 for (var i = 0; i < TDI.length; i++) {
                     TDI[i].textContent = rutas[rutaPage].textEspanol.texts_3[i];
@@ -193,7 +195,7 @@ function asignarIdioma(valorIdiomaLocalStorage) {
                     TDI[i].textContent = rutas[rutaPage].textChino.texts_3[i];
                 }
             }
-        }else if(casePageVariable == "Fourth_case_page"){
+        } else if (casePageVariable == "Fourth_case_page") {
             if (valorIdiomaLocalStorage === 'esp') {
                 for (var i = 0; i < TDI.length; i++) {
                     TDI[i].textContent = rutas[rutaPage].textEspanol.texts_4[i];
