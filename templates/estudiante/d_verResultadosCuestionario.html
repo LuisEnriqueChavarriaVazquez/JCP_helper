@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Preview de resultados</title>
+    <title class="TDI">Preview de resultados</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -17,12 +17,12 @@
     <!--Menu de página de inicio-->
     <nav class="color2">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Sus resultados.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Sus resultados.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Sus resultados.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Sus resultados.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded TDI">Volver.</a></li>
             </ul>
         </div>
     </nav>
@@ -33,21 +33,32 @@
         <section class="previewResultadosCuestionarioSon1">
             <!--Si el examen ya fue completado se muestra una o la otra-->
             <section id="readyResultaAlert" class="goodColor bordered1 shadow-1e generalInfoPreviewAlumno">
-                <p class="goodColor"><i class="material-icons">info</i> Estas son sus respuestas, el cuestionario fue
-                    evaluado en su totalidad.</p>
+                <p class="goodColor"><i class="material-icons">info</i> 
+                    <span class="TDI">
+                        Estas son sus respuestas, el cuestionario fue
+                        evaluado en su totalidad.
+                    </span> 
+                </p>
             </section>
 
             <section id="pendingResultaAlert" class="sosoColor bordered1 shadow-1e generalInfoPreviewAlumno">
-                <p class="sosoColor"><i class="material-icons">info</i> Estas son sus respuestas, pero
-                    algunas cuantas faltan por ser revisadas por el docente.</p>
+                <p class="sosoColor"><i class="material-icons">info</i> 
+                    <span class="TDI">
+                        Estas son sus respuestas, pero
+                        algunas cuantas faltan por ser revisadas por el docente.
+                    </span>
+                </p>
             </section>
 
             <div class="hide-on-small-only">
-                <h5>Resultados {{datosCuestionario[0][3]}}</h5>
+                <h5>
+                    <span class="TDI">Resultados</span>  
+                    {{datosCuestionario[0][3]}}
+                </h5>
             </div>
             <div>
-                <h6 class="hide-on-small-only">Preguntas y puntaje</h6>
-                <h5 class="hide-on-med-and-up">Preguntas y puntaje</h5>
+                <h6 class="hide-on-small-only TDI colorTextReverse">Preguntas y puntaje</h6>
+                <h5 class="hide-on-med-and-up TDI colorTextReverse">Preguntas y puntaje</h5>
             </div>
             <section class="previewResultadosCuestionarioSon1Grid">
                 <div class="calificacionContainer colorGreyWhiter bordered2 shadow-1e">
@@ -64,8 +75,10 @@
                 <div class="accessCuestionarioLive">
                     <form action="/resultadoAlumno/{{datosCuestionario[0][0]}}" method="post">
                         <!--Estos datos serán enviados a la BD-->
-                        <input type="hidden" name="idCuestionarioHecho" id="idCuestionarioHecho" value="{{idCuestionarioHecho}}">
-                        <input type="hidden" name="revisionEstado" id="revisionEstado"> <!--Listo-->
+                        <input type="hidden" name="idCuestionarioHecho" id="idCuestionarioHecho"
+                            value="{{idCuestionarioHecho}}">
+                        <input type="hidden" name="revisionEstado" id="revisionEstado">
+                        <!--Listo-->
                         <input type="hidden" name="aprovacionEstado" id="aprovacionEstado">
                         <input type="hidden" name="promedioGeneral" id="promedioGeneral">
                         <input type="hidden" name="puntajeGeneral" id="puntajeGeneral">
@@ -74,17 +87,21 @@
                         <button type="submit"
                             class="modal-trigger waves-effect waves-light btn-large bordered5 color1 shadow-2e"
                             id="previewJsonResponder" style="width: 100%;">
-                            <i class="material-icons left">check</i>Aceptar</button>
+                            <i class="material-icons left">check</i>
+                            <span class="TDI">
+                                Aceptar
+                            </span>
+                        </button>
                     </form>
                 </div>
             </section>
         </section>
         <section class="previewResultadosCuestionarioSon2">
             <div class="">
-                <h5>Preguntas/Respuestas cuestionario</h5>
+                <h5 class="TDI">Preguntas/Respuestas cuestionario</h5>
             </div>
             <div class="previewPreguntasResultadosMain" id="previewPreguntasResultadosMain">
-                
+
             </div>
         </section>
     </section>
@@ -96,8 +113,13 @@
         </a>
     </div>
 
-</body>
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
 
+</body>
 
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
@@ -112,6 +134,9 @@
 <script src="../../static/js/operacionesCuestionariosResultados_real.js"></script>
 <!--Archivo encargado de la recolección de metadatos-->
 <script src="../../static/js/operacionRecolectarMetadatosPuntajes.js"></script>
+
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
 <!--Esta parte necesita ser agregada aqui porque son cambios en tiempo real-->
 <script>

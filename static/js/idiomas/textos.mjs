@@ -397,77 +397,44 @@ let rutas = {
     },
     "answerCuestionarioAlumno": {
         "textEspanol": {
-            texts: [
-                'Contestar cuestionario.',
-                'Contestar cuestionario.',
-                'Contestar cuestionario.',
-                'Volver',
-                'Tablero de información.',
-                'Total preguntas:',
-                'Respondidas:',
-                'Límite:',
-                'Minutos restantes:',
-                'Caducidad:',
-                'Intentos:',
-                'Entregar',
-                'Preguntas cuestionario',
-                '¿Desea enviar el cuestionario?',
-                'Este procedimiento no se puede revertir.',
-                'Enviar']
+            texts: ['Contestar cuestionario.','Contestar cuestionario.','Contestar cuestionario.','Volver','Tablero de información.','Total preguntas:','Respondidas:','Límite:','Minutos restantes:','Caducidad:','Intentos:','Entregar','Preguntas cuestionario','¿Desea enviar el cuestionario?','Este procedimiento no se puede revertir.','Enviar']
         },
         "textIngles": {
-            texts: ['Answer questionnaire.',
-            'Answer questionnaire.',
-            'Answer questionnaire.',
-            'Return',
-            'Information board.',
-            'Total questions:',
-            'Answers:',
-            'Limit:',
-            'Remaining minutes:',
-            'Expiration:',
-            'Attempts:',
-            'Deliver',
-            'Quiz questions',
-            'Do you want to send the questionnaire?',
-            'This procedure cannot be reversed.',
-            'Send']
+            texts: ['Answer test.','Answer test.','Answer test.','Return','Information board.','Total questions:','Answers:','Limit:','Remaining minutes:','Expiration:','Attempts:','Deliver','Quiz questions','Do you want to send the test?','This procedure cannot be reversed.','Send']
         },
         "textPortugues": {
-            texts: ['Responder ao questionário.',
-            'Responder ao questionário.',
-            'Responder ao questionário.',
-            'Retornar',
-            'Painel de informações.',
-            'Total de perguntas:',
-            'Respostas:',
-            'Limite:',
-            'Minutos restantes:',
-            'Expiração:',
-            'Tentativas:',
-            'Entregar',
-            'Perguntas do questionário',
-            'Deseja enviar o questionário?',
-            'Este procedimento não pode ser revertido.',
-            'Mandar']
+            texts: ['Responder ao questionário.','Responder ao questionário.','Responder ao questionário.','Retornar','Painel de informações.','Total de perguntas:','Respostas:','Limite:','Minutos restantes:','Expiração:','Tentativas:','Entregar','Perguntas do questionário','Deseja enviar o questionário?','Este procedimento não pode ser revertido.','Mandar']
         },
         "textChino": {
-            texts: ['回答问卷。',
-            '回答问卷。',
-            '回答问卷。',
-            '返回',
-            '信息板。',
-            '总问题：',
-            '答案：',
-            '限制：',
-            '剩余分钟数：',
-            '过期：',
-            '尝试：',
-            '递送',
-            '测验问题',
-            '你想发送问卷吗？',
-            '此过程不可逆。',
-            '发送']
+            texts: ['回答问卷。','回答问卷。','回答问卷。','返回','信息板。','总问题：','答案：','限制：','剩余分钟数：','过期：','尝试：','递送','测验问题','你想发送问卷吗？','此过程不可逆。','发送']
+        }
+    },
+    "revisarAlumno": {
+        "textEspanol": {
+            texts: ['Sus resultados.','Sus resultados.','Sus resultados.','Volver',' Estas son sus respuestas, el cuestionario fue evaluado en su totalidad.',' Estas son sus respuestas, pero algunas cuantas faltan por ser revisadas por el docente.','Resultados','Preguntas y puntaje','Preguntas y puntaje','Aceptar','Preguntas/Respuestas cuestionario']
+        },
+        "textIngles": {
+            texts: ['Your results.','Your results.','Your results.','Return',' These are your answers, the test was evaluated in its entirety.',' These are their answers, but a few remain to be reviewed by the teacher.','Results','Questions and scoring','Questions and scoring','Accept','Questions/Answers test']
+        },
+        "textPortugues": {
+            texts: ['Seus resultados.','Seus resultados.','Seus resultados.','Retornar',' Estas são suas respostas, o questionário foi avaliado em sua totalidade.',' Estas são as respostas deles, mas algumas ainda precisam ser revisadas pelo professor.','Resultados','Perguntas e pontuação','Perguntas e pontuação','Aceitar','Questionário de perguntas/respostas']
+        },
+        "textChino": {
+            texts: ['你的结果。','你的结果。','你的结果。','返回',' 这些是您的答案,问卷已经过完整评估。',' 这些是他们的答案,但还有一些有待老师审阅。','结果','问题和评分','问题和评分','接受','问答问卷']
+        }
+    },
+    "saber_mas2": {
+        "textEspanol": {
+            texts: []
+        },
+        "textIngles": {
+            texts: []
+        },
+        "textPortugues": {
+            texts: []
+        },
+        "textChino": {
+            texts: []
         }
     },
     "saber_mas2": {

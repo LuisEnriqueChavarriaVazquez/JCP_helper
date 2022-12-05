@@ -94,9 +94,10 @@ function rutaValidation(stringUrl) {
         return "viewTeacherProfile"
     }else if(stringUrl.includes("answerCuestionarioAlumno")){
         return "answerCuestionarioAlumno"
+    }else if(stringUrl.includes("revisarAlumno")){
+        return "revisarAlumno"
     }
-    
-    
+
     
     //En caso de que la URL no tenga IDs
     stringUrl = stringUrl.split("");
