@@ -437,7 +437,7 @@ let rutas = {
         "textIngles": {
             texts_1: ['Answer test.','Answer test.','Answer test.','Return','Information board.','Total questions:','Answers:','Limit:','Remaining minutes:','Expiration:','Attempts:','Deliver','Quiz questions','Do you want to send the test?','This procedure cannot be reversed.','Send'],
             texts_2: ['The attempts are over','Attempts.','Attempts.','Return','You have exhausted your maximum number of attempts.','You have exhausted your maximum number of attempts.','You have exceeded the maximum number of possible attempts for this quiz, contact your teacher for more information.','Return'],
-            texts_3: ['Evaluation is still pending.','Pending result.','Pending result.','Return','You must wait for your teacher to evaluate some questions.','You must wait for your teacher to evaluate some questions.','Some questions in the questionnaire must be evaluated manually by the teacher.','Return'],
+            texts_3: ['Evaluation is still pending.','Pending result.','Pending result.','Return','You must wait for your teacher to evaluate some questions.','You must wait for your teacher to evaluate some questions.','Some questions in the test must be evaluated manually by the teacher.','Return'],
             texts_4: ['The evaluation has been finished.','Finished.','Finished.','Return','The review has been completed.','The review has been completed.','The result has been registered successfully.','Return','Appeal result','Feedback.','Write a feedback comment for this course and your teacher will know the areas of opportunity in the evaluations.','Feedback','Send'],
         },
         "textPortugues": {
@@ -501,7 +501,7 @@ let rutas = {
             texts_4: ['La evaluación ha sido terminada.','Terminado.','Terminado.','Volver','La revisión ha sido terminada.','La revisión ha sido terminada.','El resultado ha sido registrado satisfactoriamente.','Regresar','Apelar resultado','Retroalimentación.','Escriba un comentario de retroalimentación para este curso y su profesor podrá saber las areas de oportunidad en las evaluaciones.','Feedback','Enviar'],
         },
         "textIngles": {
-            texts_3: ['Evaluation is still pending.','Pending result.','Pending result.','Return','You must wait for your teacher to evaluate some questions.','You must wait for your teacher to evaluate some questions.','Some questions in the questionnaire must be evaluated manually by the teacher.','Return'],
+            texts_3: ['Evaluation is still pending.','Pending result.','Pending result.','Return','You must wait for your teacher to evaluate some questions.','You must wait for your teacher to evaluate some questions.','Some questions in the test must be evaluated manually by the teacher.','Return'],
             texts_4: ['The evaluation has been finished.','Finished.','Finished.','Return','The review has been completed.','The review has been completed.','The result has been registered successfully.','Return','Appeal result','Feedback.','Write a feedback comment for this course and your teacher will know the areas of opportunity in the evaluations.','Feedback','Send'],
         },
         "textPortugues": {
@@ -555,18 +555,18 @@ let rutas = {
             texts: ['编辑帖子。','编辑帖子。','编辑帖子。','回到顶部','编辑表格。','编辑表格。','发布数据','帖子标题','帖子描述','多媒体','图片网址','编辑']
         }
     },
-    "saber_mas2": {
+    "gestionar_cuestionarios": {
         "textEspanol": {
-            texts: []
+            texts: ['Gestión de cuestionarios.','Cuestionarios.','Cuestionarios.','Volver','Operaciones.','Crear cuestionario','Revisar','Buscador.','Buscar','Conteo.','Cuestionarios:','Estudiantes:','Cuestionarios creados','Cuestionarios creados']
         },
         "textIngles": {
-            texts: []
+            texts: ['Management of tests.','Manage tests.','Manage tests.','Return','Operations.','Create test','Check','Browser.','Search','Count.','Tests:','Students:','Created tests','Created tests']
         },
         "textPortugues": {
-            texts: []
+            texts: ['Gestão de questionários.','Questionário.','Questionário.','Retornar','Operações.','Criar questionário','Verificar','Buscador.','Procurar','Contar.','Questionário:','Estudantes:','Questionários criados','Questionários criados']
         },
         "textChino": {
-            texts: []
+            texts: ['问卷的管理。','测验。','测验。','返回','操作','创建问卷','查看','探索者','搜索','数数。','测验：','学生：','创建问卷','创建问卷']
         }
     },
     "saber_mas2": {

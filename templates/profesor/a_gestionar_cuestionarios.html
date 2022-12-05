@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Gestionar cuestionarios</title>
+    <title class="TDI">Gestionar cuestionarios</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -18,12 +18,12 @@
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Cuestionarios.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Cuestionarios.</a>
             <a href="/bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Cuestionarios.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Cuestionarios.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="/bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="/bienvenidaProfesor" class="btn color3 button-rounded TDI">Volver</a></li>
             </ul>
         </div>
     </nav>
@@ -48,31 +48,46 @@
             </div>
             <div class="colorGreyWhiter operationsContainerSecondarySideNav">
                 <div class="operationButtonSideNav">
-                    <h5>Operaciones.</h5>
+                    <h5 class="TDI">Operaciones.</h5>
                     <a class="waves-effect waves-light btn color2 shadow-2e modal-trigger"
                         href="/creacion_cuestionarios/{{datos[0]}}" id="buttonNuevoGrupo"><i
-                            class="material-icons left">add</i>Crear
-                        cuestionario</a>
+                            class="material-icons left">add</i>
+                        <span class="TDI">
+                            Crear cuestionario
+                        </span>
+                    </a>
                     <a class="waves-effect waves-light btn color2 shadow-2e modal-trigger"
                         href="/revisionCuestionarios/{{datos[0]}}" id="buttonNuevoGrupo"><i
-                            class="material-icons left">check</i>Revisar</a>
+                            class="material-icons left">check</i>
+                        <span class="TDI">
+                            Revisar
+                        </span>
+                    </a>
                 </div>
                 <div class="operationButtonSideNav">
-                    <h5>Buscador.</h5>
+                    <h5 class="TDI">Buscador.</h5>
                     <input type="text" name="buscadorGruposGestor" id="buscadorGruposGestor"
                         class="buscadorGruposGestor">
                     <a class="waves-effect waves-light btn colorGrey colorTextReverse" id="buscadorGruposButton"><i
-                            class="material-icons left">search</i>Buscar</a>
+                            class="material-icons left">search</i>
+                        <span class="TDI">
+                            Buscar
+                        </span>
+                    </a>
                 </div>
                 <div class="operationButtonSideNav">
-                    <h5>Conteo.</h5>
+                    <h5 class="TDI">Conteo.</h5>
 
                     <div class="contadorElementosCardOperation colorGrey shadow-1e">
                         <p class="colorGreyWhiter" id="contadorGruposId">
-                            Cuestionarios:
+                            <span class="TDI">
+                                Cuestionarios:
+                            </span>
                         </p>
                         <p class="colorGreyWhiter" id="contadorEstudiantesId">
-                            Estudiantes:
+                            <span class="TDI">
+                                Estudiantes:
+                            </span>
                         </p>
                     </div>
 
@@ -89,9 +104,10 @@
         <section class="operationMainNav">
             <!--Titulos de la página-->
             <div class="title-general color1 fixedTitleOperationMain shadow-2e" id="cajaTituloBuscadorId">
-                <h6 class="colorText hide-on-large-only hide-on-med-only" id="cajaTituloBuscadorContenidoId">
+                <h6 class="colorText hide-on-large-only hide-on-med-only TDI" id="cajaTituloBuscadorContenidoId">
                     Cuestionarios creados</h6>
-                <h5 class="colorText hide-on-small-only" id="cajaTituloBuscadorContenidoLargeId">Cuestionarios creados
+                <h5 class="colorText hide-on-small-only TDI" id="cajaTituloBuscadorContenidoLargeId">Cuestionarios
+                    creados
                 </h5>
             </div>
 
@@ -148,7 +164,7 @@
                         </div>
                         <div
                             class="sectionCardOperationDescription colorGreyWhiter sectionCardOperationDescriptionListId">
-                            <p style="margin: 10px 0 0 0 !important;"><b>Grupo: {{datosGrupos[i][0][0]}}</b></p>
+                            <p style="margin: 10px 0 0 0 !important;"><b>Group: {{datosGrupos[i][0][0]}}</b></p>
                             <p class="hide-on-small-only colorGrey bordered1"
                                 style="padding: 10px; margin: 5px 0 !important;">{{datosCuestionarios[i][7]}}</p>
                         </div>
@@ -172,12 +188,11 @@
                 <!--Pop up de eliminar el grupo-->
                 <div id="modal{{datosCuestionarios[i][0]}}" class="modal bordered2 colorGrey">
                     <div class="modal-content">
-                        <h4>¿Desea eliminar el cuestionario?</h4>
-                        <p>Este procedimiento no se puede revertir.</p>
+                        <h4>¿🚮?😕</h4>
                         <hr>
                         <a href="/deleteCuestionario/{{datosCuestionarios[i][0]}}"
                             class="waves-effect waves-light btn badColorButton shadow-2e button-rounded"
-                            style="width: 100%;">Eliminar</a>
+                            style="width: 100%;"><i class="material-icons">delete</i></a>
                     </div>
                 </div>
                 {% endfor %}
@@ -203,13 +218,23 @@
         </section>
         {% endif %}
     </section>
-</body>
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
 
+</body>
 
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
 
 <script src="../../static/js/bienvenidaEfectos.js"></script>
 <script src="../../static/js/operacionesGestionGrupos.js"></script>
+
+<!--Traduccion-->
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
 </html>
