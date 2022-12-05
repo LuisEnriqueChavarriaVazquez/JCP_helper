@@ -8,7 +8,6 @@ from operacionesBD import Op_estudiante
 import bcrypt
 import pandas as pd
 import json
-import plotly
 import plotly.express as px
 from flask_uploads import IMAGES, UploadSet
 import requests
