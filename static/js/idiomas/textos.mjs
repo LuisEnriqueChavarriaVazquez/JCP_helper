@@ -569,6 +569,62 @@ let rutas = {
             texts: ['问卷的管理。','测验。','测验。','返回','操作','创建问卷','查看','探索者','搜索','数数。','测验：','学生：','创建问卷','创建问卷']
         }
     },
+    "editCuestionario": {
+        "textEspanol": {
+            texts: ['Editar datos del cuestionarios.','Información adicional.','Información adicional.','Volver','Estructura principal','Datos adicionales','Formulario de edición.','Datos de creación','Autor del cuestionario','Fecha de Creación','Tiempo de la prueba','Hora límite para resolver','Día límite para resolver','Tiempo cuenta regresiva (hh:mm)','Número de intentos','Datos del cuestionario','Nombre de cuestionario','Temas del cuestionario','Escriba el tipo','Aleatorio','Por orden de creación','Por tipo de pregunta','Orden de cuestionario','Escriba el lenguaje','Editar']
+        },
+        "textIngles": {
+            texts: ['Edit questionnaire data.','Additional Information.','Additional Information.','Return','Principal structure','Additional data','Edit form.','Creation data','Author of the questionnaire','Creation date','Trial time','Deadline time to solve','Deadline day to solve','Countdown time (hh:mm)','Number of attemps','Questionnaire data','Quiz name','Quiz Topics','Type the type','Random','By order of creation','By type of question','Quiz Order','Type the language','Edit']
+        },
+        "textPortugues": {
+            texts: ['Editar dados do questionário.','Informação adicional.','Informação adicional.','Retornar','Estrutura principal','Dados adicionais','Editar formulário.','Dados de criação','Autor do questionário','Data de criação','Tempo de prova','Prazo para resolver','Dia do prazo para resolver','Tempo de contagem regressiva (hh:mm)','Número de tentativas','Dados do questionário','Nome do questionário','Tópicos do questionário','Digite o tipo','Aleatório','Por ordem de criação','Por tipo de pergunta','Pedido do questionário','Digite o idioma','Editar']
+        },
+        "textChino": {
+            texts: ['编辑问卷数据。','附加信息。','附加信息。','返回','主体结构','附加数据','编辑表格。','创建数据','问卷作者','创建日期','试用时间','截止时间解决','deadline day to solve','倒计时 (hh:mm)','尝试次数','问卷数据','测验名称','测验主题','输入类型','随机的','按创建顺序','按问题类型','测验订单','输入语言','编辑']
+        }
+    },
+    "saber_mas2": {
+        "textEspanol": {
+            texts: []
+        },
+        "textIngles": {
+            texts: []
+        },
+        "textPortugues": {
+            texts: []
+        },
+        "textChino": {
+            texts: []
+        }
+    },
+    "saber_mas2": {
+        "textEspanol": {
+            texts: []
+        },
+        "textIngles": {
+            texts: []
+        },
+        "textPortugues": {
+            texts: []
+        },
+        "textChino": {
+            texts: []
+        }
+    },
+    "saber_mas2": {
+        "textEspanol": {
+            texts: []
+        },
+        "textIngles": {
+            texts: []
+        },
+        "textPortugues": {
+            texts: []
+        },
+        "textChino": {
+            texts: []
+        }
+    },
     "saber_mas2": {
         "textEspanol": {
             texts: []
