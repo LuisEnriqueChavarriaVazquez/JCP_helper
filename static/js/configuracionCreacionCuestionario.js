@@ -173,7 +173,7 @@ $(document).ready(function () {
             </div>
             
             <div class='card-content '>
-              <h5>Opt. Multi. (Q/1)</h5>
+              <h5>Type: (Q/1)</h5>
             <div class='row'>
               <div class='input-field col s12'>
                 <textarea id="tituloOpcionMultiple` + contadorPreguntaOptMultiple + `" class='materialize-textarea colorTextReverse textoPregunta'>`
@@ -272,11 +272,11 @@ $(document).ready(function () {
     );
     $("#contenedorOpccionEspaciosCreacion").append(
       `<div class='row containerTextBlank containerTextBlankModal'>
-        <div class='col s12 m6 containerTextBlankSon1'> Blank `
+        <div class='col s12 m6 containerTextBlankSon1 colorTextReverse'> Blank `
       + contadorModalRellenarEspaciosCreacion +
       `</div>
         <div class='col s12 m6 containerTextBlankSon2'>
-          <input type='text' class='browser-default blankContadorEspaciosCreacion'>
+          <input type='text' class='browser-default colorTextReverse blankContadorEspaciosCreacion'>
         </div>
       </div>`
     );
@@ -336,11 +336,11 @@ $(document).ready(function () {
         textoOpcciones =
           textoOpcciones +
           `<div class='row containerTextBlank'>
-            <div class='col s12 m6 containerTextBlankSon1 '>Blank`
+            <div class='col s12 m6 containerTextBlankSon1 colorTextReverse '>Blank`
           + contadorInicial +
           `</div>
             <div class='col s12 m6 containerTextBlankSon2 '>
-              <input id="rellenarInputCValue` + contadorInputRellenar + `" type='text' value='` + $(this).val() + `' class='browser-default blankContadorEspaciosCreacion'>
+              <input id="rellenarInputCValue` + contadorInputRellenar + `" type='text' value='` + $(this).val() + `' class='browser-default colorTextReverse blankContadorEspaciosCreacion'>
             </div>
           </div>`;
         contadorInputRellenar++;
@@ -355,13 +355,13 @@ $(document).ready(function () {
         <div class='col s12 ''>
           <div class='card colorWhite bordered2'>
           <div class="input-field col s12">
-              <input maxlength="1" min="0" max="5" placeholder="Points 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+              <input maxlength="1" min="0" max="5" placeholder="Points 1-5" type="number" class="ponderacionGlobal colorTextReverse validate shadow-1e colorGrey ponderacionInput browser-default">
             </div>
             <div class='card-content '>
-              <h5>Rellenar espacios</h5>
+              <h5>Type: (Q/2)</h5>
               <div class='row'>
                 <div class='input-field col s12'>
-                  <textarea id="rellenarInputTitulo` + contadorPreguntaRellenar + `" class='materialize-textarea textoPregunta textoPreguntaVistaPrevia' placeholder='Pregunta'>`
+                  <textarea id="rellenarInputTitulo` + contadorPreguntaRellenar + `" class='materialize-textarea colorTextReverse textoPregunta textoPreguntaVistaPrevia' placeholder='Pregunta'>`
       + pregunta +
       `</textarea>
                 </div>
@@ -371,13 +371,10 @@ $(document).ready(function () {
               </div>
               <div class='containerButtonsView'>
                 <div>
-                  <a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnAgregarEspacioBlanco'><i class='material-icons left'>add</i>1 espacio</a>
+                  <a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnAgregarEspacioBlanco'><i class='material-icons left'>add</i>1</a>
                 </div>
                 <div>
-                  <a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnEliminarEspacioBlanco'><i class='material-icons left'>remove</i>1 espacio</a>
-                </div>
-                <div>
-                  <a class='waves-effect waves-light btn bordered5 color1 shadow-2e btnEliminarPreguntaEspacioBlanco'><i class='material-icons left'>delete_sweep</i>Eliminar pregunta</a>
+                  <a class='waves-effect waves-light btn bordered5 color1 shadow-2e btnEliminarPreguntaEspacioBlanco'><i class='material-icons left'>delete_sweep</i>➖❓</a>
                 </div>
               </div>
             </div>
@@ -406,7 +403,7 @@ $(document).ready(function () {
         lugarDeEspacios.find(".blankContadorEspaciosCreacion").length + 1;
       lugarDeEspacios.append(
         `<div class='row containerTextBlank'>
-          <div class='col s12 m6 containerTextBlankSon1'> Blank ` + numeroEspacios + `</div>
+          <div class='col s12 m6 containerTextBlankSon1 colorTextReverse'> Blank ` + numeroEspacios + `</div>
           <div class='col s12 m6 containerTextBlankSon2'>
             <input id="rellenarInputCValue` + contadorInputRellenar + `" type='text' class='browser-default blankContadorEspaciosCreacion '>
           </div>
@@ -527,31 +524,31 @@ function agregarEjercicioContenedor() {
           <div class='col s12'>
             <div class='card colorWhite bordered2'>
             <div class="input-field col s12">
-              <input maxlength="1" min="0" max="5" placeholder="Points 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+              <input maxlength="1" min="0" max="5" placeholder="Points 1-5" type="number" class="ponderacionGlobal colorTextReverse validate shadow-1e colorGrey ponderacionInput browser-default">
             </div>
             <div class='card-content '>
-              <h5>Pregunta de ejercicio.</h5>
+              <h5>Type: (Q/3)</h5>
               <br>
               <div class='row'>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">description</i>
-                    <textarea id="descripcionProblema` + contadorEjerciciosEnContenedor + `" class="materialize-textarea">` + descripcionProblema.value + `</textarea>
-                    <label class="active" for="descripcionProblema` + contadorEjerciciosEnContenedor + `">Descripción del problema</label>
+                    <textarea id="descripcionProblema` + contadorEjerciciosEnContenedor + `" class="materialize-textarea colorTextReverse">` + descripcionProblema.value + `</textarea>
+                    <label class="active" for="descripcionProblema` + contadorEjerciciosEnContenedor + `">Problem.</label>
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">image</i>
-                    <textarea id="mediaProblema` + contadorEjerciciosEnContenedor + `" class="materialize-textarea">` + mediaProblema.value + `</textarea>
-                    <label class="active" for="mediaProblema` + contadorEjerciciosEnContenedor + `">Imagen (url)</label>
+                    <textarea id="mediaProblema` + contadorEjerciciosEnContenedor + `" class="materialize-textarea colorTextReverse">` + mediaProblema.value + `</textarea>
+                    <label class="active" for="mediaProblema` + contadorEjerciciosEnContenedor + `">Img. (url)</label>
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">task</i>
-                    <textarea id="salidaProblema` + contadorEjerciciosEnContenedor + `" class="materialize-textarea">` + salidaProblema.value + `</textarea>
-                    <label class="active" for="salidaProblema` + contadorEjerciciosEnContenedor + `">Salida esperada (opcional)</label>
+                    <textarea id="salidaProblema` + contadorEjerciciosEnContenedor + `" class="materialize-textarea colorTextReverse">` + salidaProblema.value + `</textarea>
+                    <label class="active" for="salidaProblema` + contadorEjerciciosEnContenedor + `">Output (opc.)</label>
                 </div>
               </div>
               <div class="row colorGreyWhiter bordered2 contenedorOpcionesCodigo">
                 <div class="col s12">
-                    <h6><b>Código de archivo</b></h6>
+                    <h6><b class="colorTextReverse">Code.</b></h6>
                 </div>
                 <div class="input-field col s12">
                     <input type="file" id="inputfile` + contadorEjerciciosEnContenedor + `" class="hidden"/>
@@ -560,28 +557,28 @@ function agregarEjercicioContenedor() {
                     class="material-icons left">upload_file</i>
                     <label 
                     onclick="agregarContenidoIndividualArchivo('codigoMuestra` + contadorEjerciciosEnContenedor + `', 'inputfile` + contadorEjerciciosEnContenedor + `')"
-                    for="inputfile` + contadorEjerciciosEnContenedor + `" class="colorText">Elegir archivo</label></a>
+                    for="inputfile` + contadorEjerciciosEnContenedor + `" class="colorText colorTextReverse">File upload.</label></a>
                 </div>
                 <div class="col s12">
-                    <h6><b>Adjuntar enlace a carpeta online (múltiples archivos)</b></h6>
+                    <h6><b class="colorTextReverse">Online file.</b></h6>
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">cloud_circle</i>
-                    <input type="text" id="carpetaOnline` + contadorEjerciciosEnContenedor + `" value="` + carpetaOnline.value + `"></input>
-                    <label class="active" for="carpetaOnline` + contadorEjerciciosEnContenedor + `">Enlace de carpeta</label>
+                    <input class="colorTextReverse" type="text" id="carpetaOnline` + contadorEjerciciosEnContenedor + `" value="` + carpetaOnline.value + `"></input>
+                    <label class="active" for="carpetaOnline` + contadorEjerciciosEnContenedor + `">Link to folder (URL)</label>
                 </div>                        
                 <div class="col s12">
-                    <h6><b>Código escrito manualmente</b></h6>
+                    <h6><b class="colorTextReverse">Manual code</b></h6>
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">history_edu</i>
                     <textarea 
                     onchange="agregarContenidoIndividual('codigoMuestra` + contadorEjerciciosEnContenedor + `', 'codigoResultado` + contadorEjerciciosEnContenedor + `')" 
-                    id="codigoResultado` + contadorEjerciciosEnContenedor + `" class="materialize-textarea">` + codigoResultado.value + `</textarea>
-                    <label class="active" for="codigoResultado` + contadorEjerciciosEnContenedor + `">Código a mano</label>
+                    id="codigoResultado` + contadorEjerciciosEnContenedor + `" class="materialize-textarea colorTextReverse">` + codigoResultado.value + `</textarea>
+                    <label class="active" for="codigoResultado` + contadorEjerciciosEnContenedor + `">Manual code</label>
                 </div>
             </div>
-            <h5><b>Vista previa del código</b></h5>
+            <h5><b>Code preview</b></h5>
             <div class="previewCodeContainerNoModal bordered2" style="width: 100%;">
                 <code class="colorText">
                     <pre id="codigoMuestra` + contadorEjerciciosEnContenedor + `">`
@@ -591,7 +588,7 @@ function agregarEjercicioContenedor() {
             </div>
               <div class='containerButtonsView'>
                 <div>
-                  <a class='waves-effect waves-light btn bordered5 color1 shadow-2e btnEliminarEjercicios'><i class='material-icons left'>delete_sweep</i>Eliminar pregunta</a>
+                  <a class='waves-effect waves-light btn bordered5 color1 shadow-2e btnEliminarEjercicios'><i class='material-icons left'>delete_sweep</i>➖❓</a>
                 </div>
               </div>
             </div>
@@ -651,10 +648,10 @@ $(document).ready(function () {
     $("#opccionesArrastarModalCreacion").append(
       `<div class='row opccionLinea opcionLineaModal'>
         <div class="col s12 m6">
-          <input placeholder='(a) Escriba el concepto' type='text' class='textoArrastrarCreacion browser-default conceptoDefinicion'>
+          <input placeholder='(a) Column 1' type='text' class='textoArrastrarCreacion  browser-default conceptoDefinicion'>
         </div>
         <div class='col s12 m6'>
-          <input placeholder='(b) Escriba la definición' type="text" class='textoOpccionCreacion browser-default conceptoDefinicion'>
+          <input placeholder='(b) Column 2' type="text" class='textoOpccionCreacion browser-default conceptoDefinicion'>
         </div>
       </div>`);
     M.toast({ html: '➕1️⃣👍' });
@@ -684,10 +681,10 @@ $(document).ready(function () {
         textoElementos +
         `<div class='row opccionLinea' id="conceptoArrastrarContainer` + contadorContenedorArrastraPreguntas + `">
           <div class="col s12 m6">
-            <input id="conceptoArrastrarView` + contadorArrastrarPreguntas + `" value="` + texto + `" placeholder='(a) Escriba el concepto' type='text' class='textoArrastrarCreacion browser-default conceptoDefinicion'>
+            <input id="conceptoArrastrarView` + contadorArrastrarPreguntas + `" value="` + texto + `" placeholder='(a) Column 1' type='text' class='textoArrastrarCreacion browser-default conceptoDefinicion'>
           </div>
           <div class='col s12 m6'>
-            <input id="definicionArrastrarView` + contadorArrastrarPreguntas + `" value="` + opccion + `" placeholder='(b) Escriba la definición' type="text" class='textoOpccionCreacion browser-default conceptoDefinicion'>
+            <input id="definicionArrastrarView` + contadorArrastrarPreguntas + `" value="` + opccion + `" placeholder='(b) Column 2' type="text" class='textoOpccionCreacion browser-default conceptoDefinicion'>
           </div>
         </div>`;
     });
@@ -697,25 +694,25 @@ $(document).ready(function () {
       <div class='col s12'>
         <div class='card colorWhite bordered2'>
         <div class="input-field col s12">
-              <input maxlength="1" min="0" max="5" placeholder="Points 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+              <input maxlength="1" min="0" max="5" placeholder="Points 1-5" type="number" class="ponderacionGlobal colorTextReverse validate shadow-1e colorGrey ponderacionInput browser-default">
             </div>
           <div class='card-content'>
-            <h5>Arrastrar y ordenar</h5>
+            <h5>Type (Q/6)</h5>
             <div class='row'>
               <div class='row col s12'>
                 <div class='input-field col s12'>
                   <i class="material-icons prefix">description</i>
-                  <textarea id="tituloArrastrar` + contadorContenedorArrastraPreguntas + `" class='materialize-textarea textoPregunta'>` + pregunta + `</textarea>
-                  <label for="tituloArrastrar` + contadorContenedorArrastraPreguntas + `" class="active">Descripción del ejercicio</label>
+                  <textarea id="tituloArrastrar` + contadorContenedorArrastraPreguntas + `" class='materialize-textarea colorTextReverse textoPregunta'>` + pregunta + `</textarea>
+                  <label for="tituloArrastrar` + contadorContenedorArrastraPreguntas + `" class="active">Desc.</label>
                 </div>
               </div>
             </div>
             <div class='row'>
               <div class="col s12 m6">
-                <h6 class="tituloColumnaModal"><b>Conceptos (A)</b></h6>
+                <h6 class="tituloColumnaModal colorTextReverse"><b>Column (A)</b></h6>
               </div>
               <div class='col s12 m6'>
-                <h6 class="tituloColumnaModal"><b>Definiciones (B)</b></h6>
+                <h6 class="tituloColumnaModal colorTextReverse"><b>Column (B)</b></h6>
               </div>
               <div id="conceptoArrastrarContainerParent` + contadorContenedorArrastraPreguntas + `" class='col s12'>` + textoElementos + `</div>
             </div>
@@ -723,15 +720,15 @@ $(document).ready(function () {
                 <div>
                   <a 
                   onclick="agregarContenidoArrastrarPreview('conceptoArrastrarContainerParent` + contadorContenedorArrastraPreguntas + `')"
-                  class='waves-effect waves-light btn bordered5 color2 shadow-2e btnAgregarConceptoArrastrable'><i class='material-icons left'>add</i>Agregar</a>
+                  class='waves-effect waves-light btn bordered5 color2 shadow-2e btnAgregarConceptoArrastrable'><i class='material-icons left'>add</i>1</a>
                 </div>
                 <div>
                   <a 
                   onclick="eliminarContenidoArrastrarPreview('conceptoArrastrarContainerParent` + contadorContenedorArrastraPreguntas + `')"
-                  class='waves-effect waves-light btn bordered5 color2 shadow-2e btnEliminarConceptoArrastrable'><i class='material-icons left'>remove</i>Eliminar</a>
+                  class='waves-effect waves-light btn bordered5 color2 shadow-2e btnEliminarConceptoArrastrable'><i class='material-icons left'>remove</i>1</a>
                 </div>
                 <div>
-                  <a class='waves-effect waves-light btn bordered5 color1 shadow-2e btnEliminarPreguntaConceptoArrastrable'><i class='material-icons left'>delete_sweep</i>Eliminar pregunta</a>
+                  <a class='waves-effect waves-light btn bordered5 color1 shadow-2e btnEliminarPreguntaConceptoArrastrable'><i class='material-icons left'>delete_sweep</i>➖❓</a>
                 </div>
             </div>
           </div>
@@ -753,10 +750,10 @@ function agregarContenidoArrastrarPreview(conceptoArrastrarContainerParent) {
   $('#' + IDContendorPadre).append(
     `<div class='row opccionLinea' id="conceptoArrastrarContainer` + contadorArrastrarPreguntas + `">
     <div class="col s12 m6">
-      <input id="conceptoArrastrarView` + contadorArrastrarPreguntas + `" value="" placeholder='(a) Escriba el concepto' type='text' class='textoArrastrarCreacion browser-default conceptoDefinicion'>
+      <input id="conceptoArrastrarView` + contadorArrastrarPreguntas + `" value="" placeholder='(a) Column 1' type='text' class='textoArrastrarCreacion browser-default conceptoDefinicion'>
     </div>
     <div class='col s12 m6'>
-      <input id="definicionArrastrarView` + contadorArrastrarPreguntas + `" value="" placeholder='(b) Escriba la definición' type="text" class='textoOpccionCreacion browser-default conceptoDefinicion'>
+      <input id="definicionArrastrarView` + contadorArrastrarPreguntas + `" value="" placeholder='(b) Column 2' type="text" class='textoOpccionCreacion browser-default conceptoDefinicion'>
     </div>
   </div>`);
   M.toast({ html: '➕1️⃣👍' });
@@ -828,32 +825,28 @@ function agregarFalseTrue() {
           <div class='col s12'>
             <div class='card colorWhite bordered2'>
             <div class="input-field col s12">
-              <input maxlength="1" min="0" max="5" placeholder="Points 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+              <input maxlength="1" min="0" max="5" placeholder="Points 1-5" type="number" class="ponderacionGlobal colorTextReverse validate shadow-1e colorGrey ponderacionInput browser-default">
             </div>
             <div class='card-content '>
-            <h5>Falso y verdadero</h5>
-            <hr>
-            <p>Ingrese una pregunta y determine la opción correcta</p>
+            <h5>Type: (Q/4)</h5>
             <div class="row">
                 <form class="col s12">
-                    <h5><b>Pregunta</b></h5>
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">description</i>
-                            <textarea id="preguntaFalseVerdadero` + contadorFalseTrue + `"  class="materialize-textarea">` + preguntaFalseVerdadero.value + `</textarea>
-                            <label class="active" for="preguntaFalseVerdadero` + contadorFalseTrue + `">Pregunta</label>
+                            <textarea id="preguntaFalseVerdadero` + contadorFalseTrue + `"  class="materialize-textarea colorTextReverse">` + preguntaFalseVerdadero.value + `</textarea>
+                            <label class="active" for="preguntaFalseVerdadero` + contadorFalseTrue + `">Question</label>
                         </div>
                         <div class="input-field col s12">
-                        <h6><b>Respuesta</b></h6>
-                        <p>Escribe F en caso de que sea falso o T en caso de que sea verdad.</p>
+                        <h6><b class="colorTextReverse">True or false</b></h6>
                         <br>
-                            <input maxlength="1" value="` + textFalseVerdadero.value + `" placeholder="T/F" id="textFalseVerdadero` + contadorFalseTrue + `" type="text" class="validate shadow-1e colorGreyWhiter falsoVerdaderoInput browser-default">
+                            <input maxlength="1" value="` + textFalseVerdadero.value + `" class="colorTextReverse" placeholder="T/F" id="textFalseVerdadero` + contadorFalseTrue + `" type="text" class="validate shadow-1e colorGreyWhiter falsoVerdaderoInput browser-default">
                         </div>
                     </div>
                     <button
                     class="waves-effect deleteFalseVerdadero waves-light btn bordered5 color1 shadow-2e"
                     id="deleteFalseVerdadero` + contadorFalseTrue + `" style="width: 100%;">
-                    <i class="material-icons left">delete_sweep</i>Borrar pregunta</button>
+                    <i class="material-icons left">delete_sweep</i>➖❓</button>
                     </div>
                 </form>
             </div>`;
@@ -901,30 +894,28 @@ function agregarAbierta() {
           <div class='col s12'>
             <div class='card colorWhite bordered2'>
             <div class="input-field col s12">
-              <input maxlength="1" min="0" max="5" placeholder="Points 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+              <input maxlength="1" min="0" max="5" placeholder="Points 1-5" type="number" class="ponderacionGlobal colorTextReverse validate shadow-1e colorGrey ponderacionInput browser-default">
             </div>
             <div class='card-content '>
-            <h5>Pregunta abierta</h5>
+            <h5>Type: (Q/5)</h5>
                 <hr>
-                <p>Ingrese una pregunta (esta pregunta requiere revisión manual por parte del docente)</p>
                 <div class="row">
                     <form class="col s12">
-                        <h5><b>Pregunta</b></h5>
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">description</i>
-                                <textarea id="preguntaAbiertaDescripcion` + contadorAbiertaPregunta + `"  class="materialize-textarea">` + preguntaAbiertaDescripcion.value + `</textarea>
-                                <label class="active" for="preguntaAbiertaDescripcion` + contadorAbiertaPregunta + `">Pregunta</label>
+                                <textarea id="preguntaAbiertaDescripcion` + contadorAbiertaPregunta + `"  class="materialize-textarea colorTextReverse">` + preguntaAbiertaDescripcion.value + `</textarea>
+                                <label class="active" for="preguntaAbiertaDescripcion` + contadorAbiertaPregunta + `">Problem.</label>
                             </div>
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">play_arrow</i>
-                                <textarea id="videoPreguntaAbierta` + contadorAbiertaPregunta + `" class="materialize-textarea">` + videoPreguntaAbierta.value + `</textarea>
-                                <label class="active" for="videoPreguntaAbierta` + contadorAbiertaPregunta + `">Video (opcional)</label>
+                                <textarea id="videoPreguntaAbierta` + contadorAbiertaPregunta + `" class="materialize-textarea colorTextReverse">` + videoPreguntaAbierta.value + `</textarea>
+                                <label class="active" for="videoPreguntaAbierta` + contadorAbiertaPregunta + `">Video</label>
                             </div>
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">image</i>
-                                <textarea id="imagePreguntaAbierta` + contadorAbiertaPregunta + `"  class="materialize-textarea">` + imagePreguntaAbierta.value + `</textarea>
-                                <label class="active" for="imagePreguntaAbierta` + contadorAbiertaPregunta + `">Imagen (opcional)</label>
+                                <textarea id="imagePreguntaAbierta` + contadorAbiertaPregunta + `"  class="materialize-textarea colorTextReverse">` + imagePreguntaAbierta.value + `</textarea>
+                                <label class="active" for="imagePreguntaAbierta` + contadorAbiertaPregunta + `">Img</label>
                             </div>
                         </div>
                         <button
