@@ -527,18 +527,18 @@ let rutas = {
             texts: ['我的成绩','我的成绩','我的结果。','返回','全球仪表板','全球仪表板']
         }
     },
-    "saber_mas2": {
+    "editarPostAlumno": {
         "textEspanol": {
-            texts: []
+            texts: ['Editar post.','Editar post.','Editar post.','Volver','Formulario de edición.','Formulario de edición.','Datos del POST','Titulo del post','Descripción del post','Multimedia','URL de imagen','Editar']
         },
         "textIngles": {
-            texts: []
+            texts: ['Edit post.','Edit post.','Edit post.','Return','Edit form.','Edit form.','POST data','Post title','Post description','Multimedia','image url','Edit']
         },
         "textPortugues": {
-            texts: []
+            texts: ['Editar post.','Editar post.','Editar post.','Retornar','Editar formulário.','Editar formulário.','Dados de postagem','Título da postagem','Descrição da postagem','Multimídia','imagem URL','Editar']
         },
         "textChino": {
-            texts: []
+            texts: ['编辑帖子。','编辑帖子。','编辑帖子。','返回','编辑表格。','编辑表格。','发布数据','帖子标题','帖子描述','多媒体','图片网址','编辑']
         }
     },
     "saber_mas2": {

@@ -106,6 +106,8 @@ function rutaValidation(stringUrl) {
         return "noIntentosDisponibles"
     } else if (stringUrl.includes("gestionar_resultados_alumno")) {
         return "gestionar_resultados_alumno"
+    } else if (stringUrl.includes("editarPostAlumno")) {
+        return "editarPostAlumno"
     }
 
     //En caso de que la URL no tenga IDs
