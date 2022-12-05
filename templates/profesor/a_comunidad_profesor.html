@@ -51,6 +51,7 @@
         <div class="row">
             {% for item in general %}
             <div class="col m6 l4 xl3">
+                <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
                 <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
                     <div class="imagen_card_Comunidad_Grande">
                         {% if item.lenguaje == "Python" %}
@@ -69,6 +70,7 @@
                         </div>
                     </div>
                 </div>
+            </a>
             </div>
             {% endfor %}
         </div>
@@ -78,8 +80,9 @@
         <!--Seccion para dispositivos moviles-->
         <section class="owl-five owl-carousel owl-theme hide-on-med-and-up">
             {% for item in general %}
+            
             <div class="item" style="margin-left: 20px;">
-                <a href="#">
+                <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
                     <div class="cardComunidadBusqueda colorGreyWhiter bordered1 shadow-2e">
                         <div class="cardBackgroundBusqueda bordered1"
                             {% if item.lenguaje == "Python" %}
@@ -118,6 +121,7 @@
             {% for item in python %}
             <div class="col m6 l4 xl3">
                 <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
+                    <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
                     <div class="imagen_card_Comunidad_Grande">
                         {% if item.lenguaje == "Python" %}
                             <img  src="../../static/images/python.png" class="bordered2Up">
@@ -135,10 +139,12 @@
                         </div>
                     </div>
                 </div>
+            </a>
             </div>
             {% endfor %}
             {% for item in lenguajec %}
             <div class="col m6 l4 xl3">
+                <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
                 <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
                     <div class="imagen_card_Comunidad_Grande">
                         {% if item.lenguaje == "Python" %}
@@ -157,10 +163,12 @@
                         </div>
                     </div>
                 </div>
+            </a>
             </div>
             {% endfor %}
             {% for item in java %}
             <div class="col m6 l4 xl3">
+                <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
                 <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
                     <div class="imagen_card_Comunidad_Grande">
                         {% if item.lenguaje == "Python" %}
@@ -179,6 +187,7 @@
                         </div>
                     </div>
                 </div>
+            </a>
             </div>
             {% endfor %}
         </div>
@@ -188,7 +197,7 @@
         <section class="owl-five owl-carousel owl-theme hide-on-med-and-up">
             {% for item in python %}
             <div class="item" style="margin-left: 20px;">
-                <a href="#">
+                <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
                     <div class="cardComunidadBusqueda colorGreyWhiter bordered1 shadow-2e">
                         <div class="cardBackgroundBusqueda bordered1"
                         {% if item.lenguaje == "Python" %}
@@ -217,7 +226,7 @@
             {% endfor %}
             {% for item in lenguajec %}
             <div class="item" style="margin-left: 20px;">
-                <a href="#">
+                <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
                     <div class="cardComunidadBusqueda colorGreyWhiter bordered1 shadow-2e">
                         <div class="cardBackgroundBusqueda bordered1"
                         {% if item.lenguaje == "Python" %}
@@ -246,7 +255,7 @@
             {% endfor %}
             {% for item in java %}
             <div class="item" style="margin-left: 20px;">
-                <a href="#">
+                <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
                     <div class="cardComunidadBusqueda colorGreyWhiter bordered1 shadow-2e">
                         <div class="cardBackgroundBusqueda bordered1"
                         {% if item.lenguaje == "Python" %}
