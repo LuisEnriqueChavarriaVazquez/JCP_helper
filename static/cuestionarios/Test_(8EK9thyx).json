@@ -1,0 +1,67 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optMultiple",
+   "1": "optAcompletar",
+   "2": "optEjercicios",
+   "3": "optArrastrar",
+   "4": "optAbierta",
+   "5": "optFalsoVerdadero"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "",
+   "1": "",
+   "2": "",
+   "3": "",
+   "4": "",
+   "5": ""
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "0": "sddssd",
+   "1": "sdssd",
+   "2": "A",
+   "3": "sddsds",
+   "4": "",
+   "5": "",
+   "6": ""
+  }
+ ],
+ "preguntasModal2": [
+  {
+   "0": "dsdsdsds[Blank 1]",
+   "1": "dsdsds"
+  }
+ ],
+ "preguntasModal3": [
+  {
+   "0": "sddsds",
+   "1": "sdssd",
+   "2": "sddsds",
+   "3": "dsdsds",
+   "4": "dssdds"
+  }
+ ],
+ "preguntasModal4": [
+  {
+   "0": "sddsdsdsds",
+   "1": "sdds*sddsds"
+  }
+ ],
+ "preguntasModal5": [
+  {
+   "0": "sddsds",
+   "1": "T"
+  }
+ ],
+ "preguntasModal6": [
+  {
+   "0": "dsds",
+   "1": "sdds",
+   "2": "sdsd"
+  }
+ ]
+}

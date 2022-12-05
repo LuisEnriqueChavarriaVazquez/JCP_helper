@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Información adicional</title>
+    <title class="TDI">Información adicional</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -18,12 +18,12 @@
     <!--Menu de página de inicio-->
     <nav class="color2">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Información adicional.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Información adicional.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Información adicional.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Información adicional.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="/gestionar_cuestionarios" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="/gestionar_cuestionarios" class="btn color3 button-rounded TDI">Volver</a></li>
             </ul>
         </div>
     </nav>
@@ -36,14 +36,14 @@
             <div id="circleTwo" class="shadow-2e color3 colorText">2</div>
         </div>
         <div class="containerProcesoData">
-            <div>Estructura principal</div>
-            <div>Datos adicionales</div>
+            <div class="TDI colorTextReverse">Estructura principal</div>
+            <div class="TDI colorTextReverse">Datos adicionales</div>
         </div>
     </section>
 
     <!--Titulos de la página-->
     <div class="title-general">
-        <h5 class="colorTextReverse hide-on-large-only hide-on-med-only">Formulario de finalización.</h5>
+        <h5 class="colorTextReverse hide-on-large-only hide-on-med-only TDI">Formulario de finalización.</h5>
     </div>
 
     <!--Contenedor principal-->
@@ -51,46 +51,46 @@
         <section class="contenedorFormularioPrincipal">
             <form class="popUpForm bordered2 colorGreyWhiter shadow-2e" action="/saveCuestionario/{{id_profesor}}"
                 method="post">
-                <h5>Datos de creación</h5>
+                <h5 class="TDI">Datos de creación</h5>
                 <div class="row">
                     <div class="input-field col s12 m6">
-                        <input id="autorCuestionario" name="autorCuestionario" type="text" class="validate"
+                        <input id="autorCuestionario" name="autorCuestionario" type="text" class="validate colorTextReverse"
                             value="{{datosProfesor[1]}}">
-                        <label for="autorCuestionario">Autor del cuestionario</label>
+                        <label for="autorCuestionario" class="TDI">Autor del cuestionario</label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <input id="fechaCuestionario" name="fechaCuestionario" type="text" class="validate datepicker"
+                        <input id="fechaCuestionario" name="fechaCuestionario" type="text" class="validate datepicker colorTextReverse"
                             value="">
-                        <label for="fechaCuestionario">Fecha de Creación</label>
+                        <label for="fechaCuestionario" class="TDI">Fecha de Creación</label>
                     </div>
-                    <h6>Tiempo de la prueba</h6>
+                    <h5 class="TDI">Tiempo de la prueba</h5>
                     <div class="input-field col s6 m6">
-                        <input id="horaLimiteParaResolver" name="horaLimiteParaResolver" type="text" class="validate timepicker"
+                        <input id="horaLimiteParaResolver" name="horaLimiteParaResolver" type="text" class="validate timepicker colorTextReverse"
                             value="12:00 PM">
-                        <label for="horaLimiteParaResolver">Hora límite para resolver</label>
+                        <label for="horaLimiteParaResolver" class="TDI">Hora límite para resolver</label>
                     </div>
                     <div class="input-field col s6 m6">
-                        <input id="fechaLimiteRespuesta" name="fechaLimiteRespuesta" type="text" class="validate datepicker"
+                        <input id="fechaLimiteRespuesta" name="fechaLimiteRespuesta" type="text" class="validate datepicker colorTextReverse"
                             value="">
-                        <label for="fechaLimiteRespuesta">Día límite para resolver</label>
+                        <label for="fechaLimiteRespuesta" class="TDI">Día límite para resolver</label>
                     </div>
                     <div class="input-field col s12 m12">
-                        <input maxlength="5" id="tiempoCuentaAtras" name="tiempoCuentaAtras" placeholder="format hh:mm" type="text" class="validate"
+                        <input maxlength="5" id="tiempoCuentaAtras" name="tiempoCuentaAtras" placeholder="format hh:mm" type="text" class="validate colorTextReverse"
                             value="01:30">
-                        <label for="tiempoCuentaAtras">Tiempo cuenta regresiva (hh:mm)</label>
+                        <label for="tiempoCuentaAtras" class="TDI">Tiempo cuenta regresiva (hh:mm)</label>
                     </div>
                     <div class="input-field col s12 m12">
-                        <input maxlength="2" id="numeroIntentosDisponibles" name="numeroIntentosDisponibles" placeholder="Número de intentos" type="number" class="validate"
-                            value="1">
-                        <label for="numeroIntentosDisponibles">Número de intentos</label>
+                        <input maxlength="2" id="numeroIntentosDisponibles" name="numeroIntentosDisponibles" placeholder="Número de intentos" type="number" class="validate colorTextReverse"
+                            value="3">
+                        <label for="numeroIntentosDisponibles" class="TDI colorTextReverse">Número de intentos</label>
                     </div>
                 </div>
-                <h5>Datos del cuestionario</h5>
+                <h5 class="TDI">Datos del cuestionario</h5>
                 <div class="row">
                     <div class="input-field col s12 m6">
-                        <input id="tituloCuestionario" name="tituloCuestionario" type="text" class="validate"
+                        <input id="tituloCuestionario" name="tituloCuestionario" type="text" class="validate colorTextReverse"
                             value="{{nombreCuestionario}}">
-                        <label for="tituloCuestionario">Nombre de cuestionario</label>
+                        <label for="tituloCuestionario" class="TDI">Nombre de cuestionario</label>
                         <input id="tituloCuestionarioConClave" name="tituloCuestionarioConClave" type="hidden"
                             value="{{nombreCuestionarioConClave}}">
                     </div>
@@ -103,37 +103,37 @@
                             {% endfor %}
                             {% endif%}
                         </select>
-                        <label>Temas del cuestionario</label>
+                        <label class="TDI">Temas del cuestionario</label>
                     </div>
 
                     <div id="oneInputTipo" class="input-field col s12 m12">
                         <select id="tipoCuestionarioOne" name="tipoCuestionario">
-                            <option value="Diagnóstico">Diagnóstico</option>
-                            <option value="Autodiagnóstico">Autodiagnóstico</option>
-                            <option value="Autoevaluacion">Autoevaluación</option>
-                            <option value="Parcial">Parcial</option>
-                            <option value="Final">Final</option>
-                            <option value="Practica">Práctica</option>
-                            <option value="Juego">Juego</option>
-                            <option value="otro">Otro</option>
+                            <option value="Diagnóstico" class="TDI">Diagnóstico</option>
+                            <option value="Autodiagnóstico" class="TDI">Autodiagnóstico</option>
+                            <option value="Autoevaluacion" class="TDI">Autoevaluación</option>
+                            <option value="Parcial" class="TDI">Parcial</option>
+                            <option value="Final" class="TDI">Final</option>
+                            <option value="Practica" class="TDI">Práctica</option>
+                            <option value="Juego" class="TDI">Juego</option>
+                            <option value="otro" class="TDI">Otro</option>
                         </select>
-                        <label>Tipo de cuestionario</label>
+                        <label class="TDI">Tipo de cuestionario</label>
                     </div>
 
                     <div id="oneInputOrden" class="input-field col s12 m12">
                         <select id="oneInputOrdenOne" name="oneInputOrdenOne">
-                            <option value="random">Aleatorio</option>
-                            <option value="order_by_creation">Por orden de creación</option>
-                            <option value="order_by_type">Por tipo de pregunta</option>
+                            <option value="random" class="TDI">Aleatorio</option>
+                            <option value="order_by_creation" class="TDI">Por orden de creación</option>
+                            <option value="order_by_type" class="TDI">Por tipo de pregunta</option>
                         </select>
-                        <label>Orden de cuestionario</label>
+                        <label class="TDI">Orden de cuestionario</label>
                     </div>
 
                     <!--En caso de que seleccione otros-->
                     <div id="twoInputTipo" class="hiddenElement input-field col s12 m12">
-                        <input id="tipoCuestionarioTwo" name="tipoCuestionario" type="text" class="validate"
+                        <input id="tipoCuestionarioTwo" name="tipoCuestionario" type="text" class="validate colorTextReverse"
                             value="" disabled>
-                        <label for="tipoCuestionarioTwo">Escriba el tipo</label>
+                        <label for="tipoCuestionarioTwo" class="TDI">Escriba el tipo</label>
                     </div>
 
                     <div id="oneInputLenguaje" class="input-field col s12 m12">
@@ -141,15 +141,15 @@
                             <option value="Java">Java</option>
                             <option value="Python">Python</option>
                             <option value="C/C++">C/C++</option>
-                            <option value="otro">Otro</option>
+                            <option value="otro" class="TDI">Otro</option>
                         </select>
-                        <label>Lenguaje del cuestionario</label>
+                        <label class="TDI">Lenguaje del cuestionario</label>
                     </div>
                     <!--En caso de que seleccione otros-->
                     <div id="twoInputLenguaje" class="hiddenElement input-field col s12 m12">
-                        <input id="lenguajeCuestionarioTwo" name="lenguajeCuestionario" type="text" class="validate"
+                        <input id="lenguajeCuestionarioTwo" name="lenguajeCuestionario" type="text" class="validate colorTextReverse"
                             value="" disabled>
-                        <label for="lenguajeCuestionarioTwo">Escriba el lenguaje</label>
+                        <label for="lenguajeCuestionarioTwo" class="TDI">Escriba el lenguaje</label>
                     </div>
 
                     <div class="input-field col s12 m12">
@@ -160,17 +160,22 @@
                             {% endfor %}
                             {% endif%}
                         </select>
-                        <label>Grupo del cuestionario</label>
+                        <label class="TDI">Grupo del cuestionario</label>
                     </div>
                     <br>
                 </div>
-                <button type="submit" class="btn-large color2 bordered5 buttonPopUp">Guardar</button>
+                <button type="submit" class="btn-large color2 bordered5 buttonPopUp TDI">Guardar</button>
             </form>
         </section>
     </section>
 
-</body>
+<!--Botones para que el gestor de idiomas no falle-->
+<span class="hiddenElement" id="seleccionarEspanol"></span>
+<span class="hiddenElement" id="seleccionarIngles"></span>
+<span class="hiddenElement" id="seleccionarPortugues"></span>
+<span class="hiddenElement" id="seleccionarChino"></span>
 
+</body>
 
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
@@ -179,5 +184,9 @@
 <script src="../../static/js/operacionesEditarGrupo.js"></script>
 <script src="../../static/js/operacionesEditarCuestionario.js"></script>
 
+<!--Traduccion-->
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
 </html>

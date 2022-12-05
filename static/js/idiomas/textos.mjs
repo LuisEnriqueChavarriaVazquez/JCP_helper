@@ -597,18 +597,18 @@ let rutas = {
             texts: ['创建问卷。','创建问卷。','创建问卷。','返回','问题类型','多项选择','填空','训练','拖','假真','开放式问题','我的问卷','问题库','问卷标题','聪明的','生成 JSON 文件','问卷将存储为 JSON 文件,如果您愿意,可以保存问卷的副本。','您可以附加一些您之前下载的 JSON。','JSON问卷预览','释放','节省','重复保存问卷','从以前的问卷中选择任何已经存货的 JSON。 ','将创建文档的副本,您将能够编辑数据。','以前的问卷调查。','测验文件','加载/复制','主体结构','附加数据','多项选择','通过首先定义问题,然后是选项,最后是正确选项来设计多项选择题。','定义问题','描述要回答的问题或查询。','问','问题图片(网址)','定义选项','写下所问问题的可能选项并确定正确答案。','正确的','选项A','正确的','选项 B','正确的','选项C','正确的','选项D','节省','添加','全部清除','填空','在表格中输入一段文字,然后在文字中添加空格,以便学生填写正确答案。','定义文本','写下文本的结构。','写完文字','定义空间','在文本结构中添加空格,以便学生完成。','节省','空间','空间','训练','输入练习的描述并附上代码,以便在学生上传他们针对您提出的问题的建议解决方案后向练习提供反馈','描述练习','写下要解决的问题/练习的描述,以便您的学生知道要达到什么结果。','问题描述','图片(网址)','预期输出(可选)','反馈代码','用解决方案提案编写代码,以便学生可以收到反馈,您可以附上文档以阅读代码,甚至可以附上链接以访问在线文档。','文件代码','附加在线文件夹的链接(多个文件)','文件夹链接','手写代码','手工编码','代码预览','节省','清理','拖放排序','在A列输入概念,在B列输入定义(概念和定义必须在同一高度)','练习描述','练习描述','概念(A)','定义(B)','节省','添加','消除','虚假和真实','输入问题并确定正确的选项','问','问','回复','如果为假则写 F,如果为真则写 T。','节省','开放式问题','输入一道题(此题需要老师人工审核)','问','问','视频(可选)','图片(可选)','节省']
         }
     },
-    "saber_mas2": {
+    "guardarCuestionarioJSON": {
         "textEspanol": {
-            texts: []
+            texts: ['Información adicional.','Información adicional.','Información adicional.','Volver','Estructura principal','Datos adicionales','Formulario de finalización.','Datos de creación','Autor del cuestionario','Fecha de Creación','Tiempo de la prueba','Hora límite para resolver','Día límite para resolver','Tiempo cuenta regresiva (hh:mm)','Número de intentos','Datos del cuestionario','Nombre de cuestionario','Temas del cuestionario','Diagnóstico','Autodiagnóstico','Autoevaluación','Parcial','Final','Práctica','Juego','Otro','Tipo de cuestionario','Aleatorio','Por orden de creación','Por tipo de pregunta','Orden de cuestionario','Escriba el tipo','Otro','Lenguaje del cuestionario','Escriba el lenguaje','Grupo del cuestionario','Guardar']
         },
         "textIngles": {
-            texts: []
+            texts: ['Additional Information.','Additional Information.','Additional Information.','Return','Principal structure','Additional data','Completion form.','Creation data','Author of the test','Creation date','Trial time','Deadline time to solve','Deadline day to solve','Countdown time (hh:mm)','Number of attemps','test data','Quiz name','Quiz Topics','Diagnosis','Auto diagnosis','Self appraisal','Partial','Final','Practice','Play','Other','Quiz type','Random','By order of creation','By type of question','Quiz Order','Type the type','Other','test language','Type the language','test group','Save']
         },
         "textPortugues": {
-            texts: []
+            texts: ['Informação adicional.','Informação adicional.','Informação adicional.','Retornar','Estrutura principal','Dados adicionais','Formulário de preenchimento.','Dados de criação','Autor do questionário','Data de criação','Tempo de prova','Prazo para resolver','Dia do prazo para resolver','Tempo de contagem regressiva (hh:mm)','Número de tentativas','Dados do questionário','Nome do questionário','Tópicos do questionário','Diagnóstico','Autodiagnóstico','Auto-avaliação','Parcial','Final','Prática','Toque','Outro','Tipo de questionário','Aleatório','Por ordem de criação','Por tipo de pergunta','Pedido do questionário','Digite o tipo','Outro','Linguagem do questionário','Digite o idioma','Grupo de questionário','Salvar']
         },
         "textChino": {
-            texts: []
+            texts: ['附加信息。','附加信息。','附加信息。','返回','主体结构','附加数据','完成表格。','创建数据','问卷作者','创建日期','试用时间','截止时间解决','deadline day to solve','倒计时 (hh:mm)','尝试次数','问卷数据','测验名称','测验主题','诊断','自动诊断','自我评估','部分的','最后','实践','玩','其他','测验类型','随机的','按创建顺序','按问题类型','测验订单','输入类型','其他','问卷语言','输入语言','问卷组','节省']
         }
     },
     "saber_mas2": {
