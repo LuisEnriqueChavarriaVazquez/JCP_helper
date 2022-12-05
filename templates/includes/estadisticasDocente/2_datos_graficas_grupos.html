@@ -5,8 +5,8 @@
 <!--Seccion de datos relevantes en las estadisticas
             para los dispositivos moviles.-->
 <div class="title-general colorGrey titleGraficas" style="margin: 20px 0px 0px 0px;">
-    <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Gráficas globales</h5>
-    <h4 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Gráficas globales</h4>
+    <h5 class="hide-on-large-only TDI">&nbsp;&nbsp;&nbsp;&nbsp;Gráficas globales</h5>
+    <h4 class="hide-on-med-and-down TDI">&nbsp;&nbsp;&nbsp;&nbsp;Gráficas globales</h4>
 </div>
 
 <!--SECCION PARA LAS TABLETAS Y PARA LAS COMPUTADORAS DE ESCRITORIO-->
@@ -16,7 +16,7 @@
     <div class="col s12 m12 l6">
         <div class="bordered2 shadow-2e cuerpoCardGraficaDashboard colorWhite">
             <div class="tituloCardGrafica flow-text bordered2Up colorGreyWhiter">
-                <div class="tituloCardGraficaText">
+                <div class="tituloCardGraficaText TDI colorTextReverse">
                     Promedio general de grupos.
                 </div>
             </div>
@@ -47,7 +47,7 @@
     <div class="col s12 m12 l6">
         <div class="bordered2 shadow-2e cuerpoCardGraficaDashboard colorWhite">
             <div class="tituloCardGrafica flow-text bordered2Up colorGreyWhiter">
-                <div class="tituloCardGraficaText">
+                <div class="tituloCardGraficaText TDI colorTextReverse">
                     Aprobación general de grupos.
                 </div>
                 <div class="porcentageGraficaText">
@@ -86,7 +86,9 @@
 <!--Contenedor de opciones de reportes-->
 <section class="contenedorGrupos">
     <div class="tituloCardGraficaText">
-        Opcciones del reportes
+        <h5 class="TDI colorTextReverse">
+            Reporte global
+        </h5>
     </div>
     <div>
         <form action="{{ url_for('routes.crear_reportes_grupos_docentes_PDF') }}" method="post" id="formGruposReporte">

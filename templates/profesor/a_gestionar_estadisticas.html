@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../static/css/graficasAnalisisAprobacion.css">
     <link rel="stylesheet" href="../../static/css/comentariosRetroalimentacion.css">
 
-    <title>Gestionar estadísticas</title>
+    <title class="TDI">Gestionar estadísticas</title>
 </head>
 
 <body class="oculto colorGrey">
@@ -17,19 +17,19 @@
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Estadísticas.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Estadísticas.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Estadísticas.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Estadísticas.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="/bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="/bienvenidaProfesor" class="btn color3 button-rounded TDI">Volver</a></li>
             </ul>
         </div>
         <!--Sección para elegir el tipo de stat-->
         <ul class="tabs tabs-fixed-width tab-demo z-depth-1 color2">
-            <li class="tab"><a href="#grupos" class="active colorText">Grupos</a></li>
-            <li class="tab"><a href="#cuestionarios" class="colorText">Cuestionarios</a></li>
-            <li class="tab"><a href="#alumnos" class="colorText">Alumnos</a></li>
+            <li class="tab"><a href="#grupos" class="active colorText TDI">Grupos</a></li>
+            <li class="tab"><a href="#cuestionarios" class="colorText TDI">Cuestionarios</a></li>
+            <li class="tab"><a href="#alumnos" class="colorText TDI">Alumnos</a></li>
         </ul>
     </nav>
     <br><br><br><br><br><br>
@@ -63,13 +63,11 @@
         {% include "includes/estadisticasDocente/4_alumnos_retroalimentacion.html" %}
     </div>
 
-
-
-
-
-
-    <!--Metemos el footer en la app-->
-    {% include "includes/footer.html" %}
+<!--Botones para que el gestor de idiomas no falle-->
+<span class="hiddenElement" id="seleccionarEspanol"></span>
+<span class="hiddenElement" id="seleccionarIngles"></span>
+<span class="hiddenElement" id="seleccionarPortugues"></span>
+<span class="hiddenElement" id="seleccionarChino"></span>
 
 </body>
 
@@ -107,5 +105,10 @@
 
 <!--Elementos de reportes-->
 <script src="../../../static/js/reportes/reportesGeneral.js"></script>
+
+<!--Traduccion-->
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
 </html>

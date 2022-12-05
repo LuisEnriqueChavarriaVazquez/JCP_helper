@@ -116,8 +116,9 @@ function rutaValidation(stringUrl) {
         return "creacion_cuestionarios"
     } else if (stringUrl.includes("guardarCuestionarioJSON")) {
         return "guardarCuestionarioJSON"
+    } else if (stringUrl.includes("gestionar_estadisticas")) {
+        return "gestionar_estadisticas"
     }
-
     
 
     //En caso de que la URL no tenga IDs
