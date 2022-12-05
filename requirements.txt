@@ -32,7 +32,6 @@ jyserver==0.0.5
 MarkupSafe==2.0.1
 multidict==6.0.2
 mysql-connector-python==8.0.30
-mysqlclient==2.1.0
 numpy==1.23.3
 outcome==1.1.0
 pandas==1.4.4
