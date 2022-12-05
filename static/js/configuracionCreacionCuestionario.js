@@ -11,7 +11,7 @@ $(document).ready(function () {
     $("#contenedorOpccionesOpccionMultipleModalCreacion .hide")
       .first()
       .removeClass("hide");
-    M.toast({ html: 'Opción agregada' });
+    M.toast({ html: '➕1️⃣' });
   });
 });
 
@@ -38,7 +38,7 @@ function eliminarElementosDelModalOptMultiple() {
       opcionContainerModalContent[i].value = '';
     }
 
-    M.toast({ html: 'Casillas limpiadas' });
+    M.toast({ html: '🧹👍😀' });
   }
 }
 eliminarElementosDelModalOptMultiple();
@@ -84,13 +84,13 @@ $(document).ready(function () {
         `<div class='row colorGreyWhiter bordered1 opcionContainer'> 
         <div class='col s12 m3 labelContainer'> 
           <label> 
-            <input  type='radio' value='A' name='group` + contadorPreguntaOptMultiple + `' ` + checkA + `/> 
-            <span>Correcta</span> 
+            <input  type='radio' class="colorTextReverse" value='A' name='group` + contadorPreguntaOptMultiple + `' ` + checkA + `/> 
+            <span>✅</span> 
           </label> 
         </div> 
         <div class='col s12 m9'> 
-          <h6><b>Opción A</b></h6> 
-          <textarea id='opcionACreacion' class='materialize-textarea' name='textArea` + contadorPreguntaOptMultiple + `'>`
+          <h6><b class="colorTextReverse">Opt. A</b></h6> 
+          <textarea id='opcionACreacion' class='materialize-textarea colorTextReverse' name='textArea` + contadorPreguntaOptMultiple + `'>`
         + $("#opcionACreacion").val() +
         `</textarea> 
         </div> 
@@ -119,13 +119,13 @@ $(document).ready(function () {
         `<div class='row colorGreyWhiter bordered1 opcionContainer ` + opcionBOculto + `'>` +
         `<div class='col s12 m3 labelContainer'>
             <label>
-              <input  type='radio' value='B' name='group` + contadorPreguntaOptMultiple + `' ` + checkB + `/>
-              <span>Correcta</span>
+              <input  type='radio' class="colorTextReverse" value='B' name='group` + contadorPreguntaOptMultiple + `' ` + checkB + `/>
+              <span>✅</span>
             </label>
         </div>
         <div class='col s12 m9'>
-            <h6><b>Opción B</b></h6>
-            <textarea class='materialize-textarea' name='textArea` + contadorPreguntaOptMultiple + `'>`
+            <h6><b class="colorTextReverse">Opt. B</b></h6>
+            <textarea class='materialize-textarea colorTextReverse' name='textArea` + contadorPreguntaOptMultiple + `'>`
         + $("#opcionBCreacion").val() +
         `</textarea>
         </div>
@@ -135,13 +135,13 @@ $(document).ready(function () {
         `<div class='row colorGreyWhiter bordered1 opcionContainer ` + opcionCOculto + `'>` +
         `<div class='col s12 m3 labelContainer'>
           <label>
-            <input type='radio' value='C' name='group` + contadorPreguntaOptMultiple + `' ` + checkC + ` />
-            <span>Correcta</span>
+            <input type='radio' class="colorTextReverse" value='C' name='group` + contadorPreguntaOptMultiple + `' ` + checkC + ` />
+            <span>✅</span>
           </label>
         </div>
         <div class='col s12 m9'>
-          <h6><b>Opción C</b></h6>
-          <textarea class='materialize-textarea' name='textArea` + contadorPreguntaOptMultiple + `'>`
+          <h6><b class="colorTextReverse">Opt. C</b></h6>
+          <textarea class='materialize-textarea colorTextReverse' name='textArea` + contadorPreguntaOptMultiple + `'>`
         + $("#opcionCCreacion").val() +
         `</textarea>
         </div>
@@ -151,13 +151,13 @@ $(document).ready(function () {
         `<div class='row colorGreyWhiter bordered1 opcionContainer ` + opcionDOculto + `'>` +
         `<div class='col s12 m3 labelContainer'>
           <label>
-            <input type='radio' value='D' name='group` + contadorPreguntaOptMultiple + `' ` + checkD + ` />
-            <span>Correcta</span>
+            <input type='radio' class="colorTextReverse" value='D' name='group` + contadorPreguntaOptMultiple + `' ` + checkD + ` />
+            <span>✅</span>
           </label>
         </div>
         <div class='col s12 m9'>
-          <h6><b>Opción D</b></h6>
-          <textarea class='materialize-textarea' name='textArea` + contadorPreguntaOptMultiple + `'>`
+          <h6><b class="colorTextReverse">Opt. D</b></h6>
+          <textarea class='materialize-textarea colorTextReverse' name='textArea` + contadorPreguntaOptMultiple + `'>`
         + $("#opcionDCreacion").val() +
         `</textarea>
         </div>
@@ -169,23 +169,23 @@ $(document).ready(function () {
           <div class='card colorWhite bordered2'>
             
             <div class="input-field col s12">
-              <input maxlength="1" min="0" max="5" placeholder="Defina ponderación 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+              <input maxlength="1" min="0" max="5" placeholder="Points 1-5" type="number" class="colorTextReverse ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
             </div>
             
             <div class='card-content '>
-              <h5>Pregunta de opción múltiple.</h5>
+              <h5>Opt. Multi. (Q/1)</h5>
             <div class='row'>
               <div class='input-field col s12'>
-                <textarea id="tituloOpcionMultiple` + contadorPreguntaOptMultiple + `" class='materialize-textarea textoPregunta' placeholder='Escriba la pregunta'>`
+                <textarea id="tituloOpcionMultiple` + contadorPreguntaOptMultiple + `" class='materialize-textarea colorTextReverse textoPregunta'>`
         + pregunta +
         `</textarea>
               </div>
               <div class="input-field col s12">
                   <i class="material-icons prefix">image</i>
-                  <textarea id="mediaProblemaOpcionMultiple` + contadorPreguntaOptMultiple + `" class="materialize-textarea">`
+                  <textarea id="mediaProblemaOpcionMultiple` + contadorPreguntaOptMultiple + `" class="materialize-textarea colorTextReverse">`
         + mediaProblemaOpcionMultiple +
         `</textarea>
-                  <label class="active" for="mediaProblemaOpcionMultiple` + contadorPreguntaOptMultiple + `">Imagen (url)</label>
+                  <label class="active colorTextReverse" for="mediaProblemaOpcionMultiple` + contadorPreguntaOptMultiple + `">Img. (url)</label>
               </div>
             </div>` +
         opcionA +
@@ -194,13 +194,13 @@ $(document).ready(function () {
         opcionD +
         `<div class='containerButtonsView'>
                   <div>
-                    <a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnAgregarOpcionMultiple'><i class='material-icons left'>add</i>Agregar 1</a>
+                    <a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnAgregarOpcionMultiple'><i class='material-icons left'>add</i>1</a>
                   </div>
                   <div>
-                    <a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnEliminarUltimaPreguntaOpcionMultiple'><i class='material-icons left'>remove</i>Eliminar 1</a>
+                    <a class='waves-effect waves-light btn bordered5 color2 shadow-2e btnEliminarUltimaPreguntaOpcionMultiple'><i class='material-icons left'>remove</i>1</a>
                   </div>
                   <div>
-                    <a class='waves-effect waves-light btn bordered5 color1 shadow-2e btnEliminarPreguntaOpcionMultiple'><i class='material-icons left'>delete_sweep</i>Eliminar pregunta</a>
+                    <a class='waves-effect waves-light btn bordered5 color1 shadow-2e btnEliminarPreguntaOpcionMultiple'><i class='material-icons left'>delete_sweep</i>❓</a>
                   </div>
                 </div>
               </div>
@@ -208,7 +208,7 @@ $(document).ready(function () {
           </div>
         </div>`;
       $("#contenedorCuestionarioPreguntas").append(contenedor);
-      M.toast({ html: 'Pregunta agregada a la vista previa' });
+      M.toast({ html: '➕❓' });
       contadorPreguntaOptMultiple++;
     }
     agregarContenidoVistaPrevia();
@@ -224,7 +224,7 @@ $(document).ready(function () {
     function () {
       var preguntaOpccionMultiple = $(this).closest(".preguntaOpccionMultiple");
       preguntaOpccionMultiple.find(".hide").first().removeClass("hide").addClass("nohide");
-      M.toast({ html: 'Opción agregada' });
+      M.toast({ html: '➕1️⃣' });
     }
   );
 });
@@ -238,7 +238,7 @@ $(document).ready(function () {
       var preguntaOpccionMultiple = $(this).closest(".preguntaOpccionMultiple");
       console.log(preguntaOpccionMultiple.find(".nohide").last());
       preguntaOpccionMultiple.find(".nohide").last().addClass("hide").removeClass("nohide");
-      M.toast({ html: 'Opción borrada' });
+      M.toast({ html: '➖1️⃣👍' });
     }
   );
 });
@@ -250,7 +250,7 @@ $(document).ready(function () {
     ".btnEliminarPreguntaOpcionMultiple",
     function () {
       $(this).closest(".preguntaOpccionMultiple").remove();
-      M.toast({ html: 'Pregunta eliminada' });
+      M.toast({ html: '➖1️⃣❓👍' });
     }
   );
 });
@@ -280,7 +280,7 @@ $(document).ready(function () {
         </div>
       </div>`
     );
-    M.toast({ html: 'Espacio agregado' });
+    M.toast({ html: '➕1️⃣👍' });
   });
 });
 
@@ -314,7 +314,7 @@ function eliminarEspacioModal() {
     //Hace que el contador disminuya 1
     contadorModalRellenarEspaciosCreacion--;
 
-    M.toast({ html: 'Espacio eliminado' });
+    M.toast({ html: '➖1️⃣👍' });
   }
 }
 
@@ -355,7 +355,7 @@ $(document).ready(function () {
         <div class='col s12 ''>
           <div class='card colorWhite bordered2'>
           <div class="input-field col s12">
-              <input maxlength="1" min="0" max="5" placeholder="Defina ponderación 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+              <input maxlength="1" min="0" max="5" placeholder="Points 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
             </div>
             <div class='card-content '>
               <h5>Rellenar espacios</h5>
@@ -385,7 +385,7 @@ $(document).ready(function () {
         </div>
       </div>`;
     $("#contenedorCuestionarioPreguntas").append(contenedor);
-    M.toast({ html: 'Pregunta agregada' });
+    M.toast({ html: '➕1️⃣❓👍' });
     contadorPreguntaRellenar++;
   });
 });
@@ -418,7 +418,7 @@ $(document).ready(function () {
         numeroEspacios +
         "]";
       preguntaRellenarEspacios.find(".textoPregunta").val(preguntaAgregar);
-      M.toast({ html: 'Espacio agregado' });
+      M.toast({ html: '➕1️⃣👍' });
     }
   );
 });
@@ -431,7 +431,7 @@ $(document).ready(function () {
     ".btnEliminarPreguntaEspacioBlanco",
     function () {
       $(this).closest(".preguntaRellenarEspacios").remove();
-      M.toast({ html: 'Pregunta eliminada' });
+      M.toast({ html: '➖1️⃣❓👍' });
     }
   );
 });
@@ -459,7 +459,7 @@ function agregarEjercicio() {
   codigoResultado.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
       mostrarCódigoMuestra();
-      M.toast({ html: 'Código agregado' });
+      M.toast({ html: '➕Code👍' });
     }
   });
 
@@ -474,7 +474,7 @@ function agregarEjercicio() {
     codigoResultado.value = "";
     carpetaOnline.value = "";
     codigoMuestra.innerText = "";
-    M.toast({ html: 'Casillas limpias' });
+    M.toast({ html: '🧹👍' });
   }
 }
 agregarEjercicio();
@@ -491,7 +491,7 @@ function agregarEjercicioArchivo() {
       }
 
       fr.readAsText(this.files[0]);
-      M.toast({ html: 'Archivo leído.' });
+      M.toast({ html: '👍📖' });
     })
 }
 agregarEjercicioArchivo();
@@ -527,7 +527,7 @@ function agregarEjercicioContenedor() {
           <div class='col s12'>
             <div class='card colorWhite bordered2'>
             <div class="input-field col s12">
-              <input maxlength="1" min="0" max="5" placeholder="Defina ponderación 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+              <input maxlength="1" min="0" max="5" placeholder="Points 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
             </div>
             <div class='card-content '>
               <h5>Pregunta de ejercicio.</h5>
@@ -599,7 +599,7 @@ function agregarEjercicioContenedor() {
         </div>
       </div>`;
     $("#contenedorCuestionarioPreguntas").append(ejercicio);
-    M.toast({ html: 'Ejercicio agregado' });
+    M.toast({ html: '➕1️⃣🏋️‍♂️💻' });
   }
 }
 
@@ -623,7 +623,7 @@ function agregarContenidoIndividualArchivo(idMuestra, idInputFile) {
       }
 
       fr.readAsText(this.files[0]);
-      M.toast({ html: 'Archivo leído.' });
+      M.toast({ html: '👍📖' });
     })
 }
 
@@ -634,7 +634,7 @@ $(document).ready(function () {
     ".btnEliminarEjercicios",
     function () {
       $(this).closest(".preguntasEjercicios").remove();
-      M.toast({ html: 'Pregunta eliminada' });
+      M.toast({ html: '➖1️⃣❓👍' });
     }
   );
 });
@@ -657,7 +657,7 @@ $(document).ready(function () {
           <input placeholder='(b) Escriba la definición' type="text" class='textoOpccionCreacion browser-default conceptoDefinicion'>
         </div>
       </div>`);
-    M.toast({ html: 'Elemento agregrado' });
+    M.toast({ html: '➕1️⃣👍' });
   });
 });
 
@@ -697,7 +697,7 @@ $(document).ready(function () {
       <div class='col s12'>
         <div class='card colorWhite bordered2'>
         <div class="input-field col s12">
-              <input maxlength="1" min="0" max="5" placeholder="Defina ponderación 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+              <input maxlength="1" min="0" max="5" placeholder="Points 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
             </div>
           <div class='card-content'>
             <h5>Arrastrar y ordenar</h5>
@@ -740,7 +740,7 @@ $(document).ready(function () {
     </div>`;
     $("#contenedorCuestionarioPreguntas").append(contenedor);
     contadorContenedorArrastraPreguntas++;
-    M.toast({ html: 'Pregunta guardada' });
+    M.toast({ html: '➕1️⃣❓👍' });
   });
 });
 
@@ -759,7 +759,7 @@ function agregarContenidoArrastrarPreview(conceptoArrastrarContainerParent) {
       <input id="definicionArrastrarView` + contadorArrastrarPreguntas + `" value="" placeholder='(b) Escriba la definición' type="text" class='textoOpccionCreacion browser-default conceptoDefinicion'>
     </div>
   </div>`);
-  M.toast({ html: 'Elemento agregado' });
+  M.toast({ html: '➕1️⃣👍' });
 }
 
 //Eliminar concepto y elemento (en la vista previa)
@@ -770,7 +770,7 @@ function eliminarContenidoArrastrarPreview(conceptoArrastrarContainerParent) {
   var contendorPadre = document.getElementById(IDContendorPadre);
   //Eliminamos el último elemento
   contendorPadre.removeChild(contendorPadre.lastChild);
-  M.toast({ html: 'Elemento eliminado' });
+  M.toast({ html: '➖1️⃣👍' });
 }
 
 //Eliminar concepto y definición (en el modal)
@@ -796,7 +796,7 @@ $(document).ready(function () {
     ".btnEliminarPreguntaConceptoArrastrable",
     function () {
       $(this).closest(".preguntasArrastrado").remove();
-      M.toast({ html: 'Pregunta eliminada' });
+      M.toast({ html: '➖1️⃣❓👍' });
     }
   );
 });
@@ -828,7 +828,7 @@ function agregarFalseTrue() {
           <div class='col s12'>
             <div class='card colorWhite bordered2'>
             <div class="input-field col s12">
-              <input maxlength="1" min="0" max="5" placeholder="Defina ponderación 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+              <input maxlength="1" min="0" max="5" placeholder="Points 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
             </div>
             <div class='card-content '>
             <h5>Falso y verdadero</h5>
@@ -858,7 +858,7 @@ function agregarFalseTrue() {
                 </form>
             </div>`;
     $("#contenedorCuestionarioPreguntas").append(ejercicio);
-    M.toast({ html: 'Ejercicio agregado' });
+    M.toast({ html: '➕1️⃣🏋️‍♂️💻' });
   }
 }
 agregarFalseTrue();
@@ -870,7 +870,7 @@ $(document).ready(function () {
     ".deleteFalseVerdadero",
     function () {
       $(this).closest(".preguntasTrueFalse").remove();
-      M.toast({ html: 'Pregunta eliminada' });
+      M.toast({ html: '➖1️⃣❓👍' });
     }
   );
 });
@@ -901,7 +901,7 @@ function agregarAbierta() {
           <div class='col s12'>
             <div class='card colorWhite bordered2'>
             <div class="input-field col s12">
-              <input maxlength="1" min="0" max="5" placeholder="Defina ponderación 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
+              <input maxlength="1" min="0" max="5" placeholder="Points 1-5" type="number" class="ponderacionGlobal validate shadow-1e colorGrey ponderacionInput browser-default">
             </div>
             <div class='card-content '>
             <h5>Pregunta abierta</h5>
@@ -937,7 +937,7 @@ function agregarAbierta() {
               </div>
             </div>`;
     $("#contenedorCuestionarioPreguntas").append(ejercicio);
-    M.toast({ html: 'Ejercicio agregado' });
+    M.toast({ html: '➕1️⃣🏋️‍♂️💻' });
   }
 }
 agregarAbierta();
@@ -949,7 +949,7 @@ $(document).ready(function () {
     ".deleteAbierta",
     function () {
       $(this).closest(".preguntasAbiertas").remove();
-      M.toast({ html: 'Pregunta eliminada' });
+      M.toast({ html: '➖1️⃣❓👍' });
     }
   );
 });
@@ -1815,7 +1815,7 @@ function anexarJsonViejo(idMuestra, idInputFile) {
       }
 
       fr.readAsText(this.files[0]);
-      M.toast({ html: 'Archivo leído.' });
+      M.toast({ html: '👍📖' });
     })
 }
 
