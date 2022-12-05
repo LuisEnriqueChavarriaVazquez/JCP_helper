@@ -1,6 +1,25 @@
 ////////////////////////////////////////////////////////
 //Plotly.newPlot('graph2', data, layout, config);
 
+//Creamos textos para identificar el idioma
+let español = ['Comparación de promedios grupales', 'Indices porcentuales de promedios', 'Histórico de puntajes en cada evaluación de cada grupo'];
+let ingles = ['Comparison of group averages', 'Percentage rates of averages', 'History of scores in each evaluation of each group'];
+let portugues = ['Comparação das médias dos grupos', 'Taxas percentuais das médias', 'Histórico das notas em cada avaliação de cada grupo'];
+let chino = ['组平均数比较','平均数百分比','每组每次评估的分数历史记录'];
+let futureLanguage = [];
+let currentLenguage = localStorage.getItem('idioma');
+console.log('currentLenguage', currentLenguage)
+
+if (currentLenguage == 'esp') {
+  futureLanguage = [...español];
+} else if (currentLenguage == 'en') {
+  futureLanguage = [...ingles];
+} else if (currentLenguage == 'pt') {
+  futureLanguage = [...portugues];
+} else if (currentLenguage == 'chn') {
+  futureLanguage = [...chino];
+}
+
 //Imprime la gráfica de barras
 function grafica_barras_promedio_general() {
     var trace1 = {
@@ -15,7 +34,7 @@ function grafica_barras_promedio_general() {
     var data = [trace1];
 
     var layout = { //Titulo de la gráfica
-        title: 'Comparación de promedios grupales',
+        title: `${futureLanguage[0]}`,
         font: { size: 10 }
     };
 
@@ -38,7 +57,7 @@ function grafica_pastel_promedio_general() {
     }];
 
     var layout = { //Titulo de la gráfica
-        title: 'Indices porcentuales de promedios',
+        title: `${futureLanguage[1]}`,
         font: { size: 10 }
     };
 
@@ -92,7 +111,7 @@ function grafica_lineal_promedio_general() {
 
   var layout = {
     //Titulo de la gráfica
-    title: "Histórico de puntajes en cada evaluación de cada grupo",
+    title: `${futureLanguage[2]}`,
     font: { size: 7 },
   };
 

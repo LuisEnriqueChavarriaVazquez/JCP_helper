@@ -1,3 +1,31 @@
+//Creamos textos para identificar el idioma
+let español_4 = ['Número de respuestas','Número de respuestas:','Promedio general','Promedio general:','Promedio tiempo respuestas por cuestionario','Cifras de aprobación y reprobación.','Cantidad de retrasos','${futureLanguage_4[7]}','Entrega con retraso:','Porcentaje de aciertos y error en cuestionario','Puntaje promedio/total: ','Porcentaje de aciertos por tipo de pregunta.','Tiempo'];
+let ingles_4 = ['Number of responses','Number of responses:','General average','General average:','Average response time per test','Pass and fail figures.','Number of delays','Give on time:','Delivery good answers and wrong answers in the test','Average/total score: ','Percentage of hits by question type.','Time'];
+let portugues_4 = ['Número de respostas','Número de respostas:','Promédio geral','Promédio geral:','Tempo médio de resposta por questionário','Números de aprovação e reprovação.','Número de atrasos','Dar na hora:','Entrega atrasada:','Porcentagem de acertos e erros no questionário','Pontuação média/total: ','Porcentagem de acertos por tipo de pergunta.','Tempo'];
+let chino_4 = ['回复数','回复数：','共同海损','共同海损：','每份问卷的平均回复时间','通过和失败的数字。','延误次数','按时交：','交货延迟：','调查问卷中的命中率和未命中率','平均/总分：','按问题类型划分的命中百分比。','时间'];
+let español_5 = ['Aprobado','Reprobado'];
+let ingles_5 = ['Approved','Failed'];
+let portugues_5 = ['Aprovado','Reprovado'];
+let chino_5 = ['通过', '失败'];
+let futureLanguage_4 = [];
+let futureLanguage_5 = [];
+let currentLenguage_4 = localStorage.getItem('idioma');
+console.log('currentLenguage_4', currentLenguage_4)
+
+if (currentLenguage_4 == 'esp') {
+  futureLanguage_4 = [...español_4];
+  futureLanguage_5 = [...español_5];
+} else if (currentLenguage_4 == 'en') {
+  futureLanguage_4 = [...ingles_4];
+  futureLanguage_5 = [...ingles_5];
+} else if (currentLenguage_4 == 'pt') {
+  futureLanguage_4 = [...portugues_4];
+  futureLanguage_5 = [...portugues_5];
+} else if (currentLenguage_4 == 'chn') {
+  futureLanguage_4 = [...chino_4];
+  futureLanguage_5 = [...chino_5];
+}
+
 //Se almacenan las IDS de los contenedores individuales.
 //Nos servira para en el futuro saber donde meter los gráficos
 let ids_indivual_cuestionarios = []
@@ -45,9 +73,9 @@ function numero_de_respuestas_por_cuestionario(idContainer, containerNumero) {
     contadorFrecuenciaRespuestasArray.forEach((respuestas, i = 0) => {
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Número de respuestas</div>
+            <div class="tituloContenedorUnitarioEstadisticas colorTextReverse bordered2Up">${futureLanguage_4[0]}</div>
             <div class="contenidoContenedorUnitarioEstadisticasModel2 bordered2Down">
-                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Número de respuestas: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${respuestas}</span></p>
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">${futureLanguage_4[1]} <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${respuestas}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
             numeroRespuestas.push(respuestas);
@@ -63,9 +91,9 @@ function promedio_general_por_cuestionario(idContainer, containerNumero) {
     promediosPorCuestionario.forEach((promedio, i = 0) => {
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Promedio general</div>
+            <div class="tituloContenedorUnitarioEstadisticas colorTextReverse bordered2Up">${futureLanguage_4[2]}</div>
             <div class="contenidoContenedorUnitarioEstadisticasModel2 bordered2Down">
-                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Promedio general: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${promedio}</span></p>
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">${futureLanguage_4[3]}: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${promedio}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
             promediosGenerales.push(promedio);
@@ -86,9 +114,9 @@ function promedio_tiempo_respuestas_por_cuestionario(idContainer, containerNumer
         //Insertamos el análisis de 1 de cada 10 pasan
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Promedio tiempo respuestas por cuestionario</div>
+            <div class="tituloContenedorUnitarioEstadisticas colorTextReverse bordered2Up">${futureLanguage_4[4]}</div>
             <div class="contenidoContenedorUnitarioEstadisticasModel2 bordered2Down">
-            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Tiempo: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${tiempo}hrs.</span></p>
+            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">${futureLanguage_4.at(-1)} <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${tiempo}hrs.</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
             tiempoPromedioRespuestas.push(tiempo);
@@ -102,10 +130,10 @@ function comparacion_entre_reprobados_aprobados_por_cuestionario(idContainer, co
     aprobacionCuestionarios.forEach((aprobacion, i = 0) => {
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Cifras de aprobación y reprobación.</div>
+            <div class="tituloContenedorUnitarioEstadisticas colorTextReverse bordered2Up">${futureLanguage_4[5]}</div>
             <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
-                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Aprobados:<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${aprobacionCuestionarios[i]}</span></p>
-                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Reprobados: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${reprobacionCuestionarios[i]}</span></p>
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">${futureLanguage_5[0]}<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${aprobacionCuestionarios[i]}</span></p>
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">${futureLanguage_5[1]} <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${reprobacionCuestionarios[i]}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
             cifrasAprobados.push(aprobacionCuestionarios[i]);
@@ -121,10 +149,10 @@ function distribucion_entregas_retraso_por_cuestionario(idContainer, containerNu
     a_tiempo_Cuestionarios.forEach((retraso, i = 0) => {
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Cantidad de retrasos</div>
+            <div class="tituloContenedorUnitarioEstadisticas colorTextReverse bordered2Up">${futureLanguage_4[6]}</div>
             <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">
-                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Entrega a tiempo:<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${a_tiempo_Cuestionarios[i]}</span></p>
-                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Entrega con retraso: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${retraso_Cuestionarios[i]}</span></p>
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">${futureLanguage_4[7]}<span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${a_tiempo_Cuestionarios[i]}</span></p>
+                <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">${futureLanguage_4[8]} <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${retraso_Cuestionarios[i]}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
              cantidadRetrasosAtiempo.push(a_tiempo_Cuestionarios[i]);
@@ -141,9 +169,9 @@ function puntaje_promedio_de_error_y_aciertos_cuestionario(idContainer, containe
         //Insertamos el análisis de 1 de cada 10 pasan
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-            <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Porcentaje de aciertos y error en cuestionario</div>
+            <div class="tituloContenedorUnitarioEstadisticas colorTextReverse bordered2Up">${futureLanguage_4[9]}</div>
             <div class="contenidoContenedorUnitarioEstadisticasModel2 bordered2Down">
-            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">Puntaje promedio/total: <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${puntaje[0]}/${puntaje[1]}</span></p>
+            <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">${futureLanguage_4[10]} <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">${puntaje[0]}/${puntaje[1]}</span></p>
             </div>`;
             contenedorPadre.innerHTML += contenido;
             PorcentajeAcierto.push(puntaje[0] + "/" + puntaje[1]);
@@ -159,14 +187,14 @@ function porcentaje_de_error_y_aciertos_cuestionario_por_tipo_pregunta(idContain
         //Insertamos el análisis de 1 de cada 10 pasan
         if (i == containerNumero) { //Valida que contenedor es...
             let contenido = `
-        <div class="tituloContenedorUnitarioEstadisticas bordered2Up">Porcentaje de aciertos por tipo de pregunta.</div>
+        <div class="tituloContenedorUnitarioEstadisticas colorTextReverse bordered2Up">${futureLanguage_4[11]}</div>
         <div class="contenidoContenedorUnitarioEstadisticas bordered2Down">`;
         cuestionarioTurno = [];
             cuestionario.forEach((tipoPregunta, j = 0) => {
                 contenido += `
                     <p class="colorGrey bordered1 colorTextReverse porcetageAprobacionParrafoUnitario">${nombreTipoPregunta[++j]}
-                    <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">Aciertos: ${tipoPregunta[1]}%</span>
-                    <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">Error: ${tipoPregunta[0]}%</span></p>
+                    <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">✅: ${tipoPregunta[1]}%</span>
+                    <span class="colorGreyDarker colorTextReverse porcentajeAprobacionSnippetUnitario">❌: ${tipoPregunta[0]}%</span></p>
                     `;
                    porcentaje = [
                      nombreTipoPregunta[j],

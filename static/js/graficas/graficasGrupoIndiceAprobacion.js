@@ -1,3 +1,31 @@
+//Creamos textos para identificar el idioma
+let español_1 = ['Comparación de reprobados vs aprobados', 'Porcentaje de aprobados vs reprobados', 'Aprobado', 'Reprobado', 'Global.', 'aprueban.'];
+let ingles_1 = ['Comparison fail vs pass', 'Percent pass vs fail', 'Pass', 'Fail', 'Global.', 'pass.'];
+let portugues_1 = ['Comparação reprovado x aprovado', 'Porcentagem de aprovados vs reprovados', 'Aprovado', 'Reprovado', 'Global.', 'aprovado.'];
+let chino_1 = ['比较失败与通过','通过与失败的百分比','通过','失败','全局','通过'];
+let español_2 = ['Aprobado','Reprobado'];
+let ingles_2 = ['Approved','Failed'];
+let portugues_2 = ['Aprovado','Reprovado'];
+let chino_2 = ['通过', '失败'];
+let futureLanguage_1 = [];
+let futureLanguage_2 = [];
+let currentLenguage_1 = localStorage.getItem('idioma');
+console.log('currentLenguage_1', currentLenguage_1)
+
+if (currentLenguage_1 == 'esp') {
+  futureLanguage_1 = [...español_1];
+  futureLanguage_2 = [...español_2];
+} else if (currentLenguage_1 == 'en') {
+  futureLanguage_1 = [...ingles_1];
+  futureLanguage_2 = [...ingles_2];
+} else if (currentLenguage_1 == 'pt') {
+  futureLanguage_1 = [...portugues_1];
+  futureLanguage_2 = [...portugues_2];
+} else if (currentLenguage_1 == 'chn') {
+  futureLanguage_1 = [...chino_1];
+  futureLanguage_2 = [...chino_2];
+}
+
 ////////////////////////////////////////////////////////
 //Imprime la gráfica de barras
 function grafica_barras_indice_aprobacion() {
@@ -45,7 +73,7 @@ function grafica_barras_indice_aprobacion() {
 
   var layout = {
     //Titulo de la gráfica
-    title: "Comparación de reprobados vs aprobados",
+    title: `${futureLanguage_1[0]}`,
     font: { size: 10 },
     barmode: "stack",
   };
@@ -73,7 +101,7 @@ function grafica_pastel_indice_aprobacion() {
 
     var data2 = [{
         values: arrayPorcentajeAprobacion,
-        labels: graficasTitle,
+        labels: futureLanguage_2,
         type: 'pie',
         marker: {
             colors: arrayColores
@@ -81,7 +109,7 @@ function grafica_pastel_indice_aprobacion() {
     }];
 
     var layout = { //Titulo de la gráfica
-        title: 'Porcentaje de aprobados vs reprobados',
+        title: `${futureLanguage_1[1]}`,
         font: { size: 10 }
     };
 
@@ -110,11 +138,11 @@ function barras_porcentage_por_grupo_aprobacion() {
             <section class="contenedorAnalisisPorcentage_son2">
                 <div class="significado_dato_son2">
                     <div class="color2 simbologiaBarra bordered1"> </div>
-                    <div class="colorTextReverse textoSignificado">Aprobado</div>
+                    <div class="colorTextReverse textoSignificado">${futureLanguage_1[2]}</div>
                 </div>
                 <div class="significado_dato_son2">
                     <div class="color3 simbologiaBarra bordered1"> </div>
-                    <div class="colorTextReverse textoSignificado">Reprobado</div>
+                    <div class="colorTextReverse textoSignificado">${futureLanguage_1[3]}</div>
                 </div>
             </section>
             <section class="contenedorAnalisisPorcentage_son3" id="dataContainerBarHTML">
@@ -127,7 +155,7 @@ function barras_porcentage_por_grupo_aprobacion() {
   let contenedorAnalisisHtml = document.getElementById("dataContainerBarHTML");
   let contendorGlobalDataAnalisisBar = `
         <div class="containerInfoBarAnalisisAprobacion bordered1 colorGreyWhiter shadow-1e">
-            <div class="titleInfoBarAnalisisAprobacion">Global.</div>
+            <div class="titleInfoBarAnalisisAprobacion colorTextReverse">${futureLanguage_1[4]}</div>
             <div class="barContainerInfoBarAnalisisAprobacion">
                 <p class="color2 colorText aprobadosBar_analisis" style="width:${porcentageGlobal[0]}%;"> ${porcentageGlobal[0]}% </p>
                 <p class="color3 colorText reprobadosBar_analisis" style="width:${porcentageGlobal[1]}%;"> ${porcentageGlobal[1]}% </p> 
@@ -142,7 +170,7 @@ function barras_porcentage_por_grupo_aprobacion() {
   );
   let contenidoAnalisis = `
         <p class="dato_son1">
-            <span class="dato_1_son1">${aprobadosFormatoDiez}</span> / <span class="dato_2_son1">10</span> aprueban.
+            <span class="dato_1_son1">${aprobadosFormatoDiez}</span> / <span class="dato_2_son1">10</span> ${futureLanguage_1[5]}
         </p>
     `;
   containerAnalisiAprobados.innerHTML = contenidoAnalisis;
@@ -151,7 +179,7 @@ function barras_porcentage_por_grupo_aprobacion() {
   nombreGrupos_unitario.forEach((nombre, i = 0) => {
     contendorGlobalDataAnalisisBar = `
             <div class="containerInfoBarAnalisisAprobacion bordered1 colorGreyWhiter shadow-1e">
-                <div class="titleInfoBarAnalisisAprobacion">${nombre}</div>
+                <div class="titleInfoBarAnalisisAprobacion colorTextReverse">${nombre}</div>
                 <div class="barContainerInfoBarAnalisisAprobacion">
                     <p class="color2 colorText aprobadosBar_analisis" style="width:${porcentagesDividosPorGrupo[i][0]}%;"> ${porcentagesDividosPorGrupo[i][0]}% </p>
                     <p class="color3 colorText reprobadosBar_analisis" style="width:${porcentagesDividosPorGrupo[i][1]}%;"> ${porcentagesDividosPorGrupo[i][1]}% </p> 

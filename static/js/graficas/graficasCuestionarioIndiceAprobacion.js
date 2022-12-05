@@ -1,29 +1,48 @@
+//Creamos textos para identificar el idioma
+let español_3 = ['Aciertos', 'Error', 'Opción multiple', 'Rellenar espacios', 'Ejercicios', 'Arrastrar', 'Falso/verdadero', 'Pregunta abierta', 'Tiempo promedio en horas respuestas cuestionario.', 'Comparación de reprobados vs aprobados'];
+let ingles_3 = ['Good ones','Errors','Multiple choice','Fill in the blanks','Exercises','Drag and drop','True/False','Open question', 'Average time in hours to answer the questionnaire.', 'Comparison of failed vs. approved'];
+let portugues_3 = ['Acertos','Erro','Múltipla escolha','Preencher os espaços em branco','Exercícios','Arrastar','Verdadeiro/Falso','Pergunta aberta', 'Tempo médio em horas para responder o questionário.', 'Comparativo de reprovado x aprovado'];
+let chino_3 = ['命中', '错误', '多项选择', '填空', '习题', '拖动', '判断题', '开题', '回答问卷的平均时间（以小时为单位）。','失败与批准的比较'];
+let futureLanguage_3 = [];
+let currentLenguage_3 = localStorage.getItem('idioma');
+console.log('currentLenguage_3', currentLenguage_3)
+
+if (currentLenguage_3 == 'esp') {
+  futureLanguage_3 = [...español_3];
+} else if (currentLenguage_3 == 'en') {
+  futureLanguage_3 = [...ingles_3];
+} else if (currentLenguage_3 == 'pt') {
+  futureLanguage_3 = [...portugues_3];
+} else if (currentLenguage_3 == 'chn') {
+  futureLanguage_3 = [...chino_3];
+}
+
 ////////////////////////////////////////////////////////
 //Imprime la gráfica de barras
 function grafica_tiempo_general_respuesta_cuestinario() {
-    //Vaciamos de manera manual contenido de la caja
-    let container = document.getElementById('graph4');
-    container.innerHTML = "";
+  //Vaciamos de manera manual contenido de la caja
+  let container = document.getElementById('graph4');
+  container.innerHTML = "";
 
-    var trace1 = {
-        type: 'bar',
-        x: cuestionarioConRespuestas,
-        y: promedioTiempoPorCuestionario, //Promedio de tiempo
-        marker: {
-            color: arrayColores
-        }
-    };
+  var trace1 = {
+    type: 'bar',
+    x: cuestionarioConRespuestas,
+    y: promedioTiempoPorCuestionario, //Promedio de tiempo
+    marker: {
+      color: arrayColores
+    }
+  };
 
-    var data = [trace1];
+  var data = [trace1];
 
-    var layout = { //Titulo de la gráfica
-        title: 'Tiempo promedio en horas respuestas cuestionario.',
-        font: { size: 10 }
-    };
+  var layout = { //Titulo de la gráfica
+    title: `${futureLanguage_3.at(-1)}`,
+    font: { size: 10 }
+  };
 
-    var config = { responsive: true } //Ajuste responsivo
+  var config = { responsive: true } //Ajuste responsivo
 
-    Plotly.newPlot('graph4', data, layout, config);
+  Plotly.newPlot('graph4', data, layout, config);
 }
 grafica_tiempo_general_respuesta_cuestinario(); //Esta ejecuta la gráfica por defecto
 
@@ -54,9 +73,9 @@ function grafica_aprobados_reprobados_por_cuestionario() {
       marker: { color: `${arrayColoresDuales[i++]}` },
     };
     elementoReprobadosAprobadosCuestiBarra = [
-    claseAlumno,
-    cuestionarioConRespuestas,
-    aprobacionCuestionarioMultidimensionalCuenta[contador - 1],
+      claseAlumno,
+      cuestionarioConRespuestas,
+      aprobacionCuestionarioMultidimensionalCuenta[contador - 1],
     ];
     reprobadosAprobadosCuestiBarra.push(elementoReprobadosAprobadosCuestiBarra);
 
@@ -74,7 +93,7 @@ function grafica_aprobados_reprobados_por_cuestionario() {
 
   var layout = {
     //Titulo de la gráfica
-    title: "Comparación de reprobados vs aprobados",
+    title: `${futureLanguage_3.at(-2)}`,
     font: { size: 10 },
     barmode: "stack",
   };
@@ -88,7 +107,7 @@ function grafica_aprobados_reprobados_por_cuestionario() {
     "trendGlobalAprobacion"
   );
   tendenciaGlobalAprobación.innerText = arrayPorcentajeAprobacion[0];
-  document.getElementById("aprobadosReprobadosCuestionarioBarra").value =JSON.stringify(reprobadosAprobadosCuestiBarra);
+  document.getElementById("aprobadosReprobadosCuestionarioBarra").value = JSON.stringify(reprobadosAprobadosCuestiBarra);
 }
 
 function porcentaje_aciertos_tipo_pregunta() {
@@ -102,36 +121,36 @@ function porcentaje_aciertos_tipo_pregunta() {
             <section class="contenedorAnalisisPorcentage_son2">
                 <div class="significado_dato_son2">
                     <div class="color2 simbologiaBarra bordered1"> </div>
-                    <div class="colorTextReverse textoSignificado">Aciertos</div>
+                    <div class="colorTextReverse textoSignificado">${futureLanguage_3[0]}</div>
                 </div>
                 <div class="significado_dato_son2">
                     <div class="color3 simbologiaBarra bordered1"> </div>
-                    <div class="colorTextReverse textoSignificado">Error</div>
+                    <div class="colorTextReverse textoSignificado">${futureLanguage_3[1]}</div>
                 </div>
                 <div class="significado_dato_son3">
                     <div class="containerSimbologiaTipoPregunta">
                         <div class="color5 simbologiaBarraPequeno bordered1"> </div>   
-                        <div class="colorTextReverse textoTipoPregunta">Opt1 = <span class="tipoPreguntaSpan">Opción multiple</span></div>
+                        <div class="colorTextReverse textoTipoPregunta">Opt1 = <span class="tipoPreguntaSpan">${futureLanguage_3[2]}</span></div>
                     </div>    
                     <div class="containerSimbologiaTipoPregunta">    
                         <div class="color5 simbologiaBarraPequeno bordered1"> </div>
-                        <div class="colorTextReverse textoTipoPregunta">Opt2 = <span class="tipoPreguntaSpan">Rellenar espacios</span></div>
+                        <div class="colorTextReverse textoTipoPregunta">Opt2 = <span class="tipoPreguntaSpan">${futureLanguage_3[3]}</span></div>
                     </div>
                     <div class="containerSimbologiaTipoPregunta">    
                         <div class="color5 simbologiaBarraPequeno bordered1"> </div>
-                        <div class="colorTextReverse textoTipoPregunta">Opt3 = <span class="tipoPreguntaSpan">Ejercicios</span></div>
+                        <div class="colorTextReverse textoTipoPregunta">Opt3 = <span class="tipoPreguntaSpan">${futureLanguage_3[4]}</span></div>
                     </div>
                     <div class="containerSimbologiaTipoPregunta">    
                         <div class="color5 simbologiaBarraPequeno bordered1"> </div>
-                        <div class="colorTextReverse textoTipoPregunta">Opt4 = <span class="tipoPreguntaSpan">Arrastrar</span></div>
+                        <div class="colorTextReverse textoTipoPregunta">Opt4 = <span class="tipoPreguntaSpan">${futureLanguage_3[5]}</span></div>
                     </div>
                     <div class="containerSimbologiaTipoPregunta">    
                         <div class="color5 simbologiaBarraPequeno bordered1"> </div>
-                        <div class="colorTextReverse textoTipoPregunta">Opt5 = <span class="tipoPreguntaSpan">Falso/verdadero</span></div>
+                        <div class="colorTextReverse textoTipoPregunta">Opt5 = <span class="tipoPreguntaSpan">${futureLanguage_3[6]}</span></div>
                     </div>
                     <div class="containerSimbologiaTipoPregunta">    
                         <div class="color5 simbologiaBarraPequeno bordered1"> </div>
-                        <div class="colorTextReverse textoTipoPregunta">Opt6 = <span class="tipoPreguntaSpan">Pregunta abierta</span></div>
+                        <div class="colorTextReverse textoTipoPregunta">Opt6 = <span class="tipoPreguntaSpan">${futureLanguage_3[7]}</span></div>
                     </div>
                 </div>
             </section>
@@ -150,7 +169,7 @@ function porcentaje_aciertos_tipo_pregunta() {
   nombreTipoPregunta.forEach((nombre, i = 0) => {
     contendorGlobalDataAnalisisBar = `
             <div class="containerInfoBarAnalisisAprobacion bordered1 colorGreyWhiter shadow-1e">
-                <div class="titleInfoBarAnalisisAprobacion">${nombre}</div>
+                <div class="titleInfoBarAnalisisAprobacion colorTextReverse">${nombre}</div>
                 <div class="barContainerInfoBarAnalisisAprobacion">
                     <p class="color2 colorText aprobadosBar_analisis" style="width: ${optTotalTipoPregunta[i][1]}%;"> ${optTotalTipoPregunta[i][1]}% </p>
                     <p class="color3 colorText reprobadosBar_analisis" style="width: ${optTotalTipoPregunta[i][0]}%;"> ${optTotalTipoPregunta[i][0]}% </p> 
@@ -165,5 +184,5 @@ function porcentaje_aciertos_tipo_pregunta() {
     ];
     porcentajeAciertosTipoPregunta.push(elementoTipoPregunta);
   });
-  document.getElementById("porcentajeAciertosTipoPregunta").value =JSON.stringify(porcentajeAciertosTipoPregunta);
+  document.getElementById("porcentajeAciertosTipoPregunta").value = JSON.stringify(porcentajeAciertosTipoPregunta);
 }

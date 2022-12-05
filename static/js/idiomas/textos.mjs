@@ -145,7 +145,7 @@ let rutas = {
             texts: ['Sign up estudiante.', 'Sign up estudiante.', 'Sign up estudiante.', 'Volver al inicio', 'Creación de cuenta', 'Creación de cuenta', 'Datos básicos', 'Nombre ', 'Alias ', 'Correo ', 'Password ', 'Confirmación ', 'Escuela de procedencia ', 'Descripción general (Opcional)', 'Área de especialización (Opcional)', 'Foto de perfil', 'Elegir foto', 'Registrarse', ...textosFooter[0]]
         },
         "textIngles": {
-            texts: ['Sign up student.', 'Sign up student.', 'Sign up student.', 'Back to top', 'Account creation', 'Account creation', 'Basic data', 'Name ', 'alias', 'Mail ', 'Password ', 'confirmation', 'School of origin ', 'Overview (Optional)', 'Area of specialization (Optional)', 'Profile picture', 'Choose photo', 'Check in', ...textosFooter[1]]
+            texts: ['Sign up student.', 'Sign up student.', 'Sign up student.', 'Return', 'Account creation', 'Account creation', 'Basic data', 'Name ', 'alias', 'Mail ', 'Password ', 'confirmation', 'School of origin ', 'Overview (Optional)', 'Area of specialization (Optional)', 'Profile picture', 'Choose photo', 'Check in', ...textosFooter[1]]
         },
         "textPortugues": {
             texts: ['Cadastre-se aluno.', 'Cadastre-se aluno.', 'Cadastre-se aluno.', 'Voltar ao início', 'Criação de conta', 'Criação de conta', 'Dados básicos', 'Nome ', 'pseudônimo', 'Correspondência ', 'Senha ', 'confirmação', 'Escola de origem', 'Visão geral (opcional)', 'Área de especialização (opcional)', 'Imagem de perfil', 'Escolher Foto', 'Check-in', ...textosFooter[2]]
@@ -546,7 +546,7 @@ let rutas = {
             texts: ['Editar post.','Editar post.','Editar post.','Volver al inicio','Formulario de edición.','Formulario de edición.','Datos del POST','Titulo del post','Descripción del post','Multimedia','URL de imagen','Editar']
         },
         "textIngles": {
-            texts: ['Edit post.','Edit post.','Edit post.','Back to top','Edit form.','Edit form.','POST data','Post title','Post description','Multimedia','image url','Edit']
+            texts: ['Edit post.','Edit post.','Edit post.','Return','Edit form.','Edit form.','POST data','Post title','Post description','Multimedia','image url','Edit']
         },
         "textPortugues": {
             texts: ['Editar post.','Editar post.','Editar post.','Voltar ao início','Editar formulário.','Editar formulário.','Dados de postagem','Título da postagem','Descrição da postagem','Multimídia','imagem URL','Editar']
@@ -613,80 +613,16 @@ let rutas = {
     },
     "gestionar_estadisticas": {
         "textEspanol": {
-            texts: [
-                'Gestionar estadísticas.',
-                'Estadísticas.',
-                'Estadísticas.',
-                'Volver al inicio',
-                'Grupos',
-                'Cuestionarios',
-                'Alumnos',
-                'Resumen general',
-                'Resumen general',
-                'Grupos',
-                'Alumnos',
-                'Cuestionarios',
-                'Promedio global',
-                'Número de grupos',
-                'Número de alumnos',
-                'Número de cuestionarios',
-                'Promedio global',
-                'Gráficas globales',
-                'Gráficas globales',
-                'Promedio general de grupos.',
-                'Comparación de promedios grupales',
-                'Aprobación general de grupos.',
-                'Reporte global',
-                'Gráficas globales',
-                'Gráficas globales',
-                'Insights cuestionarios generales.',
-                'Insights cuestionarios generales 2.',
-                'Reporte general',
-                'Listado de estudiantes',
-                'Listado de estudiantes',
-                'Grupos.',
-                'Comentarios de los alumnos.',
-                'Comentarios de los alumnos.']
+            texts: ['Administrar estadísticas.','Estadísticas.','Estadísticas.','Devolver','Grupos','Pruebas','Estudiantes','Visión general','Visión general','Grupos','Estudiantes','Pruebas','Promedio global','Número de grupos','Numero de estudiantes','Número de cuestionarios','Promedio global','Gráficos globales','Gráficos globales','Promedio general de grupos.','Aprobación general del grupo.','Informe mundial','Gráficos globales','Gráficos globales','Cuestionarios generales de Insights.','Cuestionarios generales de Insights 2.','Informe general','Lista de alumnos','Lista de alumnos','Grupos.','Comentarios de estudiantes.','Comentarios de los estudiantes.']
         },
         "textIngles": {
-            texts: ['Manage statistics.',
-            'Statistics.',
-            'Statistics.',
-            'Back to top',
-            'Groups',
-            'Tests',
-            'Students',
-            'Overview',
-            'Overview',
-            'Groups',
-            'Students',
-            'Tests',
-            'Global average',
-            'Number of groups',
-            'Number of students',
-            'Number of questionnaires',
-            'Global average',
-            'Global graphics',
-            'Global graphics',
-            'General average of groups.',
-            'General group approval.',
-            'Global report',
-            'Global graphics',
-            'Global graphics',
-            'Insights general questionnaires.',
-            'Insights general questionnaires 2.',
-            'General report',
-            'List of students',
-            'List of students',
-            'Groups.',
-            'Student comments.',
-            'Student comments.']
+            texts: ['Manage statistics.','Statistics.','Statistics.','Return','Groups','Tests','Students','Overview','Overview','Groups','Students','Tests','Global average','Number of groups','Number of students','Number of tests','Global average','Global graphics','Global graphics','General average of groups.','General group approval.','Global report','Global graphics','Global graphics','Insights general tests.','Insights general tests 2.','General report','List of students','List of students','Groups.','Student comments.','Student comments.']
         },
         "textPortugues": {
-            texts: []
+            texts: ['Gerenciar estatísticas.','Estatisticas.','Estatisticas.','Retornar','Grupos','Testes','Estudantes','Visão geral','Visão geral','Grupos','Estudantes','Testes','Média global','Número de grupos','Número de estudantes','Número de questionários','Média global','Gráficos globais','Gráficos globais','Média geral dos grupos.','Aprovação geral do grupo.','Relatório global','Gráficos globais','Gráficos globais','Insights questionários gerais.','Insights questionários gerais 2.','Relatório geral','Lista de alunos','Lista de alunos','Grupos.','Comentários dos alunos.','Comentários dos alunos.']
         },
         "textChino": {
-            texts: []
+            texts: ['管理统计数据。','统计数据。','统计数据。','返回','团体','测试','学生','概述','概述','团体','学生','测试','全球平均水平','组数','学生人数','问卷数量','全球平均水平','全局图形','全局图形','群体的共同平均水平。','一般组批准。','全球报告','全局图形','全局图形','Insights 一般问卷。','Insights 一般问卷 2.','一般报告','学生名单','学生名单','团体。','学生评论','学生评论。']
         }
     },
     "saber_mas2": {

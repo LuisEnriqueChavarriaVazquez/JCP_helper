@@ -111,7 +111,7 @@ function mostrarComentarios(selectorArray, id, numeroGrupo) {
                             <p class="coloreTextReverse">${nombreAlumnoRetroMultidimensional[selectorArray][j][i]}</p>
                         </div>
                     </div>
-                    <div class="comentarioContainerRetroalimentacion-comentary">
+                    <div class="comentarioContainerRetroalimentacion-comentary colorTextReverse">
                             ${contenidoIndividual}
                     </div>
                 </div>
