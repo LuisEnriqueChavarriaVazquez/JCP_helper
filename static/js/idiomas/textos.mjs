@@ -381,7 +381,21 @@ let rutas = {
             texts: ['我的群组。','我的群组。','我的群组。','返回','一般数据','小组介绍：','集团语言：','小组主题：','测验。','学生。']
         }
     },
-    "saber_mas2": {
+    "viewCuestionarioInfo": {
+        "textEspanol": {
+            texts: ["Caca"]
+        },
+        "textIngles": {
+            texts: []
+        },
+        "textPortugues": {
+            texts: []
+        },
+        "textChino": {
+            texts: []
+        }
+    },
+    "gestionar_cuestionarios": {
         "textEspanol": {
             texts: []
         },

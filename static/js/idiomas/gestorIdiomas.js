@@ -67,8 +67,17 @@ function rutaValidation(stringUrl) {
         return "editGroup"
     }else if(stringUrl.includes("viewGroup")){
         return "viewGroup"
+    }else if(stringUrl.includes("viewGroupEstudiante")){
+        return "viewGroupEstudiante"
     }else if(stringUrl.includes("viewCuestionario")){
-        return "viewCuestionario"
+        console.log('stringUrl', stringUrl)
+        if(stringUrl.search(/viewCuestionarioInfo/) != -1){
+            console.log(stringUrl.search(/viewCuestionarioInfo/))
+            return "viewCuestionarioInfo"
+        }else if(stringUrl.search(/viewCuestionario/) != -1){
+            console.log(stringUrl.search(/viewCuestionario/) != -1)
+            return "viewCuestionario"
+        }
     }else if(stringUrl.includes("previewVerComoALumnoCuestionario")){
         return "previewVerComoALumnoCuestionario"
     }else if(stringUrl.includes("simularRevision")){
@@ -83,8 +92,6 @@ function rutaValidation(stringUrl) {
         return "mis_grupos"
     }else if(stringUrl.includes("viewTeacherProfile")){
         return "viewTeacherProfile"
-    }else if(stringUrl.includes("viewGroupEstudiante")){
-        return "viewGroupEstudiante"
     }
     
     
