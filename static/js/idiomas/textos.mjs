@@ -541,18 +541,18 @@ let rutas = {
             texts: ['编辑帖子。','编辑帖子。','编辑帖子。','返回','编辑表格。','编辑表格。','发布数据','帖子标题','帖子描述','多媒体','图片网址','编辑']
         }
     },
-    "saber_mas2": {
+    "editarPost": {
         "textEspanol": {
-            texts: []
+            texts: ['Editar post.','Editar post.','Editar post.','Volver al inicio','Formulario de edición.','Formulario de edición.','Datos del POST','Titulo del post','Descripción del post','Multimedia','URL de imagen','Editar']
         },
         "textIngles": {
-            texts: []
+            texts: ['Edit post.','Edit post.','Edit post.','Back to top','Edit form.','Edit form.','POST data','Post title','Post description','Multimedia','image url','Edit']
         },
         "textPortugues": {
-            texts: []
+            texts: ['Editar post.','Editar post.','Editar post.','Voltar ao início','Editar formulário.','Editar formulário.','Dados de postagem','Título da postagem','Descrição da postagem','Multimídia','imagem URL','Editar']
         },
         "textChino": {
-            texts: []
+            texts: ['编辑帖子。','编辑帖子。','编辑帖子。','回到顶部','编辑表格。','编辑表格。','发布数据','帖子标题','帖子描述','多媒体','图片网址','编辑']
         }
     },
     "saber_mas2": {

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Editar post</title>
+    <title class="TDI">Editar post</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -18,19 +18,19 @@
     <!--Menu de página de inicio-->
     <nav class="color2">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Editar post.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Editar post.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Editar post.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Editar post.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded TDI">Volver al inicio</a></li>
             </ul>
         </div>
     </nav>
     <!--Titulos de la página-->
     <div class="title-general">
-        <h5 class="colorTextReverse hide-on-large-only hide-on-med-only">Formulario de edición.</h5>
-        <h4 class="colorTextReverse hide-on-small-only">Formulario de edición.</h4>
+        <h5 class="colorTextReverse hide-on-large-only hide-on-med-only TDI">Formulario de edición.</h5>
+        <h4 class="colorTextReverse hide-on-small-only TDI">Formulario de edición.</h4>
     </div>
 
     <!--Contenedor principal-->
@@ -47,41 +47,51 @@
         <section class="contenedorFormularioPrincipal">
             <form class="popUpForm bordered2 colorGreyWhiter shadow-2e" action="/updatePost/{{post[0][0]}}"
                 method="post">
-                <h5>Datos del POST</h5>
+                <h5 class="TDI">Datos del POST</h5>
                 <div class="row">
                     <div class="input-field col s12 m12 l6">
                         <input value="{{post[0][2]}}" id="tituloPostTwo" name="tituloPostTwo" type="text"
-                            class="validate">
-                        <label for="tituloPostTwo">Titulo del post</label>
+                            class="validate colorTextReverse">
+                        <label for="tituloPostTwo" class="TDI">Titulo del post</label>
                     </div>
                     <div class="input-field col s12 m12 l6">
                         <textarea id="descripcionPostTwo" name="descripcionPostTwo"
-                            class="validate materialize-textarea" data-length="100">{{post[0][3]}}</textarea>
-                        <label for="descripcionPostTwo">Descripción del post</label>
+                            class="validate materialize-textarea colorTextReverse" data-length="100">{{post[0][3]}}</textarea>
+                        <label for="descripcionPostTwo" class="TDI">Descripción del post</label>
                     </div>
                 </div>
 
-                <h5>Multimedia</h5>
+                <h5 class="TDI">Multimedia</h5>
                 <div class="row">
                     <div class="input-field col s12 m12">
                         <input placeholder="Fondo para el grupo" id="fondoPostTwo" name="fondoPostTwo" type="text"
-                            value="{{post[0][4]}}">
-                        <label for="fondoPostTwo">URL de imagen</label>
+                            value="{{post[0][4]}}" class="colorTextReverse">
+                        <label for="fondoPostTwo" class="TDI">URL de imagen</label>
                     </div>
                 </div>
 
-                <button type="submit" class="btn-large color2 bordered5 buttonPopUp">Editar</button>
+                <button type="submit" class="btn-large color2 bordered5 buttonPopUp TDI">Editar</button>
 
             </form>
         </section>
     </section>
 
-</body>
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
 
+</body>
 
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
 
 <script src="../../static/js/operacionesEditarPerfil.js"></script>
+
+<!--Traductor-->
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
 </html>

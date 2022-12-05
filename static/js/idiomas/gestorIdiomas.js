@@ -108,6 +108,10 @@ function rutaValidation(stringUrl) {
         return "gestionar_resultados_alumno"
     } else if (stringUrl.includes("editarPostAlumno")) {
         return "editarPostAlumno"
+    }else if (stringUrl.includes("editarPost")) {
+        return "editarPost"
+    }else if (stringUrl.includes("editCuestionario")) {
+        return "editCuestionario"
     }
 
     //En caso de que la URL no tenga IDs
