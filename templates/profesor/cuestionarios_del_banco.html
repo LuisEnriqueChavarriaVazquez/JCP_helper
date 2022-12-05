@@ -18,11 +18,11 @@
     <nav class="color2">
         <div class="nav-wrapper">
             <a href="#" class="brand-logo hide-on-small-only">Banco de datos.</a>
-            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
+            <a href="/bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
             <p class="titleMobile colorText flow-text hide-on-med-and-up">Banco de datos.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="/bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
             </ul>
         </div>
     </nav>
@@ -42,22 +42,20 @@
             <input type="submit" class="btn color2 bordered5 buttonSendBanco" value="Aceptar">
         </form>
         {% if lenguaje %}
-        <h5>Configura tu cuestionario en {{lenguaje}} conforme a lo siguiente</h5>
+        <h5>Selecciona tu cuestionario en {{lenguaje}}</h5>
         {% endif %}
 
-        <form action="/genera_cuestionarios_por_lenguaje?lenguaje={{lenguaje}}" method="post">
-            <p>Selecciona los temas que tendra el cuestionario</p>
-            {% if temas %}
-            {% for i in range(temas|length) %}
+        <form action="/genera_cuestionarios_por_lenguaje" method="post">
+            {% if cuestionarios %}
+            {% for cuestionario in cuestionarios %}
             <label>
-                <input type="checkbox" class="filled-in" name="llaves" value="{{temas[i]}},{{tipos[i]}}" />
-                <span>Temas: {{temas[i]}}   <br>Tipo de examen: {{tipos[i]}}</span>
+                <input type="checkbox" class="filled-in" name="idCuestionario" value="{{cuestionario['idCuestionario']}}" />
+                <span>Titulo: {{cuestionario['titulo']}}<br>
+                    Tipo: {{cuestionario['tipo']}}<br>
+                    Temas: {{cuestionario['temas']}}</span>
             </label>
-            <br>
+            <br><br><br><br>
             {% endfor %}
-            {% endif %}
-            <br>
-            {% if temas %}
             <input type="submit" class="btn color2 bordered5 buttonSendBanco" value="Generar cuestionario">
             {% endif %}
         </form>
