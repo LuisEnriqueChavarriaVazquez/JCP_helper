@@ -116,6 +116,93 @@ function calculadoraPromedios() {
     return `${(percentage/10).toFixed(2)}/${grades}`;
 }
 
+//Hacemos el conteo de los elementos requeridos
+function contadorElementosTiempo(){
+    let tiempos = dataClean.map((element) => {
+        return element.at(-1);
+    });
+
+    let a_tiempo = [];
+    let con_retraso = tiempos.filter(element =>{
+        if(element == 'a_tiempo'){
+            a_tiempo.push(element);
+        }else if(element == 'retraso'){
+            return element;
+        }
+    });
+    
+    let longitud = [a_tiempo.length, con_retraso.length];
+    return longitud;
+}
+
+//Hacemos el conteo de los elementos requeridos para los aprobados y reprobados
+function contadorAprobadoReprobados(){
+    let tiempos = dataClean.map((element) => {
+        return element[5];
+    });
+
+    let aprobado = [];
+    let reprobado = tiempos.filter(element =>{
+        if(element == 'aprobado'){
+            aprobado.push(element);
+        }else if(element == 'reprobado'){
+            return element;
+        }
+    });
+    
+    let longitud = [aprobado.length, reprobado.length];
+    return longitud;
+}
+
+//Hacemos el conteo de los elementos ready y pending
+function contadorReadyPending(){
+    let tiempos = dataClean.map((element) => {
+        return element[4];
+    });
+
+    let ready = [];
+    let started = [];
+    let pending = tiempos.filter(element =>{
+        if(element == 'ready'){
+            ready.push(element);
+        }else if(element == 'pending'){
+            return element;
+        }else if(element == 'started'){
+            started.push(element);
+        }
+    });
+    
+    let longitud = [ready.length, pending.length, started.length];
+    console.log(longitud)
+    return longitud;
+}
+
+//Accedemos a los valores con conteo de datos adicionales
+let aTiempo = document.getElementById('value_1_mini');
+let conRetraso = document.getElementById('value_2_mini');
+let aprobados = document.getElementById('value_5_mini');
+let reprobados = document.getElementById('value_6_mini');
+let ready = document.getElementById('value_4_mini');
+let pendiente = document.getElementById('value_3_mini');
+let started = document.getElementById('value_8_mini');
+let tiempoPromedio = document.getElementById('value_7_mini');
+
+//Insertamos los elementos a tiempo y con retraso
+let valoresTiempo = contadorElementosTiempo();
+aTiempo.textContent = valoresTiempo[0];
+conRetraso.textContent = valoresTiempo[1];
+
+//Insertamos los elementos de aprobados y reprobados
+let valoresAprobadosReprobados = contadorAprobadoReprobados();
+aprobados.textContent = valoresAprobadosReprobados[0];
+reprobados.textContent = valoresAprobadosReprobados[1];
+
+//Insertamos los elementos de ready y de pending
+let valorReadyPending = contadorReadyPending();
+ready.textContent = valorReadyPending[0];
+pendiente.textContent = valorReadyPending[1];
+started.textContent = valorReadyPending[2];
+
 ///////////////////////////////////////////
 //Insercion de la tendencia de promedio
 let tendenciaPromedioElement = document.getElementById('number_4');
