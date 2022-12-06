@@ -154,3 +154,51 @@
         margin: 0px 20px;
     }
 }
+
+/*Estilos para las stats de estudiantes*/
+.generalStatSonContainer{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 90px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.numberStatStyle{
+    font-size: 60px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -5px;
+    margin-left: 5px;
+}
+
+.textStatStyle{
+    font-size: 19px;
+    font-weight: 500;
+    display: flex;
+    justify-content: left;
+    align-self: flex-end;
+    margin-left: 5px;
+}
+
+.textStatStyle_dos{
+    font-size: 19px;
+    font-weight: 500;
+    display: flex;
+    justify-content: left;
+    align-self: flex-end;
+    margin-left: 5px;
+    position: relative;
+    top: -25px;
+}
+
+.nombreCuestionario_stat_alternate{
+    position: absolute;
+    top: 30px;
+    font-weight: 500;
+    font-size: 12px;
+}

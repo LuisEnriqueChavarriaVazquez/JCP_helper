@@ -40,27 +40,37 @@
                 <h5 class="colorText hide-on-small-only TDI" id="cajaTituloBuscadorContenidoLargeId">Panel global</h5>
             </div>
 
-            <br><br><br><br>
+            <br><br>
+            <br class="hide-on-small-only">
 
             <!--Stats de los estudiantes-->
             <div class="titleReportsStyle_student">
                 <h5 class="colorTextReverse">Stats de interés</h5>
             </div>
             <section class="gridStatsEstudiantes_resultados">
-                <div class="colorWhite bordered1 shadow-1" id="stat_1">
+                <div class="generalStatSonContainer colorWhite bordered1 shadow-1" id="stat_1">
+                    <p class="numberStatStyle" id="number_1">32</p>
+                    <p class="textStatStyle coloredText" id="data_1">Cuestionarios totales.</p>
+                </div>
+                <div class="generalStatSonContainer colorWhite bordered1 shadow-1" id="stat_2">
+                    <p class="numberStatStyle" id="number_2">6.6</p>
+                    <p class="textStatStyle coloredText" id="data_2">Promedio global.</p>
+                </div>
+                <div class="generalStatSonContainer colorWhite bordered1 shadow-1" id="stat_3">
+                    <p class="numberStatStyle" id="number_2">9.8</p>
+                    <p class="textStatStyle_dos coloredText" id="data_2">
+                        Mejor resultado.
+                        <span class="nombreCuestionario_stat_alternate">
+                            Cuestionario x dsnsdkdsksd sdnsdk
+                        </span>
+                    </p>
+                </div>
+                <div class="generalStatSonContainer colorWhite bordered1 shadow-1" id="stat_4">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ab repellat deserunt nulla ducimus provident tempore temporibus odit hic velit, accusamus laudantium accusantium eos et alias ullam. Tempore, vel aut!
                 </div>
-                <div class="colorWhite bordered1 shadow-1" id="stat_2">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ab repellat deserunt nulla ducimus provident tempore temporibus odit hic velit, accusamus laudantium accusantium eos et alias ullam. Tempore, vel aut!
-                </div>
-                <div class="colorWhite bordered1 shadow-1" id="stat_3">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ab repellat deserunt nulla ducimus provident tempore temporibus odit hic velit, accusamus laudantium accusantium eos et alias ullam. Tempore, vel aut!
-                </div>
-                <div class="colorWhite bordered1 shadow-1" id="stat_4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ab repellat deserunt nulla ducimus provident tempore temporibus odit hic velit, accusamus laudantium accusantium eos et alias ullam. Tempore, vel aut!
-                </div>
-                <div class="colorWhite bordered1 shadow-1" id="stat_5">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ab repellat deserunt nulla ducimus provident tempore temporibus odit hic velit, accusamus laudantium accusantium eos et alias ullam. Tempore, vel aut!
+                <div class="generalStatSonContainer colorWhite bordered1 shadow-1" id="stat_5">
+                    <p class="numberStatStyle" id="number_2">88%</p>
+                    <p class="textStatStyle coloredText" id="data_2">Probabilidad de aprobar.</p>
                 </div>
             </section>
 
@@ -85,6 +95,7 @@
                 {%endfor%}
                 {% endif %}
             </div>
+            <br>
         </section>
     </section>
     <!--Botones para que el gestor de idiomas no falle-->
