@@ -2,7 +2,162 @@
 let dataUserToShow = document.getElementById('datos_cuestionario_hechos_alumno').value;
 //Data limpia
 let dataClean = limpiarDatos(dataUserToShow);
-console.log('dataClean', dataClean)
+
+//Obtenemos los puntos de cada una de las preguntas
+function obtenerPuntos(){
+    //Obtener solo los puntos en crudo
+    let puntosCrudos = dataClean.map(element =>{
+        return element[8]
+    })
+    //console.log('puntosCrudos', puntosCrudos)
+
+    //Obtener solo los que no dicen pending
+    let puntosFiltadros = puntosCrudos.filter(element => {
+        if(element != "pending"){
+            return element[8];
+        }
+    })
+    console.log('puntosFiltadros', puntosFiltadros)
+
+    //Debemos dividir cada string segun el tipo de pregunta.
+    let opt1 = [];
+    let opt2 = [];
+    let opt3 = [];
+    let opt4 = [];
+    let opt5 = [];
+    let opt6 = [];
+
+    //Separamos los puntos por tipos de pregunta
+    puntosFiltadros.forEach(element => {
+        let dividido = element.split(',');
+        opt1.push(dividido[0]);
+        opt2.push(dividido[1]);
+        opt3.push(dividido[2]);
+        opt4.push(dividido[3]);
+        opt5.push(dividido[4]);
+        opt6.push(dividido[5]);
+    });
+
+    //Recorremos cada array y separamos cada elementos en dos
+    let total_opt1 = [];
+    let total_opt2 = [];
+    let total_opt3 = [];
+    let total_opt4 = [];
+    let total_opt5 = [];
+    let total_opt6 = [];
+    let obtenido_opt1 = [];
+    let obtenido_opt2 = [];
+    let obtenido_opt3 = [];
+    let obtenido_opt4 = [];
+    let obtenido_opt5 = [];
+    let obtenido_opt6 = [];
+
+    //Hacemos la division de cada uno de los tipos de preguntas
+    opt1.forEach(element => {
+        let dividido = element.split('/');
+        total_opt1.push(parseFloat(dividido[0]));
+        obtenido_opt1.push(parseFloat(dividido[1]));
+    })
+
+    opt2.forEach(element => {
+        let dividido = element.split('/');
+        total_opt2.push(parseFloat(dividido[0]));
+        obtenido_opt2.push(parseFloat(dividido[1]));
+    })
+
+    opt3.forEach(element => {
+        let dividido = element.split('/');
+        total_opt3.push(parseFloat(dividido[0]));
+        obtenido_opt3.push(parseFloat(dividido[1]));
+    })
+    
+    opt4.forEach(element => {
+        let dividido = element.split('/');
+        total_opt4.push(parseFloat(dividido[0]));
+        obtenido_opt4.push(parseFloat(dividido[1]));
+    })
+    
+    opt5.forEach(element => {
+        let dividido = element.split('/');
+        total_opt5.push(parseFloat(dividido[0]));
+        obtenido_opt5.push(parseFloat(dividido[1]));
+    })
+
+    opt6.forEach(element => {
+        let dividido = element.split('/');
+        total_opt6.push(parseFloat(dividido[0]));
+        obtenido_opt6.push(parseFloat(dividido[1]));
+    })
+
+    // console.log(total_opt1,total_opt2,total_opt3,total_opt4,total_opt5,total_opt6);
+    // console.log(obtenido_opt1,obtenido_opt2,obtenido_opt3,obtenido_opt4,obtenido_opt5,obtenido_opt6)
+
+    // 2/1 Las primeras son las totales
+    let puntosObtenidos = [total_opt1,total_opt2,total_opt3,total_opt4,total_opt5,total_opt6];
+    let puntosTotales = [obtenido_opt1,obtenido_opt2,obtenido_opt3,obtenido_opt4,obtenido_opt5,obtenido_opt6];
+    let puntosTotalFinal = [[...puntosObtenidos], [...puntosTotales]];
+    return puntosTotalFinal;
+}
+
+//Debemos trabajr con los datos que tenemos aquí
+let puntosTotalesFinal = obtenerPuntos();
+console.log(puntosTotalesFinal);
+
+//Funcion para hacer la suma de todos los puntos
+function totalPuntosSuma(){
+    //Datos con los que trabajr
+    let puntosSumaCopia = [...puntosTotalesFinal];
+    let puntosSumaCopia_total = puntosTotalesFinal[0];
+    let puntosSumaCopia_obtenida = puntosTotalesFinal[1];
+    //Valores de la suma para su retorno
+    let valorFinalTotal = 0;
+    let valorTotal_mio = 0;
+    let valorObtenido_mio = 0;
+    //Suma de todo
+    puntosSumaCopia.forEach(element => {
+        element.forEach((element_dos, i = 1) => {
+            let valorParcial = element_dos.reduce((sum, val) => {
+                return sum + val;
+            });
+            valorFinalTotal += valorParcial;
+        })
+    })
+
+    //Suma de los totales
+    puntosSumaCopia_total.forEach(element => {
+        let sumaParcial = element.reduce((sum, val) => {
+            return sum + val;
+        });
+        valorTotal_mio += sumaParcial;
+    })
+
+    //Suma de los obtenidos
+    puntosSumaCopia_obtenida.forEach(element => {
+        let sumaParcial = element.reduce((sum, val) => {
+            return sum + val;
+        });
+        valorObtenido_mio += sumaParcial;
+    })
+
+    //Debemos obtener los procentages para el width de una vez
+    let hundred = valorFinalTotal;
+    let first_per = parseFloat(((valorTotal_mio*100)/hundred).toFixed(1)) + '%';
+    let second_per = parseFloat(((valorObtenido_mio*100)/hundred).toFixed(1)) + '%';
+
+    //Asignamos los anchos y los puntos
+    let goodElement = document.getElementById('good_1');
+    let badElement = document.getElementById('bad_1');
+
+    goodElement.textContent = valorFinalTotal + ' total pts.';
+    badElement.textContent = valorObtenido_mio + ' pts.'
+    goodElement.setAttribute('style', 'width:'+ first_per);
+    badElement.setAttribute('style', 'width:'+second_per);
+
+    console.log(valorTotal_mio, valorObtenido_mio, first_per, second_per);
+
+}
+
+totalPuntosSuma()
 
 /////////////////////////////////////////////////
 //Limpiamos los datos del usuario
