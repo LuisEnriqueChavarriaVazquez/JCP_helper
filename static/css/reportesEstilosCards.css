@@ -321,7 +321,7 @@
     font-size: 12px;
 }
 
-.iconAnimated{
+.iconAnimated {
     width: 100px;
     position: absolute;
     top: 125px;
@@ -349,7 +349,7 @@
         top: -30px;
     }
 
-    .iconAnimated{
+    .iconAnimated {
         width: 85px;
         position: absolute;
         top: 120px;
@@ -384,7 +384,121 @@
         grid-template-rows: 40px;
     }
 
-    .iconAnimated{
+    .iconAnimated {
         display: none;
+    }
+}
+
+/*Estilos para las barra de puntos por tipos de pregunta*/
+.puntosPorTipoPregunta_estudiante_misResultados {
+    margin: 10px 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+        "b1 b1 b1"
+        "b2 b3 b4"
+        "b5 b6 b7"
+    ;
+    gap: 20px;
+}
+
+#b1 {
+    grid-area: b1;
+}
+
+#b2 {
+    grid-area: b2;
+}
+
+#b3 {
+    grid-area: b3;
+}
+
+#b4 {
+    grid-area: b4;
+}
+
+#b5 {
+    grid-area: b5;
+}
+
+#b6 {
+    grid-area: b6;
+}
+
+#b7 {
+    grid-area: b7;
+}
+
+.puntosPorTipoPregunta_estudiante_misResultados_son {
+    padding: 5px 10px;
+}
+
+.puntosPorTipoPregunta_estudiante_misResultados_son_title {
+    font-size: 18px;
+    font-weight: 600;
+    width: 100%;
+    height: 20px;
+    margin: 0 0 10px 0;
+}
+
+.puntosPorTipoPregunta_estudiante_misResultados_son_bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.goodPoints {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    width: 50%;
+    border-radius: 10px 0 0 10px;
+}
+
+.badPoints {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    width: 50%;
+    border-radius: 0 10px 10px 0;
+}
+
+@media only screen and (max-width: 1200px) {
+    .puntosPorTipoPregunta_estudiante_misResultados {
+        margin: 10px 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas:
+            "b1 b1"
+            "b2 b3"
+            "b4 b5"
+            "b6 b7"
+        ;
+        gap: 20px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .puntosPorTipoPregunta_estudiante_misResultados {
+        margin: 10px 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "b1"
+            "b2"
+            "b3"
+            "b4"
+            "b5"
+            "b6"
+            "b7"
+        ;
+        gap: 10px;
     }
 }

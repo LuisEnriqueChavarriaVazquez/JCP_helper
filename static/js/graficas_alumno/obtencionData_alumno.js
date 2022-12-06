@@ -2,6 +2,7 @@
 let dataUserToShow = document.getElementById('datos_cuestionario_hechos_alumno').value;
 //Data limpia
 let dataClean = limpiarDatos(dataUserToShow);
+console.log('dataClean', dataClean)
 
 /////////////////////////////////////////////////
 //Limpiamos los datos del usuario
