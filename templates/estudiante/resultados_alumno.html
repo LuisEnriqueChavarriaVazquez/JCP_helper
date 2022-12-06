@@ -6,6 +6,7 @@
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
+    <link rel="stylesheet" href="../../static/css/reportesEstilosCards.css">
 
 </head>
 
@@ -13,8 +14,6 @@
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/cargador.html" %}
-
-
 
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
@@ -41,27 +40,20 @@
                 <h5 class="colorText hide-on-small-only TDI" id="cajaTituloBuscadorContenidoLargeId">Panel global</h5>
             </div>
 
-            <br><br><br><br><br>
+            <br><br><br><br>
 
-            <div class="contenedorCardsCuestionariosOperationMisResultados" id="contenedorCardsGruposOperationId">
+            <div class="contenedorReportes-grid-card" id="contenedorCardsGruposOperationId">
                 {% if cuestionariosDevuelta %}
                 {%for i in range(0, cuestionariosDevuelta|length)%}
-                <div>
-                    <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
-                        <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId"
-                            style=" background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: hue;">
-                            <div>
-                                <h5 class="titleGroupContentId">{{cuestionariosDevuelta[i][2]}}</h5>
-                            </div>
+                <div class="card-report-download colorGreyWhiter bordered1 shadow-1">
+                    <div class="title-report-download">
+                        <p class="title-report-download-content">{{cuestionariosDevuelta[i][2]}}</p>
+                    </div>
+                    <div class="btn-container-report-download">
+                        <a href="/descargar_resultados_cuestionario_pdf/{{cuestionariosDevuelta[i][0]}}"
+                            class="btn-report-download waves-effect waves-light btn colorWhite coloredText shadow-1">
+                            <i class="material-icons md-24">file_download</i></a>
 
-                        </div>
-                        <div
-                            class="sectionCardOperationActionsMisResultados colorGreyWhiter sectionCardOperationActionsId">
-                            <!--Botones de cada grupo-->
-                            <a href="/descargar_resultados_cuestionario_pdf/{{cuestionariosDevuelta[i][0]}}"
-                                class="descargarResultado classIdentifierGroupButtonEdit waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                    class="material-icons md-24">arrow_downward</i></a>
-                        </div>
                     </div>
                 </div>
 
