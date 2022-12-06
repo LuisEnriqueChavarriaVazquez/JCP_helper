@@ -77,6 +77,51 @@ function bestResult(mainArray) {
     return arrayOrdenado.at(-1);
 }
 
+//Hacemos la funcion para calcular las calificaciones del alumno
+function calculadoraPromedios() {
+    //Obtenemos todos los promedios del array
+    let promedios = dataClean.map(element => {
+        if (element[6] != "pending") {
+            return parseFloat(element[6]);
+        } else {
+            return undefined;
+        }
+    });
+
+    //Filtramos todos los elementos que sean undefined
+    let promediosFiltrados = promedios.filter(element => {
+        if (element != undefined) {
+            return element;
+        }
+    })
+
+    //Obtenemos la suma de todos los elementos
+    let sumaPromedios = promediosFiltrados.reduce((element, value) => {
+        return element + value;
+    });
+
+    let percentage = (sumaPromedios * 10 / (100 * (promediosFiltrados.length))) * 100;
+    percentage = percentage.toFixed(2)
+
+    if (percentage <= 100 && percentage >= 80) {
+        grades = "A";
+    } else if (percentage <= 79 && percentage >= 60) {
+        grades = "B";
+    } else if (percentage <= 59 && percentage >= 40) {
+        grades = "C";
+    } else {
+        grades = "F";
+    }
+
+    return `${(percentage/10).toFixed(2)}/${grades}`;
+}
+
+///////////////////////////////////////////
+//Insercion de la tendencia de promedio
+let tendenciaPromedioElement = document.getElementById('number_4');
+//Nuestro valor de tendencia
+const tendenciaTotal = calculadoraPromedios();
+tendenciaPromedioElement.textContent = tendenciaTotal;
 
 //////////////////////////////////////////
 //Insercion de la longitud total de cuestionarios
