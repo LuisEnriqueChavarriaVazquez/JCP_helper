@@ -500,7 +500,7 @@ def mis_grupos(id_estudiante):
     if(result is None):
         return render_template("estudiante/b_mis_grupos.html", datosIds = "empty", datosGroup = "empty")
     else:
-        return render_template("estudiante/b_mis_grupos.html", datosIds = resultIds, datosGroup = resultGroup, idsCuestionarios = idsCuestionarios, idEstudiante = idEstudiante)
+        return render_template("estudiante/b_mis_grupos.html", datosIds = resultIds, datosGroup = resultGroup, idsCuestionarios = idsCuestionarios, idEstudiante = id_estudiante)
 
 #Bloque para ver los resultados del alumno
 @routes.route('/gestionar_resultados_alumno/<string:id_estudiante>')
