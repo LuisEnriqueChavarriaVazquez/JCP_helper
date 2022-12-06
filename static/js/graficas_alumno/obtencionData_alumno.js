@@ -113,95 +113,101 @@ function calculadoraPromedios() {
         grades = "F";
     }
 
-    return `${(percentage/10).toFixed(2)}/${grades}`;
+    return `${(percentage / 10).toFixed(2)}/${grades}`;
 }
 
 //Hacemos el conteo de los elementos requeridos
-function contadorElementosTiempo(){
+function contadorElementosTiempo() {
     let tiempos = dataClean.map((element) => {
         return element.at(-1);
     });
 
     let a_tiempo = [];
-    let con_retraso = tiempos.filter(element =>{
-        if(element == 'a_tiempo'){
+    let con_retraso = tiempos.filter(element => {
+        if (element == 'a_tiempo') {
             a_tiempo.push(element);
-        }else if(element == 'retraso'){
+        } else if (element == 'retraso') {
             return element;
         }
     });
-    
+
     let longitud = [a_tiempo.length, con_retraso.length];
     return longitud;
 }
 
 //Hacemos el conteo de los elementos requeridos para los aprobados y reprobados
-function contadorAprobadoReprobados(){
+function contadorAprobadoReprobados() {
     let tiempos = dataClean.map((element) => {
         return element[5];
     });
 
     let aprobado = [];
-    let reprobado = tiempos.filter(element =>{
-        if(element == 'aprobado'){
+    let reprobado = tiempos.filter(element => {
+        if (element == 'aprobado') {
             aprobado.push(element);
-        }else if(element == 'reprobado'){
+        } else if (element == 'reprobado') {
             return element;
         }
     });
-    
+
     let longitud = [aprobado.length, reprobado.length];
     return longitud;
 }
 
 //Hacemos el conteo de los elementos ready y pending
-function contadorReadyPending(){
+function contadorReadyPending() {
     let tiempos = dataClean.map((element) => {
         return element[4];
     });
 
     let ready = [];
     let started = [];
-    let pending = tiempos.filter(element =>{
-        if(element == 'ready'){
+    let pending = tiempos.filter(element => {
+        if (element == 'ready') {
             ready.push(element);
-        }else if(element == 'pending'){
+        } else if (element == 'pending') {
             return element;
-        }else if(element == 'started'){
+        } else if (element == 'started') {
             started.push(element);
         }
     });
-    
+
     let longitud = [ready.length, pending.length, started.length];
-    console.log(longitud)
     return longitud;
 }
 
-//Accedemos a los valores con conteo de datos adicionales
-let aTiempo = document.getElementById('value_1_mini');
-let conRetraso = document.getElementById('value_2_mini');
-let aprobados = document.getElementById('value_5_mini');
-let reprobados = document.getElementById('value_6_mini');
-let ready = document.getElementById('value_4_mini');
-let pendiente = document.getElementById('value_3_mini');
-let started = document.getElementById('value_8_mini');
-let tiempoPromedio = document.getElementById('value_7_mini');
+//Hacemos la funcion para convertir el tiempo en un formato que entendamos
+function convertirFormatoHora() {
+    let horaConformatoNumerico = dataClean.map(hora => {
+        if(hora != null){
+            //Quitamos el texto
+            let horaTexto = hora[9];
+            if(isNaN(horaTexto)){
+                let numeroHora = horaTexto.replaceAll('h', '').replaceAll('m', '').replaceAll('s', '');
+                //Convertimos en un array
+                numeroHora = numeroHora.split(':');
+                //Obtenemos las hora a minutos
+                numeroHora[0] = numeroHora[0] * 60;
+                //Obtenemos los segundo a minutos
+                numeroHora[2] = parseInt((numeroHora[2] * (1 / 60)).toFixed(0));
+                //Obtenemos los minutos totales
+                return numeroHora[0] + parseInt(numeroHora[1]) + numeroHora[2];
+            }else{
+                return 0
+            }
+        }else{
+            return '0h:0m:0s'
+        }
+    })
 
-//Insertamos los elementos a tiempo y con retraso
-let valoresTiempo = contadorElementosTiempo();
-aTiempo.textContent = valoresTiempo[0];
-conRetraso.textContent = valoresTiempo[1];
+    let totalMinutos = horaConformatoNumerico.reduce((element, value) => {
+        return element + value;
+    })
 
-//Insertamos los elementos de aprobados y reprobados
-let valoresAprobadosReprobados = contadorAprobadoReprobados();
-aprobados.textContent = valoresAprobadosReprobados[0];
-reprobados.textContent = valoresAprobadosReprobados[1];
-
-//Insertamos los elementos de ready y de pending
-let valorReadyPending = contadorReadyPending();
-ready.textContent = valorReadyPending[0];
-pendiente.textContent = valorReadyPending[1];
-started.textContent = valorReadyPending[2];
+    let promediosMinutos = totalMinutos / (horaConformatoNumerico.length);
+    promediosMinutos = parseFloat((promediosMinutos).toFixed(1))
+    return promediosMinutos;
+}
 
 ///////////////////////////////////////////
 //Insercion de la tendencia de promedio
@@ -231,3 +237,33 @@ let promedioElement = document.getElementById('number_2');
 //Nuestro promedio final
 const promedioFinal = obtencionPromedio(dataClean); //💯
 promedioElement.textContent = promedioFinal;
+
+//Accedemos a los valores con conteo de datos adicionales
+let aTiempo = document.getElementById('value_1_mini');
+let conRetraso = document.getElementById('value_2_mini');
+let aprobados = document.getElementById('value_5_mini');
+let reprobados = document.getElementById('value_6_mini');
+let ready = document.getElementById('value_4_mini');
+let pendiente = document.getElementById('value_3_mini');
+let started = document.getElementById('value_8_mini');
+let tiempoPromedio = document.getElementById('value_7_mini');
+
+//Insertamos los elementos a tiempo y con retraso
+let valoresTiempo = contadorElementosTiempo();
+aTiempo.textContent = valoresTiempo[0];
+conRetraso.textContent = valoresTiempo[1];
+
+//Insertamos los elementos de aprobados y reprobados
+let valoresAprobadosReprobados = contadorAprobadoReprobados();
+aprobados.textContent = valoresAprobadosReprobados[0] + "/" + longitudTotal;
+reprobados.textContent = valoresAprobadosReprobados[1] + "/" + longitudTotal;
+
+//Insertamos los elementos de ready y de pending
+let valorReadyPending = contadorReadyPending();
+ready.textContent = valorReadyPending[0];
+pendiente.textContent = valorReadyPending[1];
+started.textContent = valorReadyPending[2];
+
+//Insertamos los valores del promedio de los minutos
+let promedioMinutos = convertirFormatoHora();
+tiempoPromedio.textContent = promedioMinutos + "min";
