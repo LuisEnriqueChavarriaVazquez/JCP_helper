@@ -145,7 +145,7 @@ function asignarIdioma(valorIdiomaLocalStorage) {
     let rutaPage = rutaValidation(location.href);
 
     //Para el caso de páginas que tienen distintas vistas según el caso.
-    if (rutaPage == "resultadoAlumno" || rutaPage == "answerCuestionarioAlumno") {
+    if (rutaPage == "resultadoAlumno" || rutaPage == "answerCuestionarioAlumno" || rutaPage == "gestionar_cuestionarios" || rutaPage == "gestionar_estadisticas") {
         if (casePageVariable == "First_case_page") {
             if (valorIdiomaLocalStorage === 'esp') {
                 for (var i = 0; i < TDI.length; i++) {

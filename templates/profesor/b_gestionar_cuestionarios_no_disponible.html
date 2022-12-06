@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>No hay grupos cuestionarios para mostrar.</title>
+    <title class="TDI">No hay grupos cuestionarios para mostrar.</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -18,24 +18,41 @@
     <!--Menu de página de inicio-->
     <nav class="color1">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">No hay cuestionarios.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">No hay cuestionarios.</a>
             <a href="/bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">No hay cuestionarios para mostrar.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">No hay cuestionarios para mostrar.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="/bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="/bienvenidaProfesor" class="btn color3 button-rounded TDI">Volver</a></li>
             </ul>
         </div>
     </nav>
 
     <section class="containerIntentosInfo">
-        <h4 class="colorText hide-on-small-only">Aún no crea grupos.</h4>
-        <h5 class="colorText hide-on-med-and-up">Aún no crea grupos.</h5>
-        <p class="colorText">Debe crear algún grupo para poder vincularlo a un cuestionario y dejar que sus alumnos los contesten.</p>
+        <h4 class="colorText hide-on-small-only TDI">Aún no crea grupos.</h4>
+        <h5 class="colorText hide-on-med-and-up TDI">Aún no crea grupos.</h5>
+        <p class="colorText TDI">Debe crear algún grupo para poder vincularlo a un cuestionario y dejar que sus alumnos los
+            contesten.</p>
         <img src="../../static/images/icons/icon_no_cuestionarios.svg" id="iconIntentos">
-        <a href="/bienvenidaProfesor"class="waves-effect waves-light btn-large colorWhite coloredText shadow-2e button-rounded">Regresar</a>
+        <a href="/bienvenidaProfesor"
+            class="waves-effect waves-light btn-large colorWhite coloredText shadow-2e button-rounded TDI">Regresar</a>
     </section>
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
+
 </body>
+
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
+
+<script>
+    let casePageVariable = "Second_case_page";
+</script>
+<!--Traduccion-->
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
+
 </html>

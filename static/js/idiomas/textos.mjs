@@ -557,30 +557,34 @@ let rutas = {
     },
     "gestionar_cuestionarios": {
         "textEspanol": {
-            texts: ['Gestión de cuestionarios.','Cuestionarios.','Cuestionarios.','Volver','Operaciones.','Crear cuestionario','Revisar','Buscador.','Buscar','Conteo.','Cuestionarios:','Estudiantes:','Cuestionarios creados','Cuestionarios creados']
+            texts_1: ['Gestión de cuestionarios.','Cuestionarios.','Cuestionarios.','Volver','Operaciones.','Crear cuestionario','Revisar','Buscador.','Buscar','Conteo.','Cuestionarios:','Estudiantes:','Cuestionarios creados','Cuestionarios creados'],
+            texts_2: ['No hay grupos creados.','No hay grupos.','No hay cuestionarios para mostrar.','Volver al inicio','Aún no crea grupos.','Aún no crea grupos.','Debe crear algún grupo para poder vincularlo a un cuestionario y dejar que sus alumnos los contesten.','Regresar']
         },
         "textIngles": {
-            texts: ['Management of tests.','Manage tests.','Manage tests.','Return','Operations.','Create test','Check','Browser.','Search','Count.','Tests:','Students:','Created tests','Created tests']
+            texts_1: ['Management of tests.','Manage tests.','Manage tests.','Return','Operations.','Create test','Check','Browser.','Search','Count.','Tests:','Students:','Created tests','Created tests'],
+            texts_2: ['No groups created.','There are no groups.','There are no tests to display.','Return','Doesn\'t create groups yet.','Doesn\'t create groups yet.','You need to create some group to be able to link it to a quiz and let your students answer them.','Return']
         },
         "textPortugues": {
-            texts: ['Gestão de questionários.','Questionário.','Questionário.','Retornar','Operações.','Criar questionário','Verificar','Buscador.','Procurar','Contar.','Questionário:','Estudantes:','Questionários criados','Questionários criados']
+            texts_1: ['Gestão de questionários.','Questionário.','Questionário.','Retornar','Operações.','Criar questionário','Verificar','Buscador.','Procurar','Contar.','Questionário:','Estudantes:','Questionários criados','Questionários criados'],
+            texts_2: ['Nenhum grupo criado.','Não há grupos.','Não há questionários para exibir.','Voltar ao início','Ainda não cria grupos.','Ainda não cria grupos.','Você precisa criar algum grupo para poder vinculá-lo a um questionário e permitir que seus alunos respondam.','Voltar']
         },
         "textChino": {
-            texts: ['问卷的管理。','测验。','测验。','返回','操作','创建问卷','查看','探索者','搜索','数数。','测验：','学生：','创建问卷','创建问卷']
+            texts_1: ['问卷的管理。','测验。','测验。','返回','操作','创建问卷','查看','探索者','搜索','数数。','测验：','学生：','创建问卷','创建问卷'],
+            texts_2: ['没有创建组。','没有组。','没有要显示的问卷。','回到顶部','尚未创建群组。','尚未创建群组。','你需要创建一些小组才能将其链接到测验并让你的学生回答。','返回']
         }
     },
     "editCuestionario": {
         "textEspanol": {
-            texts: ['Editar datos del cuestionarios.','Información adicional.','Información adicional.','Volver','Estructura principal','Datos adicionales','Formulario de edición.','Datos de creación','Autor del cuestionario','Fecha de Creación','Tiempo de la prueba','Hora límite para resolver','Día límite para resolver','Tiempo cuenta regresiva (hh:mm)','Número de intentos','Datos del cuestionario','Nombre de cuestionario','Temas del cuestionario','Escriba el tipo','Aleatorio','Por orden de creación','Por tipo de pregunta','Orden de cuestionario','Escriba el lenguaje','Editar']
+            texts: ['Editar datos del cuestionarios.','Información adicional.','Información adicional.','Volver','Estructura principal','Datos adicionales','Formulario de edición.','Datos de creación','Autor del cuestionario','Fecha de Creación','Tiempo de la prueba','Hora límite para resolver','Día límite para resolver','Tiempo cuenta regresiva (hh:mm)','Número de intentos','Datos del cuestionario','Nombre de cuestionario','Temas del cuestionario','Escriba el tipo','Aleatorio','Por orden de creación','Por tipo de pregunta','Orden de cuestionario','Escriba el lenguaje','Editar'],
         },
         "textIngles": {
-            texts: ['Edit test data.','Additional Information.','Additional Information.','Return','Principal structure','Additional data','Edit form.','Creation data','Author of the test','Creation date','Trial time','Deadline time to solve','Deadline day to solve','Countdown time (hh:mm)','Number of attemps','test data','Quiz name','Quiz Topics','Type the type','Random','By order of creation','By type of question','Quiz Order','Type the language','Edit']
+            texts: ['Edit test data.','Additional Information.','Additional Information.','Return','Principal structure','Additional data','Edit form.','Creation data','Author of the test','Creation date','Trial time','Deadline time to solve','Deadline day to solve','Countdown time (hh:mm)','Number of attemps','test data','Quiz name','Quiz Topics','Type the type','Random','By order of creation','By type of question','Quiz Order','Type the language','Edit'],
         },
         "textPortugues": {
-            texts: ['Editar dados do questionário.','Informação adicional.','Informação adicional.','Retornar','Estrutura principal','Dados adicionais','Editar formulário.','Dados de criação','Autor do questionário','Data de criação','Tempo de prova','Prazo para resolver','Dia do prazo para resolver','Tempo de contagem regressiva (hh:mm)','Número de tentativas','Dados do questionário','Nome do questionário','Tópicos do questionário','Digite o tipo','Aleatório','Por ordem de criação','Por tipo de pergunta','Pedido do questionário','Digite o idioma','Editar']
+            texts: ['Editar dados do questionário.','Informação adicional.','Informação adicional.','Retornar','Estrutura principal','Dados adicionais','Editar formulário.','Dados de criação','Autor do questionário','Data de criação','Tempo de prova','Prazo para resolver','Dia do prazo para resolver','Tempo de contagem regressiva (hh:mm)','Número de tentativas','Dados do questionário','Nome do questionário','Tópicos do questionário','Digite o tipo','Aleatório','Por ordem de criação','Por tipo de pergunta','Pedido do questionário','Digite o idioma','Editar'],
         },
         "textChino": {
-            texts: ['编辑问卷数据。','附加信息。','附加信息。','返回','主体结构','附加数据','编辑表格。','创建数据','问卷作者','创建日期','试用时间','截止时间解决','deadline day to solve','倒计时 (hh:mm)','尝试次数','问卷数据','测验名称','测验主题','输入类型','随机的','按创建顺序','按问题类型','测验订单','输入语言','编辑']
+            texts: ['编辑问卷数据。','附加信息。','附加信息。','返回','主体结构','附加数据','编辑表格。','创建数据','问卷作者','创建日期','试用时间','截止时间解决','deadline day to solve','倒计时 (hh:mm)','尝试次数','问卷数据','测验名称','测验主题','输入类型','随机的','按创建顺序','按问题类型','测验订单','输入语言','编辑'],
         }
     },
     "creacion_cuestionarios": {
@@ -613,16 +617,20 @@ let rutas = {
     },
     "gestionar_estadisticas": {
         "textEspanol": {
-            texts: ['Administrar estadísticas.','Estadísticas.','Estadísticas.','Devolver','Grupos','Pruebas','Estudiantes','Visión general','Visión general','Grupos','Estudiantes','Pruebas','Promedio global','Número de grupos','Numero de estudiantes','Número de cuestionarios','Promedio global','Gráficos globales','Gráficos globales','Promedio general de grupos.','Aprobación general del grupo.','Informe mundial','Gráficos globales','Gráficos globales','Cuestionarios generales de Insights.','Cuestionarios generales de Insights 2.','Informe general','Lista de alumnos','Lista de alumnos','Grupos.','Comentarios de estudiantes.','Comentarios de los estudiantes.']
+            texts_1: ['Administrar estadísticas.','Estadísticas.','Estadísticas.','Devolver','Grupos','Pruebas','Estudiantes','Visión general','Visión general','Grupos','Estudiantes','Pruebas','Promedio global','Número de grupos','Numero de estudiantes','Número de cuestionarios','Promedio global','Gráficos globales','Gráficos globales','Promedio general de grupos.','Aprobación general del grupo.','Informe mundial','Gráficos globales','Gráficos globales','Cuestionarios generales de Insights.','Cuestionarios generales de Insights 2.','Informe general','Lista de alumnos','Lista de alumnos','Grupos.','Comentarios de estudiantes.','Comentarios de los estudiantes.'],
+            texts_2: ['No hay estadísticas.','No hay estadísticas.','No hay estadísticas para mostrar.','Volver al inicio','Aún nadie constesta los cuestionarios.','Aún nadie constesta los cuestionarios.','Debe compartir sus su link de grupo y esperar a que sus estudiantes contesten los cuestionarios para poder ver estadísticas.','Regresar']
         },
         "textIngles": {
-            texts: ['Manage statistics.','Statistics.','Statistics.','Return','Groups','Tests','Students','Overview','Overview','Groups','Students','Tests','Global average','Number of groups','Number of students','Number of tests','Global average','Global graphics','Global graphics','General average of groups.','General group approval.','Global report','Global graphics','Global graphics','Insights general tests.','Insights general tests 2.','General report','List of students','List of students','Groups.','Student comments.','Student comments.']
+            texts_1: ['Manage statistics.','Statistics.','Statistics.','Return','Groups','Tests','Students','Overview','Overview','Groups','Students','Tests','Global average','Number of groups','Number of students','Number of tests','Global average','Global graphics','Global graphics','General average of groups.','General group approval.','Global report','Global graphics','Global graphics','Insights general tests.','Insights general tests 2.','General report','List of students','List of students','Groups.','Student comments.','Student comments.'],
+            texts_2: ['There are no statistics.','There are no statistics.','There are no statistics to display.','Back to top','No one has answered the questionnaires yet.','No one has answered the questionnaires yet.','You must share your group link and wait for your students to answer the quizzes to see statistics.','Return']
         },
         "textPortugues": {
-            texts: ['Gerenciar estatísticas.','Estatisticas.','Estatisticas.','Retornar','Grupos','Testes','Estudantes','Visão geral','Visão geral','Grupos','Estudantes','Testes','Média global','Número de grupos','Número de estudantes','Número de questionários','Média global','Gráficos globais','Gráficos globais','Média geral dos grupos.','Aprovação geral do grupo.','Relatório global','Gráficos globais','Gráficos globais','Insights questionários gerais.','Insights questionários gerais 2.','Relatório geral','Lista de alunos','Lista de alunos','Grupos.','Comentários dos alunos.','Comentários dos alunos.']
+            texts_1: ['Gerenciar estatísticas.','Estatisticas.','Estatisticas.','Retornar','Grupos','Testes','Estudantes','Visão geral','Visão geral','Grupos','Estudantes','Testes','Média global','Número de grupos','Número de estudantes','Número de questionários','Média global','Gráficos globais','Gráficos globais','Média geral dos grupos.','Aprovação geral do grupo.','Relatório global','Gráficos globais','Gráficos globais','Insights questionários gerais.','Insights questionários gerais 2.','Relatório geral','Lista de alunos','Lista de alunos','Grupos.','Comentários dos alunos.','Comentários dos alunos.'],
+            texts_2: ['Não há estatísticas.','Não há estatísticas.','Não há estatísticas para exibir.','Voltar ao início','Ninguém respondeu aos questionários ainda.','Ninguém respondeu aos questionários ainda.','Você deve compartilhar o link do seu grupo e esperar que seus alunos respondam aos questionários para ver as estatísticas.','Voltar']
         },
         "textChino": {
-            texts: ['管理统计数据。','统计数据。','统计数据。','返回','团体','测试','学生','概述','概述','团体','学生','测试','全球平均水平','组数','学生人数','问卷数量','全球平均水平','全局图形','全局图形','群体的共同平均水平。','一般组批准。','全球报告','全局图形','全局图形','Insights 一般问卷。','Insights 一般问卷 2.','一般报告','学生名单','学生名单','团体。','学生评论','学生评论。']
+            texts_1: ['管理统计数据。','统计数据。','统计数据。','返回','团体','测试','学生','概述','概述','团体','学生','测试','全球平均水平','组数','学生人数','问卷数量','全球平均水平','全局图形','全局图形','群体的共同平均水平。','一般组批准。','全球报告','全局图形','全局图形','Insights 一般问卷。','Insights 一般问卷 2.','一般报告','学生名单','学生名单','团体。','学生评论','学生评论。'],
+            texts_2: ['没有统计数据。','没有统计数据。','没有可显示的统计数据。','回到顶部','还没有人回答问卷。','还没有人回答问卷。','您必须分享您的群组链接并等待您的学生回答测验才能查看统计数据。','返回']
         }
     },
     "saber_mas2": {
