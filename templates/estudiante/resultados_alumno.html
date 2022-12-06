@@ -42,6 +42,32 @@
 
             <br><br><br><br>
 
+            <!--Stats de los estudiantes-->
+            <div class="titleReportsStyle_student">
+                <h5 class="colorTextReverse">Stats de interés</h5>
+            </div>
+            <section class="gridStatsEstudiantes_resultados">
+                <div class="colorWhite bordered1 shadow-1" id="stat_1">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ab repellat deserunt nulla ducimus provident tempore temporibus odit hic velit, accusamus laudantium accusantium eos et alias ullam. Tempore, vel aut!
+                </div>
+                <div class="colorWhite bordered1 shadow-1" id="stat_2">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ab repellat deserunt nulla ducimus provident tempore temporibus odit hic velit, accusamus laudantium accusantium eos et alias ullam. Tempore, vel aut!
+                </div>
+                <div class="colorWhite bordered1 shadow-1" id="stat_3">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ab repellat deserunt nulla ducimus provident tempore temporibus odit hic velit, accusamus laudantium accusantium eos et alias ullam. Tempore, vel aut!
+                </div>
+                <div class="colorWhite bordered1 shadow-1" id="stat_4">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ab repellat deserunt nulla ducimus provident tempore temporibus odit hic velit, accusamus laudantium accusantium eos et alias ullam. Tempore, vel aut!
+                </div>
+                <div class="colorWhite bordered1 shadow-1" id="stat_5">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ab repellat deserunt nulla ducimus provident tempore temporibus odit hic velit, accusamus laudantium accusantium eos et alias ullam. Tempore, vel aut!
+                </div>
+            </section>
+
+            <!--Reportes de los estudiantes-->
+            <div class="titleReportsStyle_student">
+                <h5 class="colorTextReverse">Reportes</h5>
+            </div>
             <div class="contenedorReportes-grid-card">
                 {% if cuestionariosDevuelta %}
                 {%for i in range(0, cuestionariosDevuelta|length)%}
@@ -72,10 +98,17 @@
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
 
+<!--Boton para regresar a la parte de arriba-->
 <script src="../../static/js/operacionesEditarPerfil.js"></script>
 
-<!--Traductor-->
+<!-------------------------------------------------------------------->
+<!--Accedemos a la data de la BD con python-->
+<input type="hidden" value="{{cuestionariosHechos_allData}}" id="datos_cuestionario_hechos_alumno">
+<!--Tenemos nuestro script para limpiar los datos obtenidos-->
+<script src="../../static/js/graficas_alumno/obtencionData_alumno.js"></script>
+<!-------------------------------------------------------------------->
 
+<!--Traductor-->
 <script src="../static/js/idiomas/textos.mjs" type="module"></script>
 <script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
