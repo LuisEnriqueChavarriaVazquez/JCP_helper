@@ -1,3 +1,7 @@
+.bodyReportes_margin{
+    padding: 10px 60px;
+}
+
 .contenedorReportes-grid-card {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -5,6 +9,12 @@
     gap: 20px;
 
     padding: 0 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .bodyReportes_margin{
+        padding: 10px;
+    }
 }
 
 @media only screen and (max-width: 950px) {
@@ -26,6 +36,10 @@
         gap: 10px;
 
         padding: 20px;
+    }
+
+    .bodyReportes_margin{
+        padding: 0px;
     }
 }
 
@@ -73,7 +87,6 @@
         "area4 area4 area4 area4"
     ;
     gap: 20px;
-
     margin: 10px 20px;
 }
 
@@ -215,6 +228,7 @@
 .extraDataContainer_text {
     font-size: 16px;
     font-weight: 600;
+    margin-left: 10px;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -325,7 +339,7 @@
     width: 100px;
     position: absolute;
     top: 125px;
-    left: 180px;
+    right: 50px;
 }
 
 @media only screen and (max-width: 900px) {
@@ -352,8 +366,8 @@
     .iconAnimated {
         width: 85px;
         position: absolute;
-        top: 120px;
-        left: 170px;
+        top: 130px;
+        right: 10px;
     }
 }
 

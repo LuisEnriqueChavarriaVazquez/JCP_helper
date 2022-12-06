@@ -515,16 +515,16 @@ let rutas = {
     },
     "gestionar_resultados_alumno": {
         "textEspanol": {
-            texts: ['Mis resultados','Mis resultados','Mis resultados.','Volver','Panel global','Panel global']
+            texts: ['Mis resultados','Mis resultados','Mis resultados.','Volver','Panel global','Panel global','Estadísticas de interés','Cuestionarios totales.','Promedio global.','Mejor resultado.','A tiempo','Retresadas','Revisión pendiente','Revisión lista','Tests empezados','Aprobados','Reprobados','promedio','Tendencia.','Reportes','Puntajes/tipo pregunta.','Global','Opción múltiple','Rellenar espacios.','Ejercicios de código','Falso/verdadero','Preguntas abiertas','Relacionar conceptos']
         },
         "textIngles": {
-            texts: ['My results','My results','My results.','Return','Global Dashboard','Global Dashboard']
+            texts: ['My results','My results','My results.','Return','Global Dashboard','Global Dashboard','Statistics of interest','Total tests.','Global average.','Best result.','On time','Delayed','Pending review','Review ready','Tests started',' Approved',' Failed',' Average','Trend.','Reports','Scores/question type.','Global','Multiple choice','Fill spaces.','Code exercises','False true','Open questions','Relate concepts']
         },
         "textPortugues": {
-            texts: ['Meus resultados','Meus resultados','Meus resultados.','Retornar','Painel Global','Painel Global']
+            texts: ['Meus resultados','Meus resultados','Meus resultados.','Retornar','Painel Global','Painel Global','Estatísticas de interesse','Total de questionários.','Média global.','Melhor resultado.','A tempo','retardado','Revisão pendente','Revisão pronta','Testes iniciados','aprovado','Fracassado','média','Tendência.','Relatórios','Tipo de pontuação/pergunta.','Global','Múltipla escolha','Preencher espaços.','Exercícios de código','Falso verdadeiro','Perguntas em aberto','Relacionar conceitos']
         },
         "textChino": {
-            texts: ['我的成绩','我的成绩','我的结果。','返回','全球仪表板','全球仪表板']
+            texts: ['我的成绩','我的成绩','我的结果。','返回','全球仪表板','全球仪表板','感兴趣的统计数据','问卷总数。','全球平均水平。','最好的结果。','准时','弱智','等待审核','审核准备就绪','测试开始','得到正式认可的','失败的','平均','趋势。','报告','分数/题型。','全球的','多项选择','填充空格。','代码练习','假真','开放式问题','相关概念']
         }
     },
     "editarPostAlumno": {
@@ -622,7 +622,7 @@ let rutas = {
         },
         "textIngles": {
             texts_1: ['Manage statistics.','Statistics.','Statistics.','Return','Groups','Tests','Students','Overview','Overview','Groups','Students','Tests','Global average','Number of groups','Number of students','Number of tests','Global average','Global graphics','Global graphics','General average of groups.','General group approval.','Global report','Global graphics','Global graphics','Insights general tests.','Insights general tests 2.','General report','List of students','List of students','Groups.','Student comments.','Student comments.'],
-            texts_2: ['There are no statistics.','There are no statistics.','There are no statistics to display.','Back to top','No one has answered the questionnaires yet.','No one has answered the questionnaires yet.','You must share your group link and wait for your students to answer the quizzes to see statistics.','Return']
+            texts_2: ['There are no statistics.','There are no statistics.','There are no statistics to display.','Back to top','No one has answered the tests yet.','No one has answered the tests yet.','You must share your group link and wait for your students to answer the quizzes to see statistics.','Return']
         },
         "textPortugues": {
             texts_1: ['Gerenciar estatísticas.','Estatisticas.','Estatisticas.','Retornar','Grupos','Testes','Estudantes','Visão geral','Visão geral','Grupos','Estudantes','Testes','Média global','Número de grupos','Número de estudantes','Número de questionários','Média global','Gráficos globais','Gráficos globais','Média geral dos grupos.','Aprovação geral do grupo.','Relatório global','Gráficos globais','Gráficos globais','Insights questionários gerais.','Insights questionários gerais 2.','Relatório geral','Lista de alunos','Lista de alunos','Grupos.','Comentários dos alunos.','Comentários dos alunos.'],
