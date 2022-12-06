@@ -331,6 +331,21 @@ def obtener_cuestionarios_alumnos(idAlumno):
     else:
         return "noData"
 
+#Obtener cuestionarios realizados por un alumno
+def obtener_cuestionarios_alumnos_all_data(idAlumno):
+    conexion=obtener_conexion()
+    cuestionariosHechos=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM Alumnos_hacen_Cuestionario WHERE IDAlumno = %s",(idAlumno))
+        cuestionarioHechoData=cursor.fetchall()
+    
+    if len(cuestionarioHechoData) != 0:
+        conexion.close()
+        return cuestionarioHechoData
+    else:
+        return "noData"
+
 
 #Recuperar ruta archivo de respuesta de un alumno
 def ruta_archivo_respuesta_alumno(id_cuestionario_respuesta):

@@ -1,0 +1,204 @@
+.contenedorReportes-grid-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+
+    padding: 0 20px;
+}
+
+@media only screen and (max-width: 950px) {
+    .contenedorReportes-grid-card {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+
+        padding: 20px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .contenedorReportes-grid-card {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 10px;
+
+        padding: 20px;
+    }
+}
+
+.card-report-download {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+}
+
+.title-report-download {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 15px;
+}
+
+.title-report-download-content {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.btn-container-report-download {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.btn-report-download {
+    border-radius: 20px;
+}
+
+.titleReportsStyle_student {
+    padding: 5px 20px;
+}
+
+/*Grid para las estadísticas de los estudiantes*/
+.gridStatsEstudiantes_resultados {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+        "area1 area2 area3 area5"
+        "area4 area4 area4 area4"
+        "area4 area4 area4 area4"
+    ;
+    gap: 20px;
+
+    margin: 10px 20px;
+}
+
+#stat_1 {
+    padding: 10px;
+    grid-area: area1;
+}
+
+#stat_2 {
+    padding: 10px;
+    grid-area: area2;
+}
+
+#stat_3 {
+    padding: 10px;
+    grid-area: area3;
+}
+
+#stat_4 {
+    padding: 10px;
+    grid-area: area4;
+}
+
+#stat_5 {
+    padding: 10px;
+    grid-area: area5;
+}
+
+@media only screen and (max-width: 1350px) {
+    .gridStatsEstudiantes_resultados {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas:
+            "area1 area2 area3"
+            "area4 area4 area4"
+            "area4 area4 area4"
+            "area5 area5 area5"
+        ;
+        gap: 20px;
+
+        margin: 10px 20px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .gridStatsEstudiantes_resultados {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas:
+            "area1 area2"
+            "area3 area3"
+            "area4 area4"
+            "area4 area4"
+            "area5 area5"
+        ;
+        gap: 20px;
+
+        margin: 10px 20px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .gridStatsEstudiantes_resultados {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "area1"
+            "area2"
+            "area3"
+            "area4"
+            "area5"
+        ;
+        gap: 10px;
+
+        margin: 0px 20px;
+    }
+}
+
+/*Estilos para las stats de estudiantes*/
+.generalStatSonContainer{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 90px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.numberStatStyle{
+    font-size: 60px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -5px;
+    margin-left: 5px;
+}
+
+.textStatStyle{
+    font-size: 19px;
+    font-weight: 500;
+    display: flex;
+    justify-content: left;
+    align-self: flex-end;
+    margin-left: 5px;
+}
+
+.textStatStyle_dos{
+    font-size: 19px;
+    font-weight: 500;
+    display: flex;
+    justify-content: left;
+    align-self: flex-end;
+    margin-left: 5px;
+    position: relative;
+    top: -25px;
+}
+
+.nombreCuestionario_stat_alternate{
+    position: absolute;
+    top: 30px;
+    font-weight: 500;
+    font-size: 12px;
+}

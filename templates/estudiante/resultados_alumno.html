@@ -6,6 +6,7 @@
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
+    <link rel="stylesheet" href="../../static/css/reportesEstilosCards.css">
 
 </head>
 
@@ -13,8 +14,6 @@
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/cargador.html" %}
-
-
 
     <!--Menu de página de inicio-->
     <nav class="color2 fixedNavbarMine">
@@ -41,33 +40,62 @@
                 <h5 class="colorText hide-on-small-only TDI" id="cajaTituloBuscadorContenidoLargeId">Panel global</h5>
             </div>
 
-            <br><br><br><br><br>
+            <br><br>
+            <br class="hide-on-small-only">
 
-            <div class="contenedorCardsCuestionariosOperationMisResultados" id="contenedorCardsGruposOperationId">
+            <!--Stats de los estudiantes-->
+            <div class="titleReportsStyle_student">
+                <h5 class="colorTextReverse">Stats de interés</h5>
+            </div>
+            <section class="gridStatsEstudiantes_resultados">
+                <div class="generalStatSonContainer colorWhite bordered1 shadow-1" id="stat_1">
+                    <p class="numberStatStyle" id="number_1">32</p>
+                    <p class="textStatStyle coloredText" id="data_1">Cuestionarios totales.</p>
+                </div>
+                <div class="generalStatSonContainer colorWhite bordered1 shadow-1" id="stat_2">
+                    <p class="numberStatStyle" id="number_2">6.6</p>
+                    <p class="textStatStyle coloredText" id="data_2">Promedio global.</p>
+                </div>
+                <div class="generalStatSonContainer colorWhite bordered1 shadow-1" id="stat_3">
+                    <p class="numberStatStyle" id="number_2">9.8</p>
+                    <p class="textStatStyle_dos coloredText" id="data_2">
+                        Mejor resultado.
+                        <span class="nombreCuestionario_stat_alternate">
+                            Cuestionario x dsnsdkdsksd sdnsdk
+                        </span>
+                    </p>
+                </div>
+                <div class="generalStatSonContainer colorWhite bordered1 shadow-1" id="stat_4">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ab repellat deserunt nulla ducimus provident tempore temporibus odit hic velit, accusamus laudantium accusantium eos et alias ullam. Tempore, vel aut!
+                </div>
+                <div class="generalStatSonContainer colorWhite bordered1 shadow-1" id="stat_5">
+                    <p class="numberStatStyle" id="number_2">88%</p>
+                    <p class="textStatStyle coloredText" id="data_2">Probabilidad de aprobar.</p>
+                </div>
+            </section>
+
+            <!--Reportes de los estudiantes-->
+            <div class="titleReportsStyle_student">
+                <h5 class="colorTextReverse">Reportes</h5>
+            </div>
+            <div class="contenedorReportes-grid-card">
                 {% if cuestionariosDevuelta %}
                 {%for i in range(0, cuestionariosDevuelta|length)%}
-                <div>
-                    <div class="cardOperationGroup shadow-1 cardOperationGroupListId">
-                        <div class="sectionCardOperationTitle fondoDinamico colorText sectionCardOperationTitleId"
-                            style=" background-position: center; background-repeat: no-repeat; background-size: cover; background-blend-mode: hue;">
-                            <div>
-                                <h5 class="titleGroupContentId">{{cuestionariosDevuelta[i][2]}}</h5>
-                            </div>
+                <div class="card-report-download colorGreyWhiter bordered1 shadow-1">
+                    <div class="title-report-download">
+                        <p class="title-report-download-content">{{cuestionariosDevuelta[i][2]}}</p>
+                    </div>
+                    <div class="btn-container-report-download">
+                        <a href="/descargar_resultados_cuestionario_pdf/{{cuestionariosDevuelta[i][0]}}"
+                            class="btn-report-download waves-effect waves-light btn colorWhite coloredText shadow-1">
+                            <i class="material-icons md-24">file_download</i></a>
 
-                        </div>
-                        <div
-                            class="sectionCardOperationActionsMisResultados colorGreyWhiter sectionCardOperationActionsId">
-                            <!--Botones de cada grupo-->
-                            <a href="/descargar_resultados_cuestionario_pdf/{{cuestionariosDevuelta[i][0]}}"
-                                class="descargarResultado classIdentifierGroupButtonEdit waves-effect waves-light btn colorGrey colorTextReverse shadow-2e button-rounded centerAlignerNoWidth"><i
-                                    class="material-icons md-24">arrow_downward</i></a>
-                        </div>
                     </div>
                 </div>
-
                 {%endfor%}
                 {% endif %}
             </div>
+            <br>
         </section>
     </section>
     <!--Botones para que el gestor de idiomas no falle-->
@@ -81,10 +109,17 @@
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
 
+<!--Boton para regresar a la parte de arriba-->
 <script src="../../static/js/operacionesEditarPerfil.js"></script>
 
-<!--Traductor-->
+<!-------------------------------------------------------------------->
+<!--Accedemos a la data de la BD con python-->
+<input type="hidden" value="{{cuestionariosHechos_allData}}" id="datos_cuestionario_hechos_alumno">
+<!--Tenemos nuestro script para limpiar los datos obtenidos-->
+<script src="../../static/js/graficas_alumno/obtencionData_alumno.js"></script>
+<!-------------------------------------------------------------------->
 
+<!--Traductor-->
 <script src="../static/js/idiomas/textos.mjs" type="module"></script>
 <script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 

@@ -509,12 +509,18 @@ def mis_grupos(id_estudiante):
 @routes.route('/gestionar_resultados_alumno/<string:id_estudiante>')
 def gestionar_resultados_alumno(id_estudiante):
     
+    #Obtenemos los cuestionarios hechos por el estudiante.
     cuestionariosHechos = ()
     cuestionariosHechos = Op_estudiante.obtener_cuestionarios_alumnos(id_estudiante)
+    #print(cuestionariosHechos)
+
+    #Obtenemos toda la data de los cuestionarios hechos por un alumno en concreto
+    cuestionariosHechos_allData = ()
+    cuestionariosHechos_allData = Op_estudiante.obtener_cuestionarios_alumnos_all_data(id_estudiante)
+    print(cuestionariosHechos_allData)
     
-
-
-    return render_template("estudiante/resultados_alumno.html", cuestionariosDevuelta = cuestionariosHechos )
+    
+    return render_template("estudiante/resultados_alumno.html", cuestionariosDevuelta = cuestionariosHechos, cuestionariosHechos_allData = cuestionariosHechos_allData)
 
 
 ##Para ver el perfil de un docente
