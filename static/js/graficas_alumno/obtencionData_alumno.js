@@ -4,16 +4,16 @@ let dataUserToShow = document.getElementById('datos_cuestionario_hechos_alumno')
 let dataClean = limpiarDatos(dataUserToShow);
 
 //Obtenemos los puntos de cada una de las preguntas
-function obtenerPuntos(){
+function obtenerPuntos() {
     //Obtener solo los puntos en crudo
-    let puntosCrudos = dataClean.map(element =>{
+    let puntosCrudos = dataClean.map(element => {
         return element[8]
     })
     //console.log('puntosCrudos', puntosCrudos)
 
     //Obtener solo los que no dicen pending
     let puntosFiltadros = puntosCrudos.filter(element => {
-        if(element != "pending"){
+        if (element != "pending") {
             return element[8];
         }
     })
@@ -70,13 +70,13 @@ function obtenerPuntos(){
         total_opt3.push(parseFloat(dividido[0]));
         obtenido_opt3.push(parseFloat(dividido[1]));
     })
-    
+
     opt4.forEach(element => {
         let dividido = element.split('/');
         total_opt4.push(parseFloat(dividido[0]));
         obtenido_opt4.push(parseFloat(dividido[1]));
     })
-    
+
     opt5.forEach(element => {
         let dividido = element.split('/');
         total_opt5.push(parseFloat(dividido[0]));
@@ -93,8 +93,8 @@ function obtenerPuntos(){
     // console.log(obtenido_opt1,obtenido_opt2,obtenido_opt3,obtenido_opt4,obtenido_opt5,obtenido_opt6)
 
     // 2/1 Las primeras son las totales
-    let puntosObtenidos = [total_opt1,total_opt2,total_opt3,total_opt4,total_opt5,total_opt6];
-    let puntosTotales = [obtenido_opt1,obtenido_opt2,obtenido_opt3,obtenido_opt4,obtenido_opt5,obtenido_opt6];
+    let puntosObtenidos = [total_opt1, total_opt2, total_opt3, total_opt4, total_opt5, total_opt6];
+    let puntosTotales = [obtenido_opt1, obtenido_opt2, obtenido_opt3, obtenido_opt4, obtenido_opt5, obtenido_opt6];
     let puntosTotalFinal = [[...puntosObtenidos], [...puntosTotales]];
     return puntosTotalFinal;
 }
@@ -104,7 +104,7 @@ let puntosTotalesFinal = obtenerPuntos();
 console.log(puntosTotalesFinal);
 
 //Funcion para hacer la suma de todos los puntos
-function totalPuntosSuma(){
+function totalPuntosSuma() {
     //Datos con los que trabajr
     let puntosSumaCopia = [...puntosTotalesFinal];
     let puntosSumaCopia_total = puntosTotalesFinal[0];
@@ -141,8 +141,8 @@ function totalPuntosSuma(){
 
     //Debemos obtener los procentages para el width de una vez
     let hundred = valorFinalTotal;
-    let first_per = parseFloat(((valorTotal_mio*100)/hundred).toFixed(1)) + '%';
-    let second_per = parseFloat(((valorObtenido_mio*100)/hundred).toFixed(1)) + '%';
+    let first_per = parseFloat(((valorTotal_mio * 100) / hundred).toFixed(1)) + '%';
+    let second_per = parseFloat(((valorObtenido_mio * 100) / hundred).toFixed(1)) + '%';
 
     //Asignamos los anchos y los puntos
     let goodElement = document.getElementById('good_1');
@@ -150,14 +150,241 @@ function totalPuntosSuma(){
 
     goodElement.textContent = valorFinalTotal + ' total pts.';
     badElement.textContent = valorObtenido_mio + ' pts.'
-    goodElement.setAttribute('style', 'width:'+ first_per);
-    badElement.setAttribute('style', 'width:'+second_per);
+    goodElement.setAttribute('style', 'width:' + first_per);
+    badElement.setAttribute('style', 'width:' + second_per);
 
     console.log(valorTotal_mio, valorObtenido_mio, first_per, second_per);
 
 }
-
 totalPuntosSuma()
+
+//Hacemos la funcio para el calculo de los puntos de las preguntas de tipo OPT1
+function puntosOpt1_grafica() {
+    //Datos con los que trabajar
+    let puntosSumaCopia = [...puntosTotalesFinal];
+    let puntosSumaCopia_total = puntosSumaCopia[0][0];
+    let puntosSumaCopia_obtenida = puntosSumaCopia[1][0];
+    //Accedemos a los elementos en las graficas
+    let goodElement = document.getElementById('good_2');
+    let badElement = document.getElementById('bad_2');
+
+    let valorTotal = 0;
+    let valorParcial = 0;
+    //Suma de los totales
+    let sumaParcial_1 = puntosSumaCopia_total.reduce((sum, val) => {
+        return sum + val;
+    });
+    valorTotal += sumaParcial_1;
+
+    //Suma de los obtenidos
+    let sumaParcial_2 = puntosSumaCopia_obtenida.reduce((sum, val) => {
+        return sum + val;
+    });
+    valorParcial += sumaParcial_2;
+
+    //Debemos obtener los procentages para el width de una vez
+    let hundred = valorTotal + valorParcial;
+    let first_per = parseFloat(((valorTotal * 100) / hundred).toFixed(1)) + '%';
+    let second_per = parseFloat(((valorParcial * 100) / hundred).toFixed(1)) + '%';
+
+    goodElement.textContent = valorTotal + ' total pts.';
+    badElement.textContent = valorParcial + ' pts.'
+    goodElement.setAttribute('style', 'width:' + first_per);
+    badElement.setAttribute('style', 'width:' + second_per);
+
+    console.log(valorTotal, valorParcial, first_per, second_per)
+}
+puntosOpt1_grafica();
+
+//Hacemos la funcio para el calculo de los puntos de las preguntas de tipo OPT2
+function puntosOpt2_grafica() {
+    //Datos con los que trabajar
+    let puntosSumaCopia = [...puntosTotalesFinal];
+    let puntosSumaCopia_total = puntosSumaCopia[0][1];
+    let puntosSumaCopia_obtenida = puntosSumaCopia[1][1];
+    //Accedemos a los elementos en las graficas
+    let goodElement = document.getElementById('good_3');
+    let badElement = document.getElementById('bad_3');
+
+    let valorTotal = 0;
+    let valorParcial = 0;
+    //Suma de los totales
+    let sumaParcial_1 = puntosSumaCopia_total.reduce((sum, val) => {
+        return sum + val;
+    });
+    valorTotal += sumaParcial_1;
+
+    //Suma de los obtenidos
+    let sumaParcial_2 = puntosSumaCopia_obtenida.reduce((sum, val) => {
+        return sum + val;
+    });
+    valorParcial += sumaParcial_2;
+
+    //Debemos obtener los procentages para el width de una vez
+    let hundred = valorTotal + valorParcial;
+    let first_per = parseFloat(((valorTotal * 100) / hundred).toFixed(1)) + '%';
+    let second_per = parseFloat(((valorParcial * 100) / hundred).toFixed(1)) + '%';
+
+    goodElement.textContent = valorTotal + ' total pts.';
+    badElement.textContent = valorParcial + ' pts.'
+    goodElement.setAttribute('style', 'width:' + first_per);
+    badElement.setAttribute('style', 'width:' + second_per);
+
+    console.log(valorTotal, valorParcial, first_per, second_per)
+}
+puntosOpt2_grafica();
+
+//Hacemos la funcio para el calculo de los puntos de las preguntas de tipo OPT3
+function puntosOpt3_grafica() {
+    //Datos con los que trabajar
+    let puntosSumaCopia = [...puntosTotalesFinal];
+    let puntosSumaCopia_total = puntosSumaCopia[0][2];
+    let puntosSumaCopia_obtenida = puntosSumaCopia[1][2];
+    //Accedemos a los elementos en las graficas
+    let goodElement = document.getElementById('good_4');
+    let badElement = document.getElementById('bad_4');
+
+    let valorTotal = 0;
+    let valorParcial = 0;
+    //Suma de los totales
+    let sumaParcial_1 = puntosSumaCopia_total.reduce((sum, val) => {
+        return sum + val;
+    });
+    valorTotal += sumaParcial_1;
+
+    //Suma de los obtenidos
+    let sumaParcial_2 = puntosSumaCopia_obtenida.reduce((sum, val) => {
+        return sum + val;
+    });
+    valorParcial += sumaParcial_2;
+
+    //Debemos obtener los procentages para el width de una vez
+    let hundred = valorTotal + valorParcial;
+    let first_per = parseFloat(((valorTotal * 100) / hundred).toFixed(1)) + '%';
+    let second_per = parseFloat(((valorParcial * 100) / hundred).toFixed(1)) + '%';
+
+    goodElement.textContent = valorTotal + ' total pts.';
+    badElement.textContent = valorParcial + ' pts.'
+    goodElement.setAttribute('style', 'width:' + first_per);
+    badElement.setAttribute('style', 'width:' + second_per);
+
+    console.log(valorTotal, valorParcial, first_per, second_per)
+}
+puntosOpt3_grafica();
+
+//Hacemos la funcio para el calculo de los puntos de las preguntas de tipo OPT4
+function puntosOpt4_grafica() {
+    //Datos con los que trabajar
+    let puntosSumaCopia = [...puntosTotalesFinal];
+    let puntosSumaCopia_total = puntosSumaCopia[0][3];
+    let puntosSumaCopia_obtenida = puntosSumaCopia[1][3];
+    //Accedemos a los elementos en las graficas
+    let goodElement = document.getElementById('good_5');
+    let badElement = document.getElementById('bad_5');
+
+    let valorTotal = 0;
+    let valorParcial = 0;
+    //Suma de los totales
+    let sumaParcial_1 = puntosSumaCopia_total.reduce((sum, val) => {
+        return sum + val;
+    });
+    valorTotal += sumaParcial_1;
+
+    //Suma de los obtenidos
+    let sumaParcial_2 = puntosSumaCopia_obtenida.reduce((sum, val) => {
+        return sum + val;
+    });
+    valorParcial += sumaParcial_2;
+
+    //Debemos obtener los procentages para el width de una vez
+    let hundred = valorTotal + valorParcial;
+    let first_per = parseFloat(((valorTotal * 100) / hundred).toFixed(1)) + '%';
+    let second_per = parseFloat(((valorParcial * 100) / hundred).toFixed(1)) + '%';
+
+    goodElement.textContent = valorTotal + ' total pts.';
+    badElement.textContent = valorParcial + ' pts.'
+    goodElement.setAttribute('style', 'width:' + first_per);
+    badElement.setAttribute('style', 'width:' + second_per);
+
+    console.log(valorTotal, valorParcial, first_per, second_per)
+}
+puntosOpt4_grafica();
+
+//Hacemos la funcio para el calculo de los puntos de las preguntas de tipo OPT5
+function puntosOpt5_grafica() {
+    //Datos con los que trabajar
+    let puntosSumaCopia = [...puntosTotalesFinal];
+    let puntosSumaCopia_total = puntosSumaCopia[0][4];
+    let puntosSumaCopia_obtenida = puntosSumaCopia[1][4];
+    //Accedemos a los elementos en las graficas
+    let goodElement = document.getElementById('good_6');
+    let badElement = document.getElementById('bad_6');
+
+    let valorTotal = 0;
+    let valorParcial = 0;
+    //Suma de los totales
+    let sumaParcial_1 = puntosSumaCopia_total.reduce((sum, val) => {
+        return sum + val;
+    });
+    valorTotal += sumaParcial_1;
+
+    //Suma de los obtenidos
+    let sumaParcial_2 = puntosSumaCopia_obtenida.reduce((sum, val) => {
+        return sum + val;
+    });
+    valorParcial += sumaParcial_2;
+
+    //Debemos obtener los procentages para el width de una vez
+    let hundred = valorTotal + valorParcial;
+    let first_per = parseFloat(((valorTotal * 100) / hundred).toFixed(1)) + '%';
+    let second_per = parseFloat(((valorParcial * 100) / hundred).toFixed(1)) + '%';
+
+    goodElement.textContent = valorTotal + ' total pts.';
+    badElement.textContent = valorParcial + ' pts.'
+    goodElement.setAttribute('style', 'width:' + first_per);
+    badElement.setAttribute('style', 'width:' + second_per);
+
+    console.log(valorTotal, valorParcial, first_per, second_per)
+}
+puntosOpt5_grafica();
+
+//Hacemos la funcio para el calculo de los puntos de las preguntas de tipo OPT6
+function puntosOpt6_grafica() {
+    //Datos con los que trabajar
+    let puntosSumaCopia = [...puntosTotalesFinal];
+    let puntosSumaCopia_total = puntosSumaCopia[0][5];
+    let puntosSumaCopia_obtenida = puntosSumaCopia[1][5];
+    //Accedemos a los elementos en las graficas
+    let goodElement = document.getElementById('good_7');
+    let badElement = document.getElementById('bad_7');
+
+    let valorTotal = 0;
+    let valorParcial = 0;
+    //Suma de los totales
+    let sumaParcial_1 = puntosSumaCopia_total.reduce((sum, val) => {
+        return sum + val;
+    });
+    valorTotal += sumaParcial_1;
+
+    //Suma de los obtenidos
+    let sumaParcial_2 = puntosSumaCopia_obtenida.reduce((sum, val) => {
+        return sum + val;
+    });
+    valorParcial += sumaParcial_2;
+
+    //Debemos obtener los procentages para el width de una vez
+    let hundred = valorTotal + valorParcial;
+    let first_per = parseFloat(((valorTotal * 100) / hundred).toFixed(1)) + '%';
+    let second_per = parseFloat(((valorParcial * 100) / hundred).toFixed(1)) + '%';
+
+    goodElement.textContent = valorTotal + ' total pts.';
+    badElement.textContent = valorParcial + ' pts.'
+    goodElement.setAttribute('style', 'width:' + first_per);
+    badElement.setAttribute('style', 'width:' + second_per);
+
+    console.log(valorTotal, valorParcial, first_per, second_per)
+}
+puntosOpt6_grafica();
 
 /////////////////////////////////////////////////
 //Limpiamos los datos del usuario
@@ -335,10 +562,10 @@ function contadorReadyPending() {
 //Hacemos la funcion para convertir el tiempo en un formato que entendamos
 function convertirFormatoHora() {
     let horaConformatoNumerico = dataClean.map(hora => {
-        if(hora != null){
+        if (hora != null) {
             //Quitamos el texto
             let horaTexto = hora[9];
-            if(isNaN(horaTexto)){
+            if (isNaN(horaTexto)) {
                 let numeroHora = horaTexto.replaceAll('h', '').replaceAll('m', '').replaceAll('s', '');
                 //Convertimos en un array
                 numeroHora = numeroHora.split(':');
@@ -348,10 +575,10 @@ function convertirFormatoHora() {
                 numeroHora[2] = parseInt((numeroHora[2] * (1 / 60)).toFixed(0));
                 //Obtenemos los minutos totales
                 return numeroHora[0] + parseInt(numeroHora[1]) + numeroHora[2];
-            }else{
+            } else {
                 return 0
             }
-        }else{
+        } else {
             return '0h:0m:0s'
         }
     })
