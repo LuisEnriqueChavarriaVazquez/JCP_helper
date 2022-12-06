@@ -42,7 +42,7 @@
 
             <br><br><br><br>
 
-            <div class="contenedorReportes-grid-card" id="contenedorCardsGruposOperationId">
+            <div class="contenedorReportes-grid-card">
                 {% if cuestionariosDevuelta %}
                 {%for i in range(0, cuestionariosDevuelta|length)%}
                 <div class="card-report-download colorGreyWhiter bordered1 shadow-1">
@@ -56,7 +56,6 @@
 
                     </div>
                 </div>
-
                 {%endfor%}
                 {% endif %}
             </div>
