@@ -23,7 +23,10 @@
                     class="material-icons">arrow_back</i></a>
             <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Terminado.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded TDI">Volver</a></li>
+                <form action="/viewCuestionarioInfo/{{datosCuestionario[0][0]}}" method="post">
+                    <input type="hidden" name="idEstudiante" value="{{idEstudiante}}">
+                    <li><button type="submit" class="btn color3 button-rounded TDI">Volver</button></li>
+                </form>
             </ul>
         </div>
     </nav>
