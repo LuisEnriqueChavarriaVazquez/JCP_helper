@@ -223,8 +223,11 @@ def view_cuestionario_info(id):
     #Obtenemos los datos del profesor
     pickedProfData = Op_profesor.datos_completos_docente_by_id(datosCuestionarios[0][2])
 
+    #Dato para la vuelta a la pagina anterior
+    idGrupo=pickedGroupData[0][0]
+
     #Enviamos al usuario al formulario para ver datos del grupo.
-    return render_template('estudiante/c_viewCuestionarioInfo.html', datosCuestionarios = datosCuestionarios[0], datosGrupo = pickedGroupData[0], datosDocente = pickedProfData, idEstudiante = idEstudiante)
+    return render_template('estudiante/c_viewCuestionarioInfo.html', datosCuestionarios = datosCuestionarios[0], datosGrupo = pickedGroupData[0], datosDocente = pickedProfData, idEstudiante = idEstudiante,idGrupo=idGrupo )
 
 ##
 ##Crear un comentario de retroalimentacion
