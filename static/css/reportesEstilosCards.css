@@ -126,10 +126,9 @@
         grid-template-rows: auto;
         grid-template-areas:
             "area1 area2"
-            "area3 area3"
+            "area3 area5"
             "area4 area4"
             "area4 area4"
-            "area5 area5"
         ;
         gap: 20px;
 
@@ -155,8 +154,126 @@
     }
 }
 
+.generalStatSonContainer_extraInfo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+        "a_1 a_2 a_3 a_4"
+    ;
+    gap: 10px;
+    padding: 20px !important;
+}
+
+#a_1 {
+    grid-area: a_1;
+}
+
+#a_2 {
+    grid-area: a_2;
+}
+
+#a_3 {
+    grid-area: a_3;
+}
+
+#a_4 {
+    grid-area: a_4;
+}
+
+.extraDataContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40px;
+}
+
+.extraDataContainer_s1 {
+    display: grid;
+    grid-template-columns: .5fr .5fr 2fr;
+    grid-template-rows: 30px;
+}
+
+.extraDataContainer_icon {
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    padding: 5px;
+}
+
+.extraDataContainer_number {
+    font-size: 25px;
+    font-weight: 700;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    align-self: center;
+    margin-left: 10px;
+}
+
+.extraDataContainer_text {
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+@media only screen and (max-width: 1200px) {
+    .generalStatSonContainer_extraInfo {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas:
+            "a_1 a_2"
+            "a_3 a_4"
+        ;
+        gap: 10px;
+        padding: 40px !important;
+    }
+
+    .extraDataContainer_number {
+        font-size: 30px;
+        font-weight: 700;
+        margin-left: 10px;
+    }
+
+    .extraDataContainer_text {
+        font-size: 18px;
+        font-weight: 700;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .generalStatSonContainer_extraInfo {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "a_1"
+            "a_2"
+            "a_3"
+            "a_4"
+        ;
+        gap: 10px;
+        padding: 40px !important;
+    }
+
+    .extraDataContainer_number {
+        font-size: 30px;
+        font-weight: 700;
+        margin-left: 10px;
+    }
+
+    .extraDataContainer_text {
+        font-size: 16px;
+        font-weight: 700;
+    }
+}
+
 /*Estilos para las stats de estudiantes*/
-.generalStatSonContainer{
+.generalStatSonContainer {
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 90px;
@@ -165,7 +282,7 @@
     align-items: center;
 }
 
-.numberStatStyle{
+.numberStatStyle {
     font-size: 60px;
     font-weight: 700;
     display: flex;
@@ -176,7 +293,8 @@
     margin-left: 5px;
 }
 
-.textStatStyle{
+
+.textStatStyle {
     font-size: 19px;
     font-weight: 500;
     display: flex;
@@ -185,7 +303,7 @@
     margin-left: 5px;
 }
 
-.textStatStyle_dos{
+.textStatStyle_dos {
     font-size: 19px;
     font-weight: 500;
     display: flex;
@@ -196,9 +314,77 @@
     top: -25px;
 }
 
-.nombreCuestionario_stat_alternate{
+.nombreCuestionario_stat_alternate {
     position: absolute;
     top: 30px;
     font-weight: 500;
     font-size: 12px;
+}
+
+.iconAnimated{
+    width: 100px;
+    position: absolute;
+    top: 125px;
+    left: 180px;
+}
+
+@media only screen and (max-width: 900px) {
+    .numberStatStyle {
+        font-size: 40px;
+        font-weight: 700;
+    }
+
+    .textStatStyle {
+        font-size: 19px;
+        font-weight: 500;
+        margin-left: 5px;
+        position: relative;
+        top: -10px;
+    }
+
+    .textStatStyle_dos {
+        font-size: 19px;
+        font-weight: 500;
+        position: relative;
+        top: -30px;
+    }
+
+    .iconAnimated{
+        width: 85px;
+        position: absolute;
+        top: 120px;
+        left: 170px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .numberStatStyle {
+        font-size: 35px;
+        font-weight: 700;
+        top: 0px;
+        margin-left: 5px;
+    }
+
+    .textStatStyle {
+        font-size: 19px;
+        font-weight: 700;
+        margin-left: 5px;
+        position: relative;
+        top: 15px;
+    }
+
+    .textStatStyle_dos {
+        font-size: 19px;
+        font-weight: 700;
+        position: relative;
+        top: 2px;
+    }
+
+    .generalStatSonContainer {
+        grid-template-rows: 40px;
+    }
+
+    .iconAnimated{
+        display: none;
+    }
 }
