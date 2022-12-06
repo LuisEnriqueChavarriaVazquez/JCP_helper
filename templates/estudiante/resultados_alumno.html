@@ -57,20 +57,65 @@
                     <p class="textStatStyle coloredText" id="data_2">Promedio global.</p>
                 </div>
                 <div class="generalStatSonContainer colorWhite bordered1 shadow-1" id="stat_3">
-                    <p class="numberStatStyle" id="number_2">9.8</p>
-                    <p class="textStatStyle_dos coloredText" id="data_2">
+                    <p class="numberStatStyle" id="number_3">9.8</p>
+                    <p class="textStatStyle coloredText" id="data_3">
                         Mejor resultado.
-                        <span class="nombreCuestionario_stat_alternate">
-                            Cuestionario x dsnsdkdsksd sdnsdk
-                        </span>
                     </p>
                 </div>
-                <div class="generalStatSonContainer colorWhite bordered1 shadow-1" id="stat_4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ab repellat deserunt nulla ducimus provident tempore temporibus odit hic velit, accusamus laudantium accusantium eos et alias ullam. Tempore, vel aut!
+                <div class="generalStatSonContainer_extraInfo colorWhite bordered1 shadow-1" id="stat_4">
+                    <div class="extraDataContainer" id="a_1">
+                        <div class="extraDataContainer_s1">
+                            <p class="extraDataContainer_icon color2 colorText bordered5"><i class="material-icons md-20">alarm_on</i></p>
+                            <p class="extraDataContainer_number coloredText" id="value_1_mini">3</p>
+                            <p class="extraDataContainer_text colorTextReverse">A tiempo</p>
+                        </div>
+                        <div class="extraDataContainer_s1">
+                            <p class="extraDataContainer_icon color2 colorText bordered5"><i class="material-icons md-20">event_busy</i></p>
+                            <p class="extraDataContainer_number coloredText" id="value_2_mini">9</p>
+                            <p class="extraDataContainer_text colorTextReverse">Retresadas</p>
+                        </div>
+                    </div>
+                    <div class="extraDataContainer" id="a_2">
+                        <div class="extraDataContainer_s1">
+                            <p class="extraDataContainer_icon color3 colorText bordered5"><i class="material-icons md-20">pending_actions</i></p>
+                            <p class="extraDataContainer_number coloredText" id="value_3_mini">3</p>
+                            <p class="extraDataContainer_text colorTextReverse">Revisión pendiente</p>
+                        </div>
+                        <div class="extraDataContainer_s1">
+                            <p class="extraDataContainer_icon color3 colorText bordered5"><i class="material-icons md-20">verified</i></p>
+                            <p class="extraDataContainer_number coloredText" id="value_4_mini">9</p>
+                            <p class="extraDataContainer_text colorTextReverse">Revisión lista</p>
+                        </div>
+                    </div>
+                    <div class="extraDataContainer" id="a_3">
+                        <div class="extraDataContainer_s1">
+                            <p class="extraDataContainer_icon color3 colorText bordered5"><i class="material-icons md-20">handyman</i></p>
+                            <p class="extraDataContainer_number coloredText" id="value_8_mini">9</p>
+                            <p class="extraDataContainer_text colorTextReverse">Tests empezados</p>
+                        </div>
+                        <div class="extraDataContainer_s1">
+                            <p class="extraDataContainer_icon color2 colorText bordered5"><i class="material-icons md-20">thumb_up_alt</i></p>
+                            <p class="extraDataContainer_number coloredText" id="value_5_mini">3</p>
+                            <p class="extraDataContainer_text colorTextReverse">Aprobados</p>
+                        </div>
+                    </div>
+                    <div class="extraDataContainer" id="a_4">
+                        <div class="extraDataContainer_s1">
+                            <p class="extraDataContainer_icon color2 colorText bordered5"><i class="material-icons md-20">thumb_down_alt</i></p>
+                            <p class="extraDataContainer_number coloredText" id="value_6_mini">9</p>
+                            <p class="extraDataContainer_text colorTextReverse">Reprobados</p>
+                        </div>
+                        <div class="extraDataContainer_s1">
+                            <p class="extraDataContainer_icon color1 colorText bordered5"><i class="material-icons md-20">hourglass_top</i></p>
+                            <p class="extraDataContainer_number coloredText" id="value_7_mini">3</p>
+                            <p class="extraDataContainer_text colorTextReverse"> &nbsp; promedio</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="generalStatSonContainer colorWhite bordered1 shadow-1" id="stat_5">
-                    <p class="numberStatStyle" id="number_2">88%</p>
-                    <p class="textStatStyle coloredText" id="data_2">Probabilidad de aprobar.</p>
+                    <img src="../../static/images/icons/ai.gif" class="iconAnimated" alt="ai icon">
+                    <p class="numberStatStyle" id="number_4">88%</p>
+                    <p class="textStatStyle coloredText" id="data_4">Tendencia.</p>
                 </div>
             </section>
 
@@ -95,6 +140,62 @@
                 {%endfor%}
                 {% endif %}
             </div>
+
+            <!--Puntajes por tipo de pregunta-->
+            <div class="titleReportsStyle_student">
+                <h5 class="colorTextReverse">Puntajes/tipo pregunta.</h5>
+            </div>
+            <section class="puntosPorTipoPregunta_estudiante_misResultados">
+                <div class="puntosPorTipoPregunta_estudiante_misResultados_son colorWhite bordered1 shadow-1" id="b1">
+                    <p class="puntosPorTipoPregunta_estudiante_misResultados_son_title colorTextReverse">Global</p>
+                    <div class="puntosPorTipoPregunta_estudiante_misResultados_son_bar">
+                        <span class="goodPoints colorText color2" id="good_1">0.0pts.</span>
+                        <span class="badPoints colorText color3" id="bad_1">0.0pts.</span>
+                    </div>
+                </div>
+                <div class="puntosPorTipoPregunta_estudiante_misResultados_son colorWhite bordered1 shadow-1" id="b2">
+                    <p class="puntosPorTipoPregunta_estudiante_misResultados_son_title colorTextReverse">Opción múltiple</p>
+                    <div class="puntosPorTipoPregunta_estudiante_misResultados_son_bar">
+                        <span class="goodPoints colorText color2" id="good_2">0.0pts.</span>
+                        <span class="badPoints colorText color3" id="bad_2">0.0pts.</span>
+                    </div>
+                </div>
+                <div class="puntosPorTipoPregunta_estudiante_misResultados_son colorWhite bordered1 shadow-1" id="b3">
+                    <p class="puntosPorTipoPregunta_estudiante_misResultados_son_title colorTextReverse">Rellenar espacios.</p>
+                    <div class="puntosPorTipoPregunta_estudiante_misResultados_son_bar">
+                        <span class="goodPoints colorText color2" id="good_3">0.0pts.</span>
+                        <span class="badPoints colorText color3" id="bad_3">0.0pts.</span>
+                    </div>
+                </div>
+                <div class="puntosPorTipoPregunta_estudiante_misResultados_son colorWhite bordered1 shadow-1" id="b4">
+                    <p class="puntosPorTipoPregunta_estudiante_misResultados_son_title colorTextReverse">Ejercicios de código</p>
+                    <div class="puntosPorTipoPregunta_estudiante_misResultados_son_bar">
+                        <span class="goodPoints colorText color2" id="good_4">0.0pts.</span>
+                        <span class="badPoints colorText color3" id="bad_4">0.0pts.</span>
+                    </div>
+                </div>
+                <div class="puntosPorTipoPregunta_estudiante_misResultados_son colorWhite bordered1 shadow-1" id="b5">
+                    <p class="puntosPorTipoPregunta_estudiante_misResultados_son_title colorTextReverse">Falso/verdadero</p>
+                    <div class="puntosPorTipoPregunta_estudiante_misResultados_son_bar">
+                        <span class="goodPoints colorText color2" id="good_5">0.0pts.</span>
+                        <span class="badPoints colorText color3" id="bad_5">0.0pts.</span>
+                    </div>
+                </div>
+                <div class="puntosPorTipoPregunta_estudiante_misResultados_son colorWhite bordered1 shadow-1" id="b6">
+                    <p class="puntosPorTipoPregunta_estudiante_misResultados_son_title colorTextReverse">Preguntas abiertas</p>
+                    <div class="puntosPorTipoPregunta_estudiante_misResultados_son_bar">
+                        <span class="goodPoints colorText color2" id="good_6">0.0pts.</span>
+                        <span class="badPoints colorText color3" id="bad_6">0.0pts.</span>
+                    </div>
+                </div>
+                <div class="puntosPorTipoPregunta_estudiante_misResultados_son colorWhite bordered1 shadow-1" id="b7">
+                    <p class="puntosPorTipoPregunta_estudiante_misResultados_son_title colorTextReverse">Relacionar conceptos</p>
+                    <div class="puntosPorTipoPregunta_estudiante_misResultados_son_bar">
+                        <span class="goodPoints colorText color2" id="good_7">0.0pts.</span>
+                        <span class="badPoints colorText color3" id="bad_7">0.0pts.</span>
+                    </div>
+                </div>
+            </section>
             <br>
         </section>
     </section>
