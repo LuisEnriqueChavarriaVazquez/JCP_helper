@@ -1,8 +1,52 @@
-<html>
+<!doctype html>
+<html lang="en">
     <head>
-
+        <title class="TDI">Confirmar correo</title>
+        <!--Jalamos todo el contenido del encabezado-->
+        {% include "includes/encabezadoRecursos.html" %}
+    
+    
     </head>
-    <body>
-        
-    </body>
+    <body class="oculto colorGreyWhiter" >
+        <!--Jalamos todo el contenido del encabezado-->
+        {% include "includes/cargador.html" %}
+
+        <!--Menu de página de inicio-->
+        <nav class="color2">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo hide-on-small-only TDI">Confirmar correo</a>
+                <a href="bienvenida" data-target="slide-out" class="sidenav-trigger"><i
+                        class="material-icons">arrow_back</i></a>
+                <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Confirmar correo</p>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="/" class="btn color3 button-rounded TDI">Volver al inicio</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="mainBody colorGreyWhiter">
+            <div class="title-general">
+                <h5 class="hide-on-large-only TDI">Confirmación cuenta</h5>
+                <h4 class="hide-on-med-and-down TDI">Confirmación cuenta</h4>
+            </div>
+            <form action="{{ url_for('') }}" method="post" enctype="multipart/form-data">
+                
+            </form>
+        </section>
+<br>
+
+        <!--Botones para que el gestor de idiomas no falle-->
+        <span class="hiddenElement" id="seleccionarEspanol"></span>
+        <span class="hiddenElement" id="seleccionarIngles"></span>
+        <span class="hiddenElement" id="seleccionarPortugues"></span>
+        <span class="hiddenElement" id="seleccionarChino"></span>
+
+        <!--Metemos el footer en la app-->
+        {% include "includes/footer.html" %}
+        </body>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/footerRecursos.html" %}
+    <script src="../static/js/idiomas/textos.mjs" type="module"></script>
+    <script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 </html>
