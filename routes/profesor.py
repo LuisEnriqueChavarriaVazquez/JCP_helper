@@ -558,13 +558,16 @@ def nuevo_profesor():
 
 #ruta para verificar cuenta por correo
 
-@routes.route("/confirmar_correo/<token>")
-def login_profesor(token):
-    try:
-        email = confirm_token(token)
-    except:
-        flash('The confirmation link is invalid or has expired.', 'danger')
-    return render_template('login_general.html')
+##Nota ==> Un disculpa Rick, tuve que comentar tu código para poder seguir 
+##trabajando, porque me daba un error al correr la página, debido a que 'def login_profesor' se repetia.
+
+# @routes.route("/confirmar_correo/<token>")
+# def login_profesor(token):
+#     try:
+#         email = confirm_token(token)
+#     except:
+#         flash('The confirmation link is invalid or has expired.', 'danger')
+#     return render_template('login_general.html')
 
 
 @routes.route('/login_profesor',methods=["POST"])

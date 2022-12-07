@@ -521,7 +521,7 @@ let rutas = {
             texts: ['My results','My results','My results.','Return','Global Dashboard','Global Dashboard','Statistics of interest','Total tests.','Global average.','Best result.','On time','Delayed','Pending review','Review ready','Tests started',' Approved',' Failed',' Average','Trend.','Reports','Scores/question type.','Global','Multiple choice','Fill spaces.','Code exercises','False true','Open questions','Relate concepts']
         },
         "textPortugues": {
-            texts: ['Meus resultados','Meus resultados','Meus resultados.','Retornar','Painel Global','Painel Global','Estatísticas de interesse','Total de questionários.','Média global.','Melhor resultado.','A tempo','retardado','Revisão pendente','Revisão pronta','Testes iniciados','aprovado','Fracassado','média','Tendência.','Relatórios','Tipo de pontuação/pergunta.','Global','Múltipla escolha','Preencher espaços.','Exercícios de código','Falso verdadeiro','Perguntas em aberto','Relacionar conceitos']
+            texts: ['Meus resultados','Meus resultados','Meus resultados.','Retornar','Painel Global','Painel Global','Estatísticas de interesse','Total de questionários.','Média global.','Melhor resultado.','A tempo','Sem tempo','Revisão pendente','Revisão pronta','Testes iniciados','Aprovado','Fracassado','média','Tendência.','Relatórios','Tipo de pontuação/pergunta.','Global','Múltipla escolha','Preencher espaços.','Exercícios de código','Falso verdadeiro','Perguntas em aberto','Relacionar conceitos']
         },
         "textChino": {
             texts: ['我的成绩','我的成绩','我的结果。','返回','全球仪表板','全球仪表板','感兴趣的统计数据','问卷总数。','全球平均水平。','最好的结果。','准时','弱智','等待审核','审核准备就绪','测试开始','得到正式认可的','失败的','平均','趋势。','报告','分数/题型。','全球的','多项选择','填充空格。','代码练习','假真','开放式问题','相关概念']
