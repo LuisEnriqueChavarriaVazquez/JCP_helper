@@ -556,6 +556,17 @@ def nuevo_profesor():
 
         return render_template('login_general.html')
 
+#ruta para verificar cuenta por correo
+
+@routes.route("/confirmar_correo/<token>")
+def login_profesor(token):
+    try:
+        email = confirm_token(token)
+    except:
+        flash('The confirmation link is invalid or has expired.', 'danger')
+    return render_template('login_general.html')
+
+
 @routes.route('/login_profesor',methods=["POST"])
 def login_profesor():
     if request.method=="POST":
