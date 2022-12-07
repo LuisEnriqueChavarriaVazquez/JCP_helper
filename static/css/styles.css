@@ -493,6 +493,34 @@ input[type="file"] {
 }
 
 
+/*Mensajes de erro custom*/
+.notFoundMsg_custom{
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 0;
+}
+
+.notFoundMsg_custom div{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.notFoundMsg_custom div img{
+	width: 100%;
+}
+
+@media screen and (min-width: 1200px) {
+	.notFoundMsg_custom div img{
+		width: 60%;
+	}
+}
+
 /*Estilos del log in*/
 
 .loginContainerGrid{

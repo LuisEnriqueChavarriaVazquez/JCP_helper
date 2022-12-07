@@ -536,6 +536,14 @@ def updatePost(id_publicacion,tituloPost, descripcionPost, fondoPost):
     conexion.close()
     return confirmacionDeDelete
 
+###################Operaciones para las notificaciones del docente a su alumno
+def agregarNotificacion_para_alumno(id_alumno, texto, importancia, categoria):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("INSERT INTO Notificaciones_Alumno(IDAlumno, Texto, Importancia, Categoria) VALUES(%s,%s,%s,%s)",
+        (id_alumno, texto, importancia, categoria))
+    conexion.commit()
+    conexion.close()
 
 ################### Operaciones para las politicas
 #Agregar al docente y su respuesta sobre la politica

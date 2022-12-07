@@ -14,73 +14,46 @@ function moverIconoNotificacion() {
 }
 
 //Sirve para registrar las notificaciones contenidas en la caja de notificaciones
-function contarNotificaciones() {
+function notificacionesExiten() {
     //Contamos lo elementos
     let notificacionContador = document.getElementsByClassName('notificacionContador');
     let notificacionContadorCuenta = notificacionContador.length;
 
+    //Mensaje de notificacion
+    let msgNoNoti = document.getElementById('notNoti');
+    let msgYesNoti = document.getElementById('yesNoti');
+
+    //Accedemos a nuestro favicon
+    var favicon = document.querySelector("link[rel~='icon']")
+    console.log('favicon', favicon)
+
     //Notificacion de contador
-    const contadorNotificacion = document.getElementById('contadorNotificacion');
+    const contadorNotificacion = document.getElementById('contadorNotificacion')
+    if(notificacionContadorCuenta != 0){
+        //Solo se cambia el color del indicador de notificaciones y se cuentan los elementos
+        contadorNotificacion.classList.remove('color1');
+        contadorNotificacion.innerText = notificacionContadorCuenta;
+        contadorNotificacion.setAttribute('style', 'background-color: red;');
 
-    //Se pone aqui para cuando cargue la pagina
-    contadorNotificacion.innerText = notificacionContadorCuenta;
-}
+        //Aparecemos el mensaje de ir a ver todas las notificaciones
+        msgYesNoti.classList.remove('hiddenElement');
+        //Quitamos el mensaje de no hay notificaciones
+        msgNoNoti.classList.add('hiddenElement');
 
-//El orden de los titulos debe coincidir con el orden en que estan en pantalla en la caja de notificaciones
-let notificacionesTitles = ['politicasN', 'ayudaN', 'crearGrupoN', 'configuracionesN'];
-let notificacionesButtonTitles = ['politicasNButton', 'ayudaNButton', 'crearGrupoNButton', 'configuracionesNButton'];
+        //Modificamos la ruta del favicon
+        favicon.href = '../../static/images/favicon/ico_noti.ico';
 
-function validarNotificacionesEstado() {
-    let notificacionContador = document.getElementsByClassName('notificacionContador');
-
-    for(var i = 0; i < notificacionContador.length; i++){
-        //En caso de que las variables esten en local storage no se muestra notificacion
-        if (localStorage.getItem(notificacionesTitles[i]) !== null) {
-            notificacionContador[i].remove();
-        }else{
-            console.log("El elemento se muestra, no esta en localstorage")
-        }
     }
 
-    //Volvemos a contar los elementos
-    contarNotificaciones();
-}
-
-function guardarEnLocalStorageEdoDeNotificacion(){
-    
-    //Guardamos todos los botones de las notificaciones
-    let politicasNButton = document.getElementsByClassName('politicasNButton');
-    let ayudaNButton = document.getElementsByClassName('ayudaNButton');
-    let crearGrupoNButton = document.getElementsByClassName('crearGrupoNButton');
-    let configuracionesNButton = document.getElementsByClassName('configuracionesNButton');
-
-    /*
-    *   parte de notificaciones pendiente... Corregir esta funcion
-    */
-
-    //Hacemos que el click se aplique a ambos botones
-    for(var t = 0; t < 2; t++){
-        politicasNButton[t].addEventListener('click', function(){
-            localStorage.setItem(notificacionesTitles[0], "ocultar");
-        });
-
-        ayudaNButton[t].addEventListener('click', function(){
-            localStorage.setItem(notificacionesTitles[1], "ocultar");
-        });
-
-        crearGrupoNButton[t].addEventListener('click', function(){
-            localStorage.setItem(notificacionesTitles[2], "ocultar");
-        });
-
-        configuracionesNButton[t].addEventListener('click', function(){
-            localStorage.setItem(notificacionesTitles[3], "ocultar");
-        });
-    }
-
-    validarNotificacionesEstado();
+    return notificacionContadorCuenta;
 }
 
 moverIconoNotificacion();
-contarNotificaciones();
-validarNotificacionesEstado();
-guardarEnLocalStorageEdoDeNotificacion();
+const numeroNotificaciones = notificacionesExiten();
+
+//Debemos validar si existen notificaciones
+function validarNotificaciones(numeroNotis){
+    return numeroNotis == 0 ? false : true; 
+}
+
+console.log(validarNotificaciones(numeroNotificaciones));

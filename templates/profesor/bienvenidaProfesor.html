@@ -6,7 +6,7 @@
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
-
+    <link rel="stylesheet" href="../../static/css/notificaciones.css">
 
 </head>
 
@@ -554,55 +554,30 @@
     <!--Modal para las notificaciones-->
     <div id="modal1" class="modal bordered2 colorGreyWhiter" style="height: 100vh;">
         <div class="modal-content">
-            <h4>Notificaciones</h4>
-            <div class="shadow-1 badColor bordered1 paddingerStyleNotificacion colorTextReverse notificacionContador">
-                <h6 class="badColor"><b>Politicas</b></h6>
-                <p class="badColor">¿Desea aceptar las politicas de cookies, de privacidad y los términos y condiciones?
-                </p>
-                <div>
-                    <a href="/bienvenidaProfesor"
-                        class="btn waves-effect waves-light bordered3 badColorButton politicasNButton"><i
-                            class="material-icons md-24">done</i></a>
-                    <a href="/bienvenidaProfesor"
-                        class="btn waves-effect waves-light bordered3 badColorButton politicasNButton"><i
-                            class="material-icons md-24">close</i></a>
-                </div>
+            <h4>Notificaciones recientes</h4>
+
+            <div class="notificacionContador paddingerStyleNotificacion colorGreyDarker shadow-1e bordered1">
+                <h6 class="colorTextReverse textNotificationStyle">El alumno Juanito a terminado una pruebas.</h6>
             </div>
-            <div class="shadow-1 infoColor bordered1 paddingerStyleNotificacion colorTextReverse notificacionContador">
-                <h6 class="infoColor"><b>Sección de ayuda </b></h6>
-                <p class="infoColor">¿Desea visitar la sección de ayuda?</p>
-                <div>
-                    <a href="/bienvenidaProfesor"
-                        class="btn waves-effect waves-light bordered3 infoColorButton ayudaNButton"><i
-                            class="material-icons md-24">done</i></a>
-                    <a href="/bienvenidaProfesor"
-                        class="btn waves-effect waves-light bordered3 infoColorButton ayudaNButton"><i
-                            class="material-icons md-24">close</i></a>
-                </div>
+            <div class="notificacionContador paddingerStyleNotificacion colorGreyDarker shadow-1e bordered1">
+                <h6 class="colorTextReverse textNotificationStyle">El alumno Juanito a terminado una pruebas.</h6>
             </div>
-            <div class="shadow-1 infoColor bordered1 paddingerStyleNotificacion colorTextReverse notificacionContador">
-                <h6 class="infoColor"><b>Crear un grupo</b></h6>
-                <p class="infoColor">Crear un primer grupo para comenzar</p>
-                <div>
-                    <a href="/bienvenidaProfesor"
-                        class="btn waves-effect waves-light bordered3 infoColorButton crearGrupoNButton"><i
-                            class="material-icons md-24">done</i></a>
-                    <a href="/bienvenidaProfesor"
-                        class="btn waves-effect waves-light bordered3 infoColorButton crearGrupoNButton"><i
-                            class="material-icons md-24">close</i></a>
-                </div>
+            <div class="notificacionContador paddingerStyleNotificacion colorGreyDarker shadow-1e bordered1">
+                <h6 class="colorTextReverse textNotificationStyle">El alumno Juanito a terminado una pruebas.</h6>
             </div>
-            <div class="shadow-1 sosoColor bordered1 paddingerStyleNotificacion colorTextReverse notificacionContador">
-                <h6 class="sosoColor"><b>Conocer los temas en la sección de configuraciones</b></h6>
-                <p class="sosoColor">Ajuste la página en caso de trastornos visuales</p>
-                <div>
-                    <a href="/bienvenidaProfesor"
-                        class="btn waves-effect waves-light bordered3 sosoColorButton configuracionesNButton"><i
-                            class="material-icons md-24">done</i></a>
-                    <a href="/bienvenidaProfesor"
-                        class="btn waves-effect waves-light bordered3 sosoColorButton configuracionesNButton"><i
-                            class="material-icons md-24">close</i></a>
-                </div>
+            <div class="notificacionContador paddingerStyleNotificacion colorGreyDarker shadow-1e bordered1">
+                <h6 class="colorTextReverse textNotificationStyle">El alumno Juanito a terminado una pruebas.</h6>
+            </div>
+
+            <div class="bordered1 shadow-1e gotoMoreNotifications hiddenElement" id="yesNoti">
+                <a href="" class="colorText gotoMoreNotifications_text">
+                    Ver todas las notificaciones.
+                </a>
+            </div>
+
+            <div class="notFoundMsg_custom" id="notNoti">
+                <div><h5><b>Sin notificaciones por el momento.</b></h5></div>
+                <div><img src="../../static/images/icons/icon_no_notification.svg"></div>
             </div>
         </div>
     </div>

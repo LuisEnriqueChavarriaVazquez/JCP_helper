@@ -100,18 +100,22 @@ foreign key (IDAlumno) references Alumnos(IDAlumno) ON DELETE CASCADE
 );
 
 create table Notificaciones_Alumno(
+ IDNotificacion_Alumno int not null auto_increment,
  IDAlumno int not null,
- IDNotificacion_Alumno int not null,
- Texto varchar(100),
- primary key (IDAlumno,IDNotificacion_Alumno),
+ Texto varchar(500),
+ Importancia varchar(100),
+ Categoria varchar(100),
+ primary key (IDNotificacion_Alumno),
  foreign key (IDAlumno) references Alumnos(IDAlumno) ON DELETE CASCADE
 );
 
 create table Notificaciones_Docente(
+ IDNotificacion_Docente int not null auto_increment,
  IDDocente int not null,
- IDNotificacion_Docente int not null,
  Texto varchar(100),
- primary key (IDDocente,IDNotificacion_Docente),
+ Importancia varchar(100),
+ Categoria varchar(100),
+ primary key (IDNotificacion_Docente),
  foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
 );
 

@@ -160,6 +160,13 @@ def terminarRetroalimentarCuestionarios(id_cuestionario_pending):
     #Obtenemos todos los datos del cuestionario
     try:
         datosCuestionario = Op_profesor.insertar_data_revision_apelacion(revisionEstado,aprovacionEstado,promedioGeneral,puntajeGeneral,puntajeSegmentado,id_cuestionario_pending)
+        ################################################################
+        #Debemos avisar a los alumnos de la apelacion del cuestionario.
+        ##Debemos definir los parametros del msg
+        importancia = "important"
+        categoria = "new_resolve"
+        texto = "El profesor@ ha resuelto una de tus apelaciones, revisa en las sección de Mis resultados como te fue."
+        Op_profesor.agregarNotificacion_para_alumno(idEstudiante, texto, importancia, categoria)
     except:
         print("error")
     #Enviamos al usuario al formulario para ver datos del cuestionario.
@@ -914,7 +921,27 @@ def saveCuestionario(id_profesor):
     rutaCuestionario = 'static/cuestionarios/'+ tituloCuestionarioConClave + '.json'
 
     result = Op_profesor.insertar_cuestionario_JSON(id_grupo, id_profesor, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, rutaCuestionario, ordenCuestionario, tiempoCuentaAtras, fechaLimiteRespuesta, horaLimiteParaResolver, numeroIntentosDisponibles)
+    
+    ################################################################
+    #Debemos avisar a los alumnos de la creación del cuestionario.
+    ##Primero obtenemos los IDS de los grupos
+    ids_alumnos_dentro_grupo = Op_profesor.obtener_IDAlumno_dentro_de_grupo(id_grupo)
+    lista_ids = []
+    for id_individual in ids_alumnos_dentro_grupo:
+        lista_ids.append(id_individual[0])
+    print(lista_ids) ##Tenemos los ids de los estudiantes a quienes mandaremos msg
+
+    ##Debemos definir los parametros del msg
+    importancia = "info"
+    categoria = "new_test"
+    texto = "El profesor@ " + autorCuestionario + " agregó un nuevo cuestionario llamado " + tituloCuestionario + " al grupo de " + grupoCuestionario
+
+    ##Guardamos las notificaciones
+    for ids_particular in lista_ids:
+        Op_profesor.agregarNotificacion_para_alumno(ids_particular, texto, importancia, categoria)
+    
     return redirect(url_for('routes.gestionar_cuestionarios'))
+
 
 ##
 ##Bloque para editar los cuestionarios, solo los datos adicionales
