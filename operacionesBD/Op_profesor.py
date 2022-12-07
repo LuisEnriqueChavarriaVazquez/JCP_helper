@@ -357,6 +357,17 @@ def obtener_cuestionarios_en_estado_ready(id_cuestionario):
     conexion.close()
     return cuestionarios
 
+def obtener_grupo_datos_importantes_id_hecho(codigo_cuestionario_hecho):
+    conexion=obtener_conexion()
+    grupos=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM Alumnos_hacen_Cuestionario WHERE IDCuestionarioHecho = %s", (codigo_cuestionario_hecho))
+        grupos=cursor.fetchone()
+
+    conexion.close()
+    return grupos
+
 ##
 ## Nos ayuda a actualizar los cuestionarios que estaban en estado de pending
 ##

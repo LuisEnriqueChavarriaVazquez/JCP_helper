@@ -111,6 +111,17 @@ def obtener_grupo_datos_importantes_unitario(codigo_grupo):
     conexion.close()
     return grupos
 
+def obtener_grupo_datos_importantes_id(id_grupo):
+    conexion=obtener_conexion()
+    grupos=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM grupos WHERE IDgrupo = %s", (id_grupo))
+        grupos=cursor.fetchone()
+
+    conexion.close()
+    return grupos
+
 #Insertar alumnos en grupos una vez que aceptan
 def insertar_estudiante_grupo( id_docente, id_grupo, id_estudiante):
     conexion = obtener_conexion()
@@ -377,6 +388,15 @@ def obtieneComentarioRetroalimentacion(id_grupo):
 
     conexion.close()
     return comentarios
+
+###################Operaciones para las notificaciones del docente a su alumno
+def agregarNotificacion_para_profesor(id_docente, texto, importancia, categoria):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("INSERT INTO Notificaciones_Docente(IDDocente, Texto, Importancia, Categoria) VALUES(%s,%s,%s,%s)",
+        (id_docente, texto, importancia, categoria))
+    conexion.commit()
+    conexion.close()
 
 
 ##############################################################################

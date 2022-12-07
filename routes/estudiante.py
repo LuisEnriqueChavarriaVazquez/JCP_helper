@@ -115,9 +115,19 @@ def search_group():
 def entrar_grupo(id_grupo, id_docente, id_estudiante):
     #Busca los datos del alumno con su ID
     result=Op_estudiante.datos_completos_alumno_by_id(id_estudiante)
+    datosGrupo = Op_estudiante.obtener_grupo_datos_importantes_id(id_grupo)
     resultadoConsulta = Op_estudiante.insertar_estudiante_grupo(id_docente, id_grupo, id_estudiante)
 
+
     if(resultadoConsulta == 'listo'):
+        ################################################################
+        #Debemos avisar a los alumnos de la apelacion del cuestionario.
+        ##Debemos definir los parametros del msg
+        importancia = "general"
+        categoria = "new_std"
+        texto = "Un nuevo alumn@ llamad@ " + result[1] + " se ha registrado al grupo " + datosGrupo[2]
+        print(texto)
+        Op_estudiante.agregarNotificacion_para_profesor(id_docente, texto, importancia, categoria)
         return redirect(url_for("routes.bienvenidaEstudiante"))
     else:
         return redirect(url_for("routes.bienvenidaEstudiante"))

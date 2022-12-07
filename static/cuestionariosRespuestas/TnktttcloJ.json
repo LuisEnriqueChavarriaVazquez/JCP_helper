@@ -1,9 +1,56 @@
 {
- "clave": [
+ "ordenPreguntas": [
   {
-   "id_cuestionario_hecho": "TnktttcloJ",
-   "id_cuestionario": "29",
-   "id_alumno": 1
+   "0": "optMultiple"
+  },
+  {
+   "retrasado": "true"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": ""
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "0": "Pregunta",
+   "1": "sdsdsdsd",
+   "2": "A",
+   "3": "dssdsdsd",
+   "4": "",
+   "5": "",
+   "6": ""
+  },
+  {
+   "respuestas": [
+    "opt1InputGet_0/A&1"
+   ]
+  }
+ ],
+ "preguntasModal2": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal3": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal4": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal5": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal6": [
+  {
+   "respuestas": []
   }
  ]
 }
