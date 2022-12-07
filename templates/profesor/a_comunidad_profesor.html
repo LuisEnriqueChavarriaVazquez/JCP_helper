@@ -33,66 +33,64 @@
                 <input type="text" class="browser-default shadow-2e flow-text" placeholder="Buscar cuestionarios"
                     id="buscadorInput_tres">
             </div>
-            <div class="icon_search_voice_mine shadow-2 bordered5 color3 colorText" id="icon_search_voice_mine"><i class="material-icons">keyboard_voice</i></div>
+            <div class="icon_search_voice_mine shadow-2 bordered5 color3 colorText" id="icon_search_voice_mine"><i
+                    class="material-icons">keyboard_voice</i></div>
         </div>
     </section>
 
     <br><br>
 
     <!--Slider palabras clave-->
-
-    <!--Carousel-->
     <div class="title-general">
-        <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Resultados</h5>
-        <h4 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Resultados</h4>
+        <h5 class="hide-on-large-only">Resultados</h5>
+        <h4 class="hide-on-med-and-down">Resultados</h4>
     </div>
-    <!--Para dispositivos de tamaño grande-->
-    <section class="mainBodyAdicional mainBodyAdicionalComunidadGrande hide-on-small-only">
-        <div class="row">
-            {% for item in general %}
-            <div class="col m6 l4 xl3">
-                <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
-                <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
-                    <div class="imagen_card_Comunidad_Grande">
-                        {% if item.lenguaje == "Python" %}
-                            <img  src="../../static/images/python.png" class="bordered2Up">
-                        {% elif item.lenguaje == "Java" %}
-                            <img src="../../static/images/java.jpg" class="bordered2Up">
-                        {% elif item.lenguaje == "C" %}
-                            <img src="../../static/images/loc.png" class="bordered2Up">
-                        {% endif %}
-                    </div>
-                    <div class="padre_datos_card_Comunidad">
-                        <div class="text_card_grande">
-                            <p class="truncate colorTextReverse">{{item.titulo}}</p>
-                            <p class="truncate colorTextReverse">{{item.autor}}</p>
-                            <p  class="truncate colorTextReverse">{{item.temas}}</p>
-                        </div>
-                    </div>
+    <section class="cardsResultsCommunityBig_BankData_container">
+        {% for item in general %}
+        <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
+            <div class="cardsResultsCommunityBig_BankData_card bordered1 colorGreyWhiter shadow-1">
+                {% if item.lenguaje == "Python" %}
+                <div class="cardsResultsCommunityBig_BankData_card_img"
+                    style="background-image: url('../../static/images/fondos/a_cards_comunidad/fondo_uno.png')">
+                    <p class="cardsResultsCommunityBig_BankData_card_icon"
+                        style="background-image: url('../../static/images/fondos/a_cards_comunidad/py.png')"></p>
                 </div>
-            </a>
+                {% elif item.lenguaje == "Java" %}
+                <div class="cardsResultsCommunityBig_BankData_card_img"
+                    style="background-image: url('../../static/images/fondos/a_cards_comunidad/fondo_dos.png')">
+                    <p class="cardsResultsCommunityBig_BankData_card_icon"
+                        style="background-image: url('../../static/images/fondos/a_cards_comunidad/java.png')"></p>
+                </div>
+                {% elif item.lenguaje == "C" %}
+                <div class="cardsResultsCommunityBig_BankData_card_img"
+                    style="background-image: url('../../static/images/fondos/a_cards_comunidad/fondo_tres.png')">
+                    <p class="cardsResultsCommunityBig_BankData_card_icon"
+                        style="background-image: url('../../static/images/fondos/a_cards_comunidad/c.png')"></p>
+                </div>
+                {% endif %}
+                <div class="cardsResultsCommunityBig_BankData_card_data">
+                    <p class="cardsResultsCommunityBig_BankData_card_data_1 colorTextReverse">{{item.titulo}}</p>
+                    <p class="cardsResultsCommunityBig_BankData_card_data_2 colorTextReverse">{{item.temas}}</p>
+                    <p class="cardsResultsCommunityBig_BankData_card_data_3 colorText">{{item.autor}}</p>
+                </div>
             </div>
-            {% endfor %}
-        </div>
+        </a>
+        {% endfor %}
     </section>
     <!--Para las pantallas de celular-->
     <section class="mainBodyAdicional">
         <!--Seccion para dispositivos moviles-->
         <section class="owl-five owl-carousel owl-theme hide-on-med-and-up">
             {% for item in general %}
-            
+
             <div class="item" style="margin-left: 20px;">
                 <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
                     <div class="cardComunidadBusqueda colorGreyWhiter bordered1 shadow-2e">
-                        <div class="cardBackgroundBusqueda bordered1"
-                            {% if item.lenguaje == "Python" %}
-                            style="background-image: url('../../static/images/python.png');"
-                            {% elif item.lenguaje == "Java" %}
-                            style="background-image: url('../../static/images/java.jpg');"
-                            {% elif item.lenguaje == "C" %}
-                            style="background-image: url('../../static/images/loc.png');"
-                            {% endif %}
-                        >
+                        <div class="cardBackgroundBusqueda bordered1" {% if item.lenguaje=="Python" %}
+                            style="background-image: url('../../static/images/python.png');" {% elif
+                            item.lenguaje=="Java" %} style="background-image: url('../../static/images/java.jpg');" {%
+                            elif item.lenguaje=="C" %} style="background-image: url('../../static/images/loc.png');" {%
+                            endif %}>
                         </div>
                         <div class="cardTitleBusqueda">
                             <div class="miniBadge colorTextReverse">{{item.titulo}}</div>
@@ -113,85 +111,102 @@
 
     <!--Recomendaciones extra-->
     <div class="title-general">
-        <h5 class="hide-on-large-only">&nbsp;&nbsp;&nbsp;&nbsp;Podría interesarle</h5>
-        <h4 class="hide-on-med-and-down">&nbsp;&nbsp;&nbsp;&nbsp;Podría interesarle</h4>
+        <h5 class="hide-on-large-only">Podría interesarle</h5>
+        <h4 class="hide-on-med-and-down">Podría interesarle</h4>
     </div>
-    <section class="mainBodyAdicional mainBodyAdicionalComunidadGrande hide-on-small-only">
-        <div class="row">
-            {% for item in python %}
-            <div class="col m6 l4 xl3">
-                <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
-                    <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
-                    <div class="imagen_card_Comunidad_Grande">
-                        {% if item.lenguaje == "Python" %}
-                            <img  src="../../static/images/python.png" class="bordered2Up">
-                        {% elif item.lenguaje == "Java" %}
-                            <img src="../../static/images/java.jpg" class="bordered2Up">
-                        {% elif item.lenguaje == "C" %}
-                            <img src="../../static/images/loc.png" class="bordered2Up">
-                        {% endif %}
-                    </div>
-                    <div class="padre_datos_card_Comunidad">
-                        <div class="text_card_grande">
-                            <p class="truncate colorTextReverse">{{item.titulo}}</p>
-                            <p class="truncate colorTextReverse">{{item.autor}}</p>
-                            <p  class="truncate colorTextReverse">{{item.temas}}</p>
-                        </div>
-                    </div>
+    <section class="cardsResultsCommunityBig_BankData_container">
+        {% for item in python %}
+        <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
+            <div class="cardsResultsCommunityBig_BankData_card bordered1 colorGreyWhiter shadow-1">
+                {% if item.lenguaje == "Python" %}
+                <div class="cardsResultsCommunityBig_BankData_card_img"
+                    style="background-image: url('../../static/images/fondos/a_cards_comunidad/fondo_uno.png')">
+                    <p class="cardsResultsCommunityBig_BankData_card_icon"
+                        style="background-image: url('../../static/images/fondos/a_cards_comunidad/py.png')"></p>
                 </div>
-            </a>
-            </div>
-            {% endfor %}
-            {% for item in lenguajec %}
-            <div class="col m6 l4 xl3">
-                <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
-                <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
-                    <div class="imagen_card_Comunidad_Grande">
-                        {% if item.lenguaje == "Python" %}
-                            <img  src="../../static/images/python.png" class="bordered2Up">
-                        {% elif item.lenguaje == "Java" %}
-                            <img src="../../static/images/java.jpg" class="bordered2Up">
-                        {% elif item.lenguaje == "C" %}
-                            <img src="../../static/images/loc.png" class="bordered2Up">
-                        {% endif %}
-                    </div>
-                    <div class="padre_datos_card_Comunidad">
-                        <div class="text_card_grande">
-                            <p class="truncate colorTextReverse">{{item.titulo}}</p>
-                            <p class="truncate colorTextReverse">{{item.autor}}</p>
-                            <p  class="truncate colorTextReverse">{{item.temas}}</p>
-                        </div>
-                    </div>
+                {% elif item.lenguaje == "Java" %}
+                <div class="cardsResultsCommunityBig_BankData_card_img"
+                    style="background-image: url('../../static/images/fondos/a_cards_comunidad/fondo_dos.png')">
+                    <p class="cardsResultsCommunityBig_BankData_card_icon"
+                        style="background-image: url('../../static/images/fondos/a_cards_comunidad/java.png')"></p>
                 </div>
-            </a>
-            </div>
-            {% endfor %}
-            {% for item in java %}
-            <div class="col m6 l4 xl3">
-                <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
-                <div class="card_Comunidad_Grande bordered2 shadow-3e colorGrey">
-                    <div class="imagen_card_Comunidad_Grande">
-                        {% if item.lenguaje == "Python" %}
-                            <img  src="../../static/images/python.png" class="bordered2Up">
-                        {% elif item.lenguaje == "Java" %}
-                            <img src="../../static/images/java.jpg" class="bordered2Up">
-                        {% elif item.lenguaje == "C" %}
-                            <img src="../../static/images/loc.png" class="bordered2Up">
-                        {% endif %}
-                    </div>
-                    <div class="padre_datos_card_Comunidad">
-                        <div class="text_card_grande">
-                            <p class="truncate colorTextReverse">{{item.titulo}}</p>
-                            <p class="truncate colorTextReverse">{{item.autor}}</p>
-                            <p  class="truncate colorTextReverse">{{item.temas}}</p>
-                        </div>
-                    </div>
+                {% elif item.lenguaje == "C" %}
+                <div class="cardsResultsCommunityBig_BankData_card_img"
+                    style="background-image: url('../../static/images/fondos/a_cards_comunidad/fondo_tres.png')">
+                    <p class="cardsResultsCommunityBig_BankData_card_icon"
+                        style="background-image: url('../../static/images/fondos/a_cards_comunidad/c.png')"></p>
                 </div>
-            </a>
+                {% endif %}
+                <div class="cardsResultsCommunityBig_BankData_card_data">
+                    <p class="cardsResultsCommunityBig_BankData_card_data_1 colorTextReverse">{{item.titulo}}</p>
+                    <p class="cardsResultsCommunityBig_BankData_card_data_2 colorTextReverse">{{item.temas}}</p>
+                    <p class="cardsResultsCommunityBig_BankData_card_data_3 colorText">{{item.autor}}</p>
+                </div>
             </div>
-            {% endfor %}
-        </div>
+        </a>
+        {% endfor %}
+        {% for item in lenguajec %}
+        <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
+            <div class="cardsResultsCommunityBig_BankData_card bordered1 colorGreyWhiter shadow-1">
+                {% if item.lenguaje == "Python" %}
+                <div class="cardsResultsCommunityBig_BankData_card_img"
+                    style="background-image: url('../../static/images/fondos/a_cards_comunidad/fondo_uno.png')">
+                    <p class="cardsResultsCommunityBig_BankData_card_icon"
+                        style="background-image: url('../../static/images/fondos/a_cards_comunidad/py.png')"></p>
+                </div>
+                {% elif item.lenguaje == "Java" %}
+                <div class="cardsResultsCommunityBig_BankData_card_img"
+                    style="background-image: url('../../static/images/fondos/a_cards_comunidad/fondo_dos.png')">
+                    <p class="cardsResultsCommunityBig_BankData_card_icon"
+                        style="background-image: url('../../static/images/fondos/a_cards_comunidad/java.png')"></p>
+                </div>
+                {% elif item.lenguaje == "C" %}
+                <div class="cardsResultsCommunityBig_BankData_card_img"
+                    style="background-image: url('../../static/images/fondos/a_cards_comunidad/fondo_tres.png')">
+                    <p class="cardsResultsCommunityBig_BankData_card_icon"
+                        style="background-image: url('../../static/images/fondos/a_cards_comunidad/c.png')"></p>
+                </div>
+                {% endif %}
+                <div class="cardsResultsCommunityBig_BankData_card_data">
+                    <p class="cardsResultsCommunityBig_BankData_card_data_1 colorTextReverse">{{item.titulo}}</p>
+                    <p class="cardsResultsCommunityBig_BankData_card_data_2 colorTextReverse">{{item.temas}}</p>
+                    <p class="cardsResultsCommunityBig_BankData_card_data_3 colorText">{{item.autor}}</p>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+        {% for item in java %}
+        <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
+            <div class="cardsResultsCommunityBig_BankData_card bordered1 colorGreyWhiter shadow-1">
+                {% if item.lenguaje == "Python" %}
+                <div class="cardsResultsCommunityBig_BankData_card_img"
+                    style="background-image: url('../../static/images/fondos/a_cards_comunidad/fondo_uno.png')">
+                    <p class="cardsResultsCommunityBig_BankData_card_icon"
+                        style="background-image: url('../../static/images/fondos/a_cards_comunidad/py.png')"></p>
+                </div>
+                {% elif item.lenguaje == "Java" %}
+                <div class="cardsResultsCommunityBig_BankData_card_img"
+                    style="background-image: url('../../static/images/fondos/a_cards_comunidad/fondo_dos.png')">
+                    <p class="cardsResultsCommunityBig_BankData_card_icon"
+                        style="background-image: url('../../static/images/fondos/a_cards_comunidad/java.png')"></p>
+                </div>
+                {% elif item.lenguaje == "C" %}
+                <div class="cardsResultsCommunityBig_BankData_card_img"
+                    style="background-image: url('../../static/images/fondos/a_cards_comunidad/fondo_tres.png')">
+                    <p class="cardsResultsCommunityBig_BankData_card_icon"
+                        style="background-image: url('../../static/images/fondos/a_cards_comunidad/c.png')"></p>
+                </div>
+                {% endif %}
+                <div class="cardsResultsCommunityBig_BankData_card_data">
+                    <p class="cardsResultsCommunityBig_BankData_card_data_1 colorTextReverse">{{item.titulo}}</p>
+                    <p class="cardsResultsCommunityBig_BankData_card_data_2 colorTextReverse">{{item.temas}}</p>
+                    <p class="cardsResultsCommunityBig_BankData_card_data_3 colorText">{{item.autor}}</p>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
     </section>
+           
     <section class="mainBodyAdicional">
         <!--Seccion para dispositivos moviles-->
         <section class="owl-five owl-carousel owl-theme hide-on-med-and-up">
@@ -199,15 +214,11 @@
             <div class="item" style="margin-left: 20px;">
                 <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
                     <div class="cardComunidadBusqueda colorGreyWhiter bordered1 shadow-2e">
-                        <div class="cardBackgroundBusqueda bordered1"
-                        {% if item.lenguaje == "Python" %}
-                        style="background-image: url('../../static/images/python.png');"
-                        {% elif item.lenguaje == "Java" %}
-                        style="background-image: url('../../static/images/java.jpg');"
-                        {% elif item.lenguaje == "C" %}
-                        style="background-image: url('../../static/images/loc.png');"
-                        {% endif %}
-                            >
+                        <div class="cardBackgroundBusqueda bordered1" {% if item.lenguaje=="Python" %}
+                            style="background-image: url('../../static/images/python.png');" {% elif
+                            item.lenguaje=="Java" %} style="background-image: url('../../static/images/java.jpg');" {%
+                            elif item.lenguaje=="C" %} style="background-image: url('../../static/images/loc.png');" {%
+                            endif %}>
                         </div>
                         <div class="cardTitleBusqueda">
                             <div class="miniBadge colorTextReverse">{{item.titulo}}</div>
@@ -228,15 +239,11 @@
             <div class="item" style="margin-left: 20px;">
                 <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
                     <div class="cardComunidadBusqueda colorGreyWhiter bordered1 shadow-2e">
-                        <div class="cardBackgroundBusqueda bordered1"
-                        {% if item.lenguaje == "Python" %}
-                        style="background-image: url('../../static/images/python.png');"
-                        {% elif item.lenguaje == "Java" %}
-                        style="background-image: url('../../static/images/java.jpg');"
-                        {% elif item.lenguaje == "C" %}
-                        style="background-image: url('../../static/images/loc.png');"
-                        {% endif %}
-                            >
+                        <div class="cardBackgroundBusqueda bordered1" {% if item.lenguaje=="Python" %}
+                            style="background-image: url('../../static/images/python.png');" {% elif
+                            item.lenguaje=="Java" %} style="background-image: url('../../static/images/java.jpg');" {%
+                            elif item.lenguaje=="C" %} style="background-image: url('../../static/images/loc.png');" {%
+                            endif %}>
                         </div>
                         <div class="cardTitleBusqueda">
                             <div class="miniBadge colorTextReverse">{{item.titulo}}</div>
@@ -257,15 +264,11 @@
             <div class="item" style="margin-left: 20px;">
                 <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
                     <div class="cardComunidadBusqueda colorGreyWhiter bordered1 shadow-2e">
-                        <div class="cardBackgroundBusqueda bordered1"
-                        {% if item.lenguaje == "Python" %}
-                        style="background-image: url('../../static/images/python.png');"
-                        {% elif item.lenguaje == "Java" %}
-                        style="background-image: url('../../static/images/java.jpg');"
-                        {% elif item.lenguaje == "C" %}
-                        style="background-image: url('../../static/images/loc.png');"
-                        {% endif %}
-                            >
+                        <div class="cardBackgroundBusqueda bordered1" {% if item.lenguaje=="Python" %}
+                            style="background-image: url('../../static/images/python.png');" {% elif
+                            item.lenguaje=="Java" %} style="background-image: url('../../static/images/java.jpg');" {%
+                            elif item.lenguaje=="C" %} style="background-image: url('../../static/images/loc.png');" {%
+                            endif %}>
                         </div>
                         <div class="cardTitleBusqueda">
                             <div class="miniBadge colorTextReverse">{{item.titulo}}</div>
@@ -284,9 +287,6 @@
             {% endfor %}
         </section>
     </section>
-
-    <!--Metemos el footer en la app-->
-    {% include "includes/footer.html" %}
 </body>
 
 <!--Jalamos todo el contenido del encabezado-->
