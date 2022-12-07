@@ -862,10 +862,10 @@ def cuestionarios_like_titulo():
         cuestionarios_generales=cuestionarios_generales[1:-2]
         cuestionarios_generales=cuestionarios_generales.replace("\"cuestionarios\":","")
         cuestionarios_generales = ast.literal_eval(cuestionarios_generales)
-        return render_template('profesor/a_comunidad_profesor.html',general=cuestionarios_generales)
+        return render_template('profesor/a_comunidad_profesor.html',general=cuestionarios_generales,python=cuestionarios_python(),lenguajec=cuestionarios_c(),java=cuestionarios_java())
     except:
         flash('No se han encontrado cuestionarios con un titulo coincidente con ese criterio', 'danger')
-        return render_template('profesor/a_comunidad_profesor.html')
+        return render_template('profesor/a_comunidad_profesor.html',python=cuestionarios_python(),lenguajec=cuestionarios_c(),java=cuestionarios_java())
 
 
 #Java coder runner
