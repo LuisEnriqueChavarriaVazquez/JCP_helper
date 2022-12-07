@@ -38,6 +38,15 @@
     text-decoration: underline;
 }
 
+@media screen and (max-width: 600px) {
+    .gotoMoreNotifications_text{
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: underline;
+    }
+}
+
+
 /*Es el contador de las notificaciones en la parte de abajo*/
 #contadorNotificacion{
 	display: flex;

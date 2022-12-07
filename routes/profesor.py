@@ -627,7 +627,12 @@ def bienvenidaProfesor():
             pol_lateral=True
         else:
             pol_lateral=True
-        return render_template('profesor/bienvenidaProfesor.html',datos=result, IDS_Alumnos = contadorAlumnos, IDS_Grupos = contadorGrupos, IDS_Cuestionarios = contadorCuestionarios,pol_lateral=pol_lateral,pol_superior=pol_superior)
+        
+        #Notificaciones del profesor
+        notificaciones = Op_profesor.obtenerNotificacion_de_profesor(session["IDDocente"])
+        print(notificaciones)
+        
+        return render_template('profesor/bienvenidaProfesor.html',datos=result, notificaciones=notificaciones, IDS_Alumnos = contadorAlumnos, IDS_Grupos = contadorGrupos, IDS_Cuestionarios = contadorCuestionarios,pol_lateral=pol_lateral,pol_superior=pol_superior)
     except:
         return render_template('profesor/bienvenidaProfesor.html')
 

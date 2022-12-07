@@ -76,7 +76,9 @@ en este try except pasa lo mismo que con el del profesor, cuando se descomente e
 def bienvenidaEstudiante():
     try:
         result=Op_estudiante.datos_completos_alumno_by_id(session["IDAlumno"])
-        return render_template('estudiante/bienvenidaEstudiante.html',datos=result)
+        notificaciones = Op_estudiante.obtenerNotificacion_de_alumno(session["IDAlumno"])
+        print(notificaciones)
+        return render_template('estudiante/bienvenidaEstudiante.html',datos=result,notificaciones=notificaciones)
     except:
         return render_template('estudiante/bienvenidaEstudiante.html')
 
@@ -636,7 +638,9 @@ def login_estudiante():
                 session['logged_in'] = True
                 session['IDAlumno']=result[0]
                 session['correoA'] = result[4]
-                return render_template('estudiante/bienvenidaEstudiante.html',datos=result)  
+                notificaciones = Op_estudiante.obtenerNotificacion_de_alumno(session["IDAlumno"])
+                print(notificaciones)
+                return render_template('estudiante/bienvenidaEstudiante.html',datos=result, notificaciones=notificaciones)  
             else:
                 flash("Usuario o contraseña incorrectos!")
                 return redirect(url_for('routes.login_general'))   

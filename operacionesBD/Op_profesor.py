@@ -556,6 +556,16 @@ def agregarNotificacion_para_alumno(id_alumno, texto, importancia, categoria):
     conexion.commit()
     conexion.close()
 
+#Operacion para la creación de un comentario
+def obtenerNotificacion_de_profesor(id_docente):
+    conexion=obtener_conexion()
+    comentarios=[]
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM Notificaciones_Docente WHERE IDDocente = %s", (id_docente))
+        comentarios=cursor.fetchall()
+    conexion.close()
+    return comentarios
+
 ################### Operaciones para las politicas
 #Agregar al docente y su respuesta sobre la politica
 def agregarResPolitica(id_docente, estado):

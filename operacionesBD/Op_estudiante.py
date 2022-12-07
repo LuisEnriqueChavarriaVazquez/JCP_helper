@@ -408,6 +408,15 @@ def agregarNotificacion_para_profesor(id_docente, texto, importancia, categoria)
     conexion.commit()
     conexion.close()
 
+#Operacion para la creación de un comentario
+def obtenerNotificacion_de_alumno(id_alumno):
+    conexion=obtener_conexion()
+    comentarios=[]
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * FROM Notificaciones_Alumno WHERE IDAlumno = %s", (id_alumno))
+        comentarios=cursor.fetchall()
+    conexion.close()
+    return comentarios
 
 ##############################################################################
 ####                                                                      ####
