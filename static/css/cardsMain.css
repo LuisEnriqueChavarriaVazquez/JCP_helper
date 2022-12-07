@@ -341,34 +341,34 @@
     .cardsResultsCommunityBig_BankData_container {
         grid-template-columns: repeat(4, 1fr);
     }
-    
+
     .cardsResultsCommunityBig_BankData_card_img {
         height: 150px;
         margin: 0;
     }
-    
+
     .cardsResultsCommunityBig_BankData_card_icon {
         height: 65%;
         width: 65%;
     }
-    
+
     .cardsResultsCommunityBig_BankData_card_data_1 {
         font-size: 22px;
         font-weight: 600;
     }
-    
+
     .cardsResultsCommunityBig_BankData_card_data_2 {
         font-size: 16px;
         font-weight: 400;
     }
-    
+
     .cardsResultsCommunityBig_BankData_card_data_3 {
         font-size: 14px;
         font-weight: 400;
         height: 0;
         margin: 0;
         padding: 0;
-    
+
         position: relative;
         top: -210px;
         right: -5px;
@@ -379,34 +379,34 @@
     .cardsResultsCommunityBig_BankData_container {
         grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .cardsResultsCommunityBig_BankData_card_img {
         height: 150px;
         margin: 0;
     }
-    
+
     .cardsResultsCommunityBig_BankData_card_icon {
         height: 65%;
         width: 65%;
     }
-    
+
     .cardsResultsCommunityBig_BankData_card_data_1 {
         font-size: 18px;
         font-weight: 700;
     }
-    
+
     .cardsResultsCommunityBig_BankData_card_data_2 {
         font-size: 14px;
         font-weight: 500;
     }
-    
+
     .cardsResultsCommunityBig_BankData_card_data_3 {
         font-size: 14px;
         font-weight: 500;
         height: 0;
         margin: 0;
         padding: 0;
-    
+
         position: relative;
         top: -200px;
         right: -5px;
@@ -417,34 +417,34 @@
     .cardsResultsCommunityBig_BankData_container {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .cardsResultsCommunityBig_BankData_card_img {
         height: 150px;
         margin: 0;
     }
-    
+
     .cardsResultsCommunityBig_BankData_card_icon {
         height: 60%;
         width: 60%;
     }
-    
+
     .cardsResultsCommunityBig_BankData_card_data_1 {
         font-size: 16px;
         font-weight: 700;
     }
-    
+
     .cardsResultsCommunityBig_BankData_card_data_2 {
         font-size: 14px;
         font-weight: 500;
     }
-    
+
     .cardsResultsCommunityBig_BankData_card_data_3 {
         font-size: 14px;
         font-weight: 500;
         height: 0;
         margin: 0;
         padding: 0;
-    
+
         position: relative;
         top: -195px;
         right: -5px;
@@ -455,4 +455,15 @@
     .cardsResultsCommunityBig_BankData_container {
         display: none;
     }
+}
+
+/*Reposicionamiento del buscador*/
+.repositionTopContainer {
+    width: 100%;
+    height: auto;
+    z-index: 10000;
+    position: absolute;
+    margin:0;
+    padding: 0;
+    top: 0px;
 }
