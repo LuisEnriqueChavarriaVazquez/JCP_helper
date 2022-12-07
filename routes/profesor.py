@@ -790,11 +790,23 @@ def genera_cuestionarios_por_lenguaje():
     return render_template('profesor/b_verCuestionarioBanco.html', datosCuestionario = datos_cuestionario, dataJSON = cuestionario,id_profesor=id_profesor)
 
 
-##Ruta para la vista de comunidad del profesor
-@routes.route('/comunidad_profesor')
-#@login_required
-def comunidad_profesor():
 
+def cuestionarios_python():
+
+    #para motrar preguntas de python
+    url=f"https://jcp-banco-de-datos.up.railway.app/cuestionarios?lenguaje=Python"
+    response=requests.request("GET",url=url)
+    cuestionario_python=response.text
+    cuestionario_python=cuestionario_python[1:-2]
+    cuestionario_python=cuestionario_python.replace("\"cuestionarios\":","")
+    cuestionario_python = ast.literal_eval(cuestionario_python)
+
+    #para mostrar 3 cuestionarios aleatorios de python
+    cuestionarios_python=[cuestionario_python[randint(0,len(cuestionario_python)-1)] for n in range(3)]
+
+    return cuestionarios_python
+
+def cuestionarios_java():
     #para mostrar preguntas de java
     url1=f"https://jcp-banco-de-datos.up.railway.app/cuestionarios?lenguaje=Java"
     response1=requests.request("GET",url=url1)
@@ -803,6 +815,13 @@ def comunidad_profesor():
     cuestionario_java=cuestionario_java.replace("\"cuestionarios\":","")
     cuestionario_java = ast.literal_eval(cuestionario_java)
 
+    #para mostrar 3 cuestionatios aleatorios de java
+    cuestionarios_java=[cuestionario_java[randint(0,len(cuestionario_java)-1)] for n in range(3)]
+
+    return cuestionarios_java
+
+
+def cuestionarios_c():
     #para mostrar preguntas de c
     url2=f"https://jcp-banco-de-datos.up.railway.app/cuestionarios?lenguaje=C"
     response2=requests.request("GET",url=url2)
@@ -811,13 +830,16 @@ def comunidad_profesor():
     cuestionario_c=cuestionario_c.replace("\"cuestionarios\":","")
     cuestionario_c = ast.literal_eval(cuestionario_c)
 
-    #para motrar preguntas de python
-    url3=f"https://jcp-banco-de-datos.up.railway.app/cuestionarios?lenguaje=Python"
-    response3=requests.request("GET",url=url3)
-    cuestionario_python=response3.text
-    cuestionario_python=cuestionario_python[1:-2]
-    cuestionario_python=cuestionario_python.replace("\"cuestionarios\":","")
-    cuestionario_python = ast.literal_eval(cuestionario_python)
+    #para mostrar 2 cuestionarios aleatorios de c
+    cuestionarios_c=[cuestionario_c[randint(0,len(cuestionario_c)-1)] for n in range(2)]
+
+    return cuestionarios_c
+
+
+##Ruta para la vista de comunidad del profesor
+@routes.route('/comunidad_profesor')
+#@login_required
+def comunidad_profesor():
 
     #para mostrar preguntas en general
     url4=f"https://jcp-banco-de-datos.up.railway.app/cuestionarios"
@@ -830,14 +852,26 @@ def comunidad_profesor():
     #para mostrar 6 cuestionarios aleatorios del total existente en la api
     cuestionarios_generales=[cuestionario_general[randint(0,len(cuestionario_general)-1)] for n in range(8)]
 
-    #para mostrar 3 cuestionarios aleatorios de python
-    cuestionarios_python=[cuestionario_python[randint(0,len(cuestionario_python)-1)] for n in range(3)]
-    #para mostrar 2 cuestionarios aleatorios de c
-    cuestionarios_c=[cuestionario_c[randint(0,len(cuestionario_c)-1)] for n in range(2)]
-    #para mostrar 3 cuestionatios aleatorios de java
-    cuestionarios_java=[cuestionario_java[randint(0,len(cuestionario_java)-1)] for n in range(3)]
+    return render_template('profesor/a_comunidad_profesor.html',general=cuestionarios_generales,python=cuestionarios_python(),lenguajec=cuestionarios_c(),java=cuestionarios_java())
 
-    return render_template('profesor/a_comunidad_profesor.html',general=cuestionarios_generales,python=cuestionarios_python,lenguajec=cuestionarios_c,java=cuestionarios_java)
+
+#Para buscar cuestionarios por titulo en la api
+@routes.route("/cuestionarios_like_titulo",methods=["POST"])
+def cuestionarios_like_titulo():
+
+    try:
+        titulo=request.form["titulo_cuestionario"]
+        url=f"https://jcp-banco-de-datos.up.railway.app/cuestionario_titulo?titulo={titulo}"
+        response=requests.request("GET",url=url)
+        cuestionarios_generales=response.text
+        cuestionarios_generales=cuestionarios_generales[1:-2]
+        cuestionarios_generales=cuestionarios_generales.replace("\"cuestionarios\":","")
+        cuestionarios_generales = ast.literal_eval(cuestionarios_generales)
+        return render_template('profesor/a_comunidad_profesor.html',general=cuestionarios_generales,python=cuestionarios_python(),lenguajec=cuestionarios_c(),java=cuestionarios_java())
+    except:
+        flash('No se han encontrado cuestionarios coincidentes', 'danger')
+        return render_template('profesor/a_comunidad_profesor.html',python=cuestionarios_python(),lenguajec=cuestionarios_c(),java=cuestionarios_java())
+
 
 #Java coder runner
 @routes.route("/java_runner")
