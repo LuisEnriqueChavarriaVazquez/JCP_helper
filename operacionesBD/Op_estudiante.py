@@ -98,6 +98,16 @@ def datos_completos_alumno_by_id(IDAlumno):
     conexion.close()
     return datosAlumnos
 
+# va a servir para el perfil del alumno
+def datos_completos_cuestionario_by_id_estudiante(IDCuestionario):
+    conexion = obtener_conexion()
+    datosAlumnos = None
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT*FROM cuestionarios WHERE IDCuestionario = %s", (IDCuestionario))
+        datosAlumnos = cursor.fetchone()
+    conexion.close()
+    return datosAlumnos
+
 # Obtiene los datos del grupo con su código
 #Lo mismo pero con IDGrupo (un grupo en concreto)
 def obtener_grupo_datos_importantes_unitario(codigo_grupo):

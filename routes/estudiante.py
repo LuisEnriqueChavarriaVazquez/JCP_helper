@@ -272,6 +272,20 @@ def crear_comentario_retroalimentacion():
     pickedGroupData = Op_profesor.obtener_grupo_datos_importantes_unitario(datosCuestionarios[0][1])
     #Obtenemos los datos del profesor
     pickedProfData = Op_profesor.datos_completos_docente_by_id(datosCuestionarios[0][2])
+
+    #Obtenemos los datos del grupo
+    datosGrupo = Op_estudiante.obtener_grupo_datos_importantes_id(id_grupo)
+    datosAlumno = Op_estudiante.datos_completos_alumno_by_id(id_estudiante)
+
+    #Notificamos al docente que le hemos mandado feedback
+    ################################################################
+    ##Debemos definir los parametros del msg
+    importancia = "info"
+    categoria = "new_feedback"
+    texto = "El alumn@ " + datosAlumno[1] + " de " + datosGrupo[2] +  " ha dejado un comentario en la sección de estadísticas."
+    print(texto)
+    Op_estudiante.agregarNotificacion_para_profesor(datosGrupo[1], texto, importancia, categoria)
+
     #Enviamos al usuario al formulario para ver datos del grupo.
     return render_template('estudiante/c_viewCuestionarioInfo.html', datosCuestionarios = datosCuestionarios[0], datosGrupo = pickedGroupData[0], datosDocente = pickedProfData, idEstudiante = id_estudiante, estado = "Pending")
 
@@ -382,6 +396,11 @@ def redireccionar_a_vista_grupos(id_cuestionario):
 def redireccionar_a_vista_grupos_listo(id_cuestionario):
     ######Obtención de información de los cuestionarios
     datosCuestionarios = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
+    listaDatos = []
+    for dato in datosCuestionarios:
+        listaDatos.append(dato[2])
+    print(listaDatos)
+
     #Obtenemos el id del alumno 
     idEstudiante=request.form["idEstudiante"]
     pedirApelacion = request.form["pedirApelacion"]
@@ -391,7 +410,15 @@ def redireccionar_a_vista_grupos_listo(id_cuestionario):
     print(pedirApelacion)
     #En caso de que el estudiante quiera apelar su resultado
     if(pedirApelacion == "apelar"):
+        datosAlumno = Op_estudiante.datos_completos_alumno_by_id(idEstudiante)
         Op_profesor.insertar_apelacion(idCuestionarioHecho)
+        #Notificamos al docente que le hemos apelado
+        ################################################################
+        ##Debemos definir los parametros del msg
+        importancia = "info"
+        categoria = "new_apel"
+        texto = "Tiene nuevas apelaciones de un estudiante llamad@ " + datosAlumno[1]
+        Op_estudiante.agregarNotificacion_para_profesor(listaDatos, texto, importancia, categoria)
     else:
         print("Sin apelar")
 
