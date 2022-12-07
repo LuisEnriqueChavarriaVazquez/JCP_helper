@@ -834,6 +834,26 @@ def comunidad_profesor():
 
     return render_template('profesor/a_comunidad_profesor.html',general=cuestionarios_generales,python=cuestionarios_python,lenguajec=cuestionarios_c,java=cuestionarios_java)
 
+
+#Para buscar cuestionarios por titulo en la api
+@routes.route("/cuestionarios_like_titulo",methods=["POST"])
+def cuestionarios_like_titulo():
+
+    try:
+        titulo=request.form["titulo_cuestionario"]
+        url=f"https://jcp-banco-de-datos.up.railway.app/cuestionario_titulo?titulo={titulo}"
+        response=requests.request("GET",url=url)
+        cuestionarios_generales=response.text
+        cuestionarios_generales=cuestionarios_generales[1:-2]
+        cuestionarios_generales=cuestionarios_generales.replace("\"cuestionarios\":","")
+        cuestionarios_generales = ast.literal_eval(cuestionarios_generales)
+
+        return render_template('profesor/a_comunidad_profesor.html',general=cuestionarios_generales)
+    except:
+        flash('The confirmation link is invalid or has expired.', 'danger')
+        return render_template('profesor/a_comunidad_profesor.html')
+
+
 #Java coder runner
 @routes.route("/java_runner")
 def java_runner():
