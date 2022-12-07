@@ -24,6 +24,8 @@ from random import randint
 
 photos = UploadSet("photos", IMAGES)
 
+from operacionesCorreo import token
+
 ##
 ## Links para la parte del panel central
 ##
@@ -548,6 +550,10 @@ def nuevo_profesor():
 
         Op_profesor.insertar_profesor(nombre,alias,foto,correo,hashed,unidad_academica,descripcion,fondo)
         #Nos manda al log in para poder guardar datos en la sesión
+
+        #Token para confirmar correo
+        token = generate_confirmation_token(correo)
+
         return render_template('login_general.html')
 
 @routes.route('/login_profesor',methods=["POST"])
