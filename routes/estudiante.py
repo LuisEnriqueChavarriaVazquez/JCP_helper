@@ -139,6 +139,19 @@ def entrar_grupo(id_grupo, id_docente, id_estudiante):
 def salir_grupo(id_docente, id_grupo ,id_estudiante):
     #Saca al alumno del grupo
     Op_estudiante.salir_de_grupo(id_docente, id_grupo ,id_estudiante)
+
+    #Obtenemos los datos del grupo
+    datosGrupo = Op_estudiante.obtener_grupo_datos_importantes_id(id_grupo)
+    datosAlumno = Op_estudiante.datos_completos_alumno_by_id(id_estudiante)
+
+    #Notificamos al docente la salida del grupo
+    ################################################################
+    ##Debemos definir los parametros del msg
+    importancia = "info"
+    categoria = "new_abandon"
+    texto = "El alumn@ " + datosAlumno[1] + " abandonó el grupo " + datosGrupo[2]
+    print(texto)
+    Op_estudiante.agregarNotificacion_para_profesor(id_docente, texto, importancia, categoria)
     return redirect(url_for("routes.bienvenidaEstudiante"))
 
 ##
