@@ -25,6 +25,7 @@ from random import randint
 photos = UploadSet("photos", IMAGES)
 
 from operacionesCorreo import token
+from operacionesCorreo import email
 
 ##
 ## Links para la parte del panel central
@@ -558,8 +559,17 @@ def nuevo_profesor():
         Op_profesor.insertar_profesor(nombre,alias,foto,correo,hashed,unidad_academica,descripcion,fondo)
         #Nos manda al log in para poder guardar datos en la sesión
 
-        #Token para confirmar correo
+         #Token para confirmar correo
         token = generate_confirmation_token(correo)
+
+        #Datos correo para confirmar
+        confirm_url = url_for('profesor.confirmar_correo', token=token, _external=True)
+        html = render_template('profesor/confirmar_correo_docente.html', confirm_url=confirm_url)
+        subject = "Please confirm your email"
+
+        #Enviar correo
+        email.send_email(user.email, subject, html)
+
 
         return render_template('login_general.html')
 
