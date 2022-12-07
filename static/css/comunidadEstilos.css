@@ -122,3 +122,17 @@
     width: 120px;
     height: 140px;
 }
+
+#sin_coincidencias_titulo{
+    width: 90%;
+    border-radius: 10px;
+    background-color: #9C254D;
+    color: white;
+    margin-left: 5%;
+    text-align: center;
+}
+
+#sin_coincidencias_titulo p{
+    font-size: bold;
+    padding: 5px 5px;
+}

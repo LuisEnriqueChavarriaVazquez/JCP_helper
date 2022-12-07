@@ -50,18 +50,18 @@
         <h5 class="hide-on-large-only">Resultados</h5>
         <h4 class="hide-on-med-and-down">Resultados</h4>
     </div>
+    
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div id="sin_coincidencias_titulo">
+        <p>{{ message }}</p>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
     <section class="cardsResultsCommunityBig_BankData_container">
-
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        {% for message in messages %}
-        <div id="error_login">
-            <p>{{ message }}</p>
-        </div>
-        {% endfor %}
-        {% endif %}
-        {% endwith %}
-
         {% if general %}
         {% for item in general %}
         <a href="/genera_cuestionarios_por_lenguaje?id={{item.idCuestionario}}">
