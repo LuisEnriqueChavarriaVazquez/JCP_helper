@@ -152,13 +152,12 @@
 }
 
 .cardBackgroundBusqueda {
-    padding: 12px;
     width: 100%;
     height: 150px;
 
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 40%;
 
     display: flex;
     justify-content: left;
@@ -466,4 +465,65 @@
     margin:0;
     padding: 0;
     top: 0px;
+}
+
+@media only screen and (max-width: 600px) {
+    .repositionTopContainer {
+        width: 100%;
+        height: auto;
+        z-index: 10000;
+        position: absolute;
+        margin:0;
+        padding: 0;
+        top: 10px;
+    }
+}
+
+/*Card de la caomunidad al estilo de carousel*/
+.titleCardCarouselComunidad{
+    width: 100%;
+    height: 21px;
+    margin: 5px 0 !important;
+    font-weight: 700;
+    font-size: 14px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardDataComunidadCarousel_new{
+    display: grid !important;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    width: 100%;
+}
+
+.cardDataComunidadCarousel_new_1{
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+    font-weight: 600;
+    position: relative;
+    top: -5px;
+    width: 100%;
+    height: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardDataComunidadCarousel_new_2{
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    font-weight: 600;
+
+    position: absolute;
+    top: 20px;
+    left: 35px;
+    width: auto;
+    height: auto;
+
+    padding: 3px 10px;
 }
