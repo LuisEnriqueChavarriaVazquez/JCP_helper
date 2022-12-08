@@ -12,7 +12,7 @@ app.config["UPLOADED_PHOTOS_DEST"] = "static/images"
 app.config["SECRET_KEY"] = os.urandom(24)
 configure_uploads(app, photos)
 
-app.config['MAIL_DEFAULT_SENDER'] =""
+
 
 
 #La pagina de homePage es el inicio del todo el sistema para los usuarios.
