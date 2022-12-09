@@ -28,29 +28,23 @@ function limpiarDatos(string) {
 let boxShowNotificaciones = document.getElementById('boxShowNotificaciones');
 
 //Accedemos a todos los botones
-let newStd = document.getElementById('newStd');
-let newAnswer = document.getElementById('newAnswer');
-let newAbandon = document.getElementById('newAbandon');
-let newComent = document.getElementById('newComent');
-let newApel = document.getElementById('newApel');
+let newResolve = document.getElementById('newResolve');
+let newTest = document.getElementById('newTest');
 let newGeral = document.getElementById('newGeral');
 let newImportante = document.getElementById('newImportante');
 let newTodas = document.getElementById('newTodas');
 
 //Accedemos a los botones pero de mobile
-let dosnewStd = document.getElementById('2_newStd');
-let dosnewAnswer = document.getElementById('2_newAnswer');
-let dosnewAbandon = document.getElementById('2_newAbandon');
-let dosnewComent = document.getElementById('2_newComent');
-let dosnewApel = document.getElementById('2_newApel');
+let dosnewResolve = document.getElementById('2_newResolve');
+let dosnewTest = document.getElementById('2_newTest');
 let dosnewGeral = document.getElementById('2_newGeral');
 let dosnewImportante = document.getElementById('2_newImportante');
 let dosnewTodas = document.getElementById('2_newTodas');
 
 //Accedemos a los datos del docente en input para borrar todo
-let idProfesorClass = document.getElementsByClassName('idProfesorClass');
-idProfesorClass[0].value = dataClean[0][1];
-idProfesorClass[1].value = dataClean[0][1];
+let idAlumnoClass = document.getElementsByClassName('idAlumnoClass');
+idAlumnoClass[0].value = dataClean[0][1];
+idAlumnoClass[1].value = dataClean[0][1];
 
 //Data en caso de que no tengamos contenido
 let noContent = `
@@ -65,24 +59,18 @@ imprimirTodas();
 
 
 //Funcionalidad para los botones
-newTodas.addEventListener('click', () => imprimirTodas());
-newStd.addEventListener('click', () => imprimirNewStd());
-newAbandon.addEventListener('click', () => imprimirNewAbandon());
-newComent.addEventListener('click', () => imprimirNewFeedback());
-newApel.addEventListener('click', () => imprimirNewApel());
-newGeral.addEventListener('click', () => imprimirNewGeral());
+newTest.addEventListener('click', () => imprimirNewTest());
+newResolve.addEventListener('click', () => imprimirNewResolve());
 newImportante.addEventListener('click', () => imprimirNewImportant());
 newGeral.addEventListener('click', () => imprimirNewGeral());
+newTodas.addEventListener('click', () => imprimirTodas());
 
 //Botones para mobile
-dosnewTodas.addEventListener('click', () => imprimirTodas());
-dosnewStd.addEventListener('click', () => imprimirNewStd());
-dosnewAbandon.addEventListener('click', () => imprimirNewAbandon());
-dosnewComent.addEventListener('click', () => imprimirNewFeedback());
-dosnewApel.addEventListener('click', () => imprimirNewApel());
-dosnewGeral.addEventListener('click', () => imprimirNewGeral());
+dosnewTest.addEventListener('click', () => imprimirNewTest());
+dosnewResolve.addEventListener('click', () => imprimirNewResolve());
 dosnewImportante.addEventListener('click', () => imprimirNewImportant());
 dosnewGeral.addEventListener('click', () => imprimirNewGeral());
+dosnewTodas.addEventListener('click', () => imprimirTodas());
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -100,7 +88,7 @@ function imprimirTodas() {
                 
                 <form method="post" action="/borrarComentarioParticularProfesor">
                 <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
-                <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
                 <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
                 <i class="material-icons">clear</i>
                 </button>
@@ -135,7 +123,7 @@ function imprimirNewStd() {
                 
                 <form method="post" action="/borrarComentarioParticularProfesor">
                 <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
-                <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
                 <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
                 <i class="material-icons">clear</i>
                 </button>
@@ -170,7 +158,7 @@ function imprimirNewAnswer() {
                 
                 <form method="post" action="/borrarComentarioParticularProfesor">
                 <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
-                <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
                 <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
                 <i class="material-icons">clear</i>
                 </button>
@@ -201,7 +189,38 @@ function imprimirNewTest() {
                 
                 <form method="post" action="/borrarComentarioParticularProfesor">
                 <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
-                <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
+                <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
+                <i class="material-icons">clear</i>
+                </button>
+                </form>
+                </section>`
+    })
+    let contentString = contentFiltered.join('');
+    if(contentString == ""){
+        boxShowNotificaciones.innerHTML = noContent;
+    }else{
+        boxShowNotificaciones.innerHTML = contentString;
+    }
+}
+
+//Imprimimos todas las notificaciones con la condicion
+function imprimirNewResolve() {
+    let dataWork = [...dataClean];
+    let contentNoti = dataWork.filter(element => {
+        if (element[4] == "new_resolve") {
+            return element;
+        }
+    });
+    let contentFiltered = contentNoti.map(element => {
+        return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
+                    ${element[2]}
+                </div>
+                <section class="buttonEraseParticular">
+                
+                <form method="post" action="/borrarComentarioParticularProfesor">
+                <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
+                <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
                 <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
                 <i class="material-icons">clear</i>
                 </button>
@@ -232,7 +251,7 @@ function imprimirNewAbandon() {
                 
                 <form method="post" action="/borrarComentarioParticularProfesor">
                 <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
-                <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
                 <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
                 <i class="material-icons">clear</i>
                 </button>
@@ -263,7 +282,7 @@ function imprimirNewFeedback() {
                 
                 <form method="post" action="/borrarComentarioParticularProfesor">
                 <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
-                <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
                 <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
                 <i class="material-icons">clear</i>
                 </button>
@@ -294,7 +313,7 @@ function imprimirNewApel() {
                 
                 <form method="post" action="/borrarComentarioParticularProfesor">
                 <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
-                <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
                 <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
                 <i class="material-icons">clear</i>
                 </button>
@@ -325,7 +344,7 @@ function imprimirNewImportant() {
                 
                 <form method="post" action="/borrarComentarioParticularProfesor">
                 <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
-                <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
                 <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
                 <i class="material-icons">clear</i>
                 </button>
@@ -356,7 +375,7 @@ function imprimirNewGeral() {
                 
                 <form method="post" action="/borrarComentarioParticularProfesor">
                 <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
-                <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
                 <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
                 <i class="material-icons">clear</i>
                 </button>
