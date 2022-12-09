@@ -1,18 +1,18 @@
-.containerGestorNotificacionesMain{
+.containerGestorNotificacionesMain {
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: auto;
-    grid-template-areas: 
-    "area1 area2"
+    grid-template-areas:
+        "area1 area2"
     ;
     gap: 0;
     margin: 0;
 }
 
-.lateralMenuNotification{
+.lateralMenuNotification {
     grid-area: area1;
     padding: 66px 20px 20px 20px;
-    height: 100vh;
+    height: auto;
 
     display: flex;
     justify-content: left;
@@ -20,18 +20,169 @@
     flex-direction: column;
 }
 
-.lateralMenuNotification button,h6{
+.fixedButtonWrapNoti {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 22.5%;
+}
+
+.fixedButtonWrapNoti button,
+h6 {
     margin-bottom: 15px;
     width: 100%;
 }
 
-.allContentNotification{
+.allContentNotification {
     grid-area: area2;
     height: auto;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    flex-direction: column;
+
+    margin-top: 60px;
+    padding: 0 20px 20px 20px;
 }
 
-.boxShowNotificaciones{
+.boxShowNotificaciones {
     min-height: 100vh;
     height: auto;
     width: 100%;
+}
+
+/*Diseño generanl notificaciones*/
+.notiUpdated {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    padding: 15px;
+    height: auto;
+    margin-bottom: 15px;
+
+    font-size: 18px;
+    font-weight: 600 !important;
+}
+
+.classificationNotiMobile{
+    display: none;
+}
+
+@media screen and (max-width: 1250px) {
+    .containerGestorNotificacionesMain {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "area1"
+            "area2"
+        ;
+        gap: 0;
+        margin: 0;
+    }
+
+    .lateralMenuNotification {
+        display: none;
+    }
+
+    /*Diseño generanl notificaciones*/
+    .notiUpdated {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+
+        padding: 15px;
+        height: auto;
+        margin-bottom: 15px;
+
+        font-size: 14px;
+        font-weight: 700 !important;
+    }
+
+    .btnMobileNoti{
+        margin: 0;
+        padding: 10px 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .classificationNotiMobile{
+        display:initial;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: auto;
+        padding: 25px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .firstRoundedButtonNoti{
+        border-radius: 10px 0 0 10px;
+    }
+
+    .lastRoundedButtonNoti{
+        border-radius: 0 10px 10px 0;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .classificationNotiMobile{
+        padding: 20px 10px;
+    }
+
+    .btnMobileNoti{
+        margin: 0;
+        padding: 23px 9px;
+    }
+}
+
+
+/*En caso de que no tengamos contenido*/
+.nothingContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.nothingTextNoti {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nothingContentNoti {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.nothingContentNotiImg {
+    width: 80%;
+    margin: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width: 1200px) {
+    .nothingContentNotiImg {
+        width: 40%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

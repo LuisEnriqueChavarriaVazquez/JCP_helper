@@ -432,7 +432,7 @@ def redireccionar_a_vista_grupos_listo(id_cuestionario):
         #Notificamos al docente que le hemos apelado
         ################################################################
         ##Debemos definir los parametros del msg
-        importancia = "info"
+        importancia = "important"
         categoria = "new_apel"
         texto = "Tiene nuevas apelaciones de un estudiante llamad@ " + datosAlumno[1]
         Op_estudiante.agregarNotificacion_para_profesor(listaDatos, texto, importancia, categoria)

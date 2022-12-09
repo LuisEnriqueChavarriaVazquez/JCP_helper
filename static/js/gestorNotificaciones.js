@@ -37,16 +37,47 @@ let newGeral = document.getElementById('newGeral');
 let newImportante = document.getElementById('newImportante');
 let newTodas = document.getElementById('newTodas');
 
+//Accedemos a los botones pero de mobile
+let dosnewStd = document.getElementById('2_newStd');
+let dosnewAnswer = document.getElementById('2_newAnswer');
+let dosnewAbandon = document.getElementById('2_newAbandon');
+let dosnewComent = document.getElementById('2_newComent');
+let dosnewApel = document.getElementById('2_newApel');
+let dosnewGeral = document.getElementById('2_newGeral');
+let dosnewImportante = document.getElementById('2_newImportante');
+let dosnewTodas = document.getElementById('2_newTodas');
+
+//Data en caso de que no tengamos contenido
+let noContent = `
+<div class="nothingContainer">
+    <h5 class="nothingTextNoti"><b>No content.</b></h5></div>
+    <div class="nothingContentNoti"><img class="nothingContentNotiImg" src="../../static/images/icons/icon_no_notification.svg"></div>
+</div>
+`
+
+//Al inicio mostramos todo
+imprimirTodas();
+
+
 //Funcionalidad para los botones
 newTodas.addEventListener('click', () => imprimirTodas());
 newStd.addEventListener('click', () => imprimirNewStd());
-newAnswer.addEventListener('click', () => imprimirNewAnswer());
 newAbandon.addEventListener('click', () => imprimirNewAbandon());
 newComent.addEventListener('click', () => imprimirNewFeedback());
 newApel.addEventListener('click', () => imprimirNewApel());
 newGeral.addEventListener('click', () => imprimirNewApel());
 newImportante.addEventListener('click', () => imprimirNewImportant());
 newGeral.addEventListener('click', () => imprimirNewGeral());
+
+//Botones para mobile
+dosnewTodas.addEventListener('click', () => imprimirTodas());
+dosnewStd.addEventListener('click', () => imprimirNewStd());
+dosnewAbandon.addEventListener('click', () => imprimirNewAbandon());
+dosnewComent.addEventListener('click', () => imprimirNewFeedback());
+dosnewApel.addEventListener('click', () => imprimirNewApel());
+dosnewGeral.addEventListener('click', () => imprimirNewApel());
+dosnewImportante.addEventListener('click', () => imprimirNewImportant());
+dosnewGeral.addEventListener('click', () => imprimirNewGeral());
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -57,12 +88,20 @@ newGeral.addEventListener('click', () => imprimirNewGeral());
 function imprimirTodas() {
     let dataWork = [...dataClean];
     let contentNoti = dataWork.map(element => {
-        return `<div class="notiUpdated colorGrey colorTextReverse">
+        return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
             ${element[2]}
         </div>`
     });
     let contentString = contentNoti.join('');
-    boxShowNotificaciones.innerHTML = contentString;
+    if(contentString == ""){
+        boxShowNotificaciones.innerHTML = noContent;
+    }else{
+        if(contentString == ""){
+        boxShowNotificaciones.innerHTML = noContent;
+    }else{
+        boxShowNotificaciones.innerHTML = contentString;
+    }
+    }
 }
 
 //Imprimimos todas las notificaciones con la condicion
@@ -74,12 +113,20 @@ function imprimirNewStd() {
         }
     });
     let contentFiltered = contentNoti.map(element => {
-        return `<div class="notiUpdated colorGrey colorTextReverse">
+        return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
                     ${element[2]}
                 </div>`
     })
     let contentString = contentFiltered.join('');
-    boxShowNotificaciones.innerHTML = contentString;
+    if(contentString == ""){
+        boxShowNotificaciones.innerHTML = noContent;
+    }else{
+        if(contentString == ""){
+        boxShowNotificaciones.innerHTML = noContent;
+    }else{
+        boxShowNotificaciones.innerHTML = contentString;
+    }
+    }
 }
 
 //Imprimimos todas las notificaciones con la condicion
@@ -91,12 +138,16 @@ function imprimirNewAnswer() {
         }
     });
     let contentFiltered = contentNoti.map(element => {
-        return `<div class="notiUpdated colorGrey colorTextReverse">
+        return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
                     ${element[2]}
                 </div>`
     })
     let contentString = contentFiltered.join('');
-    boxShowNotificaciones.innerHTML = contentString;
+    if(contentString == ""){
+        boxShowNotificaciones.innerHTML = noContent;
+    }else{
+        boxShowNotificaciones.innerHTML = contentString;
+    }
 }
 
 //Imprimimos todas las notificaciones con la condicion
@@ -108,12 +159,16 @@ function imprimirNewTest() {
         }
     });
     let contentFiltered = contentNoti.map(element => {
-        return `<div class="notiUpdated colorGrey colorTextReverse">
+        return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
                     ${element[2]}
                 </div>`
     })
     let contentString = contentFiltered.join('');
-    boxShowNotificaciones.innerHTML = contentString;
+    if(contentString == ""){
+        boxShowNotificaciones.innerHTML = noContent;
+    }else{
+        boxShowNotificaciones.innerHTML = contentString;
+    }
 }
 
 //Imprimimos todas las notificaciones con la condicion
@@ -125,12 +180,16 @@ function imprimirNewAbandon() {
         }
     });
     let contentFiltered = contentNoti.map(element => {
-        return `<div class="notiUpdated colorGrey colorTextReverse">
+        return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
                     ${element[2]}
                 </div>`
     })
     let contentString = contentFiltered.join('');
-    boxShowNotificaciones.innerHTML = contentString;
+    if(contentString == ""){
+        boxShowNotificaciones.innerHTML = noContent;
+    }else{
+        boxShowNotificaciones.innerHTML = contentString;
+    }
 }
 
 //Imprimimos todas las notificaciones con la condicion
@@ -142,12 +201,16 @@ function imprimirNewFeedback() {
         }
     });
     let contentFiltered = contentNoti.map(element => {
-        return `<div class="notiUpdated colorGrey colorTextReverse">
+        return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
                     ${element[2]}
                 </div>`
     })
     let contentString = contentFiltered.join('');
-    boxShowNotificaciones.innerHTML = contentString;
+    if(contentString == ""){
+        boxShowNotificaciones.innerHTML = noContent;
+    }else{
+        boxShowNotificaciones.innerHTML = contentString;
+    }
 }
 
 //Imprimimos todas las notificaciones con la condicion
@@ -159,44 +222,56 @@ function imprimirNewApel() {
         }
     });
     let contentFiltered = contentNoti.map(element => {
-        return `<div class="notiUpdated colorGrey colorTextReverse">
+        return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
                     ${element[2]}
                 </div>`
     })
     let contentString = contentFiltered.join('');
-    boxShowNotificaciones.innerHTML = contentString;
+    if(contentString == ""){
+        boxShowNotificaciones.innerHTML = noContent;
+    }else{
+        boxShowNotificaciones.innerHTML = contentString;
+    }
 }
 
 //Imprimimos todas las notificaciones con la condicion
 function imprimirNewImportant() {
     let dataWork = [...dataClean];
     let contentNoti = dataWork.filter(element => {
-        if (element[2] == "important") {
+        if (element[3] == "important") {
             return element;
         }
     });
     let contentFiltered = contentNoti.map(element => {
-        return `<div class="notiUpdated colorGrey colorTextReverse">
+        return `<div class="notiUpdated bordered1 badColor shadow-1e">
                     ${element[2]}
                 </div>`
     })
     let contentString = contentFiltered.join('');
-    boxShowNotificaciones.innerHTML = contentString;
+    if(contentString == ""){
+        boxShowNotificaciones.innerHTML = noContent;
+    }else{
+        boxShowNotificaciones.innerHTML = contentString;
+    }
 }
 
 //Imprimimos todas las notificaciones con la condicion
 function imprimirNewGeral() {
     let dataWork = [...dataClean];
     let contentNoti = dataWork.filter(element => {
-        if (element[2] == "general") {
+        if (element[3] == "general" || element[3] == "info") {
             return element;
         }
     });
     let contentFiltered = contentNoti.map(element => {
-        return `<div class="notiUpdated colorGrey colorTextReverse">
+        return `<div class="notiUpdated bordered1 shadow-1e infoColor">
                     ${element[2]}
                 </div>`
     })
     let contentString = contentFiltered.join('');
-    boxShowNotificaciones.innerHTML = contentString;
+    if(contentString == ""){
+        boxShowNotificaciones.innerHTML = noContent;
+    }else{
+        boxShowNotificaciones.innerHTML = contentString;
+    }
 }
