@@ -558,11 +558,11 @@ def nuevo_profesor():
         Op_profesor.insertar_profesor(nombre,alias,foto,correo,hashed,unidad_academica,descripcion,fondo)
         #Nos manda al log in para poder guardar datos en la sesión
 
-        #Token para confirmar correo
+         #Token para confirmar correo
         tokenUsuario = token.generate_confirmation_token(correo)
 
         #Datos correo para confirmar
-        confirm_url = url_for('routes.confirmar_correo', token_entrada=tokenUsuario, _external=True)
+        confirm_url = url_for('routes.confirmar_correo_docente', token_entrada=tokenUsuario, _external=True)
         html = render_template('profesor/confirmar_correo_docente.html', confirm_url=confirm_url)
         #Datos para correo
         sender_email= "ricardocorreoejemplo@gmail.com"
@@ -575,12 +575,13 @@ def nuevo_profesor():
 
 #ruta para verificar cuenta por correo
 
-@routes.route("/confirmar_correo/<string:token_entrada>")
-def confirmar_correo(token_entrada):
+@routes.route("/confirmar_correo_docente/<string:token_entrada>")
+def confirmar_correo_docente(token_entrada):
 
     email=token.confirm_token(token_entrada)
     print("paso token:"+str(email))
     return render_template('login_general.html')
+
 
 
 @routes.route('/login_profesor',methods=["POST"])
