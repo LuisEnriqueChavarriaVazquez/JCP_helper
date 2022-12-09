@@ -12,6 +12,8 @@ from flask import make_response
 
 photos = UploadSet("photos", IMAGES)
 
+from operacionesCorreo import token,email
+
 ##
 ## Links para la parte del panel central
 ##
