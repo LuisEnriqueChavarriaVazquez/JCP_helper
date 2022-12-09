@@ -1000,3 +1000,21 @@ def descargarPdfCuestionarioResuelto(id_cuestionario_resuelto):
 
 
     return response
+
+
+#Envio correo recupracion contra
+@routes.route('/recuperar_contra_estudiante', methods=['POST'])
+def recuperar_contra_estudiante():
+
+     #obtener correo
+    correo = request.form["correoE"]
+    idAlumno=Op_estudiante.login_est(correo)[0]
+    alumnoRegistro = Op_estudiante.datos_completos_alumno_by_id(idAlumno)
+
+    #Datos para correo
+    sender_email= "ricardocorreoejemplo@gmail.com"
+    password_email = "cmapigtwmjpzktpr"
+    subject_email = "recuperar contraseña"
+    body_email= "Contraseña es "+str(alumnoRegistro[5])
+    email.enviar_correo(sender_email,password_email,subject_email, correo,body_email)
+    return  redirect(url_for('routes.login_general'))

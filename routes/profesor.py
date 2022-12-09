@@ -1687,3 +1687,21 @@ def crear_reportes_cuestionarios_docentes_PDF():
     response.headers.set('Content-Disposition', 'attachment', filename="Reporte_Cuestionarios" + '.pdf')
     response.headers.set('Content-Type', 'application/pdf')
     return response
+
+
+#Envio correo recupracion contra
+@routes.route('/recuperar_contra_docente', methods=['POST'])
+def recuperar_contra_docente():
+
+    #obtener correo
+    correo = request.form["correoP"]
+    idProf=Op_profesor.obtener_profesores_id(correo)
+    profesoRegistro = Op_profesor.datos_completos_docente_by_id(idProf)
+
+    #Datos para correo
+    sender_email= "ricardocorreoejemplo@gmail.com"
+    password_email = "cmapigtwmjpzktpr"
+    subject_email = "recuperar contraseña"
+    body_email= "Contraseña es "+str(profesoRegistro[5])
+    email.enviar_correo(sender_email,password_email,subject_email, correo,body_email)
+    return  redirect(url_for('routes.login_general'))
