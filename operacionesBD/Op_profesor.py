@@ -3,7 +3,7 @@ from operacionesBD.conexion import obtener_conexion
 def insertar_profesor(nombre,alias,foto,correo,contra,unidad_academica,descripcion,fondo):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO docentes(Nombre,Alias,Foto,correo,contra,unidad_academica,descripcion,fondo) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)",
+        cursor.execute("INSERT INTO Docentes(Nombre,Alias,Foto,correo,contra,unidad_academica,descripcion,fondo) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)",
         (nombre,alias,foto,correo,contra,unidad_academica,descripcion,fondo))
     conexion.commit()
     conexion.close()
@@ -11,7 +11,7 @@ def insertar_profesor(nombre,alias,foto,correo,contra,unidad_academica,descripci
 def validar_correo_profesor(correo_entrada):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE docentes SET val_correo=%s WHERE correo=%s",
+        cursor.execute("UPDATE Docentes SET val_correo=%s WHERE correo=%s",
         (True,correo_entrada))
     conexion.commit()
     conexion.close()
@@ -22,7 +22,7 @@ def obtener_profesores():
     profesores=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT*FROM docentes")
+        cursor.execute("SELECT*FROM Docentes")
         profesores=cursor.fetchall()
     conexion.close()
     return profesores
@@ -33,7 +33,7 @@ def obtener_profesores_id(correo):
     id_profesor = ""
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT IDDocente FROM docentes WHERE correo = %s", (correo))
+        cursor.execute("SELECT IDDocente FROM Docentes WHERE correo = %s", (correo))
         profesores_id=cursor.fetchone()
     
     if profesores_id is not None:
@@ -53,7 +53,7 @@ def obtener_grupos_datos_importantes(id_profesor):
     grupos=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT * FROM grupos WHERE IDDocente = %s", (id_profesor))
+        cursor.execute("SELECT * FROM Grupos WHERE IDDocente = %s", (id_profesor))
         grupos=cursor.fetchall()
 
     conexion.close()
@@ -64,7 +64,7 @@ def obtener_grupos_IDS(id_profesor):
     grupos=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT IDGrupo FROM grupos WHERE IDDocente = %s", (id_profesor))
+        cursor.execute("SELECT IDGrupo FROM Grupos WHERE IDDocente = %s", (id_profesor))
         grupos=cursor.fetchall()
 
     conexion.close()
@@ -75,7 +75,7 @@ def obtener_grupos_Nombre(id_grupo):
     grupos=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT nombre FROM grupos WHERE IDGrupo = %s", (id_grupo))
+        cursor.execute("SELECT Nombre FROM Grupos WHERE IDGrupo = %s", (id_grupo))
         grupos=cursor.fetchall()
 
     conexion.close()
@@ -86,7 +86,7 @@ def obtener_alumnos_con_profesor_IDS(id_profesor):
     alumnosIds=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT IDAlumno FROM grupos_alumnos WHERE IDDocente = %s", (id_profesor))
+        cursor.execute("SELECT IDAlumno FROM Grupos_Alumnos WHERE IDDocente = %s", (id_profesor))
         alumnosIds=cursor.fetchall()
 
     conexion.close()
@@ -98,7 +98,7 @@ def obtener_grupo_datos_importantes_unitario(id_grupo):
     grupos=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT * FROM grupos WHERE IDGrupo = %s", (id_grupo))
+        cursor.execute("SELECT * FROM Grupos WHERE IDGrupo = %s", (id_grupo))
         grupos=cursor.fetchall()
 
     conexion.close()
@@ -113,7 +113,7 @@ def obtener_grupos_codigo(id_profesor):
     grupo = ""
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT codigo FROM grupos WHERE IDDocente = %s", (id_profesor))
+        cursor.execute("SELECT Codigo FROM Grupos WHERE IDDocente = %s", (id_profesor))
         grupos_codigos=cursor.fetchone()
     
     if grupos_codigos is not None:
@@ -132,7 +132,7 @@ def obtener_id_grupo_con_nombre_grupo(nombreGrupo):
     grupo = ""
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT IDGrupo FROM grupos WHERE nombre = %s", (nombreGrupo))
+        cursor.execute("SELECT IDGrupo FROM Grupos WHERE Nombre = %s", (nombreGrupo))
         grupos_codigos=cursor.fetchone()
     
     if grupos_codigos is not None:
@@ -150,7 +150,7 @@ def delete_grupos(id_grupo):
     confirmacionDeDelete = True
 
     with conexion.cursor() as cursor:
-        cursor.execute("DELETE from grupos WHERE IDGrupo = %s", (id_grupo))
+        cursor.execute("DELETE from Grupos WHERE IDGrupo = %s", (id_grupo))
 
     conexion.commit()
     conexion.close()
@@ -165,7 +165,7 @@ def update_grupos(nombreGrupo, descGrupo, fondoGrupo, lenguajesGrupo, temasGrupo
     confirmacionDeDelete = True
 
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE grupos SET nombre = %s, descripcion = %s, fondo = %s, lenguajes = %s, temas = %s WHERE IDGrupo = %s", (nombreGrupo, descGrupo, fondoGrupo, lenguajesGrupo, temasGrupo, id_grupo))
+        cursor.execute("UPDATE Grupos SET Nombre = %s, Descripcion = %s, Fondo = %s, Lenguajes = %s, Temas = %s WHERE IDGrupo = %s", (nombreGrupo, descGrupo, fondoGrupo, lenguajesGrupo, temasGrupo, id_grupo))
 
     conexion.commit()
     conexion.close()
@@ -180,7 +180,7 @@ def update_fondo_docente(fondo, id_docente):
     confirmacionDeDelete = True
 
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE docentes SET fondo = %s WHERE IDDocente = %s", (fondo, id_docente))
+        cursor.execute("UPDATE Docentes SET fondo = %s WHERE IDDocente = %s", (fondo, id_docente))
 
     conexion.commit()
     conexion.close()
@@ -194,7 +194,7 @@ def obtener_IDAlumno_dentro_de_grupo(id_grupo):
     alumnosIds=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT IDAlumno FROM grupos_alumnos WHERE IDGrupo = %s", (id_grupo))
+        cursor.execute("SELECT IDAlumno FROM Grupos_Alumnos WHERE IDGrupo = %s", (id_grupo))
         alumnosIds=cursor.fetchall()
 
     conexion.close()
@@ -208,7 +208,7 @@ def contar_IDAlumno_dentro_de_grupo(id_grupo):
     alumnosIds=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT COUNT(IDAlumno) FROM grupos_alumnos WHERE IDGrupo = %s", (id_grupo))
+        cursor.execute("SELECT COUNT(IDAlumno) FROM Grupos_Alumnos WHERE IDGrupo = %s", (id_grupo))
         alumnosIds=cursor.fetchall()
 
     conexion.close()
@@ -222,7 +222,7 @@ def datos_completos_alumno_by_id(IDAlumno):
     datosAlumnos = None
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT*FROM alumnos WHERE IDAlumno = %s", (IDAlumno))
+        cursor.execute("SELECT*FROM Alumnos WHERE IDAlumno = %s", (IDAlumno))
         datosAlumnos = cursor.fetchall()
         
     conexion.close()
@@ -238,7 +238,7 @@ def login_prof(correo):
     conexion = obtener_conexion()
     profesor = None
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT*FROM docentes WHERE correo = %s", (correo))
+        cursor.execute("SELECT*FROM Docentes WHERE correo = %s", (correo))
         profesor = cursor.fetchone()
     conexion.close()
     return profesor
@@ -254,7 +254,7 @@ def update_docente_perfil(id_docente,nombreUsuario,aliasUsuario,unidadAcademica,
     confirmacion = True
 
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE docentes SET nombre = %s, alias = %s, unidad_academica = %s, descripcion = %s WHERE IDDocente = %s", (nombreUsuario, aliasUsuario, unidadAcademica, descUser, id_docente))
+        cursor.execute("UPDATE Docentes SET Nombre = %s, Alias = %s, unidad_academica = %s, descripcion = %s WHERE IDDocente = %s", (nombreUsuario, aliasUsuario, unidadAcademica, descUser, id_docente))
 
     conexion.commit()
     conexion.close()
@@ -265,7 +265,7 @@ def update_docente_perfil_foto(id_docente, foto):
     confirmacion = True
 
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE docentes SET foto = %s WHERE IDDocente = %s", (foto, id_docente))
+        cursor.execute("UPDATE Docentes SET Foto = %s WHERE IDDocente = %s", (foto, id_docente))
 
     conexion.commit()
     conexion.close()
@@ -280,7 +280,7 @@ def update_docente_perfil_con_password(id_docente,nombreUsuario,aliasUsuario,uni
     confirmacion = True
 
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE docentes SET nombre = %s, alias = %s, unidad_academica = %s, descripcion = %s, contra = %s WHERE IDDocente = %s", (nombreUsuario, aliasUsuario, unidadAcademica, descUser, hashed, id_docente))
+        cursor.execute("UPDATE Docentes SET Nombre = %s, Alias = %s, unidad_academica = %s, descripcion = %s, contra = %s WHERE IDDocente = %s", (nombreUsuario, aliasUsuario, unidadAcademica, descUser, hashed, id_docente))
 
     conexion.commit()
     conexion.close()
@@ -292,7 +292,7 @@ def datos_completos_docente_by_id(IDDocente):
     conexion = obtener_conexion()
     datosProfesor = None
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT*FROM docentes WHERE IDDocente = %s", (IDDocente))
+        cursor.execute("SELECT*FROM Docentes WHERE IDDocente = %s", (IDDocente))
         datosProfesor = cursor.fetchone()
     conexion.close()
     return datosProfesor
@@ -301,7 +301,7 @@ def datos_completos_docente_by_id(IDDocente):
 def insertar_grupo(id_profesor, nombreGrupo,descGrupo,fondoGrupo,codigoGrupo,lenguajesGrupo,temasGrupo):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO grupos(IDDocente,Nombre,Descripcion,Fondo,Codigo,Lenguajes,Temas) VALUES(%s,%s,%s,%s,%s,%s,%s)",
+        cursor.execute("INSERT INTO Grupos(IDDocente,Nombre,Descripcion,Fondo,Codigo,Lenguajes,Temas) VALUES(%s,%s,%s,%s,%s,%s,%s)",
         (id_profesor, nombreGrupo,descGrupo,fondoGrupo,codigoGrupo,temasGrupo,lenguajesGrupo))
     conexion.commit()
     conexion.close()
@@ -314,7 +314,7 @@ def obtener_cuestionarios_datos_importantes(id_profesor):
     grupos=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT * FROM cuestionarios WHERE IDDocente = %s", (id_profesor))
+        cursor.execute("SELECT * FROM Cuestionarios WHERE IDDocente = %s", (id_profesor))
         grupos=cursor.fetchall()
 
     conexion.close()
@@ -325,7 +325,7 @@ def obtener_cuestionarios_datos_importantes_id_cuestionario(id_cuestionario):
     grupos=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT * FROM cuestionarios WHERE IDCuestionario = %s", (id_cuestionario))
+        cursor.execute("SELECT * FROM Cuestionarios WHERE IDCuestionario = %s", (id_cuestionario))
         grupos=cursor.fetchall()
 
     conexion.close()
@@ -336,7 +336,7 @@ def obtener_cuestionarios_datos_importantes_con_grupo(id_grupo):
     grupos=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT * FROM cuestionarios WHERE IDGrupo = %s", (id_grupo))
+        cursor.execute("SELECT * FROM Cuestionarios WHERE IDGrupo = %s", (id_grupo))
         grupos=cursor.fetchall()
 
     conexion.close()
@@ -348,7 +348,7 @@ def obtener_cuestionarios_en_estado_pending(id_cuestionario):
     pendingState = "pending"
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT * FROM alumnos_hacen_cuestionario WHERE IDCuestionario = %s AND Revision_estado = %s", (id_cuestionario, pendingState))
+        cursor.execute("SELECT * FROM Alumnos_hacen_Cuestionario WHERE IDCuestionario = %s AND Revision_estado = %s", (id_cuestionario, pendingState))
         grupos=cursor.fetchall()
 
     conexion.close()
@@ -360,7 +360,7 @@ def obtener_cuestionarios_en_estado_ready(id_cuestionario):
     readyState = "ready"
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT * FROM alumnos_hacen_cuestionario WHERE IDCuestionario = %s AND Revision_estado = %s", (id_cuestionario, readyState))
+        cursor.execute("SELECT * FROM Alumnos_hacen_Cuestionario WHERE IDCuestionario = %s AND Revision_estado = %s", (id_cuestionario, readyState))
         cuestionarios=cursor.fetchall()
 
     conexion.close()
@@ -384,7 +384,7 @@ def obtener_grupo_datos_importantes_id_hecho(codigo_cuestionario_hecho):
 def insertar_data_revision_apelacion(revisionEstado, aprovacionEstado, promedioGeneral, puntajeGeneral, puntajeSegmentado,idCuestionarioHecho):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE alumnos_hacen_cuestionario SET Revision_estado = %s,Aprobacion_estado = %s,Promedio_general = %s,Puntaje_general = %s,Puntaje_segmentado = %s WHERE IDCuestionarioHecho = %s",
+        cursor.execute("UPDATE Alumnos_hacen_Cuestionario SET Revision_estado = %s,Aprobacion_estado = %s,Promedio_general = %s,Puntaje_general = %s,Puntaje_segmentado = %s WHERE IDCuestionarioHecho = %s",
         (revisionEstado, aprovacionEstado, promedioGeneral, puntajeGeneral, puntajeSegmentado,idCuestionarioHecho))
     conexion.commit()
     conexion.close()
@@ -394,7 +394,7 @@ def insertar_apelacion(idCuestionarioHecho):
     revisionEstado = "pending"
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE alumnos_hacen_cuestionario SET Revision_estado = %s WHERE IDCuestionarioHecho = %s",
+        cursor.execute("UPDATE Alumnos_hacen_Cuestionario SET Revision_estado = %s WHERE IDCuestionarioHecho = %s",
         (revisionEstado,idCuestionarioHecho))
     conexion.commit()
     conexion.close()
@@ -405,7 +405,7 @@ def obtener_cuestionarios_rutas(id_profesor):
     grupos=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT Titulo,IDCuestionario FROM cuestionarios WHERE IDDocente = %s", (id_profesor))
+        cursor.execute("SELECT Titulo,IDCuestionario FROM Cuestionarios WHERE IDDocente = %s", (id_profesor))
         grupos=cursor.fetchall()
 
     conexion.close()
@@ -417,7 +417,7 @@ def obtener_cuestionario_datos_importantes_unitario(id_cuestionario):
     cuestionarios=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT * FROM cuestionarios WHERE IDCuestionario = %s", (id_cuestionario))
+        cursor.execute("SELECT * FROM Cuestionarios WHERE IDCuestionario = %s", (id_cuestionario))
         cuestionarios=cursor.fetchall()
 
     conexion.close()
@@ -432,7 +432,7 @@ def update_cuestionarios(id_grupo, tituloCuestionario, fechaCuestionario, autorC
     confirmacionUpdate = True
 
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE cuestionarios SET IDGrupo = %s, titulo = %s, fecha = %s, autor = %s, temas = %s, tipo = %s, lenguaje = %s, Orden = %s, TiempoCuentaAtras = %s, FechaLimiteRespuesta = %s, HoraLimiteParaResolver = %s, NumeroIntentosDisponibles = %s WHERE IDCuestionario = %s", (id_grupo,tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, ordenCuestionario, tiempoCuentaAtras, fechaLimiteRespuesta, horaLimiteParaResolver, numeroIntentosDisponibles, id_cuestionario))
+        cursor.execute("UPDATE Cuestionarios SET IDGrupo = %s, Titulo = %s, Fecha = %s, Autor = %s, Temas = %s, Tipo = %s, Lenguaje = %s, Orden = %s, TiempoCuentaAtras = %s, FechaLimiteRespuesta = %s, HoraLimiteParaResolver = %s, NumeroIntentosDisponibles = %s WHERE IDCuestionario = %s", (id_grupo,tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, ordenCuestionario, tiempoCuentaAtras, fechaLimiteRespuesta, horaLimiteParaResolver, numeroIntentosDisponibles, id_cuestionario))
 
     conexion.commit()
     conexion.close()
@@ -446,7 +446,7 @@ def delete_cuestionarios(id_cuestionario):
     confirmacionDeDelete = True
 
     with conexion.cursor() as cursor:
-        cursor.execute("DELETE from cuestionarios WHERE IDCuestionario = %s", (id_cuestionario))
+        cursor.execute("DELETE from Cuestionarios WHERE IDCuestionario = %s", (id_cuestionario))
 
     conexion.commit()
     conexion.close()
@@ -460,7 +460,7 @@ def contar_IDCuestionario_dentro_de_grupo(id_grupo):
     cuestionariosIds=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT COUNT(IDCuestionario) FROM cuestionarios WHERE IDGrupo = %s", (id_grupo))
+        cursor.execute("SELECT COUNT(IDCuestionario) FROM Cuestionarios WHERE IDGrupo = %s", (id_grupo))
         cuestionariosIds=cursor.fetchall()
 
     conexion.close()
@@ -472,7 +472,7 @@ def obtener_cuestionarios_IDS(id_profesor):
     IDS_cuestionarios=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT IDCuestionario FROM cuestionarios WHERE IDDocente = %s", (id_profesor))
+        cursor.execute("SELECT IDCuestionario FROM Cuestionarios WHERE IDDocente = %s", (id_profesor))
         IDS_cuestionarios=cursor.fetchall()
 
     conexion.close()
@@ -484,7 +484,7 @@ def insertar_cuestionario_JSON(id_grupo, id_profesor, tituloCuestionario, fechaC
     
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO cuestionarios(IDGrupo, IDDocente, Titulo, Fecha, Autor, Temas, Tipo, Lenguaje, Preguntas, Orden, TiempoCuentaAtras, FechaLimiteRespuesta, HoraLimiteParaResolver, NumeroIntentosDisponibles) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+        cursor.execute("INSERT INTO Cuestionarios(IDGrupo, IDDocente, Titulo, Fecha, Autor, Temas, Tipo, Lenguaje, Preguntas, Orden, TiempoCuentaAtras, FechaLimiteRespuesta, HoraLimiteParaResolver, NumeroIntentosDisponibles) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
         (id_grupo, id_profesor, tituloCuestionario, fechaCuestionario, autorCuestionario, temasCuestionario, tipoCuestionario, lenguajeCuestionario, archivoCuestionario, ordenCuestionario, tiempoCuentaAtras, fechaLimiteRespuesta, horaLimiteParaResolver, numeroIntentosDisponibles))
     conexion.commit()
     conexion.close()
@@ -494,7 +494,7 @@ def insertar_cuestionario_JSON(id_grupo, id_profesor, tituloCuestionario, fechaC
 def insertar_ruta_preview_cuestionario(id_cuestionario, rutaPreview):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE cuestionarios SET PreviewCuestionarioRuta = %s WHERE IDCuestionario = %s", (rutaPreview, id_cuestionario))
+        cursor.execute("UPDATE Cuestionarios SET PreviewCuestionarioRuta = %s WHERE IDCuestionario = %s", (rutaPreview, id_cuestionario))
     conexion.commit()
     conexion.close()
 
@@ -550,7 +550,7 @@ def updatePost(id_publicacion,tituloPost, descripcionPost, fondoPost):
     confirmacionDeDelete = True
 
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE PublicacionesDocente SET titulo = %s, descripcion = %s, foto = %s WHERE IDPublicacionDocente = %s", (tituloPost, descripcionPost, fondoPost, id_publicacion))
+        cursor.execute("UPDATE PublicacionesDocente SET Titulo = %s, Descripcion = %s, Foto = %s WHERE IDPublicacionDocente = %s", (tituloPost, descripcionPost, fondoPost, id_publicacion))
 
     conexion.commit()
     conexion.close()
@@ -580,7 +580,7 @@ def obtenerNotificacion_de_profesor(id_docente):
 def agregarResPolitica(id_docente, estado):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO docentespoliticasprivacidad(IDDocente, Estado) VALUES(%s,%s)",
+        cursor.execute("INSERT INTO DocentesPoliticasPrivacidad(IDDocente, Estado) VALUES(%s,%s)",
         (id_docente, estado))
     conexion.commit()
     conexion.close()
@@ -591,7 +591,7 @@ def estadoPolitica(id_docente):
     politica=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT estado FROM docentespoliticasprivacidad WHERE IDDocente = %s", (id_docente))
+        cursor.execute("SELECT estado FROM DocentesPoliticasPrivacidad WHERE IDDocente = %s", (id_docente))
         politica=cursor.fetchall()
 
     conexion.close()
@@ -600,7 +600,7 @@ def estadoPolitica(id_docente):
 def actualizarPolitica(id_docente, estado):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE docentespoliticasprivacidad SET Estado=%s where IDDocente=%s",(estado,id_docente))
+        cursor.execute("UPDATE DocentesPoliticasPrivacidad SET Estado=%s where IDDocente=%s",(estado,id_docente))
     conexion.commit()
     conexion.close()
 
@@ -623,9 +623,9 @@ def grupos_con_cuestionarios_resueltos(id_grupo):
     conexion=obtener_conexion()
     gruposConCuestionariosResueltos = []
     with conexion.cursor() as cursor:
-        cursor.execute("select * from Alumnos_hacen_Cuestionario INNER JOIN cuestionarios ON "+
-                       "Alumnos_hacen_Cuestionario.IDCuestionario = cuestionarios.IDCuestionario"+
-                       " where cuestionarios.IDGrupo =  %s", (id_grupo))
+        cursor.execute("select * from Alumnos_hacen_Cuestionario INNER JOIN Cuestionarios ON "+
+                       "Alumnos_hacen_Cuestionario.IDCuestionario = Cuestionarios.IDCuestionario"+
+                       " where Cuestionarios.IDGrupo =  %s", (id_grupo))
         gruposConCuestionariosResueltos = cursor.fetchall()
     conexion.close()
     return gruposConCuestionariosResueltos
