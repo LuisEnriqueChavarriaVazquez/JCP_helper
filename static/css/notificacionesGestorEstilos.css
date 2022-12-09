@@ -59,9 +59,8 @@ h6 {
     justify-content: left;
     align-items: center;
 
-    padding: 15px;
+    padding: 15px 15px 15px 80px;
     height: auto;
-    margin-bottom: 15px;
 
     font-size: 18px;
     font-weight: 600 !important;
@@ -69,6 +68,12 @@ h6 {
 
 .classificationNotiMobile{
     display: none;
+}
+
+.buttonEraseParticular{
+    position:relative;
+    top: -45px;
+    right: -10px;
 }
 
 @media screen and (max-width: 1250px) {
@@ -94,9 +99,8 @@ h6 {
         justify-content: left;
         align-items: center;
 
-        padding: 15px;
+        padding: 15px 15px 15px 70px;
         height: auto;
-        margin-bottom: 15px;
 
         font-size: 14px;
         font-weight: 700 !important;
@@ -141,6 +145,18 @@ h6 {
     .btnMobileNoti{
         margin: 0;
         padding: 23px 9px;
+    }
+
+    .notiUpdated {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+
+        padding: 15px 15px 15px 70px;
+        height: auto;
+
+        font-size: 10px;
+        font-weight: 700 !important;
     }
 }
 

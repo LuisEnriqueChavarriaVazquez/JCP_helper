@@ -96,13 +96,16 @@ function imprimirTodas() {
         return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
                     ${element[2]}
                 </div>
+                <section class="buttonEraseParticular">
+                
                 <form method="post" action="/borrarComentarioParticularProfesor">
-                    <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
-                    <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
-                    <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
-                        <i class="material-icons">clear</i>
-                    </button>
-                </form>`
+                <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
+                <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
+                <i class="material-icons">clear</i>
+                </button>
+                </form>
+                </section>`
     });
     let contentString = contentNoti.join('');
     if(contentString == ""){
@@ -128,13 +131,16 @@ function imprimirNewStd() {
         return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
                     ${element[2]}
                 </div>
+                <section class="buttonEraseParticular">
+                
                 <form method="post" action="/borrarComentarioParticularProfesor">
-                    <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
-                    <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
-                    <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
-                        <i class="material-icons">clear</i>
-                    </button>
-                </form>`
+                <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
+                <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
+                <i class="material-icons">clear</i>
+                </button>
+                </form>
+                </section>`
     })
     let contentString = contentFiltered.join('');
     if(contentString == ""){
@@ -160,13 +166,16 @@ function imprimirNewAnswer() {
         return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
                     ${element[2]}
                 </div>
+                <section class="buttonEraseParticular">
+                
                 <form method="post" action="/borrarComentarioParticularProfesor">
-                    <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
-                    <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
-                    <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
-                        <i class="material-icons">clear</i>
-                    </button>
-                </form>`
+                <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
+                <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
+                <i class="material-icons">clear</i>
+                </button>
+                </form>
+                </section>`
     })
     let contentString = contentFiltered.join('');
     if(contentString == ""){
@@ -188,13 +197,16 @@ function imprimirNewTest() {
         return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
                     ${element[2]}
                 </div>
+                <section class="buttonEraseParticular">
+                
                 <form method="post" action="/borrarComentarioParticularProfesor">
-                    <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
-                    <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
-                    <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
-                        <i class="material-icons">clear</i>
-                    </button>
-                </form>`
+                <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
+                <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
+                <i class="material-icons">clear</i>
+                </button>
+                </form>
+                </section>`
     })
     let contentString = contentFiltered.join('');
     if(contentString == ""){
@@ -216,13 +228,16 @@ function imprimirNewAbandon() {
         return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
                     ${element[2]}
                 </div>
+                <section class="buttonEraseParticular">
+                
                 <form method="post" action="/borrarComentarioParticularProfesor">
-                    <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
-                    <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
-                    <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
-                        <i class="material-icons">clear</i>
-                    </button>
-                </form>`
+                <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
+                <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
+                <i class="material-icons">clear</i>
+                </button>
+                </form>
+                </section>`
     })
     let contentString = contentFiltered.join('');
     if(contentString == ""){
@@ -244,13 +259,16 @@ function imprimirNewFeedback() {
         return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
                     ${element[2]}
                 </div>
+                <section class="buttonEraseParticular">
+                
                 <form method="post" action="/borrarComentarioParticularProfesor">
-                    <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
-                    <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
-                    <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
-                        <i class="material-icons">clear</i>
-                    </button>
-                </form>`
+                <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
+                <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
+                <i class="material-icons">clear</i>
+                </button>
+                </form>
+                </section>`
     })
     let contentString = contentFiltered.join('');
     if(contentString == ""){
@@ -272,13 +290,16 @@ function imprimirNewApel() {
         return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
                     ${element[2]}
                 </div>
+                <section class="buttonEraseParticular">
+                
                 <form method="post" action="/borrarComentarioParticularProfesor">
-                    <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
-                    <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
-                    <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
-                        <i class="material-icons">clear</i>
-                    </button>
-                </form>`
+                <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
+                <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
+                <i class="material-icons">clear</i>
+                </button>
+                </form>
+                </section>`
     })
     let contentString = contentFiltered.join('');
     if(contentString == ""){
@@ -299,7 +320,17 @@ function imprimirNewImportant() {
     let contentFiltered = contentNoti.map(element => {
         return `<div class="notiUpdated bordered1 badColor shadow-1e">
                     ${element[2]}
-                </div>`
+                </div>
+                <section class="buttonEraseParticular">
+                
+                <form method="post" action="/borrarComentarioParticularProfesor">
+                <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
+                <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
+                <i class="material-icons">clear</i>
+                </button>
+                </form>
+                </section>`
     })
     let contentString = contentFiltered.join('');
     if(contentString == ""){
@@ -320,7 +351,17 @@ function imprimirNewGeral() {
     let contentFiltered = contentNoti.map(element => {
         return `<div class="notiUpdated bordered1 shadow-1e infoColor">
                     ${element[2]}
-                </div>`
+                </div>
+                <section class="buttonEraseParticular">
+                
+                <form method="post" action="/borrarComentarioParticularProfesor">
+                <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
+                <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
+                <i class="material-icons">clear</i>
+                </button>
+                </form>
+                </section>`
     })
     let contentString = contentFiltered.join('');
     if(contentString == ""){
