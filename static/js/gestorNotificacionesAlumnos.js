@@ -86,7 +86,7 @@ function imprimirTodas() {
                 </div>
                 <section class="buttonEraseParticular">
                 
-                <form method="post" action="/borrarComentarioParticularProfesor">
+                <form method="post" action="/borrarComentarioParticularAlumno">
                 <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
                 <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
                 <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
@@ -121,7 +121,7 @@ function imprimirNewStd() {
                 </div>
                 <section class="buttonEraseParticular">
                 
-                <form method="post" action="/borrarComentarioParticularProfesor">
+                <form method="post" action="/borrarComentarioParticularAlumno">
                 <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
                 <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
                 <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
@@ -156,7 +156,7 @@ function imprimirNewAnswer() {
                 </div>
                 <section class="buttonEraseParticular">
                 
-                <form method="post" action="/borrarComentarioParticularProfesor">
+                <form method="post" action="/borrarComentarioParticularAlumno">
                 <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
                 <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
                 <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
@@ -187,7 +187,7 @@ function imprimirNewTest() {
                 </div>
                 <section class="buttonEraseParticular">
                 
-                <form method="post" action="/borrarComentarioParticularProfesor">
+                <form method="post" action="/borrarComentarioParticularAlumno">
                 <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
                 <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
                 <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
@@ -218,7 +218,7 @@ function imprimirNewResolve() {
                 </div>
                 <section class="buttonEraseParticular">
                 
-                <form method="post" action="/borrarComentarioParticularProfesor">
+                <form method="post" action="/borrarComentarioParticularAlumno">
                 <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
                 <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
                 <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
@@ -249,7 +249,7 @@ function imprimirNewAbandon() {
                 </div>
                 <section class="buttonEraseParticular">
                 
-                <form method="post" action="/borrarComentarioParticularProfesor">
+                <form method="post" action="/borrarComentarioParticularAlumno">
                 <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
                 <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
                 <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
@@ -280,7 +280,7 @@ function imprimirNewFeedback() {
                 </div>
                 <section class="buttonEraseParticular">
                 
-                <form method="post" action="/borrarComentarioParticularProfesor">
+                <form method="post" action="/borrarComentarioParticularAlumno">
                 <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
                 <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
                 <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
@@ -311,7 +311,7 @@ function imprimirNewApel() {
                 </div>
                 <section class="buttonEraseParticular">
                 
-                <form method="post" action="/borrarComentarioParticularProfesor">
+                <form method="post" action="/borrarComentarioParticularAlumno">
                 <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
                 <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
                 <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
@@ -342,7 +342,7 @@ function imprimirNewImportant() {
                 </div>
                 <section class="buttonEraseParticular">
                 
-                <form method="post" action="/borrarComentarioParticularProfesor">
+                <form method="post" action="/borrarComentarioParticularAlumno">
                 <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
                 <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
                 <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
@@ -373,7 +373,7 @@ function imprimirNewGeral() {
                 </div>
                 <section class="buttonEraseParticular">
                 
-                <form method="post" action="/borrarComentarioParticularProfesor">
+                <form method="post" action="/borrarComentarioParticularAlumno">
                 <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
                 <input type="hidden" value="${element[1]}" name="idAlumno" id="idAlumno">
                 <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">

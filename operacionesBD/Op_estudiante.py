@@ -396,6 +396,24 @@ def creaComentarioRetroalimentacion(id_grupo, id_alumno, comentario):
     conexion.commit()
     conexion.close()
 
+#Operacion para borrar de un comentario
+def borrarUnaNotificacionParticular(id_comentario):
+    conexion=obtener_conexion()
+    comentarios=[]
+    with conexion.cursor() as cursor:
+        cursor.execute("DELETE from notificaciones_alumno WHERE IDNotificacion_Alumno = %s", (id_comentario))
+    conexion.commit()
+    conexion.close()
+
+#Operacion para eliminar todos los comentarios
+def borrarNotificaciones(id_alumno):
+    conexion=obtener_conexion()
+    comentarios=[]
+    with conexion.cursor() as cursor:
+        cursor.execute("DELETE from notificaciones_alumno WHERE IDAlumno = %s", (id_alumno))
+    conexion.commit()
+    conexion.close()
+
 #Operacion para la creación de un comentario
 def obtieneComentarioRetroalimentacion(id_grupo):
     conexion=obtener_conexion()

@@ -97,6 +97,36 @@ def gestorNotificacionesAlumno():
     except:
         return render_template('estudiante/a_gestionar_notificaciones.html')
 
+@routes.route('/borrarComentariosAlumno', methods=['POST'])
+def borrarComentariosAlumno():
+    idAlumno = request.form["idAlumno"]
+    
+    #Notificaciones del profesor
+    Op_estudiante.borrarNotificaciones(idAlumno)
+    
+    #Obtenemos la data
+    result = Op_estudiante.datos_completos_alumno_by_id(idAlumno)
+    notificaciones = Op_estudiante.obtenerNotificacion_de_alumno(idAlumno)
+    print("Hola es es el idAlumno" + idAlumno)
+
+    return redirect(url_for('routes.bienvenidaEstudiante', datos = result))  
+
+@routes.route('/borrarComentarioParticularAlumno', methods=['POST'])
+def borrarComentarioParticularAlumno():
+    idAlumno = request.form["idAlumno"]
+    idComentario = request.form["idComentario"]
+    
+    #Notificaciones del profesor
+    Op_estudiante.borrarUnaNotificacionParticular(idComentario)
+    
+    ##Obtenemos la data una vez que fue modificada
+    result = Op_estudiante.datos_completos_alumno_by_id(idAlumno)
+    notificaciones = Op_estudiante.obtenerNotificacion_de_alumno(idAlumno)
+    print("comentario borrado y sus datos", idAlumno, idComentario)
+
+    return render_template('estudiante/a_gestionar_notificaciones.html', notificaciones = notificaciones)
+
+
 ##
 ##Bloque para en la pagina de bienvenida buscar un grupo
 ##
