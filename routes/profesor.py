@@ -648,6 +648,20 @@ def bienvenidaProfesor():
     except:
         return render_template('profesor/bienvenidaProfesor.html')
 
+@routes.route('/gestorNotificacionesProfe', methods=['POST'])
+#@login_required
+def gestorNotificacionesProfe():
+    try:
+        idUsuarioNotificaciones = request.form["idUsuarioNotificaciones"]
+        
+        #Notificaciones del profesor
+        notificaciones = Op_profesor.obtenerNotificacion_de_profesor(idUsuarioNotificaciones)
+        print(notificaciones)
+        
+        return render_template('profesor/a_gestionar_notificaciones.html', notificaciones = notificaciones)
+    except:
+        return render_template('profesor/a_gestionar_notificaciones.html')
+
 @routes.route('/bienvenidaProfesorP/<string:respuesta>')
 def bienvenidaProfesorPolitica(respuesta):
     #comprobamos si ya se ha registrado repuesta

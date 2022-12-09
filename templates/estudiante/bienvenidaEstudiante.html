@@ -405,9 +405,10 @@
             </section>
 
             <div class="bordered1 shadow-1e gotoMoreNotifications hiddenElement" id="yesNoti">
-                <a href="" class="colorText gotoMoreNotifications_text">
-                    Ver todas las notificaciones.
-                </a>
+                <form action="/gestorNotificacionesAlumno" method="post">
+                    <input type="hidden" value="{{datos[0]}}" name="idUsuarioNotificaciones" id="idUsuarioNotificaciones">
+                    <button type="submit" class="btn btn-large bordered3 color2 colorText">Ver todas las notificaciones</button>
+                </form>
             </div>
 
             <div class="notFoundMsg_custom" id="notNoti">

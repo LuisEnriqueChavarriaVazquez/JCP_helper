@@ -83,6 +83,20 @@ def bienvenidaEstudiante():
     except:
         return render_template('estudiante/bienvenidaEstudiante.html')
 
+@routes.route('/gestorNotificacionesAlumno', methods=['POST'])
+#@login_required
+def gestorNotificacionesAlumno():
+    try:
+        idUsuarioNotificaciones = request.form["idUsuarioNotificaciones"]
+        
+        #Notificaciones del profesor
+        notificaciones = Op_estudiante.obtenerNotificacion_de_alumno(idUsuarioNotificaciones)
+        print(notificaciones)
+        
+        return render_template('estudiante/a_gestionar_notificaciones.html', notificaciones = notificaciones)
+    except:
+        return render_template('estudiante/a_gestionar_notificaciones.html')
+
 ##
 ##Bloque para en la pagina de bienvenida buscar un grupo
 ##
