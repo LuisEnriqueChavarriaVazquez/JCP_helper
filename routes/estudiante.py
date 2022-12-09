@@ -622,7 +622,34 @@ def nuevo_estudiante():
         
         Op_estudiante.insertar_estudiante(nombre,alias,foto,correo,hashed,area,escuela,descripcion,fondo)
         flash(f"{nombre} te has registrado correctamente!!")
+        
+          #Token para confirmar correo
+        tokenUsuario = token.generate_confirmation_token(correo)
+
+        #Datos correo para confirmar
+        confirm_url = url_for('routes.confirmar_correo_alumno', token_entrada=tokenUsuario, _external=True)
+        html = render_template('estudiante/confirmar_correo_alumno.html', confirm_url=confirm_url)
+        #Datos para correo
+        sender_email= "ricardocorreoejemplo@gmail.com"
+        password_email = "cmapigtwmjpzktpr"
+        subject_email = "confirmar correo"
+        body_email=html
+        email.enviar_correo(sender_email,password_email,subject_email, correo,body_email)
+        
+        
+        
         return render_template("login_general.html")
+
+
+#ruta para verificar cuenta por correo
+
+@routes.route("/confirmar_correo_alumno/<string:token_entrada>")
+def confirmar_correo_alumno(token_entrada):
+
+    email=token.confirm_token(token_entrada)
+    print("paso token:"+str(email))
+    return render_template('login_general.html')
+
 
 @routes.route('/login_estudiante',methods=["POST"])
 def login_estudiante():
