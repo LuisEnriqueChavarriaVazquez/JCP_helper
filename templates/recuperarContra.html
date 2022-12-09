@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title class="TDI"></title>
+
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+
+</head>
+
+<body class="oculto colorGreyWhiter">
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+    <!--Menu de página de inicio-->
+    <nav class="color2">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo hide-on-small-only TDI">Recuperar Contraseña</a>
+            <a href="/" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Recuperar Contraseña</p>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/" class="btn color3 button-rounded TDI">Volver al inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="row">
+      <!--  <div class="col s12 color2" style="padding: 0%;">
+            <ul class="tabs color2" id="tabs-swipe-demo">
+                <li class="tab col s3 m6"><a class="active colorText TDI" href="#test1">Recuperar contraseña con correo</a></li>
+            </ul>
+        </div>-->
+        <!--Inicio de la pestaña uno-->
+        <div id="test1" class="col s12" style="padding: 0%;">
+            <div class="title-general">
+                <h5 class="hide-on-large-only TDI">Recuperar contraseña</h5>
+                <h4 class="hide-on-med-and-down TDI">Recuperar contraseña</h4>
+            </div>
+            <section class="loginContainerGrid shadow-1 bordered2 borderDecoration">
+                <section class="fondoDinamico loginContainerImage">
+                    <div class="icon_app shadow-2e bordered2"></div>
+                </section>
+                <section class="loginContainerForm colorWhite">
+                    <form action="{{ url_for('routes.login_profesor') }}" method="post">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">email</i>
+                                <input placeholder="" class="colorTextReverse truncate" id="mail" name="correoP"
+                                    type="email" class="validate" required>
+                                <label for="mail" class="TDI">Correo</label>
+                            </div>
+                            
+                        </div>
+
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        {% for message in messages %}
+                        <div id="error_login">
+                            <p>{{ message }}</p>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+
+                        <button type="submit"
+                            class="buttonMax buttons-bienvenida waves-effect waves-light btn-large color3"><i
+                                class="material-icons left">done</i><span class="TDI">Enviar</span></button>
+                    </form>
+                </section>
+            </section>
+        </div>
+
+       
+    </div>
+
+
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
+
+    <!--Metemos el footer en la app-->
+    {% include "includes/footer.html" %}
+</body>
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
+
+
+</html>

@@ -32,3 +32,9 @@ def politica_privacidad():
 @routes.route('/ayuda')
 def ayuda():
     return render_template('general/ayuda.html')
+
+
+#recuperarContra
+@routes.route('/recuperarContra')
+def recuperarContra():
+    return render_template('/recuperarContra.html')
