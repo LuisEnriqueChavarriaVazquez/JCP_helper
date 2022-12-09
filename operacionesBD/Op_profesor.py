@@ -575,6 +575,24 @@ def obtenerNotificacion_de_profesor(id_docente):
     conexion.close()
     return comentarios
 
+#Operacion para borrar de un comentario
+def borrarUnaNotificacionParticular(id_comentario):
+    conexion=obtener_conexion()
+    comentarios=[]
+    with conexion.cursor() as cursor:
+        cursor.execute("DELETE from notificaciones_docente WHERE IDNotificacion_Docente = %s", (id_comentario))
+    conexion.commit()
+    conexion.close()
+
+#Operacion para eliminar todos los comentarios
+def borrarNotificaciones(id_profe):
+    conexion=obtener_conexion()
+    comentarios=[]
+    with conexion.cursor() as cursor:
+        cursor.execute("DELETE from notificaciones_Docente WHERE IDDocente = %s", (id_profe))
+    conexion.commit()
+    conexion.close()
+
 ################### Operaciones para las politicas
 #Agregar al docente y su respuesta sobre la politica
 def agregarResPolitica(id_docente, estado):

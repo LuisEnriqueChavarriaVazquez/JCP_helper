@@ -32,28 +32,51 @@
         <section class="lateralMenuNotification colorGreyWhiter">
             <div class="fixedButtonWrapNoti">
                 <h6 class="colorTextReverse"><b>Categorias</b></h6>
-                <button id="newStd" class="btn waves-effect waves-light bordered5 shadow-1 colorText color2">Nuevos estudiantes</button>
-                <button id="newAbandon" class="btn waves-effect waves-light bordered5 shadow-1 colorText color2">Abandonos de grupo</button>
-                <button id="newComent" class="btn waves-effect waves-light bordered5 shadow-1 colorText color2">Comentarios</button>
-                <button id="newApel" class="btn waves-effect waves-light bordered5 shadow-1 colorText color2">Apelaciones</button>
-                <button id="newGeral" class="btn waves-effect waves-light bordered5 shadow-1 colorText color3">General</button>
-                <button id="newImportante" class="btn waves-effect waves-light bordered5 shadow-1 colorText color3">Importante</button>
-                <button id="newTodas" class="btn waves-effect waves-light bordered5 shadow-1 colorText color3">Todas</button>
+                <button id="newStd" class="btn waves-effect waves-light bordered5 shadow-1 colorText color2">Nuevos
+                    estudiantes</button>
+                <button id="newAbandon"
+                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color2">Abandonos de grupo</button>
+                <button id="newComent"
+                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color2">Comentarios</button>
+                <button id="newApel"
+                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color2">Apelaciones</button>
+                <button id="newGeral"
+                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color3">General</button>
+                <button id="newImportante"
+                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color3">Importante</button>
+                <button id="newTodas"
+                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color3">Todas</button>
                 <h6 class="colorTextReverse"><b>Operaciones</b></h6>
-                <button class="btn waves-effect waves-light bordered5 shadow-1 colorText color3">
-                    Limpiar bandeja
-                </button>
+                <form action="/borrarComentariosProfesor" method="post">
+                    <input type="hidden" name="idProfesor" id="idProfesor" class="idProfesorClass">
+                    <button type="submit" class="btn waves-effect waves-light bordered5 shadow-1 colorText color3">
+                        Limpiar bandeja
+                    </button>
+                </form>
             </div>
         </section>
         <section class="classificationNotiMobile">
-            <div id="2_newStd" class="btnMobileNoti shadow-1 firstRoundedButtonNoti colorGreyWhiter waves-effect waves-light"><i class="material-icons coloredText md-20">person_add</i></div>
-            <div id="2_newAbandon" class="btnMobileNoti shadow-1 colorGreyWhiter waves-effect waves-light"><i class="material-icons coloredText md-20">person_remove</i></div>
-            <div id="2_newComent" class="btnMobileNoti shadow-1 colorGreyWhiter waves-effect waves-light"><i class="material-icons coloredText md-20">feedback</i></div>
-            <div id="2_newApel" class="btnMobileNoti shadow-1 colorGreyWhiter waves-effect waves-light"><i class="material-icons coloredText md-20">flag</i></div>
-            <div id="2_newGeral" class="btnMobileNoti shadow-1 colorGreyWhiter waves-effect waves-light"><i class="material-icons coloredText md-20">inbox</i></div>
-            <div id="2_newImportante" class="btnMobileNoti shadow-1 colorGreyWhiter waves-effect waves-light"><i class="material-icons coloredText md-20">campaign</i></div>
-            <div id="2_newTodas" class="btnMobileNoti shadow-1 colorGreyWhiter waves-effect waves-light"><i class="material-icons coloredText md-20">all_inbox</i></div>
-            <div id="2_limpiar" class="btnMobileNoti shadow-1 lastRoundedButtonNoti colorGreyWhiter waves-effect waves-light"><i class="material-icons coloredText md-20">cleaning_services</i></div>
+            <div id="2_newStd"
+                class="btnMobileNoti shadow-1 firstRoundedButtonNoti colorGreyWhiter waves-effect waves-light"><i
+                    class="material-icons coloredText md-20">person_add</i></div>
+            <div id="2_newAbandon" class="btnMobileNoti shadow-1 colorGreyWhiter waves-effect waves-light"><i
+                    class="material-icons coloredText md-20">person_remove</i></div>
+            <div id="2_newComent" class="btnMobileNoti shadow-1 colorGreyWhiter waves-effect waves-light"><i
+                    class="material-icons coloredText md-20">feedback</i></div>
+            <div id="2_newApel" class="btnMobileNoti shadow-1 colorGreyWhiter waves-effect waves-light"><i
+                    class="material-icons coloredText md-20">flag</i></div>
+            <div id="2_newGeral" class="btnMobileNoti shadow-1 colorGreyWhiter waves-effect waves-light"><i
+                    class="material-icons coloredText md-20">inbox</i></div>
+            <div id="2_newImportante" class="btnMobileNoti shadow-1 colorGreyWhiter waves-effect waves-light"><i
+                    class="material-icons coloredText md-20">campaign</i></div>
+            <div id="2_newTodas" class="btnMobileNoti shadow-1 colorGreyWhiter waves-effect waves-light"><i
+                    class="material-icons coloredText md-20">all_inbox</i></div>
+            <form action="/borrarComentariosProfesor" method="post">
+                <input type="hidden" name="idProfesor" id="idProfesor" class="idProfesorClass">
+                <button type="submit" id="2_limpiar"
+                    class="btnMobileNoti shadow-1 lastRoundedButtonNoti colorGreyWhiter waves-effect waves-light"><i
+                        class="material-icons coloredText md-20">cleaning_services</i></button type="submit">
+            </form>
         </section>
         <section class="allContentNotification" id="allContentNotification">
             <h5>Notificaciones</h5>
@@ -63,7 +86,7 @@
         </section>
     </section>
 
-    
+
     <!--Botones para que el gestor de idiomas no falle-->
     <span class="hiddenElement" id="seleccionarEspanol"></span>
     <span class="hiddenElement" id="seleccionarIngles"></span>

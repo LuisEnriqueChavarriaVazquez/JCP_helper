@@ -47,6 +47,11 @@ let dosnewGeral = document.getElementById('2_newGeral');
 let dosnewImportante = document.getElementById('2_newImportante');
 let dosnewTodas = document.getElementById('2_newTodas');
 
+//Accedemos a los datos del docente en input para borrar todo
+let idProfesorClass = document.getElementsByClassName('idProfesorClass');
+idProfesorClass[0].value = dataClean[0][1];
+idProfesorClass[1].value = dataClean[0][1];
+
 //Data en caso de que no tengamos contenido
 let noContent = `
 <div class="nothingContainer">
@@ -89,8 +94,15 @@ function imprimirTodas() {
     let dataWork = [...dataClean];
     let contentNoti = dataWork.map(element => {
         return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
-            ${element[2]}
-        </div>`
+                    ${element[2]}
+                </div>
+                <form method="post" action="/borrarComentarioParticularProfesor">
+                    <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
+                    <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                    <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
+                        <i class="material-icons">clear</i>
+                    </button>
+                </form>`
     });
     let contentString = contentNoti.join('');
     if(contentString == ""){
@@ -115,7 +127,14 @@ function imprimirNewStd() {
     let contentFiltered = contentNoti.map(element => {
         return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
                     ${element[2]}
-                </div>`
+                </div>
+                <form method="post" action="/borrarComentarioParticularProfesor">
+                    <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
+                    <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                    <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
+                        <i class="material-icons">clear</i>
+                    </button>
+                </form>`
     })
     let contentString = contentFiltered.join('');
     if(contentString == ""){
@@ -140,7 +159,14 @@ function imprimirNewAnswer() {
     let contentFiltered = contentNoti.map(element => {
         return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
                     ${element[2]}
-                </div>`
+                </div>
+                <form method="post" action="/borrarComentarioParticularProfesor">
+                    <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
+                    <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                    <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
+                        <i class="material-icons">clear</i>
+                    </button>
+                </form>`
     })
     let contentString = contentFiltered.join('');
     if(contentString == ""){
@@ -161,7 +187,14 @@ function imprimirNewTest() {
     let contentFiltered = contentNoti.map(element => {
         return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
                     ${element[2]}
-                </div>`
+                </div>
+                <form method="post" action="/borrarComentarioParticularProfesor">
+                    <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
+                    <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                    <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
+                        <i class="material-icons">clear</i>
+                    </button>
+                </form>`
     })
     let contentString = contentFiltered.join('');
     if(contentString == ""){
@@ -182,7 +215,14 @@ function imprimirNewAbandon() {
     let contentFiltered = contentNoti.map(element => {
         return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
                     ${element[2]}
-                </div>`
+                </div>
+                <form method="post" action="/borrarComentarioParticularProfesor">
+                    <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
+                    <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                    <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
+                        <i class="material-icons">clear</i>
+                    </button>
+                </form>`
     })
     let contentString = contentFiltered.join('');
     if(contentString == ""){
@@ -203,7 +243,14 @@ function imprimirNewFeedback() {
     let contentFiltered = contentNoti.map(element => {
         return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
                     ${element[2]}
-                </div>`
+                </div>
+                <form method="post" action="/borrarComentarioParticularProfesor">
+                    <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
+                    <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                    <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
+                        <i class="material-icons">clear</i>
+                    </button>
+                </form>`
     })
     let contentString = contentFiltered.join('');
     if(contentString == ""){
@@ -224,7 +271,14 @@ function imprimirNewApel() {
     let contentFiltered = contentNoti.map(element => {
         return `<div class="notiUpdated bordered1 shadow-1e colorGreyDarker colorTextReverse">
                     ${element[2]}
-                </div>`
+                </div>
+                <form method="post" action="/borrarComentarioParticularProfesor">
+                    <input type="hidden" value="${element[0]}" name="idComentario" id="idComentario">
+                    <input type="hidden" value="${element[1]}" name="idProfesor" id="idProfesor">
+                    <button class="buttonDeleteNotificacion btn colorGreyDarker colorTextReverse bordered5" type="submit">
+                        <i class="material-icons">clear</i>
+                    </button>
+                </form>`
     })
     let contentString = contentFiltered.join('');
     if(contentString == ""){

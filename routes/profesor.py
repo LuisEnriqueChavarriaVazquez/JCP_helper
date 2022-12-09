@@ -644,7 +644,7 @@ def bienvenidaProfesor():
         notificaciones = Op_profesor.obtenerNotificacion_de_profesor(session["IDDocente"])
         print(notificaciones)
         
-        return render_template('profesor/bienvenidaProfesor.html',datos=result, notificaciones=notificaciones, IDS_Alumnos = contadorAlumnos, IDS_Grupos = contadorGrupos, IDS_Cuestionarios = contadorCuestionarios,pol_lateral=pol_lateral,pol_superior=pol_superior)
+        return render_template('profesor/bienvenidaProfesor.html', datos=result, notificaciones=notificaciones, IDS_Alumnos = contadorAlumnos, IDS_Grupos = contadorGrupos, IDS_Cuestionarios = contadorCuestionarios,pol_lateral=pol_lateral,pol_superior=pol_superior)
     except:
         return render_template('profesor/bienvenidaProfesor.html')
 
@@ -661,6 +661,35 @@ def gestorNotificacionesProfe():
         return render_template('profesor/a_gestionar_notificaciones.html', notificaciones = notificaciones)
     except:
         return render_template('profesor/a_gestionar_notificaciones.html')
+
+@routes.route('/borrarComentariosProfesor', methods=['POST'])
+def borrarComentariosProfesor():
+    idProfesor = request.form["idProfesor"]
+    
+    #Notificaciones del profesor
+    Op_profesor.borrarNotificaciones(idProfesor)
+    
+    #Obtenemos la data
+    result = Op_profesor.datos_completos_docente_by_id(idProfesor)
+    notificaciones = Op_profesor.obtenerNotificacion_de_profesor(idProfesor)
+    print("Hola es es el idProfesor" + idProfesor)
+
+    return redirect(url_for('routes.bienvenidaProfesor', datos = result))  
+
+@routes.route('/borrarComentarioParticularProfesor', methods=['POST'])
+def borrarComentarioParticularProfesor():
+    idProfesor = request.form["idProfesor"]
+    idComentario = request.form["idComentario"]
+    
+    #Notificaciones del profesor
+    Op_profesor.borrarUnaNotificacionParticular(idComentario)
+    
+    ##Obtenemos la data una vez que fue modificada
+    result = Op_profesor.datos_completos_docente_by_id(idProfesor)
+    notificaciones = Op_profesor.obtenerNotificacion_de_profesor(idProfesor)
+    print("comentario borrado y sus datos", idProfesor, idComentario)
+
+    return render_template('profesor/a_gestionar_notificaciones.html', notificaciones = notificaciones)
 
 @routes.route('/bienvenidaProfesorP/<string:respuesta>')
 def bienvenidaProfesorPolitica(respuesta):
