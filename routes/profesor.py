@@ -154,6 +154,7 @@ def terminarRetroalimentarCuestionarios(id_cuestionario_pending):
     promedioGeneral = request.form["promedioGeneral"]
     puntajeGeneral = request.form["puntajeGeneral"]
     puntajeSegmentado = request.form["puntajeSegmentado"]
+    storageLenguaje = request.form["storageLenguaje"]
 
     print(id_cuestionario_pending,revisionEstado,aprovacionEstado,promedioGeneral,puntajeGeneral,puntajeSegmentado)
 
@@ -165,7 +166,15 @@ def terminarRetroalimentarCuestionarios(id_cuestionario_pending):
         ##Debemos definir los parametros del msg
         importancia = "important"
         categoria = "new_resolve"
-        texto = "El profesor@ ha resuelto una de tus apelaciones, revisa en las sección de Mis resultados como te fue :)."
+        ##Validamos el idioma de la notificacion
+        if storageLenguaje == "esp":
+            texto = "El profesor@ ha resuelto una de tus apelaciones, revisa en las sección de Mis resultados como te fue :)."
+        elif storageLenguaje == "en":
+            texto = "The teacher has resolved one of your appeals, check in the My results section how it went."
+        elif storageLenguaje == "pt":
+            texto = "O professor/A professora resolveu um de seus recursos, verifique na seção Meus resultados como foi."
+        elif storageLenguaje == "chn":
+            texto = "老师已经解决了您的一项申诉，请在“我的结果”部分查看进展情况。"
         Op_profesor.agregarNotificacion_para_alumno(idEstudiante, texto, importancia, categoria)
     except:
         print("error")
@@ -1000,6 +1009,8 @@ def saveCuestionario(id_profesor):
     tiempoCuentaAtras = request.form["tiempoCuentaAtras"]
     numeroIntentosDisponibles = request.form["numeroIntentosDisponibles"]
     numeroIntentosDisponibles = int(numeroIntentosDisponibles)
+
+    storageLenguaje = request.form["storageLenguaje"]
     #Validamos en caso de ser negativo o nulo
     if numeroIntentosDisponibles < 0 or numeroIntentosDisponibles == 0 or numeroIntentosDisponibles == "":
         numeroIntentosDisponibles = 1
@@ -1028,7 +1039,17 @@ def saveCuestionario(id_profesor):
     ##Debemos definir los parametros del msg
     importancia = "info"
     categoria = "new_test"
-    texto = "El profesor@ " + autorCuestionario + " agregó un nuevo cuestionario llamado " + tituloCuestionario + " al grupo de " + grupoCuestionario
+
+    ##Validamos el idioma de la notificacion
+    if storageLenguaje == "esp":
+        texto = "El profesor@ " + autorCuestionario + " agregó un nuevo cuestionario llamado " + tituloCuestionario + " al grupo de " + grupoCuestionario
+    elif storageLenguaje == "en":
+        texto = "The teacher " + autorCuestionario + " added a new test called " + tituloCuestionario + " into the group " + grupoCuestionario
+    elif storageLenguaje == "pt":
+        texto = "O professor " + autorCuestionario + " crio um novo test " + tituloCuestionario + " no grupo " + grupoCuestionario
+    elif storageLenguaje == "chn":
+        texto = autorCuestionario+"老师给"+grupoCuestionario+"的群里加了一个新的测试"
+        
 
     ##Guardamos las notificaciones
     for ids_particular in lista_ids:

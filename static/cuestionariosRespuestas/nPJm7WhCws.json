@@ -1,0 +1,83 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optMultiple",
+   "1": "optMultiple",
+   "2": "optFalsoVerdadero",
+   "3": "optFalsoVerdadero"
+  },
+  {
+   "retrasado": "true"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "3",
+   "1": "2",
+   "2": "2",
+   "3": "1"
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "0": "\u00bfCu\u00e1l es la librer\u00eda principal del lenguaje C?",
+   "1": "",
+   "2": "D",
+   "3": "math.v",
+   "4": "estudio.c",
+   "5": "stdio.c",
+   "6": "stdio.h"
+  },
+  {
+   "0": "\u00bfCu\u00e1l es la funci\u00f3n de salida por pantalla del lenguaje c?",
+   "1": "",
+   "2": "C",
+   "3": "math.v",
+   "4": "printff()",
+   "5": "printf();",
+   "6": "scanf()"
+  },
+  {
+   "respuestas": [
+    "opt1InputGet_0/&3",
+    "opt1InputGet_1/&2"
+   ]
+  }
+ ],
+ "preguntasModal2": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal3": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal4": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal5": [
+  {
+   "0": "\u00bfEL LENGUAJE DE PROGRAMACI\u00d3N ANSI C ES SOLAMENTE DE ALTO NIVEL?",
+   "1": "F"
+  },
+  {
+   "0": "La funci\u00f3n return devuelve valores alfanum\u00e9ricos y caracteres especiale",
+   "1": "F"
+  },
+  {
+   "respuestas": [
+    "opt5InputGet_0/&2",
+    "opt5InputGet_1/&1"
+   ]
+  }
+ ],
+ "preguntasModal6": [
+  {
+   "respuestas": []
+  }
+ ]
+}

@@ -61,7 +61,7 @@
 
                     </div>
                     <div class="pendientesEstado colorGreyWhiter bordered2 shadow-1e">
-                        
+
                     </div>
                 </section>
                 <section>
@@ -77,6 +77,12 @@
                             <input type="hidden" name="puntajeGeneral" id="puntajeGeneral">
                             <input type="hidden" name="puntajeSegmentado" id="puntajeSegmentado">
                             <input type="hidden" name="idEstudiante" id="idEstudiante" value="{{idEstudiante}}">
+                            <input type="hidden" id="storageLenguaje" name="storageLenguaje">
+                            <script>
+                                let storageLenguaje = document.getElementById('storageLenguaje');
+                                let idioma = localStorage.getItem('idioma');
+                                storageLenguaje.value = idioma;
+                            </script>
                             <button type="submit"
                                 class="modal-trigger waves-effect waves-light btn-large bordered5 color1 shadow-2e"
                                 id="previewJsonResponder" style="width: 100%;">
