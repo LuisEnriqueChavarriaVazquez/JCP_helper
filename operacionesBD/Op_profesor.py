@@ -8,6 +8,15 @@ def insertar_profesor(nombre,alias,foto,correo,contra,unidad_academica,descripci
     conexion.commit()
     conexion.close()
 
+def validar_correo_profesor(correo_entrada):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE docentes SET val_correo=%s WHERE correo=%s",
+        (True,correo_entrada))
+    conexion.commit()
+    conexion.close()
+
+
 def obtener_profesores():
     conexion=obtener_conexion()
     profesores=[]

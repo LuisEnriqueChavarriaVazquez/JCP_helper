@@ -9,6 +9,15 @@ def insertar_estudiante(nombre,alias,foto,correo,contra,area,escuela,descripcion
     conexion.close()
 
 
+def validar_correo_estudiante(correo_entrada):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE alumnos SET val_correo=%s WHERE correo=%s",
+        (True,correo_entrada))
+    conexion.commit()
+    conexion.close()
+
+
 def obtener_estudiantes():
     conexion = obtener_conexion()
     estudiantes = []

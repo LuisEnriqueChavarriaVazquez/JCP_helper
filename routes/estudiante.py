@@ -648,6 +648,7 @@ def confirmar_correo_alumno(token_entrada):
 
     email=token.confirm_token(token_entrada)
     print("paso token:"+str(email))
+    Op_estudiante.validar_correo_estudiante(email)
     return render_template('login_general.html')
 
 
