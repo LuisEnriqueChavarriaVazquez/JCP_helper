@@ -2,7 +2,6 @@ drop database jcp_helper_db;
 create database if not exists jcp_helper_db;
 use jcp_helper_db;
 
---Para los alumnos
 create table Alumnos(
  IDAlumno int not null auto_increment,
  Nombre varchar(60),
@@ -18,7 +17,6 @@ create table Alumnos(
  primary key (IDAlumno)
 );
 
---Para los docente
 create table Docentes(
 IDDocente int not null auto_increment,
 Nombre varchar(60),
@@ -33,7 +31,6 @@ Nombre varchar(60),
  primary key (IDDocente)
 );
 
---Para los grupos
 create table Grupos(
    IDGrupo int auto_increment not null,
    IDDocente int not null,
@@ -47,7 +44,6 @@ create table Grupos(
    foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
 );
 
---Para la data de los cuestionario
 create table Cuestionarios(
 IDCuestionario int not null auto_increment,
 IDGrupo int not null,
@@ -70,7 +66,7 @@ foreign key (IDGrupo) references Grupos(IDGrupo) ON DELETE CASCADE,
 foreign key (IDDocente) references Docentes(IDDocente) ON DELETE CASCADE
 );
 
---Para los post dentro de la app
+
 create table PublicacionesDocente(
 IDPublicacionDocente int not null auto_increment,
 IDDocente int not null,
