@@ -24,7 +24,7 @@ from random import randint
 
 photos = UploadSet("photos", IMAGES)
 
-from operacionesCorreo import token
+from operacionesCorreo import token,email
 
 ##
 ## Links para la parte del panel central
@@ -559,18 +559,27 @@ def nuevo_profesor():
         #Nos manda al log in para poder guardar datos en la sesión
 
         #Token para confirmar correo
-        token = generate_confirmation_token(correo)
+        tokenUsuario = token.generate_confirmation_token(correo)
+
+        #Datos correo para confirmar
+        confirm_url = url_for('routes.confirmar_correo', token_entrada=tokenUsuario, _external=True)
+        html = render_template('profesor/confirmar_correo_docente.html', confirm_url=confirm_url)
+        #Datos para correo
+        sender_email= "ricardocorreoejemplo@gmail.com"
+        password_email = "cmapigtwmjpzktpr"
+        subject_email = "confirmar correo"
+        body_email=html
+        email.enviar_correo(sender_email,password_email,subject_email, correo,body_email)
 
         return render_template('login_general.html')
 
 #ruta para verificar cuenta por correo
 
-@routes.route("/confirmar_correo/<string:token>")
-def confirmar_correo(token):
-    try:
-        email = confirm_token(token)
-    except:
-        flash('The confirmation link is invalid or has expired.', 'danger')
+@routes.route("/confirmar_correo/<string:token_entrada>")
+def confirmar_correo(token_entrada):
+
+    email=token.confirm_token(token_entrada)
+    print("paso token:"+str(email))
     return render_template('login_general.html')
 
 

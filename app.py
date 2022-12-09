@@ -12,7 +12,8 @@ app.config["UPLOADED_PHOTOS_DEST"] = "static/images"
 app.config["SECRET_KEY"] = os.urandom(24)
 configure_uploads(app, photos)
 
-
+#Configuracion para token
+app.config["SECURITY_PASSWORD_SALT"] = 'my_precious_two'
 
 
 #La pagina de homePage es el inicio del todo el sistema para los usuarios.
