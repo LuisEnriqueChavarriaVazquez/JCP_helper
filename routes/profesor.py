@@ -640,6 +640,18 @@ def bienvenidaProfesor():
         contadorAlumnos = len(IDS_Alumnos)
         contadorGrupos = len(IDS_Grupos)
         contadorCuestionarios = len(IDS_Cuestionarios)
+
+        #Contador de respuestas
+        #Primero debimos haber obtenido los IDS de los cuestionarios
+        #Segundo debemos buscar los cuestionarios en alumnos_hacenCuestionario
+        IDS_CuestionariosHechos = ()
+        for idUnitaria in IDS_Cuestionarios:
+            IDS_CuestionariosHechos += (Op_profesor.obtener_hacer_cuestionario_hecho_dos(idUnitaria))
+        print(IDS_CuestionariosHechos)
+        conteoIDS_CuestionariosHechos = len(IDS_CuestionariosHechos)
+            
+
+        #Para la politica
         politica_existe=Op_profesor.estadoPolitica(session['IDDocente'])
         pol_lateral=False
         pol_superior=False
@@ -653,7 +665,7 @@ def bienvenidaProfesor():
         notificaciones = Op_profesor.obtenerNotificacion_de_profesor(session["IDDocente"])
         print(notificaciones)
         
-        return render_template('profesor/bienvenidaProfesor.html', datos=result, notificaciones=notificaciones, IDS_Alumnos = contadorAlumnos, IDS_Grupos = contadorGrupos, IDS_Cuestionarios = contadorCuestionarios,pol_lateral=pol_lateral,pol_superior=pol_superior)
+        return render_template('profesor/bienvenidaProfesor.html', datos=result, notificaciones=notificaciones, IDS_Alumnos = contadorAlumnos, IDS_Grupos = contadorGrupos, IDS_Cuestionarios = contadorCuestionarios, conteoIDS_CuestionariosHechos = conteoIDS_CuestionariosHechos,pol_lateral=pol_lateral,pol_superior=pol_superior)
     except:
         return render_template('profesor/bienvenidaProfesor.html')
 

@@ -1,0 +1,71 @@
+{
+ "ordenPreguntas": [
+  {
+   "0": "optMultiple",
+   "1": "optFalsoVerdadero",
+   "2": "optFalsoVerdadero"
+  },
+  {
+   "retrasado": "true"
+  }
+ ],
+ "ponderacionGlobal": [
+  {
+   "0": "4",
+   "1": "4",
+   "2": "3"
+  }
+ ],
+ "preguntasModal1": [
+  {
+   "0": "\u00bfCu\u00e1l es la librer\u00eda principal del lenguaje C?",
+   "1": "",
+   "2": "D",
+   "3": "math.v",
+   "4": "estudio.c",
+   "5": "stdio.c",
+   "6": "stdio.h"
+  },
+  {
+   "respuestas": [
+    "opt1InputGet_0/B&4"
+   ]
+  }
+ ],
+ "preguntasModal2": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal3": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal4": [
+  {
+   "respuestas": []
+  }
+ ],
+ "preguntasModal5": [
+  {
+   "0": "\u00bfEL LENGUAJE DE PROGRAMACI\u00d3N ANSI C ES SOLAMENTE DE ALTO NIVEL?",
+   "1": "F"
+  },
+  {
+   "0": "La funci\u00f3n return devuelve valores alfanum\u00e9ricos y caracteres especiales",
+   "1": "F"
+  },
+  {
+   "respuestas": [
+    "opt5InputGet_0/false&4",
+    "opt5InputGet_1/true&3"
+   ]
+  }
+ ],
+ "preguntasModal6": [
+  {
+   "respuestas": []
+  }
+ ]
+}
