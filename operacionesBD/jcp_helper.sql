@@ -14,6 +14,7 @@ create table Alumnos(
  descripcion varchar(100),
  fondo varchar(800),
  val_correo boolean default false,
+ correo_normal varchar(100),
  primary key (IDAlumno)
 );
 
@@ -28,6 +29,7 @@ Nombre varchar(60),
  descripcion varchar(100),
  fondo varchar(800),
  val_correo boolean default false,
+correo_normal varchar(100),
  primary key (IDDocente)
 );
 
