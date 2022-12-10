@@ -41,6 +41,7 @@
             <input type="hidden" id="idEstudiante" name="idEstudiante" value="{{idEstudiante}}">
             <input type="hidden" id="pedirApelacion" name="pedirApelacion" value="apelar">
             <input type="hidden" id="idCuestionarioHecho" name="idCuestionarioHecho" value="{{idCuestionarioHecho}}">
+            <input type="hidden" id="storageLenguaje" name="storageLenguaje">
             <button type="submit" id="aceptarResultado"
                 class="waves-effect waves-light btn-large colorWhite coloredText shadow-2e button-rounded TDI">Regresar</button><br>
             <button type="submit" id="apelarResultado"
@@ -53,7 +54,8 @@
     <div id="comentarioRetroalimentacion" class="modal bordered2 colorGrey">
         <div class="modal-content">
             <h4 class="TDI">Retroalimentación.</h4>
-            <p class="TDI">Escriba un comentario de retroalimentación para este curso y su profesor podrá saber las areas de
+            <p class="TDI">Escriba un comentario de retroalimentación para este curso y su profesor podrá saber las
+                areas de
                 oportunidad en las evaluaciones.</p>
             <hr>
             <form action="/enviarRetroalimentacion" method="post">
@@ -68,12 +70,22 @@
                 <input type="hidden" name="id_cuestionario" value="{{datosCuestionario[0][0]}}">
                 <input type="hidden" name="id_grupo" value="{{datosCuestionario[0][1]}}">
                 <input type="hidden" name="id_estudiante" value="{{idEstudiante}}">
+                <input type="hidden" id="storageLenguajeDos" name="storageLenguajeDos">
 
                 <button class="waves-effect waves-light btn infoColorButton shadow-2e button-rounded TDI"
                     style="width: 100%;">Enviar</button>
             </form>
         </div>
     </div>
+
+    
+    <script>
+        let storageLenguaje = document.getElementById('storageLenguaje');
+        let storageLenguajeDos = document.getElementById('storageLenguajeDos');
+        let idioma = localStorage.getItem('idioma');
+        storageLenguaje.value = idioma;
+        storageLenguajeDos.value = idioma;
+    </script>
 
     <!--Boton para ir hacia arriba-->
     <div class="fixed-action-btn">
