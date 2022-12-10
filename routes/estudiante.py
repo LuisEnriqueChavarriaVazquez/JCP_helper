@@ -158,8 +158,8 @@ def search_group():
 ##
 ##Bloque para entrar al curso una vez que se buscó
 ##
-@routes.route('/entrarGrupo/<string:id_grupo>/<string:id_docente>/<string:id_estudiante>')
-def entrar_grupo(id_grupo, id_docente, id_estudiante):
+@routes.route('/entrarGrupo/<string:id_grupo>/<string:id_docente>/<string:id_estudiante>/<string:storageLenguaje>')
+def entrar_grupo(id_grupo, id_docente, id_estudiante, storageLenguaje):
     #Busca los datos del alumno con su ID
     result=Op_estudiante.datos_completos_alumno_by_id(id_estudiante)
     datosGrupo = Op_estudiante.obtener_grupo_datos_importantes_id(id_grupo)
@@ -172,7 +172,15 @@ def entrar_grupo(id_grupo, id_docente, id_estudiante):
         ##Debemos definir los parametros del msg
         importancia = "general"
         categoria = "new_std"
-        texto = "Un nuevo alumn@ llamad@ " + result[1] + " se ha registrado al grupo " + datosGrupo[2]
+         ##Validamos el idioma de la notificacion
+        if storageLenguaje == "esp":
+            texto = "Un nuevo alumn@ llamad@ " + result[1] + " se ha registrado al grupo " + datosGrupo[2]
+        elif storageLenguaje == "en":
+            texto = "A new student " + result[1] + " called got into the group " + datosGrupo[2]
+        elif storageLenguaje == "pt":
+            texto = "Um novo aluno " + result[1] + " chamad@ entrou no grupo " + datosGrupo[2]
+        elif storageLenguaje == "chn":
+            texto = "一个新同学加入了这个群。"
         print(texto)
         Op_estudiante.agregarNotificacion_para_profesor(id_docente, texto, importancia, categoria)
         return redirect(url_for("routes.bienvenidaEstudiante"))
@@ -182,8 +190,8 @@ def entrar_grupo(id_grupo, id_docente, id_estudiante):
 ##
 ##Bloque para salir de algun grupo una vez que se entró
 ##
-@routes.route('/salirGrupo/<string:id_docente>/<string:id_grupo>/<string:id_estudiante>')
-def salir_grupo(id_docente, id_grupo ,id_estudiante):
+@routes.route('/salirGrupo/<string:id_docente>/<string:id_grupo>/<string:id_estudiante>/<string:storageLenguaje>')
+def salir_grupo(id_docente, id_grupo ,id_estudiante, storageLenguaje):
     #Saca al alumno del grupo
     Op_estudiante.salir_de_grupo(id_docente, id_grupo ,id_estudiante)
 
@@ -196,7 +204,15 @@ def salir_grupo(id_docente, id_grupo ,id_estudiante):
     ##Debemos definir los parametros del msg
     importancia = "info"
     categoria = "new_abandon"
-    texto = "El alumn@ " + datosAlumno[1] + " abandonó el grupo " + datosGrupo[2]
+    ##Validamos el idioma de la notificacion
+    if storageLenguaje == "esp":
+        texto = texto = "El alumn@ " + datosAlumno[1] + " abandonó el grupo " + datosGrupo[2]
+    elif storageLenguaje == "en":
+        texto = "A new student " + datosAlumno[1] + " abandaoned the group " + datosGrupo[2]
+    elif storageLenguaje == "pt":
+        texto = "Um novo aluno " + datosAlumno[1] + " deixou o grupo " + datosGrupo[2]
+    elif storageLenguaje == "chn":
+        texto = "一个学生离开了小组."
     print(texto)
     Op_estudiante.agregarNotificacion_para_profesor(id_docente, texto, importancia, categoria)
     return redirect(url_for("routes.bienvenidaEstudiante"))
@@ -309,6 +325,7 @@ def crear_comentario_retroalimentacion():
     id_grupo=request.form["id_grupo"]
     id_cuestionario=request.form["id_cuestionario"]
     id_estudiante=request.form["id_estudiante"]
+    storageLenguajeDos=request.form["storageLenguajeDos"];
 
     ##Insertamos el comentario de feedback en la BD
     Op_estudiante.creaComentarioRetroalimentacion(id_grupo,id_estudiante,feedbackContent)
@@ -329,7 +346,15 @@ def crear_comentario_retroalimentacion():
     ##Debemos definir los parametros del msg
     importancia = "info"
     categoria = "new_feedback"
-    texto = "El alumn@ " + datosAlumno[1] + " de " + datosGrupo[2] +  " ha dejado un comentario en la sección de estadísticas."
+    ##Validamos el idioma de la notificacion
+    if storageLenguajeDos == "esp":
+        texto = "El alumn@ " + datosAlumno[1] + " de " + datosGrupo[2] +  " ha dejado un comentario en la sección de estadísticas."
+    elif storageLenguajeDos == "en":
+       texto = "The student" + datosAlumno[1] + " which belongs to " + datosGrupo[2] +  " has provided his feedback in the statistics section."
+    elif storageLenguajeDos == "pt":
+        texto = "O aluno " + datosAlumno[1] + " de " + datosGrupo[2] +  " deixou seu feedback."
+    elif storageLenguajeDos == "chn":
+        texto = "Um aluno deixou seu feedback"
     print(texto)
     Op_estudiante.agregarNotificacion_para_profesor(datosGrupo[1], texto, importancia, categoria)
 
@@ -453,6 +478,8 @@ def redireccionar_a_vista_grupos_listo(id_cuestionario):
     pedirApelacion = request.form["pedirApelacion"]
     idCuestionarioHecho = request.form["idCuestionarioHecho"]
 
+    storageLenguaje = request.form["storageLenguaje"]
+
     print(idCuestionarioHecho)
     print(pedirApelacion)
     #En caso de que el estudiante quiera apelar su resultado
@@ -464,7 +491,16 @@ def redireccionar_a_vista_grupos_listo(id_cuestionario):
         ##Debemos definir los parametros del msg
         importancia = "important"
         categoria = "new_apel"
-        texto = "Tiene nuevas apelaciones de un estudiante llamad@ " + datosAlumno[1]
+        ##Validamos el idioma de la notificacion
+        if storageLenguaje == "esp":
+            texto = "Tiene nuevas apelaciones de un estudiante llamad@ " + datosAlumno[1]
+        elif storageLenguaje == "en":
+            texto = "You have new appeals from a student named " + datosAlumno[1]
+        elif storageLenguaje == "pt":
+            texto = "Você tem novas apelações de um aluno chamad@ " + datosAlumno[1]
+        elif storageLenguaje == "chn":
+            texto = "您收到了一位名叫 " + datosAlumno[1]
+       
         Op_estudiante.agregarNotificacion_para_profesor(listaDatos, texto, importancia, categoria)
     else:
         print("Sin apelar")

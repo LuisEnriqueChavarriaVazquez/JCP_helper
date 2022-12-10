@@ -162,6 +162,12 @@
                         </select>
                         <label class="TDI">Grupo del cuestionario</label>
                     </div>
+                    <input type="hidden" id="storageLenguaje" name="storageLenguaje">
+                    <script>
+                        let storageLenguaje = document.getElementById('storageLenguaje');
+                        let idioma = localStorage.getItem('idioma');
+                        storageLenguaje.value = idioma;
+                    </script>
                     <br>
                 </div>
                 <button type="submit" class="btn-large color2 bordered5 buttonPopUp TDI">Guardar</button>

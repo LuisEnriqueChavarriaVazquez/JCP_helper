@@ -557,19 +557,19 @@ let rutas = {
     },
     "gestionar_cuestionarios": {
         "textEspanol": {
-            texts_1: ['Gestión de cuestionarios.','Cuestionarios.','Cuestionarios.','Volver','Operaciones.','Crear cuestionario','Revisar','Buscador.','Buscar','Conteo.','Cuestionarios:','Estudiantes:','Cuestionarios creados','Cuestionarios creados'],
+            texts_1: ['Gestión de cuestionarios.','Cuestionarios.','Cuestionarios.','Volver','Operaciones.','Crear cuestionario','Revisar','Buscador.','Buscar','Conteo.','Test hechos','Cuestionarios','Alumnos','Grupos','Cuestionarios creados','Cuestionarios creados'],
             texts_2: ['No hay grupos creados.','No hay grupos.','No hay cuestionarios para mostrar.','Volver al inicio','Aún no crea grupos.','Aún no crea grupos.','Debe crear algún grupo para poder vincularlo a un cuestionario y dejar que sus alumnos los contesten.','Regresar']
         },
         "textIngles": {
-            texts_1: ['Management of tests.','Manage tests.','Manage tests.','Return','Operations.','Create test','Check','Browser.','Search','Count.','Tests:','Students:','Created tests','Created tests'],
+            texts_1: ['Management of tests.','Manage tests.','Manage tests.','Return','Operations.','Create test','Check','Browser.','Search','Count.','Tests done','Quiz','Students','Groups','Created tests','Created tests'],
             texts_2: ['No groups created.','There are no groups.','There are no tests to display.','Return','Doesn\'t create groups yet.','Doesn\'t create groups yet.','You need to create some group to be able to link it to a quiz and let your students answer them.','Return']
         },
         "textPortugues": {
-            texts_1: ['Gestão de questionários.','Questionário.','Questionário.','Retornar','Operações.','Criar questionário','Verificar','Buscador.','Procurar','Contar.','Questionário:','Estudantes:','Questionários criados','Questionários criados'],
+            texts_1: ['Gestão de questionários.','Questionário.','Questionário.','Retornar','Operações.','Criar questionário','Verificar','Buscador.','Procurar','Contar.','Testes feitos','Questionário','Estudantes','Grupos','Questionários criados','Questionários criados'],
             texts_2: ['Nenhum grupo criado.','Não há grupos.','Não há questionários para exibir.','Voltar ao início','Ainda não cria grupos.','Ainda não cria grupos.','Você precisa criar algum grupo para poder vinculá-lo a um questionário e permitir que seus alunos respondam.','Voltar']
         },
         "textChino": {
-            texts_1: ['问卷的管理。','测验。','测验。','返回','操作','创建问卷','查看','探索者','搜索','数数。','测验：','学生：','创建问卷','创建问卷'],
+            texts_1: ['问卷的管理。','测验。','测验。','返回','操作','创建问卷','查看','探索者','搜索','数数。','测试完成','测验','学生','团体','创建问卷','创建问卷'],
             texts_2: ['没有创建组。','没有组。','没有要显示的问卷。','回到顶部','尚未创建群组。','尚未创建群组。','你需要创建一些小组才能将其链接到测验并让你的学生回答。','返回']
         }
     },
