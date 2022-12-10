@@ -81,7 +81,6 @@ def gestionar_cuestionarios():
         for idUnitariaDos in IDS_Cuestionarios:
             cuestionariosHechosPorAlumnosNumeroRespuestas += (Op_profesor.contar_cuestionarios_hechos_por_alumno(idUnitariaDos))
         
-        print("cacota")
         print(cuestionariosHechosPorAlumnosNumeroRespuestas)
         conteocuestionariosHechosPorAlumnosNumeroRespuestas = len(cuestionariosHechosPorAlumnosNumeroRespuestas)
 
