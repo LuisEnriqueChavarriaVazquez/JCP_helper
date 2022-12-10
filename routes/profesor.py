@@ -1344,12 +1344,6 @@ def eliminarCuentaDocente():
 @routes.route('/crear_reportes_grupos_docentes_PDF', methods=['POST'])
 def crear_reportes_grupos_docentes_PDF():
 
-
-    #Creacion imagenes estadisticas
-
-    #Datos graficas comparacion de promedio grupales
-
-
     class PDF(FPDF):
         def header(self):
             # Rendering logo:
@@ -1371,7 +1365,7 @@ def crear_reportes_grupos_docentes_PDF():
             self.set_font("helvetica", "I", 8)
             # Printing page number:
             self.cell(0, 10, f"Página {self.page_no()}", align="C")
-
+        
     #Comparacion de promedio grupales
     xdata = request.form["xComparacionPromedioGrupales"]
     ydata = request.form["yComparacionPromedioGrupales"]
@@ -1419,7 +1413,7 @@ def crear_reportes_grupos_docentes_PDF():
          x=comparacionReprovadosAprovadosBarraLista[i][1], 
          y=comparacionReprovadosAprovadosBarraLista[i][2]))
     
-    parametrosComparacionReprovadosAprovadosBarra = {'title': ' Comparación reprobados vs reprobados'}
+    parametrosComparacionReprovadosAprovadosBarra = {'title': ' Comparación aprobados vs reprobados'}
 
     figComparacionReprovadosAprovadosBarra = go.Figure(data = dataComparacionReprovadosAprovadosBarra,layout = parametrosComparacionReprovadosAprovadosBarra)
     figComparacionReprovadosAprovadosBarra.update_layout(barmode='stack')
@@ -1447,55 +1441,60 @@ def crear_reportes_grupos_docentes_PDF():
     pdf = PDF()
     pdf.add_page()
     #Titulo graficas Promedio general de grupos.
-    pdf.set_font("Arial", "B",size = 15)
-    pdf.set_text_color(0, 0, 0)
-    pdf.cell(w=0, h=25, txt = "Gráficas promedio general de grupos",
-         ln = 1, align = 'L')
+    pdf.set_font("helvetica", "B", 12)
+    pdf.set_fill_color(7, 66, 115)
+    pdf.set_text_color(253, 254, 254)
+    pdf.cell(w=0, h=10, txt = "Gráficas promedio general de grupos",ln = 1, align = 'L',fill=True)
+    pdf.ln(2)
+    pdf.set_text_color(28, 40, 51)
     #Imagenes graficas Promedio general de grupos.
-    pdf.set_font("Arial","",size = 15)
-    pdf.cell(w=0, h=15, txt = "Gráfica comparación de promedio grupales",
+    pdf.set_font("Arial","",size = 12)
+    pdf.cell(w=0, h=5, txt = "Gráfica comparación de promedio grupales",
          ln = 1, align = 'L')
     pdf.image("static/images/ComparacionPromedioGrupales.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')   
    
    #Historico de puntajes en cada evaluacion de cada grupo.
-    pdf.cell(w=0, h=15, txt = "Histórico de puntajes en cada evaluacion de cada grupo",
+    pdf.cell(w=0, h=5, txt = "Histórico de puntajes en cada evaluacion de cada grupo",
          ln = 1, align = 'L')
     pdf.image("static/images/HistoricoPuntajeEvaluacionGrupos.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
     
     #indice porcentuales de promedio
-    pdf.cell(w=0, h=15, txt = "Índice porcentuales de promedio",
+    pdf.cell(w=0, h=5, txt = "Índice porcentuales de promedio",
          ln = 1, align = 'L')
     pdf.image("static/images/IndicePorcentualesPromedio.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
 
     #Titulo Aprobación general de grupos
-    pdf.set_font("Arial", "B",size = 15)
-    pdf.cell(w=0, h=25, txt = "Gráficas aprobación general de grupos",
-         ln = 1, align = 'L')
+    pdf.set_font("helvetica", "B", 12)
+    pdf.set_fill_color(7, 66, 115)
+    pdf.set_text_color(253, 254, 254)
+    pdf.cell(w=0, h=10, txt = "Gráficas aprobación general de grupos",ln = 1, align = 'L',fill=True)
+    pdf.ln(2)
+    pdf.set_text_color(28, 40, 51)
 
     #Comparacion reprovados vs reprobados
-    pdf.set_font("Arial", "",size = 15)
-    pdf.cell(w=0, h=15, txt = "Gráfica comparación reprovados vs reprobados",
+    pdf.set_font("Arial", "",size = 12)
+    pdf.cell(w=0, h=5, txt = "Gráfica comparación aprobados vs reprobados",
          ln = 1, align = 'L')
     
     pdf.image("static/images/ComparacionReprovadosAprovadosBarra.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
 
     #Parte del reporte con aprobacion porcentaje
-    pdf.cell(w=0, h=15, txt = "Aprobación porcentaje",
+    pdf.cell(w=0, h=5, txt = "Aprobación porcentaje",
          ln = 1, align = 'L')
 
-    pdf.cell(w=0, h=15, txt = "Proporción:" +str(aprobadosFormatoDiezReporte)+"/10 aprueban",
+    pdf.cell(w=0, h=5, txt = "Proporción:" +str(aprobadosFormatoDiezReporte)+"/10 aprueban",
          ln = 1, align = 'L')
 
-    pdf.cell(w=0, h=15, txt = "Proporción global:" +str(porcentajeGlobalAprobadorReporte)+"% / " + 
+    pdf.cell(w=0, h=5, txt = "Proporción global:" +str(porcentajeGlobalAprobadorReporte)+"% / " + 
     str(porcentajeGlobalReprobadorReporte) +"%",
          ln = 1, align = 'L')
     #print(gruposAprobadosReprobadosReporte)
     for i in range(0,len(gruposAprobadosReprobadosReporte)):
-        pdf.cell(w=0, h=15, txt = "Nombre grupo:"+str(gruposAprobadosReprobadosReporte[i][0]),ln = 1, align = 'L')
-        pdf.cell(w=0, h=15, txt = "Aprobados:"+str(gruposAprobadosReprobadosReporte[i][1])+"%",ln = 1, align = 'L')
-        pdf.cell(w=0, h=15, txt = "Reprobados:"+str(gruposAprobadosReprobadosReporte[i][2])+"%",ln = 1, align = 'L')
+        pdf.cell(w=0, h=5, txt = "Nombre grupo:"+str(gruposAprobadosReprobadosReporte[i][0]),ln = 1, align = 'L')
+        pdf.cell(w=0, h=5, txt = "Aprobados:"+str(gruposAprobadosReprobadosReporte[i][1])+"%",ln = 1, align = 'L')
+        pdf.cell(w=0, h=5, txt = "Reprobados:"+str(gruposAprobadosReprobadosReporte[i][2])+"%",ln = 3, align = 'L')
     #Porcentaje de aprobación vs reprobados
-    pdf.cell(w=0, h=15, txt = "Porcentaje de aprobación vs reprobados",
+    pdf.cell(w=0, h=5, txt = "Porcentaje de aprobación vs reprobados",
          ln = 1, align = 'L')
     pdf.image("static/images/PorcentajeAprobadosReprobados.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
 
@@ -1522,36 +1521,39 @@ def crear_reportes_grupos_docentes_PDF():
     PorcentajeRetraso = json.loads(request.form["GruposRetrasoReporte"])
     
     #Titulo datos particulares de grupos
-    pdf.set_font("Arial", "B",size = 15)
-    pdf.cell(w=0, h=25, txt = "Datos particulares de grupos",ln = 1, align = 'L')
-    pdf.set_font("Arial", "",size = 15)
-
-
+    pdf.set_font("helvetica", "B", 12)
+    pdf.set_fill_color(7, 66, 115)
+    pdf.set_text_color(253, 254, 254)
+    pdf.cell(w=0, h=10, txt = "Datos particulares de grupos",ln = 1, align = 'L',fill=True)
+    pdf.ln(2)
+    pdf.set_text_color(28, 40, 51)
+    pdf.set_font("Arial", "",size = 12)
     if (len(listDatosGrupo)!=0):
 
         for i in range(0,len(listDatosGrupo)):
 
             if (len(Op_profesor.grupos_con_cuestionarios_resueltos(listDatosGrupo[i][0]))!=0):
                 
-                pdf.cell(w=0, h=15, txt ="Grupo:"+ str(listDatosGrupo[i][2]),ln = 1, align = 'L') 
-                pdf.cell(w=0, h=15, txt = "Porcentaje de aprobación:",ln = 1, align = 'L')
-                pdf.cell(w=0, h=15, txt = "Aprobados:" +str(PorcentajeAprobacionAprobados[i])+"%",ln = 1, align = 'L')
-                pdf.cell(w=0, h=15, txt = "Reprobados:" +str(PorcentajeAprobacionReprobados[i])+"%",ln = 1, align = 'L')
-                pdf.cell(w=0, h=15, txt = "Intentos promedio:"+str(IntentosPromedio[i]),ln = 1, align = 'L')
-                pdf.cell(w=0, h=15, txt = "Promedio de tiempo de respuesta:"+str(PromedioTiempoRespuesta[i])+"hrs",ln = 1, align = 'L')
-                pdf.cell(w=0, h=15, txt = "Rango de calificaciones:",ln = 1, align = 'L')
-                pdf.cell(w=0, h=15, txt = "Calificaciones Min:"+str(RangoCalificacionesMin[i]),ln = 1, align = 'L')
-                pdf.cell(w=0, h=15, txt = "Calificaciones Max:"+str(RangoCalificacionesMax[i]),ln = 1, align = 'L')
-                pdf.cell(w=0, h=15, txt = "Indice aprobacion:"+str(IndiceAprob[i])+"/10 aprueba",ln = 1, align = 'L')
-                pdf.cell(w=0, h=15, txt = "Porcentaje de retrasos:",ln = 1, align = 'L')
-                pdf.cell(w=0, h=15, txt = "Porcentaje a tiempo:"+str(PorcentajeAtiempo[i]) +"%",ln = 1, align = 'L')
-                pdf.cell(w=0, h=15, txt = "Porcentaje con retrasos:"+str(PorcentajeRetraso[i]) +"%",ln = 1, align = 'L')
+                pdf.cell(w=0, h=5, txt ="Grupo:"+ str(listDatosGrupo[i][2]),ln = 1, align = 'L') 
+                pdf.cell(w=0, h=5, txt = "Porcentaje de aprobación:",ln = 1, align = 'L')
+                pdf.cell(w=0, h=5, txt = "Aprobados:" +str(PorcentajeAprobacionAprobados[i])+"%",ln = 1, align = 'L')
+                pdf.cell(w=0, h=5, txt = "Reprobados:" +str(PorcentajeAprobacionReprobados[i])+"%",ln = 1, align = 'L')
+                pdf.cell(w=0, h=5, txt = "Intentos promedio:"+str(IntentosPromedio[i]),ln = 1, align = 'L')
+                pdf.cell(w=0, h=5, txt = "Promedio de tiempo de respuesta:"+str(PromedioTiempoRespuesta[i])+"hrs",ln = 1, align = 'L')
+                pdf.cell(w=0, h=5, txt = "Rango de calificaciones:",ln = 1, align = 'L')
+                pdf.cell(w=0, h=5, txt = "Calificaciones Min:"+str(RangoCalificacionesMin[i]),ln = 1, align = 'L')
+                pdf.cell(w=0, h=5, txt = "Calificaciones Max:"+str(RangoCalificacionesMax[i]),ln = 1, align = 'L')
+                pdf.cell(w=0, h=5, txt = "Indice aprobacion:"+str(IndiceAprob[i])+"/10 aprueba",ln = 1, align = 'L')
+                pdf.cell(w=0, h=5, txt = "Porcentaje de retrasos:",ln = 1, align = 'L')
+                pdf.cell(w=0, h=5, txt = "Porcentaje a tiempo:"+str(PorcentajeAtiempo[i]) +"%",ln = 1, align = 'L')
+                pdf.cell(w=0, h=5, txt = "Porcentaje con retrasos:"+str(PorcentajeRetraso[i]) +"%",ln = 1, align = 'L')
+                pdf.ln(4)
             else:
-                pdf.cell(w=0, h=15, txt ="Grupo:"+ str(listDatosGrupo[i][2])+ " no tiene cuestionarios resueltos",ln = 1, align = 'L') 
+                pdf.cell(w=0, h=5, txt ="Grupo:"+ str(listDatosGrupo[i][2])+ " no tiene cuestionarios resueltos",ln = 1, align = 'L') 
                 
 
     else:
-        pdf.cell(w=0, h=15, txt ="No hay datos disponible",ln = 1, align = 'L')
+        pdf.cell(w=0, h=5, txt ="No hay datos disponible",ln = 1, align = 'L')
     
         
 
