@@ -30,8 +30,6 @@ from operacionesCorreo import token,email
 ## Links para la parte del panel central
 ##
 
-## funciones para el manejo de las sesiones
-
 def login_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
@@ -1292,29 +1290,28 @@ def crear_reportes_grupos_docentes_PDF():
 
     #Datos graficas comparacion de promedio grupales
 
-    #Datos del header y footer del archivo de PDF
+
     class PDF(FPDF):
         def header(self):
-            # Logo
-            self.image('logo_pb.png', 10, 8, 33)
-            # Arial bold 15
-            self.set_font('Arial', 'B', 15)
-            # Move to the right
+            # Rendering logo:
+            self.image("static/images/logo_app/logo_report.png", 10, 8, 33)
+            # Setting font: helvetica bold 15
+            self.set_font("helvetica", "B", 20)
+            pdf.set_text_color(4, 66, 118)
+            # Moving cursor to the right:
             self.cell(80)
-            # Title
-            self.cell(30, 10, 'Title', 1, 0, 'C')
-            # Line break
+            # Printing title:
+            self.cell(30, 10, "Reporte grupos", align="C")
+            # Performing a line break:
             self.ln(20)
 
-        # Page footer
         def footer(self):
-            # Position at 1.5 cm from bottom
+            # Position cursor at 1.5 cm from bottom:
             self.set_y(-15)
-            # Arial italic 8
-            self.set_font('Arial', 'I', 8)
-            # Page number
-            self.cell(0, 10, 'Page ' + str(self.page_no()) + '/{nb}', 0, 0, 'C')
-
+            # Setting font: helvetica italic 8
+            self.set_font("helvetica", "I", 8)
+            # Printing page number:
+            self.cell(0, 10, f"Página {self.page_no()}", align="C")
 
     #Comparacion de promedio grupales
     xdata = request.form["xComparacionPromedioGrupales"]
@@ -1388,14 +1385,8 @@ def crear_reportes_grupos_docentes_PDF():
 
    
     #Creacion inicial del pdf
-    pdf = FPDF()
+    pdf = PDF()
     pdf.add_page()
-   
-    #Titulo del PDF
-    pdf.set_font("Arial","B", size = 25)
-    pdf.set_text_color(224, 9, 9)
-    pdf.cell(w=200, h=45, txt = "Reporte grupos",
-         ln = 1, align = 'C')
     #Titulo graficas Promedio general de grupos.
     pdf.set_font("Arial", "B",size = 15)
     pdf.set_text_color(0, 0, 0)
@@ -1455,7 +1446,7 @@ def crear_reportes_grupos_docentes_PDF():
     os.remove("static/images/HistoricoPuntajeEvaluacionGrupos.png")
     os.remove("static/images/IndicePorcentualesPromedio.png")
     os.remove("static/images/PorcentajeAprobadosReprobados.png")
-    
+    os.remove("static/images/ComparacionReprovadosAprovadosBarra.png")
 
     #Obtencion datos grupos
 
