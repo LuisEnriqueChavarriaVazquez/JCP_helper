@@ -588,7 +588,7 @@ def nuevo_profesor():
         descripcion=request.form["descripcion"]
         fondo="default"
 
-        Op_profesor.insertar_profesor(nombre,alias,foto,correo,hashed,unidad_academica,descripcion,fondo)
+        Op_profesor.insertar_profesor(nombre,alias,foto,correo,hashed,unidad_academica,descripcion,fondo,contra)
         #Nos manda al log in para poder guardar datos en la sesión
 
          #Token para confirmar correo
@@ -1795,6 +1795,6 @@ def recuperar_contra_docente():
     sender_email= "ricardocorreoejemplo@gmail.com"
     password_email = "cmapigtwmjpzktpr"
     subject_email = "recuperar contraseña"
-    body_email= "Contraseña es "+str(profesoRegistro[5])
+    body_email= "Contraseña es "+str(profesoRegistro[10])
     email.enviar_correo(sender_email,password_email,subject_email, correo,body_email)
     return  redirect(url_for('routes.login_general'))

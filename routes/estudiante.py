@@ -701,7 +701,7 @@ def nuevo_estudiante():
         descripcion=request.form["descripcion"]
         fondo='default'
         
-        Op_estudiante.insertar_estudiante(nombre,alias,foto,correo,hashed,area,escuela,descripcion,fondo)
+        Op_estudiante.insertar_estudiante(nombre,alias,foto,correo,hashed,area,escuela,descripcion,fondo,contra)
         flash(f"{nombre} te has registrado correctamente!!")
         
           #Token para confirmar correo
@@ -1095,6 +1095,6 @@ def recuperar_contra_estudiante():
     sender_email= "ricardocorreoejemplo@gmail.com"
     password_email = "cmapigtwmjpzktpr"
     subject_email = "recuperar contraseña"
-    body_email= "Contraseña es "+str(alumnoRegistro[5])
+    body_email= "Contraseña es "+str(alumnoRegistro[10])
     email.enviar_correo(sender_email,password_email,subject_email, correo,body_email)
     return  redirect(url_for('routes.login_general'))
