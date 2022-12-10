@@ -530,7 +530,7 @@ function copyCodeGroup(codigo) {
     M.toast({ html: '😀👍📕'});
 }
 
-contarGruposAlumnos();
+//contarGruposAlumnos();
 alternarVistas();
 buscarGrupos();
 buscadorMobileEstilosSticky();
