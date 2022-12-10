@@ -58,6 +58,33 @@ def gestionar_cuestionarios():
         result=Op_profesor.datos_completos_docente_by_id(session["IDDocente"])
         resultCuestionarios = Op_profesor.obtener_cuestionarios_datos_importantes(session["IDDocente"])
         resultGrupos = []
+
+        IDS_Alumnos = Op_profesor.obtener_alumnos_con_profesor_IDS(session['IDDocente'])
+        IDS_Grupos = Op_profesor.obtener_grupos_IDS(session['IDDocente'])
+        IDS_Cuestionarios = Op_profesor.obtener_cuestionarios_IDS(session['IDDocente'])
+        ##Contador de alumnos y grupos
+        contadorAlumnos = len(IDS_Alumnos)
+        contadorGrupos = len(IDS_Grupos)
+        contadorCuestionarios = len(IDS_Cuestionarios)
+
+        #Contador de respuestas
+        #Primero debimos haber obtenido los IDS de los cuestionarios
+        #Segundo debemos buscar los cuestionarios en alumnos_hacenCuestionario
+        IDS_CuestionariosHechos = ()
+        for idUnitaria in IDS_Cuestionarios:
+            IDS_CuestionariosHechos += (Op_profesor.obtener_hacer_cuestionario_hecho_dos(idUnitaria))
+        print(IDS_CuestionariosHechos)
+        conteoIDS_CuestionariosHechos = len(IDS_CuestionariosHechos)
+
+        ##Debemos contar los cuestionarios hechos pero ahora por tipo
+        cuestionariosHechosPorAlumnosNumeroRespuestas = ()
+        for idUnitariaDos in IDS_Cuestionarios:
+            cuestionariosHechosPorAlumnosNumeroRespuestas += (Op_profesor.contar_cuestionarios_hechos_por_alumno(idUnitariaDos))
+        
+        print("cacota")
+        print(cuestionariosHechosPorAlumnosNumeroRespuestas)
+        conteocuestionariosHechosPorAlumnosNumeroRespuestas = len(cuestionariosHechosPorAlumnosNumeroRespuestas)
+
         for cuestionarioIdGrupo in resultCuestionarios:
             resultGrupos.append(Op_profesor.obtener_grupos_Nombre(cuestionarioIdGrupo[1]))
             print(resultGrupos)
@@ -66,7 +93,7 @@ def gestionar_cuestionarios():
         if(len(datosGrupos) == 0):
             return render_template('profesor/b_gestionar_cuestionarios_no_disponible.html')
         else:
-            return render_template('profesor/a_gestionar_cuestionarios.html',datos=result, datosCuestionarios = resultCuestionarios, datosGrupos = resultGrupos)
+            return render_template('profesor/a_gestionar_cuestionarios.html',datos=result, datosCuestionarios = resultCuestionarios, datosGrupos = resultGrupos, conteoIDS_CuestionariosHechos=conteoIDS_CuestionariosHechos, contadorAlumnos=contadorAlumnos, contadorCuestionarios=contadorCuestionarios, contadorGrupos=contadorGrupos, cuestionariosHechosPorAlumnosNumeroRespuestas=cuestionariosHechosPorAlumnosNumeroRespuestas)
     except:
         return render_template('profesor/a_gestionar_cuestionarios.html')
 

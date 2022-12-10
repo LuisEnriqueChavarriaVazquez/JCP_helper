@@ -354,6 +354,20 @@ def obtener_hacer_cuestionario_hecho_dos(id_cuestionario):
     conexion.close()
     return cuestionarioHechoData
 
+#Operacion para obtener los post
+def contar_cuestionarios_hechos_por_alumno(id_cuestionario):
+    conexion=obtener_conexion()
+    cuestionarioHechoData=[]
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT COUNT(IDCuestionario) AS count_elements FROM alumnos_hacen_cuestionario WHERE IDCuestionario = %s", (id_cuestionario))
+        cuestionarioHechoData=cursor.fetchall()
+
+    conexion.close()
+    return cuestionarioHechoData
+
+#SELECT COUNT(CustomerID) AS OrdersFromCustomerID7 FROM Orders WHERE CustomerID=7
+
 def obtener_cuestionarios_en_estado_pending(id_cuestionario):
     conexion=obtener_conexion()
     grupos=[]

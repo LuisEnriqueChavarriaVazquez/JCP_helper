@@ -48,7 +48,7 @@
             </div>
             <div class="colorGreyWhiter operationsContainerSecondarySideNav">
                 <div class="operationButtonSideNav">
-                    <h5 class="TDI">Operaciones.</h5>
+                    <h6 class="TDI">Operaciones.</h6>
                     <a class="waves-effect waves-light btn color2 shadow-2e modal-trigger"
                         href="/creacion_cuestionarios/{{datos[0]}}" id="buttonNuevoGrupo"><i
                             class="material-icons left">add</i>
@@ -65,7 +65,7 @@
                     </a>
                 </div>
                 <div class="operationButtonSideNav">
-                    <h5 class="TDI">Buscador.</h5>
+                    <h6 class="TDI">Buscador.</h6>
                     <input type="text" name="buscadorGruposGestor" id="buscadorGruposGestor"
                         class="buscadorGruposGestor">
                     <a class="waves-effect waves-light btn colorGrey colorTextReverse" id="buscadorGruposButton"><i
@@ -76,18 +76,32 @@
                     </a>
                 </div>
                 <div class="operationButtonSideNav">
-                    <h5 class="TDI">Conteo.</h5>
+                    <h6 class="TDI">Conteo.</h6>
 
                     <div class="contadorElementosCardOperation colorGrey shadow-1e">
-                        <p class="colorGreyWhiter" id="contadorGruposId">
-                            <span class="TDI">
+                        <p class="colorGreyWhiter">
+                            <span>
+                                Hechos:
+                            </span>
+                            <span>{{conteoIDS_CuestionariosHechos}}</span>
+                        </p>
+                        <p class="colorGreyWhiter">
+                            <span>
                                 Cuestionarios:
                             </span>
+                            <span>{{contadorCuestionarios}}</span>
                         </p>
-                        <p class="colorGreyWhiter" id="contadorEstudiantesId">
-                            <span class="TDI">
-                                Estudiantes:
+                        <p class="colorGreyWhiter">
+                            <span>
+                                Alumnos:
                             </span>
+                            <span>{{contadorAlumnos}}</span>
+                        </p>
+                        <p class="colorGreyWhiter">
+                            <span>
+                                Grupos:
+                            </span>
+                            <span>{{contadorGrupos}}</span>
                         </p>
                     </div>
 
@@ -153,12 +167,12 @@
                             </div>
                             <div class="studentCountCardOperation">
                                 <div>
-                                    <i class="material-icons md-22">preview</i>
-                                    <span class="contadorAlumnosNumber">0</span>
+                                    <i class="material-icons md-22"></i>
+                                    <span class="contadorAlumnosNumber"></span>
                                 </div>
                                 <div>
                                     <i class="material-icons md-22">how_to_reg</i> <span
-                                        class="contadorAlumnosNumber">0</span>
+                                        class="contadorAlumnosNumber">{{cuestionariosHechosPorAlumnosNumeroRespuestas[i][0]}}</span>
                                 </div>
                             </div>
                         </div>
