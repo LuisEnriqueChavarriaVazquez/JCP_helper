@@ -134,8 +134,9 @@ function rutaValidation(stringUrl) {
         return "borrarComentarioParticularProfesor"
     }else if (stringUrl.includes("borrarComentarioParticularAlumno")) {
         return "borrarComentarioParticularAlumno"
+    }else if (stringUrl.includes("retroalimentarCuestionario")) {
+        return "retroalimentarCuestionario"
     }
-
 
     //En caso de que la URL no tenga IDs
     stringUrl = stringUrl.split("");

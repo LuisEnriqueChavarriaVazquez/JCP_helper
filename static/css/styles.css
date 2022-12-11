@@ -492,6 +492,70 @@ input[type="file"] {
 	}
 }
 
+/*Mensajes para indicar al usuario acciones del correo electronico*/
+
+.infoSectionWhatMail{
+	width: 100%;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 560px;
+}
+
+.infoSectionWhatMailCard{
+	font-size: 20px;
+	padding: 10px 30px;
+}
+
+@media screen and (max-width: 700px) {
+	.infoSectionWhatMail{
+		width: 100%;
+		height: 200px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 560px;
+	}
+	
+	.infoSectionWhatMailCard{
+		font-size: 14px;
+		padding: 10px 15px;
+	}
+	
+}
+
+.infoSectionWhatMailDos{
+	width: 100%;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.infoSectionWhatMailDosCard{
+	font-size: 20px;
+	padding: 10px 30px;
+}
+
+@media screen and (max-width: 700px) {
+	.infoSectionWhatMailDos{
+		width: 100%;
+		height: 200px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	.infoSectionWhatMailDosCard{
+		font-size: 14px;
+		padding: 10px 15px;
+	}
+	
+}
+
 
 /*Mensajes de erro custom*/
 .notFoundMsg_custom{

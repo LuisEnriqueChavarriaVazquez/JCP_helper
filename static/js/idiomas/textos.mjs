@@ -165,30 +165,30 @@ let rutas = {
     },
     "signup_prof": {
         "textEspanol": {
-            texts: ['Sign up docente.', 'Sign up docente.', 'Sign up docente.', 'Volver al inicio', 'Creación de cuenta', 'Creación de cuenta', 'Datos básicos', 'Nombre ', 'Alias ', 'Correo ', 'Password ', 'Confirmación ', 'Escuela de procedencia ', 'Descripción general (Opcional)', 'Foto de perfil', 'Elegir foto', 'Registrarse', ...textosFooter[0]]
+            texts: ['Sign up docente.', 'Sign up docente.', 'Sign up docente.', 'Volver al inicio', 'Creación de cuenta', 'Creación de cuenta', 'Datos básicos', 'Nombre ', 'Alias ', 'Correo ', 'Password ', 'Confirmación ', 'Escuela de procedencia ', 'Descripción general (Opcional)', 'Foto de perfil', 'Elegir foto', 'Registrarse', 'Recibirá un correo electrónico de confirmación de su cuenta, es importante que lo habrá para verificar su identidad.', ...textosFooter[0]]
         },
         "textIngles": {
-            texts: ['Sign up teacher.', 'Sign up teacher.', 'Sign up teacher.', 'Back to landing', 'Account creation', 'Account creation', 'Basic data', 'Name ', 'Alias', 'Mail ', 'Password ', 'confirmation', 'School of origin ', 'Overview (Optional)', 'Profile picture', 'Choose photo', 'Check in', ...textosFooter[1]]
+            texts: ['Sign up teacher.', 'Sign up teacher.', 'Sign up teacher.', 'Back to landing', 'Account creation', 'Account creation', 'Basic data', 'Name ', 'Alias', 'Mail ', 'Password ', 'confirmation', 'School of origin ', 'Overview (Optional)', 'Profile picture', 'Choose photo', 'Check in', 'You will receive an email confirming your account, it is important that there will be one to verify your identity.', ...textosFooter[1]]
         },
         "textPortugues": {
-            texts: ['Inscreva-se professor.', 'Inscreva-se professor.', 'Inscreva-se professor.', 'Voltar ao início', 'Criação de conta', 'Criação de conta', 'Dados básicos', 'Nome ', 'pseudônimo', 'Correspondência ', 'Senha ', 'confirmação', 'Escola de origem', 'Visão geral (opcional)', 'Imagem de perfil', 'Escolher Foto', 'Check-in', ...textosFooter[2]]
+            texts: ['Inscreva-se professor.', 'Inscreva-se professor.', 'Inscreva-se professor.', 'Voltar ao início', 'Criação de conta', 'Criação de conta', 'Dados básicos', 'Nome ', 'pseudônimo', 'Correspondência ', 'Senha ', 'confirmação', 'Escola de origem', 'Visão geral (opcional)', 'Imagem de perfil', 'Escolher Foto', 'Check-in', 'Você receberá um e-mail confirmando sua conta, é importante que haja um para verificar sua identidade.', ...textosFooter[2]]
         },
         "textChino": {
-            texts: ['报名老师。', '报名老师。', '报名老师。', '回到顶部', '帐户创建', '帐户创建', '基本数据', '姓名 ', '别名', '邮件 ', '密码 ', '确认', '原产地', '概述(可选)', '个人资料图片', '选择照片', '报到', ...textosFooter[3]]
+            texts: ['报名老师。', '报名老师。', '报名老师。', '回到顶部', '帐户创建', '帐户创建', '基本数据', '姓名 ', '别名', '邮件 ', '密码 ', '确认', '原产地', '概述(可选)', '个人资料图片', '选择照片', '报到', '您将收到一封确认您帐户的电子邮件，重要的是会有一封电子邮件来验证您的身份。', ...textosFooter[3]]
         }
     },
     "signup_est": {
         "textEspanol": {
-            texts: ['Sign up estudiante.', 'Sign up estudiante.', 'Sign up estudiante.', 'Volver al inicio', 'Creación de cuenta', 'Creación de cuenta', 'Datos básicos', 'Nombre ', 'Alias ', 'Correo ', 'Password ', 'Confirmación ', 'Escuela de procedencia ', 'Descripción general (Opcional)', 'Área de especialización (Opcional)', 'Foto de perfil', 'Elegir foto', 'Registrarse', ...textosFooter[0]]
+            texts: ['Sign up estudiante.', 'Sign up estudiante.', 'Sign up estudiante.', 'Volver al inicio', 'Creación de cuenta', 'Creación de cuenta', 'Datos básicos', 'Nombre ', 'Alias ', 'Correo ', 'Password ', 'Confirmación ', 'Escuela de procedencia ', 'Descripción general (Opcional)', 'Área de especialización (Opcional)', 'Foto de perfil', 'Elegir foto', 'Registrarse', 'Recibirá un correo electrónico de confirmación de su cuenta, es importante que lo habrá para verificar su identidad.', ...textosFooter[0]]
         },
         "textIngles": {
-            texts: ['Sign up student.', 'Sign up student.', 'Sign up student.', 'Return', 'Account creation', 'Account creation', 'Basic data', 'Name ', 'alias', 'Mail ', 'Password ', 'confirmation', 'School of origin ', 'Overview (Optional)', 'Area of specialization (Optional)', 'Profile picture', 'Choose photo', 'Check in', ...textosFooter[1]]
+            texts: ['Sign up student.', 'Sign up student.', 'Sign up student.', 'Return', 'Account creation', 'Account creation', 'Basic data', 'Name ', 'alias', 'Mail ', 'Password ', 'confirmation', 'School of origin ', 'Overview (Optional)', 'Area of specialization (Optional)', 'Profile picture', 'Choose photo', 'Check in', 'You will receive an email confirming your account, it is important that there will be one to verify your identity.', ...textosFooter[1]]
         },
         "textPortugues": {
-            texts: ['Cadastre-se aluno.', 'Cadastre-se aluno.', 'Cadastre-se aluno.', 'Voltar ao início', 'Criação de conta', 'Criação de conta', 'Dados básicos', 'Nome ', 'pseudônimo', 'Correspondência ', 'Senha ', 'confirmação', 'Escola de origem', 'Visão geral (opcional)', 'Área de especialização (opcional)', 'Imagem de perfil', 'Escolher Foto', 'Check-in', ...textosFooter[2]]
+            texts: ['Cadastre-se aluno.', 'Cadastre-se aluno.', 'Cadastre-se aluno.', 'Voltar ao início', 'Criação de conta', 'Criação de conta', 'Dados básicos', 'Nome ', 'pseudônimo', 'Correspondência ', 'Senha ', 'confirmação', 'Escola de origem', 'Visão geral (opcional)', 'Área de especialização (opcional)', 'Imagem de perfil', 'Escolher Foto', 'Check-in', 'Você receberá um e-mail confirmando sua conta, é importante que haja um para verificar sua identidade.', ...textosFooter[2]]
         },
         "textChino": {
-            texts: ['注册学生。', '注册学生。', '注册学生。', '回到顶部', '帐户创建', '帐户创建', '基本数据', '姓名 ', '别名', '邮件 ', '密码 ', '确认', '原产地', '概述(可选)', '专业领域(可选)', '个人资料图片', '选择照片', '报到', ...textosFooter[3]]
+            texts: ['注册学生。', '注册学生。', '注册学生。', '回到顶部', '帐户创建', '帐户创建', '基本数据', '姓名 ', '别名', '邮件 ', '密码 ', '确认', '原产地', '概述(可选)', '专业领域(可选)', '个人资料图片', '选择照片', '报到', '您将收到一封确认您帐户的电子邮件，重要的是会有一封电子邮件来验证您的身份。',  ...textosFooter[3]]
         }
     },
     "bienvenidaProfesor": {
@@ -730,30 +730,32 @@ let rutas = {
     },
     "gestorNotificacionesAlumno": {
         "textEspanol": {
-            texts: []
+            texts: ['Mis notificaciones','Mis notificaciones','Mis notificaciones.','Volver','Categorias','Apelaciones','Cuestionarios nuevos','General','Importante','Todas','Operaciones','Limpiar bandeja','Notificaciones',
+        ]
         },
         "textIngles": {
-            texts: []
+            texts: ['My notifications','My notifications','My notifications.','Return','Categories','Appeals','New quizzes','General','Important','All','Operations','Clear tray','Notifications',]
         },
         "textPortugues": {
-            texts: []
+            texts: ['Minhas notificações','Minhas notificações','Minhas notificações.','Retornar','Categorias','Apelações','Novos questionários','Em geral','Importante','Tudo','Operações','Limpar bandeja','Notificações',]
         },
         "textChino": {
-            texts: []
+            texts: ['我的通知','我的通知','我的通知。','返回','类别','上诉','新测验','一般的','重要的','全部','操作','清除托盘','通知',]
         }
     },
     "borrarComentarioParticularAlumno": {
         "textEspanol": {
-            texts: []
+            texts: ['Mis notificaciones','Mis notificaciones','Mis notificaciones.','Volver','Categorias','Apelaciones','Cuestionarios nuevos','General','Importante','Todas','Operaciones','Limpiar bandeja','Notificaciones',
+        ]
         },
         "textIngles": {
-            texts: []
+            texts: ['My notifications','My notifications','My notifications.','Return','Categories','Appeals','New quizzes','General','Important','All','Operations','Clear tray','Notifications',]
         },
         "textPortugues": {
-            texts: []
+            texts: ['Minhas notificações','Minhas notificações','Minhas notificações.','Retornar','Categorias','Apelações','Novos questionários','Em geral','Importante','Tudo','Operações','Limpar bandeja','Notificações',]
         },
         "textChino": {
-            texts: []
+            texts: ['我的通知','我的通知','我的通知。','返回','类别','上诉','新测验','一般的','重要的','全部','操作','清除托盘','通知',]
         }
     },
     "revisionCuestionarios": {
@@ -771,21 +773,36 @@ let rutas = {
             texts: ['上诉审查。','修订。','修订。','返回','待审核','待审核','学生资料','相关学生信息','姓名： ','区域：','学校：','描述：','查看资料','问卷数据','问卷答案中的相关信息。','一般的','创作：','作者： ','话题： ','家伙：','语： ','命令： ','暂停： ','最后期限： ','最大尝试次数：','与答案相关','响应时间： ','尝试：',]
         }
     },
-    "saber_mas2": {
+    "retroalimentarCuestionario": {
         "textEspanol": {
-            texts: []
+            texts: ['Revisión y retroalimentación.','Revisión y retroalimentación.','Revisión y retroalimentación.','Volver','El cuestionario ha sido revisado en su totalidad, presione el boton de finalizar para dar resolución a la apelación.','Algunas respuestas no pudieron ser evaluadas de forma manual o existen apelaciones por parte del estudiante.','Resultados','Preguntas y puntaje','Preguntas y puntaje','Terminar revisión','Preguntas/Respuestas cuestionario'
+        ]
         },
         "textIngles": {
-            texts: []
+            texts: ['Review and feedback.','Review and feedback.','Review and feedback.','Return','The questionnaire has been reviewed in its entirety, press the finish button to resolve the appeal.','Some answers could not be evaluated manually or there are appeals by the student.','Results','Questions and scoring','Questions and scoring','Finish review','Questions/Answers questionnaire']
         },
         "textPortugues": {
-            texts: []
+            texts: ['Avaliação e feedback.','Avaliação e feedback.','Avaliação e feedback.','Retornar','O questionário foi revisado em sua totalidade, pressione o botão concluir para resolver o recurso.','Algumas respostas não puderam ser avaliadas manualmente ou há apelações por parte do aluno.','Resultados','Perguntas e pontuação','Perguntas e pontuação','Terminar a revisão','Questionário de perguntas/respostas']
         },
         "textChino": {
-            texts: []
+            texts: ['审查和反馈。','审查和反馈。','审查和反馈。','返回','调查问卷已全部审核完毕请按完成按钮解决申诉。','有些答案无法手动评估或学生提出上诉。','结果','问题和评分','问题和评分','完成审核','问答问卷']
         }
     },
-    "saber_mas2": {
+    "recuperarContra": {
+        "textEspanol": {
+            texts: ['Recuperar Contraseña','Recuperar Contraseña','Recuperar Contraseña','Volver','Docente','Estudiante','Recuperar contraseña','Recuperar contraseña','Correo','Enviar','Recuperar contraseña','Recuperar contraseña','Correo','Enviar','Recibirá un correo electrónico con su contraseña.']
+        },
+        "textIngles": {
+            texts: ['Recover password','Recover password','Recover password','Return','Teacher','Student','Recover password','Recover password','Mail','Send','Recover password','Recover password','Mail','Send','You will receive an email with your password.']
+        },
+        "textPortugues": {
+            texts: ['Recuperar senha','Recuperar senha','Recuperar senha','Retornar','Professora','Aluna','Recuperar senha','Recuperar senha','Correspondência','Mandar','Recuperar senha','Recuperar senha','Correspondência','Mandar','Você receberá um e-mail com sua senha.']
+        },
+        "textChino": {
+            texts: ['恢复密码','恢复密码','恢复密码','返回','老师','学生','恢复密码','恢复密码','邮件','发送','恢复密码','恢复密码','邮件','发送','您将收到一封包含密码的电子邮件。']
+        }
+    },
+    "molde_array_copy_paste": {
         "textEspanol": {
             texts: []
         },

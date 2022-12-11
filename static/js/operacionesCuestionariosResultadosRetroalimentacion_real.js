@@ -185,7 +185,7 @@ function calcularPromedio() {
     //console.log('rightAnswerOpt3', rightAnswerOpt3)
 
     let casillaPendientes = document.getElementsByClassName('pendientesEstado');
-    casillaPendientes[0].innerHTML = `<p>Preguntas pendientes.</p>`;
+    casillaPendientes[0].innerHTML = `<p>Pending questions.</p>`;
     casillaPendientes[0].innerHTML += `<p>Open questions = ${rightAnswerOpt6.length}</p>`;
     casillaPendientes[0].innerHTML += `<p>Code questions = ${rightAnswerOpt3.length}</p>`;
 
@@ -206,11 +206,11 @@ function calcularPromedio() {
     //Evalua si existen
     if (rightAnswerOpt6.length > 0 || rightAnswerOpt3.length > 0) {
         //En caso de que haya preguntas abiertas o ejercicios sin output.
-        calificacionContainer[0].innerHTML = "<p>Revisión manual pendiente</p>";
+        calificacionContainer[0].innerHTML = "<p>Manual evaluation pending</p>";
     } else {
         var promedio = (ponderacionGlobal.toFixed(2) * 10) / (sumaPonderaciones);
         console.log('contadorRevisionDeLaSuma', contadorRevisionDeLaSuma)
-        calificacionContainer[0].innerHTML = "<p>Calificación: <span id='calificacionDataGet'>" + promedio.toFixed(2) + "</span></p>";
+        calificacionContainer[0].innerHTML = "<p>Grade: <span id='calificacionDataGet'>" + promedio.toFixed(2) + "</span></p>";
     }
 }
 
@@ -230,30 +230,30 @@ function imprimirPreguntas() {
                 //Contenido de la pregunta
                 let contenido =
                     `  
-                <h5 class="tituloPregunta"><b>Opción múltiple ` + (m + 1) + `</b></h5>
+                <h5 class="tituloPregunta"><b>Q/1 ` + (m + 1) + `</b></h5>
                 <hr>
-                <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray1[m][0] + `</b></div>
+                <div class="preguntaBox colorGrey colorTextReverse bordered1"><b>` + preguntasModalArray1[m][0] + `</b></div>
                 <div class="imagenBox bordered1 shadow-1e colorGrey">
-                <h6><b>Imagen adjunta.</b></h6>
+                <h6><b class="colorTextReverse">Img.</b></h6>
                 <img alt='not available image' class="materialboxed imagenBoxContent bordered1" src="` + preguntasModalArray1[m][1] + `"></img>
                 </div>
-                <h6><b>Opciones de la pregunta.</b></h6>
+                <h6><b class="colorTextReverse">Opts.</b></h6>
                 <div class="opcionesContainerStyleViewCuestionario">
-                    <div class="color5 bordered5 coloredText letterStyleViewCuestionario">A</div><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][3] + `</div>
-                    <div class="color5 bordered5 coloredText letterStyleViewCuestionario">B</div><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][4] + `</div>
-                    <div class="color5 bordered5 coloredText letterStyleViewCuestionario">C</div><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][5] + `</div>
-                    <div class="color5 bordered5 coloredText letterStyleViewCuestionario">D</div><div class="colorGrey bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][6] + `</div>
+                    <div class="color5 bordered5 coloredText letterStyleViewCuestionario">A</div><div class="colorGrey colorTextReverse bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][3] + `</div>
+                    <div class="color5 bordered5 coloredText letterStyleViewCuestionario">B</div><div class="colorGrey colorTextReverse bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][4] + `</div>
+                    <div class="color5 bordered5 coloredText letterStyleViewCuestionario">C</div><div class="colorGrey colorTextReverse bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][5] + `</div>
+                    <div class="color5 bordered5 coloredText letterStyleViewCuestionario">D</div><div class="colorGrey colorTextReverse bordered1 opcionStyleViewCuestionario">` + preguntasModalArray1[m][6] + `</div>
                     </div>
                     <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
-                        <h6><b>Respuesta correcta.</b></h6>
-                        <div class="preguntaBox color5 bordered1"><b>` + preguntasModalArray1[m][2] + `</b></div>
+                        <h6><b class="colorTextReverse">Result.</b></h6>
+                        <div class="preguntaBox color5 colorTextReverse bordered1"><b>` + preguntasModalArray1[m][2] + `</b></div>
                         <input type="hidden" value="` + preguntasModalArray1[m][2] + `" class="rightAnswerGlobal rightAnswerOpt1" id="rightAnswerOpt1` + m + `" name="rightAnswerOpt1` + m + `"></input>
-                        <h6><b>Su respuesta.</b></h6>
+                        <h6><b class="colorTextReverse">Answer.</b></h6>
                         <div class="respuestaBox respuestaBoxOpt1 goodColor bordered1"></div>
-                        <div class="ponderacionBox ponderacion_opt1 colorWhite bordered1" id="valorApelacion_opt1_`+ m + `"></div>
+                        <div class="ponderacionBox ponderacion_opt1 colorWhite colorTextReverse bordered1" id="valorApelacion_opt1_`+ m + `"></div>
                     </section>
                     <section class="colorWhite bordered1 shadow-1e respuestaFinalBoxes contenedorApelaciones" id="contenedorApelacionesOpt1`+ m + `">
-                        <h6><b>Revisión/Apelación.</b></h6>
+                        <h6><b class="colorTextReverse">Evaluate.</b></h6>
                         <div class="containerApelaciones" id="containerApelacionesOpt1`+ m + `">
                             <button onclick="apelar('bien', 'rightAnswerOpt1` + m + `','resolucionOpt1` + m + `','valorApelacion_opt1_` + m + `','containerApelacionesOpt1`+m+`')"
                             class="btn waves-effect button-rounded goodColorButton"><i class="material-icons md-24">thumb_up</button>
@@ -290,11 +290,11 @@ function imprimirPreguntas() {
 
                 //Contenido de la pregunta
                 let contenidoInicial = `  
-            <h5 class="tituloPregunta"><b>Rellenar espacio ` + (m + 1) + `</b></h5>
+            <h5 class="tituloPregunta"><b>Q/2 ` + (m + 1) + `</b></h5>
             <hr>
             <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray2[m][0] + `</b></div>
             <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
-                <h6><b>Soluciones de los espacios.</b></h6>
+                <h6><b class="colorTextReverse">Solutions.</b></h6>
                 <div class="opcionesContainerStyleViewCuestionario">
             `;
 
@@ -308,12 +308,12 @@ function imprimirPreguntas() {
                 let contenidoFinal = `
                 </div>
             </section>
-            <h6><b>Su respuesta.</b></h6>
+            <h6><b class="colorTextReverse">Answer.</b></h6>
             <input type="hidden" class="rightAnswerGlobal rightAnswerOpt2" id="rightAnswerOpt2`+ m + `" name="rightAnswerOpt2` + m + `"></input>
-            <div class="respuestaBox respuestaBoxOpt2 goodColor bordered1"></div>
-            <div class="ponderacionBox ponderacion_opt2 colorWhite bordered1" id="valorApelacion_opt2_`+ m + `"></div>
+            <div class="respuestaBox respuestaBoxOpt2 goodColor bordered1 colorTextReverse"></div>
+            <div class="ponderacionBox ponderacion_opt2 colorWhite bordered1 colorTextReverse" id="valorApelacion_opt2_`+ m + `"></div>
             <section class="colorWhite bordered1 shadow-1e respuestaFinalBoxes contenedorApelaciones" id="contenedorApelacionesOpt2`+ m + `">
-                <h6><b>Revisión/Apelación.</b></h6>
+                <h6><b class="colorTextReverse">Evaluation.</b></h6>
                 <div class="containerApelaciones" id="containerApelacionesOpt2`+m+`">
                     <button onclick="apelar('bien', 'rightAnswerOpt2` + m + `','resolucionOpt2` + m + `','valorApelacion_opt2_`+m+`','containerApelacionesOpt2`+m+`')"
                     class="btn waves-effect button-rounded goodColorButton"><i class="material-icons md-24">thumb_up</button>
@@ -344,24 +344,24 @@ function imprimirPreguntas() {
                 //Contenido de la pregunta
                 let contenido =
                     `  
-            <h5 class="tituloPregunta"><b>Ejercicio ` + (k + 1) + `</b></h5>
+            <h5 class="tituloPregunta"><b>Q/3 ` + (k + 1) + `</b></h5>
             <hr>
-            <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray3[k][0] + `</b></div>
+            <div class="preguntaBox colorGrey bordered1"><b class="colorTextReverse">` + preguntasModalArray3[k][0] + `</b></div>
             <div class="imagenBox bordered1 shadow-1e colorGrey">
-            <h6><b>Imagen adjunta.</b></h6>
+            <h6><b class="colorTextReverse">Img.</b></h6>
             <img alt='not available image' class="materialboxed imagenBoxContent bordered1" src="` + preguntasModalArray3[k][1] + `"></img>
             </div>
             <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
-                <h6><b>Propuesta de solución del docente.</b></h6>
+                <h6><b class="colorTextReverse">Teacher's solution.</b></h6>
                 <div class="codeContainerBox"><pre class="previewCodeContainer colorText bordered1">` + preguntasModalArray3[k][3] + `</pre></div>
-                <div class="preguntaBox outputEsperado outputGetValue color5 bordered1"><b>Output: ` + preguntasModalArray3[k][4] + `</b></div>
-                <h6 class="tituloEjercicioPendiente"><b>Su respuesta.</b></h6>
+                <div class="preguntaBox outputEsperado outputGetValue color5 bordered1"><b class="colorTextReverse">Output: ` + preguntasModalArray3[k][4] + `</b></div>
+                <h6 class="tituloEjercicioPendiente"><b class="colorTextReverse">Answer.</b></h6>
                 <input type="hidden" class="rightAnswerGlobal rightAnswerOpt3" id="rightAnswerOpt3`+ k + `" name="rightAnswerOpt3` + k + `"></input>
                 <div class="respuestaBox respuestaBoxOpt3 goodColor bordered1"></div>
-                <div class="ponderacionBox ponderacion_opt3 colorWhite bordered1" id="valorApelacion_opt3_`+ k + `"></div>
+                <div class="ponderacionBox ponderacion_opt3 colorWhite bordered1 colorTextReverse" id="valorApelacion_opt3_`+ k + `"></div>
             </section>
             <section class="colorWhite bordered1 shadow-1e respuestaFinalBoxes contenedorApelaciones" id="contenedorApelacionesOpt3`+ k + `">
-                <h6><b>Revisión/Apelación.</b></h6>
+                <h6><b class="colorTextReverse">Revition.</b></h6>
                 <div class="containerApelaciones" id="containerApelacionesOpt3`+k+`">
                     <button onclick="apelar('bien', 'rightAnswerOpt3` + k + `','resolucionOpt3` + k + `','valorApelacion_opt3_`+k+`','containerApelacionesOpt3`+k+`')"
                     class="btn waves-effect button-rounded goodColorButton"><i class="material-icons md-24">thumb_up</button>
@@ -420,10 +420,10 @@ function imprimirPreguntas() {
             function crearInicio(numero) {
                 inicioContenido =
                     `  
-            <h5 class="tituloPregunta"><b>Ejercicio arrastrar ` + (numero + 1) + `</b></h5>
+            <h5 class="tituloPregunta"><b>Q/6 ` + (numero + 1) + `</b></h5>
             <hr>
-            <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray4[numero][0] + `</b></div>
-            <h6><b>Relación correcta.</b></h6>
+            <div class="preguntaBox colorGrey bordered1"><b class="colorTextReverse">` + preguntasModalArray4[numero][0] + `</b></div>
+            <h6><b class="colorTextReverse">Word's relation.</b></h6>
             <input type="hidden" value="" class="rightAnswerGlobal rightAnswerOpt4" id="rightAnswerOpt4`+ numero + `" name="rightAnswerOpt4` + numero + `"></input>
             <div class="opcionesContainerStyleViewCuestionarioArrastrar">`;
                 return inicioContenido;
@@ -434,14 +434,13 @@ function imprimirPreguntas() {
             let finalContenido = `
             </div>
             <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
-                <h6><b>Sus respuestas.</b></h6>
-                <p>El puntaje se divide de acuerdo a las cantidad de respuestas buenas. 
-                En caso de faltar conceptos se considera como mala.</p>
+                <h6><b class="colorTextReverse">Answers.</b></h6>
+                <p class="colorTextReverse">The points area divided by the number of words, if you got one wrong everything is wrong.</p>
                 <div class="respuestaBox respuestaBoxOpt4 goodColor bordered1"></div>
                 <div class="badAnswerBox badColor bordered1"></div>
                 <section class="contadorBoxAnswerArrastrar">
                     <div class="countAnswerBoxRight goodColor colorGreyWhiter bordered1"></div>
-                    <div class="countAnswerBox colorGreyWhiter bordered1"></div>
+                    <div class="countAnswerBox colorGreyWhiter colorTextReverse bordered1"></div>
                 </section>
                 <div class="ponderacionBox ponderacion_opt4 colorWhite bordered1"></div>
             </section>
@@ -475,21 +474,21 @@ function imprimirPreguntas() {
                 //Contenido de la pregunta
                 let contenido =
                     `  
-                <h5 class="tituloPregunta"><b>Pregunta True/False ` + (m + 1) + `</b></h5>
+                <h5 class="tituloPregunta"><b>Q/4 ` + (m + 1) + `</b></h5>
                 <hr>
-                <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray5[m][0] + `</b></div>
+                <div class="preguntaBox colorGrey colorTextReverse bordered1"><b>` + preguntasModalArray5[m][0] + `</b></div>
                 <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
-                    <h6><b>Solución de la pregunta.</b></h6>
+                    <h6><b class="colorTextReverse">Solution.</b></h6>
                     <div class="opcionesContainerStyleViewCuestionarioTrueFalse">
-                    <div class="preguntaBoxFalseTrue color5 coloredText bordered1"><b>` + preguntasModalArray5[m][1] + `</b></div>
+                    <div class="preguntaBoxFalseTrue color5 coloredText bordered1 colorTextReverse"><b>` + preguntasModalArray5[m][1] + `</b></div>
                     </div>
-                    <h6><b>Su respuesta.</b></h6>
+                    <h6><b class="colorTextReverse">Answer.</b></h6>
                     <input type="hidden" value="` + preguntasModalArray5[m][1] + `" class="rightAnswerGlobal rightAnswerOpt5" id="rightAnswerOpt5` + m + `" name="rightAnswerOpt5` + m + `"></input>
                     <div class="respuestaBox respuestaBoxOpt5 goodColor bordered1"></div>
-                    <div class="ponderacionBox ponderacion_opt5 colorWhite bordered1" id="valorApelacion_opt5_`+ m + `"></div>
+                    <div class="ponderacionBox ponderacion_opt5 colorWhite colorTextReverse bordered1" id="valorApelacion_opt5_`+ m + `"></div>
                 </section>
                 <section class="colorWhite bordered1 shadow-1e respuestaFinalBoxes contenedorApelaciones" id="contenedorApelacionesOpt5`+ m + `">
-                <h6><b>Revisión/Apelación.</b></h6>
+                <h6><b class="colorTextReverse">Revition.</b></h6>
                     <div class="containerApelaciones" id="containerApelacionesOpt5`+m+`">
                         <button onclick="apelar('bien', 'rightAnswerOpt5` + m + `','resolucionOpt5` + m + `','valorApelacion_opt5_`+m+`','containerApelacionesOpt5`+m+`')"
                         class="btn waves-effect button-rounded goodColorButton"><i class="material-icons md-24">thumb_up</button>
@@ -520,25 +519,25 @@ function imprimirPreguntas() {
                 //Contenido de la pregunta
                 let contenido =
                     `  
-            <h5 class="tituloPregunta"><b>Pregunta abierta ` + (m + 1) + `</b></h5>
+            <h5 class="tituloPregunta"><b> Q/5` + (m + 1) + `</b></h5>
             <hr>
-                <h6><b>Descripción.</b></h6>
-                <div class="preguntaBox colorGrey bordered1"><b>` + preguntasModalArray6[m][0] + `</b></div>
+                <h6><b class="colorTextReverse">Desc.</b></h6>
+                <div class="preguntaBox colorGrey colorTextReverse bordered1"><b>` + preguntasModalArray6[m][0] + `</b></div>
                 <div class="imagenBox bordered1 shadow-1e colorGrey">
-                    <h6><b>Imagen adjunta.</b></h6>
+                    <h6><b class="colorTextReverse">Img.</b></h6>
                     <img alt='not available image' class="materialboxed imagenBoxContent bordered1" src="` + preguntasModalArray6[m][2] + `"></img>
                 </div>
                 <div class="contendorRecursoOnlineBox recursoOnlineEjercicios"> 
                 <section class="colorGrey bordered1 shadow-1e respuestaFinalBoxes">
-                    <h6><b>Solución de la pregunta.</b></h6>
-                    <div class="preguntaBox outputEsperado colorGreyDarker bordered1"><b>Estas preguntas se revisan de manera manual, espera a que tu profesor lea tu respuesta.</b></div>
-                    <h6><b>Su respuesta.</b></h6>
+                    <h6><b class="colorTextReverse">Solution.</b></h6>
+                    <div class="preguntaBox outputEsperado colorGreyDarker bordered1 colorTextReverse"><b>This questions are checked manually</b></div>
+                    <h6><b class="colorTextReverse">Answer.</b></h6>
                     <input type="hidden" value="pendiente" class="rightAnswerGlobal rightAnswerOpt6" id="rightAnswerOpt6`+ m + `" name="rightAnswerOpt6` + m + `"></input>
                     <div class="respuestaBox respuestaBoxOpt6 goodColor bordered1"></div>
-                    <div class="ponderacionBox ponderacion_opt6 colorWhite bordered1" id="valorApelacion_opt6_`+ m + `"></div>
+                    <div class="ponderacionBox ponderacion_opt6 colorWhite colorTextReverse bordered1" id="valorApelacion_opt6_`+ m + `"></div>
                 </section>
                 <section class="colorWhite bordered1 shadow-1e respuestaFinalBoxes contenedorApelaciones" id="contenedorApelacionesOpt6`+ m + `">
-                <h6><b>Revisión/Apelación.</b></h6>
+                <h6><b class="colorTextReverse">Revition.</b></h6>
                     <div class="containerApelaciones" id="containerApelacionesOpt6`+m+`">
                         <button onclick="apelar('bien', 'rightAnswerOpt6` + m + `','resolucionOpt6` + m + `','valorApelacion_opt6_`+m+`','containerApelacionesOpt6`+m+`')"
                         class="btn waves-effect button-rounded goodColorButton"><i class="material-icons md-24">thumb_up</button>
@@ -1111,9 +1110,9 @@ function imprimirPreguntas() {
         let estadoRetrasoBox = document.getElementsByClassName('estadoRetraso');
         let estadoRetraso = Object.values(ordenPreguntas[1]);
         if (estadoRetraso == "true") {
-            estadoRetrasoBox[0].innerHTML = "<p>Enviado con retraso</p>";
+            estadoRetrasoBox[0].innerHTML = "<p>Sent out of time</p>";
         } else {
-            estadoRetrasoBox[0].innerHTML = "<p>Enviado a tiempo</p>";
+            estadoRetrasoBox[0].innerHTML = "<p>Sent on time</p>";
         }
 
     };
