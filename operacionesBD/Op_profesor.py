@@ -3,7 +3,7 @@ from operacionesBD.conexion import obtener_conexion
 def insertar_profesor(nombre,alias,foto,correo,contra,unidad_academica,descripcion,fondo,correo_sin_hash):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO docentes(Nombre,Alias,Foto,correo,contra,unidad_academica,descripcion,fondo,correo_normal) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+        cursor.execute("INSERT INTO Docentes(Nombre,Alias,Foto,correo,contra,unidad_academica,descripcion,fondo,correo_normal) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)",
         (nombre,alias,foto,correo,contra,unidad_academica,descripcion,fondo,correo_sin_hash))
     conexion.commit()
     conexion.close()
@@ -249,7 +249,7 @@ def checar_correo_verificado(correo):
     verificado= False
     profesor = None
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT*FROM docentes WHERE correo = %s", (correo))
+        cursor.execute("SELECT*FROM Docentes WHERE correo = %s", (correo))
         profesor = cursor.fetchone()
     conexion.close()
     verificado = profesor[9]
