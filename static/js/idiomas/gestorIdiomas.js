@@ -118,6 +118,10 @@ function rutaValidation(stringUrl) {
         return "guardarCuestionarioJSON"
     } else if (stringUrl.includes("gestionar_estadisticas")) {
         return "gestionar_estadisticas"
+    } else if (stringUrl.includes("confirmar_correo_docente")) {
+        return "confirmar_correo_docente"
+    } else if (stringUrl.includes("confirmar_correo_alumno")) {
+        return "confirmar_correo_alumno"
     }
     
 

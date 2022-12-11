@@ -42,21 +42,21 @@
                     <section class="row contentFormContainer">
                         <div class="input-field col s12 m6 l6">
                             <i class="material-icons prefix">account_circle</i>
-                            <input class="colorTextReverse truncate" id="text"
+                            <input class="colorTextReverse truncate" id="nombre"
                                 type="text" name="nombre" class="validate" required>
-                            <label for="text" class="TDI">Nombre <b class="red-text">*</b> </label>
+                            <label for="nombre" class="TDI">Nombre <b class="red-text">*</b> </label>
                         </div>
                         <div class="input-field col s12 m6 l6">
                             <i class="material-icons prefix">badge</i>
-                            <input class="colorTextReverse truncate" id="text" type="text"
+                            <input class="colorTextReverse truncate" id="alias" type="text"
                                 name="alias" class="validate" required>
-                            <label for="text" class="TDI">Alias <b class="red-text">*</b></label>
+                            <label for="alias" class="TDI">Alias <b class="red-text">*</b></label>
                         </div>
                         <div class="input-field col s12 m6 l12">
                             <i class="material-icons prefix">email</i>
-                            <input class="colorTextReverse truncate" id="email"
+                            <input class="colorTextReverse truncate" id="correo"
                                 name="correo" type="email" class="validate" required>
-                            <label for="email" class="TDI">Correo <b class="red-text">*</b></label>
+                            <label for="correo" class="TDI">Correo <b class="red-text">*</b></label>
                         </div>
                         <div class="input-field col s12 m6 l6">
                             <i class="material-icons prefix">password</i>
@@ -65,9 +65,9 @@
                             <label for="password" class="TDI">Password <b class="red-text">*</b></label>
                         </div>
                         <div class="input-field col s12 m6 l6">
-                            <input class="colorTextReverse truncate" id="password"
+                            <input class="colorTextReverse truncate" id="contra2"
                                 type="password" name="contra2" class="validate" required>
-                            <label for="password" class="TDI">Confirmación <b class="red-text">*</b></label>
+                            <label for="contra2" class="TDI">Confirmación <b class="red-text">*</b></label>
                         </div>
                         <div class="input-field col s12 m6 l12">
                             {% with messages = get_flashed_messages() %}
@@ -83,21 +83,21 @@
                         <div class="input-field col s12 m6 l12">
                             <i class="material-icons prefix">school</i>
                             <input class="colorTextReverse truncate"
-                                id="text" type="text" name="escuela" class="validate">
-                            <label for="text" class="TDI">Escuela de procedencia <b class="red-text">*</b></label>
+                                id="escuela" type="text" name="escuela" class="validate">
+                            <label for="escuela" class="TDI">Escuela de procedencia <b class="red-text">*</b></label>
                         </div>
                         <div class="input-field col s12 m12 l12">
                             <i class="material-icons prefix">info</i>
                             <textarea 
-                                class="colorTextReverse materialize-textarea validate" id="text" 
+                                class="colorTextReverse materialize-textarea validate" id="descripcion" 
                                 name="descripcion" style="min-height: 60px;"></textarea>
-                            <label for="text" class="truncate TDI">Descripción general (Opcional)</label>
+                            <label for="descripcion" class="truncate TDI">Descripción general (Opcional)</label>
                         </div>
                         <div class="input-field col s12 m12 l12">
                             <i class="material-icons prefix">psychology</i>
                             <input class="colorTextReverse truncate"
-                                id="text" type="text" name="area" class="validate">
-                            <label for="text" class="TDI">Área de especialización (Opcional)</label>
+                                id="area" type="text" name="area" class="validate">
+                            <label for="area" class="TDI">Área de especialización (Opcional)</label>
                         </div>
                     </section>
                 </section>

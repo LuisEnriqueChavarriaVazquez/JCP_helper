@@ -21,6 +21,21 @@ let objetoConfiguraciones = {
     }
 }
 
+let log_in_content = {
+    "textEspanol": {
+        texts: ['Log in.', 'Log in.', 'Log in.', 'Volver al inicio', 'Docente', 'Estudiante', 'Cuenta docente', 'Cuenta docente', 'Correo', 'Contraseña', 'Olvide mi contraseña', 'Acceder', 'Cuenta estudiante', 'Cuenta estudiante', 'Correo', 'Contraseña', 'Olvide mi contraseña', 'Acceder', ...textosFooter[0]]
+    },
+    "textIngles": {
+        texts: ['Log in.', 'Log in.', 'Log in.', 'Back to landing', 'Teacher', 'Student', 'Teacher account', 'Teacher account', 'Mail', 'Password', 'I forgot my password', 'Access', 'Student account', 'Student account', 'Mail', 'Password', 'I forgot my password', 'Access', ...textosFooter[1]]
+    },
+    "textPortugues": {
+        texts: ['Conecte-se.', 'Conecte-se.', 'Conecte-se.', 'Voltar ao início', 'Professora', 'Aluna', 'Conta do professor', 'Conta do professor', 'Correspondência', 'Senha', 'Esqueci minha senha', 'Acessar', 'Conta de estudante', 'Conta de estudante', 'Correspondência', 'Senha', 'Esqueci minha senha', 'Acessar', ...textosFooter[2]]
+    },
+    "textChino": {
+        texts: ['登录。', '登录。', '登录。', '回到顶部', '老师', '学生', '教师帐号', '教师帐号', '邮件', '密码', '我忘记了我的密码', '访问', '学生账户', '学生账户', '邮件', '密码', '我忘记了我的密码', '访问', ...textosFooter[3]]
+    }
+}
+
 let rutas = {
     "index": {
         "textEspanol": {
@@ -113,18 +128,19 @@ let rutas = {
         }
     },
     "login_general": {
-        "textEspanol": {
-            texts: ['Log in.', 'Log in.', 'Log in.', 'Volver al inicio', 'Docente', 'Estudiante', 'Cuenta docente', 'Cuenta docente', 'Correo', 'Contraseña', 'Olvide mi contraseña', 'Acceder', 'Cuenta estudiante', 'Cuenta estudiante', 'Correo', 'Contraseña', 'Olvide mi contraseña', 'Acceder', ...textosFooter[0]]
-        },
-        "textIngles": {
-            texts: ['Log in.', 'Log in.', 'Log in.', 'Back to landing', 'Teacher', 'Student', 'Teacher account', 'Teacher account', 'Mail', 'Password', 'I forgot my password', 'Access', 'Student account', 'Student account', 'Mail', 'Password', 'I forgot my password', 'Access', ...textosFooter[1]]
-        },
-        "textPortugues": {
-            texts: ['Conecte-se.', 'Conecte-se.', 'Conecte-se.', 'Voltar ao início', 'Professora', 'Aluna', 'Conta do professor', 'Conta do professor', 'Correspondência', 'Senha', 'Esqueci minha senha', 'Acessar', 'Conta de estudante', 'Conta de estudante', 'Correspondência', 'Senha', 'Esqueci minha senha', 'Acessar', ...textosFooter[2]]
-        },
-        "textChino": {
-            texts: ['登录。', '登录。', '登录。', '回到顶部', '老师', '学生', '教师帐号', '教师帐号', '邮件', '密码', '我忘记了我的密码', '访问', '学生账户', '学生账户', '邮件', '密码', '我忘记了我的密码', '访问', ...textosFooter[3]]
-        }
+       ...log_in_content
+    },
+    "confirmar_correo_docente": {
+       ...log_in_content
+    },
+    "confirmar_correo_alumno": {
+       ...log_in_content
+    },
+    "nuevo_estudiante": {
+       ...log_in_content
+    },
+    "nuevo_profesor": {
+       ...log_in_content
     },
     "signup_prof": {
         "textEspanol": {
