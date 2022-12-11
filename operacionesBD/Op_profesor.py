@@ -150,7 +150,7 @@ def delete_grupos(id_grupo):
     confirmacionDeDelete = True
 
     with conexion.cursor() as cursor:
-        cursor.execute("DELETE from Grupos WHERE IDGrupo = %s", (id_grupo))
+        cursor.execute("DELETE FROM Grupos WHERE IDGrupo = %s", (id_grupo))
 
     conexion.commit()
     conexion.close()
@@ -222,7 +222,7 @@ def datos_completos_alumno_by_id(IDAlumno):
     datosAlumnos = None
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT*FROM Alumnos WHERE IDAlumno = %s", (IDAlumno))
+        cursor.execute("SELECT * FROM Alumnos WHERE IDAlumno = %s", (IDAlumno))
         datosAlumnos = cursor.fetchall()
         
     conexion.close()
@@ -238,7 +238,7 @@ def login_prof(correo):
     conexion = obtener_conexion()
     profesor = None
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT*FROM Docentes WHERE correo = %s", (correo))
+        cursor.execute("SELECT * FROM Docentes WHERE correo = %s", (correo))
         profesor = cursor.fetchone()
     conexion.close()
     return profesor
@@ -249,7 +249,7 @@ def checar_correo_verificado(correo):
     verificado= False
     profesor = None
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT*FROM Docentes WHERE correo = %s", (correo))
+        cursor.execute("SELECT * FROM Docentes WHERE correo = %s", (correo))
         profesor = cursor.fetchone()
     conexion.close()
     verificado = profesor[9]
@@ -303,7 +303,7 @@ def datos_completos_docente_by_id(IDDocente):
     conexion = obtener_conexion()
     datosProfesor = None
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT*FROM Docentes WHERE IDDocente = %s", (IDDocente))
+        cursor.execute("SELECT * FROM Docentes WHERE IDDocente = %s", (IDDocente))
         datosProfesor = cursor.fetchone()
     conexion.close()
     return datosProfesor

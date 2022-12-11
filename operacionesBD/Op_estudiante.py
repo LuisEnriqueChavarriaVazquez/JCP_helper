@@ -466,6 +466,6 @@ def obtenerNotificacion_de_alumno(id_alumno):
 def alumnoEliminaCuenta(id_alumno):
     conexion=obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("DELETE from Alumnos WHERE IDAlumno = %s",(id_alumno))
+        cursor.execute("DELETE FROM Alumnos WHERE IDAlumno = %s",(id_alumno))
     conexion.commit()
     conexion.close()
