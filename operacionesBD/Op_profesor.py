@@ -617,7 +617,7 @@ def borrarUnaNotificacionParticular(id_comentario):
     conexion=obtener_conexion()
     comentarios=[]
     with conexion.cursor() as cursor:
-        cursor.execute("DELETE from notificaciones_docente WHERE IDNotificacion_Docente = %s", (id_comentario))
+        cursor.execute("DELETE FROM Notificaciones_Docente WHERE IDNotificacion_Docente = %s", (id_comentario))
     conexion.commit()
     conexion.close()
 
@@ -626,7 +626,7 @@ def borrarNotificaciones(id_profe):
     conexion=obtener_conexion()
     comentarios=[]
     with conexion.cursor() as cursor:
-        cursor.execute("DELETE from notificaciones_Docente WHERE IDDocente = %s", (id_profe))
+        cursor.execute("DELETE FROM Notificaciones_Docente WHERE IDDocente = %s", (id_profe))
     conexion.commit()
     conexion.close()
 
