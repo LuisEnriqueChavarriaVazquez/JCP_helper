@@ -122,6 +122,8 @@ function rutaValidation(stringUrl) {
         return "confirmar_correo_docente"
     } else if (stringUrl.includes("confirmar_correo_alumno")) {
         return "confirmar_correo_alumno"
+    } else if (stringUrl.includes("genera_cuestionarios_por_lenguaje")) {
+        return "genera_cuestionarios_por_lenguaje"
     }
     
 

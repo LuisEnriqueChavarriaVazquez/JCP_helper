@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Ver cuestionario banco</title>
+    <title class="TDI">Ver cuestionario banco</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -18,12 +18,12 @@
     <!--Menu de página de inicio-->
     <nav class="color2">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Ver cuestionario.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Ver cuestionario.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Ver cuestionario.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Ver cuestionario.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded TDI">Volver</a></li>
             </ul>
         </div>
     </nav>
@@ -32,20 +32,25 @@
     <!--Aqui se recibe el texto del JSON-->
     <section class="contenedorPreviewCuestionario">
         <!--Datos importantes del cuestionario-->
-        <section class="contenedorPreviewUno">
-            <section class="infoColor bordered1 shadow-1e generalInfoPreviewAlumno">
-                <p class="infoColor">
-                    No, es el cuestionario que deseaba?
-                    <a href="crear_cuestionario_del_banco" class="btn color3 button-rounded">Elegir otro</a>
+        <section class="contenedorPreviewUno hide-on-med-and-down">
+            <section class="sosoColor bordered1 shadow-1e generalInfoPreviewAlumno">
+                <p class="sosoColor">
+                    <span class="TDI">
+                        ¿No, es el cuestionario que deseaba?
+                    </span>
+                    <a href="crear_cuestionario_del_banco" class="btn sosoColorButton button-rounded TDI">Otro</a>
                 </p>
             </section>
             <div class="hide-on-small-only">
-                <h5>Preview cuestionario del banco</h5>
+                <h5 class="TDI">Preview cuestionario del banco</h5>
                 <div>
                     <ul class="collapsible bordered5 colorWhite">
                         <li>
                             <div class="bordered5 collapsible-header colorWhite shadow-1e colorTextReverse"
-                                style="margin-bottom: 5px;"><i class="material-icons">article</i>Datos generales.
+                                style="margin-bottom: 5px;"><i class="material-icons">article</i>
+                                <span class="TDI">
+                                    Datos generales.
+                                </span>
                             </div>
                             <div class="bordered5 collapsible-body">
                                 {% if datosCuestionario %}
@@ -54,27 +59,27 @@
                                     <hr>
                                     <section class="row">
                                         <div class="col s12 m6 l12">
-                                            <h6><b>Fecha:</b></h6>
+                                            <h6><b class="colorTextReverse TDI">Fecha:</b></h6>
                                             <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1">
                                                 {{datosCuestionario[1]}}</p>
                                         </div>
                                         <div class="col s12 m6 l12">
-                                            <h6><b>Autor:</b></h6>
+                                            <h6><b class="colorTextReverse TDI">Autor:</b></h6>
                                             <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1">
                                                 {{datosCuestionario[0]}}</p>
                                         </div>
                                         <div class="col s12 m6 l12">
-                                            <h6><b>Temas:</b></h6>
+                                            <h6><b class="colorTextReverse TDI">Temas:</b></h6>
                                             <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1">
                                                 {{datosCuestionario[3]}}</p>
                                         </div>
                                         <div class="col s12 m6 l12">
-                                            <h6><b>Tipo de cuestionario:</b></h6>
+                                            <h6><b class="colorTextReverse TDI">Tipo de cuestionario:</b></h6>
                                             <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1">
                                                 {{datosCuestionario[4]}}</p>
                                         </div>
                                         <div class="col s12 m12 l12">
-                                            <h6><b>Lenguaje:</b></h6>
+                                            <h6><b class="colorTextReverse TDI">Lenguaje:</b></h6>
                                             <p class="muestraCodigoGrupo colorGrey colorTextReverse bordered1">
                                                 {{datosCuestionario[2]}}</p>
                                         </div>
@@ -88,80 +93,89 @@
             </div>
             <div class="contenedorOperacionesLive colorGreyWhiter bordered2 shadow-1e" id="contenedorLive">
                 <div class="datosCuestionarioLive">
-                    <h5>Contador preguntas</h5>
+                    <h5 class="TDI">Contador preguntas</h5>
                     <div class="contenedorContadoresGrid">
-                        <div class="colorGrey bordered5">Total preguntas: <span class="coloredText" id="contadorTotal"></span>
+                        <div class="colorGrey colorTextReverse bordered5"><span class="TDI">Total preguntas: </span>
+                            <span class="coloredText" id="contadorTotal"></span>
                             </span> </div>
-                        <div class="colorGrey bordered5">Opción múltiples: <span class="coloredText" id="contadorOpt1">
+                        <div class="colorGrey colorTextReverse bordered5"><span class="TDI">Opción múltiples:
+                            </span><span class="coloredText" id="contadorOpt1">
                             </span> </div>
-                        <div class="colorGrey bordered5">Rellenar espacios: <span class="coloredText" id="contadorOpt2">
+                        <div class="colorGrey colorTextReverse bordered5"><span class="TDI">Rellenar espacios: </span>
+                            <span class="coloredText" id="contadorOpt2">
                             </span> </div>
-                        <div class="colorGrey bordered5">Ejercicios prácticos: <span class="coloredText"
-                                id="contadorOpt3"> </span> </div>
-                        <div class="colorGrey bordered5">Arrastrar conceptos: <span class="coloredText"
-                                id="contadorOpt4"> </span> </div>
-                        <div class="colorGrey bordered5">Falso/Verdadero: <span class="coloredText" id="contadorOpt5">
+                        <div class="colorGrey colorTextReverse bordered5"><span class="TDI">Ejercicios prácticos:
+                            </span> <span class="coloredText" id="contadorOpt3"> </span> </div>
+                        <div class="colorGrey colorTextReverse bordered5"><span class="TDI">Arrastrar conceptos: </span>
+                            <span class="coloredText" id="contadorOpt4"> </span> </div>
+                        <div class="colorGrey colorTextReverse bordered5"><span class="TDI">Falso/Verdadero: </span>
+                            <span class="coloredText" id="contadorOpt5">
                             </span> </div>
-                        <div class="colorGrey bordered5">Preguntas abiertas: <span class="coloredText"
-                                id="contadorOpt6"> </span> </div>
+                        <div class="colorGrey colorTextReverse bordered5"><span class="TDI">Preguntas abiertas: </span>
+                            <span class="coloredText" id="contadorOpt6"> </span> </div>
                     </div>
-                </div>
-                <div class="accessCuestionarioLive">
-                    <a href="/previewVerComoALumnoCuestionario/{{datosCuestionario[0][0]}}"
-                        class="waves-effect waves-light btn-large bordered5 color3 shadow-2e" id="previewJsonResponder"
-                        style="width: 100%;">
-                        <i class="material-icons left">visibility</i>Ver como alumno</a>
                 </div>
             </div>
         </section>
         <!--Vista previa del cuestionario-->
         <form action="/guardarCuestionarioJSON/{{id_profesor}}" method="post">
-        <section class="contenedorPreviewDos">
-            <h5>Preguntas cuestionario</h5>
-            <div class="tituloCuestionario">
-                <div class="contenedorTitulo hiddenElement">
-                    <h5 id="tituloCuestionario">Titulo del cuestionario</h5>
-                    <a class="waves-effect waves-light btn bordered5 color1 shadow-2e" href="#"
-                        id="editarTitulo"><i class="material-icons">edit</i></a>
+            <section class="contenedorPreviewDos">
+                <h5 class="TDI">Preguntas cuestionario</h5>
+                <div class="tituloCuestionario">
+                    <div class="contenedorTitulo hiddenElement">
+                        <h5 id="tituloCuestionario" class="TDI">Titulo del cuestionario</h5>
+                        <a class="waves-effect waves-light btn bordered5 color1 shadow-2e" href="#" id="editarTitulo"><i
+                                class="material-icons">edit</i></a>
+                    </div>
+                    <div class="inputNombreCuestionario">
+                        <input type="text" name="nombreCuestionario" id="nombreCuestionario"
+                            class="browser-default inputNombre shadow-1 flow-text bordered5"
+                            placeholder="Name of the test">
+                        <input type="hidden" name="nombreCuestionarioConClave" id="nombreCuestionarioConClave">
+                        <a class="waves-effect waves-light btn color1 shadow-2e" href="#" id="guardarTitulo"><i
+                                class="material-icons left">done</i>
+                            <span class="TDI">
+                                Listo
+                            </span>
+                        </a>
+                    </div>
                 </div>
-                <div class="inputNombreCuestionario">
-                    <input type="text" name="nombreCuestionario" id="nombreCuestionario"
-                        class="browser-default inputNombre shadow-1 flow-text bordered5"
-                        placeholder="Ingrese nombre del cuestionario">
-                    <input type="hidden" name="nombreCuestionarioConClave" id="nombreCuestionarioConClave">
-                    <a class="waves-effect waves-light btn color1 shadow-2e" href="#" id="guardarTitulo"><i
-                            class="material-icons left">done</i>Listo</a>
+                </div>
+                <div class="contenedorPreguntasPreview" id="contenedorPreguntasPreview">
+
+                </div>
+            </section>
+
+            <div id="modalJSON" class="modal colorGrey bordered2 modalAltura">
+                <div class="modal-content">
+                    <h4 class="TDI">Generando archivo JSON</h4>
+                    <hr>
+                    <p class="TDI">El cuestionario será almacenado como archivo JSON, usted puede guardar una copia del
+                        cuestionario si asi lo desea.</p>
+                    <!--Preview del cuestionario-->
+                    <h5><b class="TDI">Preview de cuestionario JSON</b></h5>
+                    <pre class="previewCodeContainer colorText bordered2" id="output"></pre>
+                    <!--Input discreto para enviar contenido JSON a flask-->
+                    <input type="hidden" name="jsonContentInput" id="jsonContentInput">
+                    <!--Descarga del archivo-->
+                    <a onclick="downloadJson()" class="waves-effect waves-light btn-large bordered2Up color3 shadow-2e"
+                        id="descargarJSON" style="width: 100%;">
+                        <i class="material-icons left">download</i>
+                        <span class="TDI">
+                            Descargar
+                        </span>
+                    </a>
+                    <!--Almacenado del archivo (en BD y servidor)-->
+                    <button type="submit" class="waves-effect waves-light btn-large bordered2Down color1 shadow-2e"
+                        id="guardarJSON" style="width: 100%;">
+                        <i class="material-icons left">save</i>
+                        <span class="TDI">
+                            Guardar
+                        </span>
+                    </button>
                 </div>
             </div>
-        </div>
-            <div class="contenedorPreguntasPreview" id="contenedorPreguntasPreview">
-
-            </div>
-        </section>
-
-        <div id="modalJSON" class="modal colorGrey bordered2 modalAltura">
-            <div class="modal-content">
-                <h4>Generando archivo JSON</h4>
-                <hr>
-                <p>El cuestionario será almacenado como archivo JSON, usted puede guardar una copia del
-                    cuestionario si asi lo desea.</p>
-                <!--Preview del cuestionario-->
-                <h5><b>Preview de cuestionario JSON</b></h5>
-                <pre class="previewCodeContainer colorText bordered2" id="output"></pre>
-                <!--Input discreto para enviar contenido JSON a flask-->
-                <input type="hidden" name="jsonContentInput" id="jsonContentInput">
-                <!--Descarga del archivo-->
-                <a onclick="downloadJson()" class="waves-effect waves-light btn-large bordered2Up color3 shadow-2e"
-                    id="descargarJSON" style="width: 100%;">
-                    <i class="material-icons left">download</i>Descargar</a>
-                <!--Almacenado del archivo (en BD y servidor)-->
-                <button type="submit"
-                    class="waves-effect waves-light btn-large bordered2Down color1 shadow-2e" id="guardarJSON"
-                    style="width: 100%;">
-                    <i class="material-icons left">save</i>Guardar</button>
-            </div>
-        </div>
-    </form>
+        </form>
 
     </section>
 
@@ -172,17 +186,26 @@
             <i class="large material-icons">save</i>
         </button>
     </div>
-
+    <!--Botones para que el gestor de idiomas no falle-->
+    <span class="hiddenElement" id="seleccionarEspanol"></span>
+    <span class="hiddenElement" id="seleccionarIngles"></span>
+    <span class="hiddenElement" id="seleccionarPortugues"></span>
+    <span class="hiddenElement" id="seleccionarChino"></span>
 
 </body>
-
 
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
 
+<!--Traduccion-->
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
+
+
 <!--En esta parte todo los demás del script se hará en un archivo externo-->
 <script>
-    
+
     //Accedemos a los datos guardados en el JSON
     const dataCuestionarioJSON = {{ dataJSON| tojson}};
     function convertToJSON() {
@@ -307,6 +330,5 @@
 
 </script>
 <script src="../../static/js/operacionesVerCuestionario.js"></script>
-<script src="../../static/js/operacionesTerminos.js"></script>
 
 </html>

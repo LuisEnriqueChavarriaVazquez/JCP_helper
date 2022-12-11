@@ -36,6 +36,21 @@ let log_in_content = {
     }
 }
 
+let comunidadTextos = {
+    "textEspanol": {
+        texts: ['Comunidad y banco de datos.','Comunidad.','Comunidad.','Resultados','Resultados','Podría interesarle','Podría interesarle',]
+    },
+    "textIngles": {
+        texts: ['Community and database.','Community.','Community.','Results','Results','You might be interested in','You might be interested in',]
+    },
+    "textPortugues": {
+        texts: ['Comunidade e banco de dados.','Comunidade.','Comunidade.','Resultados','Resultados','Você pode estar interessado','Você pode estar interessado',]
+    },
+    "textChino": {
+        texts: ['社区和数据库。','社区。','社区。','结果','结果','你可能会感兴趣','你可能会感兴趣',]
+    }
+}
+
 let rutas = {
     "index": {
         "textEspanol": {
@@ -128,19 +143,25 @@ let rutas = {
         }
     },
     "login_general": {
-       ...log_in_content
+        ...log_in_content
     },
     "confirmar_correo_docente": {
-       ...log_in_content
+        ...log_in_content
     },
     "confirmar_correo_alumno": {
-       ...log_in_content
+        ...log_in_content
     },
     "nuevo_estudiante": {
-       ...log_in_content
+        ...log_in_content
     },
     "nuevo_profesor": {
-       ...log_in_content
+        ...log_in_content
+    },
+    "comunidad_profesor": {
+        ...comunidadTextos
+    },
+    "cuestionarios_like_titulo": {
+        ...comunidadTextos
     },
     "signup_prof": {
         "textEspanol": {
@@ -399,268 +420,268 @@ let rutas = {
     },
     "viewGroupEstudiante": {
         "textEspanol": {
-            texts: ['Mis grupos.','Mis grupos.','Mis grupos.','Volver','Datos generales','Descripción de grupo:','Lenguajes del grupo:','Temas del grupo:','Cuestionarios.','Alumnos.']
+            texts: ['Mis grupos.', 'Mis grupos.', 'Mis grupos.', 'Volver', 'Datos generales', 'Descripción de grupo:', 'Lenguajes del grupo:', 'Temas del grupo:', 'Cuestionarios.', 'Alumnos.']
         },
         "textIngles": {
-            texts: ['My groups.','My groups.','My groups.','Return','General data','Group description:','Group languages:','Group Topics:','Tests.','Students.']
+            texts: ['My groups.', 'My groups.', 'My groups.', 'Return', 'General data', 'Group description:', 'Group languages:', 'Group Topics:', 'Tests.', 'Students.']
         },
         "textPortugues": {
-            texts: ['Meus grupos.','Meus grupos.','Meus grupos.','Retornar','Dados gerais','Descrição do grupo:','Idiomas do grupo:','Tópicos do grupo:','Questionário.','Estudantes.']
+            texts: ['Meus grupos.', 'Meus grupos.', 'Meus grupos.', 'Retornar', 'Dados gerais', 'Descrição do grupo:', 'Idiomas do grupo:', 'Tópicos do grupo:', 'Questionário.', 'Estudantes.']
         },
         "textChino": {
-            texts: ['我的群组。','我的群组。','我的群组。','返回','一般数据','小组介绍：','集团语言：','小组主题：','测验。','学生。']
+            texts: ['我的群组。', '我的群组。', '我的群组。', '返回', '一般数据', '小组介绍：', '集团语言：', '小组主题：', '测验。', '学生。']
         }
     },
     "viewCuestionarioInfo": {
         "textEspanol": {
-            texts: ['Datos cuestionario.','Datos cuestionario.','Datos cuestionario.','Volver','Docente:','Alias:','Contacto:','Datos de cuestionario','Datos de cuestionario','Grupo','Lenguaje','Temas','Tipo','Tiempo límite','Fecha límite','Número de intentos máximo','Comenzar','¿Desea responder el cuestionario?','Se recomienda que este preparado, ya que el cuestionario no se puede pausar.','Comenzar']
+            texts: ['Datos cuestionario.', 'Datos cuestionario.', 'Datos cuestionario.', 'Volver', 'Docente:', 'Alias:', 'Contacto:', 'Datos de cuestionario', 'Datos de cuestionario', 'Grupo', 'Lenguaje', 'Temas', 'Tipo', 'Tiempo límite', 'Fecha límite', 'Número de intentos máximo', 'Comenzar', '¿Desea responder el cuestionario?', 'Se recomienda que este preparado, ya que el cuestionario no se puede pausar.', 'Comenzar']
         },
         "textIngles": {
-            texts: ['Test data.','Test data.','Test data.','Return','Teacher:','Alias:','Contact:','Test data','Test data','Cluster','Language','Topics','Guy','time limit','Deadline','Maximum number of attempts','Begin','Do you want to answer the Test?','It is recommended that you be prepared, as the quiz cannot be paused.','Begin']
+            texts: ['Test data.', 'Test data.', 'Test data.', 'Return', 'Teacher:', 'Alias:', 'Contact:', 'Test data', 'Test data', 'Cluster', 'Language', 'Topics', 'Guy', 'time limit', 'Deadline', 'Maximum number of attempts', 'Begin', 'Do you want to answer the Test?', 'It is recommended that you be prepared, as the quiz cannot be paused.', 'Begin']
         },
         "textPortugues": {
-            texts: ['Dados do questionário.','Dados do questionário.','Dados do questionário.','Retornar','Professor@:','Alias:','Contato:','Dados do questionário','Dados do questionário','Clase','Linguagem','Tópicos','Cara','limite de tempo','Data limite','Número máximo de tentativas','Começar','Quer responder ao questionário?','Recomenda-se que você esteja preparado, pois o questionário não pode ser pausado.','Começar']
+            texts: ['Dados do questionário.', 'Dados do questionário.', 'Dados do questionário.', 'Retornar', 'Professor@:', 'Alias:', 'Contato:', 'Dados do questionário', 'Dados do questionário', 'Clase', 'Linguagem', 'Tópicos', 'Cara', 'limite de tempo', 'Data limite', 'Número máximo de tentativas', 'Começar', 'Quer responder ao questionário?', 'Recomenda-se que você esteja preparado, pois o questionário não pode ser pausado.', 'Começar']
         },
         "textChino": {
-            texts: ['问卷数据。','问卷数据。','问卷数据。','返回','老师：','别名：','接触：','问卷数据','问卷数据','簇','语','话题','家伙','时限','最后期限','最大尝试次数','开始','你想回答问卷吗？','建议您做好准备,因为测验不能暂停。','开始']
+            texts: ['问卷数据。', '问卷数据。', '问卷数据。', '返回', '老师：', '别名：', '接触：', '问卷数据', '问卷数据', '簇', '语', '话题', '家伙', '时限', '最后期限', '最大尝试次数', '开始', '你想回答问卷吗？', '建议您做好准备,因为测验不能暂停。', '开始']
         }
     },
     "cuestionarioPendiente": {
         "textEspanol": {
-            texts: ['Datos cuestionario.','Datos cuestionario.','Datos cuestionario.','Volver','Docente:','Alias:','Contacto:','Datos de cuestionario','Datos de cuestionario','Grupo','Lenguaje','Temas','Tipo','Tiempo límite','Fecha límite','Número de intentos máximo','Comenzar','¿Desea responder el cuestionario?','Se recomienda que este preparado, ya que el cuestionario no se puede pausar.','Comenzar']
+            texts: ['Datos cuestionario.', 'Datos cuestionario.', 'Datos cuestionario.', 'Volver', 'Docente:', 'Alias:', 'Contacto:', 'Datos de cuestionario', 'Datos de cuestionario', 'Grupo', 'Lenguaje', 'Temas', 'Tipo', 'Tiempo límite', 'Fecha límite', 'Número de intentos máximo', 'Comenzar', '¿Desea responder el cuestionario?', 'Se recomienda que este preparado, ya que el cuestionario no se puede pausar.', 'Comenzar']
         },
         "textIngles": {
-            texts: ['Test data.','Test data.','Test data.','Return','Teacher:','Alias:','Contact:','Test data','Test data','Cluster','Language','Topics','Guy','time limit','Deadline','Maximum number of attempts','Begin','Do you want to answer the Test?','It is recommended that you be prepared, as the quiz cannot be paused.','Begin']
+            texts: ['Test data.', 'Test data.', 'Test data.', 'Return', 'Teacher:', 'Alias:', 'Contact:', 'Test data', 'Test data', 'Cluster', 'Language', 'Topics', 'Guy', 'time limit', 'Deadline', 'Maximum number of attempts', 'Begin', 'Do you want to answer the Test?', 'It is recommended that you be prepared, as the quiz cannot be paused.', 'Begin']
         },
         "textPortugues": {
-            texts: ['Dados do questionário.','Dados do questionário.','Dados do questionário.','Retornar','Professor@:','Alias:','Contato:','Dados do questionário','Dados do questionário','Clase','Linguagem','Tópicos','Cara','limite de tempo','Data limite','Número máximo de tentativas','Começar','Quer responder ao questionário?','Recomenda-se que você esteja preparado, pois o questionário não pode ser pausado.','Começar']
+            texts: ['Dados do questionário.', 'Dados do questionário.', 'Dados do questionário.', 'Retornar', 'Professor@:', 'Alias:', 'Contato:', 'Dados do questionário', 'Dados do questionário', 'Clase', 'Linguagem', 'Tópicos', 'Cara', 'limite de tempo', 'Data limite', 'Número máximo de tentativas', 'Começar', 'Quer responder ao questionário?', 'Recomenda-se que você esteja preparado, pois o questionário não pode ser pausado.', 'Começar']
         },
         "textChino": {
-            texts: ['问卷数据。','问卷数据。','问卷数据。','返回','老师：','别名：','接触：','问卷数据','问卷数据','簇','语','话题','家伙','时限','最后期限','最大尝试次数','开始','你想回答问卷吗？','建议您做好准备,因为测验不能暂停。','开始']
+            texts: ['问卷数据。', '问卷数据。', '问卷数据。', '返回', '老师：', '别名：', '接触：', '问卷数据', '问卷数据', '簇', '语', '话题', '家伙', '时限', '最后期限', '最大尝试次数', '开始', '你想回答问卷吗？', '建议您做好准备,因为测验不能暂停。', '开始']
         }
     },
     "answerCuestionarioAlumno": {
         "textEspanol": {
             //Cuando entramos a contestar el cuestionario
-            texts_1: ['Contestar cuestionario.','Contestar cuestionario.','Contestar cuestionario.','Volver','Tablero de información.','Total preguntas:','Respondidas:','Límite:','Minutos restantes:','Caducidad:','Intentos:','Entregar','Preguntas cuestionario','¿Desea enviar el cuestionario?','Este procedimiento no se puede revertir.','Enviar'],
+            texts_1: ['Contestar cuestionario.', 'Contestar cuestionario.', 'Contestar cuestionario.', 'Volver', 'Tablero de información.', 'Total preguntas:', 'Respondidas:', 'Límite:', 'Minutos restantes:', 'Caducidad:', 'Intentos:', 'Entregar', 'Preguntas cuestionario', '¿Desea enviar el cuestionario?', 'Este procedimiento no se puede revertir.', 'Enviar'],
             //Cuando ya no hay intentos
-            texts_2: ['Se han terminado los intentos','Intentos.','Intentos.','Volver','Usted ha agotado su número máximo de intentos.','Usted ha agotado su número máximo de intentos.','Ha usted superado el número máximo de intentos posibles para este cuestionario, comuniquese con su docente para más información.','Regresar'],
+            texts_2: ['Se han terminado los intentos', 'Intentos.', 'Intentos.', 'Volver', 'Usted ha agotado su número máximo de intentos.', 'Usted ha agotado su número máximo de intentos.', 'Ha usted superado el número máximo de intentos posibles para este cuestionario, comuniquese con su docente para más información.', 'Regresar'],
             //Cuando sigue pendiente
-            texts_3: ['La evaluación sigue pendiente.','Pendiente.','Pendiente.','Volver','Debe esperar a que su docente evalué algunas preguntas.','Debe esperar a que su docente evalué algunas preguntas.','Algunas preguntas del cuestionario deben ser evaluadas de manera manual por el docente.','Regresar'],
+            texts_3: ['La evaluación sigue pendiente.', 'Pendiente.', 'Pendiente.', 'Volver', 'Debe esperar a que su docente evalué algunas preguntas.', 'Debe esperar a que su docente evalué algunas preguntas.', 'Algunas preguntas del cuestionario deben ser evaluadas de manera manual por el docente.', 'Regresar'],
             //Cuando la evalaucion esta lista
-            texts_4: ['La evaluación ha sido terminada.','Terminado.','Terminado.','Volver','La revisión ha sido terminada.','La revisión ha sido terminada.','El resultado ha sido registrado satisfactoriamente.','Regresar','Apelar resultado','Retroalimentación.','Escriba un comentario de retroalimentación para este curso y su profesor podrá saber las areas de oportunidad en las evaluaciones.','Feedback','Enviar'],
+            texts_4: ['La evaluación ha sido terminada.', 'Terminado.', 'Terminado.', 'Volver', 'La revisión ha sido terminada.', 'La revisión ha sido terminada.', 'El resultado ha sido registrado satisfactoriamente.', 'Regresar', 'Apelar resultado', 'Retroalimentación.', 'Escriba un comentario de retroalimentación para este curso y su profesor podrá saber las areas de oportunidad en las evaluaciones.', 'Feedback', 'Enviar'],
         },
         "textIngles": {
-            texts_1: ['Answer test.','Answer test.','Answer test.','Return','Information board.','Total questions:','Answers:','Limit:','Remaining minutes:','Expiration:','Attempts:','Deliver','Quiz questions','Do you want to send the test?','This procedure cannot be reversed.','Send'],
-            texts_2: ['The attempts are over','Attempts.','Attempts.','Return','You have exhausted your maximum number of attempts.','You have exhausted your maximum number of attempts.','You have exceeded the maximum number of possible attempts for this quiz, contact your teacher for more information.','Return'],
-            texts_3: ['Evaluation is still pending.','Pending result.','Pending result.','Return','You must wait for your teacher to evaluate some questions.','You must wait for your teacher to evaluate some questions.','Some questions in the test must be evaluated manually by the teacher.','Return'],
-            texts_4: ['The evaluation has been finished.','Finished.','Finished.','Return','The review has been completed.','The review has been completed.','The result has been registered successfully.','Return','Appeal result','Feedback.','Write a feedback comment for this course and your teacher will know the areas of opportunity in the evaluations.','Feedback','Send'],
+            texts_1: ['Answer test.', 'Answer test.', 'Answer test.', 'Return', 'Information board.', 'Total questions:', 'Answers:', 'Limit:', 'Remaining minutes:', 'Expiration:', 'Attempts:', 'Deliver', 'Quiz questions', 'Do you want to send the test?', 'This procedure cannot be reversed.', 'Send'],
+            texts_2: ['The attempts are over', 'Attempts.', 'Attempts.', 'Return', 'You have exhausted your maximum number of attempts.', 'You have exhausted your maximum number of attempts.', 'You have exceeded the maximum number of possible attempts for this quiz, contact your teacher for more information.', 'Return'],
+            texts_3: ['Evaluation is still pending.', 'Pending result.', 'Pending result.', 'Return', 'You must wait for your teacher to evaluate some questions.', 'You must wait for your teacher to evaluate some questions.', 'Some questions in the test must be evaluated manually by the teacher.', 'Return'],
+            texts_4: ['The evaluation has been finished.', 'Finished.', 'Finished.', 'Return', 'The review has been completed.', 'The review has been completed.', 'The result has been registered successfully.', 'Return', 'Appeal result', 'Feedback.', 'Write a feedback comment for this course and your teacher will know the areas of opportunity in the evaluations.', 'Feedback', 'Send'],
         },
         "textPortugues": {
-            texts_1: ['Responder test.','Responder test.','Responder test.','Retornar','Painel de informações.','Total de perguntas:','Respostas:','Limite:','Minutos restantes:','Expiração:','Tentativas:','Entregar','Perguntas do questionário','Deseja enviar o questionário?','Este procedimento não pode ser revertido.','Mandar'],
-            texts_2: ['As tentativas acabaram','Tentativas.','Tentativas.','Retornar','Você esgotou seu número máximo de tentativas.','Você esgotou seu número máximo de tentativas.','Você excedeu o número máximo de tentativas possíveis para este questionário, entre em contato com seu professor para obter mais informações.','Voltar'],
-            texts_3: ['A avaliação ainda está pendente.','Resultado pendente.','Resultado pendente.','Retornar','Você deve esperar que seu professor avalie algumas questões.','Você deve esperar que seu professor avalie algumas questões.','Algumas questões do questionário devem ser avaliadas manualmente pelo professor.','Voltar'],
-            texts_4: ['A avaliação foi finalizada.','Finalizado.','Finalizado.','Retornar','A revisão foi concluída.','A revisão foi concluída.','O resultado foi registrado com sucesso.','Voltar','Resultado da apelação','Comentários.','Escreva um comentário de feedback para este curso e seu professor saberá as áreas de oportunidade nas avaliações.','Comentários','Mandar'],
+            texts_1: ['Responder test.', 'Responder test.', 'Responder test.', 'Retornar', 'Painel de informações.', 'Total de perguntas:', 'Respostas:', 'Limite:', 'Minutos restantes:', 'Expiração:', 'Tentativas:', 'Entregar', 'Perguntas do questionário', 'Deseja enviar o questionário?', 'Este procedimento não pode ser revertido.', 'Mandar'],
+            texts_2: ['As tentativas acabaram', 'Tentativas.', 'Tentativas.', 'Retornar', 'Você esgotou seu número máximo de tentativas.', 'Você esgotou seu número máximo de tentativas.', 'Você excedeu o número máximo de tentativas possíveis para este questionário, entre em contato com seu professor para obter mais informações.', 'Voltar'],
+            texts_3: ['A avaliação ainda está pendente.', 'Resultado pendente.', 'Resultado pendente.', 'Retornar', 'Você deve esperar que seu professor avalie algumas questões.', 'Você deve esperar que seu professor avalie algumas questões.', 'Algumas questões do questionário devem ser avaliadas manualmente pelo professor.', 'Voltar'],
+            texts_4: ['A avaliação foi finalizada.', 'Finalizado.', 'Finalizado.', 'Retornar', 'A revisão foi concluída.', 'A revisão foi concluída.', 'O resultado foi registrado com sucesso.', 'Voltar', 'Resultado da apelação', 'Comentários.', 'Escreva um comentário de feedback para este curso e seu professor saberá as áreas de oportunidade nas avaliações.', 'Comentários', 'Mandar'],
         },
         "textChino": {
-            texts_1: ['回答问卷。','回答问卷。','回答问卷。','返回','信息板。','总问题：','答案：','限制：','剩余分钟数：','过期：','尝试：','递送','测验问题','你想发送问卷吗？','此过程不可逆。','发送'],
-            texts_2: ['尝试结束','尝试。','尝试。','返回','您已经用尽了最大尝试次数。','您已经用尽了最大尝试次数。','您已超过此测验的最大尝试次数,请联系您的老师以获取更多信息。','返回'],
-            texts_3: ['评估仍在进行中。','结果待定','结果待定','返回','你必须等待你的老师评估一些问题。','你必须等待你的老师评估一些问题。','问卷中有些问题必须由老师人工评价。','返回'],
-            texts_4: ['评估已完成。','完成的。','完成的。','返回','审核已完成。','审核已完成。','结果已注册成功。','返回','申诉结果','反馈。','为这门课程写一个反馈评论,你的老师就会知道评估中的机会领域。','反馈','发送']
+            texts_1: ['回答问卷。', '回答问卷。', '回答问卷。', '返回', '信息板。', '总问题：', '答案：', '限制：', '剩余分钟数：', '过期：', '尝试：', '递送', '测验问题', '你想发送问卷吗？', '此过程不可逆。', '发送'],
+            texts_2: ['尝试结束', '尝试。', '尝试。', '返回', '您已经用尽了最大尝试次数。', '您已经用尽了最大尝试次数。', '您已超过此测验的最大尝试次数,请联系您的老师以获取更多信息。', '返回'],
+            texts_3: ['评估仍在进行中。', '结果待定', '结果待定', '返回', '你必须等待你的老师评估一些问题。', '你必须等待你的老师评估一些问题。', '问卷中有些问题必须由老师人工评价。', '返回'],
+            texts_4: ['评估已完成。', '完成的。', '完成的。', '返回', '审核已完成。', '审核已完成。', '结果已注册成功。', '返回', '申诉结果', '反馈。', '为这门课程写一个反馈评论,你的老师就会知道评估中的机会领域。', '反馈', '发送']
         }
     },
     "cuestionarioListo": {
         "textEspanol": {
-            texts: ['Datos cuestionario.','Datos cuestionario.','Datos cuestionario.','Volver','Docente:','Alias:','Contacto:','Datos de cuestionario','Datos de cuestionario','Grupo','Lenguaje','Temas','Tipo','Tiempo límite','Fecha límite','Número de intentos máximo','Comenzar','¿Desea responder el cuestionario?','Se recomienda que este preparado, ya que el cuestionario no se puede pausar.','Comenzar']
+            texts: ['Datos cuestionario.', 'Datos cuestionario.', 'Datos cuestionario.', 'Volver', 'Docente:', 'Alias:', 'Contacto:', 'Datos de cuestionario', 'Datos de cuestionario', 'Grupo', 'Lenguaje', 'Temas', 'Tipo', 'Tiempo límite', 'Fecha límite', 'Número de intentos máximo', 'Comenzar', '¿Desea responder el cuestionario?', 'Se recomienda que este preparado, ya que el cuestionario no se puede pausar.', 'Comenzar']
         },
         "textIngles": {
-            texts: ['Test data.','Test data.','Test data.','Return','Teacher:','Alias:','Contact:','Test data','Test data','Cluster','Language','Topics','Guy','time limit','Deadline','Maximum number of attempts','Begin','Do you want to answer the Test?','It is recommended that you be prepared, as the quiz cannot be paused.','Begin']
+            texts: ['Test data.', 'Test data.', 'Test data.', 'Return', 'Teacher:', 'Alias:', 'Contact:', 'Test data', 'Test data', 'Cluster', 'Language', 'Topics', 'Guy', 'time limit', 'Deadline', 'Maximum number of attempts', 'Begin', 'Do you want to answer the Test?', 'It is recommended that you be prepared, as the quiz cannot be paused.', 'Begin']
         },
         "textPortugues": {
-            texts: ['Dados do questionário.','Dados do questionário.','Dados do questionário.','Retornar','Professor@:','Alias:','Contato:','Dados do questionário','Dados do questionário','Clase','Linguagem','Tópicos','Cara','limite de tempo','Data limite','Número máximo de tentativas','Começar','Quer responder ao questionário?','Recomenda-se que você esteja preparado, pois o questionário não pode ser pausado.','Começar']
+            texts: ['Dados do questionário.', 'Dados do questionário.', 'Dados do questionário.', 'Retornar', 'Professor@:', 'Alias:', 'Contato:', 'Dados do questionário', 'Dados do questionário', 'Clase', 'Linguagem', 'Tópicos', 'Cara', 'limite de tempo', 'Data limite', 'Número máximo de tentativas', 'Começar', 'Quer responder ao questionário?', 'Recomenda-se que você esteja preparado, pois o questionário não pode ser pausado.', 'Começar']
         },
         "textChino": {
-            texts: ['问卷数据。','问卷数据。','问卷数据。','返回','老师：','别名：','接触：','问卷数据','问卷数据','簇','语','话题','家伙','时限','最后期限','最大尝试次数','开始','你想回答问卷吗？','建议您做好准备,因为测验不能暂停。','开始']
+            texts: ['问卷数据。', '问卷数据。', '问卷数据。', '返回', '老师：', '别名：', '接触：', '问卷数据', '问卷数据', '簇', '语', '话题', '家伙', '时限', '最后期限', '最大尝试次数', '开始', '你想回答问卷吗？', '建议您做好准备,因为测验不能暂停。', '开始']
         }
     },
     "noIntentosDisponibles": {
         "textEspanol": {
-            texts: ['Datos cuestionario.','Datos cuestionario.','Datos cuestionario.','Volver','Docente:','Alias:','Contacto:','Datos de cuestionario','Datos de cuestionario','Grupo','Lenguaje','Temas','Tipo','Tiempo límite','Fecha límite','Número de intentos máximo','Comenzar','¿Desea responder el cuestionario?','Se recomienda que este preparado, ya que el cuestionario no se puede pausar.','Comenzar']
+            texts: ['Datos cuestionario.', 'Datos cuestionario.', 'Datos cuestionario.', 'Volver', 'Docente:', 'Alias:', 'Contacto:', 'Datos de cuestionario', 'Datos de cuestionario', 'Grupo', 'Lenguaje', 'Temas', 'Tipo', 'Tiempo límite', 'Fecha límite', 'Número de intentos máximo', 'Comenzar', '¿Desea responder el cuestionario?', 'Se recomienda que este preparado, ya que el cuestionario no se puede pausar.', 'Comenzar']
         },
         "textIngles": {
-            texts: ['Test data.','Test data.','Test data.','Return','Teacher:','Alias:','Contact:','Test data','Test data','Cluster','Language','Topics','Guy','time limit','Deadline','Maximum number of attempts','Begin','Do you want to answer the Test?','It is recommended that you be prepared, as the quiz cannot be paused.','Begin']
+            texts: ['Test data.', 'Test data.', 'Test data.', 'Return', 'Teacher:', 'Alias:', 'Contact:', 'Test data', 'Test data', 'Cluster', 'Language', 'Topics', 'Guy', 'time limit', 'Deadline', 'Maximum number of attempts', 'Begin', 'Do you want to answer the Test?', 'It is recommended that you be prepared, as the quiz cannot be paused.', 'Begin']
         },
         "textPortugues": {
-            texts: ['Dados do questionário.','Dados do questionário.','Dados do questionário.','Retornar','Professor@:','Alias:','Contato:','Dados do questionário','Dados do questionário','Clase','Linguagem','Tópicos','Cara','limite de tempo','Data limite','Número máximo de tentativas','Começar','Quer responder ao questionário?','Recomenda-se que você esteja preparado, pois o questionário não pode ser pausado.','Começar']
+            texts: ['Dados do questionário.', 'Dados do questionário.', 'Dados do questionário.', 'Retornar', 'Professor@:', 'Alias:', 'Contato:', 'Dados do questionário', 'Dados do questionário', 'Clase', 'Linguagem', 'Tópicos', 'Cara', 'limite de tempo', 'Data limite', 'Número máximo de tentativas', 'Começar', 'Quer responder ao questionário?', 'Recomenda-se que você esteja preparado, pois o questionário não pode ser pausado.', 'Começar']
         },
         "textChino": {
-            texts: ['问卷数据。','问卷数据。','问卷数据。','返回','老师：','别名：','接触：','问卷数据','问卷数据','簇','语','话题','家伙','时限','最后期限','最大尝试次数','开始','你想回答问卷吗？','建议您做好准备,因为测验不能暂停。','开始']
+            texts: ['问卷数据。', '问卷数据。', '问卷数据。', '返回', '老师：', '别名：', '接触：', '问卷数据', '问卷数据', '簇', '语', '话题', '家伙', '时限', '最后期限', '最大尝试次数', '开始', '你想回答问卷吗？', '建议您做好准备,因为测验不能暂停。', '开始']
         }
     },
     "revisarAlumno": {
         "textEspanol": {
-            texts: ['Sus resultados.','Sus resultados.','Sus resultados.','Volver',' Estas son sus respuestas, el cuestionario fue evaluado en su totalidad.',' Estas son sus respuestas, pero algunas cuantas faltan por ser revisadas por el docente.','Resultados','Preguntas y puntaje','Preguntas y puntaje','Aceptar','Preguntas/Respuestas cuestionario']
+            texts: ['Sus resultados.', 'Sus resultados.', 'Sus resultados.', 'Volver', ' Estas son sus respuestas, el cuestionario fue evaluado en su totalidad.', ' Estas son sus respuestas, pero algunas cuantas faltan por ser revisadas por el docente.', 'Resultados', 'Preguntas y puntaje', 'Preguntas y puntaje', 'Aceptar', 'Preguntas/Respuestas cuestionario']
         },
         "textIngles": {
-            texts: ['Your results.','Your results.','Your results.','Return',' These are your answers, the test was evaluated in its entirety.',' These are their answers, but a few remain to be reviewed by the teacher.','Results','Questions and scoring','Questions and scoring','Accept','Questions/Answers test']
+            texts: ['Your results.', 'Your results.', 'Your results.', 'Return', ' These are your answers, the test was evaluated in its entirety.', ' These are their answers, but a few remain to be reviewed by the teacher.', 'Results', 'Questions and scoring', 'Questions and scoring', 'Accept', 'Questions/Answers test']
         },
         "textPortugues": {
-            texts: ['Seus resultados.','Seus resultados.','Seus resultados.','Retornar',' Estas são suas respostas, o questionário foi avaliado em sua totalidade.',' Estas são as respostas deles, mas algumas ainda precisam ser revisadas pelo professor.','Resultados','Perguntas e pontuação','Perguntas e pontuação','Aceitar','Questionário de perguntas/respostas']
+            texts: ['Seus resultados.', 'Seus resultados.', 'Seus resultados.', 'Retornar', ' Estas são suas respostas, o questionário foi avaliado em sua totalidade.', ' Estas são as respostas deles, mas algumas ainda precisam ser revisadas pelo professor.', 'Resultados', 'Perguntas e pontuação', 'Perguntas e pontuação', 'Aceitar', 'Questionário de perguntas/respostas']
         },
         "textChino": {
-            texts: ['你的结果。','你的结果。','你的结果。','返回',' 这些是您的答案,问卷已经过完整评估。',' 这些是他们的答案,但还有一些有待老师审阅。','结果','问题和评分','问题和评分','接受','问答问卷']
+            texts: ['你的结果。', '你的结果。', '你的结果。', '返回', ' 这些是您的答案,问卷已经过完整评估。', ' 这些是他们的答案,但还有一些有待老师审阅。', '结果', '问题和评分', '问题和评分', '接受', '问答问卷']
         }
     },
     "resultadoAlumno": {
         "textEspanol": {
-            texts_3: ['La evaluación sigue pendiente.','Pendiente.','Pendiente.','Volver','Debe esperar a que su docente evalué algunas preguntas.','Debe esperar a que su docente evalué algunas preguntas.','Algunas preguntas del cuestionario deben ser evaluadas de manera manual por el docente.','Regresar'],
-            texts_4: ['La evaluación ha sido terminada.','Terminado.','Terminado.','Volver','La revisión ha sido terminada.','La revisión ha sido terminada.','El resultado ha sido registrado satisfactoriamente.','Regresar','Apelar resultado','Retroalimentación.','Escriba un comentario de retroalimentación para este curso y su profesor podrá saber las areas de oportunidad en las evaluaciones.','Feedback','Enviar'],
+            texts_3: ['La evaluación sigue pendiente.', 'Pendiente.', 'Pendiente.', 'Volver', 'Debe esperar a que su docente evalué algunas preguntas.', 'Debe esperar a que su docente evalué algunas preguntas.', 'Algunas preguntas del cuestionario deben ser evaluadas de manera manual por el docente.', 'Regresar'],
+            texts_4: ['La evaluación ha sido terminada.', 'Terminado.', 'Terminado.', 'Volver', 'La revisión ha sido terminada.', 'La revisión ha sido terminada.', 'El resultado ha sido registrado satisfactoriamente.', 'Regresar', 'Apelar resultado', 'Retroalimentación.', 'Escriba un comentario de retroalimentación para este curso y su profesor podrá saber las areas de oportunidad en las evaluaciones.', 'Feedback', 'Enviar'],
         },
         "textIngles": {
-            texts_3: ['Evaluation is still pending.','Pending result.','Pending result.','Return','You must wait for your teacher to evaluate some questions.','You must wait for your teacher to evaluate some questions.','Some questions in the test must be evaluated manually by the teacher.','Return'],
-            texts_4: ['The evaluation has been finished.','Finished.','Finished.','Return','The review has been completed.','The review has been completed.','The result has been registered successfully.','Return','Appeal result','Feedback.','Write a feedback comment for this course and your teacher will know the areas of opportunity in the evaluations.','Feedback','Send'],
+            texts_3: ['Evaluation is still pending.', 'Pending result.', 'Pending result.', 'Return', 'You must wait for your teacher to evaluate some questions.', 'You must wait for your teacher to evaluate some questions.', 'Some questions in the test must be evaluated manually by the teacher.', 'Return'],
+            texts_4: ['The evaluation has been finished.', 'Finished.', 'Finished.', 'Return', 'The review has been completed.', 'The review has been completed.', 'The result has been registered successfully.', 'Return', 'Appeal result', 'Feedback.', 'Write a feedback comment for this course and your teacher will know the areas of opportunity in the evaluations.', 'Feedback', 'Send'],
         },
         "textPortugues": {
-            texts_3: ['A avaliação ainda está pendente.','Resultado pendente.','Resultado pendente.','Retornar','Você deve esperar que seu professor avalie algumas questões.','Você deve esperar que seu professor avalie algumas questões.','Algumas questões do questionário devem ser avaliadas manualmente pelo professor.','Voltar'],
-            texts_4: ['A avaliação foi finalizada.','Finalizado.','Finalizado.','Retornar','A revisão foi concluída.','A revisão foi concluída.','O resultado foi registrado com sucesso.','Voltar','Resultado da apelação','Comentários.','Escreva um comentário de feedback para este curso e seu professor saberá as áreas de oportunidade nas avaliações.','Comentários','Mandar'],
+            texts_3: ['A avaliação ainda está pendente.', 'Resultado pendente.', 'Resultado pendente.', 'Retornar', 'Você deve esperar que seu professor avalie algumas questões.', 'Você deve esperar que seu professor avalie algumas questões.', 'Algumas questões do questionário devem ser avaliadas manualmente pelo professor.', 'Voltar'],
+            texts_4: ['A avaliação foi finalizada.', 'Finalizado.', 'Finalizado.', 'Retornar', 'A revisão foi concluída.', 'A revisão foi concluída.', 'O resultado foi registrado com sucesso.', 'Voltar', 'Resultado da apelação', 'Comentários.', 'Escreva um comentário de feedback para este curso e seu professor saberá as áreas de oportunidade nas avaliações.', 'Comentários', 'Mandar'],
         },
         "textChino": {
-            texts_3: ['评估仍在进行中。','结果待定','结果待定','返回','你必须等待你的老师评估一些问题。','你必须等待你的老师评估一些问题。','问卷中有些问题必须由老师人工评价。','返回'],
-            texts_4: ['评估已完成。','完成的。','完成的。','返回','审核已完成。','审核已完成。','结果已注册成功。','返回','申诉结果','反馈。','为这门课程写一个反馈评论,你的老师就会知道评估中的机会领域。','反馈','发送']
+            texts_3: ['评估仍在进行中。', '结果待定', '结果待定', '返回', '你必须等待你的老师评估一些问题。', '你必须等待你的老师评估一些问题。', '问卷中有些问题必须由老师人工评价。', '返回'],
+            texts_4: ['评估已完成。', '完成的。', '完成的。', '返回', '审核已完成。', '审核已完成。', '结果已注册成功。', '返回', '申诉结果', '反馈。', '为这门课程写一个反馈评论,你的老师就会知道评估中的机会领域。', '反馈', '发送']
         }
     },
     "gestionar_resultados_alumno": {
         "textEspanol": {
-            texts: ['Mis resultados','Mis resultados','Mis resultados.','Volver','Panel global','Panel global','Estadísticas de interés','Cuestionarios totales.','Promedio global.','Mejor resultado.','A tiempo','Retresadas','Revisión pendiente','Revisión lista','Tests empezados','Aprobados','Reprobados','promedio','Tendencia.','Reportes','Puntajes/tipo pregunta.','Global','Opción múltiple','Rellenar espacios.','Ejercicios de código','Falso/verdadero','Preguntas abiertas','Relacionar conceptos']
+            texts: ['Mis resultados', 'Mis resultados', 'Mis resultados.', 'Volver', 'Panel global', 'Panel global', 'Estadísticas de interés', 'Cuestionarios totales.', 'Promedio global.', 'Mejor resultado.', 'A tiempo', 'Retresadas', 'Revisión pendiente', 'Revisión lista', 'Tests empezados', 'Aprobados', 'Reprobados', 'promedio', 'Tendencia.', 'Reportes', 'Puntajes/tipo pregunta.', 'Global', 'Opción múltiple', 'Rellenar espacios.', 'Ejercicios de código', 'Falso/verdadero', 'Preguntas abiertas', 'Relacionar conceptos']
         },
         "textIngles": {
-            texts: ['My results','My results','My results.','Return','Global Dashboard','Global Dashboard','Statistics of interest','Total tests.','Global average.','Best result.','On time','Delayed','Pending review','Review ready','Tests started',' Approved',' Failed',' Average','Trend.','Reports','Scores/question type.','Global','Multiple choice','Fill spaces.','Code exercises','False true','Open questions','Relate concepts']
+            texts: ['My results', 'My results', 'My results.', 'Return', 'Global Dashboard', 'Global Dashboard', 'Statistics of interest', 'Total tests.', 'Global average.', 'Best result.', 'On time', 'Delayed', 'Pending review', 'Review ready', 'Tests started', ' Approved', ' Failed', ' Average', 'Trend.', 'Reports', 'Scores/question type.', 'Global', 'Multiple choice', 'Fill spaces.', 'Code exercises', 'False true', 'Open questions', 'Relate concepts']
         },
         "textPortugues": {
-            texts: ['Meus resultados','Meus resultados','Meus resultados.','Retornar','Painel Global','Painel Global','Estatísticas de interesse','Total de questionários.','Média global.','Melhor resultado.','A tempo','Sem tempo','Revisão pendente','Revisão pronta','Testes iniciados','Aprovado','Fracassado','média','Tendência.','Relatórios','Tipo de pontuação/pergunta.','Global','Múltipla escolha','Preencher espaços.','Exercícios de código','Falso verdadeiro','Perguntas em aberto','Relacionar conceitos']
+            texts: ['Meus resultados', 'Meus resultados', 'Meus resultados.', 'Retornar', 'Painel Global', 'Painel Global', 'Estatísticas de interesse', 'Total de questionários.', 'Média global.', 'Melhor resultado.', 'A tempo', 'Sem tempo', 'Revisão pendente', 'Revisão pronta', 'Testes iniciados', 'Aprovado', 'Fracassado', 'média', 'Tendência.', 'Relatórios', 'Tipo de pontuação/pergunta.', 'Global', 'Múltipla escolha', 'Preencher espaços.', 'Exercícios de código', 'Falso verdadeiro', 'Perguntas em aberto', 'Relacionar conceitos']
         },
         "textChino": {
-            texts: ['我的成绩','我的成绩','我的结果。','返回','全球仪表板','全球仪表板','感兴趣的统计数据','问卷总数。','全球平均水平。','最好的结果。','准时','弱智','等待审核','审核准备就绪','测试开始','得到正式认可的','失败的','平均','趋势。','报告','分数/题型。','全球的','多项选择','填充空格。','代码练习','假真','开放式问题','相关概念']
+            texts: ['我的成绩', '我的成绩', '我的结果。', '返回', '全球仪表板', '全球仪表板', '感兴趣的统计数据', '问卷总数。', '全球平均水平。', '最好的结果。', '准时', '弱智', '等待审核', '审核准备就绪', '测试开始', '得到正式认可的', '失败的', '平均', '趋势。', '报告', '分数/题型。', '全球的', '多项选择', '填充空格。', '代码练习', '假真', '开放式问题', '相关概念']
         }
     },
     "editarPostAlumno": {
         "textEspanol": {
-            texts: ['Editar post.','Editar post.','Editar post.','Volver','Formulario de edición.','Formulario de edición.','Datos del POST','Titulo del post','Descripción del post','Multimedia','URL de imagen','Editar']
+            texts: ['Editar post.', 'Editar post.', 'Editar post.', 'Volver', 'Formulario de edición.', 'Formulario de edición.', 'Datos del POST', 'Titulo del post', 'Descripción del post', 'Multimedia', 'URL de imagen', 'Editar']
         },
         "textIngles": {
-            texts: ['Edit post.','Edit post.','Edit post.','Return','Edit form.','Edit form.','POST data','Post title','Post description','Multimedia','image url','Edit']
+            texts: ['Edit post.', 'Edit post.', 'Edit post.', 'Return', 'Edit form.', 'Edit form.', 'POST data', 'Post title', 'Post description', 'Multimedia', 'image url', 'Edit']
         },
         "textPortugues": {
-            texts: ['Editar post.','Editar post.','Editar post.','Retornar','Editar formulário.','Editar formulário.','Dados de postagem','Título da postagem','Descrição da postagem','Multimídia','imagem URL','Editar']
+            texts: ['Editar post.', 'Editar post.', 'Editar post.', 'Retornar', 'Editar formulário.', 'Editar formulário.', 'Dados de postagem', 'Título da postagem', 'Descrição da postagem', 'Multimídia', 'imagem URL', 'Editar']
         },
         "textChino": {
-            texts: ['编辑帖子。','编辑帖子。','编辑帖子。','返回','编辑表格。','编辑表格。','发布数据','帖子标题','帖子描述','多媒体','图片网址','编辑']
+            texts: ['编辑帖子。', '编辑帖子。', '编辑帖子。', '返回', '编辑表格。', '编辑表格。', '发布数据', '帖子标题', '帖子描述', '多媒体', '图片网址', '编辑']
         }
     },
     "editarPost": {
         "textEspanol": {
-            texts: ['Editar post.','Editar post.','Editar post.','Volver al inicio','Formulario de edición.','Formulario de edición.','Datos del POST','Titulo del post','Descripción del post','Multimedia','URL de imagen','Editar']
+            texts: ['Editar post.', 'Editar post.', 'Editar post.', 'Volver al inicio', 'Formulario de edición.', 'Formulario de edición.', 'Datos del POST', 'Titulo del post', 'Descripción del post', 'Multimedia', 'URL de imagen', 'Editar']
         },
         "textIngles": {
-            texts: ['Edit post.','Edit post.','Edit post.','Return','Edit form.','Edit form.','POST data','Post title','Post description','Multimedia','image url','Edit']
+            texts: ['Edit post.', 'Edit post.', 'Edit post.', 'Return', 'Edit form.', 'Edit form.', 'POST data', 'Post title', 'Post description', 'Multimedia', 'image url', 'Edit']
         },
         "textPortugues": {
-            texts: ['Editar post.','Editar post.','Editar post.','Voltar ao início','Editar formulário.','Editar formulário.','Dados de postagem','Título da postagem','Descrição da postagem','Multimídia','imagem URL','Editar']
+            texts: ['Editar post.', 'Editar post.', 'Editar post.', 'Voltar ao início', 'Editar formulário.', 'Editar formulário.', 'Dados de postagem', 'Título da postagem', 'Descrição da postagem', 'Multimídia', 'imagem URL', 'Editar']
         },
         "textChino": {
-            texts: ['编辑帖子。','编辑帖子。','编辑帖子。','回到顶部','编辑表格。','编辑表格。','发布数据','帖子标题','帖子描述','多媒体','图片网址','编辑']
+            texts: ['编辑帖子。', '编辑帖子。', '编辑帖子。', '回到顶部', '编辑表格。', '编辑表格。', '发布数据', '帖子标题', '帖子描述', '多媒体', '图片网址', '编辑']
         }
     },
     "gestionar_cuestionarios": {
         "textEspanol": {
-            texts_1: ['Gestión de cuestionarios.','Cuestionarios.','Cuestionarios.','Volver','Operaciones.','Crear cuestionario','Revisar','Buscador.','Buscar','Conteo.','Test hechos','Cuestionarios','Alumnos','Grupos','Cuestionarios creados','Cuestionarios creados'],
-            texts_2: ['No hay grupos creados.','No hay grupos.','No hay cuestionarios para mostrar.','Volver al inicio','Aún no crea grupos.','Aún no crea grupos.','Debe crear algún grupo para poder vincularlo a un cuestionario y dejar que sus alumnos los contesten.','Regresar']
+            texts_1: ['Gestión de cuestionarios.', 'Cuestionarios.', 'Cuestionarios.', 'Volver', 'Operaciones.', 'Crear cuestionario', 'Revisar', 'Buscador.', 'Buscar', 'Conteo.', 'Test hechos', 'Cuestionarios', 'Alumnos', 'Grupos', 'Cuestionarios creados', 'Cuestionarios creados'],
+            texts_2: ['No hay grupos creados.', 'No hay grupos.', 'No hay cuestionarios para mostrar.', 'Volver al inicio', 'Aún no crea grupos.', 'Aún no crea grupos.', 'Debe crear algún grupo para poder vincularlo a un cuestionario y dejar que sus alumnos los contesten.', 'Regresar']
         },
         "textIngles": {
-            texts_1: ['Management of tests.','Manage tests.','Manage tests.','Return','Operations.','Create test','Check','Browser.','Search','Count.','Tests done','Quiz','Students','Groups','Created tests','Created tests'],
-            texts_2: ['No groups created.','There are no groups.','There are no tests to display.','Return','Doesn\'t create groups yet.','Doesn\'t create groups yet.','You need to create some group to be able to link it to a quiz and let your students answer them.','Return']
+            texts_1: ['Management of tests.', 'Manage tests.', 'Manage tests.', 'Return', 'Operations.', 'Create test', 'Check', 'Browser.', 'Search', 'Count.', 'Tests done', 'Quiz', 'Students', 'Groups', 'Created tests', 'Created tests'],
+            texts_2: ['No groups created.', 'There are no groups.', 'There are no tests to display.', 'Return', 'Doesn\'t create groups yet.', 'Doesn\'t create groups yet.', 'You need to create some group to be able to link it to a quiz and let your students answer them.', 'Return']
         },
         "textPortugues": {
-            texts_1: ['Gestão de questionários.','Questionário.','Questionário.','Retornar','Operações.','Criar questionário','Verificar','Buscador.','Procurar','Contar.','Testes feitos','Questionário','Estudantes','Grupos','Questionários criados','Questionários criados'],
-            texts_2: ['Nenhum grupo criado.','Não há grupos.','Não há questionários para exibir.','Voltar ao início','Ainda não cria grupos.','Ainda não cria grupos.','Você precisa criar algum grupo para poder vinculá-lo a um questionário e permitir que seus alunos respondam.','Voltar']
+            texts_1: ['Gestão de questionários.', 'Questionário.', 'Questionário.', 'Retornar', 'Operações.', 'Criar questionário', 'Verificar', 'Buscador.', 'Procurar', 'Contar.', 'Testes feitos', 'Questionário', 'Estudantes', 'Grupos', 'Questionários criados', 'Questionários criados'],
+            texts_2: ['Nenhum grupo criado.', 'Não há grupos.', 'Não há questionários para exibir.', 'Voltar ao início', 'Ainda não cria grupos.', 'Ainda não cria grupos.', 'Você precisa criar algum grupo para poder vinculá-lo a um questionário e permitir que seus alunos respondam.', 'Voltar']
         },
         "textChino": {
-            texts_1: ['问卷的管理。','测验。','测验。','返回','操作','创建问卷','查看','探索者','搜索','数数。','测试完成','测验','学生','团体','创建问卷','创建问卷'],
-            texts_2: ['没有创建组。','没有组。','没有要显示的问卷。','回到顶部','尚未创建群组。','尚未创建群组。','你需要创建一些小组才能将其链接到测验并让你的学生回答。','返回']
+            texts_1: ['问卷的管理。', '测验。', '测验。', '返回', '操作', '创建问卷', '查看', '探索者', '搜索', '数数。', '测试完成', '测验', '学生', '团体', '创建问卷', '创建问卷'],
+            texts_2: ['没有创建组。', '没有组。', '没有要显示的问卷。', '回到顶部', '尚未创建群组。', '尚未创建群组。', '你需要创建一些小组才能将其链接到测验并让你的学生回答。', '返回']
         }
     },
     "editCuestionario": {
         "textEspanol": {
-            texts: ['Editar datos del cuestionarios.','Información adicional.','Información adicional.','Volver','Estructura principal','Datos adicionales','Formulario de edición.','Datos de creación','Autor del cuestionario','Fecha de Creación','Tiempo de la prueba','Hora límite para resolver','Día límite para resolver','Tiempo cuenta regresiva (hh:mm)','Número de intentos','Datos del cuestionario','Nombre de cuestionario','Temas del cuestionario','Escriba el tipo','Aleatorio','Por orden de creación','Por tipo de pregunta','Orden de cuestionario','Escriba el lenguaje','Editar'],
+            texts: ['Editar datos del cuestionarios.', 'Información adicional.', 'Información adicional.', 'Volver', 'Estructura principal', 'Datos adicionales', 'Formulario de edición.', 'Datos de creación', 'Autor del cuestionario', 'Fecha de Creación', 'Tiempo de la prueba', 'Hora límite para resolver', 'Día límite para resolver', 'Tiempo cuenta regresiva (hh:mm)', 'Número de intentos', 'Datos del cuestionario', 'Nombre de cuestionario', 'Temas del cuestionario', 'Escriba el tipo', 'Aleatorio', 'Por orden de creación', 'Por tipo de pregunta', 'Orden de cuestionario', 'Escriba el lenguaje', 'Editar'],
         },
         "textIngles": {
-            texts: ['Edit test data.','Additional Information.','Additional Information.','Return','Principal structure','Additional data','Edit form.','Creation data','Author of the test','Creation date','Trial time','Deadline time to solve','Deadline day to solve','Countdown time (hh:mm)','Number of attemps','test data','Quiz name','Quiz Topics','Type the type','Random','By order of creation','By type of question','Quiz Order','Type the language','Edit'],
+            texts: ['Edit test data.', 'Additional Information.', 'Additional Information.', 'Return', 'Principal structure', 'Additional data', 'Edit form.', 'Creation data', 'Author of the test', 'Creation date', 'Trial time', 'Deadline time to solve', 'Deadline day to solve', 'Countdown time (hh:mm)', 'Number of attemps', 'test data', 'Quiz name', 'Quiz Topics', 'Type the type', 'Random', 'By order of creation', 'By type of question', 'Quiz Order', 'Type the language', 'Edit'],
         },
         "textPortugues": {
-            texts: ['Editar dados do questionário.','Informação adicional.','Informação adicional.','Retornar','Estrutura principal','Dados adicionais','Editar formulário.','Dados de criação','Autor do questionário','Data de criação','Tempo de prova','Prazo para resolver','Dia do prazo para resolver','Tempo de contagem regressiva (hh:mm)','Número de tentativas','Dados do questionário','Nome do questionário','Tópicos do questionário','Digite o tipo','Aleatório','Por ordem de criação','Por tipo de pergunta','Pedido do questionário','Digite o idioma','Editar'],
+            texts: ['Editar dados do questionário.', 'Informação adicional.', 'Informação adicional.', 'Retornar', 'Estrutura principal', 'Dados adicionais', 'Editar formulário.', 'Dados de criação', 'Autor do questionário', 'Data de criação', 'Tempo de prova', 'Prazo para resolver', 'Dia do prazo para resolver', 'Tempo de contagem regressiva (hh:mm)', 'Número de tentativas', 'Dados do questionário', 'Nome do questionário', 'Tópicos do questionário', 'Digite o tipo', 'Aleatório', 'Por ordem de criação', 'Por tipo de pergunta', 'Pedido do questionário', 'Digite o idioma', 'Editar'],
         },
         "textChino": {
-            texts: ['编辑问卷数据。','附加信息。','附加信息。','返回','主体结构','附加数据','编辑表格。','创建数据','问卷作者','创建日期','试用时间','截止时间解决','deadline day to solve','倒计时 (hh:mm)','尝试次数','问卷数据','测验名称','测验主题','输入类型','随机的','按创建顺序','按问题类型','测验订单','输入语言','编辑'],
+            texts: ['编辑问卷数据。', '附加信息。', '附加信息。', '返回', '主体结构', '附加数据', '编辑表格。', '创建数据', '问卷作者', '创建日期', '试用时间', '截止时间解决', 'deadline day to solve', '倒计时 (hh:mm)', '尝试次数', '问卷数据', '测验名称', '测验主题', '输入类型', '随机的', '按创建顺序', '按问题类型', '测验订单', '输入语言', '编辑'],
         }
     },
     "creacion_cuestionarios": {
         "textEspanol": {
-            texts: ['Crear cuestionario.','Crear cuestionario.','Crear cuestionario.','Volver','Tipos de pregunta','Opción múltiple','Rellenar espacios','Ejercicios','Arrastrar','Falso/Verdadero','Pregunta abierta','Mis cuestionarios','Banco de preguntas','Titulo del cuestionario','Listo','Generando archivo JSON','El cuestionario será almacenado como archivo JSON, usted puede guardar una copia del cuestionario si asi lo desea.','Puede anexar algún JSON que haya descargado previamente.','Preview de cuestionario JSON','Descargar','Guardar','Duplica cuestionario guardado','Seleccione algún JSON que ya estuviera en existencia de cuestionarios anteriores. ','Secreará una copia del documento y usted podra editar la data.','Cuestionarios anteriores.','Archivo de cuestionario','Cargar/Duplicar','Estructura principal','Datos adicionales','Opción multiple','Diseñe preguntas de opción múltiples primero definiendo la preguntas, luego las opciones y por último la opción correcta.','Defina la pregunta','Describa la pregunta o interrogante a responder.','Pregunta','Imagen del problema(url)','Defina las opciones','Escriba las posibles opciones para la pregunta que se planteó y determine la respuesta correcta.','Correcta','Opción A','Correcta','Opción B','Correcta','Opción C','Correcta','Opción D','Guardar','Agregar','Limpiar todo','Rellenar espacios','Ingrese un texto en el formulario, y posteriormente agregue los espacio en el texto de modo que el estudiante pueda completar con la respuesta correcta.','Defina el texto','Escriba la estructura que tendra el texto.','Escriba el texto a completar','Defina los espacios','Agregue espacio a la estructura del texto de modo que puedan ser acompletados por el estudiante.','Guardar','Espacio','Espacio','Ejercicios','Ingrese la descripción de un ejercicio y adjunte un código para retroalimentar el ejercicio una vez que el estudiante suba su propuesta de solución al problema que usted planteó','Describa el ejercicio','Escriba una descripción del problema/ejercicios a resolver para que sus alumnos conozcan a que resultado llegar.','Descripción del problema','Imagen (url)','Salida esperada (opcional)','Código de retroalimentación','Escriba el código con la propuesta de solución para que el alumno pueda recibir retroalimentación, puede anexar un documento para leer el código o inclusive adjuntar algún enlace para dar acceso a documentos en linea.','Código de archivo','Adjuntar enlace a carpeta online (múltiples archivos)','Enlace de carpeta','Código escrito manualmente','Código a mano','Vista previa del código','Guardar','Limpiar','Arrastrar y ordenar','Ingrese en la columna A el concepto y en la columna B la definición (el concepto y la definición deben estar a la misma altura)','Descripción del ejercicio','Descripción del ejercicio','Conceptos (A)','Definiciones (B)','Guardar','Agregar','Eliminar','Falso y verdadero','Ingrese una pregunta y determine la opción correcta','Pregunta','Pregunta','Respuesta','Escribe F en caso de que sea falso o T en caso de que sea verdad.','Guardar','Pregunta abierta','Ingrese una pregunta (esta pregunta requiere revisión manual por parte del docente)','Pregunta','Pregunta','Video (opcional)','Imagen (opcional)','Guardar']
+            texts: ['Crear cuestionario.', 'Crear cuestionario.', 'Crear cuestionario.', 'Volver', 'Tipos de pregunta', 'Opción múltiple', 'Rellenar espacios', 'Ejercicios', 'Arrastrar', 'Falso/Verdadero', 'Pregunta abierta', 'Mis cuestionarios', 'Banco de preguntas', 'Titulo del cuestionario', 'Listo', 'Generando archivo JSON', 'El cuestionario será almacenado como archivo JSON, usted puede guardar una copia del cuestionario si asi lo desea.', 'Puede anexar algún JSON que haya descargado previamente.', 'Preview de cuestionario JSON', 'Descargar', 'Guardar', 'Duplica cuestionario guardado', 'Seleccione algún JSON que ya estuviera en existencia de cuestionarios anteriores. ', 'Secreará una copia del documento y usted podra editar la data.', 'Cuestionarios anteriores.', 'Archivo de cuestionario', 'Cargar/Duplicar', 'Estructura principal', 'Datos adicionales', 'Opción multiple', 'Diseñe preguntas de opción múltiples primero definiendo la preguntas, luego las opciones y por último la opción correcta.', 'Defina la pregunta', 'Describa la pregunta o interrogante a responder.', 'Pregunta', 'Imagen del problema(url)', 'Defina las opciones', 'Escriba las posibles opciones para la pregunta que se planteó y determine la respuesta correcta.', 'Correcta', 'Opción A', 'Correcta', 'Opción B', 'Correcta', 'Opción C', 'Correcta', 'Opción D', 'Guardar', 'Agregar', 'Limpiar todo', 'Rellenar espacios', 'Ingrese un texto en el formulario, y posteriormente agregue los espacio en el texto de modo que el estudiante pueda completar con la respuesta correcta.', 'Defina el texto', 'Escriba la estructura que tendra el texto.', 'Escriba el texto a completar', 'Defina los espacios', 'Agregue espacio a la estructura del texto de modo que puedan ser acompletados por el estudiante.', 'Guardar', 'Espacio', 'Espacio', 'Ejercicios', 'Ingrese la descripción de un ejercicio y adjunte un código para retroalimentar el ejercicio una vez que el estudiante suba su propuesta de solución al problema que usted planteó', 'Describa el ejercicio', 'Escriba una descripción del problema/ejercicios a resolver para que sus alumnos conozcan a que resultado llegar.', 'Descripción del problema', 'Imagen (url)', 'Salida esperada (opcional)', 'Código de retroalimentación', 'Escriba el código con la propuesta de solución para que el alumno pueda recibir retroalimentación, puede anexar un documento para leer el código o inclusive adjuntar algún enlace para dar acceso a documentos en linea.', 'Código de archivo', 'Adjuntar enlace a carpeta online (múltiples archivos)', 'Enlace de carpeta', 'Código escrito manualmente', 'Código a mano', 'Vista previa del código', 'Guardar', 'Limpiar', 'Arrastrar y ordenar', 'Ingrese en la columna A el concepto y en la columna B la definición (el concepto y la definición deben estar a la misma altura)', 'Descripción del ejercicio', 'Descripción del ejercicio', 'Conceptos (A)', 'Definiciones (B)', 'Guardar', 'Agregar', 'Eliminar', 'Falso y verdadero', 'Ingrese una pregunta y determine la opción correcta', 'Pregunta', 'Pregunta', 'Respuesta', 'Escribe F en caso de que sea falso o T en caso de que sea verdad.', 'Guardar', 'Pregunta abierta', 'Ingrese una pregunta (esta pregunta requiere revisión manual por parte del docente)', 'Pregunta', 'Pregunta', 'Video (opcional)', 'Imagen (opcional)', 'Guardar']
         },
         "textIngles": {
-            texts: ['Create test.','Create test.','Create test.','Return','Question types','Multiple choice','Fill in the blanks','Training','Drag','False true','Open question','My tests','Question bank','Title of the test','Done','Generating JSON file','The test will be stored as a JSON file, you can save a copy of the test if you wish.','You can append some JSON that you have previously downloaded.','JSON test preview','Download','Save','Duplicate saved test','Select any JSON that was already in stock from previous tests. ','A copy of the document will be created and you will be able to edit the data.','Previous tests.','Quiz file','Load/Duplicate','Principal structure','Additional data','Multiple choice','Design multiple choice questions by first defining the question, then the options, and finally the correct option.','Define the question','Describe the question or query to answer.','Question','Problem image(url)','Define the options','Write down the possible options for the question that was asked and determine the correct answer.','correct','Option A','correct','Option B','correct','Option C','correct','Option D','Save','Add','Clear all','Fill in the blanks','Enter a text in the form, and then add spaces in the text so that the student can fill in the correct answer.','Define the text','Write the structure that the text will have.','Write the text to complete','Define spaces','Add space to the structure of the text so that they can be completed by the student.','Save','Space','Space','Training','Enter the description of an exercise and attach a code to provide feedback to the exercise once the student uploads their proposed solution to the problem you raised','Describe the exercise','Write a description of the problem/exercises to be solved so that your students know what result to arrive at.','Description of the problem','image(url)','Expected output (optional)','Feedback code','Write the code with the solution proposal so that the student can receive feedback, you can attach a document to read the code or even attach a link to give access to online documents.','file code','Attach link to online folder (multiple files)','folder link','Manually written code','Code by hand','Code preview','Save','Clean up','Drag and Sort','Enter in column A the concept and in column B the definition (the concept and the definition must be at the same height)','Description of the exercise','Description of the exercise','Concepts (A)','Definitions (B)','Save','Add','Remove','False and true','Enter a question and determine the correct option','Question','Question','Response','Write F if it is false or T if it is true.','Save','Open question','Enter a question (this question requires manual review by the teacher)','Question','Question','Video (optional)','Image (optional)','Save']
+            texts: ['Create test.', 'Create test.', 'Create test.', 'Return', 'Question types', 'Multiple choice', 'Fill in the blanks', 'Training', 'Drag', 'False true', 'Open question', 'My tests', 'Question bank', 'Title of the test', 'Done', 'Generating JSON file', 'The test will be stored as a JSON file, you can save a copy of the test if you wish.', 'You can append some JSON that you have previously downloaded.', 'JSON test preview', 'Download', 'Save', 'Duplicate saved test', 'Select any JSON that was already in stock from previous tests. ', 'A copy of the document will be created and you will be able to edit the data.', 'Previous tests.', 'Quiz file', 'Load/Duplicate', 'Principal structure', 'Additional data', 'Multiple choice', 'Design multiple choice questions by first defining the question, then the options, and finally the correct option.', 'Define the question', 'Describe the question or query to answer.', 'Question', 'Problem image(url)', 'Define the options', 'Write down the possible options for the question that was asked and determine the correct answer.', 'correct', 'Option A', 'correct', 'Option B', 'correct', 'Option C', 'correct', 'Option D', 'Save', 'Add', 'Clear all', 'Fill in the blanks', 'Enter a text in the form, and then add spaces in the text so that the student can fill in the correct answer.', 'Define the text', 'Write the structure that the text will have.', 'Write the text to complete', 'Define spaces', 'Add space to the structure of the text so that they can be completed by the student.', 'Save', 'Space', 'Space', 'Training', 'Enter the description of an exercise and attach a code to provide feedback to the exercise once the student uploads their proposed solution to the problem you raised', 'Describe the exercise', 'Write a description of the problem/exercises to be solved so that your students know what result to arrive at.', 'Description of the problem', 'image(url)', 'Expected output (optional)', 'Feedback code', 'Write the code with the solution proposal so that the student can receive feedback, you can attach a document to read the code or even attach a link to give access to online documents.', 'file code', 'Attach link to online folder (multiple files)', 'folder link', 'Manually written code', 'Code by hand', 'Code preview', 'Save', 'Clean up', 'Drag and Sort', 'Enter in column A the concept and in column B the definition (the concept and the definition must be at the same height)', 'Description of the exercise', 'Description of the exercise', 'Concepts (A)', 'Definitions (B)', 'Save', 'Add', 'Remove', 'False and true', 'Enter a question and determine the correct option', 'Question', 'Question', 'Response', 'Write F if it is false or T if it is true.', 'Save', 'Open question', 'Enter a question (this question requires manual review by the teacher)', 'Question', 'Question', 'Video (optional)', 'Image (optional)', 'Save']
         },
         "textPortugues": {
-            texts: ['Criar questionário.','Criar questionário.','Criar questionário.','Retornar','Tipos de perguntas','Múltipla escolha','Preencha os espaços em branco','Treinamento','Arrastar','Falso verdadeiro','Questão aberta','Meus questionários','Banco de perguntas','Título do questionário','Seguir','Gerando arquivo JSON','O questionário será armazenado como um arquivo JSON, você pode salvar uma cópia do questionário, se desejar.','Você pode anexar algum JSON que você baixou anteriormente.','Visualização do questionário JSON','Descarga','Salvar','Questionário salvo duplicado','Selecione qualquer JSON que já estava em estoque de questionários anteriores. ','Será criada uma cópia do documento e você poderá editar os dados.','Questionários anteriores.','Arquivo de questionário','Carregar/Duplicar','Estrutura principal','Dados adicionais','Múltipla escolha','Projete perguntas de múltipla escolha definindo primeiro a pergunta, depois as opções e, finalmente, a opção correta.','Definir a pergunta','Descreva a pergunta ou consulta a ser respondida.','Perguntar','Imagem com problema (url)','Definir as opções','Escreva as opções possíveis para a pergunta que foi feita e determine a resposta correta.','correto','Opção A','correto','Opção B','correto','Opção C','correto','Opção D','Salvar','Adicionar','Limpar tudo','Preencha os espaços em branco','Insira um texto no formulário e, em seguida, adicione espaços no texto para que o aluno possa preencher a resposta correta.','Definir o texto','Escreva a estrutura que o texto terá.','Escreva o texto para completar','Definir espaços','Adicionar espaço à estrutura do texto para que possam ser completados pelo aluno.','Salvar','Espaço','Espaço','Treinamento','Digite a descrição de um exercício e anexe um código para fornecer feedback ao exercício assim que o aluno enviar sua proposta de solução para o problema que você levantou','Descreva o exercício','Escreva uma descrição do problema/exercícios a serem resolvidos para que seus alunos saibam a que resultado chegar.','Descrição do problema','imagem URL)','Saída esperada (opcional)','Código de feedback','Escreva o código com a proposta de solução para que o aluno possa receber feedback, você pode anexar um documento para ler o código ou até mesmo anexar um link para dar acesso a documentos online.','código de arquivo','Anexar link à pasta online (vários arquivos)','link da pasta','Código escrito manualmente','Código à mão','Visualização do código','Salvar','Limpar','Arrastar e Classificar','Digite na coluna A o conceito e na coluna B a definição (o conceito e a definição devem estar na mesma altura)','Descrição do exercício','Descrição do exercício','Conceitos (A)','Definições (B)','Salvar','Adicionar','Remover','Falso e verdadeiro','Digite uma pergunta e determine a opção correta','Perguntar','Perguntar','Resposta','Escreva F se for falso ou T se for verdadeiro.','Salvar','Questão aberta','Digite uma pergunta (esta pergunta requer revisão manual pelo professor)','Perguntar','Perguntar','Vídeo (opcional)','Imagem (opcional)','Salvar']
+            texts: ['Criar questionário.', 'Criar questionário.', 'Criar questionário.', 'Retornar', 'Tipos de perguntas', 'Múltipla escolha', 'Preencha os espaços em branco', 'Treinamento', 'Arrastar', 'Falso verdadeiro', 'Questão aberta', 'Meus questionários', 'Banco de perguntas', 'Título do questionário', 'Seguir', 'Gerando arquivo JSON', 'O questionário será armazenado como um arquivo JSON, você pode salvar uma cópia do questionário, se desejar.', 'Você pode anexar algum JSON que você baixou anteriormente.', 'Visualização do questionário JSON', 'Descarga', 'Salvar', 'Questionário salvo duplicado', 'Selecione qualquer JSON que já estava em estoque de questionários anteriores. ', 'Será criada uma cópia do documento e você poderá editar os dados.', 'Questionários anteriores.', 'Arquivo de questionário', 'Carregar/Duplicar', 'Estrutura principal', 'Dados adicionais', 'Múltipla escolha', 'Projete perguntas de múltipla escolha definindo primeiro a pergunta, depois as opções e, finalmente, a opção correta.', 'Definir a pergunta', 'Descreva a pergunta ou consulta a ser respondida.', 'Perguntar', 'Imagem com problema (url)', 'Definir as opções', 'Escreva as opções possíveis para a pergunta que foi feita e determine a resposta correta.', 'correto', 'Opção A', 'correto', 'Opção B', 'correto', 'Opção C', 'correto', 'Opção D', 'Salvar', 'Adicionar', 'Limpar tudo', 'Preencha os espaços em branco', 'Insira um texto no formulário e, em seguida, adicione espaços no texto para que o aluno possa preencher a resposta correta.', 'Definir o texto', 'Escreva a estrutura que o texto terá.', 'Escreva o texto para completar', 'Definir espaços', 'Adicionar espaço à estrutura do texto para que possam ser completados pelo aluno.', 'Salvar', 'Espaço', 'Espaço', 'Treinamento', 'Digite a descrição de um exercício e anexe um código para fornecer feedback ao exercício assim que o aluno enviar sua proposta de solução para o problema que você levantou', 'Descreva o exercício', 'Escreva uma descrição do problema/exercícios a serem resolvidos para que seus alunos saibam a que resultado chegar.', 'Descrição do problema', 'imagem URL)', 'Saída esperada (opcional)', 'Código de feedback', 'Escreva o código com a proposta de solução para que o aluno possa receber feedback, você pode anexar um documento para ler o código ou até mesmo anexar um link para dar acesso a documentos online.', 'código de arquivo', 'Anexar link à pasta online (vários arquivos)', 'link da pasta', 'Código escrito manualmente', 'Código à mão', 'Visualização do código', 'Salvar', 'Limpar', 'Arrastar e Classificar', 'Digite na coluna A o conceito e na coluna B a definição (o conceito e a definição devem estar na mesma altura)', 'Descrição do exercício', 'Descrição do exercício', 'Conceitos (A)', 'Definições (B)', 'Salvar', 'Adicionar', 'Remover', 'Falso e verdadeiro', 'Digite uma pergunta e determine a opção correta', 'Perguntar', 'Perguntar', 'Resposta', 'Escreva F se for falso ou T se for verdadeiro.', 'Salvar', 'Questão aberta', 'Digite uma pergunta (esta pergunta requer revisão manual pelo professor)', 'Perguntar', 'Perguntar', 'Vídeo (opcional)', 'Imagem (opcional)', 'Salvar']
         },
         "textChino": {
-            texts: ['创建问卷。','创建问卷。','创建问卷。','返回','问题类型','多项选择','填空','训练','拖','假真','开放式问题','我的问卷','问题库','问卷标题','聪明的','生成 JSON 文件','问卷将存储为 JSON 文件,如果您愿意,可以保存问卷的副本。','您可以附加一些您之前下载的 JSON。','JSON问卷预览','释放','节省','重复保存问卷','从以前的问卷中选择任何已经存货的 JSON。 ','将创建文档的副本,您将能够编辑数据。','以前的问卷调查。','测验文件','加载/复制','主体结构','附加数据','多项选择','通过首先定义问题,然后是选项,最后是正确选项来设计多项选择题。','定义问题','描述要回答的问题或查询。','问','问题图片(网址)','定义选项','写下所问问题的可能选项并确定正确答案。','正确的','选项A','正确的','选项 B','正确的','选项C','正确的','选项D','节省','添加','全部清除','填空','在表格中输入一段文字,然后在文字中添加空格,以便学生填写正确答案。','定义文本','写下文本的结构。','写完文字','定义空间','在文本结构中添加空格,以便学生完成。','节省','空间','空间','训练','输入练习的描述并附上代码,以便在学生上传他们针对您提出的问题的建议解决方案后向练习提供反馈','描述练习','写下要解决的问题/练习的描述,以便您的学生知道要达到什么结果。','问题描述','图片(网址)','预期输出(可选)','反馈代码','用解决方案提案编写代码,以便学生可以收到反馈,您可以附上文档以阅读代码,甚至可以附上链接以访问在线文档。','文件代码','附加在线文件夹的链接(多个文件)','文件夹链接','手写代码','手工编码','代码预览','节省','清理','拖放排序','在A列输入概念,在B列输入定义(概念和定义必须在同一高度)','练习描述','练习描述','概念(A)','定义(B)','节省','添加','消除','虚假和真实','输入问题并确定正确的选项','问','问','回复','如果为假则写 F,如果为真则写 T。','节省','开放式问题','输入一道题(此题需要老师人工审核)','问','问','视频(可选)','图片(可选)','节省']
+            texts: ['创建问卷。', '创建问卷。', '创建问卷。', '返回', '问题类型', '多项选择', '填空', '训练', '拖', '假真', '开放式问题', '我的问卷', '问题库', '问卷标题', '聪明的', '生成 JSON 文件', '问卷将存储为 JSON 文件,如果您愿意,可以保存问卷的副本。', '您可以附加一些您之前下载的 JSON。', 'JSON问卷预览', '释放', '节省', '重复保存问卷', '从以前的问卷中选择任何已经存货的 JSON。 ', '将创建文档的副本,您将能够编辑数据。', '以前的问卷调查。', '测验文件', '加载/复制', '主体结构', '附加数据', '多项选择', '通过首先定义问题,然后是选项,最后是正确选项来设计多项选择题。', '定义问题', '描述要回答的问题或查询。', '问', '问题图片(网址)', '定义选项', '写下所问问题的可能选项并确定正确答案。', '正确的', '选项A', '正确的', '选项 B', '正确的', '选项C', '正确的', '选项D', '节省', '添加', '全部清除', '填空', '在表格中输入一段文字,然后在文字中添加空格,以便学生填写正确答案。', '定义文本', '写下文本的结构。', '写完文字', '定义空间', '在文本结构中添加空格,以便学生完成。', '节省', '空间', '空间', '训练', '输入练习的描述并附上代码,以便在学生上传他们针对您提出的问题的建议解决方案后向练习提供反馈', '描述练习', '写下要解决的问题/练习的描述,以便您的学生知道要达到什么结果。', '问题描述', '图片(网址)', '预期输出(可选)', '反馈代码', '用解决方案提案编写代码,以便学生可以收到反馈,您可以附上文档以阅读代码,甚至可以附上链接以访问在线文档。', '文件代码', '附加在线文件夹的链接(多个文件)', '文件夹链接', '手写代码', '手工编码', '代码预览', '节省', '清理', '拖放排序', '在A列输入概念,在B列输入定义(概念和定义必须在同一高度)', '练习描述', '练习描述', '概念(A)', '定义(B)', '节省', '添加', '消除', '虚假和真实', '输入问题并确定正确的选项', '问', '问', '回复', '如果为假则写 F,如果为真则写 T。', '节省', '开放式问题', '输入一道题(此题需要老师人工审核)', '问', '问', '视频(可选)', '图片(可选)', '节省']
         }
     },
     "guardarCuestionarioJSON": {
         "textEspanol": {
-            texts: ['Información adicional.','Información adicional.','Información adicional.','Volver','Estructura principal','Datos adicionales','Formulario de finalización.','Datos de creación','Autor del cuestionario','Fecha de Creación','Tiempo de la prueba','Hora límite para resolver','Día límite para resolver','Tiempo cuenta regresiva (hh:mm)','Número de intentos','Datos del cuestionario','Nombre de cuestionario','Temas del cuestionario','Diagnóstico','Autodiagnóstico','Autoevaluación','Parcial','Final','Práctica','Juego','Otro','Tipo de cuestionario','Aleatorio','Por orden de creación','Por tipo de pregunta','Orden de cuestionario','Escriba el tipo','Otro','Lenguaje del cuestionario','Escriba el lenguaje','Grupo del cuestionario','Guardar']
+            texts: ['Información adicional.', 'Información adicional.', 'Información adicional.', 'Volver', 'Estructura principal', 'Datos adicionales', 'Formulario de finalización.', 'Datos de creación', 'Autor del cuestionario', 'Fecha de Creación', 'Tiempo de la prueba', 'Hora límite para resolver', 'Día límite para resolver', 'Tiempo cuenta regresiva (hh:mm)', 'Número de intentos', 'Datos del cuestionario', 'Nombre de cuestionario', 'Temas del cuestionario', 'Diagnóstico', 'Autodiagnóstico', 'Autoevaluación', 'Parcial', 'Final', 'Práctica', 'Juego', 'Otro', 'Tipo de cuestionario', 'Aleatorio', 'Por orden de creación', 'Por tipo de pregunta', 'Orden de cuestionario', 'Escriba el tipo', 'Otro', 'Lenguaje del cuestionario', 'Escriba el lenguaje', 'Grupo del cuestionario', 'Guardar']
         },
         "textIngles": {
-            texts: ['Additional Information.','Additional Information.','Additional Information.','Return','Principal structure','Additional data','Completion form.','Creation data','Author of the test','Creation date','Trial time','Deadline time to solve','Deadline day to solve','Countdown time (hh:mm)','Number of attemps','test data','Quiz name','Quiz Topics','Diagnosis','Auto diagnosis','Self appraisal','Partial','Final','Practice','Play','Other','Quiz type','Random','By order of creation','By type of question','Quiz Order','Type the type','Other','test language','Type the language','test group','Save']
+            texts: ['Additional Information.', 'Additional Information.', 'Additional Information.', 'Return', 'Principal structure', 'Additional data', 'Completion form.', 'Creation data', 'Author of the test', 'Creation date', 'Trial time', 'Deadline time to solve', 'Deadline day to solve', 'Countdown time (hh:mm)', 'Number of attemps', 'test data', 'Quiz name', 'Quiz Topics', 'Diagnosis', 'Auto diagnosis', 'Self appraisal', 'Partial', 'Final', 'Practice', 'Play', 'Other', 'Quiz type', 'Random', 'By order of creation', 'By type of question', 'Quiz Order', 'Type the type', 'Other', 'test language', 'Type the language', 'test group', 'Save']
         },
         "textPortugues": {
-            texts: ['Informação adicional.','Informação adicional.','Informação adicional.','Retornar','Estrutura principal','Dados adicionais','Formulário de preenchimento.','Dados de criação','Autor do questionário','Data de criação','Tempo de prova','Prazo para resolver','Dia do prazo para resolver','Tempo de contagem regressiva (hh:mm)','Número de tentativas','Dados do questionário','Nome do questionário','Tópicos do questionário','Diagnóstico','Autodiagnóstico','Auto-avaliação','Parcial','Final','Prática','Toque','Outro','Tipo de questionário','Aleatório','Por ordem de criação','Por tipo de pergunta','Pedido do questionário','Digite o tipo','Outro','Linguagem do questionário','Digite o idioma','Grupo de questionário','Salvar']
+            texts: ['Informação adicional.', 'Informação adicional.', 'Informação adicional.', 'Retornar', 'Estrutura principal', 'Dados adicionais', 'Formulário de preenchimento.', 'Dados de criação', 'Autor do questionário', 'Data de criação', 'Tempo de prova', 'Prazo para resolver', 'Dia do prazo para resolver', 'Tempo de contagem regressiva (hh:mm)', 'Número de tentativas', 'Dados do questionário', 'Nome do questionário', 'Tópicos do questionário', 'Diagnóstico', 'Autodiagnóstico', 'Auto-avaliação', 'Parcial', 'Final', 'Prática', 'Toque', 'Outro', 'Tipo de questionário', 'Aleatório', 'Por ordem de criação', 'Por tipo de pergunta', 'Pedido do questionário', 'Digite o tipo', 'Outro', 'Linguagem do questionário', 'Digite o idioma', 'Grupo de questionário', 'Salvar']
         },
         "textChino": {
-            texts: ['附加信息。','附加信息。','附加信息。','返回','主体结构','附加数据','完成表格。','创建数据','问卷作者','创建日期','试用时间','截止时间解决','deadline day to solve','倒计时 (hh:mm)','尝试次数','问卷数据','测验名称','测验主题','诊断','自动诊断','自我评估','部分的','最后','实践','玩','其他','测验类型','随机的','按创建顺序','按问题类型','测验订单','输入类型','其他','问卷语言','输入语言','问卷组','节省']
+            texts: ['附加信息。', '附加信息。', '附加信息。', '返回', '主体结构', '附加数据', '完成表格。', '创建数据', '问卷作者', '创建日期', '试用时间', '截止时间解决', 'deadline day to solve', '倒计时 (hh:mm)', '尝试次数', '问卷数据', '测验名称', '测验主题', '诊断', '自动诊断', '自我评估', '部分的', '最后', '实践', '玩', '其他', '测验类型', '随机的', '按创建顺序', '按问题类型', '测验订单', '输入类型', '其他', '问卷语言', '输入语言', '问卷组', '节省']
         }
     },
     "gestionar_estadisticas": {
         "textEspanol": {
-            texts_1: ['Administrar estadísticas.','Estadísticas.','Estadísticas.','Devolver','Grupos','Pruebas','Estudiantes','Visión general','Visión general','Grupos','Estudiantes','Pruebas','Promedio global','Número de grupos','Numero de estudiantes','Número de cuestionarios','Promedio global','Gráficos globales','Gráficos globales','Promedio general de grupos.','Aprobación general del grupo.','Informe mundial','Gráficos globales','Gráficos globales','Cuestionarios generales de Insights.','Cuestionarios generales de Insights 2.','Informe general','Lista de alumnos','Lista de alumnos','Grupos.','Comentarios de estudiantes.','Comentarios de los estudiantes.'],
-            texts_2: ['No hay estadísticas.','No hay estadísticas.','No hay estadísticas para mostrar.','Volver al inicio','Aún nadie constesta los cuestionarios.','Aún nadie constesta los cuestionarios.','Debe compartir sus su link de grupo y esperar a que sus estudiantes contesten los cuestionarios para poder ver estadísticas.','Regresar']
+            texts_1: ['Administrar estadísticas.', 'Estadísticas.', 'Estadísticas.', 'Devolver', 'Grupos', 'Pruebas', 'Estudiantes', 'Visión general', 'Visión general', 'Grupos', 'Estudiantes', 'Pruebas', 'Promedio global', 'Número de grupos', 'Numero de estudiantes', 'Número de cuestionarios', 'Promedio global', 'Gráficos globales', 'Gráficos globales', 'Promedio general de grupos.', 'Aprobación general del grupo.', 'Informe mundial', 'Gráficos globales', 'Gráficos globales', 'Cuestionarios generales de Insights.', 'Cuestionarios generales de Insights 2.', 'Informe general', 'Lista de alumnos', 'Lista de alumnos', 'Grupos.', 'Comentarios de estudiantes.', 'Comentarios de los estudiantes.'],
+            texts_2: ['No hay estadísticas.', 'No hay estadísticas.', 'No hay estadísticas para mostrar.', 'Volver al inicio', 'Aún nadie constesta los cuestionarios.', 'Aún nadie constesta los cuestionarios.', 'Debe compartir sus su link de grupo y esperar a que sus estudiantes contesten los cuestionarios para poder ver estadísticas.', 'Regresar']
         },
         "textIngles": {
-            texts_1: ['Manage statistics.','Statistics.','Statistics.','Return','Groups','Tests','Students','Overview','Overview','Groups','Students','Tests','Global average','Number of groups','Number of students','Number of tests','Global average','Global graphics','Global graphics','General average of groups.','General group approval.','Global report','Global graphics','Global graphics','Insights general tests.','Insights general tests 2.','General report','List of students','List of students','Groups.','Student comments.','Student comments.'],
-            texts_2: ['There are no statistics.','There are no statistics.','There are no statistics to display.','Back to top','No one has answered the tests yet.','No one has answered the tests yet.','You must share your group link and wait for your students to answer the quizzes to see statistics.','Return']
+            texts_1: ['Manage statistics.', 'Statistics.', 'Statistics.', 'Return', 'Groups', 'Tests', 'Students', 'Overview', 'Overview', 'Groups', 'Students', 'Tests', 'Global average', 'Number of groups', 'Number of students', 'Number of tests', 'Global average', 'Global graphics', 'Global graphics', 'General average of groups.', 'General group approval.', 'Global report', 'Global graphics', 'Global graphics', 'Insights general tests.', 'Insights general tests 2.', 'General report', 'List of students', 'List of students', 'Groups.', 'Student comments.', 'Student comments.'],
+            texts_2: ['There are no statistics.', 'There are no statistics.', 'There are no statistics to display.', 'Back to top', 'No one has answered the tests yet.', 'No one has answered the tests yet.', 'You must share your group link and wait for your students to answer the quizzes to see statistics.', 'Return']
         },
         "textPortugues": {
-            texts_1: ['Gerenciar estatísticas.','Estatisticas.','Estatisticas.','Retornar','Grupos','Testes','Estudantes','Visão geral','Visão geral','Grupos','Estudantes','Testes','Média global','Número de grupos','Número de estudantes','Número de questionários','Média global','Gráficos globais','Gráficos globais','Média geral dos grupos.','Aprovação geral do grupo.','Relatório global','Gráficos globais','Gráficos globais','Insights questionários gerais.','Insights questionários gerais 2.','Relatório geral','Lista de alunos','Lista de alunos','Grupos.','Comentários dos alunos.','Comentários dos alunos.'],
-            texts_2: ['Não há estatísticas.','Não há estatísticas.','Não há estatísticas para exibir.','Voltar ao início','Ninguém respondeu aos questionários ainda.','Ninguém respondeu aos questionários ainda.','Você deve compartilhar o link do seu grupo e esperar que seus alunos respondam aos questionários para ver as estatísticas.','Voltar']
+            texts_1: ['Gerenciar estatísticas.', 'Estatisticas.', 'Estatisticas.', 'Retornar', 'Grupos', 'Testes', 'Estudantes', 'Visão geral', 'Visão geral', 'Grupos', 'Estudantes', 'Testes', 'Média global', 'Número de grupos', 'Número de estudantes', 'Número de questionários', 'Média global', 'Gráficos globais', 'Gráficos globais', 'Média geral dos grupos.', 'Aprovação geral do grupo.', 'Relatório global', 'Gráficos globais', 'Gráficos globais', 'Insights questionários gerais.', 'Insights questionários gerais 2.', 'Relatório geral', 'Lista de alunos', 'Lista de alunos', 'Grupos.', 'Comentários dos alunos.', 'Comentários dos alunos.'],
+            texts_2: ['Não há estatísticas.', 'Não há estatísticas.', 'Não há estatísticas para exibir.', 'Voltar ao início', 'Ninguém respondeu aos questionários ainda.', 'Ninguém respondeu aos questionários ainda.', 'Você deve compartilhar o link do seu grupo e esperar que seus alunos respondam aos questionários para ver as estatísticas.', 'Voltar']
         },
         "textChino": {
-            texts_1: ['管理统计数据。','统计数据。','统计数据。','返回','团体','测试','学生','概述','概述','团体','学生','测试','全球平均水平','组数','学生人数','问卷数量','全球平均水平','全局图形','全局图形','群体的共同平均水平。','一般组批准。','全球报告','全局图形','全局图形','Insights 一般问卷。','Insights 一般问卷 2.','一般报告','学生名单','学生名单','团体。','学生评论','学生评论。'],
-            texts_2: ['没有统计数据。','没有统计数据。','没有可显示的统计数据。','回到顶部','还没有人回答问卷。','还没有人回答问卷。','您必须分享您的群组链接并等待您的学生回答测验才能查看统计数据。','返回']
+            texts_1: ['管理统计数据。', '统计数据。', '统计数据。', '返回', '团体', '测试', '学生', '概述', '概述', '团体', '学生', '测试', '全球平均水平', '组数', '学生人数', '问卷数量', '全球平均水平', '全局图形', '全局图形', '群体的共同平均水平。', '一般组批准。', '全球报告', '全局图形', '全局图形', 'Insights 一般问卷。', 'Insights 一般问卷 2.', '一般报告', '学生名单', '学生名单', '团体。', '学生评论', '学生评论。'],
+            texts_2: ['没有统计数据。', '没有统计数据。', '没有可显示的统计数据。', '回到顶部', '还没有人回答问卷。', '还没有人回答问卷。', '您必须分享您的群组链接并等待您的学生回答测验才能查看统计数据。','返回']
         }
     },
-    "saber_mas2": {
+    "genera_cuestionarios_por_lenguaje": {
         "textEspanol": {
-            texts: []
+            texts: ['Ver cuestionario.','Ver cuestionario.','Ver cuestionario.','Volver','¿No es el cuestionario que deseaba?','Otro','Preview cuestionario del banco','Datos generales.','Fecha:','Autor:','Temas:','Tipo de cuestionario:','Lenguaje:','Contador preguntas','Total preguntas: ','Opción múltiples: ','Rellenar espacios: ','Ejercicios prácticos:','Arrastrar conceptos: ','Falso/Verdadero: ','Preguntas abiertas: ','Preguntas cuestionario','Titulo del cuestionario','Ready','Generando archivo JSON','El cuestionario será almacenado como archivo JSON, usted puede guardar una copia del cuestionario si asi lo desea.','Preview de cuestionario JSON','Descargar','Guardar']
         },
         "textIngles": {
-            texts: []
+            texts: ['See test.','See test.','See test.','Return','isn\'t it the test you wanted?','Other','Preview bank test','General data.','Date:','Author:','Topics:','Quiz type:','Language:','Question counter','Total questions: ','Multiple Choice: ','Fill spaces: ','Practical exercises:','Drag concepts: ','False true: ','Open questions: ','Quiz questions','Title of the test','Ready','Generating JSON file','The test will be stored as a JSON file, you can save a copy of the test if you wish.','JSON test preview','Download','Save']
         },
         "textPortugues": {
-            texts: []
+            texts: ['Ver questionário.','Ver questionário.','Ver questionário.','Retornar','Não é este o questionário que você queria?','Outro','Visualizar questionário do banco','Dados gerais.','Encontro:','Autor:','Tópicos:','Tipo de questionário:','Linguagem:','Contador de perguntas','Total de perguntas: ','Múltipla escolha: ','Preencher espaços: ','Exercícios práticos:','Arrastar conceitos: ','Falso verdadeiro: ','Perguntas abertas: ','Perguntas do questionário','Título do questionário','Preparar','Gerando arquivo JSON','O questionário será armazenado como um arquivo JSON, você pode salvar uma cópia do questionário se desejar.','Visualização do questionário JSON','Descarga','Salvar']
         },
         "textChino": {
-            texts: []
+            texts: ['查看问卷。','查看问卷。','查看问卷。','返回','不,这是你想要的问卷吗？','其他','预览银行问卷','一般数据。','日期：','作者：','话题：','测验类型：','语：','问题计数器','总问题：','多项选择： ','填充空格：','实践练习：','拖动概念：','假真：','开放式问题：','测验问题','问卷标题','准备好','生成 JSON 文件','问卷将存储为 JSON 文件,如果您愿意,可以保存问卷的副本。','JSON问卷预览','释放','节省']
         }
     },
     "saber_mas2": {
