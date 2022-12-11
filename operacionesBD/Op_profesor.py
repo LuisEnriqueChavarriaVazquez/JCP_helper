@@ -1,4 +1,4 @@
-FROM operacionesBD.conexion import obtener_conexion
+from operacionesBD.conexion import obtener_conexion
 
 def insertar_profesor(nombre,alias,foto,correo,contra,unidad_academica,descripcion,fondo,correo_sin_hash):
     conexion = obtener_conexion()
