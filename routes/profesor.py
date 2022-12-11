@@ -1364,7 +1364,7 @@ def crear_reportes_grupos_docentes_PDF():
             # Printing title:
             self.cell(30, 10, "Reporte grupos", align="C")
             # Performing a line break:
-            self.ln(20)
+            self.ln(10)
 
         def footer(self):
             # Position cursor at 1.5 cm from bottom:
@@ -1449,18 +1449,16 @@ def crear_reportes_grupos_docentes_PDF():
     pdf = PDF()
     pdf.add_page()
     #Titulo graficas Promedio general de grupos.
+
+    pdf.set_text_color(28, 40, 51)
+    pdf.set_font("Arial","",size = 12)
+    pdf.cell(w=0, h=10, txt = "Fecha:"+str(date.today()),ln = 1, align = 'L')
     pdf.set_font("helvetica", "B", 12)
-    pdf.set_fill_color(7, 66, 115)
     pdf.set_text_color(253, 254, 254)
+    pdf.set_fill_color(7, 66, 115)
     pdf.cell(w=0, h=10, txt = "Gráficas promedio general de grupos",ln = 1, align = 'L',fill=True)
     pdf.ln(2)
     pdf.set_text_color(28, 40, 51)
-
-    #Seccion para fecha
-    pdf.set_font("Arial", "",size = 15)
-    pdf.set_text_color(0, 0, 0)
-    pdf.cell(w=0, h=25, txt = "Fecha:"+str(date.today()),
-         ln = 1, align = 'L')
 
 
     #Imagenes graficas Promedio general de grupos.
