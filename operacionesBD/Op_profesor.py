@@ -359,7 +359,7 @@ def obtener_hacer_cuestionario_hecho_dos(id_cuestionario):
     cuestionarioHechoData=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT IDCuestionarioHecho FROM alumnos_hacen_cuestionario WHERE IDCuestionario = %s", (id_cuestionario))
+        cursor.execute("SELECT IDCuestionarioHecho FROM Alumnos_hacen_Cuestionario WHERE IDCuestionario = %s", (id_cuestionario))
         cuestionarioHechoData=cursor.fetchall()
 
     conexion.close()
@@ -371,7 +371,7 @@ def contar_cuestionarios_hechos_por_alumno(id_cuestionario):
     cuestionarioHechoData=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT COUNT(IDCuestionario) AS count_elements FROM alumnos_hacen_cuestionario WHERE IDCuestionario = %s", (id_cuestionario))
+        cursor.execute("SELECT COUNT(IDCuestionario) AS count_elements FROM Alumnos_hacen_Cuestionario WHERE IDCuestionario = %s", (id_cuestionario))
         cuestionarioHechoData=cursor.fetchall()
 
     conexion.close()
