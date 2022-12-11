@@ -931,6 +931,12 @@ def descargarPdfCuestionarioResuelto(id_cuestionario_resuelto):
     numeroPreguntas = len(dataJSON["ordenPreguntas"][0])
     #Titulo del PDF
     pdf.cell(200, 18, txt = "Resultado cuestionario", ln = 1, align = 'C')  
+
+    #Seccion para fecha
+    pdf.set_font("Arial", "",size = 15)
+    pdf.set_text_color(0, 0, 0)
+    pdf.cell(w=0, h=25, txt = "Fecha:"+str(date.today()),
+         ln = 1, align = 'L')
     
     #Contadores de los tipos de preguntas
     contadoresTipoPreguntas=[0,0,0,0,0,0]

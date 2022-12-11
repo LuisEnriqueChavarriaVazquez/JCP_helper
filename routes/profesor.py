@@ -26,6 +26,9 @@ photos = UploadSet("photos", IMAGES)
 
 from operacionesCorreo import token,email
 
+
+from datetime import date
+
 ##
 ## Links para la parte del panel central
 ##
@@ -1447,6 +1450,14 @@ def crear_reportes_grupos_docentes_PDF():
     pdf.cell(w=0, h=10, txt = "Gráficas promedio general de grupos",ln = 1, align = 'L',fill=True)
     pdf.ln(2)
     pdf.set_text_color(28, 40, 51)
+
+    #Seccion para fecha
+    pdf.set_font("Arial", "",size = 15)
+    pdf.set_text_color(0, 0, 0)
+    pdf.cell(w=0, h=25, txt = "Fecha:"+str(date.today()),
+         ln = 1, align = 'L')
+
+
     #Imagenes graficas Promedio general de grupos.
     pdf.set_font("Arial","",size = 12)
     pdf.cell(w=0, h=5, txt = "Gráfica comparación de promedio grupales",
@@ -1648,6 +1659,12 @@ def crear_reportes_cuestionarios_docentes_PDF():
     pdf.set_text_color(224, 9, 9)
     pdf.cell(w=200, h=45, txt = "Reporte cuestionarios",
          ln = 1, align = 'C')
+    
+    #Seccion para fecha
+    pdf.set_font("Arial", "",size = 15)
+    pdf.set_text_color(0, 0, 0)
+    pdf.cell(w=0, h=25, txt = "Fecha:"+str(date.today()),
+         ln = 1, align = 'L')
     
     #Seccion de Insights cuestionarios generales en el pdf
     pdf.set_font("Arial", "B",size = 15)
