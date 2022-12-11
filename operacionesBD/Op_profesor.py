@@ -1,4 +1,4 @@
-from operacionesBD.conexion import obtener_conexion
+FROM operacionesBD.conexion import obtener_conexion
 
 def insertar_profesor(nombre,alias,foto,correo,contra,unidad_academica,descripcion,fondo,correo_sin_hash):
     conexion = obtener_conexion()
@@ -22,7 +22,7 @@ def obtener_profesores():
     profesores=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT*FROM Docentes")
+        cursor.execute("SELECT * FROM Docentes")
         profesores=cursor.fetchall()
     conexion.close()
     return profesores
@@ -377,7 +377,7 @@ def contar_cuestionarios_hechos_por_alumno(id_cuestionario):
     conexion.close()
     return cuestionarioHechoData
 
-#SELECT COUNT(CustomerID) AS OrdersFromCustomerID7 FROM Orders WHERE CustomerID=7
+#SELECT COUNT(CustomerID) AS OrdersFROMCustomerID7 FROM Orders WHERE CustomerID=7
 
 def obtener_cuestionarios_en_estado_pending(id_cuestionario):
     conexion=obtener_conexion()
@@ -483,7 +483,7 @@ def delete_cuestionarios(id_cuestionario):
     confirmacionDeDelete = True
 
     with conexion.cursor() as cursor:
-        cursor.execute("DELETE from Cuestionarios WHERE IDCuestionario = %s", (id_cuestionario))
+        cursor.execute("DELETE FROM Cuestionarios WHERE IDCuestionario = %s", (id_cuestionario))
 
     conexion.commit()
     conexion.close()
@@ -575,7 +575,7 @@ def deletePost(id_publicacion):
     confirmacionDeDelete = True
 
     with conexion.cursor() as cursor:
-        cursor.execute("DELETE from PublicacionesDocente WHERE IDPublicacionDocente = %s", (id_publicacion))
+        cursor.execute("DELETE FROM PublicacionesDocente WHERE IDPublicacionDocente = %s", (id_publicacion))
 
     conexion.commit()
     conexion.close()
@@ -668,7 +668,7 @@ def actualizarPolitica(id_docente, estado):
 def docenteEliminaCuenta(id_docente):
     conexion=obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("DELETE from Docentes WHERE IDDocente = %s",(id_docente))
+        cursor.execute("DELETE FROM Docentes WHERE IDDocente = %s",(id_docente))
     conexion.commit()
     conexion.close()
 
@@ -678,9 +678,9 @@ def grupos_con_cuestionarios_resueltos(id_grupo):
     conexion=obtener_conexion()
     gruposConCuestionariosResueltos = []
     with conexion.cursor() as cursor:
-        cursor.execute("select * from Alumnos_hacen_Cuestionario INNER JOIN Cuestionarios ON "+
+        cursor.execute("SELECT * FROM Alumnos_hacen_Cuestionario INNER JOIN Cuestionarios ON "+
                        "Alumnos_hacen_Cuestionario.IDCuestionario = Cuestionarios.IDCuestionario"+
-                       " where Cuestionarios.IDGrupo =  %s", (id_grupo))
+                       " WHERE Cuestionarios.IDGrupo =  %s", (id_grupo))
         gruposConCuestionariosResueltos = cursor.fetchall()
     conexion.close()
     return gruposConCuestionariosResueltos
