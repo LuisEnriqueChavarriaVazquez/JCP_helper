@@ -1027,7 +1027,22 @@ def descargarPdfCuestionarioResuelto(id_cuestionario_resuelto):
             pdf.cell(200, 8, txt ="Respuestas verdaderas:"+respuestasVerdaderasArrastrar,ln = 1, align = 'L')       
         #Preguntas de Ejercicios
         elif tipoPregunta == "optEjercicios":
-            pass
+            #Titulo de pregunta
+            tituloPreguntaCodigo= dataJSON["preguntasModal3"][contadoresTipoPreguntas[2]]["0"]
+            pdf.cell(200, 8, txt = str(i +1)+"."+tituloPreguntaCodigo,ln = 1, align = 'L')
+            #Puntos
+            PuntoPreguntaArrastrar = dataJSON["ponderacionGlobal"][0][str(i)]
+            pdf.cell(200, 8, txt = "puntos:" + str(PuntoPreguntaArrastrar),ln = 1, align = 'L')
+            #Respuestas alumno
+            numeroPreguntasCodigo= len(dataJSON["preguntasModal3"])
+            jsonDatoRespuestasCodigo = dataJSON["preguntasModal3"] [numeroPreguntasCodigo - 1] ["respuestas"]
+            respuestaEnJSONCodigo = jsonDatoRespuestasCodigo[contadoresTipoPreguntas[2]]
+            indicePrefijoCodigo = respuestaEnJSONCodigo.find("/")
+            subString1Codigo = respuestaEnJSONCodigo[indicePrefijoCodigo +1:]
+            indiceSufijoCodigo = subString1Codigo.find("&")
+            subString2Codigo =  subString1Codigo[:indiceSufijoCodigo]
+            respuestaFinalCodigo = subString2Codigo.replace("/",",")
+            pdf.cell(200, 8, txt ="Respuesta usuario:"+respuestaFinalCodigo,ln = 1, align = 'L')
         #Preguntas de Acompletar
         elif tipoPregunta == "optAcompletar":
             #Titulo de pregunta
@@ -1055,6 +1070,7 @@ def descargarPdfCuestionarioResuelto(id_cuestionario_resuelto):
             pdf.cell(200, 8, txt ="Respuestas verdaderas:"+respuestasVerdaderasComp,ln = 1, align = 'L')
             #Aumentar contador preguntas de acompletar
             contadoresTipoPreguntas[1]+=1
+        #Preguntas abierta
         elif tipoPregunta == "optAbierta":
             #Titulo de pregunta
             tituloPreguntaAbierta= dataJSON["preguntasModal6"][contadoresTipoPreguntas[5]]["0"]
