@@ -31,22 +31,24 @@
     <section class="containerGestorNotificacionesMain">
         <section class="lateralMenuNotification colorGreyWhiter">
             <div class="fixedButtonWrapNoti">
-                <h6 class="colorTextReverse"><b>Categorias</b></h6>
+                <h6 class="colorTextReverse"><b class="TDI">Categorias</b></h6>
                 <button id="newResolve"
-                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color2">Apelaciones</button>
+                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color2 TDI">Apelaciones</button>
                 <button id="newTest"
-                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color2">Cuestionarios nuevos</button>
+                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color2 TDI">Cuestionarios nuevos</button>
                 <button id="newGeral"
-                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color3">General</button>
+                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color3 TDI">General</button>
                 <button id="newImportante"
-                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color3">Importante</button>
+                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color3 TDI">Importante</button>
                 <button id="newTodas"
-                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color3">Todas</button>
-                <h6 class="colorTextReverse"><b>Operaciones</b></h6>
+                    class="btn waves-effect waves-light bordered5 shadow-1 colorText color3 TDI">Todas</button>
+                <h6 class="colorTextReverse"><b class="TDI">Operaciones</b></h6>
                 <form action="/borrarComentariosAlumno" method="post">
                     <input type="hidden" name="idAlumno" id="idAlumno" class="idAlumnoClass">
                     <button type="submit" class="btn waves-effect waves-light bordered5 shadow-1 colorText color3">
-                        Limpiar bandeja
+                        <span class="TDI">
+                            Limpiar bandeja
+                        </span>
                     </button>
                 </form>
             </div>
@@ -70,7 +72,7 @@
             </form>
         </section>
         <section class="allContentNotification" id="allContentNotification">
-            <h5>Notificaciones</h5>
+            <h5 class="TDI">Notificaciones</h5>
             <section class="boxShowNotificaciones" id="boxShowNotificaciones">
 
             </section>
@@ -97,7 +99,6 @@
 <script src="../../static/js/gestorNotificacionesAlumnos.js"></script>
 
 <!--Traduccion-->
-<script src="../static/js/idiomas/textExtractor.js"></script>
 <script src="../static/js/idiomas/textos.mjs" type="module"></script>
 <script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 
