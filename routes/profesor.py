@@ -633,10 +633,15 @@ def login_profesor():
             passBD=str(result[5])
             passBD=passBD.encode('utf-8')
             if bcrypt.checkpw(password,passBD):
-                session['logged_in'] = True
-                session['IDDocente']=result[0]
-                session['correoS'] = result[4]
-                return redirect(url_for("routes.bienvenidaProfesor"))
+                verificado = Op_profesor.checar_correo_verificado(correo)
+                if verificado:
+                    session['logged_in'] = True
+                    session['IDDocente']=result[0]
+                    session['correoS'] = result[4]
+                    return redirect(url_for("routes.bienvenidaProfesor"))
+                else:
+                    flash("Usuario no verificado")
+                    return redirect(url_for('routes.login_general'))
             else:
                 flash("Usuario o contraseña incorrectos!")
                 return redirect(url_for('routes.login_general'))   

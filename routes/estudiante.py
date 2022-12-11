@@ -744,12 +744,18 @@ def login_estudiante():
             passBD=str(result[5])
             passBD=passBD.encode('utf-8')
             if bcrypt.checkpw(password,passBD):
-                session['logged_in'] = True
-                session['IDAlumno']=result[0]
-                session['correoA'] = result[4]
-                notificaciones = Op_estudiante.obtenerNotificacion_de_alumno(session["IDAlumno"])
-                print(notificaciones)
-                return render_template('estudiante/bienvenidaEstudiante.html',datos=result, notificaciones=notificaciones)  
+
+                verificado = Op_estudiante.checar_correo_verificado(correo)
+                if verificado:
+                    session['logged_in'] = True
+                    session['IDAlumno']=result[0]
+                    session['correoA'] = result[4]
+                    notificaciones = Op_estudiante.obtenerNotificacion_de_alumno(session["IDAlumno"])
+                    print(notificaciones)
+                    return render_template('estudiante/bienvenidaEstudiante.html',datos=result, notificaciones=notificaciones)  
+                else:
+                    flash("Usuario no verificado")
+                    return redirect(url_for('routes.login_general'))
             else:
                 flash("Usuario o contraseña incorrectos!")
                 return redirect(url_for('routes.login_general'))   

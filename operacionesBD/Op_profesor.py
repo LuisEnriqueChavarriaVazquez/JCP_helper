@@ -244,6 +244,17 @@ def login_prof(correo):
     return profesor
 
 
+def checar_correo_verificado(correo):
+    conexion = obtener_conexion()
+    verificado= False
+    profesor = None
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT*FROM docentes WHERE correo = %s", (correo))
+        profesor = cursor.fetchone()
+    conexion.close()
+    verificado = profesor[9]
+    return verificado
+
 ############################EDICION DE PERFIL######################################
 ##
 ## Nos ayuda a subir los cambios del perfil del docente

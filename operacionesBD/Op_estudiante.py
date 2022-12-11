@@ -52,6 +52,18 @@ def login_est(correo):
     conexion.close()
     return estudiante
 
+def checar_correo_verificado(correo):
+    conexion = obtener_conexion()
+    verificado= False
+    estudiante = None
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT*FROM alumnos WHERE correo = %s", (correo))
+        estudiante = cursor.fetchone()
+    conexion.close()
+    verificado = estudiante[10]
+    return verificado
+
+
 ############################EDICION DE PERFIL######################################
 ##
 ## Nos ayuda a subir los cambios del perfil del alumno
