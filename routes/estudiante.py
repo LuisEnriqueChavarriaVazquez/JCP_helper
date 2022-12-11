@@ -14,6 +14,8 @@ photos = UploadSet("photos", IMAGES)
 
 from operacionesCorreo import token,email
 
+from datetime import date
+
 ##
 ## Links para la parte del panel central
 ##
