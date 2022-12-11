@@ -124,8 +124,18 @@ function rutaValidation(stringUrl) {
         return "confirmar_correo_alumno"
     } else if (stringUrl.includes("genera_cuestionarios_por_lenguaje")) {
         return "genera_cuestionarios_por_lenguaje"
+    } else if (stringUrl.includes("bienvenidaProfesor")) {
+        return "bienvenidaProfesor"
+    } else if (stringUrl.includes("bienvenidaEstudiante")) {
+        return "bienvenidaEstudiante"
+    } else if (stringUrl.includes("revisionCuestionarios")) {
+        return "revisionCuestionarios"
+    }else if (stringUrl.includes("borrarComentarioParticularProfesor")) {
+        return "borrarComentarioParticularProfesor"
+    }else if (stringUrl.includes("borrarComentarioParticularAlumno")) {
+        return "borrarComentarioParticularAlumno"
     }
-    
+
 
     //En caso de que la URL no tenga IDs
     stringUrl = stringUrl.split("");

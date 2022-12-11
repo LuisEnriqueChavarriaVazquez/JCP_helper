@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Revisiones pendientes</title>
+    <title class="TDI">Revisiones pendientes</title>
 
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/encabezadoRecursos.html" %}
@@ -17,12 +17,12 @@
     <!--Menu de página de inicio-->
     <nav class="color2">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only">Revisiones.</a>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Revisiones.</a>
             <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
                     class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up">Revisiones.</p>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Revisiones.</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="/gestionar_cuestionarios" class="btn color3 button-rounded">Volver al inicio</a></li>
+                <li><a href="/gestionar_cuestionarios" class="btn color3 button-rounded TDI">Volver</a></li>
             </ul>
         </div>
     </nav>
@@ -31,8 +31,8 @@
     datosCuestionariosPendingExtendidos[i]
     datosAlumnosEnOrden[i] -->
     <div class="title-general">
-        <h5 class="hide-on-large-only">Revisiones pendientes</h5>
-        <h4 class="hide-on-med-and-down">Revisiones pendientes</h4>
+        <h5 class="hide-on-large-only TDI">Revisiones pendientes</h5>
+        <h4 class="hide-on-med-and-down TDI">Revisiones pendientes</h4>
     </div>
     <section class="containerRevisionCuestionariosMain">
         {% if datosCuestionariosPending %}
@@ -59,47 +59,50 @@
             <!--Modal para ver datos del alumno-->
             <div id="modal1{{datosCuestionariosPending[i][0]}}" class="modal bordered2 colorGrey" style="height: auto;">
                 <div class="modal-content">
-                    <h4>Datos alumno</h4>
-                    <p>Información relevante del alumno.</p>
+                    <h4 class="TDI">Datos alumno</h4>
+                    <p class="TDI">Información relevante del alumno.</p>
                     <hr>
                     <div class="infoUserContainerMainRevision">
                         <div class="infoUserContainerSecodnaryRevision">
                             <div class="a1Revision" >
                                 <img src="../../static/images/alumnos/{{datosAlumnosEnOrden[i][3]}}">
                             </div>
-                            <div class="a2Revision"><p class="colorWhite bordered1">Nombre: <span>{{datosAlumnosEnOrden[i][1]}}</span></p></div>
+                            <div class="a2Revision"><p class="colorWhite bordered1">
+                                <span class="TDI">Nombre: </span>
+                                <span>{{datosAlumnosEnOrden[i][1]}}</span></p></div>
                             <div class="a4Revision"><p class="colorWhite bordered1"><span>{{datosAlumnosEnOrden[i][4]}}</span></p></div>
                         </div>
-                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1">Area: <span>{{datosAlumnosEnOrden[i][6]}}</span></p>
-                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1">Escuela: <span>{{datosAlumnosEnOrden[i][7]}}</span></p>
-                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1">Descripcion: <span>{{datosAlumnosEnOrden[i][8]}}</span></p>
+                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1"><span class="TDI">Area:</span> <span>{{datosAlumnosEnOrden[i][6]}}</span></p>
+                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1"><span class="TDI">Escuela:</span> <span>{{datosAlumnosEnOrden[i][7]}}</span></p>
+                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1"><span class="TDI">Descripcion:</span> <span>{{datosAlumnosEnOrden[i][8]}}</span></p>
                         <a href="/perfil_general_view/{{datosAlumnosEnOrden[i][0]}}"
                         style="margin-top: 10px;"
                         class="waves-effect waves-light btn color2 shadow-2e bordered5"><i
-                            class="material-icons left">account_circle</i>Ver perfil</a>
+                            class="material-icons left">account_circle</i>
+                            <span class="TDI">Ver perfil</span></a>
                     </div>
                 </div>
             </div>
             <!--Modal para ver datos del cuestionario-->
             <div id="modal2{{datosCuestionariosPending[i][0]}}" class="modal bordered2 colorGrey" style="height: auto;">
                 <div class="modal-content">
-                    <h4>Datos cuestionario</h4>
-                    <p>Información relevante de las respuestas del cuestionario.</p>
+                    <h4 class="TDI">Datos cuestionario</h4>
+                    <p class="TDI">Información relevante de las respuestas del cuestionario.</p>
                     <hr>
                     <div>
-                        <h5>General</h5>
-                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1">Creación: <span>{{datosCuestionariosPendingExtendidos[i][4]}}</span></p>
-                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1">Autor: <span>{{datosCuestionariosPendingExtendidos[i][5]}}</span></p>
-                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1">Temas: <span>{{datosCuestionariosPendingExtendidos[i][6]}}</span></p>
-                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1">Tipo: <span>{{datosCuestionariosPendingExtendidos[i][7]}}</span></p>
-                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1">Lenguaje: <span>{{datosCuestionariosPendingExtendidos[i][8]}}</span></p>
-                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1">Orden: <span>{{datosCuestionariosPendingExtendidos[i][10]}}</span></p>
-                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1">Tiempo límite: <span>{{datosCuestionariosPendingExtendidos[i][11]}} hrs.</span></p>
-                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1">Fecha límite: <span>{{datosCuestionariosPendingExtendidos[i][12]}} {{datosCuestionariosPendingExtendidos[i][13]}}</span></p>
-                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1">Máxima de intentos: <span>{{datosCuestionariosPendingExtendidos[i][15]}}</span></p>
-                        <h5>Relacionado con respuestas</h5>
-                        <p class="revisionDataExtraAlumno sosoColor bordered1">Tiempo de respuesta: <span>{{datosCuestionariosPending[i][9]}}</span></p>
-                        <p class="revisionDataExtraAlumno sosoColor bordered1">Intentos: <span>{{datosCuestionariosPending[i][11]}}</span></p>
+                        <h5 class="TDI">General</h5>
+                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1"><span class="TDI">Creación: </span><span>{{datosCuestionariosPendingExtendidos[i][4]}}</span></p>
+                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1"><span class="TDI">Autor: </span><span>{{datosCuestionariosPendingExtendidos[i][5]}}</span></p>
+                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1"><span class="TDI">Temas: </span><span>{{datosCuestionariosPendingExtendidos[i][6]}}</span></p>
+                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1"><span class="TDI">Tipo: </span><span>{{datosCuestionariosPendingExtendidos[i][7]}}</span></p>
+                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1"><span class="TDI">Lenguaje: </span><span>{{datosCuestionariosPendingExtendidos[i][8]}}</span></p>
+                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1"><span class="TDI">Orden: </span><span>{{datosCuestionariosPendingExtendidos[i][10]}}</span></p>
+                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1"><span class="TDI">Tiempo límite: </span><span>{{datosCuestionariosPendingExtendidos[i][11]}} hrs.</span></p>
+                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1"><span class="TDI">Fecha límite: </span><span>{{datosCuestionariosPendingExtendidos[i][12]}} {{datosCuestionariosPendingExtendidos[i][13]}}</span></p>
+                        <p class="revisionDataExtraAlumno colorGreyWhiter bordered1"><span class="TDI">Máxima de intentos: </span><span>{{datosCuestionariosPendingExtendidos[i][15]}}</span></p>
+                        <h5 class="TDI">Relacionado con respuestas</h5>
+                        <p class="revisionDataExtraAlumno sosoColor bordered1"><span class="TDI">Tiempo de respuesta: </span><span>{{datosCuestionariosPending[i][9]}}</span></p>
+                        <p class="revisionDataExtraAlumno sosoColor bordered1"><span class="TDI">Intentos: </span><span>{{datosCuestionariosPending[i][11]}}</span></p>
                     </div>
                 </div>
             </div>
@@ -107,7 +110,18 @@
         {% endif %}
     </section>
 
+<!--Botones para que el gestor de idiomas no falle-->
+<span class="hiddenElement" id="seleccionarEspanol"></span>
+<span class="hiddenElement" id="seleccionarIngles"></span>
+<span class="hiddenElement" id="seleccionarPortugues"></span>
+<span class="hiddenElement" id="seleccionarChino"></span>
+
 </body>
+
 <!--Jalamos todo el contenido del encabezado-->
 {% include "includes/footerRecursos.html" %}
+<!--Traduccion-->
+<script src="../static/js/idiomas/textExtractor.js"></script>
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
 </html>

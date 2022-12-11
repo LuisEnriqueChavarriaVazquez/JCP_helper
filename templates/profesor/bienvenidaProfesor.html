@@ -575,7 +575,7 @@
     <!--Modal para las notificaciones-->
     <div id="modal1" class="modal bordered2 colorGreyWhiter" style="height: 100vh;">
         <div class="modal-content">
-            <h4>Notificaciones recientes</h4>
+            <h4 class="TDI">Notificaciones recientes</h4>
 
             <section id="contenidoNotificaciones">
 
@@ -584,13 +584,13 @@
             <div class="bordered1 shadow-1e gotoMoreNotifications hiddenElement" id="yesNoti">
                 <form action="/gestorNotificacionesProfe" method="post">
                     <input type="hidden" value="{{datos[0]}}" name="idUsuarioNotificaciones" id="idUsuarioNotificaciones">
-                    <button type="submit" class="btn btn-large bordered3 color2 colorText">Ver todas las notificaciones</button>
+                    <button type="submit" class="btn btn-large bordered3 color2 colorText TDI">Ver todas las notificaciones</button>
                 </form>
             </div>
 
             <div class="notFoundMsg_custom" id="notNoti">
                 <div>
-                    <h5><b>Sin notificaciones por el momento.</b></h5>
+                    <h5><b class="TDI">Sin notificaciones por el momento.</b></h5>
                 </div>
                 <div><img src="../../static/images/icons/icon_no_notification.svg"></div>
             </div>

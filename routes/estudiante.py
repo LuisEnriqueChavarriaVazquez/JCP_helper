@@ -350,7 +350,7 @@ def crear_comentario_retroalimentacion():
     if storageLenguajeDos == "esp":
         texto = "El alumn@ " + datosAlumno[1] + " de " + datosGrupo[2] +  " ha dejado un comentario en la sección de estadísticas."
     elif storageLenguajeDos == "en":
-       texto = "The student" + datosAlumno[1] + " which belongs to " + datosGrupo[2] +  " has provided his feedback in the statistics section."
+       texto = "The student" + datosAlumno[1] + " which belongs to " + datosGrupo[2] +  " has provided his feedback."
     elif storageLenguajeDos == "pt":
         texto = "O aluno " + datosAlumno[1] + " de " + datosGrupo[2] +  " deixou seu feedback."
     elif storageLenguajeDos == "chn":
