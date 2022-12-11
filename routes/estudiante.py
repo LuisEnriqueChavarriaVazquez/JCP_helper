@@ -932,18 +932,35 @@ def descargarPdfCuestionarioResuelto(id_cuestionario_resuelto):
     f = open(ruta_respuesta)
     dataJSON = json.load(f)
     f.close()
-    #Creacion inicial del pdf
-    pdf = FPDF()
-    pdf.add_page()
-    pdf.set_font("Arial","B", size = 25)
-    numeroPreguntas = len(dataJSON["ordenPreguntas"][0])
-    #Titulo del PDF
-    pdf.cell(200, 18, txt = "Resultado cuestionario", ln = 1, align = 'C')  
+    class PDF(FPDF):
+        def header(self):
+            # Rendering logo:
+            self.image("static/images/logo_app/logo_report.png", 10, 8, 33)
+            # Setting font: helvetica bold 15
+            self.set_font("helvetica", "B", 20)
+            pdf.set_text_color(4, 66, 118)
+            # Moving cursor to the right:
+            self.cell(80)
+            # Printing title:
+            self.cell(30, 10, "Resultado cuestionario", align="C")
+            # Performing a line break:
+            self.ln(10)
 
+        def footer(self):
+            # Position cursor at 1.5 cm from bottom:
+            self.set_y(-15)
+            # Setting font: helvetica italic 8
+            self.set_font("helvetica", "I", 8)
+            # Printing page number:
+            self.cell(0, 10, f"Página {self.page_no()}", align="C")
+    #Creacion inicial del pdf
+    pdf = PDF()
+    pdf.add_page()
+    numeroPreguntas = len(dataJSON["ordenPreguntas"][0])
     #Seccion para fecha
-    pdf.set_font("Arial", "",size = 15)
+    pdf.set_font("Arial", "",size = 12)
     pdf.set_text_color(0, 0, 0)
-    pdf.cell(w=0, h=25, txt = "Fecha:"+str(date.today()),
+    pdf.cell(w=0, h=5, txt = "Fecha:"+str(date.today()),
          ln = 1, align = 'L')
     
     #Contadores de los tipos de preguntas
@@ -955,11 +972,11 @@ def descargarPdfCuestionarioResuelto(id_cuestionario_resuelto):
         #Preguntas de Falso y Verdadero
         if tipoPregunta == "optFalsoVerdadero":
             #Titulo de pregunta
-            pdf.set_font("Arial","B", size = 15)
+            pdf.set_font("Arial","B", size = 12)
             tituloPreguntaFV = dataJSON["preguntasModal5"][contadoresTipoPreguntas[4]]["0"]
             pdf.cell(200, 8, txt = str(i +1)+"."+tituloPreguntaFV,ln = 1, align = 'L') 
             #Puntos
-            pdf.set_font("Arial","", size = 15)
+            pdf.set_font("Arial","", size = 12)
             PuntoPreguntaFV = dataJSON["ponderacionGlobal"][0][str(i)]
             pdf.cell(200, 8, txt = "Puntos:" + str(PuntoPreguntaFV),ln = 1, align = 'L')
             #Respuestas alumno
@@ -974,17 +991,17 @@ def descargarPdfCuestionarioResuelto(id_cuestionario_resuelto):
             pdf.cell(200, 8, txt = "Respuesta alumno:" + str(respuestaVF),ln = 1, align = 'L')
             #Respuesta verdadero
             respuestaVerdadera =  dataJSON["preguntasModal5"][contadoresTipoPreguntas[4]]["1"]           
-            pdf.cell(200, 8, txt = "Respuesta verdadera:" + str(respuestaVerdadera),ln = 1, align = 'L')
+            pdf.cell(200, 8, txt = "Respuesta correcta:" + str(respuestaVerdadera),ln = 1, align = 'L')
             #Aumentar contador preguntas de verdadero y falso
             contadoresTipoPreguntas[4]+=1
         #Preguntas de opccion multiple
         elif tipoPregunta == "optMultiple":
             #Titulo de pregunta
-            pdf.set_font("Arial","B", size = 15)
+            pdf.set_font("Arial","B", size = 12)
             tituloPreguntaOpcMul = dataJSON["preguntasModal1"][contadoresTipoPreguntas[0]]["0"]
             pdf.cell(200, 8, txt = str(i +1)+"."+tituloPreguntaOpcMul,ln = 1, align = 'L') 
             #Puntos
-            pdf.set_font("Arial","", size = 15)
+            pdf.set_font("Arial","", size = 12)
             PuntoPreguntaOpcMul = dataJSON["ponderacionGlobal"][0][str(i)]
             pdf.cell(200, 8, txt = "puntos:" + str(PuntoPreguntaOpcMul),ln = 1, align = 'L')
             #Opcciones
@@ -1012,17 +1029,17 @@ def descargarPdfCuestionarioResuelto(id_cuestionario_resuelto):
             pdf.cell(200, 8, txt = "Respuesta alumno:" + str(respuestaAlumnoFinal),ln = 1, align = 'L')
             #Respuesta verdadera
             respuestaMulVerdadera = dataJSON["preguntasModal1"][contadoresTipoPreguntas[0]]["2"]
-            pdf.cell(200, 8, txt = "Respuesta Verdadera:" + str(respuestaMulVerdadera),ln = 1, align = 'L')
+            pdf.cell(200, 8, txt = "Respuesta correcta:" + str(respuestaMulVerdadera),ln = 1, align = 'L')
             #Aumentar contador preguntas de opccion multiple
             contadoresTipoPreguntas[0]+=1
         #Preguntas de Arrastar  
         elif tipoPregunta == "optArrastrar":
             #Titulo de pregunta
-            pdf.set_font("Arial","B", size = 15)
+            pdf.set_font("Arial","B", size = 12)
             tituloPreguntaArrastrar = dataJSON["preguntasModal4"][contadoresTipoPreguntas[3]]["0"]
             pdf.cell(200, 8, txt = str(i +1)+"."+tituloPreguntaArrastrar,ln = 1, align = 'L') 
             #Puntos
-            pdf.set_font("Arial","", size = 15)
+            pdf.set_font("Arial","", size = 12)
             PuntoPreguntaArrastrar = dataJSON["ponderacionGlobal"][0][str(i)]
             pdf.cell(200, 8, txt = "puntos:" + str(PuntoPreguntaArrastrar),ln = 1, align = 'L')
             #Respuestas alumno
@@ -1034,7 +1051,7 @@ def descargarPdfCuestionarioResuelto(id_cuestionario_resuelto):
             indiceSufijo = subString1.find("&")
             subString2 =  subString1[:indiceSufijo]
             respuestaFinalArrastrar = subString2.replace("/",",")
-            pdf.cell(200, 8, txt ="Respuestas usuario:"+respuestaFinalArrastrar,ln = 1, align = 'L')
+            pdf.cell(200, 8, txt ="Respuestas alumno:"+respuestaFinalArrastrar,ln = 1, align = 'L')
             #Respuestas verdderas
             numeroRespuestasArrastarVer = len(dataJSON["preguntasModal4"][contadoresTipoPreguntas[3]])
             respuestasVerdaderasArrastrar=""
@@ -1043,15 +1060,15 @@ def descargarPdfCuestionarioResuelto(id_cuestionario_resuelto):
                 respuestasVerdaderasArrastrar += stringArrastarAux.replace("*",":")
                 if i != (numeroRespuestasArrastarVer - 1):
                     respuestasVerdaderasArrastrar += ","
-            pdf.cell(200, 8, txt ="Respuestas verdaderas:"+respuestasVerdaderasArrastrar,ln = 1, align = 'L')       
+            pdf.cell(200, 8, txt ="Respuestas correctas:"+respuestasVerdaderasArrastrar,ln = 1, align = 'L')       
         #Preguntas de Ejercicios
         elif tipoPregunta == "optEjercicios":
             #Titulo de pregunta
-            pdf.set_font("Arial","B", size = 15)
+            pdf.set_font("Arial","B", size = 12)
             tituloPreguntaCodigo= dataJSON["preguntasModal3"][contadoresTipoPreguntas[2]]["0"]
             pdf.cell(200, 8, txt = str(i +1)+"."+tituloPreguntaCodigo,ln = 1, align = 'L')
             #Puntos
-            pdf.set_font("Arial","", size = 15)
+            pdf.set_font("Arial","", size = 12)
             PuntoPreguntaArrastrar = dataJSON["ponderacionGlobal"][0][str(i)]
             pdf.cell(200, 8, txt = "puntos:" + str(PuntoPreguntaArrastrar),ln = 1, align = 'L')
             #Respuestas alumno
@@ -1063,15 +1080,15 @@ def descargarPdfCuestionarioResuelto(id_cuestionario_resuelto):
             indiceSufijoCodigo = subString1Codigo.find("&")
             subString2Codigo =  subString1Codigo[:indiceSufijoCodigo]
             respuestaFinalCodigo = subString2Codigo.replace("/",",")
-            pdf.cell(200, 8, txt ="Respuesta usuario:"+respuestaFinalCodigo,ln = 1, align = 'L')
+            pdf.cell(200, 8, txt ="Respuesta alumno:"+respuestaFinalCodigo,ln = 1, align = 'L')
         #Preguntas de Acompletar
         elif tipoPregunta == "optAcompletar":
             #Titulo de pregunta
-            pdf.set_font("Arial","B", size = 15)
+            pdf.set_font("Arial","B", size = 12)
             tituloPreguntaOpcAcom= dataJSON["preguntasModal2"][contadoresTipoPreguntas[1]]["0"]
             pdf.cell(200, 8, txt = str(i +1)+"."+tituloPreguntaOpcAcom,ln = 1, align = 'L')
             #Puntos
-            pdf.set_font("Arial","", size = 15)
+            pdf.set_font("Arial","", size = 12)
             PuntoPreguntaOpcMul = dataJSON["ponderacionGlobal"][0][str(i)]
             pdf.cell(200, 8, txt = "puntos:" + str(PuntoPreguntaOpcMul),ln = 1, align = 'L')
             #Respuestas alumno            
@@ -1083,24 +1100,24 @@ def descargarPdfCuestionarioResuelto(id_cuestionario_resuelto):
             indiceSufijo = subString1.find("&")
             subString2 =  subString1[:indiceSufijo]
             respuestaFinalComp = subString2.replace("/",",")
-            pdf.cell(200, 8, txt ="Respuestas usuario:"+respuestaFinalComp,ln = 1, align = 'L')
+            pdf.cell(200, 8, txt ="Respuestas alumno:"+respuestaFinalComp,ln = 1, align = 'L')
             #Verdaderas respuestas
             numeroRespuestasComp=len(dataJSON["preguntasModal2"][contadoresTipoPreguntas[1]])
             respuestasVerdaderasComp="" 
             for j in range(1, numeroRespuestasComp):
                 respuestasVerdaderasComp+= dataJSON["preguntasModal2"][contadoresTipoPreguntas[1]][str(j)]+ ","
             respuestasVerdaderasComp = respuestasVerdaderasComp [:-1]
-            pdf.cell(200, 8, txt ="Respuestas verdaderas:"+respuestasVerdaderasComp,ln = 1, align = 'L')
+            pdf.cell(200, 8, txt ="Respuestas correctas:"+respuestasVerdaderasComp,ln = 1, align = 'L')
             #Aumentar contador preguntas de acompletar
             contadoresTipoPreguntas[1]+=1
         #Preguntas abierta
         elif tipoPregunta == "optAbierta":
             #Titulo de pregunta
-            pdf.set_font("Arial","B", size = 15)
+            pdf.set_font("Arial","B", size = 12)
             tituloPreguntaAbierta= dataJSON["preguntasModal6"][contadoresTipoPreguntas[5]]["0"]
             pdf.cell(200, 8, txt = str(i +1)+"."+tituloPreguntaAbierta,ln = 1, align = 'L')
             #Puntos
-            pdf.set_font("Arial","", size = 15)
+            pdf.set_font("Arial","", size = 12)
             PuntoPreguntaArrastrar = dataJSON["ponderacionGlobal"][0][str(i)]
             pdf.cell(200, 8, txt = "puntos:" + str(PuntoPreguntaArrastrar),ln = 1, align = 'L')
             #Respuestas alumno
@@ -1112,7 +1129,7 @@ def descargarPdfCuestionarioResuelto(id_cuestionario_resuelto):
             indiceSufijoAbierta = subString1Abierta.find("&")
             subString2Abierta =  subString1Abierta[:indiceSufijoAbierta]
             respuestaFinalAbierta = subString2Abierta.replace("/",",")
-            pdf.cell(200, 8, txt ="Respuesta usuario:"+respuestaFinalAbierta,ln = 1, align = 'L')
+            pdf.cell(200, 8, txt ="Respuesta alumno:"+respuestaFinalAbierta,ln = 1, align = 'L')
 
 
     response = make_response(pdf.output(dest='S').encode('latin-1'))
