@@ -646,7 +646,7 @@ def estadoPolitica(id_docente):
     politica=[]
 
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT estado FROM DocentesPoliticasPrivacidad WHERE IDDocente = %s", (id_docente))
+        cursor.execute("SELECT Estado FROM DocentesPoliticasPrivacidad WHERE IDDocente = %s", (id_docente))
         politica=cursor.fetchall()
 
     conexion.close()
@@ -680,7 +680,7 @@ def grupos_con_cuestionarios_resueltos(id_grupo):
     with conexion.cursor() as cursor:
         cursor.execute("SELECT * FROM Alumnos_hacen_Cuestionario INNER JOIN Cuestionarios ON "+
                        "Alumnos_hacen_Cuestionario.IDCuestionario = Cuestionarios.IDCuestionario"+
-                       " WHERE Cuestionarios.IDGrupo =  %s", (id_grupo))
+                       "WHERE Cuestionarios.IDGrupo =  %s", (id_grupo))
         gruposConCuestionariosResueltos = cursor.fetchall()
     conexion.close()
     return gruposConCuestionariosResueltos
