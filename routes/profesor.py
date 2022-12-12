@@ -14,7 +14,8 @@ import requests
 import ast
 import shutil
 
-
+import plotly.io as pio
+pio.kaleido.scope.chromium_args = tuple([arg for arg in pio.kaleido.scope.chromium_args if arg != "--disable-dev-shm-usage"])
 import plotly.graph_objects as go
 from fpdf import FPDF
 from flask import make_response
