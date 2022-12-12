@@ -678,9 +678,7 @@ def grupos_con_cuestionarios_resueltos(id_grupo):
     conexion=obtener_conexion()
     gruposConCuestionariosResueltos = []
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT * FROM Alumnos_hacen_Cuestionario INNER JOIN Cuestionarios ON "+
-                       "Alumnos_hacen_Cuestionario.IDCuestionario = Cuestionarios.IDCuestionario"+
-                       "WHERE Cuestionarios.IDGrupo =  %s", (id_grupo))
+        cursor.execute("SELECT * FROM Alumnos_hacen_Cuestionario INNER JOIN Cuestionarios ON Alumnos_hacen_Cuestionario.IDCuestionario = Cuestionarios.IDCuestionario WHERE Cuestionarios.IDGrupo =  %s", (id_grupo))
         gruposConCuestionariosResueltos = cursor.fetchall()
     conexion.close()
     return gruposConCuestionariosResueltos
