@@ -105,7 +105,7 @@ function mostrarComentarios(selectorArray, id, numeroGrupo) {
                 <div class="comentarioContainerRetroalimentacion bordered1 colorGreyWhiter">
                     <div class="comentarioContainerRetroalimentacion-userData">
                         <div class="comentarioContainerRetroalimentacion-userData-img">
-                            <img class="shadow-1e" src="../../../static/images/avatares/${fotoAlumnoRetroMultidimensional[selectorArray][j][i]}">
+                            <img class="shadow-1e" src="../../../static/images/alumnos/${fotoAlumnoRetroMultidimensional[selectorArray][j][i]}">
                         </div>
                         <div class="comentarioContainerRetroalimentacion-userData-name">
                             <p class="coloreTextReverse">${nombreAlumnoRetroMultidimensional[selectorArray][j][i]}</p>
