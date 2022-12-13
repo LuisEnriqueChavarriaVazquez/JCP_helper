@@ -10,11 +10,6 @@ import requests
 import ast
 import shutil
 
-from kaleido.scopes.plotly import PlotlyScope
-scope = PlotlyScope(
-    plotlyjs="https://cdn.plot.ly/plotly-latest.min.js",
-    # plotlyjs="/path/to/local/plotly.js",
-)
 import plotly.graph_objects as go
 from fpdf import FPDF
 from flask import make_response
@@ -1382,6 +1377,11 @@ def crear_reportes_grupos_docentes_PDF():
     trace = go.Bar(x=json.loads(xdata), y=json.loads(ydata))
     parametrosGrafica1 = {'title': ' Comparación de promedio grupales'}
     fig1 = go.Figure(data=trace, layout=parametrosGrafica1)
+    ComparacionPromedioGrupales = fig1.to_image(format="png")
+    
+    with open("static/images/ComparacionPromedioGrupales.png","wb") as pruebaimg:
+        pruebaimg.write(ComparacionPromedioGrupales)
+
     #fig.show()
     #fig1.write_image("static/images/ComparacionPromedioGrupales.png")
 
@@ -1465,7 +1465,7 @@ def crear_reportes_grupos_docentes_PDF():
     pdf.set_font("Arial","",size = 12)
     pdf.cell(w=0, h=5, txt = "Gráfica comparación de promedio grupales",
          ln = 1, align = 'L')
-    #pdf.image("static/images/ComparacionPromedioGrupales.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')   
+    pdf.image("static/images/ComparacionPromedioGrupales.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')   
    
    #Historico de puntajes en cada evaluacion de cada grupo.
     pdf.cell(w=0, h=5, txt = "Histórico de puntajes en cada evaluacion de cada grupo",
@@ -1514,7 +1514,7 @@ def crear_reportes_grupos_docentes_PDF():
 
 
     #Eliminación archivos de mas
-    # os.remove("static/images/ComparacionPromedioGrupales.png")
+    os.remove("static/images/ComparacionPromedioGrupales.png")
     # os.remove("static/images/HistoricoPuntajeEvaluacionGrupos.png")
     # os.remove("static/images/IndicePorcentualesPromedio.png")
     # os.remove("static/images/PorcentajeAprobadosReprobados.png")
