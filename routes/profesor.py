@@ -1,6 +1,4 @@
-#from crypt import methods
 from functools import wraps
-##from turtle import width
 from flask import render_template,flash,request, url_for, redirect, session
 from . import routes
 from operacionesBD import Op_profesor
@@ -12,8 +10,11 @@ import requests
 import ast
 import shutil
 
-import plotly.io as pio
-pio.kaleido.scope.chromium_args = tuple([arg for arg in pio.kaleido.scope.chromium_args if arg != "--disable-dev-shm-usage"])
+from kaleido.scopes.plotly import PlotlyScope
+scope = PlotlyScope(
+    plotlyjs="https://cdn.plot.ly/plotly-latest.min.js",
+    # plotlyjs="/path/to/local/plotly.js",
+)
 import plotly.graph_objects as go
 from fpdf import FPDF
 from flask import make_response
