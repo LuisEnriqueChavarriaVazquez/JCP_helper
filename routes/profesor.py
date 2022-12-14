@@ -1374,7 +1374,17 @@ def crear_reportes_grupos_docentes_PDF():
             self.set_font("helvetica", "I", 8)
             # Printing page number:
             self.cell(0, 10, f"Página {self.page_no()}", align="C")
-        
+    
+    pio.kaleido.scope.chromium_args += ("--single-process",)
+    cold = True
+    while cold:
+        cold = plotly_kaleido_warmup()
+        if cold:
+            print("Frio esperando 10 segundos ")
+            time.sleep(10)
+        else:
+            print("Calentamiento completado")
+
     #Comparacion de promedio grupales
     xdata = request.form["xComparacionPromedioGrupales"]
     ydata = request.form["yComparacionPromedioGrupales"]
@@ -1383,13 +1393,13 @@ def crear_reportes_grupos_docentes_PDF():
     trace = go.Bar(x=json.loads(xdata), y=json.loads(ydata))
     parametrosGrafica1 = {'title': ' Comparación de promedio grupales'}
     fig1 = go.Figure(data=trace, layout=parametrosGrafica1)
-    ComparacionPromedioGrupales = fig1.to_image(format="png")
+    #ComparacionPromedioGrupales = fig1.to_image(format="png")
     
-    with open("static/images/ComparacionPromedioGrupales.png","wb") as pruebaimg:
-        pruebaimg.write(ComparacionPromedioGrupales)
+    # with open("static/images/ComparacionPromedioGrupales.png","wb") as pruebaimg:
+    #     pruebaimg.write(ComparacionPromedioGrupales)
 
     #fig.show()
-    #fig1.write_image("static/images/ComparacionPromedioGrupales.png")
+    fig1.write_image("static/images/ComparacionPromedioGrupales.png")
 
     #Historico de puntajes en cada evaluacion de cada grupo
     HistoricoPuntajesEvaluacionGrupoPy = json.loads(request.form["HistoricoPuntajesEvaluacionGrupo"])
