@@ -24,6 +24,12 @@ from operacionesCorreo import token,email
 
 from datetime import date
 
+
+import numpy as np
+import plotly.io as pio
+import time
+
+
 ##
 ## Links para la parte del panel central
 ##
@@ -1602,6 +1608,17 @@ def crear_reportes_cuestionarios_docentes_PDF():
             # Printing page number:
             self.cell(0, 10, f"Página {self.page_no()}", align="C")
     
+    pio.kaleido.scope.chromium_args += ("--single-process",)
+    cold = True
+    while cold:
+        cold = plotly_kaleido_warmup()
+        if cold:
+            
+            time.sleep(10)
+        else:
+            print("No funciona")
+
+
     #Creacion imagenes estadisticas
 
     #Datos graficas Insights cuestionarios generales.
@@ -1801,3 +1818,31 @@ def recuperar_contra_docente():
     body_email= "Contraseña es "+str(profesoRegistro[10])
     email.enviar_correo(sender_email,password_email,subject_email, correo,body_email)
     return  redirect(url_for('routes.login_general'))
+
+
+def plotly_kaleido_warmup():
+	cold = True
+	try:
+		np.random.seed(1)
+		N = 100
+		x = np.random.rand(N)
+		y = np.random.rand(N)
+		colors = np.random.rand(N)
+		sz = np.random.rand(N) * 30
+		fig = go.Figure()
+		fig.add_trace(go.Scatter(
+			x=x,
+			y=y,
+			mode="markers",
+			marker=go.scatter.Marker(
+			size=sz,
+			color=colors,
+			opacity=0.6,
+			colorscale="Viridis"
+		)))
+		fig.write_image("static/images/warmup.png")
+		cold = False
+	except Exception as ex:
+		print(f"WARMUP EXCEPTION {ex}")
+	finally:
+		return cold
