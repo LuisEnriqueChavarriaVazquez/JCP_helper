@@ -1412,7 +1412,7 @@ def crear_reportes_grupos_docentes_PDF():
             ))
     
     figHistoricoPuntajeEvaluacionGrupo.update_layout(title='Histórico de puntajes en cada evaluación de cada grupo')
-    #figHistoricoPuntajeEvaluacionGrupo.write_image("static/images/HistoricoPuntajeEvaluacionGrupos.png")
+    figHistoricoPuntajeEvaluacionGrupo.write_image("static/images/HistoricoPuntajeEvaluacionGrupos.png")
 
 
     #indice porcentuales de promedio
@@ -1423,7 +1423,7 @@ def crear_reportes_grupos_docentes_PDF():
     parametrosGrafica2 = {'title': ' Índice porcentuales de promedio'}
     fig2 = go.Figure(data=dataPie, layout = parametrosGrafica2)
 
-    #fig2.write_image("static/images/IndicePorcentualesPromedio.png")
+    fig2.write_image("static/images/IndicePorcentualesPromedio.png")
 
     
     #Datos graficas Aprobación general de grupos
@@ -1441,7 +1441,7 @@ def crear_reportes_grupos_docentes_PDF():
 
     figComparacionReprovadosAprovadosBarra = go.Figure(data = dataComparacionReprovadosAprovadosBarra,layout = parametrosComparacionReprovadosAprovadosBarra)
     figComparacionReprovadosAprovadosBarra.update_layout(barmode='stack')
-    #figComparacionReprovadosAprovadosBarra.write_image("static/images/ComparacionReprovadosAprovadosBarra.png")
+    figComparacionReprovadosAprovadosBarra.write_image("static/images/ComparacionReprovadosAprovadosBarra.png")
 
     #Datos  aprovacion porcentaje
     aprobadosFormatoDiezReporte = request.form["aprobadosFormatoDiezReporte"]
@@ -1458,7 +1458,7 @@ def crear_reportes_grupos_docentes_PDF():
     parametrosGraficaAvsR = {'title': 'Porcentaje de aprobados vs reprobados'}
     figAvsR = go.Figure(data=dataPieAvsR, layout = parametrosGraficaAvsR )
 
-    #figAvsR.write_image("static/images/PorcentajeAprobadosReprobados.png")
+    figAvsR.write_image("static/images/PorcentajeAprobadosReprobados.png")
 
    
     #Creacion inicial del pdf
@@ -1486,12 +1486,12 @@ def crear_reportes_grupos_docentes_PDF():
    #Historico de puntajes en cada evaluacion de cada grupo.
     pdf.cell(w=0, h=5, txt = "Histórico de puntajes en cada evaluacion de cada grupo",
          ln = 1, align = 'L')
-    #pdf.image("static/images/HistoricoPuntajeEvaluacionGrupos.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
+    pdf.image("static/images/HistoricoPuntajeEvaluacionGrupos.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
     
     #indice porcentuales de promedio
     pdf.cell(w=0, h=5, txt = "Índice porcentuales de promedio",
          ln = 1, align = 'L')
-    #pdf.image("static/images/IndicePorcentualesPromedio.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
+    pdf.image("static/images/IndicePorcentualesPromedio.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
 
     #Titulo Aprobación general de grupos
     pdf.set_font("helvetica", "B", 12)
@@ -1506,7 +1506,7 @@ def crear_reportes_grupos_docentes_PDF():
     pdf.cell(w=0, h=5, txt = "Gráfica comparación aprobados vs reprobados",
          ln = 1, align = 'L')
     
-    #pdf.image("static/images/ComparacionReprovadosAprovadosBarra.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
+    pdf.image("static/images/ComparacionReprovadosAprovadosBarra.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
 
     #Parte del reporte con aprobacion porcentaje
     pdf.cell(w=0, h=5, txt = "Aprobación porcentaje",
@@ -1526,15 +1526,15 @@ def crear_reportes_grupos_docentes_PDF():
     #Porcentaje de aprobación vs reprobados
     pdf.cell(w=0, h=5, txt = "Porcentaje de aprobación vs reprobados",
          ln = 1, align = 'L')
-    #pdf.image("static/images/PorcentajeAprobadosReprobados.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
+    pdf.image("static/images/PorcentajeAprobadosReprobados.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
 
 
     #Eliminación archivos de mas
     os.remove("static/images/ComparacionPromedioGrupales.png")
-    # os.remove("static/images/HistoricoPuntajeEvaluacionGrupos.png")
-    # os.remove("static/images/IndicePorcentualesPromedio.png")
-    # os.remove("static/images/PorcentajeAprobadosReprobados.png")
-    # os.remove("static/images/ComparacionReprovadosAprovadosBarra.png")
+    os.remove("static/images/HistoricoPuntajeEvaluacionGrupos.png")
+    os.remove("static/images/IndicePorcentualesPromedio.png")
+    os.remove("static/images/PorcentajeAprobadosReprobados.png")
+    os.remove("static/images/ComparacionReprovadosAprovadosBarra.png")
 
     #Obtencion datos grupos
 
@@ -1642,7 +1642,7 @@ def crear_reportes_cuestionarios_docentes_PDF():
     parametrosGraficaBarraNumRespGrupo = {'title': ' Número de respuestas por grupo'}
     figGraficaBarraNumRespGrupo  = go.Figure(data=graficaBarraNumRespGrupo, layout=parametrosGraficaBarraNumRespGrupo )
     #figGraficaBarraNumRespGrupo.show()
-    #figGraficaBarraNumRespGrupo.write_image("static/images/NumeroRespuestasPorGrupo.png")
+    figGraficaBarraNumRespGrupo.write_image("static/images/NumeroRespuestasPorGrupo.png")
 
     #Graficos Datos graficos radar de los promedios generales por cuestionario
     promediosPorCuestionarioPy = request.form["promediosPorCuestionario"]
@@ -1652,7 +1652,7 @@ def crear_reportes_cuestionarios_docentes_PDF():
     theta =json.loads(cuestionarioConRespuestasRadioPy) , mode = 'markers')
     parametrosGraficaRadioPromCuestionario = {'title': ' Radar de los promedios generales por cuestionario'}
     figGraficaRadioPromCuestionario =go.Figure(data=graficaRadioPromCuestionario, layout= parametrosGraficaRadioPromCuestionario)
-    #figGraficaRadioPromCuestionario.write_image("static/images/GraficoRadarPromedioCuestionarios.png")
+    figGraficaRadioPromCuestionario.write_image("static/images/GraficoRadarPromedioCuestionarios.png")
 
     #Graficos Datos graficos Promedio general por cuestionarios
     cuestionarioConRespuestasPromGenCuestPy = request.form["cuestionarioConRespuestasPromGenCuest"]
@@ -1661,7 +1661,7 @@ def crear_reportes_cuestionarios_docentes_PDF():
     graficaBarraPromGenCues =  go.Bar(x=json.loads(cuestionarioConRespuestasPromGenCuestPy), y=json.loads(promediosPorCuestionarioPromGenCuestPy))
     parametrosGraficaPromGenCues = {'title': ' Promedio general por cuestionarios'}
     figPromGenCues =  go.Figure(data=graficaBarraPromGenCues, layout=parametrosGraficaPromGenCues)
-    #figPromGenCues.write_image("static/images/GraficoBarraPromGenCuest.png")
+    figPromGenCues.write_image("static/images/GraficoBarraPromGenCuest.png")
 
     #Insights cuestionarios generales 2.
     
@@ -1673,7 +1673,7 @@ def crear_reportes_cuestionarios_docentes_PDF():
     parametrosGraficaTiemProHoras =  {'title': ' Tiempo promedio en horas respuestas en cuestionarios'}
 
     figTiemProHoras = go.Figure(data=graficaTiemProHoras, layout= parametrosGraficaTiemProHoras)
-    #figTiemProHoras.write_image("static/images/TiempoPromedioHorasRespCuestionario.png")
+    figTiemProHoras.write_image("static/images/TiempoPromedioHorasRespCuestionario.png")
 
     #porcentaje Aciertos Tipo Pregunta
     
@@ -1690,7 +1690,7 @@ def crear_reportes_cuestionarios_docentes_PDF():
 
     figAprobadosReprobadosCuestionarioBarra = go.Figure(dataAprobadosReprobadosCuestionarioBarra)
     figAprobadosReprobadosCuestionarioBarra.update_layout(barmode='stack')
-    #figAprobadosReprobadosCuestionarioBarra.write_image("static/images/aprobadosReprobadosCuestionarioBarra.png")
+    figAprobadosReprobadosCuestionarioBarra.write_image("static/images/aprobadosReprobadosCuestionarioBarra.png")
 
     #Datos de cuestionarios
     numeroRespuestasPy=json.loads(request.form["numeroRespuestas"])
@@ -1723,13 +1723,13 @@ def crear_reportes_cuestionarios_docentes_PDF():
     pdf.cell(w=0, h=5, txt = "Gráfica Número de respuestas por grupo",ln = 1, align = 'L')
 
     #Agregar imagen Numero de respuestas por grupo
-    #pdf.image("static/images/NumeroRespuestasPorGrupo.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
+    pdf.image("static/images/NumeroRespuestasPorGrupo.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
 
     #Titulo Grafica Radar de los promedios generales por cuestionario en el pdf
     pdf.cell(w=0, h=5, txt = "Gráfica radar de los promedios generales por cuestionario",ln = 1, align = 'L')
 
     #Agregar imagen Radar de los promedios generales por cuestionario
-    #pdf.image("static/images/GraficoRadarPromedioCuestionarios.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
+    pdf.image("static/images/GraficoRadarPromedioCuestionarios.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
 
     #Titulo Grafica  Promedio general por cuestionarios
     pdf.cell(w=0, h=5, txt = "Gráfica  promedio general por cuestionarios",
@@ -1737,7 +1737,7 @@ def crear_reportes_cuestionarios_docentes_PDF():
     
     #Aregar grafica Promedio general por cuestionarios
 
-    #pdf.image("static/images/GraficoBarraPromGenCuest.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
+    pdf.image("static/images/GraficoBarraPromGenCuest.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
     
     #Seccion de Insights cuestionarios generales 2en el pdf
     pdf.set_font("helvetica", "B", 12)
@@ -1749,7 +1749,7 @@ def crear_reportes_cuestionarios_docentes_PDF():
     pdf.set_font("Arial",size = 12)
     pdf.cell(w=0, h=5, txt = "Tiempo promedio en horas respuestas en cuestionarios",ln = 1, align = 'L')
 
-    #pdf.image("static/images/TiempoPromedioHorasRespCuestionario.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
+    pdf.image("static/images/TiempoPromedioHorasRespCuestionario.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '')
     
     #porcentaje Aciertos Tipo Pregunta
 
@@ -1771,7 +1771,7 @@ def crear_reportes_cuestionarios_docentes_PDF():
     pdf.ln(3)
     pdf.cell(w=0, h=5, txt = "Gráfica comparación aprobados vs reprobados",ln = 1, align = 'L')
 
-    #pdf.image("static/images/aprobadosReprobadosCuestionarioBarra.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '') 
+    pdf.image("static/images/aprobadosReprobadosCuestionarioBarra.png", x = None, y = None, w = 100, h = 100, type = 'png', link = '') 
 
     
     pdf.set_font("Arial", "B",size = 12)
@@ -1800,11 +1800,11 @@ def crear_reportes_cuestionarios_docentes_PDF():
 
 
     #Eliminación archivos de mas
-    # os.remove("static/images/NumeroRespuestasPorGrupo.png")
-    # os.remove("static/images/GraficoRadarPromedioCuestionarios.png")
-    # os.remove("static/images/GraficoBarraPromGenCuest.png")
-    # os.remove("static/images/TiempoPromedioHorasRespCuestionario.png")
-    # os.remove("static/images/aprobadosReprobadosCuestionarioBarra.png")
+    os.remove("static/images/NumeroRespuestasPorGrupo.png")
+    os.remove("static/images/GraficoRadarPromedioCuestionarios.png")
+    os.remove("static/images/GraficoBarraPromGenCuest.png")
+    os.remove("static/images/TiempoPromedioHorasRespCuestionario.png")
+    os.remove("static/images/aprobadosReprobadosCuestionarioBarra.png")
     
     response = make_response(pdf.output(dest='S').encode('latin-1'))
     response.headers.set('Content-Disposition', 'attachment', filename="Reporte_Cuestionarios" + '.pdf')
