@@ -177,11 +177,6 @@ function buscarGrupos() {
                     encontrado = true;
                 }
 
-                //Verificamos si algún grupo coincide con el valor de input
-                /*if(gruposActuales[j] == buscadorValue){
-                    console.log("La busqueda coincide con " + gruposActuales[j]);
-                    encontrado = true;
-                }*/
             }
 
             //Ultima validación en caso de no haber encontrado nada
