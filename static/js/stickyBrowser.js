@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    //$('.buscador_scroll_down').toggleClass("buscador_scrolled_down", ($(window).scrollTop() > 54));
     let buscador_contenedor = document.getElementById("container_browser_id_uno");
     let buscador_fondo = document.getElementById("fondo_browser_id_dos");
     let buscador_box_secundario = document.getElementById("container_browser_id_dos");
