@@ -54,7 +54,7 @@ def wrappers(func, *args, **kwargs):
 
 ##Ruta para la vista de gestion de cuestionarios
 @routes.route('/gestionar_cuestionarios')
-#@login_required
+@login_required
 def gestionar_cuestionarios():
     try:
         result=Op_profesor.datos_completos_docente_by_id(session["IDDocente"])
@@ -100,6 +100,7 @@ def gestionar_cuestionarios():
 
 ##Tura para ir a la vista de revision de cuestionarios pendientes
 @routes.route('/revisionCuestionarios/<string:id_docente>')
+@login_required
 def revisionCuestionarios(id_docente):
     # try:
         #Obtengo los datos de los cuestionarios del docente
@@ -148,6 +149,7 @@ def revisionCuestionarios(id_docente):
 
 ##Tura para ir a la vista de revision de cuestionarios pendientes
 @routes.route('/retroalimentarCuestionario/<string:id_cuestionario_pending>', methods=["POST"])
+@login_required
 def retroalimentarCuestionario(id_cuestionario_pending):
     #Accedo a los valores de IDs
     idCuestionarioHecho = id_cuestionario_pending
@@ -173,6 +175,7 @@ def retroalimentarCuestionario(id_cuestionario_pending):
 
 ##Funcion para ir a la vista de revision de cuestionarios pendientes
 @routes.route('/terminarRetroalimentacion/<string:id_cuestionario_pending>', methods=["POST"])
+@login_required
 def terminarRetroalimentarCuestionarios(id_cuestionario_pending):
     #Accedo a los valores de IDs
     idCuestionarioHecho = request.form["idCuestionarioHecho"];
@@ -211,7 +214,7 @@ def terminarRetroalimentarCuestionarios(id_cuestionario_pending):
 
 ##Ruta para la vista de gestion de estadisticas
 @routes.route('/gestionar_estadisticas/<string:id_docente>')
-#@login_required
+@login_required
 def gestionar_estadisticas(id_docente):
     ##############################################################
     #Obtenemos los datos del grupo
@@ -345,7 +348,7 @@ def gestionar_estadisticas(id_docente):
 ##Bloque para render de la pagina de gestion de grupos
 ##
 @routes.route('/gestionar_grupos',methods=['GET','POST'])
-#@login_required
+@login_required
 def gestionar_grupos():
     if request.method=="POST":
         #Variables del formulario
@@ -477,6 +480,7 @@ def gestionar_grupos():
 ##
 
 @routes.route('/deleteGroup/<string:id>')
+@login_required
 def delete_group(id):
     #Eliminamos el grupo con el ID dada
     resultDelete = Op_profesor.delete_grupos(id)
@@ -488,6 +492,7 @@ def delete_group(id):
 ##
 
 @routes.route('/editGroup/<string:id>')
+@login_required
 def edit_group(id):
     #Obtenemos los datos del grupo
     pickedGroupData = Op_profesor.obtener_grupo_datos_importantes_unitario(id)
@@ -500,6 +505,7 @@ def edit_group(id):
 ##
 
 @routes.route('/updateGroup/<id>', methods=['POST'])
+@login_required
 def update_group(id):
     if request.method == 'POST':
         #Variables del formulario
@@ -518,6 +524,7 @@ def update_group(id):
 ##
 
 @routes.route('/viewGroup/<string:id>')
+@login_required
 def view_group(id):
     #Obtenemos los datos del grupo
     pickedGroupData = Op_profesor.obtener_grupo_datos_importantes_unitario(id)
@@ -662,7 +669,7 @@ de entrar a la funcion se darac cuenta que no se esta logeado y nos mandara a la
 de login, evitando asi que se lance la excepcion de que no existe el IDDocente
 """
 @routes.route('/bienvenidaProfesor')
-#@login_required
+@login_required
 def bienvenidaProfesor():
     try:
         result = Op_profesor.datos_completos_docente_by_id(session['IDDocente'])
@@ -703,7 +710,7 @@ def bienvenidaProfesor():
         return render_template('profesor/bienvenidaProfesor.html')
 
 @routes.route('/gestorNotificacionesProfe', methods=['POST'])
-#@login_required
+@login_required
 def gestorNotificacionesProfe():
     try:
         idUsuarioNotificaciones = request.form["idUsuarioNotificaciones"]
@@ -717,6 +724,7 @@ def gestorNotificacionesProfe():
         return render_template('profesor/a_gestionar_notificaciones.html')
 
 @routes.route('/borrarComentariosProfesor', methods=['POST'])
+@login_required
 def borrarComentariosProfesor():
     idProfesor = request.form["idProfesor"]
     
@@ -731,6 +739,7 @@ def borrarComentariosProfesor():
     return redirect(url_for('routes.bienvenidaProfesor', datos = result))  
 
 @routes.route('/borrarComentarioParticularProfesor', methods=['POST'])
+@login_required
 def borrarComentarioParticularProfesor():
     idProfesor = request.form["idProfesor"]
     idComentario = request.form["idComentario"]
@@ -746,6 +755,7 @@ def borrarComentarioParticularProfesor():
     return render_template('profesor/a_gestionar_notificaciones.html', notificaciones = notificaciones)
 
 @routes.route('/bienvenidaProfesorP/<string:respuesta>')
+@login_required
 def bienvenidaProfesorPolitica(respuesta):
     #comprobamos si ya se ha registrado repuesta
     estado=Op_profesor.estadoPolitica(session['IDDocente'])
@@ -760,7 +770,7 @@ def bienvenidaProfesorPolitica(respuesta):
 lo mismo para con esta funcion con el try except
 """
 @routes.route('/perfil_docente')
-#@login_required
+@login_required
 def perfil_docente():
     try:
         result = Op_profesor.datos_completos_docente_by_id(session['IDDocente'])
@@ -773,6 +783,7 @@ def perfil_docente():
 ##Bloque para editar el perfil del profesor
 ##
 @routes.route('/editarPerfilProfesor/<string:id>')
+@login_required
 def edit_perfil_profesor(id):
     #Obtenemos los datos del profesor
     result = Op_profesor.datos_completos_docente_by_id(id)
@@ -784,6 +795,7 @@ def edit_perfil_profesor(id):
 ##Bloque para hacer el update del perfil
 ##
 @routes.route('/updateProfesor/<id>', methods=['POST'])
+@login_required
 def update_docente(id):
     if request.method == 'POST':
         #Variables del formulario
@@ -814,6 +826,7 @@ def update_docente(id):
 ##Bloque para hacer el update de la foto de perfil
 ##
 @routes.route('/editarFotoPerfilDocente/<string:id_docente>', methods=['POST'])
+@login_required
 def editarFotoPerfilDocente(id_docente):
     if request.method == 'POST':
         #Variables del formulario
@@ -836,7 +849,7 @@ def editarFotoPerfilDocente(id_docente):
 
 
 @routes.route('/perfil_general_view/<string:id>')
-#@login_required
+@login_required
 def ver_perfil_alumno(id):
     try:
         datos = Op_profesor.datos_completos_alumno_by_id(id)
@@ -849,6 +862,7 @@ def ver_perfil_alumno(id):
 
 #Creación cuestionarios
 @routes.route('/creacion_cuestionarios/<string:id_profesor>')
+@login_required
 def creacion_cuestionarios(id_profesor):
     cuestionario_rutas = Op_profesor.obtener_cuestionarios_rutas(id_profesor)
     resultCuestionarios = Op_profesor.obtener_cuestionarios_datos_importantes(id_profesor)
@@ -857,7 +871,7 @@ def creacion_cuestionarios(id_profesor):
 
 #creacion del cuestionario del banco de pruebas
 @routes.route('/crear_cuestionario_del_banco',methods=['GET',"POST"])
-#@login_required
+@login_required
 def crear_cuestionario_del_banco():
     if request.method == 'POST':
         query=request.form["lenguaje"]
@@ -875,6 +889,7 @@ def crear_cuestionario_del_banco():
 
 ## creacion de cuestionario por id
 @routes.route('/genera_cuestionarios_por_lenguaje',methods=["GET","POST"])
+@login_required
 def genera_cuestionarios_por_lenguaje():
 
     if request.args.get("id"):
@@ -947,7 +962,7 @@ def cuestionarios_c():
 
 ##Ruta para la vista de comunidad del profesor
 @routes.route('/comunidad_profesor')
-#@login_required
+@login_required
 def comunidad_profesor():
 
     #para mostrar preguntas en general
@@ -966,6 +981,7 @@ def comunidad_profesor():
 
 #Para buscar cuestionarios por titulo en la api
 @routes.route("/cuestionarios_like_titulo",methods=["POST"])
+@login_required
 def cuestionarios_like_titulo():
 
     try:
@@ -1000,6 +1016,7 @@ def python_runner():
 
 ###Primero guardamos el JSON
 @routes.route('/guardarCuestionarioJSON/<string:id_profesor>', methods=["POST"])
+@login_required
 def guardarCuestionarioJSON(id_profesor):
     #Obtenemos el nombre del cuestionario
     nombreCuestionarioConClave = request.form["nombreCuestionarioConClave"]
@@ -1037,6 +1054,7 @@ def guardarCuestionarioJSON(id_profesor):
 
 ###Segundo guardamos la data del cuestionario
 @routes.route('/saveCuestionario/<string:id_profesor>', methods=["POST"])
+@login_required
 def saveCuestionario(id_profesor):
     #Guardamos datos del formualario
     tituloCuestionario = request.form["tituloCuestionario"]
@@ -1108,6 +1126,7 @@ def saveCuestionario(id_profesor):
 ##
 
 @routes.route('/editCuestionario/<string:id_cuestionario>')
+@login_required
 def edit_cuestionario(id_cuestionario):
     #Obtenemos los datos del cuestionario
     pickedCuestionarioData = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
@@ -1131,6 +1150,7 @@ def edit_cuestionario(id_cuestionario):
 ##
 
 @routes.route('/updateCuestionarios/<id_cuestionarios>', methods=['POST'])
+@login_required
 def update_cuestionario(id_cuestionarios):
     if request.method == 'POST':
         #Variables del formulario
@@ -1164,6 +1184,7 @@ def update_cuestionario(id_cuestionarios):
         return redirect(url_for('routes.gestionar_cuestionarios')) 
 
 @routes.route('/viewCuestionario/<string:id_cuestionario>')
+@login_required
 def view_cuestionario(id_cuestionario):
     #Obtenemos todos los datos del cuestionario
     datosCuestionario = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
@@ -1189,6 +1210,7 @@ def view_cuestionario(id_cuestionario):
 ##
 
 @routes.route('/previewVerComoALumnoCuestionario/<string:id_cuestionario>')
+@login_required
 def view_cuestionario_como_alumno(id_cuestionario):
     #Obtenemos todos los datos del cuestionario
     datosCuestionario = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
@@ -1207,6 +1229,7 @@ def view_cuestionario_como_alumno(id_cuestionario):
     return render_template('profesor/c_verComoAlumnoCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON)
 
 @routes.route('/simularRevision/<string:id_cuestionario>', methods=['POST'])
+@login_required
 def simular_revision(id_cuestionario):
     #Obtenemos todos los datos del cuestionario
     datosCuestionario = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
@@ -1247,6 +1270,7 @@ def simular_revision(id_cuestionario):
     return render_template('profesor/c_verResultadosComoAlumnosCuestionario.html', datosCuestionario = datosCuestionario, dataJSON = dataJSON)
 
 @routes.route('/duplicarCuestionarios/<string:id_cuestionario>')
+@login_required
 def duplicar_cuestionario(id_cuestionario):
     #Obtenemos los datos del cuestionario
     pickedCuestionarioData = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
@@ -1274,6 +1298,7 @@ def duplicar_cuestionario(id_cuestionario):
 ##
 
 @routes.route('/deleteCuestionario/<string:id_cuestionario>')
+@login_required
 def delete_cuestionario(id_cuestionario):
     #Eliminamos el grupo con el ID dada
     resultDelete = Op_profesor.delete_cuestionarios(id_cuestionario)
@@ -1282,6 +1307,7 @@ def delete_cuestionario(id_cuestionario):
 
 # Formulario para que el docente haga una publicacion
 @routes.route('/crearPost/<string:id_docente>', methods=["POST"])
+@login_required
 def crear_post(id_docente):
     #Obtenemos los datos del formulario
     tituloPost = request.form["tituloPost"]
@@ -1295,12 +1321,14 @@ def crear_post(id_docente):
 
 # Formulario para borrar el post
 @routes.route('/deletePost/<string:id_publicacion>')
+@login_required
 def delete_post(id_publicacion):
     Op_profesor.deletePost(id_publicacion)
     return redirect(url_for('routes.perfil_docente'))
 
 #Para editar un post
 @routes.route('/editarPost/<string:id_publicacion>')
+@login_required
 def edit_post(id_publicacion):
     #Obtenemos los datos del cuestionario
     pickedPostData = Op_profesor.obtenerPostUnitario(id_publicacion)
@@ -1310,6 +1338,7 @@ def edit_post(id_publicacion):
 
 # Formulario para update de el post
 @routes.route('/updatePost/<string:id_publicacion>', methods=['POST'])
+@login_required
 def update_post(id_publicacion):
     #Obtenemos los datos del formulario
     tituloPostTwo = request.form["tituloPostTwo"]
@@ -1324,7 +1353,7 @@ def update_post(id_publicacion):
 
 #Formulario para guardar fondos de perfil
 @routes.route('/guardarFondo/<string:id_docente>',methods=['GET','POST'])
-#@login_required
+@login_required
 def guardarFondo(id_docente):
     if request.method=="POST":
         #Variables del formulario
@@ -1339,10 +1368,12 @@ def guardarFondo(id_docente):
 ####                                                                 ####
 #########################################################################
 @routes.route('/configuraciones_docente')
+@login_required
 def configuraciones_docente():
     return render_template('configuraciones_docente.html',id_profesor=session["IDDocente"])
 
 @routes.route('/eliminarCuentaDocente')
+@login_required
 def eliminarCuentaDocente():
     Op_profesor.docenteEliminaCuenta(session["IDDocente"])
     return redirect(url_for("routes.profesor_logout"))
@@ -1351,6 +1382,7 @@ def eliminarCuentaDocente():
 
 #Creacion reportes de grupos docentes
 @routes.route('/crear_reportes_grupos_docentes_PDF', methods=['POST'])
+@login_required
 def crear_reportes_grupos_docentes_PDF():
 
     class PDF(FPDF):
@@ -1594,6 +1626,7 @@ def crear_reportes_grupos_docentes_PDF():
 
 
 @routes.route('/crear_reportes_cuestionarios_docentes_PDF', methods=['POST'])
+@login_required
 def crear_reportes_cuestionarios_docentes_PDF():
 
     class PDF(FPDF):
