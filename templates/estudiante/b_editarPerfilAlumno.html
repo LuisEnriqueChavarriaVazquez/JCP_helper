@@ -52,18 +52,18 @@
                 <div class="row">
                     <div class="input-field col s12 m6">
                         <input id="nombreUsuario" name="nombreUsuario" type="text" class="validate colorTextReverse"
-                            value="{{userInfo.1}}">
+                            value="{{userInfo.1}}" required>
                         <label for="nombreUsuario" class="TDI">Nombre de usuario</label>
                     </div>
                     <div class="input-field col s12 m6">
                         <input id="aliasUsuario" name="aliasUsuario" type="text" class="validate colorTextReverse"
-                            value="{{userInfo.2}}">
+                            value="{{userInfo.2}}" required>
                         <label for="aliasUsuario" class="TDI">Alias de usuario</label>
                     </div>
                     <div class="input-field col s12">
                         <textarea id="descUser" name="descUser" class="validate colorTextReverse"
                             style="border: 0px solid #000; padding: 10px; margin-top: 5px;"
-                            data-length="100">{{userInfo.8}}</textarea>
+                            data-length="100" required>{{userInfo.8}}</textarea>
                         <label for="descUser" class="TDI">Descripción</label>
                     </div>
                 </div>
@@ -72,11 +72,11 @@
                 <br id="espacioExtra" class="hiddenElement">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="contraFirst" class="colorTextReverse" name="contraFirst" type="password" value="">
+                        <input id="contraFirst" class="colorTextReverse" name="contraFirst" type="password" value="" required>
                         <label for="contraFirst" class="TDI">Contraseña</label>
                     </div>
                     <div class="input-field col s12 hiddenElement" id="contraSecondContainer">
-                        <input id="contraSecond" class="colorTextReverse" name="contraSecond" type="password" value="">
+                        <input id="contraSecond" class="colorTextReverse" name="contraSecond" type="password" value="" required>
                         <label for="contraSecond" class="TDI">Confirmar contraseña</label>
                     </div>
                 </div>
