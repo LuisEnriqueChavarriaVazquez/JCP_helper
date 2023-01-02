@@ -1,5 +1,4 @@
 from functools import wraps
-from unittest import result
 from flask import flash, render_template,request,redirect,url_for,session
 from . import routes
 import json
@@ -36,25 +35,25 @@ def logoutEstudiante():
     return redirect(url_for("routes.login_general"))
 ##Ruta para la vista de comunidad del estudiante
 @routes.route('/comunidad_estudiante')
-#@login_required
+@login_required
 def comunidad_estudiante():
     return render_template('profesor/b_comunidad_estudiante.html')
 
 ##Ruta para la vista de gestion de cuestionarios
 @routes.route('/gestionar_cuestionarios_estudiante')
-#@login_required
+@login_required
 def gestionar_cuestionarios_estudiante():
     return render_template('profesor/b_gestionar_cuestionarios.html')
 
 ##Ruta para la vista de gestion de estadisticas
 @routes.route('/gestionar_estadisticas_estudiante')
-#@login_required
+@login_required
 def gestionar_estadisticas_estudiante():
     return render_template('profesor/b_gestionar_estadisticas.html')
 
 ##Ruta para la vista de gestion de grupos
 @routes.route('/gestionar_grupos_estudiante')
-#@login_required
+@login_required
 def gestionar_grupos_estudiante():
     return render_template('profesor/b_gestionar_grupos.html')
 
@@ -75,7 +74,7 @@ en este try except pasa lo mismo que con el del profesor, cuando se descomente e
 @login_required ya no sera necesario porque siempre va  existir el IDAlumno
 """
 @routes.route('/bienvenidaEstudiante')
-#@login_required
+@login_required
 def bienvenidaEstudiante():
     try:
         result=Op_estudiante.datos_completos_alumno_by_id(session["IDAlumno"])
@@ -86,7 +85,7 @@ def bienvenidaEstudiante():
         return render_template('estudiante/bienvenidaEstudiante.html')
 
 @routes.route('/gestorNotificacionesAlumno', methods=['POST'])
-#@login_required
+@login_required
 def gestorNotificacionesAlumno():
     try:
         idUsuarioNotificaciones = request.form["idUsuarioNotificaciones"]
@@ -100,6 +99,7 @@ def gestorNotificacionesAlumno():
         return render_template('estudiante/a_gestionar_notificaciones.html')
 
 @routes.route('/borrarComentariosAlumno', methods=['POST'])
+@login_required
 def borrarComentariosAlumno():
     idAlumno = request.form["idAlumno"]
     
@@ -114,6 +114,7 @@ def borrarComentariosAlumno():
     return redirect(url_for('routes.bienvenidaEstudiante', datos = result))  
 
 @routes.route('/borrarComentarioParticularAlumno', methods=['POST'])
+@login_required
 def borrarComentarioParticularAlumno():
     idAlumno = request.form["idAlumno"]
     idComentario = request.form["idComentario"]
@@ -134,6 +135,7 @@ def borrarComentarioParticularAlumno():
 ##
 
 @routes.route('/search_group',methods=['GET','POST'])
+@login_required
 def search_group():
     codigo=request.form["buscadorGruposCodigo"]
     idUsuario=request.form["idUsuario"]
@@ -161,6 +163,7 @@ def search_group():
 ##Bloque para entrar al curso una vez que se buscó
 ##
 @routes.route('/entrarGrupo/<string:id_grupo>/<string:id_docente>/<string:id_estudiante>/<string:storageLenguaje>')
+@login_required
 def entrar_grupo(id_grupo, id_docente, id_estudiante, storageLenguaje):
     #Busca los datos del alumno con su ID
     result=Op_estudiante.datos_completos_alumno_by_id(id_estudiante)
@@ -193,6 +196,7 @@ def entrar_grupo(id_grupo, id_docente, id_estudiante, storageLenguaje):
 ##Bloque para salir de algun grupo una vez que se entró
 ##
 @routes.route('/salirGrupo/<string:id_docente>/<string:id_grupo>/<string:id_estudiante>/<string:storageLenguaje>')
+@login_required
 def salir_grupo(id_docente, id_grupo ,id_estudiante, storageLenguaje):
     #Saca al alumno del grupo
     Op_estudiante.salir_de_grupo(id_docente, id_grupo ,id_estudiante)
@@ -258,6 +262,7 @@ def view_group_alumno(id):
     return render_template('estudiante/b_verGrupo.html', groupInfo = pickedGroupData[0], datosAlumnos = datosAlumnos, datosCuestionarios = datosCuestionarios, profData = pickedProfData, idEstudiante = idEstudiante)
 """
 @routes.route('/viewGroupEstudiante/<string:id_grupo>',methods=['POST'])
+@login_required
 def view_group_alumno(id_grupo):
     #Obtenemos los datos del grupo
     pickedGroupData = Op_profesor.obtener_grupo_datos_importantes_unitario(id_grupo)
@@ -295,6 +300,7 @@ def view_group_alumno(id_grupo):
 ##Bloque para ver datos de grupo
 ##
 @routes.route('/viewCuestionarioInfo/<string:id>',methods=['POST'])
+@login_required
 def view_cuestionario_info(id):
     ######Obtención de información de los cuestionarios
     datosCuestionarios = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id)
@@ -321,6 +327,7 @@ def view_cuestionario_info(id):
 ##Crear un comentario de retroalimentacion
 ##
 @routes.route('/enviarRetroalimentacion',methods=['POST'])
+@login_required
 def crear_comentario_retroalimentacion():
     #Obtenemos los datos del cuestionario y para el comentario de retroalimentacion
     feedbackContent=request.form["feedbackContent"]
@@ -368,6 +375,7 @@ def crear_comentario_retroalimentacion():
 ##
 
 @routes.route('/answerCuestionarioAlumno/<string:id_cuestionario>',methods=['POST'])
+@login_required
 def answer_cuestionario_alumno(id_cuestionario):
     #Permite leer el JSON con preguntas
     def accesoDatosPreguntas():
@@ -452,6 +460,7 @@ def answer_cuestionario_alumno(id_cuestionario):
 
 ##Cuando hay no hay mas intentos esta nos permite regresar a la vista general
 @routes.route('/noIntentosDisponibles/<string:id_cuestionario>', methods=['POST'])
+@login_required
 def redireccionar_a_vista_grupos(id_cuestionario):
     ######Obtención de información de los cuestionarios
     datosCuestionarios = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
@@ -467,6 +476,7 @@ def redireccionar_a_vista_grupos(id_cuestionario):
 
 ##Cuando el cuestionario ha terminado
 @routes.route('/cuestionarioListo/<string:id_cuestionario>', methods=['POST'])
+@login_required
 def redireccionar_a_vista_grupos_listo(id_cuestionario):
     ######Obtención de información de los cuestionarios
     datosCuestionarios = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
@@ -516,6 +526,7 @@ def redireccionar_a_vista_grupos_listo(id_cuestionario):
 
 ##Cuando el cuestionario esta pendiente
 @routes.route('/cuestionarioPendiente/<string:id_cuestionario>', methods=['POST'])
+@login_required
 def redireccionar_a_vista_grupos_pending(id_cuestionario):
     ######Obtención de información de los cuestionarios
     datosCuestionarios = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
@@ -531,6 +542,7 @@ def redireccionar_a_vista_grupos_pending(id_cuestionario):
 
 ##Se hace el guardado de las respuestas del alumno
 @routes.route('/revisarAlumno/<string:id_cuestionario>', methods=['POST'])
+@login_required
 def revisar_alumno(id_cuestionario):
     #Obtenemos todos los datos del cuestionario
     datosCuestionario = Op_profesor.obtener_cuestionario_datos_importantes_unitario(id_cuestionario)
@@ -580,6 +592,7 @@ def revisar_alumno(id_cuestionario):
 
 ##Se hace el guardado de las respuestas del alumno
 @routes.route('/resultadoAlumno/<string:id_cuestionario>', methods=['POST'])
+@login_required
 def resultado_alumno(id_cuestionario):
     #Lo que debemos hacer es insertar los datos del cuestionario en la BD
     idCuestionarioHecho=request.form['idCuestionarioHecho']
@@ -608,6 +621,7 @@ def resultado_alumno(id_cuestionario):
 ##Bloque para ver mis grupos (es como la gestion de grupos en la que estas)
 ##
 @routes.route('/mis_grupos/<string:id_estudiante>')
+@login_required
 def mis_grupos(id_estudiante):
     print(id_estudiante)
     #Busca los IDS de maestros, grupos y alumnos vinculados
@@ -635,13 +649,14 @@ def mis_grupos(id_estudiante):
 
 
     #En caso de que este vacio retornamos un empty.
-    if(result is None):
+    if(resultIds is None):
         return render_template("estudiante/b_mis_grupos.html", datosIds = "empty", datosGroup = "empty")
     else:
         return render_template("estudiante/b_mis_grupos.html", datosIds = resultIds, datosGroup = resultGroup, idsCuestionarios = idsCuestionarios, idEstudiante = id_estudiante)
 
 #Bloque para ver los resultados del alumno
 @routes.route('/gestionar_resultados_alumno/<string:id_estudiante>')
+@login_required
 def gestionar_resultados_alumno(id_estudiante):
     
     #Obtenemos los cuestionarios hechos por el estudiante.
@@ -660,6 +675,7 @@ def gestionar_resultados_alumno(id_estudiante):
 
 ##Para ver el perfil de un docente
 @routes.route('/viewTeacherProfile/<string:id>')
+@login_required
 def ver_perfil_docente_desde_alumno(id):
     #try:
         datos = Op_profesor.datos_completos_docente_by_id(id)
@@ -671,6 +687,7 @@ def ver_perfil_docente_desde_alumno(id):
         #return redirect(url_for('routes.viewGroupEstudiante'))
 
 @routes.route('/nuevo_estudiante',methods=["POST"])
+@login_required
 def nuevo_estudiante():
     if request.method=="POST":
         nombre=request.form["nombre"]
@@ -771,7 +788,7 @@ def login_estudiante():
 lo mismo para con esta funcion con el try except
 """
 @routes.route('/perfil_alumno')
-#@login_required
+@login_required
 def perfil_alumno():
     try:
         result = Op_estudiante.datos_completos_alumno_by_id(session['IDAlumno'])
@@ -784,6 +801,7 @@ def perfil_alumno():
 ##Bloque para editar el perfil del profesor
 ##
 @routes.route('/editarPerfilAlumno/<string:id>')
+@login_required
 def edit_perfil_alumno(id):
     #Obtenemos los datos del profesor
     result = Op_estudiante.datos_completos_alumno_by_id(id)
@@ -795,6 +813,7 @@ def edit_perfil_alumno(id):
 ##Bloque para hacer el update del perfil
 ##
 @routes.route('/updateAlumno/<id>', methods=['POST'])
+@login_required
 def update_alumno(id):
     if request.method == 'POST':
         #Variables del formulario
@@ -827,6 +846,7 @@ def update_alumno(id):
 ##Bloque para hacer el update de la foto de perfil
 ##
 @routes.route('/editarFotoPerfilAlumno/<string:id_alumno>', methods=['POST'])
+@login_required
 def editarFotoPerfilAlumno(id_alumno):
     if request.method == 'POST':
         #Variables del formulario
@@ -849,12 +869,13 @@ def editarFotoPerfilAlumno(id_alumno):
 
 ##Ruta para que los estudiantes respondan los cuestionarios
 @routes.route('/contestar_cuestionario_estudiante')
-#@login_required
+@login_required
 def  contestar_cuestionario_estudiante():
     return render_template('estudiante/contestar_cuestionario.html')
 
 # Formulario para que el docente haga una publicacion
 @routes.route('/crearPostAlumno/<string:id_alumno>', methods=["POST"])
+@login_required
 def crear_post_alumno(id_alumno):
     #Obtenemos los datos del formulario
     tituloPost = request.form["tituloPost"]
@@ -868,12 +889,14 @@ def crear_post_alumno(id_alumno):
 
 # Formulario para borrar el post
 @routes.route('/deletePostAlumno/<string:id_publicacion>')
+@login_required
 def delete_post_alumno(id_publicacion):
     Op_estudiante.deletePost(id_publicacion)
     return redirect(url_for('routes.perfil_alumno'))
 
 #Para editar un post
 @routes.route('/editarPostAlumno/<string:id_publicacion>')
+@login_required
 def edit_post_alumno(id_publicacion):
     #Obtenemos los datos del cuestionario
     pickedPostData = Op_estudiante.obtenerPostUnitario(id_publicacion)
@@ -883,6 +906,7 @@ def edit_post_alumno(id_publicacion):
 
 # Formulario para update de el post
 @routes.route('/updatePostAlumno/<string:id_publicacion>', methods=['POST'])
+@login_required
 def update_post_alumno(id_publicacion):
     #Obtenemos los datos del formulario
     tituloPostTwo = request.form["tituloPostTwo"]
@@ -897,7 +921,7 @@ def update_post_alumno(id_publicacion):
 
 #Formulario para guardar fondos de perfil
 @routes.route('/guardarFondoEst/<string:id_alumno>',methods=['GET','POST'])
-#@login_required
+@login_required
 def guardarFondoEst(id_alumno):
     if request.method=="POST":
         #Variables del formulario
@@ -911,11 +935,13 @@ def guardarFondoEst(id_alumno):
 ####                                                                 ####
 #########################################################################
 @routes.route('/configuraciones_alumno')
+@login_required
 def configuraciones_alumno():
 
     return render_template('configuraciones_alumno.html',id_alumno=session["IDAlumno"])
 
 @routes.route('/eliminarCuentaAlumno')
+@login_required
 def eliminarCuentaAlumno():
     Op_estudiante.alumnoEliminaCuenta(session["IDAlumno"])
     return redirect(url_for("routes.logoutEstudiante"))
@@ -923,6 +949,7 @@ def eliminarCuentaAlumno():
 
 #Sacar en pdf el reultado de los alumnos en sus cuestionarios
 @routes.route('/descargar_resultados_cuestionario_pdf/<string:id_cuestionario_resuelto>',methods=['GET','POST'])
+@login_required
 def descargarPdfCuestionarioResuelto(id_cuestionario_resuelto):
     #Obtener registro de la base de datos de las respuesta del cuestionario
     registro_cuestionario = Op_estudiante.ruta_archivo_respuesta_alumno(id_cuestionario_resuelto)
