@@ -40,7 +40,7 @@ def login_required(f):
         if 'logged_in' in session:
             return f(*args, *kwargs)
         else:
-            return render_template('login_general.html')
+            return redirect(url_for('routes.login_general'))
 
     return wrap
 
