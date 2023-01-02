@@ -163,7 +163,7 @@ def search_group():
 ##Bloque para entrar al curso una vez que se buscó
 ##
 @routes.route('/entrarGrupo/<string:id_grupo>/<string:id_docente>/<string:id_estudiante>/<string:storageLenguaje>')
-@login_required
+#@login_required
 def entrar_grupo(id_grupo, id_docente, id_estudiante, storageLenguaje):
     #Busca los datos del alumno con su ID
     result=Op_estudiante.datos_completos_alumno_by_id(id_estudiante)
