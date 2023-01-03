@@ -687,7 +687,7 @@ def ver_perfil_docente_desde_alumno(id):
         #return redirect(url_for('routes.viewGroupEstudiante'))
 
 @routes.route('/nuevo_estudiante',methods=["POST"])
-@login_required
+#@login_required
 def nuevo_estudiante():
     if request.method=="POST":
         nombre=request.form["nombre"]
