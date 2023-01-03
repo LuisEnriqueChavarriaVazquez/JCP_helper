@@ -538,7 +538,7 @@ def redireccionar_a_vista_grupos_pending(id_cuestionario):
     #Obtenemos los datos del profesor
     pickedProfData = Op_profesor.datos_completos_docente_by_id(datosCuestionarios[0][2])
     #Enviamos al usuario al formulario para ver datos del grupo.
-    return render_template('estudiante/c_viewCuestionarioInfo.html', datosCuestionarios = datosCuestionarios[0], datosGrupo = pickedGroupData[0], datosDocente = pickedProfData, idEstudiante = idEstudiante, estado = "ready")
+    return render_template('estudiante/c_viewCuestionarioInfo.html', datosCuestionarios = datosCuestionarios[0], datosGrupo = pickedGroupData[0], datosDocente = pickedProfData, idEstudiante = idEstudiante, estado = "ready",idGrupo = pickedGroupData[0][0])
 
 ##Se hace el guardado de las respuestas del alumno
 @routes.route('/revisarAlumno/<string:id_cuestionario>', methods=['POST'])
