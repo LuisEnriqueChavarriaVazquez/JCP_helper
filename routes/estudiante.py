@@ -74,7 +74,7 @@ en este try except pasa lo mismo que con el del profesor, cuando se descomente e
 # @login_required ya no sera necesario porque siempre va  existir el IDAlumno
 """
 @routes.route('/bienvenidaEstudiante')
-@login_required
+# @login_required
 def bienvenidaEstudiante():
     try:
         result=Op_estudiante.datos_completos_alumno_by_id(session["IDAlumno"])
@@ -163,7 +163,7 @@ def search_group():
 ##Bloque para entrar al curso una vez que se buscó
 ##
 @routes.route('/entrarGrupo/<string:id_grupo>/<string:id_docente>/<string:id_estudiante>/<string:storageLenguaje>')
-@login_required
+#@login_required
 def entrar_grupo(id_grupo, id_docente, id_estudiante, storageLenguaje):
     #Busca los datos del alumno con su ID
     result=Op_estudiante.datos_completos_alumno_by_id(id_estudiante)
@@ -621,7 +621,7 @@ def resultado_alumno(id_cuestionario):
 ##Bloque para ver mis grupos (es como la gestion de grupos en la que estas)
 ##
 @routes.route('/mis_grupos/<string:id_estudiante>')
-@login_required
+#@login_required
 def mis_grupos(id_estudiante):
     print(id_estudiante)
     #Busca los IDS de maestros, grupos y alumnos vinculados
@@ -687,7 +687,7 @@ def ver_perfil_docente_desde_alumno(id):
         #return redirect(url_for('routes.viewGroupEstudiante'))
 
 @routes.route('/nuevo_estudiante',methods=["POST"])
-@login_required
+#@login_required
 def nuevo_estudiante():
     if request.method=="POST":
         nombre=request.form["nombre"]
