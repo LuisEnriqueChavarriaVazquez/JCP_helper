@@ -14,15 +14,17 @@
     <!--Jalamos todo el contenido del encabezado-->
     {% include "includes/cargador.html" %}
 
+    
     <!--Menu de página de inicio-->
-    <nav class="color2">
+    <nav class="color2 fixedNavbarMine">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo hide-on-small-only TDI">Revisión y retroalimentación.</a>
-            <a href="bienvenidaProfesor" data-target="slide-out" class="sidenav-trigger"><i
-                    class="material-icons">arrow_back</i></a>
-            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Revisión y retroalimentación.</p>
+            <a href="#" class="brand-logo hide-on-small-only TDI">Revisión y retroalimentación</a>
+            <a href="{{ url_for('routes.bienvenidaProfesor') }}" method="post" data-target="slide-out"
+                class="sidenav-trigger"><i class="material-icons">arrow_back</i></a>
+            <p class="titleMobile colorText flow-text hide-on-med-and-up TDI">Revisión y retroalimentación</p>
             <ul class="right hide-on-med-and-down">
-                <li><a href="bienvenidaProfesor" class="btn color3 button-rounded TDI">Volver</a></li>
+                <li><a href="{{ url_for('routes.bienvenidaProfesor') }}" method="post"
+                        class="btn color3 button-rounded TDI">Volver</a></li>
             </ul>
         </div>
     </nav>
