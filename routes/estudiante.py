@@ -74,7 +74,7 @@ en este try except pasa lo mismo que con el del profesor, cuando se descomente e
 @login_required ya no sera necesario porque siempre va  existir el IDAlumno
 """
 @routes.route('/bienvenidaEstudiante')
-@login_required
+#@login_required
 def bienvenidaEstudiante():
     try:
         result=Op_estudiante.datos_completos_alumno_by_id(session["IDAlumno"])
@@ -621,7 +621,7 @@ def resultado_alumno(id_cuestionario):
 ##Bloque para ver mis grupos (es como la gestion de grupos en la que estas)
 ##
 @routes.route('/mis_grupos/<string:id_estudiante>')
-@login_required
+#@login_required
 def mis_grupos(id_estudiante):
     print(id_estudiante)
     #Busca los IDS de maestros, grupos y alumnos vinculados
