@@ -1174,6 +1174,9 @@ def recuperar_contra_estudiante():
      #obtener correo
     correo = request.form["correoE"]
     idAlumno=Op_estudiante.login_est(correo)[0]
+    if(idAlumno==0 or idAlumno==None or idAlumno=='0'):
+        flash("El correo no esta registrado")
+        return redirect(url_for('routes.recuperarContra'))
     alumnoRegistro = Op_estudiante.datos_completos_alumno_by_id(idAlumno)
 
     #Datos para correo
