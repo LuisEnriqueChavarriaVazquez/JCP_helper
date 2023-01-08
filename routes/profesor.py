@@ -1819,6 +1819,9 @@ def recuperar_contra_docente():
     #obtener correo
     correo = request.form["correoP"]
     idProf=Op_profesor.obtener_profesores_id(correo)
+    if(idProf==0 or idProf==None or idProf=='0'):
+        flash("El correo no esta registrado")
+        return redirect(url_for('routes.recuperarContra'))
     profesoRegistro = Op_profesor.datos_completos_docente_by_id(idProf)
 
     #Datos para correo
