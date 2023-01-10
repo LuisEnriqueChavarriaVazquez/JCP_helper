@@ -173,7 +173,7 @@ function correrLogicaGraficas(dataClean) {
             let badElement = document.getElementById('bad_1');
 
             goodElement.textContent = valorFinalTotal + ' total pts.';
-            badElement.textContent = valorObtenido_mio + ' pts.'
+            badElement.textContent = valorObtenido_mio + ''
             goodElement.setAttribute('style', 'width:' + first_per);
             badElement.setAttribute('style', 'width:' + second_per);
 
@@ -212,7 +212,7 @@ function correrLogicaGraficas(dataClean) {
             let second_per = parseFloat(((valorParcial * 100) / hundred).toFixed(1)) + '%';
 
             goodElement.textContent = valorTotal + ' total pts.';
-            badElement.textContent = valorParcial + ' pts.'
+            badElement.textContent = valorParcial + ''
             goodElement.setAttribute('style', 'width:' + first_per);
             badElement.setAttribute('style', 'width:' + second_per);
 
@@ -250,7 +250,7 @@ function correrLogicaGraficas(dataClean) {
             let second_per = parseFloat(((valorParcial * 100) / hundred).toFixed(1)) + '%';
 
             goodElement.textContent = valorTotal + ' total pts.';
-            badElement.textContent = valorParcial + ' pts.'
+            badElement.textContent = valorParcial + ''
             goodElement.setAttribute('style', 'width:' + first_per);
             badElement.setAttribute('style', 'width:' + second_per);
 
@@ -288,7 +288,7 @@ function correrLogicaGraficas(dataClean) {
             let second_per = parseFloat(((valorParcial * 100) / hundred).toFixed(1)) + '%';
 
             goodElement.textContent = valorTotal + ' total pts.';
-            badElement.textContent = valorParcial + ' pts.'
+            badElement.textContent = valorParcial + ''
             goodElement.setAttribute('style', 'width:' + first_per);
             badElement.setAttribute('style', 'width:' + second_per);
 
@@ -326,7 +326,7 @@ function correrLogicaGraficas(dataClean) {
             let second_per = parseFloat(((valorParcial * 100) / hundred).toFixed(1)) + '%';
 
             goodElement.textContent = valorTotal + ' total pts.';
-            badElement.textContent = valorParcial + ' pts.'
+            badElement.textContent = valorParcial + ''
             goodElement.setAttribute('style', 'width:' + first_per);
             badElement.setAttribute('style', 'width:' + second_per);
 
@@ -364,7 +364,7 @@ function correrLogicaGraficas(dataClean) {
             let second_per = parseFloat(((valorParcial * 100) / hundred).toFixed(1)) + '%';
 
             goodElement.textContent = valorTotal + ' total pts.';
-            badElement.textContent = valorParcial + ' pts.'
+            badElement.textContent = valorParcial + ''
             goodElement.setAttribute('style', 'width:' + first_per);
             badElement.setAttribute('style', 'width:' + second_per);
 
@@ -402,7 +402,7 @@ function correrLogicaGraficas(dataClean) {
             let second_per = parseFloat(((valorParcial * 100) / hundred).toFixed(1)) + '%';
 
             goodElement.textContent = valorTotal + ' total pts.';
-            badElement.textContent = valorParcial + ' pts.'
+            badElement.textContent = valorParcial + ''
             goodElement.setAttribute('style', 'width:' + first_per);
             badElement.setAttribute('style', 'width:' + second_per);
 
