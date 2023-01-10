@@ -369,15 +369,15 @@
 
 /*Contador operaciones*/
 .contadorElementosCardOperation{
-    border-radius: 20px;
-    padding: 15px;
+    border-radius: 10px;
+    padding: 0px 10px;
 }
 
 .contadorElementosCardOperation p{
     font-weight: 700;
-    font-size: 15px;
-    padding: 10px 15px;
-    border-radius: 500px;
+    font-size: 13px;
+    padding: 5px 10px;
+    border-radius: 10px;
 }
 
 /*Boton para las multiples vistas*/

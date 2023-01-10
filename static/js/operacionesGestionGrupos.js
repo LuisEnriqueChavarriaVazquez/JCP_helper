@@ -23,7 +23,7 @@ function contarGruposAlumnos() {
 
     //Insertamos los elementos
     contadorGruposElement.insertAdjacentText('beforeend', numeroGrupos);
-    contadorEstudiantesElement.insertAdjacentText('beforeend', numeroEstudiantes);
+    contadorEstudiantesElement.insertAdjacentText('beforeend', numeroEstudiantes + " (general).");
 }
 
 
@@ -525,7 +525,7 @@ function copyCodeGroup(codigo) {
     M.toast({ html: '😀👍📕'});
 }
 
-//contarGruposAlumnos();
+contarGruposAlumnos();
 alternarVistas();
 buscarGrupos();
 buscadorMobileEstilosSticky();
