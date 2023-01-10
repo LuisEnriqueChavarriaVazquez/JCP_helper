@@ -592,6 +592,14 @@ def nuevo_profesor():
         descripcion=request.form["descripcion"]
         fondo="default"
 
+        #Seccion para evitar correos repetidos
+        result=Op_profesor.login_prof(correo)
+        if  result!=None:
+            flash("Correo repetido")
+            return redirect(url_for("routes.signup_Prof"))
+
+
+
         Op_profesor.insertar_profesor(nombre,alias,foto,correo,hashed,unidad_academica,descripcion,fondo,contra)
         #Nos manda al log in para poder guardar datos en la sesión
 
