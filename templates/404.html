@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title class="TDI">Error 404</title>
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/encabezadoRecursos.html" %}
+    <!--Estos estilos quedan aqui para evitar que se mezclen con otros-->
+    <link rel="stylesheet" href="../static/css/homePageStyles.css">
+
+</head>
+
+<body class="oculto">
+    <!--Jalamos todo el contenido del encabezado-->
+    {% include "includes/cargador.html" %}
+
+    <!--Menu de página de inicio-->
+    <nav class="color2 z-depth-3 fixedNavbarMine hide-on-large-only">
+        <div class="nav-wrapper">
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+    <br><br>
+
+    <!--Menu para los dispositivos moviles-->
+    <ul id="slide-out" class="sidenav colorWhite">
+        <li>
+            <div class="user-view">
+                <div class="background fondoDinamico" id="fondoBienvenida"></div>
+                <br>
+                    <li><a href="/" class="colorTextReverse"><i class="colorTextReverse material-icons">arrow_back</i><span
+                                class="TDI">Regresar bienvenida</span></a></li>
+            </div>
+        </li>
+       
+    </ul>
+
+    <!--Menu para las tables y los escritorios-->
+
+    <section class="navHomePage color1 shadow-3e hide-on-med-and-down fixedNavbarMine">
+        <div class="brand-logoContainer">
+            <a href="" class="brand-logo hide-on-small-only">
+                <div class="menuIconHomePage icon_app"></div>
+            </a>
+        </div>
+        <div></div>
+        <div class="menuButtonsNavDesktop">
+            <a class="waves-effect waves-light btn-large color3" href="/"><i
+                    class="material-icons left">arrow_back</i><span class="TDI">Regresar Bienvenida</span></a>
+        </div>
+    </section>
+    <div class="color3 hide-on-med-and-down">
+        <br><br>
+    </div>
+
+
+    <section>
+        
+        <h1 class="TDI center-align">Error 404</h1>
+        <h4 class="center-align"><img class="responsive-img" src="../static/images/error.png"></h4>
+        <h4 class="TDI center-align valign-wrapper" style="padding:62px;">Sorry, the page or resource you were looking for is not available
+             for the moment or does not exit</h4>
+    </section>
+
+
+</body>
+
+<!--Botones para que el gestor de idiomas no falle-->
+<span class="hiddenElement" id="seleccionarEspanol"></span>
+<span class="hiddenElement" id="seleccionarIngles"></span>
+<span class="hiddenElement" id="seleccionarPortugues"></span>
+<span class="hiddenElement" id="seleccionarChino"></span>
+
+<!--Metemos el footer en la app-->
+{% include "includes/footer.html" %}
+</body>
+
+<!--Jalamos todo el contenido del encabezado-->
+{% include "includes/footerRecursos.html" %}
+<script src="../static/js/idiomas/textos.mjs" type="module"></script>
+<script src="../static/js/idiomas/gestorIdiomas.js" type="module"></script>
+
+
+</html>
