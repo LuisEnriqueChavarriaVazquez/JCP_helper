@@ -37,7 +37,7 @@
     <section class="containerRevisionCuestionariosMain">
         {% if datosCuestionariosPending %}
         {%for i in range(0, datosCuestionariosPending|length)%}
-            <section class="cuestionarioRevisionContainer bordered2 colorGreyWhiter shadow-1e">
+            <section class="cuestionarioRevisionContainer banderaExisteConcretaRevision bordered2 colorGreyWhiter shadow-1e">
                 <div class="titleRevisionCuestionario colorGreyDarker bordered2Up colorTextReverse">{{datosCuestionariosPendingExtendidos[i][3]}}</div>
                 <div class="dataRevisionCuestionario">
                     <p class="colorWhite bordered1">
@@ -109,6 +109,25 @@
         {%endfor%}
         {% endif %}
     </section>
+
+    <script>
+
+        let banderaExisteConcretaRevision = document.getElementsByClassName('banderaExisteConcretaRevision');
+
+        let contenidoSinRevisionOApelaciones = `
+            <div style="width: 100%; display: flex; justify-content: center; align-item: center; flex-direction: column;">
+                <h5 class="nothingTextNoti"><b>No content.</b></h5>
+                <div class="nothingContentNoti"><img class="nothingContentNotiImg" src="../../static/images/icons/icon_no_notification.svg" width="100%"></div>
+            </div>
+        `;
+
+        let containerRevisionCuestionariosMainVarAccess = document.getElementsByClassName('containerRevisionCuestionariosMain');
+
+        if(banderaExisteConcretaRevision.length == 0){
+            containerRevisionCuestionariosMainVarAccess[0].innerHTML = contenidoSinRevisionOApelaciones;
+        }
+        
+    </script>
 
 <!--Botones para que el gestor de idiomas no falle-->
 <span class="hiddenElement" id="seleccionarEspanol"></span>
