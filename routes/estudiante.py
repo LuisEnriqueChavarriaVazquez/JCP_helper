@@ -719,6 +719,13 @@ def nuevo_estudiante():
         escuela=request.form["escuela"]
         descripcion=request.form["descripcion"]
         fondo='default'
+
+
+        #Seccion para evitar correos repetidos
+        result=Op_estudiante.login_est(correo)
+        if  result!=None:
+            flash("Correo repetido")
+            return redirect(url_for("routes.signup_Est"))
         
         Op_estudiante.insertar_estudiante(nombre,alias,foto,correo,hashed,area,escuela,descripcion,fondo,contra)
         flash(f"{nombre} te has registrado correctamente!!")
